@@ -54,7 +54,7 @@ uv run autarch eval Hydrolase
 
 ## Documentation Website
 
-[https://ai4curation.github.io/autarch](https://ai4curation.github.io/autarch)
+[https://cmungall.github.io/autarch](https://cmungall.github.io/autarch)
 
 ## Cache and Evaluation Data
 
@@ -107,7 +107,7 @@ The system automatically discovers all subclasses and applies them to input reac
 
 ```bash
 # Clone the repository
-git clone https://github.com/ai4curation/autarch
+git clone https://github.com/cmungall/autarch
 cd autarch
 
 # Install with uv

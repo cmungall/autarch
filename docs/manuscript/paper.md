@@ -269,7 +269,7 @@ Autarch shows that biochemical reaction classification can be framed as a collec
 
 ## Data Availability
 
-Source code and documentation are available at https://github.com/cmungall/autarch and https://ai4curation.github.io/autarch. The evaluation workflow is fully reproducible from the repository. Large per-reaction evaluation tables generated for this manuscript are not versioned in git and will be archived separately alongside the release snapshot.
+Source code and documentation are available at https://github.com/cmungall/autarch and https://cmungall.github.io/autarch. The evaluation workflow is fully reproducible from the repository. Large per-reaction evaluation tables generated for this manuscript are not versioned in git and will be archived separately alongside the release snapshot.
 
 ## Acknowledgments
 

@@ -107,7 +107,7 @@ gh-add-secrets:
   gh secret set CLAUDE_CODE_OATH_TOKEN --body "$CLAUDE_CODE_OATH_TOKEN"
 
 gh-invite-the-dragon:
-  gh api repos/ai4curation/autarch/collaborators/dragon-ai-agent -X PUT -f permission=push
+  gh api repos/cmungall/autarch/collaborators/dragon-ai-agent -X PUT -f permission=push
 
 # ============== Include project-specific recipes ==============
 

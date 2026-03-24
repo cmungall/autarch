@@ -174,4 +174,4 @@ The project implements a plugin-based reaction classification system:
 1. Use `uv add` for new dependencies
 2. Run commands through `just` or `uv run`
 3. Dynamic versioning from git tags
-4. Documentation at https://ai4curation.github.io/autarch
+4. Documentation at https://cmungall.github.io/autarch

@@ -1,0 +1,7 @@
+False Negatives for tRNASynthetase
+==================================================
+Total: 1
+
+RHEA:25676: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-5-phosphate) + phosphate => a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-4,5-bisphosphate) + H2O
+  → No ATP - tRNA synthetases require ATP for aminoacyl activation
+

@@ -1,0 +1,7 @@
+False Positives for OxidosqualeneCyclaseActivity
+==================================================
+Total: 1
+
+RHEA:31351: lupan-3beta,20-diol = (S)-2,3-epoxysqualene + H2O
+  → Oxidosqualene cyclase activity: cyclization of (S)-2,3-epoxysqualene to a triterpene scaffold (reverse reaction orientation)
+

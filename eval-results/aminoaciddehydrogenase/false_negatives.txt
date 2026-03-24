@@ -1,0 +1,10 @@
+False Negatives for AminoAcidDehydrogenase
+==================================================
+Total: 2
+
+RHEA:21768: N-methyl-L-alanine + NADP(+) + H2O = methylamine + pyruvate + NADPH + H(+)
+  → No ammonia/ammonium release - not deamination
+
+RHEA:25956: 2-amino-2,3,7-trideoxy-D-lyxo-hept-6-ulosonate + NAD(+) + H2O = 3-dehydroquinate + NH4(+) + NADH + H(+)
+  → No amino acid dehydrogenase pattern
+

@@ -1,0 +1,20 @@
+# RHEA:18481 - cyclamate sulfohydrolase
+# cyclohexylsulfamate + H2O = cyclohexylamine + sulfate
+# EC 3.10.1.2 - GO:0018789
+
+left_participants:
+  - chebi_id: "CHEBI:41522"
+    name: "cyclohexylsulfamate"
+    count: 1
+  - chebi_id: "CHEBI:15377"
+    name: "water"
+    smiles: "O"
+    count: 1
+
+right_participants:
+  - chebi_id: "CHEBI:18243"
+    name: "cyclohexylamine"
+    count: 1
+  - chebi_id: "CHEBI:16189"
+    name: "sulfate"
+    count: 1

@@ -1,0 +1,196 @@
+False Negatives for EnoylReductase
+==================================================
+Total: 64
+
+RHEA:10080: dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:10744: (3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate + NAD(+) = 3,4-dihydroxybenzoate + CO2 + NADH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11376: (19E)-geissoschizine + NADP(+) = 4,21-dehydrogeissoschizine + NADPH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11560: (1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate + NAD(+) = catechol + CO2 + NADH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11832: (1R,2S)-1,2-dihydronaphthalene-1,2-diol + NAD(+) = naphthalene-1,2-diol + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11912: 13,14-dihydro-15-oxo-prostaglandin E2 + NADP(+) = 15-oxoprostaglandin E2 + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:11916: 13,14-dihydro-15-oxo-prostaglandin E2 + NAD(+) = 15-oxoprostaglandin E2 + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:12256: L-arogenate + NAD(+) = L-tyrosine + CO2 + NADH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:12320: 17-O-acetylnorajmaline + NADP(+) = (2R)-1,2-dihydrovomilenine + NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:12757: dihydrozeatin + NADP(+) = zeatin + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:12817: 2,3-dihydrobiochanin A + NADP(+) = biochanin A + NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:13685: lathosterol + NADP(+) = 5alpha-cholesta-7,24-dien-3beta-ol + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:13837: cis-4,5-dihydroxycyclohexa-2,6-diene-1,2-dicarboxylate + NAD(+) = 4,5-dihydroxyphthalate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:13869: prephenate + NAD(+) = 3-(4-hydroxyphenyl)pyruvate + CO2 + NADH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15417: L-arogenate + NADP(+) = L-tyrosine + CO2 + NADPH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15457: cis-1,2-dihydrobenzene-1,2-diol + NAD(+) = catechol + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15613: precorrin-2 + NAD(+) = sirohydrochlorin + NADH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15657: 1,6-dihydroxy-2-methylcyclohexa-2,4-dienecarboxylate + NAD(+) = 3-methylcatechol + CO2 + NADH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15741: 2,5-dichlorocyclohexa-2,5-dien-1,4-diol + NAD(+) = 2,5-dichlorohydroquinone + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15793: (4Z,15Z)-bilirubin IXalpha + NADP(+) = biliverdin IXalpha + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:15797: (4Z,15Z)-bilirubin IXalpha + NAD(+) = biliverdin IXalpha + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:16253: (3S,4R)-3,4-dihydrophenanthrene-3,4-diol + NAD(+) = phenanthrene-3,4-diol + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:16729: (1R,2R)-1,2-dihydrobenzene-1,2-diol + NADP(+) = catechol + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:17033: (2R,3S)-3-phenylcyclohexa-3,5-diene-1,2-diol + NAD(+) = biphenyl-2,3-diol + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:17145: 2'-hydroxy-2,3-dihydrodaidzein + NADP(+) = 2'-hydroxydaidzein + NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:18101: cis-1,2-dihydro-3-ethylcatechol + NAD(+) = 3-ethylcatechol + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:18281: succinate + NAD(+) = fumarate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:18501: ergosterol + NADP(+) = ergosta-5,7,22,24(28)-tetraen-3beta-ol + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:18553: (2R,3S)-tartrate + NAD(+) = dihydroxyfumarate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:18561: 4,4-dimethyl-5alpha-cholesta-8,24-dien-3beta-ol + NADP(+) = 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:20257: 3-methyloxindole + NADP(+) = 3-methyleneoxindole + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:21444: 3-(2-hydroxyphenyl)propanoate + NAD(+) = trans-2-coumarate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:21640: prephenate + NADP(+) = 3-(4-hydroxyphenyl)pyruvate + CO2 + NADPH
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:22248: 7,8-dihydro-7,8-dihydroxykynurenate + NAD(+) = 7,8-dihydroxykynurenate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:22560: (3R)-vestitone + NADP(+) = 2'-hydroxyformononetin + NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:23408: precorrin-6B + NADP(+) = precorrin-6A + NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:23772: (2R,3S)-2,3-dihydroxy-2,3-dihydro-p-cumate + NAD(+) = 2,3-dihydroxy-p-cumate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:23824: (2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate + NAD(+) = 2,3-dihydroxybenzoate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:23892: 3-nitropropanoate + NADP(+) = 3-nitroacrylate + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:23984: cholesterol + NADP(+) = 7-dehydrocholesterol + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:24188: cis-1,2-dihydroxy-1,2-dihydrodibenzothiophene + NAD(+) = 1,2-dihydroxydibenzothiophene + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:24556: 5,6-dihydroxy-3-methyl-5,6-dihydroquinolin-2(1H)-one + NAD(+) = 5,6-dihydroxy-3-methyl-2-oxo-1,2-dihydroquinoline + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:25062: 3-(cis-5,6-dihydroxycyclohexa-1,3-dien-1-yl)propanoate + NAD(+) = 3-(2,3-dihydroxyphenyl)propanoate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:25641: (1R,4S)-menthone + NADP(+) = (R)-pulegone + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:25645: (2R,5R)-isomenthone + NADP(+) = (R)-pulegone + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:25649: (2R,5R)-isopulegone + NADP(+) = (6R)-isopiperitenone + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:26229: phytyl diphosphate + 3 NADP(+) = geranylgeranyl diphosphate + 3 NADPH + 3 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:34815: tetrahydrocurcumin + 2 NADP(+) = curcumin + 2 NADPH + 2 H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:35323: (S)-2,3,4,5-tetrahydrodipicolinate + NAD(+) + H2O = (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:35331: (S)-2,3,4,5-tetrahydrodipicolinate + NADP(+) + H2O = (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:35523: N-ethylmaleimide + NADPH + H(+) = N-ethylsuccinimide + NADP(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:36591: (S)-2-chloropropanoate + NADP(+) = 2-chloroacrylate + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:36731: 1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53352: 5,6-dihydrouridine(20b) in tRNA + NAD(+) = uridine(20b) in tRNA + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53344: 5,6-dihydrouridine(20a) in tRNA + NADP(+) = uridine(20a) in tRNA + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53376: 5,6-dihydrouridine(16) in tRNA + NADP(+) = uridine(16) in tRNA + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53356: 5,6-dihydrouridine(20b) in tRNA + NADP(+) = uridine(20b) in tRNA + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53348: 5,6-dihydrouridine(20a) in tRNA + NAD(+) = uridine(20a) in tRNA + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53368: 5,6-dihydrouridine(17) in tRNA + NADP(+) = uridine(17) in tRNA + NADPH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53380: 5,6-dihydrouridine(16) in tRNA + NAD(+) = uridine(16) in tRNA + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+
+RHEA:53372: 5,6-dihydrouridine(17) in tRNA + NAD(+) = uridine(17) in tRNA + NADH + H(+)
+  → No CH-CH pattern (enoyl/saturated/unsaturated) detected
+

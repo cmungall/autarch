@@ -1,0 +1,13 @@
+False Negatives for ShortChainFattyAcylCoADehydrogenaseActivity
+==================================================
+Total: 3
+
+RHEA:12276: 3-methylbutanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = 3-methylbut-2-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Acyl-CoA branch does not match a supported short-chain substrate pair
+
+RHEA:44180: 2-methylpropanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = 2-methylpropenoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Requires oxidized/reduced electron-transfer flavoprotein pair
+
+RHEA:43780: 2-methylbutanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (2E)-2-methylbut-2-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Acyl-CoA branch does not match a supported short-chain substrate pair
+

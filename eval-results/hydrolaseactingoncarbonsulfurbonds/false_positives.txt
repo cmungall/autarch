@@ -1,0 +1,7 @@
+False Positives for HydrolaseActingOnCarbonSulfurBonds
+==================================================
+Total: 1
+
+RHEA:23800: L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)
+  → C-S bond hydrolysis: sulfur-containing substrate yields sulfur product
+

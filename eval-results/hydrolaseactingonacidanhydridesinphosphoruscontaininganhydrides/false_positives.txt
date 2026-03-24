@@ -1,0 +1,16 @@
+False Positives for HydrolaseActingOnAcidAnhydridesInPhosphorusContainingAnhydrides
+==================================================
+Total: 4
+
+RHEA:19205: dCTP + 2 H2O = dUMP + NH4(+) + diphosphate
+  → Hydrolase acting on a phosphorus-containing acid anhydride: water-mediated cleavage reduces the number of P-containing anhydride bonds
+
+RHEA:22468: GTP + 3 H2O = 2-amino-5-formylamino-6-(5-phospho-D-ribosylamino)pyrimidin-4(3H)-one + 2 phosphate + 2 H(+)
+  → Hydrolase acting on a phosphorus-containing acid anhydride: water-mediated cleavage reduces the number of P-containing anhydride bonds
+
+RHEA:23704: GTP + 4 H2O = 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine + formate + 2 phosphate + 3 H(+)
+  → Hydrolase acting on a phosphorus-containing acid anhydride: water-mediated cleavage reduces the number of P-containing anhydride bonds
+
+RHEA:25860: GTP + H2O = 7,8-dihydroneopterin 2',3'-cyclic phosphate + formate + diphosphate + H(+)
+  → Hydrolase acting on a phosphorus-containing acid anhydride: water-mediated cleavage reduces the number of P-containing anhydride bonds
+

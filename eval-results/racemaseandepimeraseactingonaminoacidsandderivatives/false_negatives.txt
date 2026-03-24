@@ -1,0 +1,7 @@
+False Negatives for RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives
+==================================================
+Total: 1
+
+RHEA:20201: L-phenylalanine + ATP + H2O = D-phenylalanine + AMP + diphosphate + H(+)
+  → External cofactors indicate a different reaction class
+

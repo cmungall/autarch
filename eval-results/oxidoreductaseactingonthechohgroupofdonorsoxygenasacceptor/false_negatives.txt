@@ -1,0 +1,16 @@
+False Negatives for OxidoreductaseActingOnTheCHOHGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 4
+
+RHEA:12809: 4 catechol + 3 O2 = 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → No hydrogen peroxide (H2O2) product found
+
+RHEA:18513: D-mannitol + O2 = D-mannose + H2O2
+  → No oxidized product consistent with CH-OH donor oxidation
+
+RHEA:22308: xylitol + O2 = D-xylose + H2O2
+  → No oxidized product consistent with CH-OH donor oxidation
+
+RHEA:28651: inosine + O2 = 9-riburonosylhypoxanthine + H2O + H(+)
+  → No hydrogen peroxide (H2O2) product found
+

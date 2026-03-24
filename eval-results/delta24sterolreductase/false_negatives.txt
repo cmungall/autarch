@@ -1,0 +1,7 @@
+False Negatives for Delta24SterolReductase
+==================================================
+Total: 1
+
+RHEA:13685: lathosterol + NADP(+) = 5alpha-cholesta-7,24-dien-3beta-ol + NADPH + H(+)
+  → Organic branch does not match a supported redox pair
+

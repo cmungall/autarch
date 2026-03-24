@@ -1,0 +1,88 @@
+False Positives for Monooxygenase
+==================================================
+Total: 28
+
+RHEA:12809: 4 catechol + 3 O2 = 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:13773: (S)-cheilanthifoline + reduced [NADPH--hemoprotein reductase] + O2 = (S)-stylopine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:16941: N-acetylindoxyl + O2 = N-acetylisatin + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:17713: (R)-reticuline + reduced [NADPH--hemoprotein reductase] + O2 = salutaridine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:18257: coproporphyrinogen III + O2 + 2 H(+) = protoporphyrinogen IX + 2 CO2 + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:19969: hydroxylamine + O2 = nitrite + H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:20485: (S)-scoulerine + reduced [NADPH--hemoprotein reductase] + O2 = (S)-cheilanthifoline + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:20585: loganin + reduced [NADPH--hemoprotein reductase] + O2 = secologanin + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:21456: (S)-tetrahydrocolumbamine + reduced [NADPH--hemoprotein reductase] + O2 = (S)-canadine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:22428: N-[(5S)-5-amino-5-carboxypentanoyl]-L-cysteinyl-D-valine + O2 = isopenicillin N + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:22616: 2 sulochrin + O2 + 2 H(+) = 2 (2R)-bisdechlorogeodin + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:23564: 2 columbamine + O2 = 2 berberine + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:23576: (R)-N-methylcoclaurine + (S)-N-methylcoclaurine + reduced [NADPH--hemoprotein reductase] + O2 = berbamunine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:24092: 2 sulochrin + O2 + 2 H(+) = 2 (2S)-bisdechlorogeodin + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:28651: inosine + O2 = 9-riburonosylhypoxanthine + H2O + H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:30243: 4 L-ascorbate + O2 = 4 monodehydro-L-ascorbate radical + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:30415: octadecanal + 2 NADPH + O2 + H(+) = heptadecane + formate + 2 NADP(+) + H2O
+  → Monooxygenase: oxygen incorporation (monooxygenase) [pattern matched]
+
+RHEA:31587: uracil + FMNH2 + NADH + O2 = (Z)-3-ureidoacrylate + FMN + NAD(+) + H2O + H(+)
+  → Monooxygenase: oxygen incorporation (monooxygenase) [pattern matched]
+
+RHEA:32307: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = leukotriene A4 + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:32999: (+)-amorpha-4,11-diene + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = (+)-artemisinate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:33467: 5-dehydroepisterol + NADPH + O2 + H(+) = ergosta-5,7,22,24(28)-tetraen-3beta-ol + NADP(+) + 2 H2O
+  → Monooxygenase: oxygen incorporation (monooxygenase) [pattern matched]
+
+RHEA:34195: 2 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + O2 + 2 H(+) = 2 aureusidin 6-O-beta-glucoside + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:34199: 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + O2 + H(+) = bracteatin 6-O-beta-glucoside + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:34203: 2',4,4',6'-tetrahydroxychalcone 4'-O-beta-D-glucoside + O2 = aureusidin 6-O-beta-glucoside + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:34807: (R)-dihydrocamalexate + reduced [NADPH--hemoprotein reductase] + O2 = camalexin + oxidized [NADPH--hemoprotein reductase] + CO2 + 2 H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:35575: (1'S)-averantin + reduced [NADPH--hemoprotein reductase] + O2 = (1'S,5'R)-5'-hydroxyaverantin + oxidized [NADPH--hemoprotein reductase] + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+
+RHEA:35743: versicolorin B + NADPH + O2 + H(+) = versicolorin A + NADP(+) + 2 H2O
+  → Monooxygenase: oxygen incorporation (monooxygenase) [pattern matched]
+
+RHEA:65812: 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + AH2 + O2 = N(6)-[(2E)-4-hydroxy-3-methylbut-2-en-1-yl]-2-(methylsulfanyl)adenosine(37) in tRNA + A + H2O
+  → Monooxygenase: oxygen incorporation [pattern matched]
+

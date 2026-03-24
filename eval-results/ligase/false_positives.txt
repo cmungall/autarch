@@ -1,0 +1,49 @@
+False Positives for Ligase
+==================================================
+Total: 15
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:10388: oxaloacetate + GTP = phosphoenolpyruvate + GDP + CO2
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:10732: firefly D-luciferin + ATP + O2 = firefly oxyluciferin + hnu + AMP + CO2 + diphosphate
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:15645: N2 + 4 reduced [flavodoxin] + 16 ATP + 16 H2O = 4 oxidized [flavodoxin] + H2 + 2 NH4(+) + 16 ADP + 16 phosphate + 18 H(+)
+  → Ligase: ATP-dependent joining of 5 substrates
+
+RHEA:15765: adenosylcob(III)inamide + GTP = adenosylcob(III)inamide phosphate + GDP + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:17545: S-hydroxy-S-oxy-L-cysteinyl-[peroxiredoxin] + [protein]-dithiol + ATP = S-hydroxy-L-cysteinyl-[peroxiredoxin] + [protein]-disulfide + ADP + phosphate
+  → Ligase: ATP-dependent joining of 3 substrates
+
+RHEA:18353: K(+)(out) + Na(+)(in) + ATP + H2O = K(+)(in) + Na(+)(out) + ADP + phosphate + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:19049: (5R)-5-hydroxy-L-lysine + GTP = (5R)-5-phosphooxy-L-lysine + GDP + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:21448: N2 + 8 reduced [2Fe-2S]-[ferredoxin] + 16 ATP + 16 H2O = H2 + 8 oxidized [2Fe-2S]-[ferredoxin] + 2 NH4(+) + 16 ADP + 16 phosphate + 6 H(+)
+  → Ligase: ATP-dependent joining of 9 substrates
+
+RHEA:22044: K(+)(out) + ATP + H2O + H(+)(in) = K(+)(in) + ADP + phosphate + 2 H(+)(out)
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:23332: (2R)-3-phosphoglycerate + GTP = (2R)-3-phospho-glyceroyl phosphate + GDP
+  → Ligase: ATP-dependent joining of 2 substrates
+
+RHEA:24176: [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine + a uridine in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + ATP + H(+) = [ThiI sulfur-carrier protein]-L-cysteine + a 4-thiouridine in tRNA + 2 oxidized [2Fe-2S]-[ferredoxin] + AMP + diphosphate
+  → Ligase: ATP-dependent joining of 6 substrates
+
+RHEA:33207: L-glutamate + ATP + NADPH + H(+) = L-glutamate 5-semialdehyde + ADP + phosphate + NADP(+)
+  → Ligase: ATP-dependent joining of 3 substrates
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → Ligase: ATP-dependent joining of 2 substrates
+

@@ -1,0 +1,7 @@
+False Positives for PhosphotransferaseNitrogenousGroupAsAcceptor
+==================================================
+Total: 1
+
+RHEA:43384: L-arginyl-[protein] + ATP = N(omega)-phospho-L-arginyl-[protein] + ADP + H(+)
+  → Phosphotransferase with nitrogenous-group acceptor: a phosphorus donor phosphorylates a nitrogen center to form a phosphoramidate
+

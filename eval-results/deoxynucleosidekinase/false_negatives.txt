@@ -1,0 +1,7 @@
+False Negatives for DeoxynucleosideKinase
+==================================================
+Total: 1
+
+RHEA:20061: 2'-deoxycytidine + a ribonucleoside 5'-triphosphate = dCMP + a ribonucleoside 5'-diphosphate + H(+)
+  → Requires ATP donor and ADP product
+

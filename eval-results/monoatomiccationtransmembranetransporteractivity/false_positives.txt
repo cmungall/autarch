@@ -1,0 +1,28 @@
+False Positives for MonoatomicCationTransmembraneTransporterActivity
+==================================================
+Total: 8
+
+RHEA:11148: 4 Fe(2+) + O2 + 4 H(+) = 4 Fe(3+) + 2 H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:16145: CMP-N-acetyl-beta-neuraminate + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = CMP-N-glycoloyl-beta-neuraminate + 2 Fe(III)-[cytochrome b5] + H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:19341: octane + 2 reduced [rubredoxin] + O2 + 2 H(+) = 2 oxidized [rubredoxin] + octan-1-ol + H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:19721: octadecanoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z)-octadecenoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:21764: heme b + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = biliverdin IXalpha + CO + Fe(2+) + 3 oxidized [NADPH--hemoprotein reductase] + 3 H2O + H(+)
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:22956: a 1-(1,2-saturated alkyl)-2-acyl-sn-glycero-3-phosphoethanolamine + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphoethanolamine + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:25852: an 11,12-saturated fatty acyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = an (11Z)-Delta(11)-fatty acyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:25856: (9Z)-octadecenoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z,12Z)-octadecadienoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic cation transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+

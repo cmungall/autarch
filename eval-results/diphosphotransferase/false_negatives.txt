@@ -1,0 +1,7 @@
+False Negatives for Diphosphotransferase
+==================================================
+Total: 1
+
+RHEA:22088: GTP + ATP = guanosine 3'-diphosphate 5'-triphosphate + AMP
+  → No acceptor/product pair showed diphosphate transfer chemistry
+

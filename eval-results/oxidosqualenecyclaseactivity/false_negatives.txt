@@ -1,0 +1,13 @@
+False Negatives for OxidosqualeneCyclaseActivity
+==================================================
+Total: 3
+
+RHEA:26160: (S)-2,3-epoxysqualene = thalianol
+  → Requires a cyclized triterpene-like product
+
+RHEA:31035: arabidiol = (S)-2,3-epoxysqualene + H2O
+  → Requires (S)-2,3-epoxysqualene as the substrate scaffold
+
+RHEA:31875: (S)-2,3-epoxysqualene = marneral
+  → Requires a cyclized triterpene-like product
+

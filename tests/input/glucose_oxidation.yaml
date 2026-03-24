@@ -1,0 +1,14 @@
+# Glucose oxidation by glucose oxidase: glucose + O2 → gluconic acid + H2O2
+# This is an oxidoreductase reaction using molecular oxygen
+
+left_participants:
+  - smiles: "OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O"  # glucose
+    count: 1
+  - smiles: "O=O"  # molecular oxygen
+    count: 1
+
+right_participants:
+  - smiles: "OC[C@H]1OC(=O)[C@H](O)[C@@H](O)[C@@H]1O"  # gluconolactone (oxidized glucose)
+    count: 1
+  - smiles: "OO"  # hydrogen peroxide
+    count: 1

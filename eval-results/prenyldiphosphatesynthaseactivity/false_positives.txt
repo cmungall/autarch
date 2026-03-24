@@ -1,0 +1,13 @@
+False Positives for PrenylDiphosphateSynthaseActivity
+==================================================
+Total: 3
+
+RHEA:14009: 2 dimethylallyl diphosphate = (R,R)-chrysanthemyl diphosphate + diphosphate
+  → Prenyl diphosphate synthase activity: C5 prenyl extension with diphosphate release
+
+RHEA:21676: 2 dimethylallyl diphosphate = (R)-lavandulyl diphosphate + diphosphate
+  → Prenyl diphosphate synthase activity: C5 prenyl extension with diphosphate release
+
+RHEA:23300: isopentenyl diphosphate + (2E)-geranyl diphosphate = (2Z,6E)-farnesyl diphosphate + diphosphate
+  → Prenyl diphosphate synthase activity: C5 prenyl extension with diphosphate release
+

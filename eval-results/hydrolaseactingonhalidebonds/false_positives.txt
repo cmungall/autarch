@@ -1,0 +1,7 @@
+False Positives for HydrolaseActingOnHalideBonds
+==================================================
+Total: 1
+
+RHEA:30283: (-)-trans-permethrin + H2O = (3-phenoxyphenyl)methanol + (1S,3R)-3-(2,2-dichlorovinyl)-2,2-dimethylcyclopropanecarboxylate + H(+)
+  → Halide bond hydrolysis: dehalogenase-related name pattern
+

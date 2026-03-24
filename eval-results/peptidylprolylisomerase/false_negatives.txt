@@ -1,0 +1,7 @@
+False Negatives for PeptidylProlylIsomerase
+==================================================
+Total: 1
+
+RHEA:16237: [protein]-peptidylproline (omega=180) = [protein]-peptidylproline (omega=0)
+  → No peptidyl-proline substrates detected
+

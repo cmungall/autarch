@@ -1,0 +1,37 @@
+False Negatives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmides
+==================================================
+Total: 11
+
+RHEA:17361: 3-oxo-3-ureidopropanoate + H2O = malonate + urea + H(+)
+  → No linear-amide hydrolysis signature detected
+
+RHEA:18901: N-benzyloxycarbonyl-L-leucine + H2O + H(+) = benzyl alcohol + L-leucine + CO2
+  → No linear-amide hydrolysis signature detected
+
+RHEA:20900: N-benzyloxycarbonylglycine + H2O + H(+) = benzyl alcohol + glycine + CO2
+  → No linear-amide hydrolysis signature detected
+
+RHEA:49548: N(omega)-(1-hydroxy-2-oxopropyl)-L-arginyl-[protein] + H2O = lactate + L-arginyl-[protein] + H(+)
+  → Linear amide count does not decrease across the reaction
+
+RHEA:57192: N(6)-(1-hydroxy-2-oxoethyl)-L-lysyl-[protein] + H2O = glycolate + L-lysyl-[protein] + H(+)
+  → Linear amide count does not decrease across the reaction
+
+RHEA:57196: S-(1-hydroxy-2-oxoethyl)-L-cysteinyl-[protein] + H2O = glycolate + L-cysteinyl-[protein] + H(+)
+  → Linear amide count does not decrease across the reaction
+
+RHEA:49556: S-(1-hydroxy-2-oxopropyl)-L-cysteinyl-[protein] + H2O = lactate + L-cysteinyl-[protein] + H(+)
+  → Linear amide count does not decrease across the reaction
+
+RHEA:50680: N-terminal L-glutaminyl-[protein] + H2O = N-terminal L-glutamyl-[protein] + NH4(+)
+  → Linear amide hydrolases require water as a reactant
+
+RHEA:10464: [(1->4)-N-acetyl-beta-D-glucosaminyl](n) + n H2O = chitosan + n acetate
+  → Missing structural information for substantive participants
+
+RHEA:49552: N(6)-(1-hydroxy-2-oxopropyl)-L-lysyl-[protein] + H2O = lactate + L-lysyl-[protein] + H(+)
+  → Linear amide count does not decrease across the reaction
+
+RHEA:57188: N(omega)-(1-hydroxy-2-oxoethyl)-L-arginyl-[protein] + H2O = L-arginyl-[protein] + glycolate + H(+)
+  → Linear amide count does not decrease across the reaction
+

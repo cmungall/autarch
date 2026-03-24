@@ -1,0 +1,58 @@
+False Negatives for AcidThiolLigase
+==================================================
+Total: 18
+
+RHEA:14169: glutarate + ATP + CoA = glutaryl-CoA + ADP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:15081: acetate + ATP + CoA = acetyl-CoA + ADP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:16117: acetoacetate + ATP + CoA = acetoacetyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:17661: succinate + ATP + CoA = succinyl-CoA + ADP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:19681: biotin + ATP + CoA = biotinyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:19713: (5Z,8Z,11Z,14Z)-eicosatetraenoate + ATP + CoA = (5Z,8Z,11Z,14Z)-eicosatetraenoyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:20373: propanoate + ATP + CoA = propanoyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:21380: 3,7,11,15-tetramethylhexadecanoate + ATP + CoA = phytanoyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:21472: citrate + ATP + CoA = (3S)-citryl-CoA + ADP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:21776: (25R)-3alpha,7alpha-dihydroxy-5beta-cholestan-26-oate + ATP + CoA = (25R)-3alpha,7alpha-dihydroxy-5beta-cholestan-26-oyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:22120: GTP + succinate + CoA = succinyl-CoA + GDP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:22976: (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oate + ATP + CoA = (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:23176: acetate + ATP + CoA = acetyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:23532: cholate + ATP + CoA = choloyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:23788: holo-[citrate lyase ACP] + acetate + ATP = acetyl-[citrate lyase ACP] + AMP + diphosphate
+  → No CoA substrate - CoA ligases require CoA
+
+RHEA:26193: (S)-malate + ATP + CoA = (S)-malyl-CoA + ADP + phosphate
+  → No ligase nucleotide hydrolysis pattern (ATP→AMP+PPi or GTP→GDP+Pi)
+
+RHEA:33419: [(1R)-2,2,3-trimethyl-5-oxocyclopent-3-en-1-yl]acetate + ATP + CoA = [(1R)-2,2,3-trimethyl-5-oxocyclopent-3-enyl]acetyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+
+RHEA:33627: decanoate + ATP + CoA = decanoyl-CoA + AMP + diphosphate
+  → No acyl-CoA product detected
+

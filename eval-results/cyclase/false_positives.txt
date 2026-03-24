@@ -1,0 +1,40 @@
+False Positives for Cyclase
+==================================================
+Total: 12
+
+RHEA:11680: XMP + L-glutamine + ATP + H2O = GMP + L-glutamate + AMP + diphosphate + 2 H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:16049: alpha-ribazole + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin + GMP + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:16957: 3',5'-cyclic GMP + H2O = GMP + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:17185: IMP + NH4(+) + NADP(+) = GMP + NADPH + 2 H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:18301: XMP + NH4(+) + ATP = GMP + AMP + diphosphate + 2 H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:22156: GDP + H2O = GMP + phosphate + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:22484: P(1),P(4)-bis(5'-guanosyl) tetraphosphate + H2O = GMP + GTP + 2 H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → Cyclase: produces cyclic nucleotide product
+
+RHEA:23560: alpha-ribazole 5'-phosphate + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin 5'-phosphate + GMP + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:27510: enolpyruvoyl-2-diphospho-5'-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:27710: guanosine + ATP = GMP + ADP + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+
+RHEA:29391: GTP + H2O = GMP + diphosphate + H(+)
+  → Cyclase: produces cyclic nucleotide (cAMP/cGMP/cCMP/cUMP)
+

@@ -1,0 +1,13 @@
+False Negatives for BetaGlucosidaseActivity
+==================================================
+Total: 3
+
+RHEA:12252: 4-O-(beta-D-glucosyl)-(E)-coniferol + H2O = (E)-coniferol + D-glucose
+  → No O-glycosidic substrate detected
+
+RHEA:14041: (R)-vicianin + H2O = vicianose + mandelonitrile
+  → No glucose-like product detected
+
+RHEA:21488: dalnigrein beta-D-apiofuranosyl-(1->6)-beta-D-glucopyranoside + H2O = dalnigrein + beta-D-apiofuranosyl-(1->6)-D-glucopyranose + H(+)
+  → No glucose-like product detected
+

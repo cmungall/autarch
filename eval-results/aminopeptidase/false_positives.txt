@@ -1,0 +1,28 @@
+False Positives for Aminopeptidase
+==================================================
+Total: 8
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:20720: isopenicillin N + phenylacetyl-CoA + H2O = penicillin G + L-2-aminoadipate + CoA + H(+)
+  → Aminopeptidase: peptide → amino acid + shorter peptide
+
+RHEA:28398: L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + H2O = L-alanyl-D-glutamate + meso-2,6-diaminopimelate
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:28807: glutathione + H2O = L-cysteinylglycine + L-glutamate
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:31563: leukotriene C4 + H2O = leukotriene D4 + L-glutamate
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:48520: [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine methyl ester + H2O = [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine + methanol + H(+)
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:48548: [phosphatase 2A protein]-C-terminal L-leucine methyl ester + H2O = [phosphatase 2A protein]-C-terminal L-leucine + methanol + H(+)
+  → Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:61020: uridine(34) in tRNA + acetyl-CoA + S-adenosyl-L-methionine + H2O = 5-(carboxymethyl)uridine(34) in tRNA + 5'-deoxyadenosine + L-methionine + CoA + 2 H(+)
+  → Aminopeptidase: peptide → amino acid + shorter peptide
+

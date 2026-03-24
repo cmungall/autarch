@@ -1,0 +1,14 @@
+# Combustion reaction example: ethane + oxygen → carbon dioxide + water
+# This is NOT a hydrolysis reaction
+
+left_participants:
+  - smiles: "CC"         # ethane
+    count: 2
+  - smiles: "O=O"        # oxygen
+    count: 7
+
+right_participants:
+  - smiles: "O=C=O"      # carbon dioxide
+    count: 4
+  - smiles: "O"          # water
+    count: 6

@@ -1,0 +1,136 @@
+False Positives for SAdenosylmethionineDependentMethyltransferase
+==================================================
+Total: 44
+
+RHEA:10024: L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:10280: 1,7-dimethylxanthine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:10444: (S)-reticuline + S-adenosyl-L-methionine = (S)-laudanine + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:11504: 6-demethylsterigmatocystin + S-adenosyl-L-methionine = sterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:13693: trimethylsulfonium + (6S)-5,6,7,8-tetrahydrofolate = dimethyl sulfide + (6S)-5-methyl-5,6,7,8-tetrahydrofolate + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched NMethyltransferase (unknown EC); N-methyltransferase: matched TrimethylsulfoniumTetrahydrofolateNMethyltransferase (2.1.1.19); Trimethylsulfonium-tetrahydrofolate N-methyltransferase: folate-mediated methyl transfer from trimethylsulfonium
+
+RHEA:14773: palmatine + S-adenosyl-L-methionine + 2 NADPH = corydaline + S-adenosyl-L-homocysteine + 2 NADP(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:15561: sterigmatocystin + S-adenosyl-L-methionine = 8-O-methylsterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:17081: (E)-isoeugenol + S-adenosyl-L-methionine = (E)-isomethyleugenol + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:17105: malonyl-[ACP] + S-adenosyl-L-methionine = malonyl-[ACP] methyl ester + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:17997: Co-precorrin-2 + S-adenosyl-L-methionine = Co-precorrin-3 + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:20225: (E)-caffeate + S-adenosyl-L-methionine = (E)-ferulate + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:20944: theobromine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:21196: 5-methyltetrahydropteroyltri-L-glutamate + L-homocysteine = tetrahydropteroyltri-L-glutamate + L-methionine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase (2.1.1.14); Methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase: folate-mediated sulfur methyl transfer to homocysteine
+
+RHEA:24012: gamma-tocopherol + S-adenosyl-L-methionine = (+)-alpha-tocopherol + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:24604: 7-methylxanthine + S-adenosyl-L-methionine = theobromine + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:26273: Co-precorrin-3 + S-adenosyl-L-methionine = Co-precorrin-4 + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:26285: Co-precorrin-5B + S-adenosyl-L-methionine = Co-precorrin-6A + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:26325: (8Z,11Z)-5-(pentadeca-8,11,14-trien-1-yl)resorcinol + S-adenosyl-L-methionine = (8Z,11Z)-5-(pentadeca- 8,11,14-trien-1-yl)resorcinol-3-methyl ether + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:27353: 4'-demethylrebeccamycin + S-adenosyl-L-methionine = rebeccamycin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:27493: tricetin + S-adenosyl-L-methionine = 3'-O-methyltricetin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:28014: thiocyanate + S-adenosyl-L-methionine = methyl thiocyanate + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:30903: demethylspheroidene + S-adenosyl-L-methionine = spheroidene + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:31371: (2R,3S)-2,4',7-trihydroxyisoflavanone + S-adenosyl-L-methionine = (2R,3S)-2,7-dihydroxy-4'-methoxyisoflavanone + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:31539: (2S)-naringenin + S-adenosyl-L-methionine = (2S)-sakuranetin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:31643: mycinamicin VI + S-adenosyl-L-methionine = mycinamicin III + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:31743: a 4'-hydroxyflavanone + S-adenosyl-L-methionine = a 4'-methoxyflavanone + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:32099: TRIBOA beta-D-glucoside + S-adenosyl-L-methionine = DIMBOA beta-D-glucoside + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:32103: trans-resveratrol + 2 S-adenosyl-L-methionine = pterostilbene + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:32647: erythromycin C + S-adenosyl-L-methionine = erythromycin A + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:32651: erythromycin D + S-adenosyl-L-methionine = erythromycin B + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:34591: Co-precorrin-7 + S-adenosyl-L-methionine = Co-precorrin-8X + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:35091: anthranilate + L-phenylalanine + S-adenosyl-L-methionine + 2 ATP = cyclopeptine + 2 AMP + S-adenosyl-L-homocysteine + 2 diphosphate + 2 H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:35471: (+)-6a-hydroxymaackiain + S-adenosyl-L-methionine = (+)-pisatin + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36067: Co-precorrin-6B + S-adenosyl-L-methionine = Co-precorrin-7 + S-adenosyl-L-homocysteine + CO2
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36099: benzoate + S-adenosyl-L-methionine = methyl benzoate + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36107: gibberellin A4 + S-adenosyl-L-methionine = O-methyl gibberellin A4 + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36119: gibberellin A9 + S-adenosyl-L-methionine = O-methyl gibberellin A9 + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36131: (indol-3-yl)acetate + S-adenosyl-L-methionine = methyl (indol-3-yl)acetate + S-adenosyl-L-homocysteine
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:36651: 8-desmethylnovobiocic acid + S-adenosyl-L-methionine = novobiocic acid + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:37075: N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:67020: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:43100: uridine(44) in tRNA(Ser) + S-adenosyl-L-methionine = 2'-O-methyluridine(44) in tRNA(Ser) + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:52808: adenosine in U6 snRNA + S-adenosyl-L-methionine = N(6)-methyladenosine in U6 snRNA + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+
+RHEA:67024: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(ribonucleotide) in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(2'-O-methyl-ribonucleotide) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → S-adenosylmethionine-dependent methyltransferase activity: matched Methyltransferase (2.1.1.-); Methyltransferase: SAM-dependent methyl group transfer
+

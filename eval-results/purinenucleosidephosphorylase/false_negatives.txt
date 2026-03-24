@@ -1,0 +1,7 @@
+False Negatives for PurineNucleosidePhosphorylase
+==================================================
+Total: 1
+
+RHEA:11852: S-methyl-5'-thioadenosine + phosphate = 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate + adenine
+  → No supported purine nucleoside substrate detected
+

@@ -1,0 +1,10 @@
+name = "autarch"
+version = "0.1.0"
+defaultTargets = ["Autarch"]
+
+[[lean_lib]]
+name = "Autarch"
+
+[[lean_exe]]
+name = "autarch-spec"
+root = "Main"

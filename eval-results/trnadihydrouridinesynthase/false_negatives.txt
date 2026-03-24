@@ -1,0 +1,13 @@
+False Negatives for TRNADihydrouridineSynthase
+==================================================
+Total: 3
+
+RHEA:53356: 5,6-dihydrouridine(20b) in tRNA + NADP(+) = uridine(20b) in tRNA + NADPH + H(+)
+  → No supported trna dihydrouridine synthase activity child classifier matched
+
+RHEA:53368: 5,6-dihydrouridine(17) in tRNA + NADP(+) = uridine(17) in tRNA + NADPH + H(+)
+  → No supported trna dihydrouridine synthase activity child classifier matched
+
+RHEA:53380: 5,6-dihydrouridine(16) in tRNA + NAD(+) = uridine(16) in tRNA + NADH + H(+)
+  → No supported trna dihydrouridine synthase activity child classifier matched
+

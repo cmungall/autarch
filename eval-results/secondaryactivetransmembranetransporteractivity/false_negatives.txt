@@ -1,0 +1,22 @@
+False Negatives for SecondaryActiveTransmembraneTransporterActivity
+==================================================
+Total: 6
+
+RHEA:24440: phosphate(out) + ATP + H2O = ADP + 2 phosphate(in) + H(+)
+  → Secondary active transport requires coupled substrate transport
+
+RHEA:29463: K(+)(in) = K(+)(out)
+  → Secondary active transport requires coupled substrate transport
+
+RHEA:32823: phosphate(in) = phosphate(out)
+  → Secondary active transport requires coupled substrate transport
+
+RHEA:34915: D-galactose(in) = D-galactose(out)
+  → Secondary active transport requires coupled substrate transport
+
+RHEA:34963: Na(+)(in) = Na(+)(out)
+  → Secondary active transport requires coupled substrate transport
+
+RHEA:34999: ADP(in) + ATP(out) = ADP(out) + ATP(in)
+  → Secondary active transport requires coupled substrate transport
+

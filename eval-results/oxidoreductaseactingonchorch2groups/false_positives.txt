@@ -1,0 +1,19 @@
+False Positives for OxidoreductaseActingOnCHOrCH2Groups
+==================================================
+Total: 5
+
+RHEA:18749: [protein]-dithiol + NAD(+) = [protein]-disulfide + NADH + H(+)
+  → CH/CH2 oxidoreductase: thioredoxin-dependent reductase
+
+RHEA:18753: [protein]-dithiol + NADP(+) = [protein]-disulfide + NADPH + H(+)
+  → CH/CH2 oxidoreductase: thioredoxin-dependent reductase
+
+RHEA:20345: [thioredoxin]-dithiol + NADP(+) = [thioredoxin]-disulfide + NADPH + H(+)
+  → CH/CH2 oxidoreductase: thioredoxin-dependent reductase
+
+RHEA:28651: inosine + O2 = 9-riburonosylhypoxanthine + H2O + H(+)
+  → CH/CH2 oxidoreductase: label match in 'inosine + o2 = 9-riburonosylhypoxanthine + h2o + h(+)'
+
+RHEA:78943: [DsrC protein]-trisulfide + NAD(+) + 3 H2O = [DsrC protein]-dithiol + sulfite + NADH + 3 H(+)
+  → CH/CH2 oxidoreductase: thioredoxin-dependent reductase
+

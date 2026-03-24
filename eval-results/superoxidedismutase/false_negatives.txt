@@ -1,0 +1,7 @@
+False Negatives for SuperoxideDismutase
+==================================================
+Total: 1
+
+RHEA:20696: 2 superoxide + 2 H(+) = H2O2 + O2
+  → Wrong stoichiometry (4→2) - expected disproportionation
+

@@ -1,0 +1,22 @@
+False Negatives for OxoAcidLyase
+==================================================
+Total: 6
+
+RHEA:16201: 4-amino-4-deoxychorismate = 4-aminobenzoate + pyruvate + H(+)
+  → Oxo-acid lyases act on hydroxy-acid substrates
+
+RHEA:21732: chorismate + L-glutamine = anthranilate + pyruvate + L-glutamate + H(+)
+  → Oxo-acid lyases split one hydroxy-acid-like substrate into multiple carbon-containing products
+
+RHEA:22624: (S)-4-hydroxy-2-oxopentanoate = acetaldehyde + pyruvate
+  → Precision-biased oxo-acid lyase rule requires a multi-acid substrate or a hydroxy-thioester
+
+RHEA:23296: aceneuramate = aldehydo-N-acetyl-D-mannosamine + pyruvate
+  → Precision-biased oxo-acid lyase rule requires a multi-acid substrate or a hydroxy-thioester
+
+RHEA:23868: (1-hydroxycyclohexan-1-yl)acetyl-CoA = cyclohexanone + acetyl-CoA
+  → Products do not show the expected oxo-acid fragmentation signature
+
+RHEA:26562: 2-succinylbenzoyl-CoA + H(+) = 1,4-dihydroxy-2-naphthoyl-CoA + H2O
+  → Oxo-acid lyases split one hydroxy-acid-like substrate into multiple carbon-containing products
+

@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnTheCHCHGroupOfDonorsIronSulfurProteinAsAcceptor
+==================================================
+Total: 1
+
+RHEA:29603: oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → No CH-CH substrate/product pair showed the expected unsaturation change
+

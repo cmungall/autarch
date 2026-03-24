@@ -1,0 +1,7 @@
+False Negatives for HydroxycinnamoyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:23204: chlorogenate + D-glucarate = 2-O-caffeoylglucarate + L-quinate
+  → No supported hydroxycinnamoyl-CoA donor detected
+

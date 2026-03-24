@@ -1,0 +1,13 @@
+False Positives for OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor
+==================================================
+Total: 3
+
+RHEA:14505: thiosulfate + 2 glutathione = glutathione disulfide + hydrogen sulfide + sulfite + 2 H(+)
+  → Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+
+RHEA:15121: dithioerythritol + thiosulfate = cis-1,2-dithiane-4,5-diol + hydrogen sulfide + sulfite + 2 H(+)
+  → Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+
+RHEA:17545: S-hydroxy-S-oxy-L-cysteinyl-[peroxiredoxin] + [protein]-dithiol + ATP = S-hydroxy-L-cysteinyl-[peroxiredoxin] + [protein]-disulfide + ADP + phosphate
+  → Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+

@@ -1,0 +1,40 @@
+False Negatives for SAdenosylmethionineDependentMethyltransferase
+==================================================
+Total: 12
+
+RHEA:43148: adenosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:41740: adenosine(57)/adenosine(58) in tRNA + 2 S-adenosyl-L-methionine = N(1)-methyladenosine(57)/N(1)-methyladenosine(58) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:43084: cytidine(34) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:42916: adenosine(2503) in 23S rRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(2503) in 23S rRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:55584: an adenosine in mRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:43332: adenosine(37) in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(37) in tRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:20413: glucuronoxylan D-glucuronate + n S-adenosyl-L-methionine = glucuronoxylan 4-O-methyl-D-glucuronate + n S-adenosyl-L-homocysteine + n H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:42712: uridine(54) in tRNA + S-adenosyl-L-methionine = 5-methyluridine(54) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+
+RHEA:42932: cytidine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-adenosylmethionine-dependent methyltransferase activity child classifier matched
+

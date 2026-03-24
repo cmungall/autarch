@@ -1,0 +1,46 @@
+False Positives for CarbonSulfurLyase
+==================================================
+Total: 14
+
+RHEA:13249: (R)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:16481: 3 S-adenosyl-L-methionine = nicotianamine + 3 S-methyl-5'-thioadenosine + 3 H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:16977: coenzyme M + acetoacetate + NADP(+) = 2-oxopropyl-coenzyme M + CO2 + NADPH
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:18773: methyl-Co(III)-[methylamine-specific corrinoid protein] + coenzyme M = Co(I)-[methylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:19581: N(6)-dimethylallyladenine + S-adenosyl-L-methionine = discadenine + S-methyl-5'-thioadenosine + H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:19845: nocardicin E + S-adenosyl-L-methionine = isonocardicin A + S-methyl-5'-thioadenosine + H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:21052: (S)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:32667: methanethiol + coenzyme M = methyl-coenzyme M + hydrogen sulfide + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:36783: L-histidyl-[translation elongation factor 2] + S-adenosyl-L-methionine = 2-[(3S)-amino-3-carboxypropyl]-L-histidyl-[translation elongation factor 2] + S-methyl-5'-thioadenosine + H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:62432: a uridine in tRNA + S-adenosyl-L-methionine = a 3-[(3S)-3-amino-3-carboxypropyl]uridine in tRNA + S-methyl-5'-thioadenosine + H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:45220: methyl-Co(III)-[trimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[trimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:63296: an N(1)-methylpseudouridine in rRNA + S-adenosyl-L-methionine = N(1)-methyl-N(3)-[(3S)-3-amino-3-carboxypropyl]pseudouridine in rRNA + S-methyl-5'-thioadenosine + H(+)
+  → Carbon-sulfur lyase: SAM → MTA
+
+RHEA:45208: methyl-Co(III)-[methanol-specific corrinoid protein] + coenzyme M = Co(I)-[methanol-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+
+RHEA:45216: methyl-Co(III)-[dimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[dimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → Carbon-sulfur lyase: C-S substrate detected
+

@@ -1,0 +1,7 @@
+False Negatives for Phosphodiesterase
+==================================================
+Total: 1
+
+RHEA:10040: adenosine 3',5'-bisphosphate + H2O = AMP + phosphate
+  → No phosphodiester hydrolysis pattern
+

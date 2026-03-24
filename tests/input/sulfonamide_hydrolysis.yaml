@@ -1,0 +1,12 @@
+name: Sulfonamide hydrolysis
+description: Hydrolysis of a sulfonamide bond (R-SO2-NH-R' + H2O → R-SO2-OH + H2N-R')
+left_participants:
+  - smiles: "CS(=O)(=O)Nc1ccccc1"  # N-phenylmethanesulfonamide
+    count: 1
+  - smiles: "O"  # water
+    count: 1
+right_participants:
+  - smiles: "CS(=O)(=O)O"  # methanesulfonic acid
+    count: 1
+  - smiles: "Nc1ccccc1"  # aniline
+    count: 1

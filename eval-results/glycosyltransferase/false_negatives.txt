@@ -1,0 +1,202 @@
+False Negatives for Glycosyltransferase
+==================================================
+Total: 66
+
+RHEA:10232: 5,6-dihydrouridine 5'-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:10380: orotidine 5'-phosphate + diphosphate = orotate + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:10800: XMP + diphosphate = xanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:11176: kojibiose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:11196: 5,6-dimethylbenzimidazole + nicotinate beta-D-ribonucleotide = alpha-ribazole 5'-phosphate + nicotinate + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:11768: N-(5-phospho-beta-D-ribosyl)anthranilate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + anthranilate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:11820: diphthamide-[translation elongation factor 2] + NAD(+) = N-(ADP-D-ribosyl)diphthamide-[translation elongation factor 2] + nicotinamide + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:11852: S-methyl-5'-thioadenosine + phosphate = 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate + adenine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:12733: nicotinate beta-D-ribonucleotide + CO2 + diphosphate = quinolinate + 5-phospho-alpha-D-ribose 1-diphosphate + 2 H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:13017: UMP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + uracil
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:13233: guanosine + phosphate = alpha-D-ribose 1-phosphate + guanine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:13909: urate D-ribonucleoside + phosphate = alpha-D-ribose 1-phosphate + urate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:14125: 2 raffinose = 1(F)-alpha-D-galactosylraffinose + sucrose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:14905: 5-phospho-beta-D-ribosylamine + L-glutamate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + L-glutamine + H2O
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:15921: 2 a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol = a 1,2-diacyl-3-O-[beta-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + a 1,2-diacyl-sn-glycerol
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16037: thymidine + phosphate = 2-deoxy-alpha-D-ribose 1-phosphate + thymine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16149: beta-nicotinamide D-ribonucleotide + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + nicotinamide + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16241: an NDP-alpha-D-glucose + D-fructose = a ribonucleoside 5'-diphosphate + sucrose + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16257: alpha,alpha-trehalose + phosphate = alpha-D-glucose + alpha-D-glucose 1-phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16609: AMP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + adenine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16617: beta-D-glucosyl-(1->3)-D-glucose + phosphate = alpha-D-glucose 1-phosphate + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16633: guanosine(34) in tRNA + queuine = queuosine(34) in tRNA + guanine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16885: 2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside = bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:17973: IMP + diphosphate = hypoxanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:18077: L-arginyl-[dinitrogen reductase] + NAD(+) = N(omega)-alpha-(ADP-D-ribosyl)-L-arginyl-[dinitrogen reductase] + nicotinamide + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:18473: 1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + ATP
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:19149: L-arginyl-[protein] + NAD(+) = N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + nicotinamide + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:19153: UDP-alpha-D-apiose + apigenin 7-O-beta-D-glucoside = 7-O-(beta-D-apiofuranosyl-1,2-beta-D-glucosyl)-5,7,4'-trihydroxyflavone + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:19493: D-cellobiose + phosphate = alpha-D-glucose 1-phosphate + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:19505: indole-3-acetyl-1D-myo-inositol + UDP-beta-L-arabinopyranose = (indol-3-yl)acetyl-myo-inositol 3-L-arabinoside + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:19805: a purine D-ribonucleoside + phosphate = a purine nucleobase + alpha-D-ribose 1-phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:20161: alpha-D-galactosyl-(1->3)-1D-myo-inositol + sucrose = raffinose + myo-inositol
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:20285: beta-D-galactosyl-(1->3)-N-acetyl-D-glucosamine + phosphate = alpha-D-galactose 1-phosphate + N-acetyl-D-glucosamine
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:20776: alpha-D-galactosyl-(1->3)-1D-myo-inositol + raffinose = stachyose + myo-inositol
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:20864: alpha,alpha-trehalose 6-phosphate + phosphate = beta-D-glucose 1-phosphate + D-glucose 6-phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:21116: D-maltose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:22320: 2 alpha-D-glucose 1-phosphate + H2O = D-maltose + 2 phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:22824: 2'-deoxyuridine + phosphate = 2-deoxy-alpha-D-ribose 1-phosphate + uracil
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:23312: 2 sucrose = 1(F)-beta-D-fructosylsucrose + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:23512: alpha,alpha-trehalose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:24048: sucrose + phosphate = D-fructose + alpha-D-glucose 1-phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:24388: uridine + phosphate = alpha-D-ribose 1-phosphate + uracil
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:24392: dTDP-L-dihydrostreptose + streptidine 6-phosphate = O-(1->4)-alpha-L-dihydrostreptosyl-streptidine 6-phosphate + dTDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:24793: 5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + L-glutamine = D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + L-glutamate + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:25424: GMP + diphosphate = guanine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:27722: UDP-4-deoxy-4-formamido-beta-L-arabinose + di-trans,octa-cis-undecaprenyl phosphate = 4-deoxy-4-formamido-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + UDP
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:28366: UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:28759: beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + dTDP-4-acetamido-4,6-dideoxy-alpha-D-galactose = alpha-D-FucNAc4-(1->4)-beta-D-ManNAcA-(1->4)-D-GlcNAc-undecaprenyl diphosphate + dTDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:29691: alpha-maltotetraose + phosphate = alpha-maltotriose + alpha-D-glucose 1-phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:32155: 7-aminomethyl-7-carbaguanosine(34) in tRNA + S-adenosyl-L-methionine = epoxyqueuosine(34) in tRNA + adenine + L-methionine + 2 H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:34183: CDP-alpha-D-abequose + alpha-D-Man-(1->4)-alpha-L-Rha-(1->3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate = alpha-D-Abe-(1->3)-alpha-D-Man-(1->4)-alpha-L-Rha-(1->3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate + CDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:34487: N-acetyl-alpha-D-glucosaminyl-1-diphospho-trans,octa-cis-decaprenol + dTDP-beta-L-rhamnose = alpha-L-rhamnosyl-(1->3)-N-acetyl-alpha-D-glucosaminyl-diphospho-trans,octa-cis-decaprenol + dTDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:35371: 2 4-amino-4-deoxy-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid A (E. coli) = (beta-L-Ara4N)2-(Kdo)2-lipid A + 2 di-trans,octa-cis-undecaprenyl phosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:35427: cyanidin 3-O-beta-D-glucoside + 1-O-(trans-sinapoyl)-beta-D-glucose = cyanidin 3,5-di-O-beta-D-glucoside + (E)-sinapate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:35431: 1-O-(4-hydroxy-3-methoxybenzoyl)-beta-D-glucose + cyanidin 3-O-beta-D-glucoside = cyanidin 3,7-di-O-beta-D-glucoside + vanillate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:35815: 4-aminobenzoate + 5-phospho-alpha-D-ribose 1-diphosphate + H(+) = 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + CO2 + diphosphate
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:13653: [6)-beta-D-fructofuranosyl-(2->](n) alpha-D-glucopyranoside + sucrose = [6)-beta-D-fructofuranosyl-(2->](n+1) alpha-D-glucopyranoside + D-glucose
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:49472: trans-4-hydroxy-L-prolyl-[protein] + UDP-beta-L-arabinofuranose = O-(beta-L-arabinofuranosyl)-trans-4-hydroxy-L-prolyl-[protein] + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:56188: 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-[N-acetyl-beta-D-glucosaminyl-(1->6)]-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:10068: 4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:16213: 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:48904: L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl)-L-seryl-[protein] + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:46884: a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:18361: a di-trans,poly-cis-dolichyl D-xylosyl phosphate  + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + a di-trans,poly-cis-dolichyl phosphate + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:56712: L-cysteinyl-[prolipoprotein] + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = an S-1,2-diacyl-sn-glyceryl-L-cysteinyl-[prolipoprotein] + sn-glycerol 1-phosphate + H(+)
+  → No nucleotide-sugar transfer pattern detected
+
+RHEA:22980: a di-trans,poly-cis-dolichyl diphosphooligosaccharide + L-asparaginyl-[protein] = N(4)-(oligosaccharide-(1->4)-N-acetyl-beta-D-glucosaminyl-(1->4)-N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + a di-trans,poly-cis-dolichyl diphosphate + H(+)
+  → No nucleotide-sugar transfer pattern detected
+

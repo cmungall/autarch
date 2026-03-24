@@ -1,0 +1,49 @@
+False Positives for MonoatomicIonTransmembraneTransporterActivity
+==================================================
+Total: 15
+
+RHEA:10192: sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:16189: out→in
+
+RHEA:11148: 4 Fe(2+) + O2 + 4 H(+) = 4 Fe(3+) + 2 H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:11348: arsenite(in) + ATP + H2O = arsenite(out) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:29242: in→out
+
+RHEA:13181: nitrate(out) + ATP + H2O = nitrate(in) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:17632: out→in
+
+RHEA:16145: CMP-N-acetyl-beta-neuraminate + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = CMP-N-glycoloyl-beta-neuraminate + 2 Fe(III)-[cytochrome b5] + H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:18065: phosphonate(out) + ATP + H2O = phosphonate(in) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:16215: out→in
+
+RHEA:19341: octane + 2 reduced [rubredoxin] + O2 + 2 H(+) = 2 oxidized [rubredoxin] + octan-1-ol + H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:19721: octadecanoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z)-octadecenoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:21764: heme b + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = biliverdin IXalpha + CO + Fe(2+) + 3 oxidized [NADPH--hemoprotein reductase] + 3 H2O + H(+)
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:22020: molybdate(out) + ATP + H2O = molybdate(in) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:36264: out→in
+
+RHEA:22956: a 1-(1,2-saturated alkyl)-2-acyl-sn-glycero-3-phosphoethanolamine + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphoethanolamine + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:25852: an 11,12-saturated fatty acyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = an (11Z)-Delta(11)-fatty acyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:25856: (9Z)-octadecenoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z,12Z)-octadecadienoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → monoatomic ion transmembrane transporter activity: matched CytochromeCOxidase (7.1.1.9); Cytochrome C Oxidase: terminal respiratory enzyme (cyt c + O2 → H2O)
+
+RHEA:29871: thiosulfate(out) + ATP + H2O = thiosulfate(in) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:33542: out→in
+
+RHEA:35027: tungstate(in) + ATP + H2O = tungstate(out) + ADP + phosphate + H(+)
+  → monoatomic ion transmembrane transporter activity: matched TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate (7.3.2.-); Translocation of inorganic anions linked to nucleoside-triphosphate hydrolysis: CHEBI:46502: in→out
+

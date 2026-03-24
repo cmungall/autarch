@@ -1,0 +1,10 @@
+False Positives for OxidoreductaseActingOnTheCHNH2GroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 2
+
+RHEA:10692: 6-(2-amino-2-carboxyethyl)-7,8-dioxo-1,2,3,4,7,8-hexahydroquinoline-2,4-dicarboxylate + 3 O2 = pyrroloquinoline quinone + 2 H2O2 + 2 H2O + H(+)
+  → CH-NH2 oxidoreductase: oxygen acceptor chemistry with imine-forming substrate oxidation
+
+RHEA:17245: 3-hydroxyanthranilate + O2 = 6-imino-5-oxocyclohexa-1,3-dienecarboxylate + H2O2
+  → CH-NH2 oxidoreductase: oxygen acceptor chemistry with imine-forming substrate oxidation
+

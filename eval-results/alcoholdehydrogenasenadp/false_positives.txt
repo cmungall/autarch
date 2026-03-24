@@ -1,0 +1,487 @@
+False Positives for AlcoholDehydrogenaseNADP
+==================================================
+Total: 161
+
+RHEA:10080: dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:10108: (7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:10140: prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:10392: (E)-cinnamyl alcohol + NADP(+) = (E)-cinnamaldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:10776: (2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoate + NADP(+) = 3-(4-hydroxyphenyl)pyruvate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:10824: (S)-malate + NADP(+) = oxaloacetate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11096: sn-glycerol 3-phosphate + NADP(+) = dihydroxyacetone phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11228: (2S)-flavan-4-ol + NADP(+) = (2S)-flavanone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11636: prostaglandin E1 + NADP(+) = 15-oxoprostaglandin E1 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11772: 6-lactoyl-5,6,7,8-tetrahydropterin + NADP(+) = 6-pyruvoyl-5,6,7,8-tetrahydropterin + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11868: D-arabinitol + NADP(+) = D-ribulose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:11912: 13,14-dihydro-15-oxo-prostaglandin E2 + NADP(+) = 15-oxoprostaglandin E2 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12000: formate + NADP(+) = CO2 + NADPH
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12168: allyl alcohol + NADP(+) = acrolein + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12320: 17-O-acetylnorajmaline + NADP(+) = (2R)-1,2-dihydrovomilenine + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12444: hexadecanal + NADP(+) = (2E)-hexadecenal + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12524: L-pipecolate + NADP(+) = Delta(1)-piperideine-2-carboxylate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12753: glycerol + NADP(+) = dihydroxyacetone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12757: dihydrozeatin + NADP(+) = zeatin + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:12817: 2,3-dihydrobiochanin A + NADP(+) = biochanin A + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:13409: 7-aminomethyl-7-carbaguanine + 2 NADP(+) = 7-cyano-7-deazaguanine + 2 NADPH + 3 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:13629: (1S,5R)-carveol + NADP(+) = (R)-carvone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:13685: lathosterol + NADP(+) = 5alpha-cholesta-7,24-dien-3beta-ol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:13717: 2-C-methyl-D-erythritol 4-phosphate + NADP(+) = 1-deoxy-D-xylulose 5-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:13917: (-)-menthol + NADP(+) = (1R,4S)-menthone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14069: D-fructose + NADP(+) = 5-dehydro-D-fructose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14109: L-proline + NADP(+) = (S)-1-pyrroline-5-carboxylate + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14129: cholate + NADP(+) = 3alpha,7alpha-dihydroxy-12-oxo-5beta-cholanate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14269: 2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14401: chlordecone alcohol + NADP(+) = chlordecone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14405: D-glucose + NADP(+) = D-glucono-1,5-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14521: (2E)-geraniol + NADP(+) = (2E)-geranial + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14609: D-sorbitol + NADP(+) = keto-L-sorbose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14697: (2E,6E)-farnesol + NADP(+) = (2E,6E)-farnesal + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14861: (S)-dihydroorotate + NADP(+) = orotate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14925: D-mannitol 1-phosphate + NADP(+) = D-mannose 6-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:14981: testosterone + NADP(+) = androst-4-ene-3,17-dione + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15001: keto-L-sorbose + NADP(+) = 5-dehydro-D-fructose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15009: (6S)-5,6,7,8-tetrahydrofolate + NADP(+) = 7,8-dihydrofolate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15789: L-xylose + NADP(+) = L-xylono-1,4-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15793: (4Z,15Z)-bilirubin IXalpha + NADP(+) = biliverdin IXalpha + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15841: D-glucose 6-phosphate + NADP(+) = 6-phospho-D-glucono-1,5-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15857: (17R,20S)-17,20-dihydroxypregn-4-en-3-one + NADP(+) = 17alpha-hydroxyprogesterone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15885: propane-1,2-diol + NADP(+) = (S)-lactaldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:15925: dihydrobunolol + NADP(+) = bunolol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16137: 2'-deoxymugineate + NADP(+) = 3''-deamino-3''-oxonicotianamine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16233: (R)-pantoate + NADP(+) = 2-dehydropantoate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16297: 5alpha-androstane-3beta,17beta-diol + NADP(+) = 17beta-hydroxy-5alpha-androstan-3-one + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16405: benzyl (2R,3S)-2-methyl-3-hydroxybutanoate + NADP(+) = benzyl 2-methyl-3-oxobutanoate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16409: (2R)-1,2-dihydrovomilenine + NADP(+) = vomilenine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16653: D-gluconate + NADP(+) = 2-dehydro-D-gluconate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16705: 17alpha-estradiol + NADP(+) = estrone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16729: (1R,2R)-1,2-dihydrobenzene-1,2-diol + NADP(+) = catechol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:16765: D-mannitol + NADP(+) = D-fructose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17025: xylitol + NADP(+) = L-xylulose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17037: indole-3-ethanol + NADP(+) = indole-3-acetaldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17145: 2'-hydroxy-2,3-dihydrodaidzein + NADP(+) = 2'-hydroxydaidzein + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17341: 1-hexadecanoyl-sn-glycero-3-phosphate + NADP(+) = 1-hexadecanoylglycerone 3-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17569: (R)-reticuline + NADP(+) = 1,2-dehydroreticuline + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17737: shikimate + NADP(+) = 3-dehydroshikimate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17845: 5-amino-6-(5-phospho-D-ribitylamino)uracil + NADP(+) = 5-amino-6-(5-phospho-D-ribosylamino)uracil + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:17865: 5,6,7,8-tetrahydropteridine + NADP(+) = 6,7-dihydropteridine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18005: D-threitol + NADP(+) = D-erythrulose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18093: 5,6-dihydrouracil + NADP(+) = uracil + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18137: 3beta-hydroxy-5alpha-pregnane-20-one + NADP(+) = 5alpha-pregnane-3,20-dione + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18269: ethyl (S)-3-hydroxyhexanoate + NADP(+) = ethyl 3-oxohexanoate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18357: tropine + NADP(+) = tropinone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18409: 4alpha-methyl-5alpha-cholest-7-en-3beta-ol + NADP(+) = 4alpha-methyl-5alpha-cholest-7-en-3-one + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18425: L-quinate + NADP(+) = 3-dehydroquinate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18501: ergosterol + NADP(+) = ergosta-5,7,22,24(28)-tetraen-3beta-ol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18561: 4,4-dimethyl-5alpha-cholesta-8,24-dien-3beta-ol + NADP(+) = 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18625: D-galactose + NADP(+) = D-galactono-1,5-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18657: (R)-glycerate + NADP(+) = 3-hydroxypyruvate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18885: GDP-beta-L-fucose + NADP(+) = GDP-4-dehydro-alpha-D-rhamnose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18925: L-gulono-1,4-lactone + NADP(+) = D-glucurono-3,6-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18953: L-erythro-7,8-dihydrobiopterin + NADP(+) = L-sepiapterin + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:18981: (R)-pantolactone + NADP(+) = 2-dehydropantolactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19209: codeine + NADP(+) = codeinone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19377: reduced riboflavin + NADP(+) = riboflavin + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19509: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + 2 NADP(+) = L-erythro-biopterin + 2 NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19773: sn-glycerol 3-phosphate + NADP(+) = D-glyceraldehyde 3-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19817: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + NADP(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:19921: D-ribitol 5-phosphate + NADP(+) = D-ribulose 5-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20029: 10-deoxysarpagine + NADP(+) = vellosimine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20037: D-sorbitol 6-phosphate + NADP(+) = aldehydo-D-glucose 6-phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20257: 3-methyloxindole + NADP(+) = 3-methyleneoxindole + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20377: androsterone + NADP(+) = 5alpha-androstan-3,17-dione + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20437: 5D-5-O-methyl-chiro-inositol + NADP(+) = 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20665: 1,5-anhydro-D-glucitol + NADP(+) = 1,5-anhydro-D-fructose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20744: prostaglandin D2 + NADP(+) = 15-oxoprostaglandin D2 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:20816: 3alpha-hydroxyglycyrrhetinate + NADP(+) = 3-oxoglycyrrhetinate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21008: diethyl (2R,3R)-2-methyl-3-hydroxysuccinate + NADP(+) = diethyl 2-methyl-3-oxosuccinate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21176: L-idonate + NADP(+) = 5-dehydro-D-gluconate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21268: (R)-canadine + 2 NADP(+) = berberine + 2 NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21276: D-arabinitol + NADP(+) = D-xylulose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21416: sn-glycerol 1-phosphate + NADP(+) = dihydroxyacetone phosphate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21420: prostaglandin I2 + NADP(+) = 15-dehydro-prostaglandin I2 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21424: 3alpha,7alpha,12beta-trihydroxy-5beta-cholanate + NADP(+) = 3alpha,7alpha-dihydroxy-12-oxo-5beta-cholanate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21748: (S)-lactaldehyde + NADP(+) = methylglyoxal + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21792: propan-2-ol + NADP(+) = acetone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21796: dTDP-beta-L-rhamnose + NADP(+) = dTDP-4-dehydro-beta-L-rhamnose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21888: (1S,2S)-OPC-8 + NADP(+) = (9S,13S,15Z)-12-oxophyto-10,15-dienoate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21892: D-arabinose + NADP(+) = D-arabinono-1,4-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:21908: scytalone + NADP(+) = naphthalene-1,3,6,8-tetrol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22000: D-xylose + NADP(+) = D-xylono-1,5-lactone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22068: (2R)-2,3-dihydroxy-3-methylbutanoate + NADP(+) = (2S)-2-acetolactate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22184: (+-)-trans-acenaphthene-1,2-diol + 2 NADP(+) = acenaphthene-1,2-dione + 2 NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22340: 3-hydroxybenzyl alcohol + NADP(+) = 3-hydroxybenzaldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22444: (E)-coniferol + NADP(+) = (E)-coniferaldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22560: (3R)-vestitone + NADP(+) = 2'-hydroxyformononetin + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22640: sphinganine + NADP(+) = 3-oxosphinganine + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22812: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADP(+) = (6R)-5,10-methenyltetrahydrofolate + NADPH
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:22944: 3beta-hydroxy-5beta-pregnane-20-one + NADP(+) = 5beta-pregnan-3,20-dione + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23168: coformycin + NADP(+) = 8-oxocoformycin + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23408: precorrin-6B + NADP(+) = precorrin-6A + NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23488: 1,4-benzoquinone + NADPH + H(+) = hydroquinone + NADP(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23592: glycerol + NADP(+) = D-glyceraldehyde + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23648: dTDP-6-deoxy-beta-L-talose + NADP(+) = dTDP-4-dehydro-beta-L-rhamnose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23712: pregnan-21-ol + NADP(+) = pregnan-21-al + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23812: (+)-neomenthol + NADP(+) = (1R,4S)-menthone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23828: 2-dehydro-D-gluconate + NADP(+) = 2,5-didehydro-D-gluconate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23856: Hg + NADP(+) + H(+) = Hg(2+) + NADPH
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:23984: cholesterol + NADP(+) = 7-dehydrocholesterol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:24208: 1,5-anhydro-D-mannitol + NADP(+) = 1,5-anhydro-D-fructose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:24244: pseudotropine + NADP(+) = tropinone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:24352: ethyl (R)-3-hydroxyhexanoate + NADP(+) = ethyl 3-oxohexanoate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:24508: prostaglandin F2alpha + NADP(+) = prostaglandin E2 + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:24616: 17beta-estradiol + NADP(+) = estrone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:25367: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NADP(+) = momilactone A + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:25641: (1R,4S)-menthone + NADP(+) = (R)-pulegone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:25645: (2R,5R)-isomenthone + NADP(+) = (R)-pulegone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:25649: (2R,5R)-isopulegone + NADP(+) = (6R)-isopiperitenone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:25968: (S)-benzoin + NADP(+) = benzil + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:26229: phytyl diphosphate + 3 NADP(+) = geranylgeranyl diphosphate + 3 NADPH + 3 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:27986: hydroxyacetone + NADP(+) = methylglyoxal + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:29587: 4-carboxy-2-hydroxymuconate semialdehyde hemiacetal + NADP(+) = 2-oxo-2H-pyran-4,6-dicarboxylate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:31103: 7,8-dihydrofolate + NADP(+) = folate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:32607: (6E)-8-hydroxygeraniol + NADP(+) = (6E)-8-hydroxygeranial + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:32611: (6E)-8-hydroxygeranial + NADP(+) = (6E)-8-oxogeranial + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:32615: (6E)-8-oxogeraniol + NADP(+) = (6E)-8-oxogeranial + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:32627: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + 2 NADP(+) = 6-pyruvoyl-5,6,7,8-tetrahydropterin + 2 NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:32659: (6E)-8-hydroxygeraniol + 2 NADP(+) = (6E)-8-oxogeranial + 2 NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:34419: (+)-lariciresinol + NADP(+) = (+)-pinoresinol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:34423: (-)-secoisolariciresinol + NADP(+) = (+)-lariciresinol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:34427: (-)-lariciresinol + NADP(+) = (-)-pinoresinol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:34431: (+)-secoisolariciresinol + NADP(+) = (-)-lariciresinol + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:34815: tetrahydrocurcumin + 2 NADP(+) = curcumin + 2 NADPH + 2 H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:35447: (1'S)-averantin + NADP(+) = norsolorinic acid + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:35523: N-ethylmaleimide + NADPH + H(+) = N-ethylsuccinimide + NADP(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:35691: (2S)-versicolorone + NADP(+) = 1'-hydroxyversicolorone + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:35695: (3S)-versiconol acetate + NADP(+) = (2S,3S)-versiconal hemiacetal acetate + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:35699: (S)-versiconol + NADP(+) = (2S-3S)-versiconal hemiacetal + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:36379: 3-dehydro-4alpha-methylzymosterol + NADPH + H(+) = 4alpha-methylzymosterol + NADP(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:36583: dTDP-alpha-D-fucose + NADP(+) = dTDP-4-dehydro-6-deoxy-alpha-D-glucose + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:36731: 1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:53344: 5,6-dihydrouridine(20a) in tRNA + NADP(+) = uridine(20a) in tRNA + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:53376: 5,6-dihydrouridine(16) in tRNA + NADP(+) = uridine(16) in tRNA + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:53356: 5,6-dihydrouridine(20b) in tRNA + NADP(+) = uridine(20b) in tRNA + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+
+RHEA:53368: 5,6-dihydrouridine(17) in tRNA + NADP(+) = uridine(17) in tRNA + NADPH + H(+)
+  → Alcohol dehydrogenase (NADP+): NADP-dependent alcohol ⇌ carbonyl chemistry
+

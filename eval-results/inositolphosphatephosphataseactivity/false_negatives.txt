@@ -1,0 +1,13 @@
+False Negatives for InositolPhosphatePhosphataseActivity
+==================================================
+Total: 3
+
+RHEA:27670: 1D-myo-inositol 1-phosphate + H2O = myo-inositol + phosphate
+  → Expected one soluble inositol phosphate substrate and one dephosphorylated inositol phosphate product
+
+RHEA:30735: 1D-myo-inositol 4-phosphate + H2O = myo-inositol + phosphate
+  → Expected one soluble inositol phosphate substrate and one dephosphorylated inositol phosphate product
+
+RHEA:30739: 1D-myo-inositol 3-phosphate + H2O = myo-inositol + phosphate
+  → Expected one soluble inositol phosphate substrate and one dephosphorylated inositol phosphate product
+

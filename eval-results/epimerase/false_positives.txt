@@ -1,0 +1,10 @@
+False Positives for Epimerase
+==================================================
+Total: 2
+
+RHEA:14820: 4-maleylacetoacetate <=> 4-fumarylacetoacetate
+  → Epimerase: stereochemical inversion [pattern matched]
+
+RHEA:18496: benzoyl-CoA + glycine <=> N-benzoylglycine + CoA + H(+)
+  → Epimerase: stereochemical inversion [pattern matched]
+

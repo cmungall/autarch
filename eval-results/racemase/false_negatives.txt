@@ -1,0 +1,31 @@
+False Negatives for Racemase
+==================================================
+Total: 9
+
+RHEA:11320: UDP-beta-L-arabinopyranose = UDP-alpha-D-xylose
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:11404: UDP-alpha-D-glucuronate = UDP-alpha-D-galacturonate
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:16969: dTDP-4-dehydro-6-deoxy-alpha-D-glucose = dTDP-4-dehydro-beta-L-rhamnose
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:17213: UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-alpha-D-mannosamine
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:19033: an N-acyl-D-glucosamine = an N-acyl-D-mannosamine
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:20517: UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-alpha-D-galactosamine
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:22168: UDP-alpha-D-glucose = UDP-alpha-D-galactose
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:23492: UDP-alpha-D-glucosamine = UDP-alpha-D-galactosamine
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+
+RHEA:23932: an N-acyl-D-glucosamine 6-phosphate = an N-acyl-D-mannosamine 6-phosphate
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+

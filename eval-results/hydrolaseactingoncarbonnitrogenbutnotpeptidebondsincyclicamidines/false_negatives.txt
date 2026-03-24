@@ -1,0 +1,34 @@
+False Negatives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmidines
+==================================================
+Total: 10
+
+RHEA:10148: blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)
+  → Linear amide hydrolysis belongs to a different hydrolase branch
+
+RHEA:17473: GTP + H2O = 7,8-dihydroneopterin 3'-triphosphate + formate + H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:18445: IMP + H2O = 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:19053: 5,10-methenyl-5,6,7,8-tetrahydromethanopterin + H2O = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:19205: dCTP + 2 H2O = dUMP + NH4(+) + diphosphate
+  → Cyclic amidine hydrolysis requires one substantive substrate and one substantive product
+
+RHEA:20049: 1-(5-phospho-beta-D-ribosyl)-5'-AMP + H2O = 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:22468: GTP + 3 H2O = 2-amino-5-formylamino-6-(5-phospho-D-ribosylamino)pyrimidin-4(3H)-one + 2 phosphate + 2 H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:23700: (6R)-5,10-methenyltetrahydrofolate + H2O = (6R)-10-formyltetrahydrofolate + H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:23704: GTP + 4 H2O = 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine + formate + 2 phosphate + 3 H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+
+RHEA:25860: GTP + H2O = 7,8-dihydroneopterin 2',3'-cyclic phosphate + formate + diphosphate + H(+)
+  → Cyclic amidine hydrolases release ammonia or ammonium
+

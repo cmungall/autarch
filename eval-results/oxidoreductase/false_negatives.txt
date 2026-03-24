@@ -1,0 +1,235 @@
+False Negatives for Oxidoreductase
+==================================================
+Total: 77
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → No redox cofactors or patterns detected
+
+RHEA:10168: 15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:10720: 2-amino-6-acetyl-3,7,8,9-tetrahydro-3H-pyrimido[4,5-b][1,4]diazepin-4-one + glutathione disulfide + H2O = 6-pyruvoyl-5,6,7,8-tetrahydropterin + 2 glutathione
+  → No redox cofactors or patterns detected
+
+RHEA:10936: 6-decylubiquinone + 2 thiosulfate = 6-decylubiquinol + tetrathionate
+  → No redox cofactors or patterns detected
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → No redox cofactors or patterns detected
+
+RHEA:11464: L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide
+  → No redox cofactors or patterns detected
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:11724: [thioredoxin]-disulfide + sulfite + adenosine 3',5'-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3'-phosphoadenylyl sulfate
+  → No redox cofactors or patterns detected
+
+RHEA:11848: acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:12128: 2 oxidized [2Fe-2S]-[ferredoxin] + 2 L-glutamate = L-glutamine + 2 reduced [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:12188: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 2-oxoglutarate + H(+) = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No redox cofactors or patterns detected
+
+RHEA:12232: acetyl phosphate + [thioredoxin]-disulfide + NH4(+) + H2O = [thioredoxin]-dithiol + glycine + phosphate + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:12613: L-cystine + 2 glutathione = glutathione disulfide + 2 L-cysteine
+  → No redox cofactors or patterns detected
+
+RHEA:12645: indole-3-pyruvate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = (indol-3-yl)acetyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:12701: a 2'-deoxyribonucleoside 5'-triphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-triphosphate + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:12737: [PrdC protein]-Se-L-selenocysteinyl-S-L-cysteine + 5-aminopentanoate = [PrdC protein]-L-selenocysteine/L-cysteine + D-proline
+  → No redox cofactors or patterns detected
+
+RHEA:12765: 2 oxidized [2Fe-2S]-[ferredoxin] + pyruvate + CoA = 2 reduced [2Fe-2S]-[ferredoxin] + acetyl-CoA + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:12825: acetyl phosphate + methylamine + [thioredoxin]-disulfide + H2O = sarcosine + [thioredoxin]-dithiol + phosphate + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:13125: glutathione disulfide + CoA = CoA-glutathione + glutathione
+  → No redox cofactors or patterns detected
+
+RHEA:13457: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 3-methyl-2-oxobutanoate + H(+) = N(6)-[(R)-S(8)-2-methylpropanoyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No redox cofactors or patterns detected
+
+RHEA:14141: glutathione disulfide + sulfite + AMP + 2 H(+) = adenosine 5'-phosphosulfate + 2 glutathione
+  → No redox cofactors or patterns detected
+
+RHEA:14217: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:14229: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + 2 oxidized [2Fe-2S]-[ferredoxin] = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:15141: 4-methylphenol + 4 oxidized [azurin] + H2O = 4 reduced [azurin] + 4-hydroxybenzaldehyde + 4 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:15309: (2R,3Z)-phycocyanobilin + 4 oxidized [2Fe-2S]-[ferredoxin] = biliverdin IXalpha + 4 reduced [2Fe-2S]-[ferredoxin] + 4 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:15425: coproporphyrinogen III + 2 S-adenosyl-L-methionine = protoporphyrinogen IX + 2 5'-deoxyadenosine + 2 L-methionine + 2 CO2
+  → No redox cofactors or patterns detected
+
+RHEA:15821: glycine + 2 A = hydrogen cyanide + 2 AH2 + CO2
+  → No redox cofactors or patterns detected
+
+RHEA:15969: methylarsonate + 2 glutathione + H(+) = methylarsonous acid + glutathione disulfide + H2O
+  → No redox cofactors or patterns detected
+
+RHEA:16377: (3Z)-phytochromobilin + 2 oxidized [2Fe-2S]-[ferredoxin] = biliverdin IXalpha + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:17225: 1,4,5,6-tetrahydro-6-oxonicotinate + oxidized 2[4Fe-4S]-[ferredoxin] = 6-hydroxynicotinate + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:17297: 2 oxidized [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + CoA = succinyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:17445: H2 + 2 oxidized [2Fe-2S]-[ferredoxin] = 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:17545: S-hydroxy-S-oxy-L-cysteinyl-[peroxiredoxin] + [protein]-dithiol + ATP = S-hydroxy-L-cysteinyl-[peroxiredoxin] + [protein]-disulfide + ADP + phosphate
+  → No redox cofactors or patterns detected
+
+RHEA:17961: (5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate = leukotriene A4 + H2O
+  → No redox cofactors or patterns detected
+
+RHEA:18041: 6 oxidized [2Fe-2S]-[ferredoxin] + NH4(+) + 2 H2O = nitrite + 6 reduced [2Fe-2S]-[ferredoxin] + 8 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:18085: methanophenazine + coenzyme B + coenzyme M = dihydromethanophenazine + coenzyme M-coenzyme B heterodisulfide
+  → No redox cofactors or patterns detected
+
+RHEA:18701: 2 oxidized [azurin] + arsenite + H2O = 2 reduced [azurin] + arsenate + 3 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:19189: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + pyruvate + H(+) = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No redox cofactors or patterns detected
+
+RHEA:19221: 2 formaldehyde + H2O = methanol + formate + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:19841: N-formylmethanofuran + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = methanofuran + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:19993: [thioredoxin]-disulfide + L-methionine + H2O = L-methionine (S)-S-oxide + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:20017: 5,10-methenyl-5,6,7,8-tetrahydromethanopterin + H2 = 5,10-methylenetetrahydromethanopterin + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:20637: D-fructose + D-glucose = D-glucono-1,5-lactone + D-sorbitol
+  → No redox cofactors or patterns detected
+
+RHEA:20752: 2 cob(II)alamin + A + 2 H2O + 2 H(+) = 2 aquacob(III)alamin + AH2
+  → No redox cofactors or patterns detected
+
+RHEA:21000: 1,2,3,5-tetrahydroxybenzene + 1,2,3-trihydroxybenzene = 1,2,3,5-tetrahydroxybenzene + 1,3,5-trihydroxybenzene
+  → No redox cofactors or patterns detected
+
+RHEA:21040: CO + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:21064: [protein]-disulfide + 2 glutathione = [protein]-dithiol + glutathione disulfide
+  → No redox cofactors or patterns detected
+
+RHEA:21260: [thioredoxin]-disulfide + L-methionine + H2O = L-methionine (R)-S-oxide + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:21448: N2 + 8 reduced [2Fe-2S]-[ferredoxin] + 16 ATP + 16 H2O = H2 + 8 oxidized [2Fe-2S]-[ferredoxin] + 2 NH4(+) + 16 ADP + 16 phosphate + 6 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:21560: 3-hydroxy-2-methyl-3-phytyl-2,3-dihydro-1,4-naphthoquinone + oxidized dithiothreitol = 1,4-dithiothreitol + 2,3-epoxyphylloquinone
+  → No redox cofactors or patterns detected
+
+RHEA:21828: nitrite + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = nitrate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:21976: [thioredoxin]-disulfide + sulfite + AMP + 2 H(+) = adenosine 5'-phosphosulfate + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:22016: [glutaredoxin]-dithiol + arsenate + glutathione + H(+) = glutathionyl-S-S-[glutaredoxin] + arsenite + H2O
+  → No redox cofactors or patterns detected
+
+RHEA:22092: (3Z)-phycoerythrobilin + oxidized 2[4Fe-4S]-[ferredoxin] = 15,16-dihydrobiliverdin + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:23132: hydrogen sulfide + 6 oxidized [2Fe-2S]-[ferredoxin] + 3 H2O = sulfite + 6 reduced [2Fe-2S]-[ferredoxin] + 7 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:23252: a 2'-deoxyribonucleoside 5'-diphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-diphosphate + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:24148: D-glyceraldehyde 3-phosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = (2R)-3-phosphoglycerate + 2 reduced [2Fe-2S]-[ferredoxin] + 3 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:24164: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(R)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:24304: N(6)-[(R)-lipoyl]-L-lysyl-[glycine-cleavage complex H protein] + glycine + H(+) = N(6)-[(R)-S(8)-aminomethyldihydrolipoyl]-L-lysyl-[glycine-cleavage complex H protein] + CO2
+  → No redox cofactors or patterns detected
+
+RHEA:24424: L-dehydroascorbate + 2 glutathione = glutathione disulfide + L-ascorbate
+  → No redox cofactors or patterns detected
+
+RHEA:24436: methanophenazine + H2 = dihydromethanophenazine
+  → No redox cofactors or patterns detected
+
+RHEA:24488: isopentenyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:24752: primary fluorescent chlorophyll catabolite + 2 oxidized [2Fe-2S]-[ferredoxin] = red chlorophyll catabolite + 2 reduced [2Fe-2S]-[ferredoxin] + 3 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:24825: dimethylallyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:26119: (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = 2-C-methyl-D-erythritol 2,4-cyclic diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:28026: dUDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + UDP
+  → No redox cofactors or patterns detected
+
+RHEA:28034: dADP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + ADP
+  → No redox cofactors or patterns detected
+
+RHEA:29603: oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:30043: fumarate + L-aspartate = iminosuccinate + succinate
+  → No redox cofactors or patterns detected
+
+RHEA:30059: (S)-dihydroorotate + fumarate = orotate + succinate
+  → No redox cofactors or patterns detected
+
+RHEA:30199: cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O
+  → No redox cofactors or patterns detected
+
+RHEA:30207: 2 oxidized [amicyanin] + methylamine + H2O = 2 reduced [amicyanin] + formaldehyde + NH4(+) + 2 H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:32135: 2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = propanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:32371: all-trans-violaxanthin + 2 L-ascorbate = all-trans-zeaxanthin + 2 L-dehydroascorbate + 2 H2O
+  → No redox cofactors or patterns detected
+
+RHEA:35591: n sulfur + H2 = (n-1) sulfur + hydrogen sulfide + H(+)
+  → No redox cofactors or patterns detected
+
+RHEA:57744: phylloquinol + [protein]-disulfide = phylloquinone + [protein]-dithiol
+  → No redox cofactors or patterns detected
+
+RHEA:30239: n a quinone + n hydrogen sulfide + n H(+) = polysulfur(n-2) + n a quinol
+  → No redox cofactors or patterns detected
+

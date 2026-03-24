@@ -1,0 +1,76 @@
+False Positives for Hydroxylase
+==================================================
+Total: 24
+
+RHEA:10124: phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:10796: albendazole + NADPH + O2 + H(+) = albendazole S-oxide + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:10956: (E)-cinnamate + NADPH + O2 + H(+) = trans-2-coumarate + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11420: senecionine + NADPH + O2 = senecionine N-oxide + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11480: 3-hydroxybenzoate + NADPH + O2 + H(+) = 3,4-dihydroxybenzoate + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11648: (-)-menthol + NADPH + O2 + H(+) = 1,4-menthane-3,8-diol + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11792: propene + NADH + O2 + H(+) = 1,2-epoxypropane + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11976: anhydrotetracycline + NADPH + O2 + H(+) = 5a,11a-dehydrotetracycline + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:11996: biphenyl-2-ol + NADH + O2 + H(+) = biphenyl-2,3-diol + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:12312: dibenzothiophene 5,5-dioxide + FMNH2 + NADH + O2 = 2'-hydroxybiphenyl-2-sulfinate + FMN + NAD(+) + H2O + H(+)
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:12568: 4-nitrophenol + NADH + O2 + H(+) = 4-nitrocatechol + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:20920: 2,4-dichlorophenol + NADPH + O2 + H(+) = 3,5-dichlorocatechol + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:21440: a long-chain fatty aldehyde + 2 NADPH + O2 + H(+) = a long-chain alkane + formate + 2 NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:22080: quinolin-2-ol + NADH + O2 + H(+) = quinoline-2,8-diol + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:22204: 3-hydroxyphenylacetate + NADPH + O2 + H(+) = homogentisate + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:22208: 3-hydroxyphenylacetate + NADH + O2 + H(+) = homogentisate + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:22692: 3-hydroxybenzoate + NADH + O2 + H(+) = 2,5-dihydroxybenzoate + NAD(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:22916: 4'-hydroxyacetophenone + NADPH + O2 + H(+) = 4-acetoxyphenol + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:23216: benzoyl-CoA + NADPH + O2 + H(+) = 3-hydroxybenzoyl-CoA + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:23228: L-lysine + NADPH + O2 = N(6)-hydroxy-L-lysine + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:24068: cyclohexanone + NADPH + O2 + H(+) = hexano-6-lactone + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:24120: leukotriene E4 + NADPH + O2 + H(+) = 20-hydroxy-leukotriene E4 + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:24324: 6-oxocineole + NADPH + O2 + H(+) = 1,6,6-trimethyl-2,7-dioxabicyclo[3.2.2]nonan-3-one + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+
+RHEA:24468: N,N-dimethylaniline + NADPH + O2 + H(+) = N,N-dimethylaniline N-oxide + NADP(+) + H2O
+  → Hydroxylase: O2-dependent monooxygenation with NAD(P)H
+

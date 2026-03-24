@@ -1,0 +1,154 @@
+False Positives for LipidKinaseActivity
+==================================================
+Total: 50
+
+RHEA:10224: pyridoxal + ATP = pyridoxal 5'-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:11240: thiamine diphosphate + ATP = thiamine triphosphate + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:11396: 5-methyldeoxycytidine 5'-phosphate + ATP = 5-methyldeoxycytidine diphosphate + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:11600: CMP + ATP = CDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:12260: NADH + ATP = ADP + NADPH + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:12617: N-acetyl-alpha-D-galactosamine + ATP = N-acetyl-alpha-D-galactosamine 1-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:12697: dGMP + ATP = dGDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:13517: dTMP + ATP = dTDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:14017: beta-nicotinamide D-riboside + ATP = beta-nicotinamide D-ribonucleotide + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:14357: riboflavin + ATP = FMN + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:15769: adenosylcob(III)inamide + ATP = adenosylcob(III)inamide phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:15913: thiamine phosphate + ATP = thiamine diphosphate + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:16281: dihydrostreptomycin 6-phosphate + ATP = dihydrostreptomycin 3'alpha,6-bisphosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:16373: (R)-pantothenate + ATP = (R)-4'-phosphopantothenate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:16825: uridine + ATP = UMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:17417: N-acetyl-D-glucosamine + ATP = N-acetyl-D-glucosamine 6-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:18245: 3'-dephospho-CoA + ATP = ADP + CoA + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:18333: oleandomycin + ATP = oleandomycin 2'-O-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:18377: streptomycin + ATP = streptomycin 3''-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:18437: 4-CDP-2-C-methyl-D-erythritol + ATP = 4-CDP-2-C-methyl-D-erythritol 2-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:18629: NAD(+) + ATP = ADP + NADP(+) + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:19129: thymidine + ATP = dTMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:19201: 2'-deoxyguanosine + ATP = dGMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:20509: viomycin + ATP = O-phosphoviomycin + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:20780: GMP + ATP = GDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:20824: adenosine + ATP = AMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:21140: inosine + ATP = IMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:21544: (2E,6E)-farnesyl diphosphate + ATP = (2E,6E)-farnesyl triphosphate + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:21896: (R)-1-aminopropan-2-yl phosphate + adenosylcob(III)yrate + ATP = adenosylcob(III)inamide phosphate + ADP + phosphate + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:21944: D-cellobiose + ATP = 6-phospho-beta-D-glucosyl-(1->4)-D-glucose + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:22268: streptomycin + ATP = streptomycin 6-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:22448: pseudouridine + ATP = psi-UMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:22472: (R)-pantetheine + ATP = (R)-4'-phosphopantetheine + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:23100: dAMP + ATP = dADP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:23388: hygromycin B + ATP = 7''-O-phosphohygromycin B + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:23452: 2'-deoxyadenosine + ATP = dAMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:24152: adenosine 5'-phosphosulfate + ATP = 3'-phosphoadenylyl sulfate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:24256: kanamycin A + ATP = kanamycin 3'-phosphate + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:24400: UMP + ATP = UDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:24674: cytidine + ATP = CMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:25037: L-seryl-tRNA(Sec) + ATP = O-phospho-L-seryl-tRNA(Sec) + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:25094: dCMP + ATP = dCDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:25568: beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:27710: guanosine + ATP = GMP + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:30655: dUMP + ATP = dUDP + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:34999: ADP(in) + ATP(out) = ADP(out) + ATP(in)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:41944: [amino-group carrier protein]-C-terminal-N-(1,4-dicarboxybutan-1-yl)-L-glutamine + ATP = [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-phosphooxy-5-oxopentan-1-yl)-L-glutamine + ADP
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:59832: N(6)-(D-fructosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-fructosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+
+RHEA:48432: N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Lipid kinase activity: ATP-dependent phosphorylation of a lipid substrate
+

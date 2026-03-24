@@ -1,0 +1,13 @@
+False Negatives for EpoxideHydrolase
+==================================================
+Total: 3
+
+RHEA:10700: limonene 1,2-epoxide + H2O = limonene-1,2-diol
+  → Not a hydrolase: Pattern doesn't match expected hydrolysis transformation
+
+RHEA:16665: (5Z,9E,14Z)-(8xi,11R,12S)-11,12-epoxy-8-hydroxyicosa-5,9,14-trienoate + H2O = (5Z,9E,14Z)-(8xi,11xi,12S)-8,11,12-trihydroxyicosa-5,9,14-trienoate
+  → Not a hydrolase: Pattern doesn't match expected hydrolysis transformation
+
+RHEA:23900: cis-stilbene oxide + H2O = (1R,2R)-hydrobenzoin
+  → Not a hydrolase: Pattern doesn't match expected hydrolysis transformation
+

@@ -1,0 +1,235 @@
+False Negatives for Hydrolase
+==================================================
+Total: 77
+
+RHEA:10000: pentanamide + H2O = pentanoate + NH4(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10016: O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10040: adenosine 3',5'-bisphosphate + H2O = AMP + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10076: lactose + H2O = beta-D-galactose + D-glucose
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10100: a sterol ester + H2O = a sterol + a fatty acid + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10120: adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)
+  → Molecule count decreased - not hydrolysis
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10148: blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)
+  → Molecule count decreased - not hydrolysis
+
+RHEA:10172: (3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10184: (4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10244: 4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10248: dUTP + H2O = dUMP + diphosphate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10348: 5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10352: an N-acetylarylalkylamine + H2O = an aralkylamine + acetate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10360: 3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10412: ADP-D-ribose + H2O = D-ribose 5-phosphate + AMP + 2 H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10424: N-benzoylglycine + H2O = benzoate + glycine
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10432: 2-(acetamidomethylene)succinate + 2 H2O + H(+) = succinate semialdehyde + acetate + NH4(+) + CO2
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10440: D-glucono-1,5-lactone + H2O = D-gluconate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10464: [(1->4)-N-acetyl-beta-D-glucosaminyl](n) + n H2O = chitosan + n acetate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10484: N-feruloylglycine + H2O = (E)-ferulate + glycine
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10492: phosphocholine + H2O = choline + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10536: 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine 6-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine + sulfate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10560: 4-hydroxy-1-pyrroline-2-carboxylate + H2O + H(+) = 2,5-dioxopentanoate + NH4(+)
+  → Molecule count decreased - not hydrolysis
+
+RHEA:10564: oxaloacetate 4-methyl ester + H2O = methanol + oxaloacetate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10604: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = phosphocholine + a 1,2-diacyl-sn-glycerol + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10644: 2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10684: O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10688: streptomycin 6-phosphate + H2O = streptomycin + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10700: limonene 1,2-epoxide + H2O = limonene-1,2-diol
+  → Molecule count decreased - not hydrolysis
+
+RHEA:10816: methyl-2-alpha-L-fucopyranosyl-beta-D-galactoside + H2O = methyl beta-D-galactoside + L-fucose
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10832: a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = 6-(alpha-D-glucosaminyl)-1D-myo-inositol + a 1,2-diacyl-sn-glycero-3-phosphate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10872: an N-acyl-L-aspartate + H2O = a carboxylate + L-aspartate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10880: 7-methylxanthosine + H2O = 7-methylxanthine + D-ribose + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10896: limonin + 2 H2O = limonoate + 2 H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:10944: psi-UMP + H2O = pseudouridine + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11012: L-tryptophanamide + H2O = L-tryptophan + NH4(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11064: beta-D-fructose 1,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11068: (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11088: trimetaphosphate + H2O = triphosphate + 2 H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11112: isochorismate + H2O = (2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate + pyruvate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11184: 3-(carbamoylamino)propanoate + H2O + 2 H(+) = beta-alanine + NH4(+) + CO2
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11192: an (S)-2-haloacid + H2O = a (2R)-2-hydroxycarboxylate + a halide anion + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11232: 3'-phosphoadenylyl sulfate + H2O = sulfate + adenosine 3',5'-bisphosphate + 2 H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11248: [(3R)-hydroxybutanoate](n) + H2O = [(3R)-hydroxybutanoate](n-1) + (R)-3-hydroxybutanoate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11312: atrazine + H2O = hydroxyatrazine + chloride + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11392: 1D-myo-inositol 1,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 1,3,4-trisphosphate + phosphate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11408: riboflavin + H2O + H(+) = lumichrome + ribitol
+  → Molecule count decreased - not hydrolysis
+
+RHEA:11516: succinyl-CoA + H2O = succinate + CoA + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11544: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11548: 5-(4-acetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(4-hydroxy-but-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11552: a 1-O-alkyl-2-acetyl-sn-glycerol + H2O = a 1-O-alkyl-sn-glycerol + acetate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11660: a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + acetate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11716: a monoamide of a dicarboxylate + H2O = a dicarboxylate + NH4(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11720: N-methylhydantoin + ATP + 2 H2O = N-carbamoylsarcosine + ADP + phosphate + 2 H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11744: thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11752: acetylsalicylate + H2O = salicylate + acetate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11764: methylguanidine + H2O = urea + methylamine
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11800: NAD(+) + H2O = beta-nicotinamide D-ribonucleotide + AMP + 2 H(+)
+  → Contains redox cofactor - likely oxidoreductase
+
+RHEA:11828: a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + H2O = a 3'-end 2'-phospho-ribonucleotide-RNA + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11908: nonane-4,6-dione + H2O = pentan-2-one + butanoate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11940: L-citrulline + H2O + 2 H(+) = L-ornithine + NH4(+) + CO2
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11948: 4-hydroxybenzoyl-CoA + H2O = 4-hydroxybenzoate + CoA + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11956: cholesteryl 3-beta-D-glucoside + H2O = cholesterol + D-glucose
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:11964: 5,6alpha-epoxy-5alpha-cholestan-3beta-ol + H2O = 5alpha-cholestane-3beta,5,6beta-triol
+  → Molecule count decreased - not hydrolysis
+
+RHEA:12028: L-5-carboxymethylhydantoin + H2O = N-carbamoyl-L-aspartate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:12032: a 3-(acyloxy)acyl derivative of bacterial toxin + H2O = a 3-hydroxyacyl derivative of bacterial toxin + a fatty acid + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:12044: a triacylglycerol + H2O = a diacylglycerol + a fatty acid + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:12072: an (S)-2-haloacid + H2O = a (2S)-2-hydroxycarboxylate + a halide anion + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:17881: N-sulfo-D-glucosamine + H2O = D-glucosamine + sulfate
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:49552: N(6)-(1-hydroxy-2-oxopropyl)-L-lysyl-[protein] + H2O = lactate + L-lysyl-[protein] + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:49556: S-(1-hydroxy-2-oxopropyl)-L-cysteinyl-[protein] + H2O = lactate + L-cysteinyl-[protein] + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:57188: N(omega)-(1-hydroxy-2-oxoethyl)-L-arginyl-[protein] + H2O = L-arginyl-[protein] + glycolate + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:57192: N(6)-(1-hydroxy-2-oxoethyl)-L-lysyl-[protein] + H2O = glycolate + L-lysyl-[protein] + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+
+RHEA:57196: S-(1-hydroxy-2-oxoethyl)-L-cysteinyl-[protein] + H2O = glycolate + L-cysteinyl-[protein] + H(+)
+  → Pattern doesn't match expected hydrolysis transformation
+

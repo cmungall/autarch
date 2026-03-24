@@ -1,0 +1,25 @@
+False Positives for CatalyticActivityActingOnRNA
+==================================================
+Total: 7
+
+RHEA:12861: guanosine + H2O + H(+) = xanthosine + NH4(+)
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:15577: uridine + H2O = D-ribose + uracil
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:16069: cytidine + H2O + H(+) = uridine + NH4(+)
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:16657: inosine + H2O = hypoxanthine + D-ribose
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:18669: adenosine + H2O = D-ribose + adenine
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:21708: S-adenosyl-L-homocysteine + H2O = L-homocysteine + adenosine
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:24408: adenosine + H2O + H(+) = inosine + NH4(+)
+  → catalytic activity, acting on RNA: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+

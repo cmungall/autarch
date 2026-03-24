@@ -1,0 +1,28 @@
+False Negatives for SMethyltransferase
+==================================================
+Total: 8
+
+RHEA:11172: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + L-homocysteine = (6S)-5,6,7,8-tetrahydrofolate + L-methionine
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:18277: a thiol + S-adenosyl-L-methionine = a methyl thioether + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:19613: dimethyl sulfide + S-adenosyl-L-methionine = trimethylsulfonium + S-adenosyl-L-homocysteine
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:21820: L-homocysteine + S-adenosyl-L-methionine = L-methionine + S-adenosyl-L-homocysteine + H(+)
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:22336: L-homocysteine + glycine betaine = N,N-dimethylglycine + L-methionine
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:22788: dimethylsulfonioacetate + L-homocysteine = (methylsulfanyl)acetate + L-methionine + H(+)
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:24000: a 6-O-methyl-2'-deoxyguanosine in DNA + L-cysteinyl-[protein] = S-methyl-L-cysteinyl-[protein] + a 2'-deoxyguanosine in DNA
+  → No supported s-methyltransferase activity child classifier matched
+
+RHEA:26337: S-methyl-L-methionine + L-homocysteine = 2 L-methionine + H(+)
+  → No supported s-methyltransferase activity child classifier matched
+

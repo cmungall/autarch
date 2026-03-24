@@ -1,0 +1,10 @@
+False Negatives for Guanylyltransferase
+==================================================
+Total: 2
+
+RHEA:18153: 2 GTP + H(+) = P(1),P(4)-bis(5'-guanosyl) tetraphosphate + diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → AMP release indicates an ATP-dependent ligase or activation step, not nucleotidyl transfer
+

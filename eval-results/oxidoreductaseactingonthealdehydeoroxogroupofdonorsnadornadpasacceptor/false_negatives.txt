@@ -1,0 +1,13 @@
+False Negatives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 3
+
+RHEA:28502: S-(hydroxymethyl)mycothiol + NAD(+) = S-formylmycothiol + NADH + H(+)
+  → No aldehyde or oxo donor detected on the substrate side
+
+RHEA:32135: 2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = propanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:33207: L-glutamate + ATP + NADPH + H(+) = L-glutamate 5-semialdehyde + ADP + phosphate + NADP(+)
+  → No NAD(P)+ acceptor -> NAD(P)H reduction signature
+

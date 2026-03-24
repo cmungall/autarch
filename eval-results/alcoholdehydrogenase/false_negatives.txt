@@ -1,0 +1,49 @@
+False Negatives for AlcoholDehydrogenase
+==================================================
+Total: 15
+
+RHEA:10160: L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:10664: perillyl alcohol + NAD(+) = perillyl aldehyde + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:12548: 2-cis,4-trans-xanthoxin + NAD(+) = 2-cis-(+)-abscisic aldehyde + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:14873: indole-3-ethanol + NAD(+) = indole-3-acetaldehyde + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:16949: myo-inositol + NAD(+) = scyllo-inosose + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:18529: 3-methylbutanol + NAD(+) = 3-methylbutanal + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:19401: methanol + NAD(+) = formaldehyde + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:21284: all-trans-retinol + NAD(+) = all-trans-retinal + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:22056: hexadecan-1-ol + NAD(+) = hexadecanal + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:24620: octan-1-ol + NAD(+) = octanal + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:25290: ethanol + NAD(+) = acetaldehyde + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:33031: keto-D-fructose + NADH + H(+) = D-sorbitol + NAD(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:33199: butan-1-ol + NAD(+) = butanal + NADH + H(+)
+  → No alcohol ⇌ carbonyl conversion detected
+
+RHEA:55668: 11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:48488: all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)
+  → Not a dehydrogenase: Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+

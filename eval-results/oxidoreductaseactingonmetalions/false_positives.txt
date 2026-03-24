@@ -1,0 +1,28 @@
+False Positives for OxidoreductaseActingOnMetalIons
+==================================================
+Total: 8
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:13949: 2 reduced [rubredoxin] + NADP(+) + H(+) = 2 oxidized [rubredoxin] + NADPH
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:15237: 2 Fe(III)-[cytochrome c2] + NADPH = 2 Fe(II)-[cytochrome c2] + NADP(+) + H(+)
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:15617: Fe(3+) + Fe(II)-[cytochrome c] = Fe(2+) + Fe(III)-[cytochrome c]
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:16157: 2 Fe(III)-[leghemoglobin] + NADPH = 2 Fe(II)-[leghemoglobin] + NADP(+) + H(+)
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:16161: 2 Fe(III)-[leghemoglobin] + NADH = 2 Fe(II)-[leghemoglobin] + NAD(+) + H(+)
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:16581: 2 Fe(II)-[cytochrome c] + H2O2 + 2 H(+) = 2 Fe(III)-[cytochrome c] + 2 H2O
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+
+RHEA:18597: 2 reduced [rubredoxin] + NAD(+) + H(+) = 2 oxidized [rubredoxin] + NADH
+  → Metal ion oxidoreductase: metal ion is primary substrate (no other organic substrates)
+

@@ -1,0 +1,16 @@
+# Simple protease reaction - peptide bond hydrolysis
+# protein + H2O → peptide1 + peptide2
+
+left_participants:
+  - name: "protein"
+    count: 1
+  - chebi_id: "CHEBI:15377"
+    name: "water"
+    smiles: "O"
+    count: 1
+
+right_participants:
+  - name: "peptide fragment 1"
+    count: 1
+  - name: "peptide fragment 2"
+    count: 1

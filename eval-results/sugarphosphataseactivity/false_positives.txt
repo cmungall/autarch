@@ -1,0 +1,58 @@
+False Positives for SugarPhosphataseActivity
+==================================================
+Total: 18
+
+RHEA:10092: a 2'-deoxyribonucleoside 3'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:10688: streptomycin 6-phosphate + H2O = streptomycin + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:11500: 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + H2O = 3-deoxy-alpha-D-manno-oct-2-ulosonate + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:12484: a ribonucleoside 5'-phosphate + H2O = a ribonucleoside + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:13057: an N-acylneuraminate 9-phosphate + H2O = an N-acylneuraminate + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:15777: 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + H2O = 1-guanidino-1-deoxy-scyllo-inositol + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:19309: 2-O-(alpha-D-mannosyl)-3-phosphoglycerate + H2O = (2R)-2-O-(alpha-D-mannosyl)-glycerate + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:22140: a nucleoside 5'-phosphate + H2O = a nucleoside + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:22320: 2 alpha-D-glucose 1-phosphate + H2O = D-maltose + 2 phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:22652: 2-O-(alpha-D-glucopyranosyl)-sn-glycerol 3-phosphate + H2O = 2-O-(alpha-D-glucopyranosyl)glycerol + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:23680: a ribonucleoside 5'-triphosphate + H2O = a ribonucleoside 5'-diphosphate + phosphate + H(+)
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:25041: O-phospho-L-seryl-tRNA(Sec) + selenophosphate + H2O = L-selenocysteinyl-tRNA(Sec) + 2 phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:28518: D-glycero-beta-D-manno-heptose 1,7-bisphosphate + H2O = D-glycero-beta-D-manno-heptose 1-phosphate + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:35603: beta-D-fructose 1-phosphate + H2O = D-fructose + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:36167: a 2'-deoxyribonucleoside 5'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:36799: a ribonucleoside 5'-diphosphate + H2O = a ribonucleoside 5'-phosphate + phosphate + H(+)
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+
+RHEA:67004: a 5'-end triphospho-ribonucleoside in mRNA + H2O = a 5'-end diphospho-ribonucleoside in mRNA + phosphate + H(+)
+  → Sugar-phosphatase activity: hydrolytic removal of one phosphate from a carbohydrate-like substrate
+

@@ -1,0 +1,10 @@
+False Positives for AldehydeKetoneTransferase
+==================================================
+Total: 2
+
+RHEA:15773: dihydroxyacetone + ATP = dihydroxyacetone phosphate + ADP + H(+)
+  → Aldehyde/ketone transferase: label contains 'dihydroxyacetone'
+
+RHEA:23844: sedoheptulose + ATP = D-sedoheptulose 7-phosphate + ADP + H(+)
+  → Aldehyde/ketone transferase: label contains 'sedoheptulose'
+

@@ -1,0 +1,10 @@
+False Positives for Esterase
+==================================================
+Total: 2
+
+RHEA:25213: UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + H2O = 2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosaminyl 1-phosphate + UMP + 2 H(+)
+  → O-acyl ester hydrolysis
+
+RHEA:31347: (+)-abscisic acid D-glucopyranosyl ester + H2O = 2-cis-(+)-abscisate + beta-D-glucose + H(+)
+  → Ester hydrolysis (explicit ester substrate)
+

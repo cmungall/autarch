@@ -1,0 +1,7 @@
+False Negatives for HistoneMethyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → Requires SAM/SAH coupling and the supported protein lysine to methyl-lysine scaffold
+

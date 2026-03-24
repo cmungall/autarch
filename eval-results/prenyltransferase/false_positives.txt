@@ -1,0 +1,46 @@
+False Positives for Prenyltransferase
+==================================================
+Total: 14
+
+RHEA:13809: aspulvinone E + 2 dimethylallyl diphosphate = aspulvinone H + 2 diphosphate
+  → Prenyltransferase: dimethylallyl (C5) group transfer
+
+RHEA:14009: 2 dimethylallyl diphosphate = (R,R)-chrysanthemyl diphosphate + diphosphate
+  → Prenyltransferase: dimethylallyl (C5) group transfer
+
+RHEA:14173: L-tryptophan + dimethylallyl diphosphate = 4-(3-methylbut-2-enyl)-L-tryptophan + diphosphate
+  → Prenyltransferase: dimethylallyl (C5) group transfer
+
+RHEA:15285: dimethylallyl diphosphate + AMP = N(6)-(dimethylallyl)adenosine 5'-phosphate + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:19345: (6aS,11aS)-3,6a,9-trihydroxypterocarpan + dimethylallyl diphosphate = (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:21676: 2 dimethylallyl diphosphate = (R)-lavandulyl diphosphate + diphosphate
+  → Prenyltransferase: dimethylallyl (C5) group transfer
+
+RHEA:23184: (6aS,11aS)-3,6a,9-trihydroxypterocarpan + dimethylallyl diphosphate = (6aS,11aS)-4-dimethylallyl-3,6a,9-trihydroxypterocarpan + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:23300: isopentenyl diphosphate + (2E)-geranyl diphosphate = (2Z,6E)-farnesyl diphosphate + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:27854: 4-hydroxybenzoate + (2E)-geranyl diphosphate = 3-geranyl-4-hydroxybenzoate + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:30463: (2Z,6Z)-farnesyl diphosphate = (+)-alpha-santalene + diphosphate
+  → Prenyltransferase: farnesyl (C15) group transfer
+
+RHEA:30467: (2Z,6Z)-farnesyl diphosphate = (+)-endo-beta-bergamotene + diphosphate
+  → Prenyltransferase: farnesyl (C15) group transfer
+
+RHEA:30471: (2Z,6Z)-farnesyl diphosphate = (1S,5S,6S)-alpha-bergamotene + diphosphate
+  → Prenyltransferase: farnesyl (C15) group transfer
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → Prenyltransferase: prenyl chain elongation
+

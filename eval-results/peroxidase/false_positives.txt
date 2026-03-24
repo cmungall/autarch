@@ -1,0 +1,7 @@
+False Positives for Peroxidase
+==================================================
+Total: 1
+
+RHEA:30276: H2O2 + AH2 => A + 2 H2O
+  → Peroxidase: H2O2-dependent oxidation [pattern matched]
+

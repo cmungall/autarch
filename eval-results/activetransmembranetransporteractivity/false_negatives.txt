@@ -1,0 +1,106 @@
+False Negatives for ActiveTransmembraneTransporterActivity
+==================================================
+Total: 34
+
+RHEA:11484: a quinol + 2 Fe(III)-[cytochrome c](out) = a quinone + 2 Fe(II)-[cytochrome c](out) + 2 H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28490: K(+)(in) + H(+)(in) = K(+)(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28574: sulfate(in) + H(+)(in) = sulfate(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28715: (R)-malate(in) + 2 H(+)(in) = (R)-malate(out) + 2 H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28835: citrate(out) + succinate(in) = citrate(in) + succinate(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28915: 4-aminobutanoate(in) + H(+)(in) = 4-aminobutanoate(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28967: L-proline(in) + Na(+)(in) = L-proline(out) + Na(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:28987: N-acetylneuraminate(in) + H(+)(in) = N-acetylneuraminate(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29023: L-fucose(in) + H(+)(in) = L-fucose(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29031: L-glutamate(in) + 2 Na(+)(in) = L-glutamate(out) + 2 Na(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29255: Ca(2+)(in) + Na(+)(out) = Ca(2+)(out) + Na(+)(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29283: L-alanine(in) + Na(+)(in) = L-alanine(out) + Na(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29303: succinate(in) + 2 H(+)(in) = succinate(out) + 2 H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29323: fumarate(in) + succinate(out) = fumarate(out) + succinate(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29339: (S)-malate(in) + 2 H(+)(in) = (S)-malate(out) + 2 H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29427: 4-(trimethylamino)butanoate(in) + (R)-carnitine(out) = 4-(trimethylamino)butanoate(out) + (R)-carnitine(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29463: K(+)(in) = K(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:29943: 2-dehydro-3-deoxy-D-gluconate(in) + H(+)(in) = 2-dehydro-3-deoxy-D-gluconate(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:30403: Fe(3+)(out) + L-ascorbate(in) = monodehydro-L-ascorbate radical(in) + Fe(2+)(out) + H(+)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:32123: citrate(in) + H(+)(in) = citrate(out) + H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:32823: phosphate(in) = phosphate(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:33135: malonate(in) + Na(+)(in) = malonate(out) + Na(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:33139: L-aspartate(in) + L-alanine(out) = L-aspartate(out) + L-alanine(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:34915: D-galactose(in) = D-galactose(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:34963: Na(+)(in) = Na(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:34991: L-ornithine(in) + L-arginine(out) = L-ornithine(out) + L-arginine(in)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:49236: N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:30251: 2 a ubiquinol + O2 + n H(+)(in) = 2 a ubiquinone + 2 H2O + n H(+)(out)
+  → No supported active transmembrane transporter activity child classifier matched
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No supported active transmembrane transporter activity child classifier matched
+

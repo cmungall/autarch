@@ -1,0 +1,7 @@
+False Positives for TranslocaseLinkedToReductiveDehalogenation
+==================================================
+Total: 1
+
+RHEA:29823: chloride(in) = chloride(out)
+  → Translocase (reductive dehalogenation-coupled): CHEBI:17996: in→out
+

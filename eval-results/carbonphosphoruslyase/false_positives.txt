@@ -1,0 +1,31 @@
+False Positives for CarbonPhosphorusLyase
+==================================================
+Total: 9
+
+RHEA:13173: phosphonate + NAD(+) + H2O = phosphate + NADH + H(+)
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → Carbon-phosphorus lyase: C-P bond cleavage
+
+RHEA:16749: phosphonoacetate + H2O = acetate + phosphate + H(+)
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:17021: (2-aminoethyl)phosphonate + pyruvate = phosphonoacetaldehyde + L-alanine
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:18065: phosphonate(out) + ATP + H2O = phosphonate(in) + ADP + phosphate + H(+)
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:18905: phosphonoacetaldehyde + H2O = acetaldehyde + phosphate + H(+)
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:20768: 3-phosphonopyruvate + H(+) = phosphonoacetaldehyde + CO2
+  → Carbon-phosphorus lyase: C-P bond cleavage
+
+RHEA:32775: (2-aminoethyl)phosphonate(out) + ATP + H2O = (2-aminoethyl)phosphonate(in) + ADP + phosphate + H(+)
+  → Carbon-phosphorus lyase: phosphonate substrate
+
+RHEA:34679: methylphosphonate + ATP = alpha-D-ribose 1-methylphosphonate 5-triphosphate + adenine
+  → Carbon-phosphorus lyase: phosphonate substrate
+

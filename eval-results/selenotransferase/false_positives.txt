@@ -1,0 +1,22 @@
+False Positives for Selenotransferase
+==================================================
+Total: 6
+
+RHEA:12737: [PrdC protein]-Se-L-selenocysteinyl-S-L-cysteine + 5-aminopentanoate = [PrdC protein]-L-selenocysteine/L-cysteine + D-proline
+  → Selenotransferase: selenium-containing group transfer
+
+RHEA:18737: hydrogenselenide + ATP + H2O = selenophosphate + AMP + phosphate + 2 H(+)
+  → Selenotransferase: selenium-containing group transfer
+
+RHEA:26341: S-methyl-L-methionine + L-selenocysteine = Se-methyl-L-selenocysteine + L-methionine + H(+)
+  → Selenotransferase: selenium-containing group transfer
+
+RHEA:31151: L-selenocystathionine + H2O = L-selenocysteine + 2-oxobutanoate + NH4(+)
+  → Selenotransferase: selenium-containing group transfer
+
+RHEA:31211: L-selenomethionine + ATP + H2O = L-adenosylselenomethionine + phosphate + diphosphate
+  → Selenotransferase: selenium-containing group transfer
+
+RHEA:34927: selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)
+  → Selenotransferase: selenium-containing group transfer
+

@@ -1,0 +1,40 @@
+False Negatives for Cyclase
+==================================================
+Total: 12
+
+RHEA:13729: FAD = riboflavin cyclic-4',5'-phosphate + AMP + H(+)
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:14977: 3-carboxy-2,5-dihydro-5-oxofuran-2-acetate = 3-carboxy-cis,cis-muconate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:17637: squalene = hop-22(29)-ene
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:18209: (2E)-geranyl diphosphate = (2S,4R)-bornyl diphosphate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:22360: D-glutamate = 5-oxo-D-proline + H2O
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:22592: (9Z,13S,15Z)-12,13-epoxyoctadeca-9,11,15-trienoate = (9S,13S,15Z)-12-oxophyto-10,15-dienoate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:23976: a 3'-end 3'-phospho-ribonucleotide-RNA + ATP = a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + AMP + diphosphate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:25621: geranylgeranyl diphosphate = tuberculosinyl diphosphate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:28294: (2E,6E)-farnesyl diphosphate = (-)-(E)-beta-caryophyllene + diphosphate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:30675: tetrahymanol = squalene + H2O
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:31895: (2E,6E)-farnesyl diphosphate = alpha-humulene + diphosphate
+  → No cyclic nucleotide product or cyclase pattern detected
+
+RHEA:32219: all-trans-lycopene = gamma-carotene
+  → No cyclic nucleotide product or cyclase pattern detected
+

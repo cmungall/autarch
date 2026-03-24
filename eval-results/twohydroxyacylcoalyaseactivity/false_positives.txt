@@ -1,0 +1,10 @@
+False Positives for TwoHydroxyacylCoALyaseActivity
+==================================================
+Total: 2
+
+RHEA:16545: formyl-CoA + oxalate = oxalyl-CoA + formate
+  → 2-hydroxyacyl-CoA lyase activity: cleavage of a hydroxylated acyl-CoA to formyl-CoA and an aldehyde (reverse reaction orientation)
+
+RHEA:19333: oxalyl-CoA + H(+) = formyl-CoA + CO2
+  → 2-hydroxyacyl-CoA lyase activity: cleavage of a hydroxylated acyl-CoA to formyl-CoA and an aldehyde
+

@@ -1,0 +1,7 @@
+False Negatives for UbiquitinLigase
+==================================================
+Total: 1
+
+RHEA:11252: hydroxylamine + L-asparagine + H(+) = beta-L-aspartylhydroxamate + NH4(+)
+  → No ubiquitin substrate - only ubiquitin ligases use ubiquitin
+

@@ -1,0 +1,334 @@
+False Positives for GlycerophospholipaseActivity
+==================================================
+Total: 110
+
+RHEA:10180: (6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:10348: 5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:10412: ADP-D-ribose + H2O = D-ribose 5-phosphate + AMP + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:10608: (E)-cinnamate + reduced [NADPH--hemoprotein reductase] + O2 = (E)-4-coumarate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:10772: 6-phospho-beta-D-glucosyl-(1->4)-D-glucose + H2O = D-glucose 6-phosphate + D-glucose
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:10812: N-succinyl-L-glutamate 5-semialdehyde + NAD(+) + H2O = N-succinyl-L-glutamate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:10956: (E)-cinnamate + NADPH + O2 + H(+) = trans-2-coumarate + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:11256: limonin + UDP-alpha-D-glucose + H2O = limonin 17-beta-D-glucoside + UDP + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:11280: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + H2O = 5-hydroxymethyl-dCMP + (6S)-5,6,7,8-tetrahydrofolate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:11364: pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:11720: N-methylhydantoin + ATP + 2 H2O = N-carbamoylsarcosine + ADP + phosphate + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:12056: D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:12228: L-aspartate + L-glutamine + ATP + H2O = L-asparagine + L-glutamate + AMP + diphosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:12897: 2-cis-(+)-abscisate + reduced [NADPH--hemoprotein reductase] + O2 = (+)-8'-hydroxyabscisate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:13021: vanillate + NADH + O2 + H(+) = 3,4-dihydroxybenzoate + formaldehyde + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:13309: vanillin + NAD(+) + H2O = vanillate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:13425: a pyrimidine ribonucleoside 5'-phosphate + H2O = a pyrimidine nucleobase + D-ribose 5-phosphate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:13961: protoporphyrin IX + Mg(2+) + ATP + H2O = Mg-protoporphyrin IX + ADP + phosphate + 3 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14033: sn-glycero-3-phospho-1D-myo-inositol + H2O = 1D-myo-inositol 1-phosphate + glycerol + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14429: a [oligopeptide](in) + ATP + H2O = a [oligopeptide](out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14513: L-aspartyl-tRNA(Asn) + L-glutamine + ATP + H2O = L-asparaginyl-tRNA(Asn) + L-glutamate + ADP + phosphate + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14613: taurine(out) + ATP + H2O = taurine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14669: D-glyceraldehyde 3-phosphate + NADP(+) + H2O = (2R)-3-phosphoglycerate + NADPH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:14673: a polar amino acid(out) + ATP + H2O = a polar amino acid(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:15157: 4-hydroxyphenylacetate + NADPH + O2 + H(+) = homogentisate + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:15161: 4-hydroxyphenylacetate + NADH + O2 + H(+) = homogentisate + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:15181: an acyl-CoA(out) + ATP + H2O = an acyl-CoA(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:15221: a CDP-1,2-diacyl-sn-glycerol + H2O = a 1,2-diacyl-sn-glycero-3-phosphate + CMP + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:15265: 3-amino-2-oxopropyl phosphate + 1-deoxy-D-xylulose 5-phosphate = pyridoxine 5'-phosphate + phosphate + 2 H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:15341: hydrogenobyrinate a,c-diamide + Co(2+) + ATP + H2O = cob(II)yrinate a,c diamide + ADP + phosphate + 5 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:15681: 2-hydroxy-5-carboxymethylmuconate semialdehyde + NAD(+) + H2O = (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:16177: retinal + NAD(+) + H2O = retinoate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:16265: trans-5-O-(4-coumaroyl)-D-quinate + reduced [NADPH--hemoprotein reductase] + O2 = 5-O-[(E)-caffeoyl]-D-quinate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:16485: imidazole-4-acetate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O = 1-(5-phosphoribosyl)imidazole-4-acetate + ADP + phosphate + diphosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:16501: sn-glycero-3-phospho-1D-myo-inositol + H2O = myo-inositol + sn-glycerol 3-phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:17273: (4-hydroxyphenyl)acetaldehyde + NAD(+) + H2O = 4-hydroxyphenylacetate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:17293: precorrin-3A + NADH + O2 + 2 H(+) = precorrin-3B + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:17521: L-glutamyl-tRNA(Gln) + L-glutamine + ATP + H2O = L-glutaminyl-tRNA(Gln) + L-glutamate + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:17669: 3-(2-hydroxyphenyl)propanoate + NADH + O2 + H(+) = 3-(2,3-dihydroxyphenyl)propanoate + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:17777: a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + H2O = a 1-O-alkyl-sn-glycero-3-phosphocholine + acetate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:18045: 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + H2O = alpha-D-mannose derivative + alpha-D-glucose 1-phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:18053: paraoxon + H2O = diethylphosphate + 4-nitrophenol + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:18149: N-acetyl-D-galactosamine 6-phosphate + H2O = D-galactosamine 6-phosphate + acetate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:18337: D-ribose 5-phosphate + uracil = psi-UMP + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:18857: lithocholate + reduced [NADPH--hemoprotein reductase] + O2 = 6beta-hydroxylithocholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:19121: an S-substituted glutathione(in) + ATP + H2O = an S-substituted glutathione(out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:19253: a sphingomyelin + H2O = phosphocholine + an N-acylsphing-4-enine + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:19261: heme b(in) + ATP + H2O = heme b(out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:19545: sn-glycerol 3-phosphocholine + H2O = phosphocholine + glycerol + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20129: AMP + H2O = adenine + D-ribose 5-phosphate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20185: a CMP-N-acyl-beta-neuraminate + H2O = an N-acylneuraminate + CMP + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20201: L-phenylalanine + ATP + H2O = D-phenylalanine + AMP + diphosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20421: alpha-maltose 6'-phosphate + H2O = D-glucose 6-phosphate + D-glucose
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20469: IMP + H2O = hypoxanthine + D-ribose 5-phosphate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:20545: L-kynurenine + NADPH + O2 + H(+) = 3-hydroxy-L-kynurenine + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:20832: guanine(out) + ATP + H2O = guanine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:21392: 2-phenylacetaldehyde + NAD(+) + H2O = 2-phenylacetate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:21408: L-phenylalanine + NAD(+) + H2O = 3-phenylpyruvate + NH4(+) + NADH + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:21668: sn-glycerol 3-phosphate(out) + ATP + H2O = sn-glycerol 3-phosphate(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:21692: CDP-glycerol + H2O = sn-glycerol 3-phosphate + CMP + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:22132: D-maltose(out) + ATP + H2O = D-maltose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:22176: leukotriene B4 + reduced [NADPH--hemoprotein reductase] + O2 = 20-hydroxy-leukotriene B4 + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:22204: 3-hydroxyphenylacetate + NADPH + O2 + H(+) = homogentisate + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:22208: 3-hydroxyphenylacetate + NADH + O2 + H(+) = homogentisate + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:22464: L-tyrosine + reduced [NADPH--hemoprotein reductase] + O2 = N-hydroxy-L-tyrosine + oxidized [NADPH--hemoprotein reductase] + H2O + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:22544: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + H2O = a 2,3-saturated aldehyde + sn-glycerol 3-phosphocholine
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:22936: N-acetyl-D-glucosamine 6-phosphate + H2O = D-glucosamine 6-phosphate + acetate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:23008: alpha,alpha-trehalose 6-phosphate + H2O = D-glucose 6-phosphate + D-glucose
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:23140: beta-nicotinamide D-ribonucleotide + H2O = D-ribose 5-phosphate + nicotinamide + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:23144: N-acetyl-alpha-D-glucosamine + NAD(+) + H2O = N-acetyl-D-glucosaminate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:23644: lithocholate + reduced [NADPH--hemoprotein reductase] + O2 = hyodeoxycholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:23964: (E)-coniferaldehyde + NADP(+) + H2O = (E)-ferulate + NADPH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:23968: (E)-coniferaldehyde + NAD(+) + H2O = (E)-ferulate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:24120: leukotriene E4 + NADPH + O2 + H(+) = 20-hydroxy-leukotriene E4 + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:24216: (2E,6E)-farnesal + NAD(+) + H2O = (2E,6E)-farnesoate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:24785: 3-(3-hydroxyphenyl)propanoate + NADH + O2 + H(+) = 3-(2,3-dihydroxyphenyl)propanoate + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:26225: abieta-7,13-dien-18-al + NAD(+) + H2O = abieta-7,13-dien-18-oate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:27298: 2-formylbenzoate + NAD(+) + H2O = phthalate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:27966: 7,8-dihydroneopterin 3'-triphosphate + H2O = 6-carboxy-5,6,7,8-tetrahydropterin + triphosphate + acetaldehyde + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:28230: germacra-1(10),4,11(13)-trien-12-oate + reduced [NADPH--hemoprotein reductase] + O2 = (+)-costunolide + oxidized [NADPH--hemoprotein reductase] + 2 H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:29035: L-glutamate(out) + ATP + H2O = L-glutamate(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29767: D-methionine(out) + ATP + H2O = D-methionine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29783: L-cysteine(in) + ATP + H2O = L-cysteine(out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29799: D-allose(out) + ATP + H2O = D-allose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29811: thiamine(out) + ATP + H2O = thiamine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29895: L-glutamine(out) + ATP + H2O = L-glutamine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29899: D-xylose(out) + ATP + H2O = D-xylose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29903: D-ribose(out) + ATP + H2O = D-ribose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29995: putrescine(out) + ATP + H2O = putrescine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:29999: spermidine(out) + ATP + H2O = spermidine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:30007: L-arabinose(out) + ATP + H2O = L-arabinose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:30011: beta-D-galactose(out) + ATP + H2O = beta-D-galactose(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:30595: 4-hydroxyphenylacetate + FADH2 + O2 = 3,4-dihydroxyphenylacetate + FAD + H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:31271: 1-hydroxy-2-naphthoate + NADH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NAD(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:31507: aldehydo-D-ribose 5-phosphate + D-glyceraldehyde 3-phosphate + L-glutamine = pyridoxal 5'-phosphate + L-glutamate + phosphate + 3 H2O + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:31571: 1-hydroxy-2-naphthoate + NADPH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:32775: (2-aminoethyl)phosphonate(out) + ATP + H2O = (2-aminoethyl)phosphonate(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:32783: glycine betaine(out) + ATP + H2O = glycine betaine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:32787: L-ectoine(out) + ATP + H2O = L-ectoine(in) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:33147: daunorubicin(in) + ATP + H2O = daunorubicin(out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:33503: itraconazole(in) + ATP + H2O = itraconazole(out) + ADP + phosphate + H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:34331: indole-3-pyruvate + NADPH + O2 + H(+) = (indol-3-yl)acetate + CO2 + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:34635: 1-deoxy-11-oxopentalenate + NADPH + O2 + H(+) = pentalenolactone D + NADP(+) + H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:34807: (R)-dihydrocamalexate + reduced [NADPH--hemoprotein reductase] + O2 = camalexin + oxidized [NADPH--hemoprotein reductase] + CO2 + 2 H2O
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+
+RHEA:36163: nicotinate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O = nicotinate beta-D-ribonucleotide + ADP + phosphate + diphosphate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:65384: a 5'-end (N(2),N(2),N(7)-trimethyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + H2O = (N(2),N(2),N(7))-trimethyl-GMP + a 5'-end diphospho-ribonucleoside in mRNA + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:42716: 5-methylaminomethyl-2-thiouridine(34) in tRNA + selenophosphate + (2E)-geranyl diphosphate + H2O + H(+) = 5-methylaminomethyl-2-selenouridine(34) in tRNA + (2E)-thiogeraniol + phosphate + diphosphate
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:65388: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + H2O = N(7)-methyl-GMP + a 5'-end diphospho-ribonucleoside in mRNA + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments
+
+RHEA:67484: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + H2O = N(7)-methyl-GDP + a 5'-end phospho-ribonucleoside in mRNA + 2 H(+)
+  → Glycerophospholipase activity: hydrolysis of a glycerophospholipid into smaller lipid fragments (reverse reaction orientation)
+

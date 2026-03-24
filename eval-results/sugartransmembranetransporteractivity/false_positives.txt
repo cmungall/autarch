@@ -1,0 +1,10 @@
+False Positives for SugarTransmembraneTransporterActivity
+==================================================
+Total: 2
+
+RHEA:22132: D-maltose(out) + ATP + H2O = D-maltose(in) + ADP + phosphate + H(+)
+  → Sugar transmembrane transporter activity
+
+RHEA:33171: D-maltose(in) = D-maltose(out)
+  → Sugar transmembrane transporter activity
+

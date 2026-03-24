@@ -1,0 +1,34 @@
+False Negatives for AntiporterActivity
+==================================================
+Total: 10
+
+RHEA:28835: citrate(out) + succinate(in) = citrate(in) + succinate(out)
+  → No oppositely directed transport detected
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29255: Ca(2+)(in) + Na(+)(out) = Ca(2+)(out) + Na(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29323: fumarate(in) + succinate(out) = fumarate(out) + succinate(in)
+  → No oppositely directed transport detected
+
+RHEA:29427: 4-(trimethylamino)butanoate(in) + (R)-carnitine(out) = 4-(trimethylamino)butanoate(out) + (R)-carnitine(in)
+  → No oppositely directed transport detected
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:33139: L-aspartate(in) + L-alanine(out) = L-aspartate(out) + L-alanine(in)
+  → No oppositely directed transport detected
+
+RHEA:34991: L-ornithine(in) + L-arginine(out) = L-ornithine(out) + L-arginine(in)
+  → No oppositely directed transport detected
+
+RHEA:34999: ADP(in) + ATP(out) = ADP(out) + ATP(in)
+  → Antiport requires at least two transported substrates
+

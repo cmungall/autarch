@@ -1,0 +1,133 @@
+False Negatives for OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygen
+==================================================
+Total: 43
+
+RHEA:10548: L-arginine + O2 = 4-guanidinobutanamide + CO2 + H2O
+  → No dioxygenase pattern
+
+RHEA:10712: L-phenylalanine + O2 = 2-phenylacetamide + CO2 + H2O
+  → No dioxygenase pattern
+
+RHEA:12877: acetylacetone + O2 = methylglyoxal + acetate + H(+)
+  → No dioxygenase pattern
+
+RHEA:12981: S-sulfanylglutathione + O2 + H2O = sulfite + glutathione + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:13957: 4 sulfur + O2 + 4 H2O = 2 hydrogen sulfide + 2 sulfite + 6 H(+)
+  → No dioxygenase pattern
+
+RHEA:14161: 1,2-dihydroxy-5-(methylsulfanyl)pent-1-en-3-one + O2 = 3-(methylsulfanyl)propanoate + CO + formate + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:14409: cysteamine + O2 = hypotaurine + H(+)
+  → No dioxygenase pattern
+
+RHEA:14413: biphenyl-2,3-diol + O2 = 2-hydroxy-6-oxo-6-phenylhexa-2,4-dienoate + H(+)
+  → No dioxygenase pattern
+
+RHEA:14601: L-lysine + O2 = 5-aminopentanamide + CO2 + H2O
+  → No dioxygenase pattern
+
+RHEA:14749: 1-hydroxy-2-naphthoate + O2 = (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H(+)
+  → No dioxygenase pattern
+
+RHEA:15381: quercetin + O2 = 2-(3,4-dihydroxybenzoyloxy)-4,6-dihydroxybenzoate + CO
+  → No dioxygenase pattern
+
+RHEA:16513: (S)-lactate + O2 = acetate + CO2 + H2O
+  → No dioxygenase pattern
+
+RHEA:17949: 3-hydroxy-1H-quinolin-4-one + O2 = N-formylanthranilate + CO + H(+)
+  → No dioxygenase pattern
+
+RHEA:17961: (5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate = leukotriene A4 + H2O
+  → No O2 substrate
+
+RHEA:19673: 1,2,3-trihydroxybenzene + O2 = (2Z,4E)-2-hydroxyhexa-2,4-dienedioate + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:20441: L-cysteine + O2 = 3-sulfino-L-alanine + H(+)
+  → No dioxygenase pattern
+
+RHEA:20449: 5-amino-4-chloro-2-(2,3-dihydroxyphenyl)pyridazin-3(2H)-one + O2 = 5-amino-4-chloro-2-(2-hydroxymuconoyl)pyridazin-3(2H)-one + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:21340: 1,2-bis(4-hydroxy-3-methoxyphenyl)ethylene + O2 = 2 vanillin
+  → No dioxygenase pattern
+
+RHEA:21352: 3,4-dihydroxy-9,10-secoandrosta-1,3,5(10)-triene-9,17-dione + O2 = (1E,2Z)-3-hydroxy-5,9,17-trioxo-4,5:9,10-disecoandrosta-1(10),2-dien-4-oate + H(+)
+  → No dioxygenase pattern
+
+RHEA:21404: chloride + O2 = chlorite
+  → No dioxygenase pattern
+
+RHEA:21572: 3-hydroxy-2-methyl-1H-quinolin-4-one + O2 = N-acetylanthranilate + CO + H(+)
+  → No dioxygenase pattern
+
+RHEA:23228: L-lysine + NADPH + O2 = N(6)-hydroxy-L-lysine + NADP(+) + H2O
+  → No dioxygenase pattern
+
+RHEA:23400: 7,8-dihydroxykynurenate + O2 = 5-(3-carboxy-3-oxoprop-1-en-1-yl)-4,6-dihydroxypyridine-2-carboxylate + H(+)
+  → No dioxygenase pattern
+
+RHEA:23696: myo-inositol + O2 = D-glucuronate + H2O + H(+)
+  → No dioxygenase pattern
+
+RHEA:23840: 3-(2,3-dihydroxyphenyl)propanoate + O2 = (2Z,4E)-2-hydroxy-6-oxonona-2,4-dienedioate + H(+)
+  → No dioxygenase pattern
+
+RHEA:24416: 2,4'-dihydroxyacetophenone + O2 = 4-hydroxybenzoate + formate + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:24504: 1,2-dihydroxy-5-(methylsulfanyl)pent-1-en-3-one + O2 = 4-methylsulfanyl-2-oxobutanoate + formate + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:26023: 8'-apo-beta-carotenol + O2 = 14'-apo-beta-carotenal + (3E,5E)-7-hydroxy-6-methylhepta-3,5-dienal
+  → No dioxygenase pattern
+
+RHEA:26385: all-trans-8'-apo-beta-carotenal + O2 = (2E,4E,6E)-2,6-dimethylocta-2,4,6-trienedial + all-trans-retinal
+  → No dioxygenase pattern
+
+RHEA:26389: all-trans-beta-carotene + O2 = beta-ionone + all-trans-10'-apo-beta-carotenal
+  → No dioxygenase pattern
+
+RHEA:26401: all-trans-10'-apo-beta-carotenal + O2 = (2E,4E,6E)-4-methylocta-2,4,6-trienedial + 13-apo-beta-carotenone
+  → No dioxygenase pattern
+
+RHEA:26458: ethylnitronate + FMNH2 + O2 = acetaldehyde + FMN + nitrite + H2O + 2 H(+)
+  → No dioxygenase pattern
+
+RHEA:27310: naphthalene-1,2-diol + O2 = 2-hydroxychromene-2-carboxylate + H(+)
+  → No dioxygenase pattern
+
+RHEA:27345: FMNH2 + O2 = dialurate + 5,6-dimethylbenzimidazole + D-erythrose 4-phosphate + H(+)
+  → No dioxygenase pattern
+
+RHEA:27522: 2,5-dihydroxypyridine + O2 = N-formylmaleamate + H(+)
+  → No dioxygenase pattern
+
+RHEA:30359: chlorophyllide a + 2 NADPH + 2 O2 + 2 H(+) = chlorophyllide b + 2 NADP(+) + 3 H2O
+  → No dioxygenase pattern
+
+RHEA:31523: 2-oxoglutarate + O2 + 2 H(+) = ethene + 3 CO2 + H2O
+  → Alpha-ketoglutarate dependent - likely EC 1.14
+
+RHEA:32307: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = leukotriene A4 + H2O
+  → Produces H2O only - likely monooxygenase
+
+RHEA:32887: all-trans-beta-carotene + O2 = 2 all-trans-retinal
+  → No dioxygenase pattern
+
+RHEA:33931: all-trans-zeaxanthin + O2 = (3R)-11-cis-3-hydroxyretinal + (3R)-all-trans-3-hydroxyretinal
+  → No dioxygenase pattern
+
+RHEA:34399: 9-cis-beta-carotene + O2 = 9-cis-10'-apo-beta-carotenal + beta-ionone
+  → No dioxygenase pattern
+
+RHEA:34403: 9-cis-10'-apo-beta-carotenal + 2 O2 = (2E,4E,6E)-7-hydroxy-4-methylhepta-2,4,6-trienal + (11R)-carlactone
+  → No dioxygenase pattern
+
+RHEA:35595: benzene-1,2,4-triol + O2 = maleylacetate + 2 H(+)
+  → No dioxygenase pattern
+

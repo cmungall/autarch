@@ -1,0 +1,79 @@
+False Positives for OxidoreductaseActingOnAHemeGroupOfDonors
+==================================================
+Total: 25
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Cytochrome oxidase: heme + O2 → H2O
+
+RHEA:13089: 6 Fe(III)-[cytochrome c] + NH4(+) + 2 H2O = 6 Fe(II)-[cytochrome c] + nitrite + 8 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:13521: (R)-lactate + 2 Fe(III)-[cytochrome c] = 2 Fe(II)-[cytochrome c] + pyruvate + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:14281: 2 Fe(III)-[cytochrome c] + sulfite + H2O = 2 Fe(II)-[cytochrome c] + sulfate + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:15189: 2 Fe(III)-[cytochrome c553] + formate = 2 Fe(II)-[cytochrome c553] + CO2 + H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:15233: nitric oxide + Fe(III)-[cytochrome c] + H2O = Fe(II)-[cytochrome c] + nitrite + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:15237: 2 Fe(III)-[cytochrome c2] + NADPH = 2 Fe(II)-[cytochrome c2] + NADP(+) + H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:16145: CMP-N-acetyl-beta-neuraminate + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = CMP-N-glycoloyl-beta-neuraminate + 2 Fe(III)-[cytochrome b5] + H2O
+  → Cytochrome oxidase: heme + O2 → H2O
+
+RHEA:16465: 2 Fe(III)-[cytochrome c553] + (R)-lactate = 2 Fe(II)-[cytochrome c553] + pyruvate + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:16581: 2 Fe(II)-[cytochrome c] + H2O2 + 2 H(+) = 2 Fe(III)-[cytochrome c] + 2 H2O
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:16909: 2 Fe(III)-[cytochrome c] + glycine + H2O = 2 Fe(II)-[cytochrome c] + glyoxylate + NH4(+) + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:17597: D-mannitol + 2 Fe(III)-[cytochrome c] = D-fructose + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:19721: octadecanoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z)-octadecenoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → Cytochrome oxidase: heme + O2 → H2O
+
+RHEA:19909: (S)-lactate + 2 Fe(III)-[cytochrome c] = 2 Fe(II)-[cytochrome c] + pyruvate + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:20549: 2 thiosulfate + 2 Fe(III)-[cytochrome c] = tetrathionate + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:20625: 2 Fe(III)-[cytochrome c3] + H2 = 2 Fe(II)-[cytochrome c3] + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:21520: 2 Fe(III)-[cytochrome b1] + formate = 2 Fe(II)-[cytochrome b1] + CO2 + H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:21764: heme b + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = biliverdin IXalpha + CO + Fe(2+) + 3 oxidized [NADPH--hemoprotein reductase] + 3 H2O + H(+)
+  → Cytochrome oxidase: heme + O2 → H2O
+
+RHEA:23232: hydrazine + 4 Fe(III)-[cytochrome c] = N2 + 4 Fe(II)-[cytochrome c] + 4 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:24040: 2 oxidized [cytochrome P450] + NADPH = 2 reduced [cytochrome P450] + NADP(+) + H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:24236: trimethylamine + 2 Fe(III)-[cytochrome c] + H2O = trimethylamine N-oxide + 2 Fe(II)-[cytochrome c] + 3 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:25856: (9Z)-octadecenoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = (9Z,12Z)-octadecadienoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → Cytochrome oxidase: heme + O2 → H2O
+
+RHEA:30211: nitrous oxide + 2 Fe(III)-[cytochrome c] + H2O = 2 nitric oxide + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:30223: hydrogen sulfide + 2 Fe(III)-[cytochrome c] = sulfur + 2 Fe(II)-[cytochrome c] + H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+
+RHEA:32367: L-galactono-1,4-lactone + 4 Fe(III)-[cytochrome c] = L-dehydroascorbate + 4 Fe(II)-[cytochrome c] + 5 H(+)
+  → Heme-dependent oxidoreductase (non-O2)
+

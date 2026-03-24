@@ -1,0 +1,91 @@
+False Negatives for OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 29
+
+RHEA:10992: glycolate + NADP(+) = glyoxylate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:11168: 3-hydroxy-6-carboxyhexanoyl-CoA + NAD(+) = 3-oxo-6-carboxyhexanoyl-CoA + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:12248: UDP-N-acetyl-alpha-D-muramate + NADP(+) = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + NADPH + H(+)
+  → Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1
+
+RHEA:13281: (2S,3S)-3-hydroxy-2-methylbutanoyl-CoA + NAD(+) = 2-methyl-3-oxobutanoyl-CoA + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:13357: 3-hydroxypropanoate + NAD(+) = 3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:14225: 6-hydroxyhexanoate + NAD(+) = 6-oxohexanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:14833: (R)-mevalonate + 2 NAD(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADH + 2 H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:14909: L-gulonate + NADP(+) = aldehydo-D-glucuronate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15109: 2-dehydro-3-deoxy-D-gluconate + NADP(+) = (4S,5S)-4,5-dihydroxy-2,6-dioxohexanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15505: (S)-2-hydroxymethylglutarate + NAD(+) = 2-formylglutarate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15761: L-homoserine + NADP(+) = L-aspartate 4-semialdehyde + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15989: (R)-mevalonate + 2 NADP(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADPH + 2 H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:16197: (3S)-3-hydroxybutanoyl-CoA + NADP(+) = acetoacetyl-CoA + NADPH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:17397: a (3R)-hydroxyacyl-[ACP] + NADP(+) = a 3-oxoacyl-[ACP] + NADPH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:17681: 3-hydroxy-2-methylpropanoate + NAD(+) = 2-methyl-3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:18229: glycolate + NAD(+) = glyoxylate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:18841: (R)-glycerate + NADP(+) = 2-hydroxy-3-oxopropanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:18845: (R)-glycerate + NAD(+) = 2-hydroxy-3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:19913: a (3R)-hydroxyacyl-[ACP] + NAD(+) = a 3-oxoacyl-[ACP] + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:19981: S-(hydroxymethyl)glutathione + NADP(+) = S-formylglutathione + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:19985: S-(hydroxymethyl)glutathione + NAD(+) = S-formylglutathione + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:20880: 10-hydroxydecanoate + NAD(+) = 10-oxodecanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:21596: L-serine + NADP(+) = 2-aminomalonate semialdehyde + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:23000: (R)-pantoate + NAD(+) = (R)-4-dehydropantoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:23948: 4-hydroxybutanoate + NAD(+) = succinate semialdehyde + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:26345: L-galactonate + NADP(+) = aldehydo-D-galacturonate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:26438: 3-hydroxypropanoate + NADP(+) = 3-oxopropanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:55668: 11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)
+  → No clear NAD(P)+/NAD(P)H conversion pattern
+
+RHEA:48488: all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)
+  → No clear NAD(P)+/NAD(P)H conversion pattern
+

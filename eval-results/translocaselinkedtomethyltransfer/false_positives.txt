@@ -1,0 +1,7 @@
+False Positives for TranslocaseLinkedToMethylTransfer
+==================================================
+Total: 1
+
+RHEA:29427: 4-(trimethylamino)butanoate(in) + (R)-carnitine(out) = 4-(trimethylamino)butanoate(out) + (R)-carnitine(in)
+  → Translocase (methyl transfer-coupled): CHEBI:16244: in→out, CHEBI:16347: in→out
+

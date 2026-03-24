@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnIronSulfurProteins
+==================================================
+Total: 1
+
+RHEA:21448: N2 + 8 reduced [2Fe-2S]-[ferredoxin] + 16 ATP + 16 H2O = H2 + 8 oxidized [2Fe-2S]-[ferredoxin] + 2 NH4(+) + 16 ADP + 16 phosphate + 6 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+

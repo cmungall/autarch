@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnTheCHOHGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:11292: rifamycin B + O2 + 2 H(+) = rifamycin O + H2O2
+  → Alcohol oxidase: CH-OH donor oxidized with oxygen acceptor and H2O2 formation
+

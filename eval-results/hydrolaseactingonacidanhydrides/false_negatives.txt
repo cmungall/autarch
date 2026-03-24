@@ -1,0 +1,37 @@
+False Negatives for HydrolaseActingOnAcidAnhydrides
+==================================================
+Total: 11
+
+RHEA:11232: 3'-phosphoadenylyl sulfate + H2O = sulfate + adenosine 3',5'-bisphosphate + 2 H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:14965: an acyl phosphate + H2O = a carboxylate + phosphate + H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:15221: a CDP-1,2-diacyl-sn-glycerol + H2O = a 1,2-diacyl-sn-glycero-3-phosphate + CMP + 2 H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:16837: a 5'-acylphosphoadenosine + H2O = a carboxylate + AMP + 2 H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:17041: adenosine 5'-phosphosulfate + H2O = sulfate + AMP + 2 H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:23680: a ribonucleoside 5'-triphosphate + H2O = a ribonucleoside 5'-diphosphate + phosphate + H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:25306: 7,8-dihydroneopterin + phosphate = 7,8-dihydroneopterin 3'-phosphate + H2O
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:27449: a 1,2-diacyl-sn-glycerol 3-diphosphate + H2O = a 1,2-diacyl-sn-glycero-3-phosphate + phosphate + H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:36795: a ribonucleoside 5'-triphosphate + 2 H2O = a ribonucleoside 5'-phosphate + 2 phosphate + 2 H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:36799: a ribonucleoside 5'-diphosphate + H2O = a ribonucleoside 5'-phosphate + phosphate + H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+
+RHEA:22452: [phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)
+  → No supported hydrolase acting on acid anhydrides child classifier matched
+

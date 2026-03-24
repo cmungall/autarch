@@ -1,0 +1,94 @@
+False Positives for AcyltransferaseTransferringGroupsOtherThanAminoAcylGroups
+==================================================
+Total: 30
+
+RHEA:10188: acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:10364: dodecanoyl-CoA + 2-oxoglutarate + H2O = (3S,4S)-3-hydroxytetradecane-1,3,4-tricarboxylate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:10500: butanoyl-CoA + glyoxylate + H2O = 3-ethylmalate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:12188: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 2-oxoglutarate + H(+) = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:12645: indole-3-pyruvate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = (indol-3-yl)acetyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:12765: 2 oxidized [2Fe-2S]-[ferredoxin] + pyruvate + CoA = 2 reduced [2Fe-2S]-[ferredoxin] + acetyl-CoA + CO2 + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:12929: acetyl-CoA + 2-oxoglutarate + H2O = (2R)-homocitrate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:13457: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 3-methyl-2-oxobutanoate + H(+) = N(6)-[(R)-S(8)-2-methylpropanoyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:14457: pentanoyl-CoA + glyoxylate + H2O = 3-propylmalate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:16605: dodecanoyl-CoA + oxaloacetate + H2O = (2S,3S)-2-hydroxytridecane-1,2,3-tricarboxylate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:16845: oxaloacetate + acetyl-CoA + H2O = citrate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:16925: (E)-caffeoyl-CoA + S-adenosyl-L-methionine = (E)-feruloyl-CoA + S-adenosyl-L-homocysteine + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:17105: malonyl-[ACP] + S-adenosyl-L-methionine = malonyl-[ACP] methyl ester + S-adenosyl-L-homocysteine
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:17269: macrocin + S-adenosyl-L-methionine = tylosin + S-adenosyl-L-homocysteine + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:17297: 2 oxidized [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + CoA = succinyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:17573: demethylmacrocin + S-adenosyl-L-methionine = macrocin + S-adenosyl-L-homocysteine + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:18181: glyoxylate + acetyl-CoA + H2O = (S)-malate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:19069: (R)-S-lactoylglutathione = methylglyoxal + glutathione
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:19185: propanoyl-CoA + glyoxylate + H2O = 2-hydroxyglutarate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:19189: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + pyruvate + H(+) = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:21160: oxaloacetate + acetyl-CoA + ADP + phosphate = citrate + ATP + CoA
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:21524: 3-methyl-2-oxobutanoate + acetyl-CoA + H2O = (2S)-2-isopropylmalate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:23040: 2-oxobutanoate + acetyl-CoA + H2O = (R)-2-ethylmalate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:23780: propanoyl-CoA + oxaloacetate + H2O = (2S,3S)-2-methylcitrate + CoA + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:29603: oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:30199: cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+
+RHEA:31643: mycinamicin VI + S-adenosyl-L-methionine = mycinamicin III + S-adenosyl-L-homocysteine + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:32135: 2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = propanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release (reverse reaction orientation)
+
+RHEA:48612: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + S-sulfanyl-L-cysteinyl-[cysteine desulfurase] + AH2 = [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + L-cysteinyl-[cysteine desulfurase] + A + AMP + 2 H(+)
+  → Acyltransferase: donor acyl group is transferred to a new acceptor with carrier release
+

@@ -1,0 +1,13 @@
+False Positives for QuinoneReductase
+==================================================
+Total: 3
+
+RHEA:12428: 2-hydroxy-1,4-benzoquinone + NADH + 2 H(+) = benzene-1,2,4-triol + NAD(+)
+  → Quinone Reductase: ultra-specific quinone reduction with NAD(P)H
+
+RHEA:14269: 2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)
+  → Quinone Reductase: ultra-specific quinone reduction with NAD(P)H
+
+RHEA:23488: 1,4-benzoquinone + NADPH + H(+) = hydroquinone + NADP(+)
+  → Quinone Reductase: ultra-specific quinone reduction with NAD(P)H
+

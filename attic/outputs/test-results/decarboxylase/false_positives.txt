@@ -1,0 +1,28 @@
+False Positives for Decarboxylase
+==================================================
+Total: 8
+
+RHEA:11000: an N-carbamoyl-D-amino acid + H2O + 2 H(+) = a D-alpha-amino acid + NH4(+) + CO2
+  → Decarboxylase: CO2 elimination, multiple fragments (1→3) [pattern matched]
+
+RHEA:11128: (E)-4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = 2',4,4',6'-tetrahydroxychalcone + 3 CO2 + 4 CoA
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation [pattern matched]
+
+RHEA:11184: 3-(carbamoylamino)propanoate + H2O + 2 H(+) = beta-alanine + NH4(+) + CO2
+  → Decarboxylase: CO2 elimination, multiple fragments (1→3) [pattern matched]
+
+RHEA:11704: N-(carboxyaminomethyl)urea + 2 H(+) = N-(aminomethyl)urea + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation [pattern matched]
+
+RHEA:11936: 4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = trans-resveratrol + 4 CO2 + 4 CoA
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation [pattern matched]
+
+RHEA:11940: L-citrulline + H2O + 2 H(+) = L-ornithine + NH4(+) + CO2
+  → Decarboxylase: CO2 elimination, multiple fragments (1→3) [pattern matched]
+
+RHEA:12060: 6 malonyl-CoA + acetyl-CoA + 5 H(+) = 3,6,7,9-tetrahydroxy-3-methyl-2,3-dihydro-1H-naphtho[2,1-b]pyran-1-one + 6 CO2 + 7 CoA + H2O
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation [pattern matched]
+
+RHEA:12080: malonyl-[ACP] + acetyl-CoA + H(+) = 3-oxobutanoyl-[ACP] + CO2 + CoA
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation [pattern matched]
+

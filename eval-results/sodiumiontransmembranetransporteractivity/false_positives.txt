@@ -1,0 +1,7 @@
+False Positives for SodiumIonTransmembraneTransporterActivity
+==================================================
+Total: 1
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → Sodium ion transmembrane transporter activity
+

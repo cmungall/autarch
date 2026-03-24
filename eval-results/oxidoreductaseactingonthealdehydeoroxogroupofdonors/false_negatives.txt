@@ -1,0 +1,31 @@
+False Negatives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonors
+==================================================
+Total: 9
+
+RHEA:12188: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 2-oxoglutarate + H(+) = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:13457: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 3-methyl-2-oxobutanoate + H(+) = N(6)-[(R)-S(8)-2-methylpropanoyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:15189: 2 Fe(III)-[cytochrome c553] + formate = 2 Fe(II)-[cytochrome c553] + CO2 + H(+)
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:17197: 2 3-(4-hydroxyphenyl)pyruvate + O2 = 2 4-hydroxyphenylacetate + 2 CO2
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:19189: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + pyruvate + H(+) = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:19221: 2 formaldehyde + H2O = methanol + formate + H(+)
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:21520: 2 Fe(III)-[cytochrome b1] + formate = 2 Fe(II)-[cytochrome b1] + CO2 + H(+)
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:28502: S-(hydroxymethyl)mycothiol + NAD(+) = S-formylmycothiol + NADH + H(+)
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+
+RHEA:33207: L-glutamate + ATP + NADPH + H(+) = L-glutamate 5-semialdehyde + ADP + phosphate + NADP(+)
+  → No supported oxidoreductase acting on the aldehyde or oxo group of donors child classifier matched
+

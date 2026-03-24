@@ -1,0 +1,70 @@
+False Negatives for CarbohydrateKinaseActivity
+==================================================
+Total: 22
+
+RHEA:10964: D-xylulose + ATP = D-xylulose 5-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:12376: L-fuculose + ATP = L-fuculose 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:12617: N-acetyl-alpha-D-galactosamine + ATP = N-acetyl-alpha-D-galactosamine 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:13553: alpha-D-galactose + ATP = alpha-D-galactose 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:13613: beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:13697: D-ribose + ATP = D-ribose 5-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:14213: beta-D-fructose 1-phosphate + ATP = beta-D-fructose 1,6-bisphosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:14797: 2-dehydro-3-deoxy-D-gluconate + ATP = 2-dehydro-3-deoxy-6-phospho-D-gluconate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:14805: D-allose + ATP = D-allose 6-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:15653: beta-D-fructose 6-phosphate + ATP = beta-D-fructose 2,6-bisphosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:16109: beta-D-fructose 6-phosphate + ATP = beta-D-fructose 1,6-bisphosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:16525: 2-dehydro-3-deoxy-D-galactonate + ATP = 2-dehydro-3-deoxy-6-phospho-D-galactonate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:17417: N-acetyl-D-glucosamine + ATP = N-acetyl-D-glucosamine 6-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:17601: D-ribulose + ATP = D-ribulose 5-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:18145: beta-D-fructose + ATP = beta-D-fructose 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:18869: L-xylulose + ATP = L-xylulose 5-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:20109: alpha-D-ribose 1,5-bisphosphate + ATP = 5-phospho-alpha-D-ribose 1-diphosphate + ADP
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:20117: L-rhamnulose + ATP = L-rhamnulose 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:20153: L-arabinose + ATP = beta-L-arabinose 1-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:22072: L-ribulose + ATP = L-ribulose 5-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:23832: an N-acyl-D-mannosamine + ATP = an N-acyl-D-mannosamine 6-phosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+
+RHEA:27473: D-glycero-beta-D-manno-heptose 7-phosphate + ATP = D-glycero-beta-D-manno-heptose 1,7-bisphosphate + ADP + H(+)
+  → No supported carbohydrate kinase activity child classifier matched
+

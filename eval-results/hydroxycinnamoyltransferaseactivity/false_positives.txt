@@ -1,0 +1,19 @@
+False Positives for HydroxycinnamoyltransferaseActivity
+==================================================
+Total: 5
+
+RHEA:13405: 4-coumaroyl-CoA + agmatine = N-(4-guanidinobutyl)-4-hydroxycinnamamide + CoA + H(+)
+  → Hydroxycinnamoyltransferase activity: hydroxycinnamoyl-CoA donor releases CoA during acyl transfer
+
+RHEA:19685: tyramine + (E)-feruloyl-CoA = N-[(E)-feruloyl]tyramine + CoA + H(+)
+  → Hydroxycinnamoyltransferase activity: hydroxycinnamoyl-CoA donor releases CoA during acyl transfer
+
+RHEA:20756: D-threo-isocitrate + (E)-caffeoyl-CoA = 2-[(E)-caffeoyl]-D-threo-isocitrate(3-) + CoA
+  → Hydroxycinnamoyltransferase activity: hydroxycinnamoyl-CoA donor releases CoA during acyl transfer
+
+RHEA:22344: (2R)-3-(3,4-dihydroxyphenyl)lactate + (E)-caffeoyl-CoA = (R)-rosmarinate + CoA
+  → Hydroxycinnamoyltransferase activity: hydroxycinnamoyl-CoA donor releases CoA during acyl transfer
+
+RHEA:26470: 16-hydroxyhexadecanoate + (E)-feruloyl-CoA = 16-feruloyloxyhexadecanoate + CoA
+  → Hydroxycinnamoyltransferase activity: hydroxycinnamoyl-CoA donor releases CoA during acyl transfer
+

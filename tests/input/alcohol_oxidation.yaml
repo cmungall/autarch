@@ -1,0 +1,14 @@
+# Alcohol oxidation example: ethanol + NAD+ → acetaldehyde + NADH + H+
+# This is a classic oxidoreductase reaction catalyzed by alcohol dehydrogenase
+
+left_participants:
+  - smiles: "CCO"  # ethanol
+    count: 1
+  - smiles: "C1=CC(=C[N+]=C1)C(=O)N"  # NAD+ (simplified)
+    count: 1
+
+right_participants:
+  - smiles: "CC=O"  # acetaldehyde
+    count: 1
+  - smiles: "C1=CC(=CN=C1)C(=O)N"  # NADH (simplified)
+    count: 1

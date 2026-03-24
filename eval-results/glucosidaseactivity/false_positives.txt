@@ -1,0 +1,40 @@
+False Positives for GlucosidaseActivity
+==================================================
+Total: 12
+
+RHEA:10076: lactose + H2O = beta-D-galactose + D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:10816: methyl-2-alpha-L-fucopyranosyl-beta-D-galactoside + H2O = methyl beta-D-galactoside + L-fucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:15073: 3-D-glucuronosyl-N(2),6-disulfo-beta-D-glucosamine + H2O = N(2),6-disulfo-D-glucosamine + D-glucuronate
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:23008: alpha,alpha-trehalose 6-phosphate + H2O = D-glucose 6-phosphate + D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:28663: melibiose + H2O = D-galactose + D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:30927: 2-O-(4-deoxy-beta-L-threo-hex-4-enopyranuronosyl)-alpha-L-rhamnose + H2O = 5-dehydro-4-deoxy-D-glucuronate + L-rhamnopyranose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:32059: (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + H2O = (R)-glycerate + D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:32675: alpha,alpha-trehalose + H2O = alpha-D-glucose + beta-D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:33975: DIMBOA beta-D-glucoside + H2O = DIMBOA + D-glucose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:34179: mycophenolic acid O-acyl-beta-D-glucuronide + H2O = mycophenolate + D-glucuronate + H(+)
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:56028: N(4)-(alpha-D-Man-(1->2)-alpha-D-Man-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->2)-alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 8A1,2,3B1,3) + 3 H2O = N(4)-(alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + 3 beta-D-mannose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+
+RHEA:56008: N(4)-(alpha-D-Man-(1->2)-alpha-D-Man-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->2)-alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 9A1,2,3B1,2,3) + 4 H2O = N(4)-(alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + 4 beta-D-mannose
+  → Glucosidase activity: hydrolysis of a glucosidic bond with glucose release
+

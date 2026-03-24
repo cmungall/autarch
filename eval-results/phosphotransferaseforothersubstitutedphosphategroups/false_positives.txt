@@ -1,0 +1,28 @@
+False Positives for PhosphotransferaseForOtherSubstitutedPhosphateGroups
+==================================================
+Total: 8
+
+RHEA:13017: UMP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + uracil
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP (reverse reaction orientation)
+
+RHEA:17185: IMP + NH4(+) + NADP(+) = GMP + NADPH + 2 H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+
+RHEA:19397: (R)-4'-phosphopantothenate + L-cysteine + CTP = N-[(R)-4-phosphopantothenoyl]-L-cysteine + CMP + diphosphate + H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+
+RHEA:21692: CDP-glycerol + H2O = sn-glycerol 3-phosphate + CMP + 2 H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+
+RHEA:22484: P(1),P(4)-bis(5'-guanosyl) tetraphosphate + H2O = GMP + GTP + 2 H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+
+RHEA:25213: UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + H2O = 2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosaminyl 1-phosphate + UMP + 2 H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+
+RHEA:25424: GMP + diphosphate = guanine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP (reverse reaction orientation)
+
+RHEA:27510: enolpyruvoyl-2-diphospho-5'-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)
+  → Phosphotransferase for other substituted phosphate groups: a phosphorus-rich donor transfers a substituted phosphate moiety while releasing a monophosphate nucleotide or PAP
+

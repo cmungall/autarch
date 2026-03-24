@@ -1,0 +1,19 @@
+False Negatives for PolyamineOxidase
+==================================================
+Total: 5
+
+RHEA:25816: norspermine + O2 + H2O = norspermidine + 3-aminopropanal + H2O2
+  → No supported polyamine substrate detected
+
+RHEA:25820: spermidine + O2 + H2O = 4-aminobutanal + propane-1,3-diamine + H2O2
+  → Products do not match a supported polyamine oxidase branch
+
+RHEA:25824: spermine + O2 + H2O = N-(3-aminopropyl)-4-aminobutanal + propane-1,3-diamine + H2O2
+  → Products do not match a supported polyamine oxidase branch
+
+RHEA:25868: N(1),N(12)-diacetylspermine + O2 + H2O = 3-acetamidopropanal + N(1)-acetylspermidine + H2O2
+  → No supported polyamine substrate detected
+
+RHEA:25996: N(1)-acetylspermine + O2 + H2O = N-(3-acetamidopropyl)-4-aminobutanal + propane-1,3-diamine + H2O2
+  → Products do not match a supported polyamine oxidase branch
+

@@ -1,0 +1,7 @@
+False Negatives for NucleicAcidPolymerase
+==================================================
+Total: 1
+
+RHEA:22508: DNA(n) + a 2'-deoxyribonucleoside 5'-triphosphate = DNA(n+1) + diphosphate
+  → No nucleotide (NTP/NDP) found
+

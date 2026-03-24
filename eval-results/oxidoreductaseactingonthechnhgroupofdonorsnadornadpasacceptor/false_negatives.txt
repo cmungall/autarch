@@ -1,0 +1,22 @@
+False Negatives for OxidoreductaseActingOnTheCHNHGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 6
+
+RHEA:13409: 7-aminomethyl-7-carbaguanine + 2 NADP(+) = 7-cyano-7-deazaguanine + 2 NADPH + 3 H(+)
+  → No NAD(P)-linked CH-NH redox signature detected
+
+RHEA:19817: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + NADP(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+)
+  → No NAD(P)-linked CH-NH redox signature detected
+
+RHEA:19821: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADH + H(+)
+  → No NAD(P)-linked CH-NH redox signature detected
+
+RHEA:21268: (R)-canadine + 2 NADP(+) = berberine + 2 NADPH + H(+)
+  → No NAD(P)-linked CH-NH redox signature detected
+
+RHEA:22812: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADP(+) = (6R)-5,10-methenyltetrahydrofolate + NADPH
+  → No NAD(P)-linked CH-NH redox signature detected
+
+RHEA:22892: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NAD(+) = (6R)-5,10-methenyltetrahydrofolate + NADH
+  → No NAD(P)-linked CH-NH redox signature detected
+

@@ -1,0 +1,10 @@
+False Negatives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfTwoAtomsOfOxygenIntoOneDonor
+==================================================
+Total: 2
+
+RHEA:19465: 2 nitric oxide + NADPH + 2 O2 = 2 nitrate + NADP(+) + H(+)
+  → Dioxygenation requires one substantive organic donor and at least one substantive organic product
+
+RHEA:19469: 2 nitric oxide + NADH + 2 O2 = 2 nitrate + NAD(+) + H(+)
+  → Dioxygenation requires one substantive organic donor and at least one substantive organic product
+

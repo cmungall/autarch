@@ -1,0 +1,46 @@
+False Positives for DemethylaseActivity
+==================================================
+Total: 14
+
+RHEA:11472: an N-methyl-L-amino acid + O2 + H2O = an L-alpha-amino acid + formaldehyde + H2O2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:12677: Latia luciferin + AH2 + 2 O2 = oxidized Latia luciferin + hnu + formate + A + CO2 + H2O + H(+)
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:13313: sarcosine + O2 + H2O = formaldehyde + glycine + H2O2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:14161: 1,2-dihydroxy-5-(methylsulfanyl)pent-1-en-3-one + O2 = 3-(methylsulfanyl)propanoate + CO + formate + 2 H(+)
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:17077: N,N-dimethylglycine + O2 + H2O = sarcosine + formaldehyde + H2O2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:18613: 4-methoxybenzoate + AH2 + O2 = 4-hydroxybenzoate + formaldehyde + A + H2O
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:23200: N(6)-methyl-L-lysine + O2 + H2O = L-lysine + formaldehyde + H2O2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:24416: 2,4'-dihydroxyacetophenone + O2 = 4-hydroxybenzoate + formate + 2 H(+)
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:24504: 1,2-dihydroxy-5-(methylsulfanyl)pent-1-en-3-one + O2 = 4-methylsulfanyl-2-oxobutanoate + formate + 2 H(+)
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:27413: codeine + 2-oxoglutarate + O2 = morphine + formaldehyde + succinate + CO2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:27477: thebaine + 2-oxoglutarate + O2 = neopinone + formaldehyde + succinate + CO2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:30415: octadecanal + 2 NADPH + O2 + H(+) = heptadecane + formate + 2 NADP(+) + H2O
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:31355: dimethyl sulfide + NADH + O2 + H(+) = methanethiol + formaldehyde + NAD(+) + H2O
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+
+RHEA:33907: 4-(methylamino)butanoate + O2 + H2O = 4-aminobutanoate + formaldehyde + H2O2
+  → Demethylase activity: oxidative one-carbon removal with formaldehyde/formate release
+

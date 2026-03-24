@@ -1,0 +1,28 @@
+False Positives for LAminoAcidNAcetyltransferaseActivity
+==================================================
+Total: 8
+
+RHEA:10060: D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:12597: phosphinothricin + acetyl-CoA = N-acetylphosphinothricin + CoA + H(+)
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:13701: L-homoserine + acetyl-CoA = O-acetyl-L-homoserine + CoA
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:16901: L-2,4-diaminobutanoate + acetyl-CoA = (2S)-4-acetamido-2-aminobutanoate + CoA + H(+)
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:20704: a D-alpha-amino acid + acetyl-CoA = an N-acetyl-D-amino acid + CoA + H(+)
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:22388: N(6)-hydroxy-L-lysine + acetyl-CoA = N(6)-acetyl-N(6)-hydroxy-L-lysine + CoA
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:23860: deacetylcephalosporin C + acetyl-CoA = cephalosporin C + CoA
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+
+RHEA:24560: L-serine + acetyl-CoA = O-acetyl-L-serine + CoA
+  → L-amino-acid N-acetyltransferase activity: acetyl transfer to an amino-acid substrate
+

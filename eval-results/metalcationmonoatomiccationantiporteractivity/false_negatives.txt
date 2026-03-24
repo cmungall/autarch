@@ -1,0 +1,16 @@
+False Negatives for MetalCationMonoatomicCationAntiporterActivity
+==================================================
+Total: 4
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29255: Ca(2+)(in) + Na(+)(out) = Ca(2+)(out) + Na(+)(in)
+  → No oppositely directed transport detected
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → No oppositely directed transport detected
+

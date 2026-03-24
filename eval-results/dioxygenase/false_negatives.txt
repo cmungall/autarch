@@ -1,0 +1,37 @@
+False Negatives for Dioxygenase
+==================================================
+Total: 11
+
+RHEA:12981: S-sulfanylglutathione + O2 + H2O = sulfite + glutathione + 2 H(+)
+  → No supported dioxygenase child classifier matched
+
+RHEA:13957: 4 sulfur + O2 + 4 H2O = 2 hydrogen sulfide + 2 sulfite + 6 H(+)
+  → No supported dioxygenase child classifier matched
+
+RHEA:16189: 3-(4-hydroxyphenyl)pyruvate + O2 = homogentisate + CO2
+  → No supported dioxygenase child classifier matched
+
+RHEA:17961: (5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate = leukotriene A4 + H2O
+  → No supported dioxygenase child classifier matched
+
+RHEA:19445: 2,3-dihydroxyindole + O2 = anthranilate + CO2 + H(+)
+  → No supported dioxygenase child classifier matched
+
+RHEA:19465: 2 nitric oxide + NADPH + 2 O2 = 2 nitrate + NADP(+) + H(+)
+  → No supported dioxygenase child classifier matched
+
+RHEA:19469: 2 nitric oxide + NADH + 2 O2 = 2 nitrate + NAD(+) + H(+)
+  → No supported dioxygenase child classifier matched
+
+RHEA:21376: 3-(4-hydroxyphenyl)pyruvate + O2 = (S)-4-hydroxymandelate + CO2
+  → No supported dioxygenase child classifier matched
+
+RHEA:21404: chloride + O2 = chlorite
+  → No supported dioxygenase child classifier matched
+
+RHEA:32307: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = leukotriene A4 + H2O
+  → No supported dioxygenase child classifier matched
+
+RHEA:34403: 9-cis-10'-apo-beta-carotenal + 2 O2 = (2E,4E,6E)-7-hydroxy-4-methylhepta-2,4,6-trienal + (11R)-carlactone
+  → No supported dioxygenase child classifier matched
+

@@ -1,0 +1,142 @@
+False Negatives for Dehydrogenase
+==================================================
+Total: 46
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10012: (R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10028: D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10036: 4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10084: 3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10104: gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10156: dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10168: 15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10204: dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10316: thymine + 2-oxoglutarate + O2 = 5-hydroxymethyluracil + succinate + CO2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10428: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = (12S)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10448: a flavanone + 2-oxoglutarate + O2 = a flavone + succinate + CO2 + H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10528: dihydrosanguinarine + reduced [NADPH--hemoprotein reductase] + O2 = 10-hydroxydihydrosanguinarine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10548: L-arginine + O2 = 4-guanidinobutanamide + CO2 + H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10552: D-glucose + O2 = 2-dehydro-D-glucose + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10608: (E)-cinnamate + reduced [NADPH--hemoprotein reductase] + O2 = (E)-4-coumarate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10692: 6-(2-amino-2-carboxyethyl)-7,8-dioxo-1,2,3,4,7,8-hexahydroquinoline-2,4-dicarboxylate + 3 O2 = pyrroloquinoline quinone + 2 H2O2 + 2 H2O + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10712: L-phenylalanine + O2 = 2-phenylacetamide + CO2 + H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10720: 2-amino-6-acetyl-3,7,8,9-tetrahydro-3H-pyrimido[4,5-b][1,4]diazepin-4-one + glutathione disulfide + H2O = 6-pyruvoyl-5,6,7,8-tetrahydropterin + 2 glutathione
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10732: firefly D-luciferin + ATP + O2 = firefly oxyluciferin + hnu + AMP + CO2 + diphosphate
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10936: 6-decylubiquinone + 2 thiosulfate = 6-decylubiquinol + tetrathionate
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11148: 4 Fe(2+) + O2 + 4 H(+) = 4 Fe(3+) + 2 H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11212: indole + O2 = 2-formamidobenzaldehyde
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11272: a (2R)-2-hydroxycarboxylate + a quinone = a 2-oxocarboxylate + a quinol
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11276: 4 hydroquinone + O2 = 4 benzosemiquinone + 2 H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11292: rifamycin B + O2 + 2 H(+) = rifamycin O + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11428: beta-D-glucose + O2 = D-glucono-1,5-lactone + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11452: 7-deoxyloganin + reduced [NADPH--hemoprotein reductase] + O2 = loganin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11464: L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11472: an N-methyl-L-amino acid + O2 + H2O = an L-alpha-amino acid + formaldehyde + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11508: L-aspartyl-[protein] + 2-oxoglutarate + O2 = 3-hydroxy-L-aspartyl-[protein] + succinate + CO2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11532: glycine + O2 + H2O = glyoxylate + H2O2 + NH4(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11588: isoquinoline + A + H2O = isoquinolin-1(2H)-one + AH2
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11724: [thioredoxin]-disulfide + sulfite + adenosine 3',5'-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3'-phosphoadenylyl sulfate
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11776: octadecanoyl-[ACP] + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = (9Z)-octadecenoyl-[ACP] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11796: ecdysone + O2 = 3-dehydroecdysone + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11812: methanethiol + O2 + H2O = hydrogen sulfide + formaldehyde + H2O2 + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11848: acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11864: trimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = dimethylamine + reduced [electron-transfer flavoprotein] + formaldehyde
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11872: corticosterone + 2 reduced [adrenodoxin] + O2 + 2 H(+) = 18-hydroxycorticosterone + 2 oxidized [adrenodoxin] + H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11880: (S)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11968: kynurenate + AH2 + O2 = 7,8-dihydro-7,8-dihydroxykynurenate + A
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11984: progesterone + AH2 + O2 = testosterone acetate + A + H2O
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+
+RHEA:11992: L-pipecolate + O2 = L-1-piperideine-6-carboxylate + H2O2 + H(+)
+  → No NAD+/NADP+ system - dehydrogenases require NAD/NADP
+

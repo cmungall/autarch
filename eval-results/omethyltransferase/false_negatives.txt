@@ -1,0 +1,70 @@
+False Negatives for OMethyltransferase
+==================================================
+Total: 22
+
+RHEA:11432: vitexin 2''-O-beta-L-rhamnoside + S-adenosyl-L-methionine = 7-O-methylvitexin 2''-O-beta-L-rhamnoside + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:11504: 6-demethylsterigmatocystin + S-adenosyl-L-methionine = sterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:12705: [protein]-L-isoaspartate + S-adenosyl-L-methionine = [protein]-L-isoaspartate alpha-methyl ester + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:15105: kaempferol + S-adenosyl-L-methionine = kaempferide + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:15561: sterigmatocystin + S-adenosyl-L-methionine = 8-O-methylsterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:15573: N-acetylserotonin + S-adenosyl-L-methionine = melatonin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:16925: (E)-caffeoyl-CoA + S-adenosyl-L-methionine = (E)-feruloyl-CoA + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:17081: (E)-isoeugenol + S-adenosyl-L-methionine = (E)-isomethyleugenol + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:17809: Mg-protoporphyrin IX + S-adenosyl-L-methionine = Mg-protoporphyrin IX 13-monomethyl ester + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:17877: a catechol + S-adenosyl-L-methionine = a guaiacol + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:17933: a 7-hydroxyisoflavone + S-adenosyl-L-methionine = a 7-methoxyisoflavone + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:20225: (E)-caffeate + S-adenosyl-L-methionine = (E)-ferulate + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:21608: isoliquiritigenin + S-adenosyl-L-methionine = 2'-O-methylisoliquiritigenin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:21672: [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine + S-adenosyl-L-methionine = [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine methyl ester + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:24452: L-glutamyl-[protein] + S-adenosyl-L-methionine = [protein]-L-glutamate 5-O-methyl ester + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:25629: myricetin + S-adenosyl-L-methionine = laricitrin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:25633: laricitrin + S-adenosyl-L-methionine = syringetin + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:36099: benzoate + S-adenosyl-L-methionine = methyl benzoate + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:67020: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:43212: adenosine(1067) in 23S rRNA + S-adenosyl-L-methionine = 2'-O-methyladenosine(1067) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:67024: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(ribonucleotide) in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(2'-O-methyl-ribonucleotide) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported o-methyltransferase child classifier matched
+
+RHEA:48544: [phosphatase 2A protein]-C-terminal L-leucine + S-adenosyl-L-methionine = [phosphatase 2A protein]-C-terminal L-leucine methyl ester + S-adenosyl-L-homocysteine
+  → No supported o-methyltransferase child classifier matched
+

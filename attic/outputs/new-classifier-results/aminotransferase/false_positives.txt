@@ -1,0 +1,208 @@
+False Positives for Aminotransferase
+==================================================
+Total: 68
+
+RHEA:10048: O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10060: D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10072: N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10088: sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10232: 5,6-dihydrouridine 5'-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10236: trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10252: O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10280: 1,7-dimethylxanthine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10292: D-glucosamine 6-phosphate + acetyl-CoA = N-acetyl-D-glucosamine 6-phosphate + CoA + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10332: a 2-acyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphocholine + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10344: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + an acyl-CoA = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphocholine + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10380: orotidine 5'-phosphate + diphosphate = orotate + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10384: cyclo-acetoacetyl-L-tryptophan + dimethylallyl diphosphate = beta-cyclopiazonate + diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10408: 4,8,12-trimethyltridecanoyl-CoA + propanoyl-CoA = 3-oxopristanoyl-CoA + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10444: (S)-reticuline + S-adenosyl-L-methionine = (S)-laudanine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10456: D-maltose + acetyl-CoA = 1-O-acetylmaltose + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10520: a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + UDP-alpha-D-galactose = a 1,2-diacyl-3-O-[alpha-D-galactosyl-(1->6)-beta-D-galactosyl]-sn-glycerol + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10556: D-glyceraldehyde 3-phosphate + L-arginine = N(2)-(2-carboxyethyl)-L-arginine + phosphate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10568: luteolin + UDP-alpha-D-glucuronate = luteolin 7-O-beta-D-glucuronide + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10576: N-methylethanolamine phosphate + CTP + H(+) = CDP-N-methylethanolamine + diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10656: guanidinoacetate + S-adenosyl-L-methionine = creatine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10708: alpha-D-glucose 1-phosphate + GTP + H(+) = GDP-D-glucose + diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10800: XMP + diphosphate = xanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10856: a N-(2-hydroxyacyl)sphing-4-enine + UDP-alpha-D-galactose = a 1-(beta-D-galactosyl)-2-(2-hydroxyacyl)sphing-4-enine + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10868: an acyl-CoA + a 1,2-diacyl-sn-glycerol = a triacyl-sn-glycerol + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10908: glycolithocholate + 3'-phosphoadenylyl sulfate = sulfoglycolithocholate + adenosine 3',5'-bisphosphate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10952: hydroxymalonate + (E)-sinapoyl-CoA = (E)-sinapoyltartronate + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:10968: a carboxylate + GTP + CoA = an acyl-CoA + GDP + phosphate
+  → Aminotransferase: amino group transfer (3→3) [pattern matched]
+
+RHEA:10996: 2-methylpropanal oxime + S-adenosyl-L-methionine = 2-methylpropanal O-methyloxime + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11048: a 1-organyl-2-lyso-sn-glycero-3-phospholipid + a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine = a 1-organyl-2-acetyl-sn-glycero-3-phospholipid + a 1-O-alkyl-sn-glycero-3-phosphocholine
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11104: N(alpha),N(alpha)-dimethyl-L-histidine + S-adenosyl-L-methionine = hercynine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11136: a beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl derivative + CMP-N-acetyl-beta-neuraminate = a beta-D-galactosyl-(1->3)-[N-acetyl-alpha-neuraminyl-(2->6)]-N-acetyl-alpha-D-galactosaminyl derivative + CMP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11164: a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phospho-N-methylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11172: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + L-homocysteine = (6S)-5,6,7,8-tetrahydrofolate + L-methionine
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11196: 5,6-dimethylbenzimidazole + nicotinate beta-D-ribonucleotide = alpha-ribazole 5'-phosphate + nicotinate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11236: putrescine + spermidine = sym-homospermidine + propane-1,3-diamine
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11252: hydroxylamine + L-asparagine + H(+) = beta-L-aspartylhydroxamate + NH4(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11336: (3R)-3-hydroxy-16-methoxy-2,3-dihydrotabersonine + S-adenosyl-L-methionine = deacetoxyvindoline + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11344: an N-acylneuraminate + CTP = a CMP-N-acyl-beta-neuraminate + diphosphate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11400: sordaricin + GDP-6-deoxy-alpha-D-altrose = 4'-O-demethylsordarin + GDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11432: vitexin 2''-O-beta-L-rhamnoside + S-adenosyl-L-methionine = 7-O-methylvitexin 2''-O-beta-L-rhamnoside + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11488: all-trans-retinol + an acyl-CoA = an all-trans-retinyl ester + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11496: O-acetyl-L-serine + uracil = 3-(uracil-1-yl)-L-alanine + acetate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11504: 6-demethylsterigmatocystin + S-adenosyl-L-methionine = sterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11512: salicyl alcohol + UDP-alpha-D-glucose = salicin + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11520: (-)-menthol + UDP-alpha-D-glucose = (-)-menthyl beta-D-glucoside + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11568: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 5-methyldeoxycytidine 5'-phosphate + 7,8-dihydrofolate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11580: a CDP-1,2-diacyl-sn-glycerol + myo-inositol = a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) + CMP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11624: 2-(hydroxyimino)propanoate + acetone = acetone oxime + pyruvate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11652: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-galactose = alpha-D-galactosyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11664: a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + CMP-N-acetyl-beta-neuraminate = a 1,2-diacyl-3-[3-(N-acetyl-alpha-D-neuraminyl)-beta-D-galactosyl]-sn-glycerol + CMP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11684: methylarsonous acid + S-adenosyl-L-methionine = dimethylarsinate + S-adenosyl-L-homocysteine + 2 H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11696: 3'-demethylstaurosporine + S-adenosyl-L-methionine = staurosporine + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11748: fluoroacetaldehyde + L-threonine = 4-fluoro-L-threonine + acetaldehyde
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11768: N-(5-phospho-beta-D-ribosyl)anthranilate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + anthranilate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11808: bergaptol + S-adenosyl-L-methionine = bergapten + S-adenosyl-L-homocysteine
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11836: N-acetyllactosamine + CMP-N-acetyl-beta-neuraminate = N-acetyl-alpha-neuraminyl-(2->6)-beta-D-galactosyl-(1->4)-N-acetyl-beta-D-glucosamine + CMP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11844: formate + acetyl-CoA = pyruvate + CoA
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11852: S-methyl-5'-thioadenosine + phosphate = 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate + adenine
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11884: cortisol + 3'-phosphoadenylyl sulfate = cortisol 21-sulfate + adenosine 3',5'-bisphosphate + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11892: 6-O-methylnorlaudanosoline + S-adenosyl-L-methionine = nororientaline + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11924: a beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a globoside Gb3Cer (d18:1(4E)) + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:11988: a 1-acyl-2-(9Z)-enoyl-sn-glycero-3-phospholipid + S-adenosyl-L-methionine = a 1-acyl-2-(9-cyclopronane)-acyl-sn-glycero-3-phospholipid + S-adenosyl-L-homocysteine + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:12004: indoxyl + UDP-alpha-D-glucose = indican + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:12024: 1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:12048: 3-oxoadipate + succinyl-CoA = 3-oxoadipyl-CoA + succinate
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+
+RHEA:12088: an N-acylsphing-4-enine + UDP-alpha-D-glucose = a beta-D-glucosyl-(1<->1')-N-acylsphing-4-enine + UDP + H(+)
+  → Aminotransferase: amino group transfer (2→2) [pattern matched]
+

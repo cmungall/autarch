@@ -1,0 +1,16 @@
+False Negatives for SteroidHydroxylaseActivity
+==================================================
+Total: 4
+
+RHEA:24964: calcitriol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitetrol + 2 oxidized [adrenodoxin] + H2O
+  → Requires steroid-like substrate and product
+
+RHEA:24968: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = secalciferol + 2 oxidized [adrenodoxin] + H2O
+  → Requires steroid-like substrate and product
+
+RHEA:32903: calciol + reduced [NADPH--hemoprotein reductase] + O2 = calcidiol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Requires steroid-like substrate and product
+
+RHEA:35739: 6 reduced [adrenodoxin] + cholesterol + 3 O2 + 6 H(+) = 4-methylpentanal + pregnenolone + 6 oxidized [adrenodoxin] + 4 H2O
+  → No steroid-like hydroxylation pattern detected
+

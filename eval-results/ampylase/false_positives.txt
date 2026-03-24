@@ -1,0 +1,7 @@
+False Positives for AMPylase
+==================================================
+Total: 1
+
+RHEA:18589: [glutamine synthetase]-L-tyrosine + ATP = [glutamine synthetase]-O(4)-(5'-adenylyl)-L-tyrosine + diphosphate
+  → AMPylase: ATP-dependent transfer of AMP onto a protein-bound serine, threonine, or tyrosine residue
+

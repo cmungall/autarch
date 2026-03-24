@@ -1,0 +1,7 @@
+False Negatives for ATPase
+==================================================
+Total: 1
+
+RHEA:13065: ATP + H2O = ADP + phosphate + H(+)
+  → No ATPase reactions in current evaluation dataset - class disabled
+

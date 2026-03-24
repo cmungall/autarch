@@ -1,0 +1,37 @@
+False Negatives for AldehydeKetoneTransferase
+==================================================
+Total: 11
+
+RHEA:10508: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate = aldehydo-D-ribose 5-phosphate + D-xylulose 5-phosphate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:11748: fluoroacetaldehyde + L-threonine = 4-fluoro-L-threonine + acetaldehyde
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:12605: D-glyceraldehyde 3-phosphate + pyruvate + H(+) = 1-deoxy-D-xylulose 5-phosphate + CO2
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:14341: glyoxylate + 2-oxoglutarate + H(+) = 2-hydroxy-3-oxoadipate + CO2
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:17053: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate = D-erythrose 4-phosphate + beta-D-fructose 6-phosphate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:21504: aldehydo-D-ribose 5-phosphate + acetoin = 1-deoxy-D-altro-heptulose 7-phosphate + acetaldehyde
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:24264: D-xylulose 5-phosphate + formaldehyde = dihydroxyacetone + D-glyceraldehyde 3-phosphate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:25249: 2 pyruvate + H(+) = (2S)-2-acetolactate + CO2
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:25593: isochorismate + 2-oxoglutarate + H(+) = 5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate + CO2
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:27626: D-erythrose 4-phosphate + D-xylulose 5-phosphate = beta-D-fructose 6-phosphate + D-glyceraldehyde 3-phosphate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:27654: 2-oxobutanoate + pyruvate + H(+) = (S)-2-ethyl-2-hydroxy-3-oxobutanoate + CO2
+  → Not a transferase: No group transfer pattern detected
+

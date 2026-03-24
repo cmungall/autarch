@@ -1,0 +1,7 @@
+False Negatives for ProteinNAcyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:50504: N-terminal L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-seryl-[protein] + CoA + H(+)
+  → Requires an acyl-thioester donor
+

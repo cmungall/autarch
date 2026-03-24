@@ -1,0 +1,16 @@
+False Positives for ProteinSerineThreonineKinaseActivity
+==================================================
+Total: 4
+
+RHEA:41944: [amino-group carrier protein]-C-terminal-N-(1,4-dicarboxybutan-1-yl)-L-glutamine + ATP = [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-phosphooxy-5-oxopentan-1-yl)-L-glutamine + ADP
+  → Protein serine/threonine kinase activity: ATP-dependent phosphorylation of a protein substrate in the serine/threonine kinase branch
+
+RHEA:59832: N(6)-(D-fructosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-fructosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Protein serine/threonine kinase activity: ATP-dependent phosphorylation of a protein substrate in the serine/threonine kinase branch
+
+RHEA:48432: N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Protein serine/threonine kinase activity: ATP-dependent phosphorylation of a protein substrate in the serine/threonine kinase branch
+
+RHEA:43384: L-arginyl-[protein] + ATP = N(omega)-phospho-L-arginyl-[protein] + ADP + H(+)
+  → Protein serine/threonine kinase activity: ATP-dependent phosphorylation of a protein substrate in the serine/threonine kinase branch
+

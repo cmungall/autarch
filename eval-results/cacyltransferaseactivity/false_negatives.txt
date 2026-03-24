@@ -1,0 +1,16 @@
+False Negatives for CAcyltransferaseActivity
+==================================================
+Total: 4
+
+RHEA:11844: formate + acetyl-CoA = pyruvate + CoA
+  → No supported c-acyltransferase activity child classifier matched
+
+RHEA:14761: L-serine + hexadecanoyl-CoA + H(+) = 3-oxosphinganine + CO2 + CoA
+  → No supported c-acyltransferase activity child classifier matched
+
+RHEA:20736: glycine + acetyl-CoA = (2S)-2-amino-3-oxobutanoate + CoA
+  → No supported c-acyltransferase activity child classifier matched
+
+RHEA:23860: deacetylcephalosporin C + acetyl-CoA = cephalosporin C + CoA
+  → No supported c-acyltransferase activity child classifier matched
+

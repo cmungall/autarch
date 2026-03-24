@@ -1,0 +1,7 @@
+False Negatives for AminoAcidRacemase
+==================================================
+Total: 1
+
+RHEA:20201: L-phenylalanine + ATP + H2O = D-phenylalanine + AMP + diphosphate + H(+)
+  → No supported amino-acid racemase activity child classifier matched
+

@@ -1,0 +1,530 @@
+================================================================================
+ARCTURUS CLASSIFIER EVALUATION - COMPREHENSIVE REPORT
+================================================================================
+
+OVERALL PERFORMANCE STATISTICS
+----------------------------------------
+Total Classifiers Evaluated: 396
+Average F1 Score: 0.6663 (±0.3418)
+Average Accuracy: 0.9947 (±0.0107)
+Average Precision: 0.7263 (±0.3469)
+Average Recall: 0.7003 (±0.3529)
+Average MCC: 0.6836 (±0.3273)
+
+TOP 5 PERFORMERS (by F1 Score)
+----------------------------------------
+ATPDependentNADHOrNADPHHydrateDehydratase | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+Glc2Man9GlcNAc2OligosaccharideGlucosidaseActivity | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+FeruloylCoAHydrataseLyaseActivity | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+Estradiol17BetaDehydrogenaseNADOrNADPActivity | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+PhosphoethanolamineNMethyltransferase | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+
+BOTTOM 5 PERFORMERS (by F1 Score)
+----------------------------------------
+UbiquitinProteinLigase         | F1: 0.000 | P: 0.000 | R: 0.000 | A: 1.000
+NucleosideDiphosphateKinase    | F1: 0.000 | P: 0.000 | R: 0.000 | A: 1.000
+MacromolecularConformationIsomerase | F1: 0.000 | P: 0.000 | R: 0.000 | A: 1.000
+NADHOrNADPHDehydrogenaseQuinone | F1: 0.000 | P: 0.000 | R: 0.000 | A: 0.999
+PectateLyase                   | F1: 0.000 | P: 0.000 | R: 0.000 | A: 1.000
+
+CLASSIFICATION CHALLENGES
+----------------------------------------
+Highest False Positives:
+  - OxidoreductaseActingOnCHOHGroupOfDonors: 194 FP (Precision: 0.567)
+  - AlcoholDehydrogenaseNADP: 161 FP (Precision: 0.030)
+  - OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor: 159 FP (Precision: 0.611)
+
+Highest False Negatives:
+  - Transferase: 412 FN (Recall: 0.606)
+  - CatalyticActivityActingOnAProtein: 132 FN (Recall: 0.114)
+  - CarbonOxygenLyase: 128 FN (Recall: 0.301)
+
+PERFECT SCORES
+----------------------------------------
+  - ATPDependentNADHOrNADPHHydrateDehydratase: Perfect Precision (no false positives)
+  - ATPDependentNADHOrNADPHHydrateDehydratase: Perfect Recall (no false negatives)
+  - Glc2Man9GlcNAc2OligosaccharideGlucosidaseActivity: Perfect Precision (no false positives)
+  - Glc2Man9GlcNAc2OligosaccharideGlucosidaseActivity: Perfect Recall (no false negatives)
+  - FeruloylCoAHydrataseLyaseActivity: Perfect Precision (no false positives)
+  - FeruloylCoAHydrataseLyaseActivity: Perfect Recall (no false negatives)
+  - TwoOxoglutarateDependentDioxygenase: Perfect Recall (no false negatives)
+  - CarboxylicAcidTransmembraneTransporterActivity: Perfect Recall (no false negatives)
+  - AMPylase: Perfect Recall (no false negatives)
+  - Estradiol17BetaDehydrogenaseNADOrNADPActivity: Perfect Precision (no false positives)
+  - Estradiol17BetaDehydrogenaseNADOrNADPActivity: Perfect Recall (no false negatives)
+  - CarbonNitrogenLigaseWithGlutamineAsAmidoNDonor: Perfect Precision (no false positives)
+  - Pentosyltransferase: Perfect Precision (no false positives)
+  - PhosphoethanolamineNMethyltransferase: Perfect Precision (no false positives)
+  - PhosphoethanolamineNMethyltransferase: Perfect Recall (no false negatives)
+  - Diphosphotransferase: Perfect Precision (no false positives)
+  - LigaseFormingCarbonSulfurBonds: Perfect Precision (no false positives)
+  - LigaseFormingCarbonSulfurBonds: Perfect Recall (no false negatives)
+  - NucleosideTriphosphateDiphosphataseActivity: Perfect Precision (no false positives)
+  - TenHydroxydihydrosanguinarine10OMethyltransferase: Perfect Precision (no false positives)
+  - TenHydroxydihydrosanguinarine10OMethyltransferase: Perfect Recall (no false negatives)
+  - SesquiterpeneSynthaseActivity: Perfect Recall (no false negatives)
+  - Delta3Delta2EnoylCoAIsomerase: Perfect Precision (no false positives)
+  - Delta3Delta2EnoylCoAIsomerase: Perfect Recall (no false negatives)
+  - Precorrin3BC17Methyltransferase: Perfect Precision (no false positives)
+  - Precorrin3BC17Methyltransferase: Perfect Recall (no false negatives)
+  - HydrolaseActingOnCarbonPhosphorusBonds: Perfect Recall (no false negatives)
+  - AcetylajmalineEsteraseActivity: Perfect Precision (no false positives)
+  - AcetylajmalineEsteraseActivity: Perfect Recall (no false negatives)
+  - ThreeHydroxyacylCoADehydratase: Perfect Precision (no false positives)
+  - ThreeHydroxyacylCoADehydratase: Perfect Recall (no false negatives)
+  - N1AcetylpolyamineOxidase: Perfect Precision (no false positives)
+  - N1AcetylpolyamineOxidase: Perfect Recall (no false negatives)
+  - AmineNMethyltransferaseActivity: Perfect Precision (no false positives)
+  - AmineNMethyltransferaseActivity: Perfect Recall (no false negatives)
+  - LysineNMethyltransferaseActivity: Perfect Recall (no false negatives)
+  - InositolPhosphateKinaseActivity: Perfect Recall (no false negatives)
+  - SuccinylCoA3OxoAcidCoATransferaseActivity: Perfect Precision (no false positives)
+  - SuccinylCoA3OxoAcidCoATransferaseActivity: Perfect Recall (no false negatives)
+  - AntioxidantActivity: Perfect Precision (no false positives)
+  - RacemaseAndEpimerase: Perfect Precision (no false positives)
+  - CholateCoALigase: Perfect Precision (no false positives)
+  - CholateCoALigase: Perfect Recall (no false negatives)
+  - Transaminase: Perfect Precision (no false positives)
+  - OAcetyltransferase: Perfect Precision (no false positives)
+  - CarbonateDehydratase: Perfect Precision (no false positives)
+  - CarbonateDehydratase: Perfect Recall (no false negatives)
+  - TocopherolCMethyltransferase: Perfect Precision (no false positives)
+  - TocopherolCMethyltransferase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnNADHOrNADPHQuinoneOrSimilarCompoundAsAcceptor: Perfect Precision (no false positives)
+  - UDPGalactosyltransferaseActivity: Perfect Recall (no false negatives)
+  - SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor: Perfect Recall (no false negatives)
+  - FifteenOxoprostaglandin13ReductaseNADOrNADPActivity: Perfect Precision (no false positives)
+  - FifteenOxoprostaglandin13ReductaseNADOrNADPActivity: Perfect Recall (no false negatives)
+  - PhosphotransferaseCarboxylGroupAsAcceptor: Perfect Precision (no false positives)
+  - PhosphotransferaseCarboxylGroupAsAcceptor: Perfect Recall (no false negatives)
+  - IntramolecularTransferase: Perfect Precision (no false positives)
+  - HydroLyase: Perfect Precision (no false positives)
+  - DAminoacylTRNADeacylase: Perfect Recall (no false negatives)
+  - CaffeineSynthase: Perfect Precision (no false positives)
+  - CaffeineSynthase: Perfect Recall (no false negatives)
+  - ProteinOAcetylglucosaminyltransferaseActivity: Perfect Precision (no false positives)
+  - ProteinOAcetylglucosaminyltransferaseActivity: Perfect Recall (no false negatives)
+  - LimoneneMonooxygenaseActivity: Perfect Precision (no false positives)
+  - LimoneneMonooxygenaseActivity: Perfect Recall (no false negatives)
+  - DeoxynucleosideKinase: Perfect Precision (no false positives)
+  - ProteinLysineNMethyltransferaseActivity: Perfect Recall (no false negatives)
+  - NicotinamideNMethyltransferase: Perfect Precision (no false positives)
+  - NicotinamideNMethyltransferase: Perfect Recall (no false negatives)
+  - CisTransIsomerase: Perfect Precision (no false positives)
+  - ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity: Perfect Precision (no false positives)
+  - ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity: Perfect Recall (no false negatives)
+  - NADHOrNADPHOxidaseH2O2FormingActivity: Perfect Precision (no false positives)
+  - NADHOrNADPHOxidaseH2O2FormingActivity: Perfect Recall (no false negatives)
+  - SteroidDehydrogenaseActivity: Perfect Recall (no false negatives)
+  - LigaseActivityFormingCarbonOxygenBonds: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor: Perfect Recall (no false negatives)
+  - LigaseFormingNitrogenMetalBonds: Perfect Precision (no false positives)
+  - HydrolaseActingOnCarbonCarbonBonds: Perfect Precision (no false positives)
+  - PhosphoproteinPhosphataseActivity: Perfect Precision (no false positives)
+  - PTypeTransmembraneTransporterActivity: Perfect Recall (no false negatives)
+  - LigaseFormingCarbonCarbonBonds: Perfect Recall (no false negatives)
+  - HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmides: Perfect Precision (no false positives)
+  - PurineNucleosidePhosphorylase: Perfect Precision (no false positives)
+  - FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase: Perfect Precision (no false positives)
+  - FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase: Perfect Recall (no false negatives)
+  - RibuloseBisphosphateCarboxylase: Perfect Precision (no false positives)
+  - RibuloseBisphosphateCarboxylase: Perfect Recall (no false negatives)
+  - PineneSynthase: Perfect Precision (no false positives)
+  - PineneSynthase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnASulfurGroupOfDonorsNADPAsAcceptor: Perfect Precision (no false positives)
+  - LAspartateDehydrogenaseNADOrNADPActivity: Perfect Precision (no false positives)
+  - LAspartateDehydrogenaseNADOrNADPActivity: Perfect Recall (no false negatives)
+  - TransferaseTransferringNitrogenousGroups: Perfect Precision (no false positives)
+  - RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnASulfurGroupOfDonorsOxygenAsAcceptor: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnASulfurGroupOfDonorsOxygenAsAcceptor: Perfect Recall (no false negatives)
+  - PhosphotransferaseNitrogenousGroupAsAcceptor: Perfect Recall (no false negatives)
+  - RS1Benzyl1234TetrahydroisoquinolineNMethyltransferase: Perfect Precision (no false positives)
+  - RS1Benzyl1234TetrahydroisoquinolineNMethyltransferase: Perfect Recall (no false negatives)
+  - ProteinNAcyltransferaseActivity: Perfect Precision (no false positives)
+  - AcidThiolLigase: Perfect Recall (no false negatives)
+  - AldehydeDehydrogenaseNADOrNADP: Perfect Recall (no false negatives)
+  - PTypeIonTransporterActivity: Perfect Recall (no false negatives)
+  - ThreeHydroxyphenylacetate6HydroxylaseActivity: Perfect Precision (no false positives)
+  - ThreeHydroxyphenylacetate6HydroxylaseActivity: Perfect Recall (no false negatives)
+  - GlycineOxidase: Perfect Precision (no false positives)
+  - GlycineOxidase: Perfect Recall (no false negatives)
+  - MethionineSMethyltransferase: Perfect Precision (no false positives)
+  - MethionineSMethyltransferase: Perfect Recall (no false negatives)
+  - CarbohydrateTransmembraneTransporterActivity: Perfect Precision (no false positives)
+  - PrephenateDehydratase: Perfect Precision (no false positives)
+  - PrephenateDehydratase: Perfect Recall (no false negatives)
+  - RibonucleosideDiphosphateReductaseThioredoxinDisulfideAsAcceptor: Perfect Precision (no false positives)
+  - RibonucleosideDiphosphateReductaseThioredoxinDisulfideAsAcceptor: Perfect Recall (no false negatives)
+  - PyridoxaminePhosphateOxidase: Perfect Precision (no false positives)
+  - PyridoxaminePhosphateOxidase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfOneAtomOfOxygenInternalMonooxygenasesOrInternalMixedFunctionOxidases: Perfect Precision (no false positives)
+  - HydroxymethylFormylAndRelatedTransferase: Perfect Precision (no false positives)
+  - ConiferylAldehydeDehydrogenaseNADOrNADPActivity: Perfect Precision (no false positives)
+  - ConiferylAldehydeDehydrogenaseNADOrNADPActivity: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnReducedFlavodoxin: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnReducedFlavodoxin: Perfect Recall (no false negatives)
+  - CatalyticActivityActingOnATRNA: Perfect Precision (no false positives)
+  - PseudouridineSynthaseActivity: Perfect Precision (no false positives)
+  - PseudouridineSynthaseActivity: Perfect Recall (no false negatives)
+  - ProteinNAcetyltransferaseActivity: Perfect Precision (no false positives)
+  - IntramolecularOxidoreductaseTransposingCCBonds: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnTheCHCHGroupOfDonorsWithAFlavinAsAcceptor: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnTheCHCHGroupOfDonorsWithAFlavinAsAcceptor: Perfect Recall (no false negatives)
+  - HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmidines: Perfect Precision (no false positives)
+  - ATPHydrolysis: Perfect Precision (no false positives)
+  - ATPHydrolysis: Perfect Recall (no false negatives)
+  - TrimethylsulfoniumTetrahydrofolateNMethyltransferase: Perfect Precision (no false positives)
+  - TrimethylsulfoniumTetrahydrofolateNMethyltransferase: Perfect Recall (no false negatives)
+  - Sulfotransferase: Perfect Precision (no false positives)
+  - Sulfotransferase: Perfect Recall (no false negatives)
+  - HydrolaseActingOnSulfurNitrogenBonds: Perfect Recall (no false negatives)
+  - SuccinyltransferaseActivity: Perfect Recall (no false negatives)
+  - CarnosineSynthase: Perfect Precision (no false positives)
+  - CarnosineSynthase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnNADHOrNADPH: Perfect Precision (no false positives)
+  - NucleobaseContainingCompoundKinase: Perfect Precision (no false positives)
+  - ABCTypeTransporterActivity: Perfect Precision (no false positives)
+  - ProteinHistidinePhosphataseActivity: Perfect Precision (no false positives)
+  - ProteinHistidinePhosphataseActivity: Perfect Recall (no false negatives)
+  - SugarPhosphataseActivity: Perfect Recall (no false negatives)
+  - SymporterActivity: Perfect Recall (no false negatives)
+  - TranslocaseLinkedToDecarboxylation: Perfect Precision (no false positives)
+  - TranslocaseLinkedToDecarboxylation: Perfect Recall (no false negatives)
+  - Sterol14DemethylaseActivity: Perfect Precision (no false positives)
+  - Sterol14DemethylaseActivity: Perfect Recall (no false negatives)
+  - HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInNitriles: Perfect Precision (no false positives)
+  - HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInNitriles: Perfect Recall (no false negatives)
+  - LHistidineNAlphaMethyltransferase: Perfect Precision (no false positives)
+  - LHistidineNAlphaMethyltransferase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnPhosphorusOrArsenic: Perfect Precision (no false positives)
+  - AcylCoADehydrogenaseActivity: Perfect Recall (no false negatives)
+  - DihydrolipoylDehydrogenaseNADH: Perfect Precision (no false positives)
+  - CarbonHalideLyase: Perfect Recall (no false negatives)
+  - Sterol12AlphaHydroxylaseActivity: Perfect Precision (no false positives)
+  - Sterol12AlphaHydroxylaseActivity: Perfect Recall (no false negatives)
+  - RacemaseAndEpimeraseActingOnCarbohydratesAndDerivatives: Perfect Recall (no false negatives)
+  - AmmoniaLyase: Perfect Precision (no false positives)
+  - ProteinDeglycase: Perfect Recall (no false negatives)
+  - LeucylTRNAProteinTransferaseActivity: Perfect Precision (no false positives)
+  - LeucylTRNAProteinTransferaseActivity: Perfect Recall (no false negatives)
+  - SoluteMonoatomicCationSymporterActivity: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsIronSulfurProteinAsAcceptor: Perfect Recall (no false negatives)
+  - Aldose1Epimerase: Perfect Precision (no false positives)
+  - Aldose1Epimerase: Perfect Recall (no false negatives)
+  - TwoHydroxyacylCoALyaseActivity: Perfect Recall (no false negatives)
+  - PhosphatidylinositolPhosphatePhosphataseActivity: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnTheCHCHGroupOfDonorsIronSulfurProteinAsAcceptor: Perfect Precision (no false positives)
+  - AldehydeDehydrogenaseNAD: Perfect Recall (no false negatives)
+  - MethylCoIIIMethylamineSpecificCorrinoidProteinCoenzymeMMethyltransferaseActivity: Perfect Precision (no false positives)
+  - MethylCoIIIMethylamineSpecificCorrinoidProteinCoenzymeMMethyltransferaseActivity: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnTheCHNH2GroupOfDonors: Perfect Precision (no false positives)
+  - OAcyltransferase: Perfect Precision (no false positives)
+  - AminoacylTRNALigase: Perfect Precision (no false positives)
+  - CorrinoidAdenosyltransferase: Perfect Precision (no false positives)
+  - CorrinoidAdenosyltransferase: Perfect Recall (no false negatives)
+  - CoALigase: Perfect Precision (no false positives)
+  - SerineTRNALigaseActivity: Perfect Precision (no false positives)
+  - SerineTRNALigaseActivity: Perfect Recall (no false negatives)
+  - SuperoxideDismutase: Perfect Precision (no false positives)
+  - SuperoxideDismutase: Perfect Recall (no false negatives)
+  - SoluteSodiumSymporterActivity: Perfect Precision (no false positives)
+  - SoluteSodiumSymporterActivity: Perfect Recall (no false negatives)
+  - Peroxidase: Perfect Precision (no false positives)
+  - SixSevenDihydropteridineReductase: Perfect Precision (no false positives)
+  - SixSevenDihydropteridineReductase: Perfect Recall (no false negatives)
+  - Adenylyltransferase: Perfect Precision (no false positives)
+  - MolybdenumTungstenTransferase: Perfect Recall (no false negatives)
+  - ATPaseCoupledTransmembraneTransporter: Perfect Recall (no false negatives)
+  - ZeaxanthinEpoxidaseActivity: Perfect Precision (no false positives)
+  - ZeaxanthinEpoxidaseActivity: Perfect Recall (no false negatives)
+  - CinnamylAlcoholDehydrogenaseActivity: Perfect Precision (no false positives)
+  - CinnamylAlcoholDehydrogenaseActivity: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnTheCHNHGroupOfDonorsOxygenAsAcceptor: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedIronSulfurProteinAsOneDonorAndIncorporationOfOneAtomOfOxygen: Perfect Recall (no false negatives)
+  - AureusidinSynthaseActivity: Perfect Precision (no false positives)
+  - AureusidinSynthaseActivity: Perfect Recall (no false negatives)
+  - AlcoholDehydrogenaseNADP: Perfect Recall (no false negatives)
+  - HydrolaseActingOnSulfurSulfurBonds: Perfect Recall (no false negatives)
+  - PhosphotransferasePhosphateGroupAsAcceptor: Perfect Precision (no false positives)
+  - PhosphotransferasePhosphateGroupAsAcceptor: Perfect Recall (no false negatives)
+  - GalactoseOxidase: Perfect Precision (no false positives)
+  - GalactoseOxidase: Perfect Recall (no false negatives)
+  - Sialyltransferase: Perfect Precision (no false positives)
+  - Sialyltransferase: Perfect Recall (no false negatives)
+  - Selenotransferase: Perfect Recall (no false negatives)
+  - OrganicAcidSodiumSymporterActivity: Perfect Precision (no false positives)
+  - OrganicAcidSodiumSymporterActivity: Perfect Recall (no false negatives)
+  - CarbonNitrogenLyase: Perfect Precision (no false positives)
+  - TranslocaseLinkedToHydrolysis: Perfect Recall (no false negatives)
+  - SoluteProtonSymporterActivity: Perfect Recall (no false negatives)
+  - CarbohydratePhosphataseActivity: Perfect Recall (no false negatives)
+  - AcylCoADesaturaseActivity: Perfect Recall (no false negatives)
+  - Limonene12MonooxygenaseNADHOrNADPHActivity: Perfect Precision (no false positives)
+  - Limonene12MonooxygenaseNADHOrNADPHActivity: Perfect Recall (no false negatives)
+  - Pyrophosphatase: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnPairedDonorsWithOxidationOfAPairOfDonorsResultingInTheReductionOfMolecularOxygenToTwoMoleculesOfWater: Perfect Recall (no false negatives)
+  - SulfuricEsterHydrolase: Perfect Precision (no false positives)
+  - PolysialicAcidOAcetyltransferase: Perfect Precision (no false positives)
+  - PolysialicAcidOAcetyltransferase: Perfect Recall (no false negatives)
+  - ShortChainFattyAcylCoADehydrogenaseActivity: Perfect Precision (no false positives)
+  - DeacylaseActivity: Perfect Precision (no false positives)
+  - SpermineOxidase: Perfect Precision (no false positives)
+  - SpermineOxidase: Perfect Recall (no false negatives)
+  - ABCTypeCarbohydrateTransporter: Perfect Precision (no false positives)
+  - Sulfurtransferase: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnPeroxideAsAcceptor: Perfect Precision (no false positives)
+  - ThreeBetaHydroxysteroid3DehydrogenaseNADPActivity: Perfect Precision (no false positives)
+  - RNADihydrouridineSynthase: Perfect Precision (no false positives)
+  - GlyceollinSynthaseActivity: Perfect Precision (no false positives)
+  - GlyceollinSynthaseActivity: Perfect Recall (no false negatives)
+  - Cytidylyltransferase: Perfect Precision (no false positives)
+  - ShortChain2MethylFattyAcylCoADehydrogenaseActivity: Perfect Precision (no false positives)
+  - AcylCoAHydrolase: Perfect Precision (no false positives)
+  - AcylCoAHydrolase: Perfect Recall (no false negatives)
+  - HydrolaseActingOnCarbonCarbonBondsInKetonicSubstances: Perfect Precision (no false positives)
+  - CarboxylOrCarbamoyltransferase: Perfect Precision (no false positives)
+  - CarboxylOrCarbamoyltransferase: Perfect Recall (no false negatives)
+  - TyramineNMethyltransferase: Perfect Precision (no false positives)
+  - TyramineNMethyltransferase: Perfect Recall (no false negatives)
+  - SqualeneMonooxygenase: Perfect Precision (no false positives)
+  - SqualeneMonooxygenase: Perfect Recall (no false negatives)
+  - OxidoreductaseActingOnAHemeGroupOfDonors: Perfect Recall (no false negatives)
+  - MalonateSemialdehydeDehydrogenaseAcetylatingActivity: Perfect Precision (no false positives)
+  - MalonateSemialdehydeDehydrogenaseAcetylatingActivity: Perfect Recall (no false negatives)
+  - PolyamineOxidase: Perfect Precision (no false positives)
+  - NitroquinolineNOxideReductaseNADHOrNADPHActivity: Perfect Precision (no false positives)
+  - NitroquinolineNOxideReductaseNADHOrNADPHActivity: Perfect Recall (no false negatives)
+  - DiphosphoricMonoesterHydrolase: Perfect Recall (no false negatives)
+  - Acetyltransferase: Perfect Precision (no false positives)
+  - Arachidonate5LipoxygenaseActivity: Perfect Precision (no false positives)
+  - Arachidonate5LipoxygenaseActivity: Perfect Recall (no false negatives)
+  - HydrolaseActingOnHalideBondsInCHalideCompounds: Perfect Precision (no false positives)
+  - GalactosylceramideSulfotransferaseActivity: Perfect Precision (no false positives)
+  - GalactosylceramideSulfotransferaseActivity: Perfect Recall (no false negatives)
+  - CytochromeCOxidase: Perfect Recall (no false negatives)
+  - GlycerolDehydratase: Perfect Precision (no false positives)
+  - GlycerolDehydratase: Perfect Recall (no false negatives)
+  - IntramolecularPhosphotransferase: Perfect Precision (no false positives)
+  - IntramolecularPhosphotransferase: Perfect Recall (no false negatives)
+  - Uridylyltransferase: Perfect Precision (no false positives)
+  - PeptidylProlylCisTransIsomerase: Perfect Precision (no false positives)
+  - PeptidylProlylCisTransIsomerase: Perfect Recall (no false negatives)
+  - LAminoadipateSemialdehydeDehydrogenaseNADOrNADPActivity: Perfect Precision (no false positives)
+  - LAminoadipateSemialdehydeDehydrogenaseNADOrNADPActivity: Perfect Recall (no false negatives)
+  - TRNADihydrouridineSynthase: Perfect Precision (no false positives)
+  - ThiolesterHydrolase: Perfect Precision (no false positives)
+  - ThiolesterHydrolase: Perfect Recall (no false negatives)
+  - PolyamineOxidasePropane13DiamineForming: Perfect Precision (no false positives)
+  - PolyamineOxidasePropane13DiamineForming: Perfect Recall (no false negatives)
+  - SulfurCompoundTransmembraneTransporterActivity: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnTheCHOHGroupOfDonorsQuinoneOrSimilarCompoundAsAcceptor: Perfect Precision (no false positives)
+  - OxidoreductaseActingOnTheCHOHGroupOfDonorsQuinoneOrSimilarCompoundAsAcceptor: Perfect Recall (no false negatives)
+  - ADPDependentNADHOrNADPHHydrateDehydratase: Perfect Precision (no false positives)
+  - ADPDependentNADHOrNADPHHydrateDehydratase: Perfect Recall (no false negatives)
+  - UDPXylosyltransferaseActivity: Perfect Recall (no false negatives)
+  - Guanylyltransferase: Perfect Precision (no false positives)
+  - Pectinesterase: Perfect Precision (no false positives)
+  - Pectinesterase: Perfect Recall (no false negatives)
+  - DArabinitolDehydrogenaseNADPActivity: Perfect Precision (no false positives)
+  - DArabinitolDehydrogenaseNADPActivity: Perfect Recall (no false negatives)
+  - MannosylOligosaccharide12AlphaMannosidaseActivity: Perfect Precision (no false positives)
+  - MannosylOligosaccharide12AlphaMannosidaseActivity: Perfect Recall (no false negatives)
+  - MethylEthylMalonylCoADecarboxylase: Perfect Precision (no false positives)
+  - MethylEthylMalonylCoADecarboxylase: Perfect Recall (no false negatives)
+  - BiotinBiotinCarboxylCarrierProteinLigase: Perfect Precision (no false positives)
+
+RECOMMENDATIONS FOR IMPROVEMENT
+----------------------------------------
+Classifiers needing recall improvement (< 0.3):
+  - CatalyticActivityActingOnAProtein: Current recall 0.114
+  - OxidoreductaseActingOnCHOrCH2Groups: Current recall 0.125
+  - OAcetyltransferase: Current recall 0.045
+  - UbiquitinProteinLigase: Current recall 0.000
+  - IntramolecularTransferase: Current recall 0.175
+  - HydroLyase: Current recall 0.095
+  - NucleosideDiphosphateKinase: Current recall 0.000
+  - MacromolecularConformationIsomerase: Current recall 0.000
+  - CisTransIsomerase: Current recall 0.091
+  - NADHOrNADPHDehydrogenaseQuinone: Current recall 0.000
+  - IntramolecularOxidoreductase: Current recall 0.214
+  - CatalyticActivityActingOnANucleicAcid: Current recall 0.195
+  - PectateLyase: Current recall 0.000
+  - SUMOTransferase: Current recall 0.000
+  - CarbohydrateKinaseActivity: Current recall 0.120
+  - HydrolaseActingOnCarbonCarbonBonds: Current recall 0.294
+  - OMethyltransferase: Current recall 0.043
+  - DemethylmenaquinoneMethyltransferase: Current recall 0.000
+  - HistoneModifyingActivity: Current recall 0.200
+  - CatalyticActivityActingOnRNA: Current recall 0.204
+  - GDP4DehydroDRhamnoseReductase: Current recall 0.000
+  - AlphaAmylase: Current recall 0.000
+  - CatalyticActivityActingOnATRNA: Current recall 0.269
+  - NMethyltransferase: Current recall 0.128
+  - IntramolecularOxidoreductaseTransposingCCBonds: Current recall 0.067
+  - CarbonPhosphorusLyase: Current recall 0.000
+  - AldehydeLyase: Current recall 0.217
+  - Lipase: Current recall 0.000
+  - MetalCationMonoatomicCationAntiporterActivity: Current recall 0.000
+  - Delta24SterolReductase: Current recall 0.000
+  - TranslocaseLinkedToDeamination: Current recall 0.000
+  - OxidoreductaseActingOnNADHOrNADPH: Current recall 0.273
+  - NucleobaseContainingCompoundKinase: Current recall 0.261
+  - SMethyltransferase: Current recall 0.111
+  - ABCTypeTransporterActivity: Current recall 0.162
+  - Cyclase: Current recall 0.200
+  - HydrolaseActingOnCarbonSulfurBonds: Current recall 0.000
+  - OxidoreductaseActingOnPhosphorusOrArsenic: Current recall 0.250
+  - RNAPolymerase: Current recall 0.000
+  - RNAMethyltransferase: Current recall 0.000
+  - DihydrolipoylDehydrogenaseNADH: Current recall 0.250
+  - LigaseFormingCarbonNitrogenBonds: Current recall 0.295
+  - Chitinase: Current recall 0.000
+  - EpoxideHydrolase: Current recall 0.000
+  - RRNAMethyltransferase: Current recall 0.000
+  - TranslocaseLinkedToMethylTransfer: Current recall 0.000
+  - ProtonTransmembraneTransporterActivity: Current recall 0.053
+  - TRNACytidine5Methyltransferase: Current recall 0.000
+  - DisulfideOxidoreductaseActivity: Current recall 0.100
+  - AldehydeKetoneTransferase: Current recall 0.000
+  - HydrolaseActingOnPhosphorusNitrogenBonds: Current recall 0.000
+  - Helicase: Current recall 0.000
+  - IntramolecularLyase: Current recall 0.286
+  - OAcyltransferase: Current recall 0.016
+  - OxidoreductaseFormingXYBond: Current recall 0.000
+  - CoALigase: Current recall 0.071
+  - Gibberellin20Oxidase: Current recall 0.000
+  - TranslocaseLinkedToReductiveDehalogenation: Current recall 0.000
+  - CatalyticActivityActingOnARRNA: Current recall 0.000
+  - Adenylyltransferase: Current recall 0.200
+  - NAcyltransferase: Current recall 0.045
+  - Cellulase: Current recall 0.000
+  - LigaseFormingPhosphoricEsterBonds: Current recall 0.000
+  - Endo14BetaXylanase: Current recall 0.000
+  - DeacylaseActivity: Current recall 0.081
+  - AntiporterActivity: Current recall 0.000
+  - NAcetyltransferase: Current recall 0.074
+  - OxidoreductaseReducingCOCGroup: Current recall 0.000
+  - HydrolaseActingOnCarbonCarbonBondsInKetonicSubstances: Current recall 0.294
+  - ProteinKinaseActivity: Current recall 0.095
+  - Aminopeptidase: Current recall 0.000
+  - Acetyltransferase: Current recall 0.049
+  - TriacylglycerolLipase: Current recall 0.000
+  - TRNAMethyltransferase: Current recall 0.000
+  - TransitionMetalIonTransmembraneTransporterActivity: Current recall 0.091
+  - PeptideOFucosyltransferase: Current recall 0.000
+  - ProteinSerineThreonineKinaseActivity: Current recall 0.067
+  - RNANuclease: Current recall 0.000
+  - BiotinBiotinCarboxylCarrierProteinLigase: Current recall 0.250
+Classifiers needing precision improvement (< 0.3):
+  - AlcoholDehydrogenaseNADOrNADP: Current precision 0.188
+  - ProteinMethyltransferaseActivity: Current precision 0.235
+  - GlycerophospholipaseActivity: Current precision 0.043
+  - HydrolaseActingOnCarbonPhosphorusBonds: Current precision 0.125
+  - OxidoreductaseActingOnCHOrCH2Groups: Current precision 0.286
+  - UbiquitinProteinLigase: Current precision 0.000
+  - OxidoreductaseActingOnDiphenols: Current precision 0.250
+  - NucleosideDiphosphateKinase: Current precision 0.000
+  - MacromolecularConformationIsomerase: Current precision 0.000
+  - NADHOrNADPHDehydrogenaseQuinone: Current precision 0.000
+  - PectateLyase: Current precision 0.000
+  - SUMOTransferase: Current precision 0.000
+  - OMethyltransferase: Current precision 0.250
+  - DemethylmenaquinoneMethyltransferase: Current precision 0.000
+  - OxidoreductaseActingOnIronSulfurProteins: Current precision 0.174
+  - GDP4DehydroDRhamnoseReductase: Current precision 0.000
+  - AlphaAmylase: Current precision 0.000
+  - CarbonPhosphorusLyase: Current precision 0.000
+  - DemethylaseActivity: Current precision 0.263
+  - Lipase: Current precision 0.000
+  - MetalCationMonoatomicCationAntiporterActivity: Current precision 0.000
+  - Delta24SterolReductase: Current precision 0.000
+  - TranslocaseLinkedToDeamination: Current precision 0.000
+  - AlcoholDehydrogenaseNAD: Current precision 0.188
+  - Cyclase: Current precision 0.200
+  - HydrolaseActingOnCarbonSulfurBonds: Current precision 0.000
+  - CAcyltransferaseActivity: Current precision 0.176
+  - LipidKinaseActivity: Current precision 0.138
+  - RNAPolymerase: Current precision 0.000
+  - RNAMethyltransferase: Current precision 0.000
+  - Chitinase: Current precision 0.000
+  - EpoxideHydrolase: Current precision 0.000
+  - RRNAMethyltransferase: Current precision 0.000
+  - TranslocaseLinkedToMethylTransfer: Current precision 0.000
+  - ProtonTransmembraneTransporterActivity: Current precision 0.111
+  - RibonucleosideTriphosphatePhosphataseActivity: Current precision 0.066
+  - PhosphatidylinositolPhosphatePhosphataseActivity: Current precision 0.089
+  - TRNACytidine5Methyltransferase: Current precision 0.000
+  - DisulfideOxidoreductaseActivity: Current precision 0.053
+  - AldehydeKetoneTransferase: Current precision 0.000
+  - HydrolaseActingOnPhosphorusNitrogenBonds: Current precision 0.000
+  - Helicase: Current precision 0.000
+  - OxidoreductaseFormingXYBond: Current precision 0.000
+  - Gibberellin20Oxidase: Current precision 0.000
+  - TranslocaseLinkedToReductiveDehalogenation: Current precision 0.000
+  - CatalyticActivityActingOnARRNA: Current precision 0.000
+  - MolybdenumTungstenTransferase: Current precision 0.125
+  - PhospholipaseActivity: Current precision 0.052
+  - AlcoholDehydrogenaseNADP: Current precision 0.030
+  - Cellulase: Current precision 0.000
+  - LigaseFormingPhosphoricEsterBonds: Current precision 0.000
+  - Endo14BetaXylanase: Current precision 0.000
+  - CarbohydratePhosphataseActivity: Current precision 0.080
+  - AntiporterActivity: Current precision 0.000
+  - OxidoreductaseReducingCOCGroup: Current precision 0.000
+  - Aminopeptidase: Current precision 0.000
+  - OxidoreductaseActingOnAHemeGroupOfDonors: Current precision 0.074
+  - TriacylglycerolLipase: Current precision 0.000
+  - Peptidase: Current precision 0.167
+  - CytochromeCOxidase: Current precision 0.111
+  - TRNAMethyltransferase: Current precision 0.000
+  - PeptideOFucosyltransferase: Current precision 0.000
+  - ProteinSerineThreonineKinaseActivity: Current precision 0.200
+  - RNANuclease: Current precision 0.000
+
+CODE COMPLEXITY ANALYSIS
+----------------------------------------
+Total LOC: 43249
+Average Cyclomatic Complexity: 8.5
+Average ChEBI IDs: 3.7
+Disabled classifiers: 168
+
+Most Complex Classifiers (may need refactoring):
+  - racemase_and_epimerase: CC=57 (Rank F), 8 ChEBI IDs, 7 exclusions
+  - hydrolase_acting_on_acid_sulfur_nitrogen_bonds: CC=53 (Rank F), 4 ChEBI IDs, 4 exclusions
+  - transferase: CC=53 (Rank F), 26 ChEBI IDs, 10 exclusions
+  - transferase_transferring_phosphorus_containing_groups: CC=52 (Rank F), 4 ChEBI IDs, 10 exclusions
+  - phosphatase: CC=50 (Rank F), 29 ChEBI IDs, 9 exclusions
+
+Simplest Active Classifiers (good examples):
+  - acyl_coa_desaturase_activity: CC=3, 1 ChEBI IDs
+  - amine_n_methyltransferase_activity: CC=3, 5 ChEBI IDs
+  - arachidonate_5_lipoxygenase_activity: CC=3, 5 ChEBI IDs
+  - aureusidin_synthase_activity: CC=3, 5 ChEBI IDs
+  - cinnamyl_alcohol_dehydrogenase_activity: CC=3, 3 ChEBI IDs
+
+Complexity Ranks: A(1-5)=Simple, B(6-10)=Moderate, C(11-20)=Complex,
+                  D(21-30)=Very Complex, E(31-40)=Highly Complex, F(41+)=Extreme
+
+CURATION OBJECTIVE
+----------------------------------------
+Objective = conservative_F1 - 0.15 * complexity_percentile
+Conservative F1 uses Wilson lower bounds on precision and recall to penalize small-support optimism.
+
+Top 5 curator objective scores:
+  - OtherOxidoreductase: objective=0.899, conservative_F1=0.927, raw_F1=0.942, support=1099
+  - ATPaseCoupledTransmembraneTransporter: objective=0.875, conservative_F1=0.919, raw_F1=0.991, support=54
+  - OtherIsomerase: objective=0.854, conservative_F1=0.882, raw_F1=0.927, support=193
+  - TransferaseTransferringOneCarbonGroups: objective=0.846, conservative_F1=0.859, raw_F1=0.902, support=228
+  - Oxidoreductase: objective=0.845, conservative_F1=0.927, raw_F1=0.942, support=1099
+
+Highest overfitting-risk classes:
+  - FeruloylCoAHydrataseLyaseActivity: gap=0.793, raw_F1=1.000, conservative_F1=0.207, support=1
+  - AmineNMethyltransferaseActivity: gap=0.793, raw_F1=1.000, conservative_F1=0.207, support=1
+  - RibuloseBisphosphateCarboxylase: gap=0.793, raw_F1=1.000, conservative_F1=0.207, support=1
+  - OxidoreductaseActingOnReducedFlavodoxin: gap=0.793, raw_F1=1.000, conservative_F1=0.207, support=1
+  - CinnamylAlcoholDehydrogenaseActivity: gap=0.793, raw_F1=1.000, conservative_F1=0.207, support=1
+
+================================================================================
+Report generated: 2026-03-23 15:40:29.884531

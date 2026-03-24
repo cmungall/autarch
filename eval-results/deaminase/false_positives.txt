@@ -1,0 +1,7 @@
+False Positives for Deaminase
+==================================================
+Total: 1
+
+RHEA:32067: 8-oxoguanine + H2O + H(+) = urate + NH4(+)
+  → Deaminase: guanine deamination
+

@@ -1,0 +1,46 @@
+False Positives for Pyrophosphatase
+==================================================
+Total: 14
+
+RHEA:14253: guanosine 3',5'-bis(diphosphate) + H2O = GDP + diphosphate + H(+)
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:21496: dimethylallyl diphosphate + H2O = prenol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:28070: heme b + (2E,6E)-farnesyl diphosphate + H2O = Fe(II)-heme o + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:32075: geranylgeranyl diphosphate + H2O = (13E)-labda-7,13-dien-15-ol + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → Pyrophosphatase: acid anhydride hydrolysis
+
+RHEA:33055: guanosine 3'-diphosphate 5'-triphosphate + H2O = GTP + diphosphate + H(+)
+  → Pyrophosphatase: acid anhydride hydrolysis
+

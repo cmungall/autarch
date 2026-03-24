@@ -1,0 +1,10 @@
+False Negatives for LAminoAcidNAcetyltransferaseActivity
+==================================================
+Total: 2
+
+RHEA:14417: acetyl phosphate + L-lysine = N(6)-acetyl-L-lysine + phosphate + H(+)
+  → Requires an acetyl donor with CoA or phosphate leaving-group release
+
+RHEA:15349: N(2)-acetyl-L-ornithine + L-glutamate = N-acetyl-L-glutamate + L-ornithine
+  → Requires an acetyl donor with CoA or phosphate leaving-group release
+

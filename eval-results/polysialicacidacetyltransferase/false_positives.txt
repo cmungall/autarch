@@ -1,0 +1,7 @@
+False Positives for PolysialicAcidAcetyltransferase
+==================================================
+Total: 1
+
+RHEA:11604: [N-acetyl-alpha-D-neuraminosyl-(2->8)](n) + n acetyl-CoA = [O(7),N-diacetyl-alpha-D-neuraminosyl-(2->8)](n) + n CoA
+  → Polysialic acid O-acetyltransferase: acetylation
+

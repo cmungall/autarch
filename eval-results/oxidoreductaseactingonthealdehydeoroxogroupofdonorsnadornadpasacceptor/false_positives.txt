@@ -1,0 +1,28 @@
+False Positives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 8
+
+RHEA:10180: (6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:21888: (1S,2S)-OPC-8 + NADP(+) = (9S,13S,15Z)-12-oxophyto-10,15-dienoate + NADPH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:24268: 2,6-dioxo-6-phenylhexanoate + NADP(+) = 2-hydroxy-6-oxo-6-phenylhexa-2,4-dienoate + NADPH + H(+)
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+

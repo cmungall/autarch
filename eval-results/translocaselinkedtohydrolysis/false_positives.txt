@@ -1,0 +1,7 @@
+False Positives for TranslocaseLinkedToHydrolysis
+==================================================
+Total: 1
+
+RHEA:34999: ADP(in) + ATP(out) = ADP(out) + ATP(in)
+  → Translocase (ATP hydrolysis-coupled): CHEBI:456216: in→out, CHEBI:30616: in→out
+

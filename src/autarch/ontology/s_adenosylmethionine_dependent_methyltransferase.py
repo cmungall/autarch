@@ -1,0 +1,18 @@
+"""S-adenosylmethionine-dependent methyltransferase activity."""
+
+from autarch.ontology.go_aggregate import ExplicitGoAggregate
+from autarch.ontology.five_methyltetrahydropteroyltriglutamate_homocysteine_s_methyltransferase import FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase
+from autarch.ontology.methionine_s_methyltransferase import MethionineSMethyltransferase
+from autarch.ontology.methyltransferase import Methyltransferase
+from autarch.ontology.n_methyltransferase import NMethyltransferase
+from autarch.ontology.o_methyltransferase import OMethyltransferase
+from autarch.ontology.rrna_small_subunit_pseudouridine_methyltransferase_nep1 import RRNASmallSubunitPseudouridineMethyltransferaseNep1
+from autarch.ontology.trna_cytidine_5_methyltransferase import TRNACytidine5Methyltransferase
+
+
+class SAdenosylmethionineDependentMethyltransferase(ExplicitGoAggregate):
+    """S-adenosylmethionine-dependent methyltransferase activity."""
+
+    GO_ID = "GO:0008757"
+    CONCEPT_PHRASE = "S-adenosylmethionine-dependent methyltransferase activity"
+    CHILD_CLASSES = (Methyltransferase, NMethyltransferase, OMethyltransferase, TRNACytidine5Methyltransferase, RRNASmallSubunitPseudouridineMethyltransferaseNep1, MethionineSMethyltransferase, FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase,)

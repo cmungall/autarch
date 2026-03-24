@@ -1,0 +1,22 @@
+False Negatives for Ligase
+==================================================
+Total: 6
+
+RHEA:10488: (6S)-5-formyl-5,6,7,8-tetrahydrofolate + ATP = (6R)-5,10-methenyltetrahydrofolate + ADP + phosphate
+  → Single substrate + ATP → ADP pattern - likely kinase not ligase
+
+RHEA:19397: (R)-4'-phosphopantothenate + L-cysteine + CTP = N-[(R)-4-phosphopantothenoyl]-L-cysteine + CMP + diphosphate + H(+)
+  → No nucleotide triphosphate - ligases require ATP/GTP
+
+RHEA:23032: 2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine + ATP = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + ADP + phosphate + H(+)
+  → Single substrate + ATP → ADP pattern - likely kinase not ligase
+
+RHEA:23620: N(2)-(2-carboxyethyl)-L-arginine + ATP = deoxyamidinoproclavaminate + AMP + diphosphate + H(+)
+  → No clear ligase pattern
+
+RHEA:23976: a 3'-end 3'-phospho-ribonucleotide-RNA + ATP = a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + AMP + diphosphate
+  → No clear ligase pattern
+
+RHEA:10752: [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n) + n D-aspartate + n ATP = [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-6-N-(beta-D-Asp)-L-Lys-D-Ala-D-Ala)]n + n ADP + n phosphate + n H(+)
+  → No nucleotide triphosphate - ligases require ATP/GTP
+

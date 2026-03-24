@@ -1,0 +1,31 @@
+False Negatives for Synthase
+==================================================
+Total: 9
+
+RHEA:10488: (6S)-5-formyl-5,6,7,8-tetrahydrofolate + ATP = (6R)-5,10-methenyltetrahydrofolate + ADP + phosphate
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:10580: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + L-glutamate + ATP = (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n+1) + ADP + phosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:10752: [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n) + n D-aspartate + n ATP = [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-6-N-(beta-D-Asp)-L-Lys-D-Ala-D-Ala)]n + n ADP + n phosphate + n H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:10912: (R)-pantoate + beta-alanine + ATP = (R)-pantothenate + AMP + diphosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:10932: L-citrulline + L-aspartate + ATP = 2-(N(omega)-L-arginino)succinate + AMP + diphosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:11224: 2 D-alanine + ATP = D-alanyl-D-alanine + ADP + phosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+
+RHEA:11680: XMP + L-glutamine + ATP + H2O = GMP + L-glutamate + AMP + diphosphate + 2 H(+)
+  → Not a ligase: No clear ligase pattern (ATP-dependent bond formation)
+
+RHEA:11756: biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)
+  → Not a ligase: Pattern doesn't match expected ligation reaction
+

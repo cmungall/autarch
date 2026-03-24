@@ -1,0 +1,76 @@
+False Negatives for Transferase
+==================================================
+Total: 24
+
+RHEA:10024: L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10068: 4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10096: a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5'-thioadenosine + holo-[ACP] + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10256: [(1->4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → Hydrolysis pattern detected - not transferase
+
+RHEA:10304: a 2-acyl-sn-glycero-3-phosphoethanolamine + a fatty acyl-[ACP] = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + holo-[ACP]
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10584: 4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → Contains redox cofactor - likely oxidoreductase
+
+RHEA:10588: a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O
+  → Contains redox cofactor - likely oxidoreductase
+
+RHEA:10612: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-alpha-D-xylose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-[beta-D-Xyl-(1->2)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:10668: L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-lysyl)-sn-glycerol + tRNA(Lys)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11108: chondroitin beta-D-glucuronate + n 3'-phosphoadenylyl sulfate = chondroitin 6'-sulfate + n adenosine 3',5'-bisphosphate + n H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11116: an alkane-alpha,omega-diamine + acetyl-CoA = an N-acetylalkane-alpha,omega-diamine + CoA + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11128: (E)-4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = 2',4,4',6'-tetrahydroxychalcone + 3 CO2 + 4 CoA
+  → No clear transfer pattern detected
+
+RHEA:11332: RNA(n) + ATP = RNA(n)-3'-adenine ribonucleotide + diphosphate
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11364: pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)
+  → Hydrolysis pattern detected - not transferase
+
+RHEA:11416: 2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11456: N(4)-(alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11604: [N-acetyl-alpha-D-neuraminosyl-(2->8)](n) + n acetyl-CoA = [O(7),N-diacetyl-alpha-D-neuraminosyl-(2->8)](n) + n CoA
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11668: [(1->4)-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-6-phospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → Hydrolysis pattern detected - not transferase
+
+RHEA:11780: 3-O-(beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:11820: diphthamide-[translation elongation factor 2] + NAD(+) = N-(ADP-D-ribosyl)diphthamide-[translation elongation factor 2] + nicotinamide + H(+)
+  → Contains redox cofactor - likely oxidoreductase
+
+RHEA:11936: 4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = trans-resveratrol + 4 CO2 + 4 CoA
+  → No clear transfer pattern detected
+
+RHEA:12068: apo-[ACP] + CoA = holo-[ACP] + adenosine 3',5'-bisphosphate + H(+)
+  → Pattern doesn't match expected transfer reaction
+
+RHEA:12080: malonyl-[ACP] + acetyl-CoA + H(+) = 3-oxobutanoyl-[ACP] + CO2 + CoA
+  → No clear transfer pattern detected
+

@@ -1,0 +1,7 @@
+False Negatives for AminoAcidDehydrogenaseNADOrNADP
+==================================================
+Total: 1
+
+RHEA:21768: N-methyl-L-alanine + NADP(+) + H2O = methylamine + pyruvate + NADPH + H(+)
+  → No ammonia/ammonium release - not deamination
+

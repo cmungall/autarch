@@ -1,0 +1,46 @@
+False Negatives for OxidoreductaseActingOnCHOrCH2Groups
+==================================================
+Total: 14
+
+RHEA:10616: (2R,3S)-catechin + NADP(+) + H2O = (2R,3S,4S)-leucocyanidin + NADPH + H(+)
+  → No CH/CH2 oxidoreductase pattern detected
+
+RHEA:12236: nicotinate + NADP(+) + H2O = 6-hydroxynicotinate + NADPH + H(+)
+  → No CH/CH2 oxidoreductase pattern detected
+
+RHEA:12701: a 2'-deoxyribonucleoside 5'-triphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-triphosphate + [thioredoxin]-dithiol
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:15141: 4-methylphenol + 4 oxidized [azurin] + H2O = 4 reduced [azurin] + 4-hydroxybenzaldehyde + 4 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:18745: 2 juglone + O2 = 2 3,5-dihydroxy-1,4-naphthoquinone + 2 H(+)
+  → No CH/CH2 oxidoreductase pattern detected
+
+RHEA:21560: 3-hydroxy-2-methyl-3-phytyl-2,3-dihydro-1,4-naphthoquinone + oxidized dithiothreitol = 1,4-dithiothreitol + 2,3-epoxyphylloquinone
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:22808: 6-hydroxynicotinate + O2 + H2O = 2,6-dihydroxynicotinate + H2O2
+  → No CH/CH2 oxidoreductase pattern detected
+
+RHEA:23252: a 2'-deoxyribonucleoside 5'-diphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-diphosphate + [thioredoxin]-dithiol
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:24488: isopentenyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:24825: dimethylallyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:26119: (2E)-4-hydroxy-3-methylbut-2-enyl diphosphate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = 2-C-methyl-D-erythritol 2,4-cyclic diphosphate + 2 reduced [2Fe-2S]-[ferredoxin] + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:28026: dUDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + UDP
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:28034: dADP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + ADP
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:57744: phylloquinol + [protein]-disulfide = phylloquinone + [protein]-dithiol
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+

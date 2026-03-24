@@ -1,0 +1,13 @@
+False Positives for OxidoreductaseActingOnTheCHCHGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 3
+
+RHEA:16621: dihydrosanguinarine + O2 + H(+) = sanguinarine + H2O2
+  → CH-CH oxidoreductase with oxygen as acceptor
+
+RHEA:23756: D-arabinono-1,4-lactone + O2 = dehydro-D-arabinono-1,4-lactone + H2O2 + H(+)
+  → CH-CH oxidoreductase with oxygen as acceptor
+
+RHEA:32363: L-gulono-1,4-lactone + O2 = L-ascorbate + H2O2 + H(+)
+  → CH-CH oxidoreductase with oxygen as acceptor
+

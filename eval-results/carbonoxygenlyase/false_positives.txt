@@ -1,0 +1,34 @@
+False Positives for CarbonOxygenLyase
+==================================================
+Total: 10
+
+RHEA:27551: 8 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = di-trans,octa-cis-undecaprenyl diphosphate + 8 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27555: 2 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-hexaprenyl diphosphate + 2 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi
+
+RHEA:27559: 3 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-hexaprenyl diphosphate + 3 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27563: 7 isopentenyl diphosphate + (2E)-geranyl diphosphate = all-trans-nonaprenyl diphosphate + 7 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:27594: 5 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-nonaprenyl diphosphate + 5 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi
+
+RHEA:27794: 4 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-heptaprenyl diphosphate + 4 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27798: 5 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-octaprenyl diphosphate + 5 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27802: 7 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-decaprenyl diphosphate + 7 diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → carbon-oxygen lyase: matched CarbonOxygenLyaseActingOnPhosphates (4.2.3.-); Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi
+

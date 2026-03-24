@@ -1,0 +1,106 @@
+False Negatives for DeacylaseActivity
+==================================================
+Total: 34
+
+RHEA:11516: succinyl-CoA + H2O = succinate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:11548: 5-(4-acetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(4-hydroxy-but-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:11660: a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:11752: acetylsalicylate + H2O = salicylate + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:11948: 4-hydroxybenzoyl-CoA + H2O = 4-hydroxybenzoate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:12208: 4-methylumbelliferyl acetate + H2O = 4-methylumbelliferone + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:14541: choloyl-CoA + H2O = cholate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:15337: phenylglyoxylyl-CoA + H2O = phenylglyoxylate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:15673: acetoacetyl-CoA + H2O = acetoacetate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:15897: 4-acetamidobutanoate + H2O = 4-aminobutanoate + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:15941: N(2)-acetyl-L-ornithine + H2O = L-ornithine + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:16305: (3S)-3-hydroxy-3-methylglutaryl-CoA + H2O = 3-hydroxy-3-methylglutarate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:16313: 5-(3,4-diacetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(3-hydroxy-4-acetoxybut-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:16781: a fatty acyl-CoA + H2O = a fatty acid + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:17345: (S)-methylmalonyl-CoA + H2O = methylmalonate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:17793: L-alanyl-tRNA(Thr) + H2O = tRNA(Thr) + L-alanine + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:18149: N-acetyl-D-galactosamine 6-phosphate + H2O = D-galactosamine 6-phosphate + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:18485: 6-acetyl-D-glucose + H2O = D-glucose + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:20289: acetyl-CoA + H2O = acetate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:20405: N-acetyl-(2S,6S)-2,6-diaminopimelate + H2O = (2S,6S)-2,6-diaminopimelate + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:20593: N-acetyl-D-glucosamine + H2O = D-glucosamine + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:20888: 3-hydroxy-2-methylpropanoyl-CoA + H2O = 3-hydroxy-2-methylpropanoate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:22596: cephalosporin C + H2O = deacetylcephalosporin C + acetate + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:22928: 4-acetamidobutanoyl-CoA + H2O = 4-aminobutanoyl-CoA + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:22936: N-acetyl-D-glucosamine 6-phosphate + H2O = D-glucosamine 6-phosphate + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:23212: N-acetyl-beta-alanine + H2O = beta-alanine + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:23412: N-acetylputrescine + H2O = putrescine + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:23500: N(6)-propanoyl-L-lysyl-[protein] + NAD(+) + H2O = 3''-O-propanoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No supported deacylase activity child classifier matched
+
+RHEA:23928: N(8)-acetylspermidine + H2O = spermidine + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:25351: L-cysteinyl-tRNA(Pro) + H2O = tRNA(Pro) + L-cysteine + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:26180: 1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside + H2O = 1D-myo-inositol 2-amino-2-deoxy-alpha-D-glucopyranoside + acetate
+  → No supported deacylase activity child classifier matched
+
+RHEA:26309: 1,4-dihydroxy-2-naphthoyl-CoA + H2O = 1,4-dihydroxy-2-naphthoate + CoA + H(+)
+  → No supported deacylase activity child classifier matched
+
+RHEA:43636: N(6)-acetyl-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-acetyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No supported deacylase activity child classifier matched
+
+RHEA:10464: [(1->4)-N-acetyl-beta-D-glucosaminyl](n) + n H2O = chitosan + n acetate
+  → No supported deacylase activity child classifier matched
+

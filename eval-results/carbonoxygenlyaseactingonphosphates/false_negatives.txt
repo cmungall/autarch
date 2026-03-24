@@ -1,0 +1,85 @@
+False Negatives for CarbonOxygenLyaseActingOnPhosphates
+==================================================
+Total: 27
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:13873: (+)-copalyl diphosphate = abieta-7,13-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:17937: dihydroxyacetone phosphate = methylglyoxal + phosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:21020: 5-O-(1-carboxyvinyl)-3-phosphoshikimate = chorismate + phosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:21968: 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate = 3-dehydroquinate + phosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:22048: 7,8-dihydroneopterin 3'-triphosphate = 6-pyruvoyl-5,6,7,8-tetrahydropterin + triphosphate + H(+)
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:22220: ent-copalyl diphosphate = ent-kaur-16-ene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25532: ent-copalyl diphosphate = ent-cassa-12,15-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25536: ent-copalyl diphosphate = ent-sandaracopimara-8(14),15-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25540: ent-copalyl diphosphate = ent-pimara-8(14),15-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25544: ent-copalyl diphosphate = ent-pimara-9(11),15-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25548: (+)-copalyl diphosphate = abieta-8(14),12-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25552: 9alpha-copalyl diphosphate = stemar-13-ene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25556: 9alpha-copalyl diphosphate = stemod-13(17)-ene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25560: 9alpha-copalyl diphosphate = 9beta-pimara-7,15-diene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:25617: terpentedienyl diphosphate = terpentetriene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+
+RHEA:33983: (+)-copalyl diphosphate = miltiradiene + diphosphate
+  → No supported carbon-oxygen lyase acting on phosphates child classifier matched
+

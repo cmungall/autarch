@@ -1,0 +1,13 @@
+False Positives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsIronSulfurProteinAsAcceptor
+==================================================
+Total: 3
+
+RHEA:19841: N-formylmethanofuran + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = methanofuran + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Iron-sulfur oxidoreductase: aldehyde/oxo donor coupled to reduction of an iron-sulfur acceptor
+
+RHEA:24752: primary fluorescent chlorophyll catabolite + 2 oxidized [2Fe-2S]-[ferredoxin] = red chlorophyll catabolite + 2 reduced [2Fe-2S]-[ferredoxin] + 3 H(+)
+  → Iron-sulfur oxidoreductase: aldehyde/oxo donor coupled to reduction of an iron-sulfur acceptor
+
+RHEA:32135: 2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = propanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Iron-sulfur oxidoreductase: aldehyde/oxo donor coupled to reduction of an iron-sulfur acceptor
+

@@ -1,0 +1,16 @@
+False Positives for SoluteProtonSymporterActivity
+==================================================
+Total: 4
+
+RHEA:22044: K(+)(out) + ATP + H2O + H(+)(in) = K(+)(in) + ADP + phosphate + 2 H(+)(out)
+  → Solute:proton symporter activity
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → Solute:proton symporter activity
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → Solute:proton symporter activity
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → Solute:proton symporter activity
+

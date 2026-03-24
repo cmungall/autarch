@@ -1,0 +1,121 @@
+False Positives for ProteinMethyltransferaseActivity
+==================================================
+Total: 39
+
+RHEA:11164: a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phospho-N-methylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:13681: a 2'-deoxycytidine in DNA + S-adenosyl-L-methionine = a 5-methyl-2'-deoxycytidine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:15197: a 2'-deoxyadenosine in DNA + S-adenosyl-L-methionine = an N(6)-methyl-2'-deoxyadenosine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:16497: adenosine(1618) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(1618) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:16785: an adenosine in tRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:16857: a 2'-deoxycytidine in DNA + S-adenosyl-L-methionine = an N(4)-methyl-2'-deoxycytidine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:17105: malonyl-[ACP] + S-adenosyl-L-methionine = malonyl-[ACP] methyl ester + S-adenosyl-L-homocysteine
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:18565: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:19569: 5-aminomethyl-2-thiouridine(34) in tRNA + S-adenosyl-L-methionine = 5-methylaminomethyl-2-thiouridine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:19609: adenosine(1518)/adenosine(1519) in 16S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1518)/N(6)-dimethyladenosine(1519) in 16S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:20077: guanosine(18) in tRNA + S-adenosyl-L-methionine = 2'-O-methylguanosine(18) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:23548: guanosine(966) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(966) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:32735: a 1,2-diacyl-sn-glycero-3-phospho-N-methylethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phospho-N,N-dimethylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:32739: a 1,2-diacyl-sn-glycero-3-phospho-N,N-dimethylethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phosphocholine + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42744: guanosine(1835) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1835) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:37075: N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:67020: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42736: guanosine(1207) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1207) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43100: uridine(44) in tRNA(Ser) + S-adenosyl-L-methionine = 2'-O-methyluridine(44) in tRNA(Ser) + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43124: guanosine(10) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(10) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42900: guanosine(745) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(745) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42708: guanosine(46) in tRNA + S-adenosyl-L-methionine = N(7)-methylguanosine(46) in tRNA + S-adenosyl-L-homocysteine
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43736: adenosine(2030) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(2030) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42904: guanosine(748) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(748) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43792: adenosine(645) in 25S rRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(645) in 25S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43156: guanosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42936: uridine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methyluridine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42968: cytidine(56) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(56) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43212: adenosine(1067) in 23S rRNA + S-adenosyl-L-methionine = 2'-O-methyladenosine(1067) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43128: guanosine(10) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(10) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:51116: guanosine(6) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(6) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:52808: adenosine in U6 snRNA + S-adenosyl-L-methionine = N(6)-methyladenosine in U6 snRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:67024: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(ribonucleotide) in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(2'-O-methyl-ribonucleotide) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:36899: guanosine(37) in tRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(37) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43152: adenosine(58) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(58) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42740: guanosine(2445) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(2445) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43140: guanosine(26) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:42784: adenosine(2085) in 23S rRNA + 2 S-adenosyl-L-methionine = N(6)-dimethyladenosine(2085) in 23S rRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+
+RHEA:43144: adenosine(22) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(22) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Protein methyltransferase activity: SAM-dependent methyl transfer on a protein-like substrate
+

@@ -1,0 +1,22 @@
+False Positives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen
+==================================================
+Total: 6
+
+RHEA:20585: loganin + reduced [NADPH--hemoprotein reductase] + O2 = secologanin + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen (1.14.13.-); Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:21440: a long-chain fatty aldehyde + 2 NADPH + O2 + H(+) = a long-chain alkane + formate + 2 NADP(+) + H2O
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen (1.14.13.-); Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:24964: calcitriol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitetrol + 2 oxidized [adrenodoxin] + H2O
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched VitaminD324Hydroxylase (1.14.15.16); Vitamin D3 24-hydroxylase: adrenodoxin-dependent hydroxylation of a vitamin D3 derivative
+
+RHEA:30331: all-trans-beta-carotene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-zeaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedIronSulfurProteinAsOneDonorAndIncorporationOfOneAtomOfOxygen (1.14.15.-); Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+
+RHEA:30359: chlorophyllide a + 2 NADPH + 2 O2 + 2 H(+) = chlorophyllide b + 2 NADP(+) + 3 H2O
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen (1.14.13.-); Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:32903: calciol + reduced [NADPH--hemoprotein reductase] + O2 = calcidiol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → oxidoreductase acting on paired donors with incorporation or reduction: matched OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen (1.14.13.-); Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+

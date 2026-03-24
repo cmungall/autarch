@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:1.1.1.-" target="_blank">EC:1.1.1.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>oxidoreductase acting on the CH-OH group of donors, NAD or NADP as acceptor</p><p>EC 1.1.1.x includes:<br>- Alcohol dehydrogenase: ethanol + NAD+ → acetaldehyde + NADH + H+<br>- Lactate dehydrogenase: lactate + NAD+ → pyruvate + NADH + H+<br>- Glucose-6-phosphate dehydrogenase: G6P + NADP+ → 6PG + NADPH + H+</p><p>Key distinctions (now handled by parent OxidoreductaseActingOnCHOHGroupOfDonors):<br>- NOT EC 1.1.3 (uses O2) → AlcoholOxidase<br>- NOT EC 1.3 (CH-CH group) → EnoylReductase<br>- NOT EC 1.4 (CH-NH2 group) → AminoAcidDehydrogenase</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.727</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.611</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.896</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.946</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.714</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.950</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">250</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">159</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">29</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3046</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">oxidoreductase_acting_on_the_ch_oh_group_of_donors_nad_or_nadp_as_acceptor.py:54</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016616&quot;</span>  <span class="comment"># oxidoreductase activity, acting on CH-OH with NAD/NADP</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;1.1.1.-&quot;</span>
+
+    PATTERNS: list[Reaction] = [
+        <span class="comment"># NAD+ dependent oxidation: substrate + NAD+ → product + NADH + H+</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(nad_plus) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + p(nadh) + p(h_plus),
+        <span class="comment"># NADP+ dependent oxidation: substrate + NADP+ → product + NADPH + H+</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(nadp_plus) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + p(nadph) + p(h_plus),
+        <span class="comment"># Reverse (reduction) with NADH: substrate + NADH + H+ → product + NAD+</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(nadh) + p(h_plus) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + p(nad_plus),
+        <span class="comment"># Reverse (reduction) with NADPH: substrate + NADPH + H+ → product + NADP+</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(nadph) + p(h_plus) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + p(nadp_plus),
+        <span class="comment"># Without explicit H+: substrate + NAD+ → product + NADH</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(nad_plus) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + p(nadh),
+        <span class="comment"># Lactate dehydrogenase specific</span>
+        p(lactate) + p(nad_plus) &gt;&gt; p(pyruvate) + p(nadh) + optional(h_plus),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">oxidoreductase_acting_on_the_ch_oh_group_of_donors_nad_or_nadp_as_acceptor.py:73</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is a dehydrogenase (EC 1.1.1).
+
+        Strategy:
+        1. Must pass OxidoreductaseActingOnCHOHGroupOfDonors checks (excludes CH-CH, CH-NH2, etc.)
+        2. Must have proper NAD+→NADH or NADP+→NADPH conversion
+        3. Must NOT use FAD (that&#x27;s EC 1.1.99)
+        4. Must NOT use O2 as acceptor (that&#x27;s EC 1.1.3)
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Check parent class (handles CH-OH vs other substrate types)</span>
+        parent_result = super().check_membership_impl(reaction)
+        <span class="kw">if</span> <span class="kw">not</span> parent_result.is_member:
+            <span class="kw">return</span> parent_result
+
+        <span class="comment"># Must NOT use FAD (EC 1.1.99 uses other acceptors)</span>
+        fad_system = {CHEBI_FAD, CHEBI_FADH2}
+        has_fad = any(
+            p.chebi_id <span class="kw">in</span> fad_system
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        )
+
+        <span class="kw">if</span> has_fad:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;FAD-dependent - EC 1.1.99, not EC 1.1.1&quot;</span>
+            )
+
+        <span class="comment"># Must NOT use O2 as acceptor (EC 1.1.3 = alcohol oxidases)</span>
+        has_o2 = any(
+            p.chebi_id == CHEBI_O2
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+
+        <span class="kw">if</span> has_o2:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;O2 as acceptor - alcohol oxidase (EC 1.1.3), not dehydrogenase&quot;</span>
+            )
+
+        <span class="comment"># Check the direction of NAD/NADP conversion</span>
+        <span class="comment"># Forward: NAD(P)+ on left, NAD(P)H on right</span>
+        has_oxidized_left = any(
+            p.chebi_id <span class="kw">in</span> [CHEBI_NAD_PLUS, CHEBI_NADP_PLUS]
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        has_reduced_right = any(
+            p.chebi_id <span class="kw">in</span> [CHEBI_NADH, CHEBI_NADPH]
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+
+        <span class="comment"># Reverse: NAD(P)H on left, NAD(P)+ on right</span>
+        has_reduced_left = any(
+            p.chebi_id <span class="kw">in</span> [CHEBI_NADH, CHEBI_NADPH]
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        has_oxidized_right = any(
+            p.chebi_id <span class="kw">in</span> [CHEBI_NAD_PLUS, CHEBI_NADP_PLUS]
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+
+        <span class="comment"># Try pattern matching</span>
+        match = match_patterns(reaction, <span class="kw">self</span>.PATTERNS, strict=<span class="kw">False</span>)
+
+        <span class="kw">if</span> has_oxidized_left <span class="kw">and</span> has_reduced_right:
+            <span class="comment"># Forward direction: oxidation</span>
+            cofactor = (
+                <span class="str">&quot;NAD+&quot;</span>
+                <span class="kw">if</span> any(p.chebi_id == CHEBI_NAD_PLUS <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+                <span class="kw">else</span> <span class="str">&quot;NADP+&quot;</span>
+            )
+            explanation = f<span class="str">&quot;Dehydrogenase: {cofactor}-dependent oxidation&quot;</span>
+            <span class="kw">if</span> match.matched:
+                explanation += <span class="str">&quot; [pattern matched]&quot;</span>
+
+            <span class="comment"># Add substrate-specific notes</span>
+            explanation = <span class="kw">self</span>._add_substrate_notes(reaction, explanation)
+
+            <span class="kw">return</span> ClassificationResult(is_member=<span class="kw">True</span>, explanation=explanation)
+
+        <span class="kw">if</span> has_reduced_left <span class="kw">and</span> has_oxidized_right:
+            <span class="comment"># Reverse direction: reduction</span>
+            cofactor = (
+                <span class="str">&quot;NADH&quot;</span>
+                <span class="kw">if</span> any(p.chebi_id == CHEBI_NADH <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+                <span class="kw">else</span> <span class="str">&quot;NADPH&quot;</span>
+            )
+            explanation = f<span class="str">&quot;Dehydrogenase: {cofactor}-dependent reduction (reverse)&quot;</span>
+            <span class="kw">if</span> match.matched:
+                explanation += <span class="str">&quot; [pattern matched]&quot;</span>
+
+            <span class="kw">return</span> ClassificationResult(is_member=<span class="kw">True</span>, explanation=explanation)
+
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=<span class="str">&quot;No clear NAD(P)+/NAD(P)H conversion pattern&quot;</span>
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">250</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10356" target="_blank">RHEA:10356</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10392" target="_blank">RHEA:10392</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(E)-cinnamyl alcohol + NADP(+) = (E)-cinnamaldehyde + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10516" target="_blank">RHEA:10516</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(1S,3R,4S)-3,4-dihydroxycyclohexane-1-carboxylate + NAD(+) = (1S,4S)-4-hydroxy-3-oxocyclohexane-1-carboxylate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10664" target="_blank">RHEA:10664</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">perillyl alcohol + NAD(+) = perillyl aldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10776" target="_blank">RHEA:10776</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoate + NADP(+) = 3-(4-hydroxyphenyl)pyruvate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10780" target="_blank">RHEA:10780</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoate + NAD(+) = 3-(4-hydroxyphenyl)pyruvate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10824" target="_blank">RHEA:10824</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-malate + NADP(+) = oxaloacetate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11092" target="_blank">RHEA:11092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11096" target="_blank">RHEA:11096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + NADP(+) = dihydroxyacetone phosphate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11228" target="_blank">RHEA:11228</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2S)-flavan-4-ol + NADP(+) = (2S)-flavanone + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11284" target="_blank">RHEA:11284</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">hydroxymalonate + NAD(+) = oxomalonate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11300" target="_blank">RHEA:11300</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">1D-5-O-methyl-myo-inositol + NAD(+) = 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11384" target="_blank">RHEA:11384</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-2-hydroxyoctadecanoate + NAD(+) = 2-oxooctadecanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11448" target="_blank">RHEA:11448</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">pregnan-21-ol + NAD(+) = pregnan-21-al + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11556" target="_blank">RHEA:11556</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-carnitine + NAD(+) = 3-dehydrocarnitine + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11636" target="_blank">RHEA:11636</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">prostaglandin E1 + NADP(+) = 15-oxoprostaglandin E1 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11676" target="_blank">RHEA:11676</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-ribose + NADP(+) + H2O = D-ribonate + NADPH + 2 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11708" target="_blank">RHEA:11708</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">IMP + NAD(+) + H2O = XMP + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11728" target="_blank">RHEA:11728</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">cyclopentanol + NAD(+) = cyclopentanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11736" target="_blank">RHEA:11736</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-exo-hydroxy-1,8-cineole + NAD(+) = 6-oxocineole + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11772" target="_blank">RHEA:11772</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">6-lactoyl-5,6,7,8-tetrahydropterin + NADP(+) = 6-pyruvoyl-5,6,7,8-tetrahydropterin + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11868" target="_blank">RHEA:11868</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-arabinitol + NADP(+) = D-ribulose + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11876" target="_blank">RHEA:11876</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">prostaglandin E2 + NAD(+) = 15-oxoprostaglandin E2 + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11896" target="_blank">RHEA:11896</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">7alpha-hydroxycholesterol + NAD(+) = 7alpha-hydroxycholest-4-en-3-one + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11900" target="_blank">RHEA:11900</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R,3S)-homoisocitrate + NAD(+) = 2-oxoadipate + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12084" target="_blank">RHEA:12084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-mannitol + NAD(+) = D-fructose + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12160" target="_blank">RHEA:12160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-deoxy-D-gluconate + NAD(+) = 3-dehydro-2-deoxy-D-gluconate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12168" target="_blank">RHEA:12168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">allyl alcohol + NADP(+) = acrolein + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12184" target="_blank">RHEA:12184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S,S)-butane-2,3-diol + NAD(+) = (S)-acetoin + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12396" target="_blank">RHEA:12396</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dTDP-D-galactose + 2 NADP(+) + H2O = dTDP-D-galacturonate + 2 NADPH + 3 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12548" target="_blank">RHEA:12548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-cis,4-trans-xanthoxin + NAD(+) = 2-cis-(+)-abscisic aldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12641" target="_blank">RHEA:12641</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R)-3-phosphoglycerate + NAD(+) = 3-phosphooxypyruvate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12649" target="_blank">RHEA:12649</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-rhamnofuranose + NAD(+) = L-rhamnono-1,4-lactone + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12653" target="_blank">RHEA:12653</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-malate + NAD(+) = pyruvate + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12725" target="_blank">RHEA:12725</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-iditol + NAD(+) = keto-D-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12753" target="_blank">RHEA:12753</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">glycerol + NADP(+) = dihydroxyacetone + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12889" target="_blank">RHEA:12889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-gulonate + NAD(+) = 3-dehydro-L-gulonate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13161" target="_blank">RHEA:13161</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-threonine + NAD(+) = (2S)-2-amino-3-oxobutanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13249" target="_blank">RHEA:13249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13321" target="_blank">RHEA:13321</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-3,3-dimethylmalate + NAD(+) = 3-methyl-2-oxobutanoate + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13325" target="_blank">RHEA:13325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine + 2 NAD(+) + H2O = UDP-2-acetamido-2-deoxy-alpha-D-glucuronate + 2 NADH + 3 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13601" target="_blank">RHEA:13601</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">cis-4-hydroxy-L-proline + NAD(+) = 4-oxo-L-proline + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13629" target="_blank">RHEA:13629</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(1S,5R)-carveol + NADP(+) = (R)-carvone + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13717" target="_blank">RHEA:13717</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-C-methyl-D-erythritol 4-phosphate + NADP(+) = 1-deoxy-D-xylulose 5-phosphate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 200 more (showing 50 of 250)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">159</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10616" target="_blank">RHEA:10616</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R,3S)-catechin + NADP(+) + H2O = (2R,3S,4S)-leucocyanidin + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10744" target="_blank">RHEA:10744</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate + NAD(+) = 3,4-dihydroxybenzoate + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11132" target="_blank">RHEA:11132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11560" target="_blank">RHEA:11560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate + NAD(+) = catechol + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11832" target="_blank">RHEA:11832</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(1R,2S)-1,2-dihydronaphthalene-1,2-diol + NAD(+) = naphthalene-1,2-diol + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11912" target="_blank">RHEA:11912</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">13,14-dihydro-15-oxo-prostaglandin E2 + NADP(+) = 15-oxoprostaglandin E2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11916" target="_blank">RHEA:11916</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">13,14-dihydro-15-oxo-prostaglandin E2 + NAD(+) = 15-oxoprostaglandin E2 + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12000" target="_blank">RHEA:12000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">formate + NADP(+) = CO2 + NADPH</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12236" target="_blank">RHEA:12236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">nicotinate + NADP(+) + H2O = 6-hydroxynicotinate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12256" target="_blank">RHEA:12256</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-arogenate + NAD(+) = L-tyrosine + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12320" target="_blank">RHEA:12320</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">17-O-acetylnorajmaline + NADP(+) = (2R)-1,2-dihydrovomilenine + NADPH + 2 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12428" target="_blank">RHEA:12428</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-hydroxy-1,4-benzoquinone + NADH + 2 H(+) = benzene-1,2,4-triol + NAD(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADH-dependent reduction (reverse) [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12440" target="_blank">RHEA:12440</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NAD(+) + H2O = L-lysine + 2-oxoglutarate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12444" target="_blank">RHEA:12444</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">hexadecanal + NADP(+) = (2E)-hexadecenal + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12524" target="_blank">RHEA:12524</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-pipecolate + NADP(+) = Delta(1)-piperideine-2-carboxylate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12580" target="_blank">RHEA:12580</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">tauropine + NAD(+) + H2O = taurine + pyruvate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12757" target="_blank">RHEA:12757</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dihydrozeatin + NADP(+) = zeatin + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12817" target="_blank">RHEA:12817</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2,3-dihydrobiochanin A + NADP(+) = biochanin A + NADPH + 2 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13109" target="_blank">RHEA:13109</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-acetamidofluorene + NAD(+) + H2O = N-hydroxy-2-acetamidofluorene + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13113" target="_blank">RHEA:13113</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-acetamidofluorene + NADP(+) + H2O = N-hydroxy-2-acetamidofluorene + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13173" target="_blank">RHEA:13173</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">phosphonate + NAD(+) + H2O = phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13409" target="_blank">RHEA:13409</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">7-aminomethyl-7-carbaguanine + 2 NADP(+) = 7-cyano-7-deazaguanine + 2 NADPH + 3 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13417" target="_blank">RHEA:13417</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13513" target="_blank">RHEA:13513</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-dihydroorotate + NAD(+) = orotate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13685" target="_blank">RHEA:13685</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">lathosterol + NADP(+) = 5alpha-cholesta-7,24-dien-3beta-ol + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13753" target="_blank">RHEA:13753</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 L-glutamate + NAD(+) = L-glutamine + 2-oxoglutarate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13801" target="_blank">RHEA:13801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">hydrogen sulfide + 3 NADP(+) + 3 H2O = sulfite + 3 NADPH + 4 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13837" target="_blank">RHEA:13837</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">cis-4,5-dihydroxycyclohexa-2,6-diene-1,2-dicarboxylate + NAD(+) = 4,5-dihydroxyphthalate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13841" target="_blank">RHEA:13841</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">Fe(II)2-[transferrin] + NAD(+) + H(+) = Fe(III)2-[transferrin] + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13869" target="_blank">RHEA:13869</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">prephenate + NAD(+) = 3-(4-hydroxyphenyl)pyruvate + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13949" target="_blank">RHEA:13949</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 reduced [rubredoxin] + NADP(+) + H(+) = 2 oxidized [rubredoxin] + NADPH</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14061" target="_blank">RHEA:14061</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">N-(carboxymethyl)-D-alanine + NAD(+) + H2O = glycine + pyruvate + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14109" target="_blank">RHEA:14109</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-proline + NADP(+) = (S)-1-pyrroline-5-carboxylate + NADPH + 2 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14269" target="_blank">RHEA:14269</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14449" target="_blank">RHEA:14449</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14581" target="_blank">RHEA:14581</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 monodehydro-L-ascorbate radical + NADH + H(+) = 2 L-ascorbate + NAD(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADH-dependent reduction (reverse) [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14773" target="_blank">RHEA:14773</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">palmatine + S-adenosyl-L-methionine + 2 NADPH = corydaline + S-adenosyl-L-homocysteine + 2 NADP(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14861" target="_blank">RHEA:14861</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-dihydroorotate + NADP(+) = orotate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15009" target="_blank">RHEA:15009</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(6S)-5,6,7,8-tetrahydrofolate + NADP(+) = 7,8-dihydrofolate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15061" target="_blank">RHEA:15061</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 a Fe(II)-siderophore + NAD(+) + H(+) = 2 a Fe(III)-siderophore + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15173" target="_blank">RHEA:15173</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">H2O2 + NADPH + H(+) = NADP(+) + 2 H2O</span>
+                <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15237" target="_blank">RHEA:15237</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 Fe(III)-[cytochrome c2] + NADPH = 2 Fe(II)-[cytochrome c2] + NADP(+) + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15417" target="_blank">RHEA:15417</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-arogenate + NADP(+) = L-tyrosine + CO2 + NADPH</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15457" target="_blank">RHEA:15457</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">cis-1,2-dihydrobenzene-1,2-diol + NAD(+) = catechol + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15501" target="_blank">RHEA:15501</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 L-glutamate + NADP(+) = L-glutamine + 2-oxoglutarate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15613" target="_blank">RHEA:15613</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">precorrin-2 + NAD(+) = sirohydrochlorin + NADH + 2 H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15657" target="_blank">RHEA:15657</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">1,6-dihydroxy-2-methylcyclohexa-2,4-dienecarboxylate + NAD(+) = 3-methylcatechol + CO2 + NADH</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15741" target="_blank">RHEA:15741</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2,5-dichlorocyclohexa-2,5-dien-1,4-diol + NAD(+) = 2,5-dichlorohydroquinone + NADH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15793" target="_blank">RHEA:15793</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(4Z,15Z)-bilirubin IXalpha + NADP(+) = biliverdin IXalpha + NADPH + H(+)</span>
+                <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 109 more (showing 50 of 159)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">29</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10992" target="_blank">RHEA:10992</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">glycolate + NADP(+) = glyoxylate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11168" target="_blank">RHEA:11168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3-hydroxy-6-carboxyhexanoyl-CoA + NAD(+) = 3-oxo-6-carboxyhexanoyl-CoA + NADH + H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12248" target="_blank">RHEA:12248</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-muramate + NADP(+) = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13281" target="_blank">RHEA:13281</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2S,3S)-3-hydroxy-2-methylbutanoyl-CoA + NAD(+) = 2-methyl-3-oxobutanoyl-CoA + NADH + H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13357" target="_blank">RHEA:13357</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3-hydroxypropanoate + NAD(+) = 3-oxopropanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14225" target="_blank">RHEA:14225</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">6-hydroxyhexanoate + NAD(+) = 6-oxohexanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14833" target="_blank">RHEA:14833</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-mevalonate + 2 NAD(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADH + 2 H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14909" target="_blank">RHEA:14909</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-gulonate + NADP(+) = aldehydo-D-glucuronate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15109" target="_blank">RHEA:15109</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2-dehydro-3-deoxy-D-gluconate + NADP(+) = (4S,5S)-4,5-dihydroxy-2,6-dioxohexanoate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15505" target="_blank">RHEA:15505</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(S)-2-hydroxymethylglutarate + NAD(+) = 2-formylglutarate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15761" target="_blank">RHEA:15761</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-homoserine + NADP(+) = L-aspartate 4-semialdehyde + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15989" target="_blank">RHEA:15989</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-mevalonate + 2 NADP(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADPH + 2 H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16197" target="_blank">RHEA:16197</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(3S)-3-hydroxybutanoyl-CoA + NADP(+) = acetoacetyl-CoA + NADPH + H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17397" target="_blank">RHEA:17397</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">a (3R)-hydroxyacyl-[ACP] + NADP(+) = a 3-oxoacyl-[ACP] + NADPH + H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17681" target="_blank">RHEA:17681</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3-hydroxy-2-methylpropanoate + NAD(+) = 2-methyl-3-oxopropanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18229" target="_blank">RHEA:18229</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">glycolate + NAD(+) = glyoxylate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18841" target="_blank">RHEA:18841</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-glycerate + NADP(+) = 2-hydroxy-3-oxopropanoate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18845" target="_blank">RHEA:18845</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-glycerate + NAD(+) = 2-hydroxy-3-oxopropanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19913" target="_blank">RHEA:19913</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">a (3R)-hydroxyacyl-[ACP] + NAD(+) = a 3-oxoacyl-[ACP] + NADH + H(+)</span>
+                <div class="reaction-explanation">ACP-linked acyl chemistry - not CH-OH donor class</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19981" target="_blank">RHEA:19981</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">S-(hydroxymethyl)glutathione + NADP(+) = S-formylglutathione + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19985" target="_blank">RHEA:19985</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">S-(hydroxymethyl)glutathione + NAD(+) = S-formylglutathione + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20880" target="_blank">RHEA:20880</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">10-hydroxydecanoate + NAD(+) = 10-oxodecanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21596" target="_blank">RHEA:21596</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-serine + NADP(+) = 2-aminomalonate semialdehyde + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23000" target="_blank">RHEA:23000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-pantoate + NAD(+) = (R)-4-dehydropantoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23948" target="_blank">RHEA:23948</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">4-hydroxybutanoate + NAD(+) = succinate semialdehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26345" target="_blank">RHEA:26345</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-galactonate + NADP(+) = aldehydo-D-galacturonate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26438" target="_blank">RHEA:26438</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3-hydroxypropanoate + NADP(+) = 3-oxopropanoate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:55668" target="_blank">RHEA:55668</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)</span>
+                <div class="reaction-explanation">No clear NAD(P)+/NAD(P)H conversion pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:48488" target="_blank">RHEA:48488</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)</span>
+                <div class="reaction-explanation">No clear NAD(P)+/NAD(P)H conversion pattern</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3046</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">O2/NAD(P)H coupled oxygenase signature - not CH-OH donor redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Aldehyde -&gt; carboxylate pattern (SMARTS) - EC 1.2, not EC 1.1</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10244" target="_blank">RHEA:10244</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10248" target="_blank">RHEA:10248</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">dUTP + H2O = dUMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10252" target="_blank">RHEA:10252</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10260" target="_blank">RHEA:10260</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">Mg(2+)(out) + ATP + H2O = Mg(2+)(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10264" target="_blank">RHEA:10264</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016616" target="_blank">GO:0016616</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose = beta-D-glucose</span>
+                <div class="reaction-explanation">Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 2996 more (showing 50 of 3046)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">99</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10176" target="_blank">RHEA:10176</a></span>:
+                    <span class="reaction-label">(2S,3R)-2-hydroxy-3-(indol-3-yl)butanoate + NAD(+) = (R)-3-(indol-3-yl)-2-oxobutanoate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.397" target="_blank">EC:1.1.1.397</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10724" target="_blank">RHEA:10724</a></span>:
+                    <span class="reaction-label">GDP-6-deoxy-alpha-D-talose + NADP(+) = GDP-4-dehydro-alpha-D-rhamnose + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.135" target="_blank">EC:1.1.1.135</a>, <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10728" target="_blank">RHEA:10728</a></span>:
+                    <span class="reaction-label">GDP-6-deoxy-alpha-D-talose + NAD(+) = GDP-4-dehydro-alpha-D-rhamnose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.135" target="_blank">EC:1.1.1.135</a>, <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12036" target="_blank">RHEA:12036</a></span>:
+                    <span class="reaction-label">(S)-3-(imidazol-5-yl)lactate + NAD(+) = 3-(imidazol-5-yl)pyruvate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.111" target="_blank">EC:1.1.1.111</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12040" target="_blank">RHEA:12040</a></span>:
+                    <span class="reaction-label">(S)-3-(imidazol-5-yl)lactate + NADP(+) = 3-(imidazol-5-yl)pyruvate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.111" target="_blank">EC:1.1.1.111</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12156" target="_blank">RHEA:12156</a></span>:
+                    <span class="reaction-label">2-glutathionyl-2-methylbut-3-en-1-ol + 2 NAD(+) + H2O = 2-glutathionyl-2-methylbut-3-enoate + 2 NADH + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.398" target="_blank">EC:1.1.1.398</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12212" target="_blank">RHEA:12212</a></span>:
+                    <span class="reaction-label">9H-fluoren-9-ol + NADP(+) = 9H-fluoren-9-one + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.256" target="_blank">EC:1.1.1.256</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12216" target="_blank">RHEA:12216</a></span>:
+                    <span class="reaction-label">9H-fluoren-9-ol + NAD(+) = 9H-fluoren-9-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.256" target="_blank">EC:1.1.1.256</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12873" target="_blank">RHEA:12873</a></span>:
+                    <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NADP(+) = 4-methyl-2-oxopentanoate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.272" target="_blank">EC:1.1.1.272</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13153" target="_blank">RHEA:13153</a></span>:
+                    <span class="reaction-label">(R)-glycerate + CO2 + NAD(+) = 2-hydroxy-3-oxosuccinate + NADH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.92" target="_blank">EC:1.1.1.92</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13157" target="_blank">RHEA:13157</a></span>:
+                    <span class="reaction-label">(R)-glycerate + CO2 + NADP(+) = 2-hydroxy-3-oxosuccinate + NADPH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.92" target="_blank">EC:1.1.1.92</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13493" target="_blank">RHEA:13493</a></span>:
+                    <span class="reaction-label">(2R,3R)-2,3-dihydroxy-3-methylpentanoate + NADP(+) = (S)-2-ethyl-2-hydroxy-3-oxobutanoate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.86" target="_blank">EC:1.1.1.86</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13825" target="_blank">RHEA:13825</a></span>:
+                    <span class="reaction-label">GDP-alpha-D-rhamnose + NAD(+) = GDP-4-dehydro-alpha-D-rhamnose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a>, <a href="https://bioregistry.io/EC:1.1.1.281" target="_blank">EC:1.1.1.281</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13829" target="_blank">RHEA:13829</a></span>:
+                    <span class="reaction-label">GDP-alpha-D-rhamnose + NADP(+) = GDP-4-dehydro-alpha-D-rhamnose + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a>, <a href="https://bioregistry.io/EC:1.1.1.281" target="_blank">EC:1.1.1.281</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14317" target="_blank">RHEA:14317</a></span>:
+                    <span class="reaction-label">morphine + NAD(+) = morphinone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.218" target="_blank">EC:1.1.1.218</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14321" target="_blank">RHEA:14321</a></span>:
+                    <span class="reaction-label">morphine + NADP(+) = morphinone + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.218" target="_blank">EC:1.1.1.218</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15329" target="_blank">RHEA:15329</a></span>:
+                    <span class="reaction-label">(S)-ureidoglycolate + NAD(+) = N-carbamoyl-2-oxoglycine + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.154" target="_blank">EC:1.1.1.154</a>, <a href="https://bioregistry.io/EC:1.1.1.350" target="_blank">EC:1.1.1.350</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15333" target="_blank">RHEA:15333</a></span>:
+                    <span class="reaction-label">(S)-ureidoglycolate + NADP(+) = N-carbamoyl-2-oxoglycine + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.154" target="_blank">EC:1.1.1.154</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15533" target="_blank">RHEA:15533</a></span>:
+                    <span class="reaction-label">(2R)-3-sulfolactate + NAD(+) = 3-sulfopyruvate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.337" target="_blank">EC:1.1.1.337</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15537" target="_blank">RHEA:15537</a></span>:
+                    <span class="reaction-label">(2R)-3-sulfolactate + NADP(+) = 3-sulfopyruvate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.338" target="_blank">EC:1.1.1.338</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16317" target="_blank">RHEA:16317</a></span>:
+                    <span class="reaction-label">(S)-indan-1-ol + NAD(+) = indan-1-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.112" target="_blank">EC:1.1.1.112</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16321" target="_blank">RHEA:16321</a></span>:
+                    <span class="reaction-label">(S)-indan-1-ol + NADP(+) = indan-1-one + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.112" target="_blank">EC:1.1.1.112</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16457" target="_blank">RHEA:16457</a></span>:
+                    <span class="reaction-label">(2R,3S)-tartrate + NAD(+) = 2-hydroxy-3-oxosuccinate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.93" target="_blank">EC:1.1.1.93</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16817" target="_blank">RHEA:16817</a></span>:
+                    <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = 6-phospho-2-dehydro-D-gluconate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.43" target="_blank">EC:1.1.1.43</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16821" target="_blank">RHEA:16821</a></span>:
+                    <span class="reaction-label">6-phospho-D-gluconate + NAD(+) = 6-phospho-2-dehydro-D-gluconate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.43" target="_blank">EC:1.1.1.43</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17613" target="_blank">RHEA:17613</a></span>:
+                    <span class="reaction-label">scyllo-inositol + NAD(+) = scyllo-inosose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.370" target="_blank">EC:1.1.1.370</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18853" target="_blank">RHEA:18853</a></span>:
+                    <span class="reaction-label">tartrate + NAD(+) = 2-hydroxy-3-oxosuccinate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.93" target="_blank">EC:1.1.1.93</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21924" target="_blank">RHEA:21924</a></span>:
+                    <span class="reaction-label">3-dehydro-L-gulonate + NAD(+) = 2,3-dioxo-L-gulonate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.130" target="_blank">EC:1.1.1.130</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21928" target="_blank">RHEA:21928</a></span>:
+                    <span class="reaction-label">3-dehydro-L-gulonate + NADP(+) = 2,3-dioxo-L-gulonate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.130" target="_blank">EC:1.1.1.130</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23016" target="_blank">RHEA:23016</a></span>:
+                    <span class="reaction-label">(2R,3S,4S)-3,4-leucopelargonidin + NADP(+) = (2R,3R)-dihydrokaempferol + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.219" target="_blank">EC:1.1.1.219</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23260" target="_blank">RHEA:23260</a></span>:
+                    <span class="reaction-label">(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NAD(+) = 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.232" target="_blank">EC:1.1.1.232</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23264" target="_blank">RHEA:23264</a></span>:
+                    <span class="reaction-label">(15S)-hydroxy-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADP(+) = 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.232" target="_blank">EC:1.1.1.232</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23552" target="_blank">RHEA:23552</a></span>:
+                    <span class="reaction-label">2-methylpropane-1,2-diol + NAD(+) = 2-hydroxy-2-methylpropanal + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.400" target="_blank">EC:1.1.1.400</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23936" target="_blank">RHEA:23936</a></span>:
+                    <span class="reaction-label">D-gluconate + NADP(+) = 5-dehydro-D-gluconate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.69" target="_blank">EC:1.1.1.69</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23940" target="_blank">RHEA:23940</a></span>:
+                    <span class="reaction-label">D-gluconate + NAD(+) = 5-dehydro-D-gluconate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.69" target="_blank">EC:1.1.1.69</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24690" target="_blank">RHEA:24690</a></span>:
+                    <span class="reaction-label">eugenol + acetate + NADP(+) = (E)-coniferyl acetate + NADPH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.318" target="_blank">EC:1.1.1.318</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24694" target="_blank">RHEA:24694</a></span>:
+                    <span class="reaction-label">(E)-isoeugenol + acetate + NADP(+) = (E)-coniferyl acetate + NADPH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.319" target="_blank">EC:1.1.1.319</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25225" target="_blank">RHEA:25225</a></span>:
+                    <span class="reaction-label">L-arabinitol + NAD(+) = L-arabinose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.21" target="_blank">EC:1.1.1.21</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25832" target="_blank">RHEA:25832</a></span>:
+                    <span class="reaction-label">1D-chiro-inositol + NAD(+) = scyllo-inosine + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.369" target="_blank">EC:1.1.1.369</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25844" target="_blank">RHEA:25844</a></span>:
+                    <span class="reaction-label">(1S,5R)-carveol + NAD(+) = (R)-carvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.n4" target="_blank">EC:1.1.1.n4</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25848" target="_blank">RHEA:25848</a></span>:
+                    <span class="reaction-label">(1S,5S)-carveol + NAD(+) = (S)-carvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.n4" target="_blank">EC:1.1.1.n4</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25964" target="_blank">RHEA:25964</a></span>:
+                    <span class="reaction-label">(R)-benzoin + NADP(+) = benzil + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.321" target="_blank">EC:1.1.1.321</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26002" target="_blank">RHEA:26002</a></span>:
+                    <span class="reaction-label">D-arabinitol 1-phosphate + NAD(+) = D-xylulose 5-phosphate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.301" target="_blank">EC:1.1.1.301</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26156" target="_blank">RHEA:26156</a></span>:
+                    <span class="reaction-label">D-mannose + NADP(+) = 2-dehydro-D-glucose + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.292" target="_blank">EC:1.1.1.292</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27274" target="_blank">RHEA:27274</a></span>:
+                    <span class="reaction-label">2,5-diamino-6-(1-D-ribitylamino)pyrimidin-4(3H)-one 5&#x27;-phosphate + NAD(+) = 2,5-diamino-6-(1-D-ribosylamino)pyrimidin-4(3H)-one 5&#x27;-phosphate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.302" target="_blank">EC:1.1.1.302</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27278" target="_blank">RHEA:27278</a></span>:
+                    <span class="reaction-label">2,5-diamino-6-(1-D-ribitylamino)pyrimidin-4(3H)-one 5&#x27;-phosphate + NADP(+) = 2,5-diamino-6-(1-D-ribosylamino)pyrimidin-4(3H)-one 5&#x27;-phosphate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.302" target="_blank">EC:1.1.1.302</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27441" target="_blank">RHEA:27441</a></span>:
+                    <span class="reaction-label">xylitol + NAD(+) = D-xylose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.307" target="_blank">EC:1.1.1.307</a>, <a href="https://bioregistry.io/EC:1.1.1.430" target="_blank">EC:1.1.1.430</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28074" target="_blank">RHEA:28074</a></span>:
+                    <span class="reaction-label">(2R)-3-sulfopropanediol + 2 NAD(+) + H2O = (2R)-3-sulfolactate + 2 NADH + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.308" target="_blank">EC:1.1.1.308</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28078" target="_blank">RHEA:28078</a></span>:
+                    <span class="reaction-label">2-hydroxyethylphosphonate + NAD(+) = phosphonoacetaldehyde + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.309" target="_blank">EC:1.1.1.309</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28106" target="_blank">RHEA:28106</a></span>:
+                    <span class="reaction-label">galactitol 1-phosphate + NAD(+) = keto-D-tagatose 6-phosphate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.251" target="_blank">EC:1.1.1.251</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="truncation-notice">
+                    ... and 49 more (showing 50 of 99)
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">54</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11524" target="_blank">RHEA:11524</a></span>:
+                    <span class="reaction-label">5beta-cholestan-3-one + NADP(+) = cholest-4-en-3-one + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.3" target="_blank">EC:1.3.1.3</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12500" target="_blank">RHEA:12500</a></span>:
+                    <span class="reaction-label">(3R)-1,4-thiomorpholine-3-carboxylate + NADP(+) = 3,4-dehydrothiomorpholine-3-carboxylate + NADPH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.25" target="_blank">EC:1.5.1.25</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12504" target="_blank">RHEA:12504</a></span>:
+                    <span class="reaction-label">(3R)-1,4-thiomorpholine-3-carboxylate + NAD(+) = 3,4-dehydrothiomorpholine-3-carboxylate + NADH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.25" target="_blank">EC:1.5.1.25</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14037" target="_blank">RHEA:14037</a></span>:
+                    <span class="reaction-label">4,5beta-dihydrocortisone + NADP(+) = cortisone + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.3" target="_blank">EC:1.3.1.3</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14105" target="_blank">RHEA:14105</a></span>:
+                    <span class="reaction-label">L-proline + NAD(+) = (S)-1-pyrroline-5-carboxylate + NADH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.2" target="_blank">EC:1.5.1.2</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15625" target="_blank">RHEA:15625</a></span>:
+                    <span class="reaction-label">Co-precorrin-6B + NAD(+) = Co-precorrin-6A + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.106" target="_blank">EC:1.3.1.106</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16417" target="_blank">RHEA:16417</a></span>:
+                    <span class="reaction-label">(S)-1-pyrroline-5-carboxylate + NAD(+) + 2 H2O = L-glutamate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.2.1.88" target="_blank">EC:1.2.1.88</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19653" target="_blank">RHEA:19653</a></span>:
+                    <span class="reaction-label">CDP-4-dehydro-3,6-dideoxy-alpha-D-glucose + NAD(+) + H2O = CDP-4-dehydro-6-deoxy-alpha-D-glucose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.1.1" target="_blank">EC:1.17.1.1</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19657" target="_blank">RHEA:19657</a></span>:
+                    <span class="reaction-label">CDP-4-dehydro-3,6-dideoxy-alpha-D-glucose + NADP(+) + H2O = CDP-4-dehydro-6-deoxy-alpha-D-glucose + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.1.1" target="_blank">EC:1.17.1.1</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20317" target="_blank">RHEA:20317</a></span>:
+                    <span class="reaction-label">L-proline + NADP(+) = 1-pyrroline-2-carboxylate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.1" target="_blank">EC:1.5.1.1</a>, <a href="https://bioregistry.io/EC:1.5.1.21" target="_blank">EC:1.5.1.21</a>, <a href="https://bioregistry.io/EC:1.5.1.49" target="_blank">EC:1.5.1.49</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20321" target="_blank">RHEA:20321</a></span>:
+                    <span class="reaction-label">L-proline + NAD(+) = 1-pyrroline-2-carboxylate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.1" target="_blank">EC:1.5.1.1</a>, <a href="https://bioregistry.io/EC:1.5.1.49" target="_blank">EC:1.5.1.49</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20649" target="_blank">RHEA:20649</a></span>:
+                    <span class="reaction-label">23,24-dihydrocucurbitacin B + NADP(+) = cucurbitacin B + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.5" target="_blank">EC:1.3.1.5</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20653" target="_blank">RHEA:20653</a></span>:
+                    <span class="reaction-label">23,24-dihydrocucurbitacin B + NAD(+) = cucurbitacin B + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.5" target="_blank">EC:1.3.1.5</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21952" target="_blank">RHEA:21952</a></span>:
+                    <span class="reaction-label">5alpha-pregnane-3,20-dione + NADP(+) = progesterone + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.22" target="_blank">EC:1.3.1.22</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22024" target="_blank">RHEA:22024</a></span>:
+                    <span class="reaction-label">trimethylamine + NAD(+) + H2O = trimethylamine N-oxide + NADH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.7.2.3" target="_blank">EC:1.7.2.3</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22232" target="_blank">RHEA:22232</a></span>:
+                    <span class="reaction-label">presqualene diphosphate + NADPH + H(+) = squalene + diphosphate + NADP(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.96" target="_blank">EC:1.3.1.96</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23612" target="_blank">RHEA:23612</a></span>:
+                    <span class="reaction-label">1,2-dihydro-alpha-santonin + NAD(+) = alpha-santonin + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.47" target="_blank">EC:1.3.1.47</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23616" target="_blank">RHEA:23616</a></span>:
+                    <span class="reaction-label">1,2-dihydro-alpha-santonin + NADP(+) = alpha-santonin + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.47" target="_blank">EC:1.3.1.47</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24224" target="_blank">RHEA:24224</a></span>:
+                    <span class="reaction-label">(1R,6S)-1,6-dihydroxy-4-methylcyclohexa-2,4-diene-1-carboxylate + NADP(+) = 4-methylcatechol + CO2 + NADPH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.67" target="_blank">EC:1.3.1.67</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24228" target="_blank">RHEA:24228</a></span>:
+                    <span class="reaction-label">(1R,6S)-1,6-dihydroxy-4-methylcyclohexa-2,4-diene-1-carboxylate + NAD(+) = 4-methylcatechol + CO2 + NADH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.67" target="_blank">EC:1.3.1.67</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24670" target="_blank">RHEA:24670</a></span>:
+                    <span class="reaction-label">hypoxanthine + NAD(+) + H2O = xanthine + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.1.4" target="_blank">EC:1.17.1.4</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24882" target="_blank">RHEA:24882</a></span>:
+                    <span class="reaction-label">(S)-1-pyrroline-5-carboxylate + NADP(+) + 2 H2O = L-glutamate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.2.1.88" target="_blank">EC:1.2.1.88</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24943" target="_blank">RHEA:24943</a></span>:
+                    <span class="reaction-label">(3R,5S)-1-pyrroline-3-hydroxy-5-carboxylate + NADP(+) + 2 H2O = (4S)-4-hydroxy-L-glutamate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.2.1.88" target="_blank">EC:1.2.1.88</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25193" target="_blank">RHEA:25193</a></span>:
+                    <span class="reaction-label">(1S,2R)-3-methylcyclohexa-3,5-diene-1,2-diol + NAD(+) = 3-methylcatechol + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.19" target="_blank">EC:1.3.1.19</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30219" target="_blank">RHEA:30219</a></span>:
+                    <span class="reaction-label">dimethyl sulfoxide + NAD(+) + H2O = dimethyl sulfone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.1.17" target="_blank">EC:1.8.1.17</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30807" target="_blank">RHEA:30807</a></span>:
+                    <span class="reaction-label">L-pipecolate + NAD(+) = Delta(1)-piperideine-2-carboxylate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.1" target="_blank">EC:1.5.1.1</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31155" target="_blank">RHEA:31155</a></span>:
+                    <span class="reaction-label">(3R,5S)-1-pyrroline-3-hydroxy-5-carboxylate + NAD(+) + 2 H2O = (4S)-4-hydroxy-L-glutamate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.2.1.88" target="_blank">EC:1.2.1.88</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32247" target="_blank">RHEA:32247</a></span>:
+                    <span class="reaction-label">(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + NADP(+) = (6R)-L-erythro-6,7-dihydrobiopterin + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.34" target="_blank">EC:1.5.1.34</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32251" target="_blank">RHEA:32251</a></span>:
+                    <span class="reaction-label">(6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + NAD(+) = (6R)-L-erythro-6,7-dihydrobiopterin + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.34" target="_blank">EC:1.5.1.34</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32883" target="_blank">RHEA:32883</a></span>:
+                    <span class="reaction-label">(11R)-dihydroartemisinic aldehyde + NADP(+) = (+)-artemisinic aldehyde + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.92" target="_blank">EC:1.3.1.92</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33063" target="_blank">RHEA:33063</a></span>:
+                    <span class="reaction-label">2 reduced [2Fe-2S]-[putidaredoxin] + NAD(+) + H(+) = 2 oxidized [2Fe-2S]-[putidaredoxin] + NADH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.18.1.5" target="_blank">EC:1.18.1.5</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34055" target="_blank">RHEA:34055</a></span>:
+                    <span class="reaction-label">festuclavine + NAD(+) = 6,8-dimethyl-6,7-didehydroergoline + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.44" target="_blank">EC:1.5.1.44</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34059" target="_blank">RHEA:34059</a></span>:
+                    <span class="reaction-label">agroclavine + NADP(+) = didehydroagroclavine + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.46" target="_blank">EC:1.5.1.46</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34571" target="_blank">RHEA:34571</a></span>:
+                    <span class="reaction-label">C30 botryococcene + diphosphate + NADP(+) = presqualene diphosphate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.97" target="_blank">EC:1.3.1.97</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34811" target="_blank">RHEA:34811</a></span>:
+                    <span class="reaction-label">tetrahydrocurcumin + NADP(+) = dihydrocurcumin + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.n3" target="_blank">EC:1.3.1.n3</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34819" target="_blank">RHEA:34819</a></span>:
+                    <span class="reaction-label">dihydrocurcumin + NADP(+) = curcumin + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.n3" target="_blank">EC:1.3.1.n3</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34847" target="_blank">RHEA:34847</a></span>:
+                    <span class="reaction-label">7,8-dihydromonapterin + NADPH + H(+) = 5,6,7,8-tetrahydromonapterin + NADP(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.50" target="_blank">EC:1.5.1.50</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35819" target="_blank">RHEA:35819</a></span>:
+                    <span class="reaction-label">5,6,7,8-tetrahydromethanopterin + NADP(+) = 7,8-dihydromethanopterin + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.47" target="_blank">EC:1.5.1.47</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35823" target="_blank">RHEA:35823</a></span>:
+                    <span class="reaction-label">5,6,7,8-tetrahydromethanopterin + NAD(+) = 7,8-dihydromethanopterin + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.5.1.47" target="_blank">EC:1.5.1.47</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35947" target="_blank">RHEA:35947</a></span>:
+                    <span class="reaction-label">dihydrochanoclavine-I aldehyde + NADP(+) = chanoclavine-I aldehyde + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.100" target="_blank">EC:1.3.1.100</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36035" target="_blank">RHEA:36035</a></span>:
+                    <span class="reaction-label">2,3-bis-O-(phytanyl)-sn-glycerol 1-phosphate + 8 NADP(+) = 2,3-bis-O-(geranylgeranyl)-sn-glycerol 1-phosphate + 8 NADPH + 8 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.101" target="_blank">EC:1.3.1.101</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36039" target="_blank">RHEA:36039</a></span>:
+                    <span class="reaction-label">2,3-bis-O-(phytanyl)-sn-glycerol 1-phosphate + 8 NAD(+) = 2,3-bis-O-(geranylgeranyl)-sn-glycerol 1-phosphate + 8 NADH + 8 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.101" target="_blank">EC:1.3.1.101</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36391" target="_blank">RHEA:36391</a></span>:
+                    <span class="reaction-label">cholesterol + NADP(+) = desmosterol + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.72" target="_blank">EC:1.3.1.72</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36395" target="_blank">RHEA:36395</a></span>:
+                    <span class="reaction-label">7-dehydrocholesterol + NADP(+) = 7-dehydrodesmosterol + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.72" target="_blank">EC:1.3.1.72</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36399" target="_blank">RHEA:36399</a></span>:
+                    <span class="reaction-label">5alpha-cholest-8-en-3beta-ol + NADP(+) = zymosterol + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.72" target="_blank">EC:1.3.1.72</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36595" target="_blank">RHEA:36595</a></span>:
+                    <span class="reaction-label">hydrogen sulfide + NADP(+) = sulfur + NADPH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.1.18" target="_blank">EC:1.8.1.18</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADP+-dependent oxidation</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36599" target="_blank">RHEA:36599</a></span>:
+                    <span class="reaction-label">hydrogen sulfide + NAD(+) = sulfur + NADH</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.1.18" target="_blank">EC:1.8.1.18</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49716" target="_blank">RHEA:49716</a></span>:
+                    <span class="reaction-label">3-hydroxy-4-methylanthranilyl-[aryl-carrier protein] + NADH + O2 + H(+) = 3,5-dihydroxy-4-methylanthranilyl-[aryl-carrier protein] + NAD(+) + H2O</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.14.13.223" target="_blank">EC:1.14.13.223</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NAD+-dependent oxidation [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:52668" target="_blank">RHEA:52668</a></span>:
+                    <span class="reaction-label">[amino-group carrier protein]-C-terminal-gamma-(L-glutamyl-5-semialdehyde)-L-glutamate + phosphate + NADP(+) = [amino-group carrier protein]-C-terminal-gamma-(5-phospho-L-glutamyl)-L-glutamate + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.2.1.106" target="_blank">EC:1.2.1.106</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:53336" target="_blank">RHEA:53336</a></span>:
+                    <span class="reaction-label">5,6-dihydrouridine(20) in tRNA + NADP(+) = uridine(20) in tRNA + NADPH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.91" target="_blank">EC:1.3.1.91</a></div>
+                    <div class="reaction-explanation">Dehydrogenase: NADPH-dependent reduction (reverse) [pattern matched]</div>
+                </div>
+                
+                <div class="truncation-notice">
+                    ... and 4 more (showing 50 of 54)
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

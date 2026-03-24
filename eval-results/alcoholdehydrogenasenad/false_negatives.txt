@@ -1,0 +1,10 @@
+False Negatives for AlcoholDehydrogenaseNAD
+==================================================
+Total: 2
+
+RHEA:55668: 11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)
+  → No NAD+/NADH conversion direction for alcohol dehydrogenase
+
+RHEA:48488: all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)
+  → No NAD+/NADH conversion direction for alcohol dehydrogenase
+

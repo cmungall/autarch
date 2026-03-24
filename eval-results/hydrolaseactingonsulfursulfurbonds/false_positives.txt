@@ -1,0 +1,7 @@
+False Positives for HydrolaseActingOnSulfurSulfurBonds
+==================================================
+Total: 1
+
+RHEA:15517: N(2),6-disulfo-D-glucosamine + H2O = N-sulfo-D-glucosamine + sulfate + H(+)
+  → S-S bond hydrolysis: multiple sulfur species in products
+

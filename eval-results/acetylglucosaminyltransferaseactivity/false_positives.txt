@@ -1,0 +1,10 @@
+False Positives for AcetylglucosaminyltransferaseActivity
+==================================================
+Total: 2
+
+RHEA:26188: 1D-myo-inositol 3-phosphate + UDP-N-acetyl-alpha-D-glucosamine = 1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside 3-phosphate + UDP + H(+)
+  → acetylglucosaminyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:33947: 2-deoxystreptamine + UDP-N-acetyl-alpha-D-glucosamine = 2'-N-acetylparomamine + UDP + H(+)
+  → acetylglucosaminyltransferase activity: donor-restricted hexosyl transfer
+

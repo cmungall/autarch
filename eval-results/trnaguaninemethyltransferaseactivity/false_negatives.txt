@@ -1,0 +1,7 @@
+False Negatives for TRNAGuanineMethyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → Requires SAM/SAH coupling and the supported guanosine-in-tRNA to methylated-guanosine-in-tRNA branch
+

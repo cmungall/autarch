@@ -1,0 +1,7 @@
+False Positives for ProteinLysineNMethyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:10024: L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)
+  → protein-lysine N-methyltransferase activity: SAM-dependent methyl transfer to a protein lysine residue
+

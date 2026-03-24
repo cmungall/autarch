@@ -1,0 +1,151 @@
+False Negatives for HydrolaseActingOnEsterBonds
+==================================================
+Total: 49
+
+RHEA:10100: a sterol ester + H2O = a sterol + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:11552: a 1-O-alkyl-2-acetyl-sn-glycerol + H2O = a 1-O-alkyl-sn-glycerol + acetate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:11828: a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + H2O = a 3'-end 2'-phospho-ribonucleotide-RNA + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:12032: a 3-(acyloxy)acyl derivative of bacterial toxin + H2O = a 3-hydroxyacyl derivative of bacterial toxin + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:12044: a triacylglycerol + H2O = a diacylglycerol + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:12484: a ribonucleoside 5'-phosphate + H2O = a ribonucleoside + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:12745: a 1,4-lactone + H2O = a 4-hydroxyacid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:12957: an acetyl ester + H2O = an aliphatic alcohol + acetate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:13057: an N-acylneuraminate 9-phosphate + H2O = an N-acylneuraminate + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:13189: a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + 2 H2O = 3-beta-D-galactosyl-sn-glycerol + 2 a fatty acid + 2 H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:13577: a wax ester + H2O = a long chain fatty alcohol + a long-chain fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:14489: a nucleoside 2',3'-cyclic phosphate + H2O = a nucleoside 2'-phosphate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:14653: a nucleoside 3',5'-cyclic phosphate + H2O = a nucleoside 5'-phosphate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:15017: a phosphate monoester + H2O = an alcohol + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:15245: a monoacylglycerol + H2O = glycerol + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:15517: N(2),6-disulfo-D-glucosamine + H2O = N-sulfo-D-glucosamine + sulfate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:16493: glycerol 1,2-cyclic phosphate + H2O = glycerol 1-phosphate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:16641: a long-chain fatty acyl ethyl ester + H2O = a long-chain fatty acid + ethanol + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:16781: a fatty acyl-CoA + H2O = a fatty acid + CoA + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17101: an O-acyl-(R)-carnitine + H2O = (R)-carnitine + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17113: L-serine-phosphoethanolamine + H2O = phosphoethanolamine + L-serine + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17125: N-(4-carboxy-4-oxobutanoyl)-L-ethylglycylglycine + H2O = N-(2-aminobutanoyl)glycine + 2-oxoglutarate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17241: an alpha-amino acid ester + H2O = an alpha-amino acid + an alcohol + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17261: an aryl sulfate + H2O = a phenol + sulfate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:17309: a phenyl acetate + H2O = a phenol + acetate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:18045: 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + H2O = alpha-D-mannose derivative + alpha-D-glucose 1-phosphate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:18053: paraoxon + H2O = diethylphosphate + 4-nitrophenol + 2 H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:18221: a 1-O-alkyl-2-acetyl-sn-glycerol 3-phosphate + H2O = a 1-O-alkyl-2-acetyl-sn-glycerol + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:19605: a chlorophyll + H2O = a chlorophyllide + phytol + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:20165: an N(5)-acyl-L-ornithine ester + H2O = an N(5)-acyl-L-ornithine + an alcohol + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:20185: a CMP-N-acyl-beta-neuraminate + H2O = an N-acylneuraminate + CMP + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:20537: holo-[ACP] + H2O = apo-[ACP] + (R)-4'-phosphopantetheine + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:21164: a carboxylic ester + H2O = an alcohol + a carboxylate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:21300: an N-acyl-1-beta-D-(3-O-sulfo)-galactosyl-sphing-4-enine + H2O = a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + sulfate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:21864: an S-(2-hydroxyacyl)glutathione + H2O = a 2-hydroxy carboxylate + glutathione + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:21964: an acylcholine + H2O = a carboxylate + choline + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:22140: a nucleoside 5'-phosphate + H2O = a nucleoside + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:22576: an N-acyl-L-homoserine lactone + H2O = an N-acyl-L-homoserine + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:22708: an S-acylglutathione + H2O = a carboxylate + glutathione + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:24902: 3',3'-c-di-GMP + H2O = 5'-phosphoguanylyl(3'->5')guanosine + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:27429: a 1,2-diacyl-sn-glycero-3-phosphate + H2O = a 1,2-diacyl-sn-glycerol + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:31771: an all-trans-retinyl ester + H2O = 11-cis-retinol + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:32731: a diacylglycerol + H2O = a monoacylglycerol + a fatty acid + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:33155: a 1-acyl-sn-glycero-3-phosphate + H2O = a 1-acyl-sn-glycerol + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:34795: alpha-D-ribose 1,2-cyclic phosphate 5-phosphate + H2O = alpha-D-ribose 1,5-bisphosphate + H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:43380: N(omega)-phospho-L-arginyl-[protein] + H2O = L-arginyl-[protein] + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:47004: O-phospho-L-threonyl-[protein] + H2O = L-threonyl-[protein] + phosphate
+  → No supported hydrolase acting on ester bonds child classifier matched
+
+RHEA:22380: [(1->4)-alpha-D-galacturonosyl methyl ester](n) + n H2O = [(1->4)-alpha-D-galacturonosyl](n) + n methanol + n H(+)
+  → No supported hydrolase acting on ester bonds child classifier matched
+

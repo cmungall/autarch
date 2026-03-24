@@ -1,0 +1,7 @@
+False Negatives for LigaseFormingPhosphoricEsterBonds
+==================================================
+Total: 1
+
+RHEA:23976: a 3'-end 3'-phospho-ribonucleotide-RNA + ATP = a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + AMP + diphosphate
+  → Not a ligase: No clear ligase pattern
+

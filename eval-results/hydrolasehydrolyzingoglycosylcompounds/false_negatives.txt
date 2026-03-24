@@ -1,0 +1,31 @@
+False Negatives for HydrolaseHydrolyzingOGlycosylCompounds
+==================================================
+Total: 9
+
+RHEA:12252: 4-O-(beta-D-glucosyl)-(E)-coniferol + H2O = (E)-coniferol + D-glucose
+  → No O-glycosidic substrate detected
+
+RHEA:15041: bis-D-fructose 2',1:2,1'-dianhydride + H2O = inulobiose
+  → Not a hydrolase: Pattern doesn't match expected hydrolysis transformation
+
+RHEA:15049: GDP-alpha-D-glucose + H2O = D-glucose + GDP + H(+)
+  → No O-glycosidic substrate detected
+
+RHEA:17465: quercitrin + H2O = L-rhamnopyranose + quercetin
+  → No O-glycosidic substrate detected
+
+RHEA:28102: GDP-alpha-D-mannose + H2O = D-mannose + GDP + H(+)
+  → No O-glycosidic substrate detected
+
+RHEA:28130: baicalin + H2O = baicalein + D-glucuronate + H(+)
+  → No O-glycosidic substrate detected
+
+RHEA:34491: UDP-N,N'-diacetylbacillosamine + H2O = 2,4-diacetamido-2,4,6-trideoxy-alpha-D-mannopyranose + UDP + H(+)
+  → No O-glycosidic substrate detected
+
+RHEA:54540: a 3-O-[beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + H2O = beta-D-galactosyl-(1->3)-N-acetyl-D-galactosamine + L-threonyl-[protein]
+  → Not a hydrolase: No water reactant - not hydrolysis
+
+RHEA:56052: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + 2 H2O = 2 alpha-D-mannopyranose + an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein]
+  → Not a hydrolase: No water reactant - not hydrolysis
+

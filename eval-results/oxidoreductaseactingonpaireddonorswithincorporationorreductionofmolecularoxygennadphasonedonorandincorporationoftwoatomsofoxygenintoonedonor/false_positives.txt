@@ -1,0 +1,13 @@
+False Positives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADPHAsOneDonorAndIncorporationOfTwoAtomsOfOxygenIntoOneDonor
+==================================================
+Total: 3
+
+RHEA:10836: questin + NADPH + O2 = demethylsulochrin + NADP(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, NAD(P)H as one donor, and incorporation of two atoms of oxygen into one donor
+
+RHEA:11152: 5-pyridoxate + NADPH + O2 = 2-(acetamidomethylene)-3-(hydroxymethyl)succinate + NADP(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, NAD(P)H as one donor, and incorporation of two atoms of oxygen into one donor
+
+RHEA:21236: anthranilate + NADPH + O2 + 2 H(+) = 2,3-dihydroxybenzoate + NH4(+) + NADP(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, NAD(P)H as one donor, and incorporation of two atoms of oxygen into one donor
+

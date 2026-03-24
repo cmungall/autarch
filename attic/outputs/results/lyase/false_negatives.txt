@@ -1,0 +1,85 @@
+False Negatives for Lyase
+==================================================
+Total: 27
+
+RHEA:10056: (3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10164: (2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10196: (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10268: 2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10320: trans-3-hydroxy-L-proline = 1-pyrroline-2-carboxylate + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10336: citrate = D-threo-isocitrate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10340: (2E,6E)-farnesyl diphosphate = (-)-vetispiradiene + diphosphate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10436: 7alpha,12alpha-dihydroxy-3-oxochol-4-en-24-oyl-CoA = 12alpha-hydroxy-3-oxochola-4,6-dien-24-oyl-CoA + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10468: D-xylulose 5-phosphate + phosphate = acetyl phosphate + D-glyceraldehyde 3-phosphate + H2O
+  → No lyase pattern detected
+
+RHEA:10472: (2R,3S)-2,3-dimethylmalate = propanoate + pyruvate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10532: (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate + L-serine = D-glyceraldehyde 3-phosphate + L-tryptophan + H2O
+  → No lyase pattern detected
+
+RHEA:10540: 7,8-dihydroneopterin = 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10748: hydrogencarbonate + H(+) = CO2 + H2O
+  → No lyase pattern detected
+
+RHEA:10760: citrate = oxaloacetate + acetate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → No lyase pattern detected
+
+RHEA:10884: (24R,24(1)R)-fucosterol epoxide = desmosterol + acetaldehyde
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:10940: (2E)-geranyl diphosphate = (4R)-limonene + diphosphate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:11040: D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate = 3-(imidazol-4-yl)-2-oxopropyl phosphate + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:11100: 4-hydroxyhexan-3-one = 2 propanal
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:11120: cyanate + hydrogencarbonate + 3 H(+) = NH4(+) + 2 CO2
+  → No lyase pattern detected
+
+RHEA:11268: D-cysteine + H2O = hydrogen sulfide + pyruvate + NH4(+) + H(+)
+  → Hydrolysis pattern - not lyase
+
+RHEA:11304: (S)-ureidoglycolate = urea + glyoxylate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:11316: an aliphatic aldoxime = a nitrile + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:11620: L-2-amino-4-chloropent-4-enoate + H2O = 2-oxopent-4-enoate + chloride + NH4(+) + H(+)
+  → Hydrolysis pattern - not lyase
+
+RHEA:11920: (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin = (6R)-L-erythro-6,7-dihydrobiopterin + H2O
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:12016: (2E,6E)-farnesyl diphosphate = (-)-germacrene D + diphosphate
+  → Pattern doesn't match expected lyase reaction
+
+RHEA:12052: (2E,6E)-farnesyl diphosphate = trichodiene + diphosphate
+  → Pattern doesn't match expected lyase reaction
+

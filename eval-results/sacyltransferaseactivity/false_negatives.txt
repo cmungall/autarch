@@ -1,0 +1,10 @@
+False Negatives for SAcyltransferaseActivity
+==================================================
+Total: 2
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Requires an activated thioester acyl donor
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Requires an activated thioester acyl donor
+

@@ -1,0 +1,49 @@
+False Positives for SymporterActivity
+==================================================
+Total: 15
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:18353: K(+)(out) + Na(+)(in) + ATP + H2O = K(+)(in) + Na(+)(out) + ADP + phosphate + H(+)
+  → Symporter activity: coupled transport in one direction out->in
+
+RHEA:20852: ATP + H2O + H(+)(in) = ADP + phosphate + 2 H(+)(out)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:22044: K(+)(out) + ATP + H2O + H(+)(in) = K(+)(in) + ADP + phosphate + 2 H(+)(out)
+  → Symporter activity: coupled transport in one direction out->in
+
+RHEA:28835: citrate(out) + succinate(in) = citrate(in) + succinate(out)
+  → Symporter activity: coupled transport in one direction out->in
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:29255: Ca(2+)(in) + Na(+)(out) = Ca(2+)(out) + Na(+)(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:29323: fumarate(in) + succinate(out) = fumarate(out) + succinate(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:29427: 4-(trimethylamino)butanoate(in) + (R)-carnitine(out) = 4-(trimethylamino)butanoate(out) + (R)-carnitine(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:33139: L-aspartate(in) + L-alanine(out) = L-aspartate(out) + L-alanine(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:34991: L-ornithine(in) + L-arginine(out) = L-ornithine(out) + L-arginine(in)
+  → Symporter activity: coupled transport in one direction in->out
+
+RHEA:30251: 2 a ubiquinol + O2 + n H(+)(in) = 2 a ubiquinone + 2 H2O + n H(+)(out)
+  → Symporter activity: coupled transport in one direction in->out
+

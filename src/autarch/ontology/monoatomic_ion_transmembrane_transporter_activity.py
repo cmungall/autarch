@@ -1,0 +1,15 @@
+"""monoatomic ion transmembrane transporter activity."""
+
+from autarch.ontology.go_aggregate import ExplicitGoAggregate
+from autarch.ontology.cytochrome_c_oxidase import CytochromeCOxidase
+from autarch.ontology.translocation_of_hydrons import TranslocationOfHydrons
+from autarch.ontology.translocation_of_inorganic_anions_and_their_chelates_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate
+from autarch.ontology.translocation_of_inorganic_cations_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import TranslocationOfInorganicCationsLinkedToTheHydrolysisOfANucleosideTriphosphate
+
+
+class MonoatomicIonTransmembraneTransporterActivity(ExplicitGoAggregate):
+    """monoatomic ion transmembrane transporter activity."""
+
+    GO_ID = "GO:0015075"
+    CONCEPT_PHRASE = "monoatomic ion transmembrane transporter activity"
+    CHILD_CLASSES = (CytochromeCOxidase, TranslocationOfHydrons, TranslocationOfInorganicCationsLinkedToTheHydrolysisOfANucleosideTriphosphate, TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate,)

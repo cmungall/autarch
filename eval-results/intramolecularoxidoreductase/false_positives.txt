@@ -1,0 +1,7 @@
+False Positives for IntramolecularOxidoreductase
+==================================================
+Total: 1
+
+RHEA:34455: all-trans-beta-carotene = 9-cis-beta-carotene
+  → Intramolecular oxidoreductase: carotenoid isomerase
+

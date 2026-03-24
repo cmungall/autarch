@@ -1,0 +1,7 @@
+False Negatives for ShortChain2MethylFattyAcylCoADehydrogenaseActivity
+==================================================
+Total: 1
+
+RHEA:44180: 2-methylpropanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = 2-methylpropenoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Requires oxidized/reduced electron-transfer flavoprotein pair
+

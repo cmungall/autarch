@@ -1,0 +1,40 @@
+False Positives for Glycosidase
+==================================================
+Total: 12
+
+RHEA:13721: testololactone + H2O = testolate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:14997: deoxylimonoate + H2O = deoxylimononate D-ring-lactone + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:17029: (S)-allantoin + H2O = allantoate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:19053: 5,10-methenyl-5,6,7,8-tetrahydromethanopterin + H2O = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:20689: chlorogenate + H2O = L-quinate + (E)-caffeate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+
+RHEA:21316: phorbol 12,13-dibutanoate + H2O = phorbol 13-butanoate + butanoate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+
+RHEA:23304: atropine + H2O = tropate + tropine + H(+)
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+
+RHEA:23508: (7R)-7-(4-carboxybutanamido)cephalosporanate + H2O = (7R)-7-aminocephalosporanate + glutarate
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+
+RHEA:23736: 5-hydroxyisourate + H2O = 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:24902: 3',3'-c-di-GMP + H2O = 5'-phosphoguanylyl(3'->5')guanosine + H(+)
+  → Glycosidase: glycosidic bond hydrolysis
+
+RHEA:32059: (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + H2O = (R)-glycerate + D-glucose
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+
+RHEA:34179: mycophenolic acid O-acyl-beta-D-glucuronide + H2O = mycophenolate + D-glucuronate + H(+)
+  → Glycosidase: glycosidic bond hydrolysis [pattern matched]
+

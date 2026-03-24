@@ -1,0 +1,97 @@
+False Positives for LigaseFormingPhosphoricEsterBonds
+==================================================
+Total: 31
+
+RHEA:10220: tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:10704: tRNA(Val) + L-valine + ATP = L-valyl-tRNA(Val) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:11060: tRNA(Ile) + L-isoleucine + ATP = L-isoleucyl-tRNA(Ile) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:11180: tRNA(Asn) + L-asparagine + ATP = L-asparaginyl-tRNA(Asn) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:11688: tRNA(Leu) + L-leucine + ATP = L-leucyl-tRNA(Leu) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:12292: tRNA(Ser) + L-serine + ATP = L-seryl-tRNA(Ser) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:12540: tRNA(Ala) + L-alanine + ATP = L-alanyl-tRNA(Ala) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:13481: tRNA(Met) + L-methionine + ATP = L-methionyl-tRNA(Met) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:14305: tRNA(Pro) + L-proline + ATP = L-prolyl-tRNA(Pro) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:14513: L-aspartyl-tRNA(Asn) + L-glutamine + ATP + H2O = L-asparaginyl-tRNA(Asn) + L-glutamate + ADP + phosphate + 2 H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:16013: tRNA(Gly) + glycine + ATP = glycyl-tRNA(Gly) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:17313: tRNA(His) + L-histidine + ATP = L-histidyl-tRNA(His) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:17521: L-glutamyl-tRNA(Gln) + L-glutamine + ATP + H2O = L-glutaminyl-tRNA(Gln) + L-glutamate + ADP + phosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:17773: tRNA(Cys) + L-cysteine + ATP = L-cysteinyl-tRNA(Cys) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:18349: tRNA(Asx) + L-aspartate + ATP = L-aspartyl-tRNA(Asx) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:18397: tRNA(Glx) + L-glutamate + ATP = L-glutamyl-tRNA(Glx) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:19277: tRNA(Pyl) + L-pyrrolysine + ATP = L-pyrrolysyl-tRNA(Pyl) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:19413: tRNA(Phe) + L-phenylalanine + ATP = L-phenylalanyl-tRNA(Phe) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:19649: tRNA(Asp) + L-aspartate + ATP = L-aspartyl-tRNA(Asp) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:20121: tRNA(Gln) + L-glutamine + ATP = L-glutaminyl-tRNA(Gln) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:20301: tRNA(Arg) + L-arginine + ATP = L-arginyl-tRNA(Arg) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:20792: tRNA(Lys) + L-lysine + ATP = L-lysyl-tRNA(Lys) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:23540: tRNA(Glu) + L-glutamate + ATP = L-glutamyl-tRNA(Glu) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:24080: tRNA(Trp) + L-tryptophan + ATP = L-tryptophyl-tRNA(Trp) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:24176: [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine + a uridine in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + ATP + H(+) = [ThiI sulfur-carrier protein]-L-cysteine + a 4-thiouridine in tRNA + 2 oxidized [2Fe-2S]-[ferredoxin] + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:24624: tRNA(Thr) + L-threonine + ATP = L-threonyl-tRNA(Thr) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:25678: tRNA(Cys) + O-phospho-L-serine + ATP = O-phospho-L-seryl-tRNA(Cys) + AMP + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:36163: nicotinate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O = nicotinate beta-D-ribonucleotide + ADP + phosphate + diphosphate
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:43744: cytidine(34) in tRNA(Ile2) + L-lysine + ATP = lysidine(34) in tRNA(Ile2) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+
+RHEA:42580: tRNA(Sec) + L-serine + ATP = L-seryl-tRNA(Sec) + AMP + diphosphate + H(+)
+  → Phosphoric ester ligase: nucleic acid substrate with ATP-dependent ligation
+

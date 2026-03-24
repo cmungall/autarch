@@ -1,0 +1,46 @@
+False Positives for HydrolaseHydrolyzingOGlycosylCompounds
+==================================================
+Total: 14
+
+RHEA:12296: deacetylipecoside + H2O = secologanin + dopamine
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:13657: acetyl-[citrate lyase ACP] + H2O = holo-[citrate lyase ACP] + acetate + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:15013: 3alpha(S)-strictosidine + H2O = secologanin + tryptamine
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:17793: L-alanyl-tRNA(Thr) + H2O = tRNA(Thr) + L-alanine + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:21756: deacetylisoipecoside + H2O = secologanin + dopamine
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:25347: D-tyrosyl-tRNA(Tyr) + H2O = D-tyrosine + tRNA(Tyr)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:25351: L-cysteinyl-tRNA(Pro) + H2O = tRNA(Pro) + L-cysteine + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:25564: N-acetyl-4-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:26180: 1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside + H2O = 1D-myo-inositol 2-amino-2-deoxy-alpha-D-glucopyranoside + acetate
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:27469: N,N'-diacetylchitobiose + H2O = N-acetyl-beta-D-glucosaminyl-(1->4)-D-glucosamine + acetate
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:32059: (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + H2O = (R)-glycerate + D-glucose
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:34179: mycophenolic acid O-acyl-beta-D-glucuronide + H2O = mycophenolate + D-glucuronate + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:54448: an N-acyl-L-alpha-aminoacyl-tRNA + H2O = an N-acyl-L-amino acid + a tRNA + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+
+RHEA:53744: glycyl-tRNA(Ala) + H2O = tRNA(Ala) + glycine + H(+)
+  → O-glycosyl hydrolase: water-dependent cleavage of an O-glycosidic bond
+

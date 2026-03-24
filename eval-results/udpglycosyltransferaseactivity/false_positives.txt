@@ -1,0 +1,76 @@
+False Positives for UDPGlycosyltransferaseActivity
+==================================================
+Total: 24
+
+RHEA:12576: (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:15473: flavanone 7-O-beta-D-glucoside + UDP-beta-L-rhamnose = flavanone 7-O-[alpha-L-rhamnosyl-(1->2)-beta-D-glucoside] + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:15709: kaempferol + UDP-alpha-D-galactose = kaempferol 3-O-beta-D-galactoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:18893: a flavonol 3-O-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:23164: a 7-O-hydroxy-flavonol + UDP-alpha-D-glucose = a flavonol 7-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:23544: a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:26188: 1D-myo-inositol 3-phosphate + UDP-N-acetyl-alpha-D-glucosamine = 1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside 3-phosphate + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:28258: cyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucuronate = cyanidin 3-O-(2-O-beta-D-glucuronosyl)-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:28314: baicalein + UDP-alpha-D-glucuronate = baicalin + UDP
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:28318: scutellarein + UDP-alpha-D-glucuronate = scutellarin + UDP
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:28322: wogonin + UDP-alpha-D-glucuronate = wogonin 7-O-beta-D-glucuronate + UDP
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:31475: soyasapogenol B + UDP-alpha-D-glucuronate = soyasapogenol B 3-O-beta-D-glucuronate + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:31487: soyasapogenol B 3-O-beta-D-glucuronate + UDP-alpha-D-galactose = soyasaponin III + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:31491: soyasaponin III + UDP-beta-L-rhamnose = soyasaponin I + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:33947: 2-deoxystreptamine + UDP-N-acetyl-alpha-D-glucosamine = 2'-N-acetylparomamine + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:34063: 2-deoxystreptamine + UDP-alpha-D-glucose = 2'-deamino-2'-hydroxyparomamine + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:34291: 2',4,4',6'-tetrahydroxychalcone + UDP-alpha-D-glucose = 2',4,4',6'-tetrahydroxychalcone 4'-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:34295: 2',3,4,4',6'-pentahydroxychalcone + UDP-alpha-D-glucose = 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:34511: N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = N-acetyl-alpha-D-galactosaminyl-(1->3)-N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:35419: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3-O-sophoroside + UDP + 2 H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:35423: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3,5-di-O-beta-D-glucoside + UDP + 2 H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:35443: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-xylose = an anthocyanidin 3-O-beta-D-sambubioside + UDP + 2 H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:35627: delphinidin 3,5-bis-O-beta-D-glucoside + UDP-alpha-D-glucose = delphinidin 3,3',5-tri-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+
+RHEA:35631: cyanidin + UDP-alpha-D-galactose = cyanidin 3-O-beta-D-galactoside + UDP + H(+)
+  → UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group
+

@@ -1,0 +1,19 @@
+False Negatives for Pyrophosphatase
+==================================================
+Total: 5
+
+RHEA:13073: guanosine 3'-diphosphate 5'-triphosphate + H2O = guanosine 3',5'-bis(diphosphate) + phosphate + H(+)
+  → Substrate contains disconnected phosphorus domains beyond a single anhydride chain
+
+RHEA:22384: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + H2O = 1D-myo-inositol hexakisphosphate + phosphate + H(+)
+  → Substrate contains disconnected phosphorus domains beyond a single anhydride chain
+
+RHEA:22828: 1-(5-phospho-beta-D-ribosyl)-ATP + H2O = 1-(5-phospho-beta-D-ribosyl)-5'-AMP + diphosphate + H(+)
+  → Substrate contains disconnected phosphorus domains beyond a single anhydride chain
+
+RHEA:22452: [phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)
+  → No water substrate - pyrophosphatases are hydrolases
+
+RHEA:67484: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + H2O = N(7)-methyl-GDP + a 5'-end phospho-ribonucleoside in mRNA + 2 H(+)
+  → No water substrate - pyrophosphatases are hydrolases
+

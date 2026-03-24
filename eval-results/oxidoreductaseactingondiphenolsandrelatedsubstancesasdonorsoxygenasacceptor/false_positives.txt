@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnDiphenolsAndRelatedSubstancesAsDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:23640: 1-aminocyclopropane-1-carboxylate + L-ascorbate + O2 = ethene + L-dehydroascorbate + hydrogen cyanide + CO2 + 2 H2O
+  → Diphenol oxidoreductase with oxygen as acceptor
+

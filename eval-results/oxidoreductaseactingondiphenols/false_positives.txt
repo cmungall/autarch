@@ -1,0 +1,22 @@
+False Positives for OxidoreductaseActingOnDiphenols
+==================================================
+Total: 6
+
+RHEA:12809: 4 catechol + 3 O2 = 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → Diphenol oxidoreductase: catechol as electron donor (reactant)
+
+RHEA:15741: 2,5-dichlorocyclohexa-2,5-dien-1,4-diol + NAD(+) = 2,5-dichlorohydroquinone + NADH + H(+)
+  → Diphenol oxidoreductase: label contains hydroquinone
+
+RHEA:17337: catechol + O2 = (2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + H(+)
+  → Diphenol oxidoreductase: catechol as electron donor (reactant)
+
+RHEA:23488: 1,4-benzoquinone + NADPH + H(+) = hydroquinone + NADP(+)
+  → Diphenol oxidoreductase: label contains hydroquinone
+
+RHEA:23852: catechol + O2 = cis,cis-muconate + 2 H(+)
+  → Diphenol oxidoreductase: catechol as electron donor (reactant)
+
+RHEA:24052: a ubiquinone + reduced [electron-transfer flavoprotein] = a ubiquinol + oxidized [electron-transfer flavoprotein] + H(+)
+  → Diphenol oxidoreductase: quinol/quinone species present (CHEBI:16389, CHEBI:17976)
+

@@ -1,0 +1,10 @@
+False Positives for SAcyltransferaseActivity
+==================================================
+Total: 2
+
+RHEA:18565: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → S-acyltransferase activity: transfer of an activated acyl group to a sulfur acceptor with carrier release
+
+RHEA:18865: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 2-methylpropanoyl-CoA = N(6)-[(R)-S(8)-2-methylpropanoyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → S-acyltransferase activity: transfer of an activated acyl group to a sulfur acceptor with carrier release
+

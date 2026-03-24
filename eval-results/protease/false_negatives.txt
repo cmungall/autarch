@@ -1,0 +1,19 @@
+False Negatives for Protease
+==================================================
+Total: 5
+
+RHEA:20661: D-alanyl-D-alanine + H2O = 2 D-alanine
+  → No protease reactions in current evaluation dataset - class disabled
+
+RHEA:28398: L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + H2O = L-alanyl-D-glutamate + meso-2,6-diaminopimelate
+  → No protease reactions in current evaluation dataset - class disabled
+
+RHEA:28783: L-cysteinylglycine + H2O = L-cysteine + glycine
+  → No protease reactions in current evaluation dataset - class disabled
+
+RHEA:28807: glutathione + H2O = L-cysteinylglycine + L-glutamate
+  → No protease reactions in current evaluation dataset - class disabled
+
+RHEA:31563: leukotriene C4 + H2O = leukotriene D4 + L-glutamate
+  → No protease reactions in current evaluation dataset - class disabled
+

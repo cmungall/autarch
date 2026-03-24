@@ -1,0 +1,172 @@
+False Positives for AlcoholDehydrogenaseNAD
+==================================================
+Total: 56
+
+RHEA:10044: cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:10356: 3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11092: sn-glycerol 3-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11300: 1D-5-O-methyl-myo-inositol + NAD(+) = 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11448: pregnan-21-ol + NAD(+) = pregnan-21-al + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11728: cyclopentanol + NAD(+) = cyclopentanone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11736: 2-exo-hydroxy-1,8-cineole + NAD(+) = 6-oxocineole + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:11896: 7alpha-hydroxycholesterol + NAD(+) = 7alpha-hydroxycholest-4-en-3-one + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:12184: (S,S)-butane-2,3-diol + NAD(+) = (S)-acetoin + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:12725: D-iditol + NAD(+) = keto-D-sorbose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:13249: (R)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:13769: glycerol + NAD(+) = dihydroxyacetone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:14825: (1R,5S)-carveol + NAD(+) = (S)-carvone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:14929: testosterone + NAD(+) = androst-4-ene-3,17-dione + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:15137: galactitol 1-phosphate + NAD(+) = keto-L-tagatose 6-phosphate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:15301: D-apiitol + NAD(+) = aldehydo-D-apiose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:15853: (17R,20S)-17,20-dihydroxypregn-4-en-3-one + NAD(+) = 17alpha-hydroxyprogesterone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:15933: (S)-propane-1,2-diol + NAD(+) = (S)-lactaldehyde + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:16381: L-arabinitol + NAD(+) = L-xylulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:16517: (R)-1-aminopropan-2-ol + NAD(+) = aminoacetone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:16701: 17alpha-estradiol + NAD(+) = estrone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:17329: (1R,2S,4R)-borneol + NAD(+) = (1R,4R)-camphor + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:17389: D-arabinitol + NAD(+) = D-ribulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:17921: D-arabinitol + NAD(+) = D-xylulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:18141: trans-cyclohexane-1,2-diol + NAD(+) = 2-hydroxycyclohexan-1-one + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:18329: (1S,3R,5S)-sabinol + NAD(+) = (1S,5S)-sabinone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:19101: 2-butyne-1,4-diol + NAD(+) = 4-hydroxy-2-butynal + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:19925: D-ribitol 5-phosphate + NAD(+) = D-ribulose 5-phosphate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:20053: ribitol + NAD(+) = D-ribulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:20381: androsterone + NAD(+) = 5alpha-androstan-3,17-dione + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:20433: xylitol + NAD(+) = D-xylulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:20685: galactitol + NAD(+) = keto-D-tagatose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:20860: (1S,6R)-isopiperitenol + NAD(+) = (6R)-isopiperitenone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:21052: (S)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:21356: L-arabinitol + NAD(+) = L-ribulose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:21412: sn-glycerol 1-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:21584: propane-1,2-diol 1-phosphate + NAD(+) = hydroxyacetone phosphate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:22128: (1S,2R,4S)-borneol + NAD(+) = (1S,4S)-camphor + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:22400: androstan-3alpha,17beta-diol + NAD(+) = 17beta-hydroxyandrostanone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:22804: (6S,9R)-vomifoliol + NAD(+) = (6S)-6-hydroxy-3-oxo-alpha-ionone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:22900: (R)-acetoin + NAD(+) = diacetyl + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:23188: propane-1,3-diol + NAD(+) = 3-hydroxypropanal + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:23872: (R)-propane-1,2-diol + NAD(+) = (R)-lactaldehyde + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:24340: (R,R)-butane-2,3-diol + NAD(+) = (R)-acetoin + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:24412: 4-(hydroxymethyl)benzenesulfonate + NAD(+) = 4-formylbenzenesulfonate + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:24484: sulcatol + NAD(+) = sulcatone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:24528: (R)-lactaldehyde + NAD(+) = methylglyoxal + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:24612: 17beta-estradiol + NAD(+) = estrone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:25363: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NAD(+) = momilactone A + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:27286: (S)-acetoin + NAD(+) = diacetyl + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:28198: (S)-1-phenylethanol + NAD(+) = acetophenone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:32327: 10-hydroxy-alpha-humulene + NAD(+) = zerumbone + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:32879: (1R,4R,5R)-5-hydroxycamphor + NAD(+) = (1R,4R)-bornane-2,5-dione + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:35459: cholesterol + NAD(+) = cholest-5-en-3-one + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:35475: (1'S,5'S)-5'-hydroxyaverantin + NAD(+) = (S)-5'-oxoaverantin + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+
+RHEA:35755: UDP-alpha-D-glucose + NAD(+) = UDP-3-oxo-alpha-D-glucose + NADH + H(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]
+

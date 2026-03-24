@@ -1,0 +1,7 @@
+False Positives for AlcoholDehydrogenase
+==================================================
+Total: 1
+
+RHEA:25292: acetaldehyde + NADH + H(+) => ethanol + NAD(+)
+  → Alcohol dehydrogenase: alcohol ⇌ carbonyl [reduction] [NAD-dependent] [pattern matched]
+

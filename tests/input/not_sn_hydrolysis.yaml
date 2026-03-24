@@ -1,0 +1,12 @@
+name: Sulfate ester hydrolysis (not S-N)
+description: Hydrolysis of a sulfate ester (S-O bond, not S-N)
+left_participants:
+  - smiles: "CCOS(=O)(=O)OCC"  # diethyl sulfate
+    count: 1
+  - smiles: "O"  # water
+    count: 1
+right_participants:
+  - smiles: "CCOS(=O)(=O)O"  # ethyl hydrogen sulfate
+    count: 1
+  - smiles: "CCO"  # ethanol
+    count: 1

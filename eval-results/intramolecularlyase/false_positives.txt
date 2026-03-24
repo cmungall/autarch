@@ -1,0 +1,19 @@
+False Positives for IntramolecularLyase
+==================================================
+Total: 5
+
+RHEA:12348: (S)-muconolactone = (4,5-dihydro-5-oxofuran-2-yl)-acetate
+  → Intramolecular lyase: cyclization/ring formation
+
+RHEA:13897: chorismate = prephenate
+  → Intramolecular lyase: cyclization/ring formation
+
+RHEA:18985: chorismate = isochorismate
+  → Intramolecular lyase: cyclization/ring formation
+
+RHEA:19237: 4-methylmuconolactone = 3-methylmuconolactone
+  → Intramolecular lyase: cyclization/ring formation
+
+RHEA:23284: isopentenyl diphosphate = dimethylallyl diphosphate
+  → Intramolecular lyase: cyclization/ring formation
+

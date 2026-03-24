@@ -1,0 +1,16 @@
+False Negatives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmides
+==================================================
+Total: 4
+
+RHEA:14533: creatinine + H2O = creatine
+  → Cyclic amidine substrates belong to a different hydrolase branch
+
+RHEA:18653: barbiturate + H2O = 3-oxo-3-ureidopropanoate
+  → Cyclic amide count does not decrease across the reaction
+
+RHEA:23660: 4-imidazolone-5-propanoate + H2O = N-formimidoyl-L-glutamate
+  → Cyclic amide count does not decrease across the reaction
+
+RHEA:23736: 5-hydroxyisourate + H2O = 5-hydroxy-2-oxo-4-ureido-2,5-dihydro-1H-imidazole-5-carboxylate + H(+)
+  → Cyclic amidine substrates belong to a different hydrolase branch
+

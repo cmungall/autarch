@@ -1,0 +1,7 @@
+False Negatives for Sulfotransferase
+==================================================
+Total: 1
+
+RHEA:16100: acetylpyruvate + H2O <=> acetate + pyruvate + H(+)
+  → Not a transferase: No group transfer pattern detected
+

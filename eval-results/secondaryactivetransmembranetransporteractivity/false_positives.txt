@@ -1,0 +1,13 @@
+False Positives for SecondaryActiveTransmembraneTransporterActivity
+==================================================
+Total: 3
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Secondary active transmembrane transporter activity: coupled symport
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → Secondary active transmembrane transporter activity: coupled symport
+
+RHEA:30251: 2 a ubiquinol + O2 + n H(+)(in) = 2 a ubiquinone + 2 H2O + n H(+)(out)
+  → Secondary active transmembrane transporter activity: coupled symport
+

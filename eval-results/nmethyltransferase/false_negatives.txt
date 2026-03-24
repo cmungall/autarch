@@ -1,0 +1,106 @@
+False Negatives for NMethyltransferase
+==================================================
+Total: 34
+
+RHEA:10072: N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:11164: a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phospho-N-methylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:12176: phenylethanolamine + S-adenosyl-L-methionine = N-methylphenylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:15453: sarcosine + S-adenosyl-L-methionine = N,N-dimethylglycine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:15837: methylamine + L-glutamate = N-methyl-L-glutamate + NH4(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:16497: adenosine(1618) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(1618) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:16785: an adenosine in tRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:19301: histamine + S-adenosyl-L-methionine = N(tau)-methylhistamine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:19369: L-histidyl-[protein] + S-adenosyl-L-methionine = N(tele)-methyl-L-histidyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:19609: adenosine(1518)/adenosine(1519) in 16S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1518)/N(6)-dimethyladenosine(1519) in 16S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:19937: glycine + S-adenosyl-L-methionine = sarcosine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:20241: nicotinate + S-adenosyl-L-methionine = N-methylnicotinate + S-adenosyl-L-homocysteine
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:21556: [calmodulin]-L-lysine + S-adenosyl-L-methionine = [calmodulin]-N(6)-methyl-L-lysine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:23548: guanosine(966) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(966) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:24312: L-lysyl-[cytochrome c] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[cytochrome c] + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:32735: a 1,2-diacyl-sn-glycero-3-phospho-N-methylethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phospho-N,N-dimethylethanolamine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:32739: a 1,2-diacyl-sn-glycero-3-phospho-N,N-dimethylethanolamine + S-adenosyl-L-methionine = a 1,2-diacyl-sn-glycero-3-phosphocholine + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42744: guanosine(1835) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1835) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42736: guanosine(1207) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1207) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:43124: guanosine(10) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(10) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:48116: L-arginyl-[protein] + S-adenosyl-L-methionine = N(5)-methyl-L-arginyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42900: guanosine(745) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(745) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:43736: adenosine(2030) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(2030) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:48096: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42904: guanosine(748) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(748) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:43128: guanosine(10) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(10) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:51116: guanosine(6) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(6) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:48100: L-arginyl-[protein] + S-adenosyl-L-methionine = N(omega)-methyl-L-arginyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42740: guanosine(2445) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(2445) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:43140: guanosine(26) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported n-methyltransferase child classifier matched
+
+RHEA:42784: adenosine(2085) in 23S rRNA + 2 S-adenosyl-L-methionine = N(6)-dimethyladenosine(2085) in 23S rRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported n-methyltransferase child classifier matched
+

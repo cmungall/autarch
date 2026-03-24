@@ -1,0 +1,40 @@
+False Positives for UDPGlucosyltransferaseActivity
+==================================================
+Total: 12
+
+RHEA:12576: (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:18893: a flavonol 3-O-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:19165: a 1,2-diacyl-3-O-(alpha-D-glucopyranosyl)-sn-glycerol + UDP-alpha-D-glucose = a 1,2-diacyl-3-O-[alpha-D-glucosyl-(1-> 2)-alpha-D-glucosyl]-sn-glycerol + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:20009: 2-hydroxy-2-methylpropanenitrile + UDP-alpha-D-glucose = linamarin + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:23164: a 7-O-hydroxy-flavonol + UDP-alpha-D-glucose = a flavonol 7-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:23544: a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1->2)-beta-D-glucosyl-(1->2)-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:34063: 2-deoxystreptamine + UDP-alpha-D-glucose = 2'-deamino-2'-hydroxyparomamine + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:34291: 2',4,4',6'-tetrahydroxychalcone + UDP-alpha-D-glucose = 2',4,4',6'-tetrahydroxychalcone 4'-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:34295: 2',3,4,4',6'-pentahydroxychalcone + UDP-alpha-D-glucose = 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:35419: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3-O-sophoroside + UDP + 2 H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:35423: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3,5-di-O-beta-D-glucoside + UDP + 2 H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:35627: delphinidin 3,5-bis-O-beta-D-glucoside + UDP-alpha-D-glucose = delphinidin 3,3',5-tri-O-beta-D-glucoside + UDP + H(+)
+  → UDP-glucosyltransferase activity: donor-restricted hexosyl transfer
+

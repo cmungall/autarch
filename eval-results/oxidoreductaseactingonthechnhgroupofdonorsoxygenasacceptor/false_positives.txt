@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnTheCHNHGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:13489: (S)-canadine + 2 O2 + H(+) = berberine + 2 H2O2
+  → CH-NH oxidase: oxygen acceptor chemistry with hydrogen peroxide formation from a nitrogen-bearing donor
+

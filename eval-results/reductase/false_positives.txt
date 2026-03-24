@@ -1,0 +1,61 @@
+False Positives for Reductase
+==================================================
+Total: 19
+
+RHEA:14773: palmatine + S-adenosyl-L-methionine + 2 NADPH = corydaline + S-adenosyl-L-homocysteine + 2 NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:16096
+
+RHEA:15173: H2O2 + NADPH + H(+) = NADP(+) + 2 H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:16240 + H2O
+
+RHEA:15237: 2 Fe(III)-[cytochrome c2] + NADPH = 2 Fe(II)-[cytochrome c2] + NADP(+) + H(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:29034
+
+RHEA:16157: 2 Fe(III)-[leghemoglobin] + NADPH = 2 Fe(II)-[leghemoglobin] + NADP(+) + H(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:29034
+
+RHEA:16161: 2 Fe(III)-[leghemoglobin] + NADH = 2 Fe(II)-[leghemoglobin] + NAD(+) + H(+)
+  → Reductase: NADH-dependent reduction of CHEBI:29034
+
+RHEA:18509: H2O2 + NADH + H(+) = NAD(+) + 2 H2O
+  → Reductase: NADH-dependent reduction of CHEBI:16240 + H2O
+
+RHEA:24040: 2 oxidized [cytochrome P450] + NADPH = 2 reduced [cytochrome P450] + NADP(+) + H(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:55376
+
+RHEA:26361: L-tyrosine + S-adenosyl-L-methionine + NADPH = 2-iminoacetate + 4-methylphenol + 5'-deoxyadenosine + L-methionine + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:58315
+
+RHEA:29043: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+) = dTMP + (6S)-5,6,7,8-tetrahydrofolate + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:246422
+
+RHEA:32295: 2 (2E,6E)-farnesyl diphosphate + NADPH + H(+) = squalene + 2 diphosphate + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:175763
+
+RHEA:32299: 2 (2E,6E)-farnesyl diphosphate + NADH + H(+) = squalene + 2 diphosphate + NAD(+)
+  → Reductase: NADH-dependent reduction of CHEBI:175763
+
+RHEA:33031: keto-D-fructose + NADH + H(+) = D-sorbitol + NAD(+)
+  → Reductase: NADH-dependent reduction of CHEBI:48095
+
+RHEA:33207: L-glutamate + ATP + NADPH + H(+) = L-glutamate 5-semialdehyde + ADP + phosphate + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:29985
+
+RHEA:34927: selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:71259
+
+RHEA:35523: N-ethylmaleimide + NADPH + H(+) = N-ethylsuccinimide + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:44485
+
+RHEA:36379: 3-dehydro-4alpha-methylzymosterol + NADPH + H(+) = 4alpha-methylzymosterol + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:136486
+
+RHEA:53356: 5,6-dihydrouridine(20b) in tRNA + NADP(+) = uridine(20b) in tRNA + NADPH + H(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:65315
+
+RHEA:53368: 5,6-dihydrouridine(17) in tRNA + NADP(+) = uridine(17) in tRNA + NADPH + H(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:65315
+
+RHEA:53380: 5,6-dihydrouridine(16) in tRNA + NAD(+) = uridine(16) in tRNA + NADH + H(+)
+  → Reductase: NADH-dependent reduction of CHEBI:65315
+

@@ -1,0 +1,1473 @@
+{
+  "RHEA:10000": {
+    "rhea_id": "RHEA:10000",
+    "label": "pentanamide + H2O = pentanoate + NH4(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:16459",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "pentanamide",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:28938",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "NH4(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:31011",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "pentanoate",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "3.5.1.50"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10004": {
+    "rhea_id": "RHEA:10004",
+    "label": "benzyl isothiocyanate = benzyl thiocyanate",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:17484",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "benzyl isothiocyanate",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:16017",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "benzyl thiocyanate",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "5.99.1.1"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10008": {
+    "rhea_id": "RHEA:10008",
+    "label": "a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:35924",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "a hydroperoxide",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:30879",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "an alcohol",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10012": {
+    "rhea_id": "RHEA:10012",
+    "label": "(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15379",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "O2",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:58413",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "(R)-6-hydroxynicotine",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:16240",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O2",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:58682",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "6-hydroxypseudooxynicotine",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "1.5.3.6"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10016": {
+    "rhea_id": "RHEA:10016",
+    "label": "O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:16353",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "O-sinapoylcholine",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:30023",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "(E)-sinapate",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15378",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15354",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "choline",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "3.1.1.49"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10020": {
+    "rhea_id": "RHEA:10020",
+    "label": "L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:57951",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "L-saccharopine",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:58349",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "NADP(+)",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:29985",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "L-glutamate",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15378",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:57783",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "NADPH",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:58321",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "(S)-2-amino-6-oxohexanoate",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "1.5.1.10"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10024": {
+    "rhea_id": "RHEA:10024",
+    "label": "L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:59789",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "S-adenosyl-L-methionine",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:15378",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:57856",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "S-adenosyl-L-homocysteine",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10028": {
+    "rhea_id": "RHEA:10028",
+    "label": "D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15379",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "O2",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:29986",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "D-glutamate",
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:28938",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "NH4(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:16810",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "2-oxoglutarate",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": "CHEBI:16240",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O2",
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "1.4.3.7"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10032": {
+    "rhea_id": "RHEA:10032",
+    "label": "[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)",
+    "reaction": {
+      "left_participants": [
+        {
+          "chebi_id": "CHEBI:15377",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "H2O",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        }
+      ],
+      "right_participants": [
+        {
+          "chebi_id": "CHEBI:28938",
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": "NH4(+)",
+          "formula": null,
+          "charge": null
+        },
+        {
+          "chebi_id": null,
+          "smiles": null,
+          "count": 1,
+          "location": null,
+          "name": null,
+          "formula": null,
+          "charge": null
+        }
+      ]
+    },
+    "ec_numbers": [
+      "3.5.1.43"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10036": {
+    "rhea_id": "RHEA:10036",
+    "label": "4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.3.38"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10040": {
+    "rhea_id": "RHEA:10040",
+    "label": "adenosine 3',5'-bisphosphate + H2O = AMP + phosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.3.7"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10044": {
+    "rhea_id": "RHEA:10044",
+    "label": "cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.245"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10048": {
+    "rhea_id": "RHEA:10048",
+    "label": "O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.5.1.49"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10052": {
+    "rhea_id": "RHEA:10052",
+    "label": "(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.345"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10056": {
+    "rhea_id": "RHEA:10056",
+    "label": "(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "4.3.1.14"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10060": {
+    "rhea_id": "RHEA:10060",
+    "label": "D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.34"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10064": {
+    "rhea_id": "RHEA:10064",
+    "label": "(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.1.2.7"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10068": {
+    "rhea_id": "RHEA:10068",
+    "label": "4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.4.1.53"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10072": {
+    "rhea_id": "RHEA:10072",
+    "label": "N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.1.1.161"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10076": {
+    "rhea_id": "RHEA:10076",
+    "label": "lactose + H2O = beta-D-galactose + D-glucose",
+    "reaction": null,
+    "ec_numbers": [
+      "3.2.1.108"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10080": {
+    "rhea_id": "RHEA:10080",
+    "label": "dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH",
+    "reaction": null,
+    "ec_numbers": [
+      "1.3.1.57"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10084": {
+    "rhea_id": "RHEA:10084",
+    "label": "3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.13.11.3"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10088": {
+    "rhea_id": "RHEA:10088",
+    "label": "sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.4.1.167"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10092": {
+    "rhea_id": "RHEA:10092",
+    "label": "a 2'-deoxyribonucleoside 3'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.3.34"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10096": {
+    "rhea_id": "RHEA:10096",
+    "label": "a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5'-thioadenosine + holo-[ACP] + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.184"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10100": {
+    "rhea_id": "RHEA:10100",
+    "label": "a sterol ester + H2O = a sterol + a fatty acid + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.1.13"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10104": {
+    "rhea_id": "RHEA:10104",
+    "label": "gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2",
+    "reaction": null,
+    "ec_numbers": [
+      "1.14.11.15"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10108": {
+    "rhea_id": "RHEA:10108",
+    "label": "(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.248"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10112": {
+    "rhea_id": "RHEA:10112",
+    "label": "L-homocysteine + L-serine = L,L-cystathionine + H2O",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.1.22"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10116": {
+    "rhea_id": "RHEA:10116",
+    "label": "6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.44"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10120": {
+    "rhea_id": "RHEA:10120",
+    "label": "adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.5.4.37"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10124": {
+    "rhea_id": "RHEA:10124",
+    "label": "phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O",
+    "reaction": null,
+    "ec_numbers": [
+      "1.14.13.92"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10128": {
+    "rhea_id": "RHEA:10128",
+    "label": "all-trans-violaxanthin = all-trans-neoxanthin",
+    "reaction": null,
+    "ec_numbers": [
+      "5.3.99.9"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10132": {
+    "rhea_id": "RHEA:10132",
+    "label": "benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "6.2.1.25"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10136": {
+    "rhea_id": "RHEA:10136",
+    "label": "2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2",
+    "reaction": null,
+    "ec_numbers": [
+      "4.1.1.47"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10140": {
+    "rhea_id": "RHEA:10140",
+    "label": "prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.188"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10144": {
+    "rhea_id": "RHEA:10144",
+    "label": "a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.3.6"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10148": {
+    "rhea_id": "RHEA:10148",
+    "label": "blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.5.4.23"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10152": {
+    "rhea_id": "RHEA:10152",
+    "label": "hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.2.2"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10156": {
+    "rhea_id": "RHEA:10156",
+    "label": "dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.14.14.101"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10160": {
+    "rhea_id": "RHEA:10160",
+    "label": "L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.14"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10164": {
+    "rhea_id": "RHEA:10164",
+    "label": "(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.1.11"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10168": {
+    "rhea_id": "RHEA:10168",
+    "label": "15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.3.7.2"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10172": {
+    "rhea_id": "RHEA:10172",
+    "label": "(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.1.22"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10176": {
+    "rhea_id": "RHEA:10176",
+    "label": "(2S,3R)-2-hydroxy-3-(indol-3-yl)butanoate + NAD(+) = (R)-3-(indol-3-yl)-2-oxobutanoate + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.397"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10180": {
+    "rhea_id": "RHEA:10180",
+    "label": "(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.5.1.6"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10184": {
+    "rhea_id": "RHEA:10184",
+    "label": "(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.1.24"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10188": {
+    "rhea_id": "RHEA:10188",
+    "label": "acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.3.10"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10192": {
+    "rhea_id": "RHEA:10192",
+    "label": "sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "7.3.2.3"
+    ],
+    "go_terms": [],
+    "direction": "transport",
+    "parent_rhea_id": null
+  },
+  "RHEA:10196": {
+    "rhea_id": "RHEA:10196",
+    "label": "(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.1.113"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10200": {
+    "rhea_id": "RHEA:10200",
+    "label": "butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.3.1.31"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10204": {
+    "rhea_id": "RHEA:10204",
+    "label": "dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde",
+    "reaction": null,
+    "ec_numbers": [
+      "1.5.8.1"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10208": {
+    "rhea_id": "RHEA:10208",
+    "label": "an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.2.8"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10212": {
+    "rhea_id": "RHEA:10212",
+    "label": "5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.6.1.48"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10216": {
+    "rhea_id": "RHEA:10216",
+    "label": "[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.11.23"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10220": {
+    "rhea_id": "RHEA:10220",
+    "label": "tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "6.1.1.1"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10224": {
+    "rhea_id": "RHEA:10224",
+    "label": "pyridoxal + ATP = pyridoxal 5'-phosphate + ADP + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.1.35"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10228": {
+    "rhea_id": "RHEA:10228",
+    "label": "citrate = cis-aconitate + H2O",
+    "reaction": null,
+    "ec_numbers": [],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10232": {
+    "rhea_id": "RHEA:10232",
+    "label": "5,6-dihydrouridine 5'-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.4.2.20"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10236": {
+    "rhea_id": "RHEA:10236",
+    "label": "trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.4.1.114"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10240": {
+    "rhea_id": "RHEA:10240",
+    "label": "a 2,3-saturated acyl-[ACP] + NAD(+) = a (2E)-enoyl-[ACP] + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.3.1.9"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10244": {
+    "rhea_id": "RHEA:10244",
+    "label": "4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.7.1.2"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10248": {
+    "rhea_id": "RHEA:10248",
+    "label": "dUTP + H2O = dUMP + diphosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.6.1.9"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10252": {
+    "rhea_id": "RHEA:10252",
+    "label": "O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.5.1.65"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10256": {
+    "rhea_id": "RHEA:10256",
+    "label": "[(1->4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.9.5"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10260": {
+    "rhea_id": "RHEA:10260",
+    "label": "Mg(2+)(out) + ATP + H2O = Mg(2+)(in) + ADP + phosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "7.2.2.14"
+    ],
+    "go_terms": [],
+    "direction": "transport",
+    "parent_rhea_id": null
+  },
+  "RHEA:10264": {
+    "rhea_id": "RHEA:10264",
+    "label": "alpha-D-glucose = beta-D-glucose",
+    "reaction": null,
+    "ec_numbers": [
+      "5.1.3.3"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10268": {
+    "rhea_id": "RHEA:10268",
+    "label": "2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate",
+    "reaction": null,
+    "ec_numbers": [
+      "4.1.2.20"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10272": {
+    "rhea_id": "RHEA:10272",
+    "label": "a 1,2-diacyl-sn-glycerol + ATP = a 1,2-diacyl-sn-glycero-3-phosphate + ADP + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.1.107"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10276": {
+    "rhea_id": "RHEA:10276",
+    "label": "5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ATP + H(+) = 1,5-bis(diphospho)-1D-myo-inositol 2,3,4,6-tetrakisphosphate + ADP",
+    "reaction": null,
+    "ec_numbers": [
+      "2.7.4.24"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10280": {
+    "rhea_id": "RHEA:10280",
+    "label": "1,7-dimethylxanthine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.1.1.160"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10284": {
+    "rhea_id": "RHEA:10284",
+    "label": "L-leucine = (3R)-beta-leucine",
+    "reaction": null,
+    "ec_numbers": [
+      "5.4.3.7"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10288": {
+    "rhea_id": "RHEA:10288",
+    "label": "L-rhamnono-1,4-lactone + H2O = L-rhamnonate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.1.65"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10292": {
+    "rhea_id": "RHEA:10292",
+    "label": "D-glucosamine 6-phosphate + acetyl-CoA = N-acetyl-D-glucosamine 6-phosphate + CoA + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.4"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10296": {
+    "rhea_id": "RHEA:10296",
+    "label": "D-glyceraldehyde 3-phosphate + phosphate + NADP(+) = (2R)-3-phospho-glyceroyl phosphate + NADPH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.2.1.59"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10300": {
+    "rhea_id": "RHEA:10300",
+    "label": "D-glyceraldehyde 3-phosphate + phosphate + NAD(+) = (2R)-3-phospho-glyceroyl phosphate + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.2.1.59"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10304": {
+    "rhea_id": "RHEA:10304",
+    "label": "a 2-acyl-sn-glycero-3-phosphoethanolamine + a fatty acyl-[ACP] = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + holo-[ACP]",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.40"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10312": {
+    "rhea_id": "RHEA:10312",
+    "label": "terephthalate + NADH + O2 + H(+) = (3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate + NAD(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.14.12.15"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10316": {
+    "rhea_id": "RHEA:10316",
+    "label": "thymine + 2-oxoglutarate + O2 = 5-hydroxymethyluracil + succinate + CO2",
+    "reaction": null,
+    "ec_numbers": [
+      "1.14.11.6"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10320": {
+    "rhea_id": "RHEA:10320",
+    "label": "trans-3-hydroxy-L-proline = 1-pyrroline-2-carboxylate + H2O",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.1.77"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10324": {
+    "rhea_id": "RHEA:10324",
+    "label": "an L-glycol + NADP(+) = a 2-hydroxycarbonyl + NADPH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.185"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10328": {
+    "rhea_id": "RHEA:10328",
+    "label": "an L-glycol + NAD(+) = a 2-hydroxycarbonyl + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.185"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10332": {
+    "rhea_id": "RHEA:10332",
+    "label": "a 2-acyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphocholine + CoA",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.62"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10336": {
+    "rhea_id": "RHEA:10336",
+    "label": "citrate = D-threo-isocitrate",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.1.3"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10340": {
+    "rhea_id": "RHEA:10340",
+    "label": "(2E,6E)-farnesyl diphosphate = (-)-vetispiradiene + diphosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "4.2.3.21"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10344": {
+    "rhea_id": "RHEA:10344",
+    "label": "a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + an acyl-CoA = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphocholine + CoA",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.1.25"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10348": {
+    "rhea_id": "RHEA:10348",
+    "label": "5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.5.2.9"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10352": {
+    "rhea_id": "RHEA:10352",
+    "label": "an N-acetylarylalkylamine + H2O = an aralkylamine + acetate",
+    "reaction": null,
+    "ec_numbers": [
+      "3.5.1.76"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10356": {
+    "rhea_id": "RHEA:10356",
+    "label": "3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "1.1.1.152"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10360": {
+    "rhea_id": "RHEA:10360",
+    "label": "3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "3.1.1.35"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10364": {
+    "rhea_id": "RHEA:10364",
+    "label": "dodecanoyl-CoA + 2-oxoglutarate + H2O = (3S,4S)-3-hydroxytetradecane-1,3,4-tricarboxylate + CoA + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "2.3.3.4"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10368": {
+    "rhea_id": "RHEA:10368",
+    "label": "dTDP-4-amino-4,6-dideoxy-alpha-D-galactose + 2-oxoglutarate = dTDP-4-dehydro-6-deoxy-alpha-D-glucose + L-glutamate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.6.1.59"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10372": {
+    "rhea_id": "RHEA:10372",
+    "label": "phenylglyoxylate + NAD(+) + CoA = benzoyl-CoA + CO2 + NADH",
+    "reaction": null,
+    "ec_numbers": [
+      "1.2.1.58"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  },
+  "RHEA:10376": {
+    "rhea_id": "RHEA:10376",
+    "label": "Cu(2+)(in) + ATP + H2O = Cu(2+)(out) + ADP + phosphate + H(+)",
+    "reaction": null,
+    "ec_numbers": [
+      "7.2.2.9"
+    ],
+    "go_terms": [],
+    "direction": "transport",
+    "parent_rhea_id": null
+  },
+  "RHEA:10380": {
+    "rhea_id": "RHEA:10380",
+    "label": "orotidine 5'-phosphate + diphosphate = orotate + 5-phospho-alpha-D-ribose 1-diphosphate",
+    "reaction": null,
+    "ec_numbers": [
+      "2.4.2.10"
+    ],
+    "go_terms": [],
+    "direction": "bidirectional",
+    "parent_rhea_id": null
+  }
+}

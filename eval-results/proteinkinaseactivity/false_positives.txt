@@ -1,0 +1,13 @@
+False Positives for ProteinKinaseActivity
+==================================================
+Total: 3
+
+RHEA:41944: [amino-group carrier protein]-C-terminal-N-(1,4-dicarboxybutan-1-yl)-L-glutamine + ATP = [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-phosphooxy-5-oxopentan-1-yl)-L-glutamine + ADP
+  → Protein kinase activity: ATP-dependent phosphorylation of a protein or peptide substrate
+
+RHEA:59832: N(6)-(D-fructosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-fructosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Protein kinase activity: ATP-dependent phosphorylation of a protein or peptide substrate
+
+RHEA:48432: N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Protein kinase activity: ATP-dependent phosphorylation of a protein or peptide substrate
+

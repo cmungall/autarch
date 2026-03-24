@@ -1,0 +1,7 @@
+False Negatives for PolysialicAcidAcetyltransferase
+==================================================
+Total: 1
+
+RHEA:12464: myo-inositol + UDP-alpha-D-galactose = alpha-D-galactosyl-(1->3)-1D-myo-inositol + UDP + H(+)
+  → No sialic acid polymer found on both sides
+

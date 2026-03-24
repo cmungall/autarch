@@ -1,0 +1,7 @@
+False Negatives for EtherHydrolase
+==================================================
+Total: 1
+
+RHEA:32059: (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + H2O = (R)-glycerate + D-glucose
+  → No hydrolytic ether-cleavage signature detected
+

@@ -1,0 +1,34 @@
+False Negatives for Kinase
+==================================================
+Total: 10
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Water present - likely hydrolysis not phosphoryl transfer
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → Wrong reactant count: 1 (kinase needs exactly 2)
+
+RHEA:10256: [(1->4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → Water present - likely hydrolysis not phosphoryl transfer
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → Wrong reactant count: 1 (kinase needs exactly 2)
+
+RHEA:11364: pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)
+  → Water present - likely hydrolysis not phosphoryl transfer
+
+RHEA:11424: L-threonyl-[myosin heavy-chain] + ATP = O-phospho-L-threonyl-[myosin heavy-chain] + ADP + H(+)
+  → Wrong reactant count: 1 (kinase needs exactly 2)
+
+RHEA:11460: D-glucose + ADP = D-glucose 6-phosphate + AMP + H(+)
+  → No ATP/ADP or GTP/GDP pattern found
+
+RHEA:11668: [(1->4)-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-6-phospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → Water present - likely hydrolysis not phosphoryl transfer
+
+RHEA:11860: L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → Wrong reactant count: 1 (kinase needs exactly 2)
+
+RHEA:12008: [G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)
+  → Wrong reactant count: 1 (kinase needs exactly 2)
+

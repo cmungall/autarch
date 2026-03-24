@@ -1,0 +1,25 @@
+False Negatives for AlcoholDehydrogenaseNADOrNADP
+==================================================
+Total: 7
+
+RHEA:16129: pyridoxine + NADP(+) = pyridoxal + NADPH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:18525: 3-methylbutanol + NADP(+) = 3-methylbutanal + NADPH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:25033: all-trans-retinol + NADP(+) = all-trans-retinal + NADPH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:25229: L-arabinitol + NADP(+) = L-arabinose + NADPH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:27445: xylitol + NADP(+) = D-xylose + NADPH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:55668: 11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+
+RHEA:48488: all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)
+  → No supported alcohol dehydrogenase [nad(p)+] activity child classifier matched
+

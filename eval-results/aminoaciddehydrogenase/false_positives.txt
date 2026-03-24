@@ -1,0 +1,16 @@
+False Positives for AminoAcidDehydrogenase
+==================================================
+Total: 4
+
+RHEA:11784: L-aspartate + NADP(+) + H2O = oxaloacetate + NH4(+) + NADPH + H(+)
+  → Amino acid dehydrogenase: aspartate + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:11788: L-aspartate + NAD(+) + H2O = oxaloacetate + NH4(+) + NADH + H(+)
+  → Amino acid dehydrogenase: aspartate + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:18405: L-alanine + NAD(+) + H2O = pyruvate + NH4(+) + NADH + H(+)
+  → Amino acid dehydrogenase: alanine + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → Amino acid dehydrogenase: glycine + NAD(P)+ → 2-oxoacid + NH4+
+

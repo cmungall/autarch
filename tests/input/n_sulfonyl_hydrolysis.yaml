@@ -1,0 +1,12 @@
+name: N-sulfonyl compound hydrolysis
+description: Hydrolysis of N-sulfonyl bond (R-N-SO2-R' + H2O → R-NH2 + HO-SO2-R')
+left_participants:
+  - smiles: "O=S(=O)(C)N1CCCCC1"  # N-(methylsulfonyl)piperidine
+    count: 1
+  - smiles: "O"  # water
+    count: 1
+right_participants:
+  - smiles: "N1CCCCC1"  # piperidine
+    count: 1
+  - smiles: "CS(=O)(=O)O"  # methanesulfonic acid
+    count: 1

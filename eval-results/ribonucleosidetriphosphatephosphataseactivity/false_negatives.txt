@@ -1,0 +1,7 @@
+False Negatives for RibonucleosideTriphosphatePhosphataseActivity
+==================================================
+Total: 1
+
+RHEA:19013: dTTP + H2O = dTDP + phosphate + H(+)
+  → No supported ribonucleoside triphosphate to diphosphate conversion detected
+

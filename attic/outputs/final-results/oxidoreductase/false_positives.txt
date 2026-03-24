@@ -1,0 +1,202 @@
+False Positives for Oxidoreductase
+==================================================
+Total: 66
+
+RHEA:10068: 4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)
+  → Oxidoreductase: significant H/O changes (H+10, O+5)
+
+RHEA:10172: (3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)
+  → Oxidoreductase: significant H/O changes (H+7, O+3)
+
+RHEA:10176: (2S,3R)-2-hydroxy-3-(indol-3-yl)butanoate + NAD(+) = (R)-3-(indol-3-yl)-2-oxobutanoate + NADH + H(+)
+  → Oxidoreductase: NAD+ oxidation of CHEBI:131783
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:10220: tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+9, O+2)
+
+RHEA:10324: an L-glycol + NADP(+) = a 2-hydroxycarbonyl + NADPH + H(+)
+  → Oxidoreductase: NADP+ oxidation of CHEBI:27636
+
+RHEA:10328: an L-glycol + NAD(+) = a 2-hydroxycarbonyl + NADH + H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:10452: 2-(L-cystein-S-yl)-2-(1H-indol-3-yl)-acetonitrile + reduced [NADPH--hemoprotein reductase] + O2 = (R)-dihydrocamalexate + hydrogen cyanide + oxidized [NADPH--hemoprotein reductase] + 2 H2O + 2 H(+)
+  → Oxidoreductase: O2 oxidation of CHEBI:79191
+
+RHEA:10580: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + L-glutamate + ATP = (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n+1) + ADP + phosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+6, O+3)
+
+RHEA:10584: 4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → Oxidoreductase: NADPH reduction of CHEBI:57355
+
+RHEA:10588: a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O
+  → Oxidoreductase: NADPH reduction of CHEBI:57326
+
+RHEA:10592: a 3',5'-unsubstituted flavanone + reduced [NADPH--hemoprotein reductase] + O2 = a 3'-hydroxy,5'-unsubstituted flavanone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:10612: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-alpha-D-xylose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-[beta-D-Xyl-(1->2)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Oxidoreductase: significant H/O changes (H+8, O+4)
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → Oxidoreductase: significant H/O changes (H+7, O+6)
+
+RHEA:10632: D-mannonate + NAD(+) = D-mannuronate + NADH + H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:10636: D-mannonate + NADP(+) = D-mannuronate + NADPH + H(+)
+  → Oxidoreductase: contains NADP+
+
+RHEA:10648: 2-hydroxycyclohexan-1-one + NADPH + O2 + H(+) = 6-hydroxyhexan-6-olide + NADP(+) + H2O
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:10668: L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-lysyl)-sn-glycerol + tRNA(Lys)
+  → Oxidoreductase: significant H/O changes (H+14, O+1)
+
+RHEA:10704: tRNA(Val) + L-valine + ATP = L-valyl-tRNA(Val) + AMP + diphosphate
+  → Oxidoreductase: significant H/O changes (H+10, O+1)
+
+RHEA:10724: GDP-6-deoxy-alpha-D-talose + NADP(+) = GDP-4-dehydro-alpha-D-rhamnose + NADPH + H(+)
+  → Oxidoreductase: NADP+ oxidation of CHEBI:57638
+
+RHEA:10728: GDP-6-deoxy-alpha-D-talose + NAD(+) = GDP-4-dehydro-alpha-D-rhamnose + NADH + H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:10752: [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n) + n D-aspartate + n ATP = [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-6-N-(beta-D-Asp)-L-Lys-D-Ala-D-Ala)]n + n ADP + n phosphate + n H(+)
+  → Oxidoreductase: significant H/O changes (H+4, O+3)
+
+RHEA:10764: (2R,3S,4S)-leucocyanidin + 2-oxoglutarate + O2 = (4S)-2,3-dehydroleucocyanidin + succinate + CO2 + H2O + H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:10768: (2R,3S,4S)-3,4-leucopelargonidin + 2-oxoglutarate + O2 = (4S)-2,3-dehydroleucopelargonidin + succinate + CO2 + H2O + H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:10784: N(6)-methyl-L-lysyl(36)-[histone H3] + 2-oxoglutarate + O2 = L-lysyl(36)-[histone H3] + formaldehyde + succinate + CO2
+  → Oxidoreductase: contains O2
+
+RHEA:10808: (S)-2-hydroxypropylphosphonate + H2O2 = (1R,2S)-epoxypropylphosphonate + 2 H2O
+  → Oxidoreductase: contains H2O2
+
+RHEA:10860: 3-hydroxy-2-methylpyridine-5-carboxylate + NADH + O2 = 2-(acetamidomethylene)succinate + NAD(+)
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:10892: (2R,3S)-3-isopropylmalate + NAD(+) = (2S)-2-isopropyl-3-oxosuccinate + NADH + H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:10928: ent-kaur-16-en-19-al + reduced [NADPH--hemoprotein reductase] + O2 = ent-kaur-16-en-19-oate + oxidized [NADPH--hemoprotein reductase] + H2O + 2 H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:11052: 4-aminobenzoate + NADH + O2 + 2 H(+) = 4-aminophenol + CO2 + NAD(+) + H2O
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11056: 4-aminobenzoate + NADPH + O2 + 2 H(+) = 4-aminophenol + CO2 + NADP(+) + H2O
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11060: tRNA(Ile) + L-isoleucine + ATP = L-isoleucyl-tRNA(Ile) + AMP + diphosphate
+  → Oxidoreductase: significant H/O changes (H+12, O+1)
+
+RHEA:11072: anthranilate + NADPH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NADP(+)
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11076: anthranilate + NADH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NAD(+)
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11100: 4-hydroxyhexan-3-one = 2 propanal
+  → Oxidoreductase: significant H/O changes (H+6, O+1)
+
+RHEA:11108: chondroitin beta-D-glucuronate + n 3'-phosphoadenylyl sulfate = chondroitin 6'-sulfate + n adenosine 3',5'-bisphosphate + n H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:11120: cyanate + hydrogencarbonate + 3 H(+) = NH4(+) + 2 CO2
+  → Oxidoreductase: significant H/O changes (H+2, O+2)
+
+RHEA:11180: tRNA(Asn) + L-asparagine + ATP = L-asparaginyl-tRNA(Asn) + AMP + diphosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+6, O+2)
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+13, O+2)
+
+RHEA:11288: dihydromacarpine + O2 + H(+) = macarpine + H2O2
+  → Oxidoreductase: contains O2
+
+RHEA:11332: RNA(n) + ATP = RNA(n)-3'-adenine ribonucleotide + diphosphate
+  → Oxidoreductase: significant H/O changes (H+11, O+6)
+
+RHEA:11380: [2-(trimethylamino)ethyl]phosphonate + 2-oxoglutarate + O2 = [(1R)-1-hydroxy-2-(trimethylamino)ethyl]phosphonate + succinate + CO2
+  → Oxidoreductase: contains O2
+
+RHEA:11424: L-threonyl-[myosin heavy-chain] + ATP = O-phospho-L-threonyl-[myosin heavy-chain] + ADP + H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Oxidoreductase: contains O2
+
+RHEA:11440: 2,3,5,6-tetrachlorophenol + NADPH + O2 = 2,3,5,6-tetrachlorohydroquinone + NADP(+) + H2O
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11456: N(4)-(alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Oxidoreductase: significant H/O changes (H+13, O+5)
+
+RHEA:11524: 5beta-cholestan-3-one + NADP(+) = cholest-4-en-3-one + NADPH + H(+)
+  → Oxidoreductase: contains NADP+
+
+RHEA:11536: choline + 2 O2 + H2O = glycine betaine + 2 H2O2 + H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:11572: lithocholate + FAD + H2O + H(+) = chenodeoxycholate + FADH2
+  → Oxidoreductase: contains FAD
+
+RHEA:11640: a (2R,3R)-flavan-3-ol + 2 NAD(+) = an anthocyanidin with a 3-hydroxy group + 2 NADH + 2 H(+)
+  → Oxidoreductase: NAD+ oxidation of CHEBI:134086
+
+RHEA:11644: a (2R,3R)-flavan-3-ol + 2 NADP(+) = an anthocyanidin with a 3-hydroxy group + 2 NADPH + 2 H(+)
+  → Oxidoreductase: NADP+ oxidation of CHEBI:134086
+
+RHEA:11656: holo-[peptidyl-carrier protein] + L-proline + ATP = L-prolyl-[peptidyl-carrier protein] + AMP + diphosphate
+  → Oxidoreductase: significant H/O changes (H+8, O+1)
+
+RHEA:11688: tRNA(Leu) + L-leucine + ATP = L-leucyl-tRNA(Leu) + AMP + diphosphate
+  → Oxidoreductase: significant H/O changes (H+12, O+1)
+
+RHEA:11700: progesterone + NADPH + O2 + H(+) = testosterone acetate + NADP(+) + H2O
+  → Oxidoreductase: O2 oxidation of CHEBI:15379
+
+RHEA:11732: sophoraflavanone B + reduced [NADPH--hemoprotein reductase] + O2 = leachianone G + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:11756: biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+13, O+2)
+
+RHEA:11780: 3-O-(beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → Oxidoreductase: significant H/O changes (H+10, O+5)
+
+RHEA:11800: NAD(+) + H2O = beta-nicotinamide D-ribonucleotide + AMP + 2 H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:11820: diphthamide-[translation elongation factor 2] + NAD(+) = N-(ADP-D-ribosyl)diphthamide-[translation elongation factor 2] + nicotinamide + H(+)
+  → Oxidoreductase: contains NAD+
+
+RHEA:11860: L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:11972: 4 Fe(2+) + O2 + 6 H2O = 4 iron(III) oxide-hydroxide + 12 H(+)
+  → Oxidoreductase: contains O2
+
+RHEA:12008: [G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)
+  → Oxidoreductase: significant H/O changes (H+1, O+3)
+
+RHEA:12036: (S)-3-(imidazol-5-yl)lactate + NAD(+) = 3-(imidazol-5-yl)pyruvate + NADH + H(+)
+  → Oxidoreductase: NAD+ oxidation of CHEBI:57752
+
+RHEA:12040: (S)-3-(imidazol-5-yl)lactate + NADP(+) = 3-(imidazol-5-yl)pyruvate + NADPH + H(+)
+  → Oxidoreductase: NADP+ oxidation of CHEBI:57752
+
+RHEA:12068: apo-[ACP] + CoA = holo-[ACP] + adenosine 3',5'-bisphosphate + H(+)
+  → Oxidoreductase: significant H/O changes (H+20, O+6)
+

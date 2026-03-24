@@ -1,0 +1,55 @@
+False Negatives for NucleobaseContainingCompoundKinase
+==================================================
+Total: 17
+
+RHEA:11216: a 2'-deoxyribonucleoside 5'-phosphate + ATP = a 2'-deoxyribonucleoside 5'-diphosphate + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:11600: CMP + ATP = CDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:12697: dGMP + ATP = dGDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:12973: AMP + ATP = 2 ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:13517: dTMP + ATP = dTDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:13749: a ribonucleoside 5'-triphosphate + AMP = a ribonucleoside 5'-diphosphate + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:15669: a 5'-end dephospho-2'-deoxyribonucleoside-DNA + ATP = a 5'-end 5'-phospho-2'-deoxyribonucleoside-DNA + ADP + H(+)
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:19961: a 2'-deoxyribonucleoside + a ribonucleoside 5'-phosphate = a ribonucleoside + a 2'-deoxyribonucleoside 5'-phosphate
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:20061: 2'-deoxycytidine + a ribonucleoside 5'-triphosphate = dCMP + a ribonucleoside 5'-diphosphate + H(+)
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:20780: GMP + ATP = GDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:20824: adenosine + ATP = AMP + ADP + H(+)
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:23100: dAMP + ATP = dADP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:24036: a ribonucleoside 5'-phosphate + ATP = a ribonucleoside 5'-diphosphate + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:24400: UMP + ATP = UDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:25094: dCMP + ATP = dCDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:27710: guanosine + ATP = GMP + ADP + H(+)
+  → No supported nucleobase-containing compound kinase child classifier matched
+
+RHEA:30655: dUMP + ATP = dUDP + ADP
+  → No supported nucleobase-containing compound kinase child classifier matched
+

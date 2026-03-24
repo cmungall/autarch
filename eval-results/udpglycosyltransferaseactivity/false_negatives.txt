@@ -1,0 +1,19 @@
+False Negatives for UDPGlycosyltransferaseActivity
+==================================================
+Total: 5
+
+RHEA:16241: an NDP-alpha-D-glucose + D-fructose = a ribonucleoside 5'-diphosphate + sucrose + H(+)
+  → No UDP-sugar donor detected
+
+RHEA:16885: 2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside = bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha
+  → No UDP-sugar donor detected
+
+RHEA:19153: UDP-alpha-D-apiose + apigenin 7-O-beta-D-glucoside = 7-O-(beta-D-apiofuranosyl-1,2-beta-D-glucosyl)-5,7,4'-trihydroxyflavone + UDP + H(+)
+  → No UDP-sugar donor detected
+
+RHEA:19505: indole-3-acetyl-1D-myo-inositol + UDP-beta-L-arabinopyranose = (indol-3-yl)acetyl-myo-inositol 3-L-arabinoside + UDP + H(+)
+  → No UDP-sugar donor detected
+
+RHEA:28366: UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No nucleotide-sugar transfer pattern detected
+

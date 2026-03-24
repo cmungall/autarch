@@ -1,0 +1,7 @@
+False Positives for AminoAcidTransmembraneTransporterActivity
+==================================================
+Total: 1
+
+RHEA:32787: L-ectoine(out) + ATP + H2O = L-ectoine(in) + ADP + phosphate + H(+)
+  → Amino acid transmembrane transporter: CHEBI:58515: out→in
+

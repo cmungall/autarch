@@ -1,0 +1,79 @@
+False Positives for AldehydeDehydrogenaseNAD
+==================================================
+Total: 25
+
+RHEA:10300: D-glyceraldehyde 3-phosphate + phosphate + NAD(+) = (2R)-3-phospho-glyceroyl phosphate + NADH + H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:10372: phenylglyoxylate + NAD(+) + CoA = benzoyl-CoA + CO2 + NADH
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:10812: N-succinyl-L-glutamate 5-semialdehyde + NAD(+) + H2O = N-succinyl-L-glutamate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:12056: D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:12308: (S)-2-amino-6-oxohexanoate + NAD(+) + H2O = L-2-aminoadipate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:13217: succinate semialdehyde + NAD(+) + H2O = succinate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:13309: vanillin + NAD(+) + H2O = vanillate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:14469: 2-aminomuconate 6-semialdehyde + NAD(+) + H2O = (2Z,4E)-2-aminomuconate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:15681: 2-hydroxy-5-carboxymethylmuconate semialdehyde + NAD(+) + H2O = (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:15985: formate + NAD(+) = CO2 + NADH
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:17985: 4-(trimethylamino)butanal + NAD(+) + H2O = 4-(trimethylamino)butanoate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:18833: 4-formylbenzenesulfonate + NAD(+) + H2O = 4-sulfobenzoate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:19349: (R)-4-dehydropantoate + NAD(+) + H2O = (R)-3,3-dimethylmalate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:20045: 3-oxopropanoate + NAD(+) + H2O = malonate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:20804: 2-methyl-3-oxopropanoate + NAD(+) + CoA + H2O = propanoyl-CoA + hydrogencarbonate + NADH + H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:22420: cis,trans-4-hydroxymuconate semialdehyde + NAD(+) + H2O = maleylacetate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:22992: 3-oxopropanoate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:23288: acetaldehyde + NAD(+) + CoA = acetyl-CoA + NADH + H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:23968: (E)-coniferaldehyde + NAD(+) + H2O = (E)-ferulate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:25637: sulfoacetaldehyde + NAD(+) + H2O = sulfoacetate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:30235: L-glutamate 5-semialdehyde + NAD(+) + H2O = L-glutamate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → Aldehyde dehydrogenase (NAD+): NAD-dependent aldehyde/oxo oxidation-reduction chemistry
+

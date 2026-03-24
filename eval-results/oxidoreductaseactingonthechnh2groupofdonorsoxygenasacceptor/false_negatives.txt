@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnTheCHNH2GroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:30043: fumarate + L-aspartate = iminosuccinate + succinate
+  → No dioxygen reactant found
+

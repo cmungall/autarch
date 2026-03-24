@@ -1,0 +1,175 @@
+False Negatives for AldehydeOxidoreductase
+==================================================
+Total: 57
+
+RHEA:10296: D-glyceraldehyde 3-phosphate + phosphate + NADP(+) = (2R)-3-phospho-glyceroyl phosphate + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:10300: D-glyceraldehyde 3-phosphate + phosphate + NAD(+) = (2R)-3-phospho-glyceroyl phosphate + NADH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:10372: phenylglyoxylate + NAD(+) + CoA = benzoyl-CoA + CO2 + NADH
+  → No aldehyde/ketone compounds detected
+
+RHEA:10620: (E)-cinnamaldehyde + NADP(+) + CoA = (E)-cinnamoyl-CoA + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:10812: N-succinyl-L-glutamate 5-semialdehyde + NAD(+) + H2O = N-succinyl-L-glutamate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:11840: benzaldehyde + NAD(+) + H2O = benzoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:12000: formate + NADP(+) = CO2 + NADPH
+  → No aldehyde/ketone compounds detected
+
+RHEA:12056: D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:12308: (S)-2-amino-6-oxohexanoate + NAD(+) + H2O = L-2-aminoadipate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:13213: succinate semialdehyde + NADP(+) + H2O = succinate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:13217: succinate semialdehyde + NAD(+) + H2O = succinate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:13309: vanillin + NAD(+) + H2O = vanillate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:13397: 6-oxohexanoate + NADP(+) + H2O = hexanedioate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:14277: (S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:14381: 4-guanidinobutanal + NAD(+) + H2O = 4-guanidinobutanoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:14469: 2-aminomuconate 6-semialdehyde + NAD(+) + H2O = (2Z,4E)-2-aminomuconate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:14669: D-glyceraldehyde 3-phosphate + NADP(+) + H2O = (2R)-3-phosphoglycerate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:15305: betaine aldehyde + NAD(+) + H2O = glycine betaine + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:15681: 2-hydroxy-5-carboxymethylmuconate semialdehyde + NAD(+) + H2O = (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:15985: formate + NAD(+) = CO2 + NADH
+  → No aldehyde/ketone compounds detected
+
+RHEA:16177: retinal + NAD(+) + H2O = retinoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:16677: fluoroacetaldehyde + NAD(+) + H2O = fluoroacetate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:17273: (4-hydroxyphenyl)acetaldehyde + NAD(+) + H2O = 4-hydroxyphenylacetate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:17425: pyruvate + NADP(+) + CoA = acetyl-CoA + CO2 + NADPH
+  → No aldehyde/ketone compounds detected
+
+RHEA:17985: 4-(trimethylamino)butanal + NAD(+) + H2O = 4-(trimethylamino)butanoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:18537: salicylaldehyde + NAD(+) + H2O = salicylate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:18833: 4-formylbenzenesulfonate + NAD(+) + H2O = 4-sulfobenzoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:19105: 4-aminobutanal + NAD(+) + H2O = 4-aminobutanoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:19349: (R)-4-dehydropantoate + NAD(+) + H2O = (R)-3,3-dimethylmalate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:19541: L-glutamate 5-semialdehyde + phosphate + NADP(+) = L-glutamyl 5-phosphate + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:19705: hexadecanal + NAD(+) + CoA = hexadecanoyl-CoA + NADH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:20001: glycolaldehyde + NAD(+) + H2O = glycolate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:20041: 3-oxopropanoate + NADP(+) + H2O = malonate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:20045: 3-oxopropanoate + NAD(+) + H2O = malonate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:20305: 4-hydroxybenzaldehyde + NAD(+) + H2O = 4-hydroxybenzoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:20804: 2-methyl-3-oxopropanoate + NAD(+) + CoA + H2O = propanoyl-CoA + hydrogencarbonate + NADH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:21024: glyoxylate + NADP(+) + CoA = oxalyl-CoA + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:21392: 2-phenylacetaldehyde + NAD(+) + H2O = 2-phenylacetate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:21588: N-acetyl-L-glutamate 5-semialdehyde + phosphate + NADP(+) = N-acetyl-L-glutamyl 5-phosphate + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:21660: benzaldehyde + NADP(+) + H2O = benzoate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:22420: cis,trans-4-hydroxymuconate semialdehyde + NAD(+) + H2O = maleylacetate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:22988: 3-oxopropanoate + NADP(+) + CoA = acetyl-CoA + CO2 + NADPH
+  → No aldehyde/ketone compounds detected
+
+RHEA:22992: 3-oxopropanoate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → No aldehyde/ketone compounds detected
+
+RHEA:23964: (E)-coniferaldehyde + NADP(+) + H2O = (E)-ferulate + NADPH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:23968: (E)-coniferaldehyde + NAD(+) + H2O = (E)-ferulate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:24216: (2E,6E)-farnesal + NAD(+) + H2O = (2E,6E)-farnesoate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:24284: L-aspartate 4-semialdehyde + phosphate + NADP(+) = 4-phospho-L-aspartate + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:25637: sulfoacetaldehyde + NAD(+) + H2O = sulfoacetate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:26225: abieta-7,13-dien-18-al + NAD(+) + H2O = abieta-7,13-dien-18-oate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:27298: 2-formylbenzoate + NAD(+) + H2O = phthalate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:28502: S-(hydroxymethyl)mycothiol + NAD(+) = S-formylmycothiol + NADH + H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:30235: L-glutamate 5-semialdehyde + NAD(+) + H2O = L-glutamate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:30695: 3-aminopropanal + NAD(+) + H2O = beta-alanine + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:32135: 2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = propanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:33207: L-glutamate + ATP + NADPH + H(+) = L-glutamate 5-semialdehyde + ADP + phosphate + NADP(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → No aldehyde/ketone compounds detected
+
+RHEA:41948: [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-oxopentan-1-yl)-L-glutamine + phosphate + NADP(+) = [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-phosphooxy-5-oxopentan-1-yl)-L-glutamine + NADPH + H(+)
+  → No aldehyde/ketone compounds detected
+

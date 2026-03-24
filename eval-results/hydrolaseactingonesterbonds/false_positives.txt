@@ -1,0 +1,178 @@
+False Positives for HydrolaseActingOnEsterBonds
+==================================================
+Total: 58
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:11088: trimetaphosphate + H2O = triphosphate + 2 H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→1)
+
+RHEA:11660: a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + acetate
+  → hydrolase acting on ester bonds: matched PhosphoricDiesterHydrolase (3.1.4.-); Phosphoric diester hydrolase: phosphoric diester hydrolysis
+
+RHEA:11744: thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:12861: guanosine + H2O + H(+) = xanthosine + NH4(+)
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:12977: N-phosphocreatine + H2O = creatine + phosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:13073: guanosine 3'-diphosphate 5'-triphosphate + H2O = guanosine 3',5'-bis(diphosphate) + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → hydrolase acting on ester bonds: matched CarboxylicEsterHydrolase (3.1.1.-); Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:14157: triphosphate + H2O = phosphate + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:15577: uridine + H2O = D-ribose + uracil
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:16069: cytidine + H2O + H(+) = uridine + NH4(+)
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:16657: inosine + H2O = hypoxanthine + D-ribose
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:16673: 3-phosphonopyruvate + H2O = pyruvate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:16749: phosphonoacetate + H2O = acetate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→3), likely protein substrate/fragmentation
+
+RHEA:18669: adenosine + H2O = D-ribose + adenine
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:18905: phosphonoacetaldehyde + H2O = acetaldehyde + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:19013: dTTP + H2O = dTDP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:21708: S-adenosyl-L-homocysteine + H2O = L-homocysteine + adenosine
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:22156: GDP + H2O = GMP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:22384: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + H2O = 1D-myo-inositol hexakisphosphate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:22544: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + H2O = a 2,3-saturated aldehyde + sn-glycerol 3-phosphocholine
+  → hydrolase acting on ester bonds: matched PhosphoricDiesterHydrolase (3.1.4.-); Phosphoric diester hydrolase: phospholipid hydrolysis
+
+RHEA:22636: dCTP + H2O = dCMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:22828: 1-(5-phospho-beta-D-ribosyl)-ATP + H2O = 1-(5-phospho-beta-D-ribosyl)-5'-AMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched DiphosphoricMonoesterHydrolase (3.1.7.-); Diphosphoric monoester hydrolase: water hydrolyzes an organic diphosphoester to release diphosphate
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → hydrolase acting on ester bonds: matched PhosphoricDiesterHydrolase (3.1.4.-); Phosphoric diester hydrolase: phosphoric diester hydrolysis
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:24408: adenosine + H2O + H(+) = inosine + NH4(+)
+  → hydrolase acting on ester bonds: matched RNANuclease (3.1.27.-); Ribonuclease: ultra-specific RNA hydrolysis
+
+RHEA:24500: adenosine 5'-tetraphosphate + H2O = phosphate + ATP + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:24576: diphosphate + H2O = 2 phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:25302: 7,8-dihydroneopterin 3'-triphosphate + H2O = 7,8-dihydroneopterin 3'-phosphate + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:26281: Co-precorrin-5A + H2O = Co-precorrin-5B + acetaldehyde + H(+)
+  → hydrolase acting on ester bonds: matched CarboxylicEsterHydrolase (3.1.1.-); Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:27914: 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H2O = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:27998: thiamine diphosphate + H2O = thiamine phosphate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:28094: di-trans,octa-cis-undecaprenyl diphosphate + H2O = di-trans,octa-cis-undecaprenyl phosphate + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:28330: ITP + H2O = IDP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:28334: dATP + H2O = dAMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28342: dITP + H2O = dIMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28362: dGTP + H2O = dGMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28534: dTTP + H2O = dTMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28610: XTP + H2O = XMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:29387: CTP + H2O = CDP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:29395: UTP + H2O = UMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:29399: ITP + H2O = IMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:31347: (+)-abscisic acid D-glucopyranosyl ester + H2O = 2-cis-(+)-abscisate + beta-D-glucose + H(+)
+  → hydrolase acting on ester bonds: matched CarboxylicEsterHydrolase (3.1.1.-); Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:31575: 8-oxo-dGTP + H2O = 8-oxo-dGMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:31583: 2-oxo-dATP + H2O = 2-oxo-dAMP + diphosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:32063: 8-oxo-dGDP + H2O = 8-oxo-dGMP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:35207: IDP + H2O = IMP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:35211: dIDP + H2O = dIMP + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:67004: a 5'-end triphospho-ribonucleoside in mRNA + H2O = a 5'-end diphospho-ribonucleoside in mRNA + phosphate + H(+)
+  → hydrolase acting on ester bonds: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+

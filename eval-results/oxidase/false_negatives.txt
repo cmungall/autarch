@@ -1,0 +1,10 @@
+False Negatives for Oxidase
+==================================================
+Total: 2
+
+RHEA:12909: 2 Fe(II)-[cytochrome] + nitrate + 2 H(+) = 2 Fe(III)-[cytochrome] + nitrite + H2O
+  → No heme/cytochrome involvement - GO:0016675 requires heme group donors
+
+RHEA:15617: Fe(3+) + Fe(II)-[cytochrome c] = Fe(2+) + Fe(III)-[cytochrome c]
+  → No heme/cytochrome involvement - GO:0016675 requires heme group donors
+

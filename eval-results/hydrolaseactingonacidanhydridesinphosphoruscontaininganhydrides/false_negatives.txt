@@ -1,0 +1,10 @@
+False Negatives for HydrolaseActingOnAcidAnhydridesInPhosphorusContainingAnhydrides
+==================================================
+Total: 2
+
+RHEA:25306: 7,8-dihydroneopterin + phosphate = 7,8-dihydroneopterin 3'-phosphate + H2O
+  → No water substrate - not hydrolytic phosphorus-anhydride cleavage
+
+RHEA:22452: [phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)
+  → No water substrate - not hydrolytic phosphorus-anhydride cleavage
+

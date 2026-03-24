@@ -1,0 +1,67 @@
+False Positives for OxidoreductaseActingOnTheCHCHGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 21
+
+RHEA:10584: 4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → Enoyl reductase: NADPH-dependent saturation (C=C → C-C)
+
+RHEA:10620: (E)-cinnamaldehyde + NADP(+) + CoA = (E)-cinnamoyl-CoA + NADPH + H(+)
+  → Enoyl reductase: NADP+-dependent desaturation (C-C → C=C)
+
+RHEA:12248: UDP-N-acetyl-alpha-D-muramate + NADP(+) = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + NADPH + H(+)
+  → Enoyl reductase: NADP+-dependent desaturation (C-C → C=C)
+
+RHEA:12428: 2-hydroxy-1,4-benzoquinone + NADH + 2 H(+) = benzene-1,2,4-triol + NAD(+)
+  → Enoyl reductase: NADH-dependent saturation (C=C → C-C)
+
+RHEA:12548: 2-cis,4-trans-xanthoxin + NAD(+) = 2-cis-(+)-abscisic aldehyde + NADH + H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:14269: 2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)
+  → Enoyl reductase: NADPH-dependent saturation (C=C → C-C)
+
+RHEA:14469: 2-aminomuconate 6-semialdehyde + NAD(+) + H2O = (2Z,4E)-2-aminomuconate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:15681: 2-hydroxy-5-carboxymethylmuconate semialdehyde + NAD(+) + H2O = (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:16177: retinal + NAD(+) + H2O = retinoate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:18565: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → Enoyl reductase: NADPH-dependent saturation (C=C → C-C)
+
+RHEA:19017: (6S)-NADHX + ATP = ADP + phosphate + NADH + H(+)
+  → Enoyl reductase: NAD(P)-dependent CH-CH oxidoreduction
+
+RHEA:22420: cis,trans-4-hydroxymuconate semialdehyde + NAD(+) + H2O = maleylacetate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:23488: 1,4-benzoquinone + NADPH + H(+) = hydroquinone + NADP(+)
+  → Enoyl reductase: NADPH-dependent saturation (C=C → C-C)
+
+RHEA:23964: (E)-coniferaldehyde + NADP(+) + H2O = (E)-ferulate + NADPH + 2 H(+)
+  → Enoyl reductase: NADP+-dependent desaturation (C-C → C=C)
+
+RHEA:23968: (E)-coniferaldehyde + NAD(+) + H2O = (E)-ferulate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:24216: (2E,6E)-farnesal + NAD(+) + H2O = (2E,6E)-farnesoate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+
+RHEA:29587: 4-carboxy-2-hydroxymuconate semialdehyde hemiacetal + NADP(+) = 2-oxo-2H-pyran-4,6-dicarboxylate + NADPH + H(+)
+  → Enoyl reductase: NADP+-dependent desaturation (C-C → C=C)
+
+RHEA:32223: (6S)-NADHX + ADP = AMP + phosphate + NADH + H(+)
+  → Enoyl reductase: NAD(P)-dependent CH-CH oxidoreduction
+
+RHEA:32231: (6S)-NADPHX + ATP = ADP + phosphate + NADPH + H(+)
+  → Enoyl reductase: NAD(P)-dependent CH-CH oxidoreduction
+
+RHEA:32235: (6S)-NADPHX + ADP = AMP + phosphate + NADPH + H(+)
+  → Enoyl reductase: NAD(P)-dependent CH-CH oxidoreduction
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → Enoyl reductase: NAD+-dependent desaturation (C-C → C=C)
+

@@ -1,0 +1,10 @@
+False Positives for Ligase
+==================================================
+Total: 2
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Ligase: ATP-dependent bond formation (3→4) joining CHEBI:28938 and CHEBI:17544
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → Ligase: ATP-dependent bond formation with AMP + PPi release
+

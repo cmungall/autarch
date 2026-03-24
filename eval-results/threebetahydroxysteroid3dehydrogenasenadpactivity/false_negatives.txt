@@ -1,0 +1,7 @@
+False Negatives for ThreeBetaHydroxysteroid3DehydrogenaseNADPActivity
+==================================================
+Total: 1
+
+RHEA:34787: a 3beta-hydroxysteroid + NADP(+) = a 3-oxosteroid + NADPH + H(+)
+  → Requires a supported 3-beta-hydroxysteroid substrate
+

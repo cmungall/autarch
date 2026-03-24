@@ -1,0 +1,7 @@
+False Positives for IntramolecularOxidoreductaseInterconvertingAldosesAndKetoses
+==================================================
+Total: 1
+
+RHEA:14265: (S)-4-amino-5-oxopentanoate = 5-aminolevulinate
+  → Intramolecular oxidoreductase: aldose-ketose interconversion without external cofactors
+

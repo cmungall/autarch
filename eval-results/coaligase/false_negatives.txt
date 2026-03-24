@@ -1,0 +1,82 @@
+False Negatives for CoALigase
+==================================================
+Total: 26
+
+RHEA:10132: benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:10828: anthranilate + ATP + CoA = anthraniloyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:14781: heptanedioate + ATP + CoA = 6-carboxyhexanoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:16117: acetoacetate + ATP + CoA = acetoacetyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:17009: 2-succinylbenzoate + ATP + CoA = 2-succinylbenzoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:18293: oxalate + ATP + CoA = oxalyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:19269: 2-furoate + ATP + CoA = 2-furoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:19389: (E)-ferulate + ATP + CoA = (E)-feruloyl-CoA + ADP + phosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:19641: (E)-4-coumarate + ATP + CoA = (E)-4-coumaroyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:19681: biotin + ATP + CoA = biotinyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:19713: (5Z,8Z,11Z,14Z)-eicosatetraenoate + ATP + CoA = (5Z,8Z,11Z,14Z)-eicosatetraenoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:20373: propanoate + ATP + CoA = propanoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:20956: 2-phenylacetate + ATP + CoA = phenylacetyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:21380: 3,7,11,15-tetramethylhexadecanoate + ATP + CoA = phytanoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:21776: (25R)-3alpha,7alpha-dihydroxy-5beta-cholestan-26-oate + ATP + CoA = (25R)-3alpha,7alpha-dihydroxy-5beta-cholestan-26-oyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:23116: 4-hydroxybenzoate + ATP + CoA = 4-hydroxybenzoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:23176: acetate + ATP + CoA = acetyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:23220: 4-chlorobenzoate + ATP + CoA = 4-chlorobenzoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:26534: 3-hydroxypropanoate + ATP + CoA = 3-hydroxypropanoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:30079: crotonobetaine + ATP + CoA = crotonobetainyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:30543: (S)-carnitine + ATP + CoA = (S)-carnitinyl-CoA + ADP + phosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:32139: malonate + ATP + CoA = malonyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:33419: [(1R)-2,2,3-trimethyl-5-oxocyclopent-3-en-1-yl]acetate + ATP + CoA = [(1R)-2,2,3-trimethyl-5-oxocyclopent-3-enyl]acetyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:33627: decanoate + ATP + CoA = decanoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:36251: (E)-ferulate + ATP + CoA = (E)-feruloyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+
+RHEA:36299: (E)-caffeate + ATP + CoA = (E)-caffeoyl-CoA + AMP + diphosphate
+  → No supported coa-ligase child classifier matched
+

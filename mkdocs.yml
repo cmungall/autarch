@@ -1,0 +1,34 @@
+---
+site_name: "Autarch"
+theme:
+  name: material
+  # palette:
+  #  scheme: slate
+  #  primary: cyan
+  features:
+    - content.tabs.link
+
+# for adding extra css/js see https://www.mkdocs.org/user-guide/customizing-your-theme/
+
+plugins:
+  - search
+  - mknotebooks:
+      execute: false
+  - mermaid2:
+      version: 11.4.1
+  
+#watch:
+#  - src/autarch/schema
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Design: pattern_matching_design.md
+  - Manuscript: manuscript/paper.md
+  - Classifier Report: report/index.html
+  
+exclude_docs: |
+  /templates-linkml/
+
+site_url: https://ai4curation.github.io/autarch
+repo_url: https://github.com/ai4curation/autarch

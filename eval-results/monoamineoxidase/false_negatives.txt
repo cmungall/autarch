@@ -1,0 +1,10 @@
+False Negatives for MonoamineOxidase
+==================================================
+Total: 2
+
+RHEA:25876: L-aspartate + O2 = iminosuccinate + H2O2
+  → No NH4+/NH3 product - no deamination
+
+RHEA:30043: fumarate + L-aspartate = iminosuccinate + succinate
+  → No O2 reactant - requires molecular oxygen
+

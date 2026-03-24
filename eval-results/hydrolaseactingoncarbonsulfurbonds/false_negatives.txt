@@ -1,0 +1,13 @@
+False Negatives for HydrolaseActingOnCarbonSulfurBonds
+==================================================
+Total: 3
+
+RHEA:12945: 2'-hydroxybiphenyl-2-sulfinate + H2O = biphenyl-2-ol + sulfite + H(+)
+  → No evidence of C-S bond hydrolysis
+
+RHEA:13197: sulfite + UDP-alpha-D-glucose + H(+) = UDP-alpha-D-6-sulfoquinovose + H2O
+  → Not a hydrolase reaction: No water reactant - not hydrolysis
+
+RHEA:21708: S-adenosyl-L-homocysteine + H2O = L-homocysteine + adenosine
+  → No evidence of C-S bond hydrolysis
+

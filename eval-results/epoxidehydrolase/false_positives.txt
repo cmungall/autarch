@@ -1,0 +1,949 @@
+False Positives for EpoxideHydrolase
+==================================================
+Total: 315
+
+RHEA:10000: pentanamide + H2O = pentanoate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10016: O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10040: adenosine 3',5'-bisphosphate + H2O = AMP + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10076: lactose + H2O = beta-D-galactose + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10092: a 2'-deoxyribonucleoside 3'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10100: a sterol ester + H2O = a sterol + a fatty acid + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10172: (3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10184: (4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10244: 4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10248: dUTP + H2O = dUMP + diphosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10288: L-rhamnono-1,4-lactone + H2O = L-rhamnonate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10352: an N-acetylarylalkylamine + H2O = an aralkylamine + acetate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10360: 3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10424: N-benzoylglycine + H2O = benzoate + glycine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10440: D-glucono-1,5-lactone + H2O = D-gluconate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10484: N-feruloylglycine + H2O = (E)-ferulate + glycine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10492: phosphocholine + H2O = choline + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10536: 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine 6-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine + sulfate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10564: oxaloacetate 4-methyl ester + H2O = methanol + oxaloacetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10604: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = phosphocholine + a 1,2-diacyl-sn-glycerol + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10644: 2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10684: O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10688: streptomycin 6-phosphate + H2O = streptomycin + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10772: 6-phospho-beta-D-glucosyl-(1->4)-D-glucose + H2O = D-glucose 6-phosphate + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10816: methyl-2-alpha-L-fucopyranosyl-beta-D-galactoside + H2O = methyl beta-D-galactoside + L-fucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10832: a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = 6-(alpha-D-glucosaminyl)-1D-myo-inositol + a 1,2-diacyl-sn-glycero-3-phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10872: an N-acyl-L-aspartate + H2O = a carboxylate + L-aspartate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10880: 7-methylxanthosine + H2O = 7-methylxanthine + D-ribose + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:10944: psi-UMP + H2O = pseudouridine + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11012: L-tryptophanamide + H2O = L-tryptophan + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11044: a haloacetate + H2O = a halide anion + glycolate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11064: beta-D-fructose 1,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11068: (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11088: trimetaphosphate + H2O = triphosphate + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11112: isochorismate + H2O = (2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate + pyruvate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11192: an (S)-2-haloacid + H2O = a (2R)-2-hydroxycarboxylate + a halide anion + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11312: atrazine + H2O = hydroxyatrazine + chloride + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11392: 1D-myo-inositol 1,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 1,3,4-trisphosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11444: 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine 4-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine + sulfate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11500: 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + H2O = 3-deoxy-alpha-D-manno-oct-2-ulosonate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11516: succinyl-CoA + H2O = succinate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11544: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11548: 5-(4-acetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(4-hydroxy-but-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11552: a 1-O-alkyl-2-acetyl-sn-glycerol + H2O = a 1-O-alkyl-sn-glycerol + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11660: a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + acetate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11716: a monoamide of a dicarboxylate + H2O = a dicarboxylate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11744: thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11752: acetylsalicylate + H2O = salicylate + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11764: methylguanidine + H2O = urea + methylamine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11828: a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + H2O = a 3'-end 2'-phospho-ribonucleotide-RNA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11908: nonane-4,6-dione + H2O = pentan-2-one + butanoate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11948: 4-hydroxybenzoyl-CoA + H2O = 4-hydroxybenzoate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11956: cholesteryl 3-beta-D-glucoside + H2O = cholesterol + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:11964: 5,6alpha-epoxy-5alpha-cholestan-3beta-ol + H2O = 5alpha-cholestane-3beta,5,6beta-triol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12020: a monocarboxylic acid amide + H2O = a monocarboxylate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12028: L-5-carboxymethylhydantoin + H2O = N-carbamoyl-L-aspartate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12032: a 3-(acyloxy)acyl derivative of bacterial toxin + H2O = a 3-hydroxyacyl derivative of bacterial toxin + a fatty acid + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12044: a triacylglycerol + H2O = a diacylglycerol + a fatty acid + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12072: an (S)-2-haloacid + H2O = a (2S)-2-hydroxycarboxylate + a halide anion + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12096: N-benzylformamide + H2O = benzylamine + formate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12172: alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12208: 4-methylumbelliferyl acetate + H2O = 4-methylumbelliferone + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12252: 4-O-(beta-D-glucosyl)-(E)-coniferol + H2O = (E)-coniferol + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12288: an alpha-L-fucoside + H2O = L-fucose + an alcohol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12296: deacetylipecoside + H2O = secologanin + dopamine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12316: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3-phosphate) + H2O = a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12324: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-D-glucosamine + L-asparagine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12372: 2-(5-oxo-2,5-dihydrofuran-2-ylidene)acetate + H2O = 4-oxohex-2-enedioate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12400: beta-nicotinamide D-ribonucleotide + H2O = nicotinate beta-D-ribonucleotide + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12412: (2R)-3-phosphoglycerate + H2O = (R)-glycerate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12448: (R)-pantothenate + H2O = (R)-pantoate + beta-alanine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12476: N-formyl-L-glutamate + H2O = formate + L-glutamate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12484: a ribonucleoside 5'-phosphate + H2O = a ribonucleoside + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12556: 6-phospho-D-glucono-1,5-lactone + H2O = 6-phospho-D-gluconate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12668: a 2-deoxystreptamine antibiotic + acetyl-CoA <=> an N(3)-acetyl-2-deoxystreptamine antibiotic + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12744: ADP + H2O + H(+) <=> IDP + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12832: (2S,3S)-3-methyl-L-aspartate <=> mesaconate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12864: guanosine + H2O + H(+) <=> xanthosine + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12900: 2-cis-(+)-abscisate + reduced [NADPH--hemoprotein reductase] + O2 <=> (+)-8'-hydroxyabscisate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12916: (R)-lipoate + ATP + H(+) <=> (R)-lipoyl-5'-AMP + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12944: an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12956: L-seryl-[Goodpasture antigen-binding protein] + ATP <=> O-phospho-L-seryl-[Goodpasture antigen-binding protein] + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12968: D-galacturonate + ATP <=> 1-phospho-alpha-D-galacturonate + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:12976: AMP + ATP <=> 2 ADP
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13000: galactarate + (E)-feruloyl-CoA <=> 2-O-[(E)-feruloyl]-D-galactarate + CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13008: (RS)-1-benzyl-1,2,3,4-tetrahydroisoquinoline + S-adenosyl-L-methionine <=> N-methyl-(RS)-1-benzyl-1,2,3,4-tetrahydroisoquinoline + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13056: L-phenylalanine + pyruvate <=> 3-phenylpyruvate + L-alanine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13072: ethanolamine + ATP <=> phosphoethanolamine + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13104: 4-imidazolone-5-propanoate <=> trans-urocanate + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13268: 1-amino-1-deoxy-scyllo-inositol 4-phosphate + L-arginine <=> 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + L-ornithine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13332: a 3-oxosteroid + A <=> a 3-oxo-Delta(1)-steroid + AH2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13336: beta-D-fructose 2,6-bisphosphate + H2O <=> beta-D-fructose 2-phosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13424: an N-acyl-D-mannosamine 6-phosphate + phosphoenolpyruvate + H2O <=> an N-acylneuraminate 9-phosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13444: L-cysteate + H2O <=> sulfite + pyruvate + NH4(+) + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13576: [(1->4)-alpha-D-galacturonosyl](n) + UDP-alpha-D-galacturonate <=> [(1->4)-alpha-D-galacturonosyl](n+1) + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13596: 1,4-diguanidinobutane + H2O => agmatine + urea
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13616: beta-D-fructose 6-phosphate + diphosphate <=> beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13660: acetyl-[citrate lyase ACP] + H2O <=> holo-[citrate lyase ACP] + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13720: 2-C-methyl-D-erythritol 4-phosphate + NADP(+) <=> 1-deoxy-D-xylulose 5-phosphate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13884: an aldehyde + a quinone + H2O <=> a quinol + a carboxylate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13928: (3R)-hydroxytetradecanoyl-[ACP] + UDP-N-acetyl-alpha-D-glucosamine <=> UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-N-acetyl-alpha-D-glucosamine + holo-[ACP]
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:13952: 2 reduced [rubredoxin] + NADP(+) + H(+) <=> 2 oxidized [rubredoxin] + NADPH
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14004: choloyl-CoA + glycine <=> glycocholate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14032: selenite + A + H2O <=> selenate + AH2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14040: 4,5beta-dihydrocortisone + NADP(+) <=> cortisone + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14112: L-proline + NADP(+) <=> (S)-1-pyrroline-5-carboxylate + NADPH + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14156: 17alpha-estradiol 3-O-(beta-D-glucuronate) + UDP-N-acetyl-alpha-D-glucosamine <=> 17alpha-(N-acetyl-alpha-D-glucosaminyl)estradiol 3-glucosiduronate + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14176: L-tryptophan + dimethylallyl diphosphate <=> 4-(3-methylbut-2-enyl)-L-tryptophan + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14220: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O <=> L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14252: guanosine 3',5'-bis(diphosphate) + H2O => GDP + diphosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14296: D-glucose + NAD(+) <=> D-glucono-1,5-lactone + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14300: a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + H2O <=> an N-acylsphing-4-enine + D-galactose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14368: N-carbamoyl-L-aspartate + H2O + 2 H(+) <=> L-aspartate + NH4(+) + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14420: acetyl phosphate + L-lysine <=> N(6)-acetyl-L-lysine + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14444: gentamicin C + acetyl-CoA <=> N(3)-acetylgentamycin C + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14464: (25S)-5beta-spirostan-3beta-ol + UDP-alpha-D-glucose <=> (25S)-5beta-spirostan-3beta-yl beta-D-glucoside + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14480: a medium-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> a medium-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14488: (2E,6E)-farnesyl diphosphate + H2O <=> 10-epi-juneol + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14492: a nucleoside 2',3'-cyclic phosphate + H2O <=> a nucleoside 2'-phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14532: D-ribose 5-phosphate + ADP + H(+) <=> ADP-D-ribose + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14540: 1-(4-amino-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + H2O + H(+) <=> 1-(4-hydroxy-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14544: choloyl-CoA + H2O <=> cholate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14548: nicotinamide + H2O <=> nicotinate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14556: (7R)-7-(5-carboxy-5-oxopentanamido)deacetylcephalosporanate + D-glutamate <=> cephalosporin C + 2-oxoglutarate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14652: dTDP-beta-L-mycarose + demethyllactenocin <=> demethylmacrocin + dTDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14740: CTP <=> 3',5'-cyclic CMP + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14848: L-aspartate 4-semialdehyde + pyruvate <=> (S)-2,3-dihydrodipicolinate + 2 H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14852: N-amidino-L-aspartate + H2O <=> urea + L-aspartate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14884: 3-sulfanyl-2-(sulfanylmethyl)propanoate + NAD(+) <=> asparagusate + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14960: S-formylglutathione + H2O => formate + glutathione + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:14964: S-formylglutathione + H2O <=> formate + glutathione + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15012: (6S)-5,6,7,8-tetrahydrofolate + NADP(+) <=> 7,8-dihydrofolate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15016: 3alpha(S)-strictosidine + H2O <=> secologanin + tryptamine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15040: putrescine + S-adenosyl-L-methionine <=> N-methylputrescine + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15048: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + NAD(+) <=> N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15064: 2 a Fe(II)-siderophore + NAD(+) + H(+) <=> 2 a Fe(III)-siderophore + NADH
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15072: 3-devinyl-3-(1-hydroxyethyl)chlorophyllide a <=> chlorophyllide a + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15084: acetate + ATP + CoA <=> acetyl-CoA + ADP + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15112: 2-dehydro-3-deoxy-D-gluconate + NADP(+) <=> (4S,5S)-4,5-dihydroxy-2,6-dioxohexanoate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15168: sarcosine + O2 + H2O <=> methylamine + glyoxylate + H2O2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15176: H2O2 + NADPH + H(+) <=> NADP(+) + 2 H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15192: 2 Fe(III)-[cytochrome c553] + formate <=> 2 Fe(II)-[cytochrome c553] + CO2 + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15244: taxa-4(20),11-dien-5alpha-yl acetate + reduced [NADPH--hemoprotein reductase] + O2 <=> 10beta-hydroxytaxa-4(20),11-dien-5alpha-yl acetate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15316: ethanolamine <=> acetaldehyde + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15336: (S)-ureidoglycolate + NADP(+) <=> N-carbamoyl-2-oxoglycine + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15516: keto-D-tagatose + ATP <=> keto-D-tagatose 6-phosphate + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15528: bis(2-ethylhexyl)phthalate + H2O => 2-ethylhexan-1-ol + 2-ethylhexyl phthalate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15552: 5-(methylsulfanyl)-D-ribulose 1-phosphate <=> 5-methylsulfanyl-2,3-dioxopentyl phosphate + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15564: sterigmatocystin + S-adenosyl-L-methionine <=> 8-O-methylsterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15576: N-acetylserotonin + S-adenosyl-L-methionine <=> melatonin + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15672: a 5'-end dephospho-2'-deoxyribonucleoside-DNA + ATP <=> a 5'-end 5'-phospho-2'-deoxyribonucleoside-DNA + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15676: acetoacetyl-CoA + H2O <=> acetoacetate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15776: dihydroxyacetone + ATP <=> dihydroxyacetone phosphate + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15800: (4Z,15Z)-bilirubin IXalpha + NAD(+) <=> biliverdin IXalpha + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15808: (7R,8S)-7,8-diammoniononanoate + CO2 + ATP <=> (4R,5S)-dethiobiotin + ADP + phosphate + 3 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15860: (17R,20S)-17,20-dihydroxypregn-4-en-3-one + NADP(+) <=> 17alpha-hydroxyprogesterone + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15888: propane-1,2-diol + NADP(+) <=> (S)-lactaldehyde + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15896: Co-sirohydrochlorin + 2 H(+) <=> sirohydrochlorin + Co(2+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15940: a primary alcohol + NADP(+) <=> an aldehyde + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:15964: 4-hydroxymandelonitrile + UDP-alpha-D-glucose <=> taxiphyllin + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16028: an anthocyanidin 3-O-beta-D-glucoside + malonyl-CoA <=> an anthocyanidin 3-O-(6-O-malonyl-beta-D-glucoside) + CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16060: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16080: (2R)-S-methyl-3-phospho-1-thioglycerate + H2O => (2R)-S-methyl-1-thioglycerate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16088: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysine + D-alanyl-D-alanine + ATP <=> UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + ADP + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16096: (24R)-hydroxycholesterol + reduced [NADPH--hemoprotein reductase] + O2 <=> (24R)-7alpha-dihydroxycholesterol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16120: acetoacetate + ATP + CoA <=> acetoacetyl-CoA + AMP + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16216: 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16224: 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> 3-O-(alpha-D-GlcNAc-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16300: 5alpha-androstane-3beta,17beta-diol + NADP(+) <=> 17beta-hydroxy-5alpha-androstan-3-one + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16304: NAD(+) + H2O <=> ADP-D-ribose + nicotinamide + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16308: (3S)-3-hydroxy-3-methylglutaryl-CoA + H2O <=> 3-hydroxy-3-methylglutarate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16312: taurochenodeoxycholate + H2O <=> chenodeoxycholate + taurine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16364: 2-acetolactate <=> 3-hydroxy-3-methyl-2-oxobutanoate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16392: 4-hydroxybenzoate + NADH + O2 + 2 H(+) <=> hydroquinone + CO2 + NAD(+) + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16440: RX + glutathione <=> an S-substituted glutathione + a halide anion + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16452: kanamycin B + acetyl-CoA <=> N(6')-acetylkanamycin B + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16472: (R)-2-benzylsuccinate + succinyl-CoA <=> (R)-2-benzylsuccinyl-CoA + succinate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16488: imidazole-4-acetate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O <=> 1-(5-phosphoribosyl)imidazole-4-acetate + ADP + phosphate + diphosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16492: (R)-prunasin + H2O <=> mandelonitrile + D-glucose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16500: adenosine(1618) in 23S rRNA + S-adenosyl-L-methionine <=> N(6)-methyladenosine(1618) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16536: L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> N(4)-(N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16640: [(1->4)-N-acetyl-beta-D-glucosaminyl](n) + UDP-N-acetyl-alpha-D-glucosamine <=> [(1->4)-N-acetyl-beta-D-glucosaminyl](n+1) + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16656: D-gluconate + NADP(+) <=> 2-dehydro-D-gluconate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16672: xanthine + NAD(+) + H2O <=> urate + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16688: a di-trans,poly-cis-dolichol + hexadecanoyl-CoA <=> a di-trans,poly-cis-dolichyl hexadecanoate + CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16712: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tryptophan + O2 <=> 5-hydroxy-L-tryptophan + (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16748: phylloquinone + AH2 + O2 <=> 2,3-epoxyphylloquinone + A + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16780: K(+)(out) + ATP + H2O <=> K(+)(in) + ADP + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16812: (2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate <=> pyruvate + succinate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16932: 2 benzoyl-CoA + L-ornithine <=> N(2),N(5)-dibenzoyl-L-ornithine + 2 CoA + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16956: N(2)-succinyl-L-ornithine + 2-oxoglutarate <=> N-succinyl-L-glutamate 5-semialdehyde + L-glutamate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:16988: 3-oxoadipate + NADP(+) <=> maleylacetate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17000: 5alpha-cholane-3alpha,7alpha,12alpha,24-tetrol + 3'-phosphoadenylyl sulfate <=> 3alpha,7alpha,12alpha-trihydroxy-5alpha-cholan-24-yl sulfate + adenosine 3',5'-bisphosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17028: xylitol + NADP(+) <=> L-xylulose + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17100: 3-phenylpyruvate <=> enol-phenylpyruvate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17112: N-methylnicotinate + FMNH2 + O2 <=> (Z)-2-((N-methylformamido)methylene)-5-hydroxybutanolactone + FMN + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17160: creatine + ATP <=> N-phosphocreatine + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17172: alpha-D-galactosamine 1-phosphate + acetyl-CoA <=> N-acetyl-alpha-D-galactosamine 1-phosphate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17192: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3,4-bisphosphate) + H2O => a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3-phosphate) + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17240: FMN + ATP + H(+) <=> FAD + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17260: vinorine + reduced [NADPH--hemoprotein reductase] + O2 <=> vomilenine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17288: a 1,2-diacyl-sn-glycerol + UDP-alpha-D-glucose <=> a 1,2-diacyl-3-O-(beta-D-glucopyranosyl)-sn-glycerol + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17304: L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ATP <=> O-phospho-L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17308: N(omega),N(omega)-dimethyl-L-arginine + H2O <=> dimethylamine + L-citrulline
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17344: 1-hexadecanoyl-sn-glycero-3-phosphate + NADP(+) <=> 1-hexadecanoylglycerone 3-phosphate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17360: 2 R'C(R)SH + O2 <=> R'C(R)S-S(R)CR' + H2O2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17368: Mn(2+)(out) + ATP + H2O <=> Mn(2+)(in) + ADP + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17460: L-cysteinyl-[cysteine desulfurase] + L-cysteine <=> S-sulfanyl-L-cysteinyl-[cysteine desulfurase] + L-alanine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17464: D-sedoheptulose 1,7-bisphosphate + H2O <=> D-sedoheptulose 7-phosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17472: all-trans-retinol--[retinol-binding protein] + a 1,2-diacyl-sn-glycero-3-phosphocholine <=> apo--[retinol-binding protein] + an all-trans-retinyl ester + a 2-acyl-sn-glycero-3-phosphocholine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17500: formononetin + UDP-alpha-D-glucose <=> ononin + UDP
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17504: polyneuridine aldehyde + H2O <=> 16-epivellosimine + methanol + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17508: an N-(long-chain fatty acyl)ethanolamine + H2O <=> a long-chain fatty acid + ethanolamine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17516: an N-(long-chain-fatty-acyl)-L-glutamate + H2O => a long-chain fatty acid + L-glutamate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17524: L-glutamyl-tRNA(Gln) + L-glutamine + ATP + H2O <=> L-glutaminyl-tRNA(Gln) + L-glutamate + ADP + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17536: an aromatic L-alpha-amino acid + 2-oxoglutarate <=> an aromatic oxo-acid + L-glutamate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17560: anthranilate + malonyl-CoA <=> N-malonylanthranilate + CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17632: alpha,alpha-trehalose(in) <=> alpha,alpha-trehalose(out)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17776: tRNA(Cys) + L-cysteine + ATP <=> L-cysteinyl-tRNA(Cys) + AMP + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17780: a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + H2O <=> a 1-O-alkyl-sn-glycero-3-phosphocholine + acetate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17804: L-phenylalanine + acetyl-CoA <=> N-acetyl-L-phenylalanine + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17836: 3-hydroxyanthranilate + S-adenosyl-L-methionine <=> 3-hydroxy-4-methylanthranilate + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17880: a catechol + S-adenosyl-L-methionine <=> a guaiacol + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:17888: acetaldehyde <=> acetylene + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18000: Co-precorrin-2 + S-adenosyl-L-methionine <=> Co-precorrin-3 + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18012: glutaryl-CoA + L-lysyl-[protein] <=> N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18036: benzoate + reduced [NADPH--hemoprotein reductase] + O2 <=> 4-hydroxybenzoate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18044: 6 oxidized [2Fe-2S]-[ferredoxin] + NH4(+) + 2 H2O <=> nitrite + 6 reduced [2Fe-2S]-[ferredoxin] + 8 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18088: methanophenazine + coenzyme B + coenzyme M <=> dihydromethanophenazine + coenzyme M-coenzyme B heterodisulfide
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18120: L-tyrosine + O2 <=> L-dopaquinone + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18220: an alkane-alpha,omega-diamine + 2-oxoglutarate <=> an omega-aminoaldehyde + L-glutamate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18284: succinate + NAD(+) <=> fumarate + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18296: oxalate + ATP + CoA <=> oxalyl-CoA + AMP + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18308: N-acetylneuraminate + acetyl-CoA <=> N-acetyl-4-O-acetylneuraminate + CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18340: D-ribose 5-phosphate + uracil <=> psi-UMP + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18444: D-dopachrome + H(+) <=> 5,6-dihydroxyindole + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18480: 2,3-dihydroxybenzoate + O2 <=> 2-hydroxy-3-(3-oxoprop-1-enyl)but-2-enedioate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18484: cyclohexylsulfamate + H2O <=> cyclohexylamine + sulfate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18652: D-galactonate <=> 2-dehydro-3-deoxy-D-galactonate + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18668: [phosphate](n) + (2R)-3-phospho-glyceroyl phosphate <=> [phosphate](n+1) + (2R)-3-phosphoglycerate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18688: pentachlorophenol + NADPH + O2 + H(+) <=> 2,3,5,6-tetrachloro-1,4-benzoquinone + chloride + NADP(+) + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18692: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O <=> a 2-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:18904: N-benzyloxycarbonyl-L-leucine + H2O + H(+) <=> benzyl alcohol + L-leucine + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19008: a 3-acylpyruvate + H2O => a carboxylate + pyruvate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19012: a 3-acylpyruvate + H2O <=> a carboxylate + pyruvate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19052: (5R)-5-hydroxy-L-lysine + GTP <=> (5R)-5-phosphooxy-L-lysine + GDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19080: N(6)-(3-O-phospho-D-psicosyl)-L-lysyl-[protein] + H2O <=> 3-deoxyglucosone + L-lysyl-[protein] + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19144: all-trans-retinol <=> 11-cis-retinol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19232: an aromatic aldehyde + AMP + diphosphate + NADP(+) <=> an aromatic carboxylate + ATP + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19252: L-kynurenine + glyoxylate <=> 4-(2-aminophenyl)-2,4-dioxobutanoate + glycine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19288: a di-trans,poly-cis-dolichol + a 1,2-diacyl-sn-glycero-3-phosphocholine <=> an acyl-di-trans,poly-cis-dolichol + a 1-acyl-sn-glycero-3-phosphocholine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19308: 3-hydroxybenzoyl-CoA + 3 malonyl-CoA + 2 H(+) <=> 2,3',4,6-tetrahydroxybenzophenone + 3 CO2 + 4 CoA
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19352: (R)-4-dehydropantoate + NAD(+) + H2O <=> (R)-3,3-dimethylmalate + NADH + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19500: L-aspartate + H(+) <=> beta-alanine + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19516: carbamoyl phosphate + L-ornithine <=> L-citrulline + phosphate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19536: N(2)-succinyl-L-arginine + 2 H2O + 2 H(+) <=> N(2)-succinyl-L-ornithine + 2 NH4(+) + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19544: L-glutamate 5-semialdehyde + phosphate + NADP(+) <=> L-glutamyl 5-phosphate + NADPH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19548: sn-glycerol 3-phosphocholine + H2O <=> phosphocholine + glycerol + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19552: o-orsellinate depside + H2O <=> 2 orsellinate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19564: androst-4-ene-3,17-dione + NADPH + O2 + H(+) <=> testololactone + NADP(+) + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19596: L-arginine + H2O => L-citrulline + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19604: orcinol + NADH + O2 + H(+) <=> 2,3,5-trihydroxytoluene + NAD(+) + H2O
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19620: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(purine-ribonucleoside) in mRNA + S-adenosyl-L-methionine <=> a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-purine-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19668: 6-carboxyhexanoyl-CoA + NAD(+) <=> 6-carboxyhex-2-enoyl-CoA + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19696: 5-formyl-3-hydroxy-2-methylpyridine-4-carboxylate + NAD(+) + H2O <=> 5-hydroxy-6-methylpyridine-3,4-dicarboxylate + NADH + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19736: 3-deacetyl-3-(1-hydroxyethyl)bacteriochlorophyllide a + NAD(+) <=> bacteriochlorophyllide a + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19796: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + sarcosine + oxidized [electron-transfer flavoprotein] + H(+) <=> (6R)-5,10-methylenetetrahydrofolyl-(gamma-L-Glu)(n) + reduced [electron-transfer flavoprotein] + glycine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19832: a primary alcohol + O2 <=> an aldehyde + H2O2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19872: an acyl-CoA + glycine <=> an N-acylglycine + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19932: [(1->4)-beta-D-glucosyl](n) + UDP-alpha-D-glucose <=> [(1->4)-beta-D-glucosyl](n+1) + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:19996: [thioredoxin]-disulfide + L-methionine + H2O <=> L-methionine (S)-S-oxide + [thioredoxin]-dithiol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20004: glycolaldehyde + NAD(+) + H2O <=> glycolate + NADH + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20048: 3-oxopropanoate + NAD(+) + H2O <=> malonate + NADH + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20080: guanosine(18) in tRNA + S-adenosyl-L-methionine <=> 2'-O-methylguanosine(18) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20128: 2 reduced [2Fe-2S]-[ferredoxin] + NADP(+) + H(+) <=> 2 oxidized [2Fe-2S]-[ferredoxin] + NADPH
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20164: alpha-D-galactosyl-(1->3)-1D-myo-inositol + sucrose <=> raffinose + myo-inositol
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20184: alpha-D-mannose derivative + UDP-alpha-D-glucose <=> 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + UMP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20288: beta-D-galactosyl-(1->3)-N-acetyl-D-glucosamine + phosphate <=> alpha-D-galactose 1-phosphate + N-acetyl-D-glucosamine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20296: 3-(3,5-diiodo-4-hydroxyphenyl)lactate + NAD(+) <=> 3-(3,5-diiodo-4-hydroxyphenyl)pyruvate + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20336: L-seryl-[acetyl-CoA carboxylase] + ATP <=> O-phospho-L-seryl-[acetyl-CoA carboxylase] + ADP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20400: O-succinyl-L-homoserine + L-cysteine <=> L,L-cystathionine + succinate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20404: a beta-lactam + H2O <=> a substituted beta-amino acid
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20420: coelenterazine + O2 <=> coelenteramide + hnu + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20468: [hyaluronan](n) + UDP-N-acetyl-alpha-D-glucosamine <=> N-acetyl-beta-D-glucosaminyl-(1->4)-[hyaluronan](n) + UDP + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20532: 2-cis-(+)-abscisic aldehyde + O2 + H2O <=> 2-cis-(+)-abscisate + H2O2 + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20536: pyridoxal 5'-phosphate + H2O <=> pyridoxal + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20564: 3-hydroxypyruvate + H(+) <=> glycolaldehyde + CO2
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20568: (2E)-geranyl diphosphate + H2O <=> (1S,2S,4R)-endo-fenchol + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20592: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> (2E)-glutaconyl-CoA + reduced [electron-transfer flavoprotein]
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20628: 2 Fe(III)-[cytochrome c3] + H2 <=> 2 Fe(II)-[cytochrome c3] + 2 H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20660: 4-chlorophenylacetonitrile + 2 H2O <=> 4-chlorophenylacetate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20688: galactitol + NAD(+) <=> keto-D-tagatose + NADH + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20740: trans-2,3-epoxysuccinate + H2O = (2R,3S)-tartrate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20784: N(omega)-(ADP-D-ribosyl)-L-arginine + H2O = ADP-D-ribose + L-arginine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20820: choline sulfate + H2O = choline + sulfate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20856: an N-acylsphing-4-enine + H2O = sphing-4-enine + a fatty acid
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20888: 3-hydroxy-2-methylpropanoyl-CoA + H2O = 3-hydroxy-2-methylpropanoate + CoA + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20960: 1D-myo-inositol hexakisphosphate + H2O = 1D-myo-inositol 1,2,3,5,6-pentakisphosphate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20984: a sphingomyelin + H2O = an N-acylsphing-4-enine 1-phosphate + choline + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:20996: (2Z,4E)-2-aminomuconate + H2O = (3E)-2-oxohex-3-enedioate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21016: L-asparagine + H2O = L-aspartate + NH4(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21112: a globoside Gb3Cer (d18:1(4E)) + H2O = a beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + D-galactose
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21156: (2R)-2-phosphoglycerate + H2O = (R)-glycerate + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21164: a carboxylic ester + H2O = an alcohol + a carboxylate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21208: O-phospho-L-serine + H2O = L-serine + phosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21300: an N-acyl-1-beta-D-(3-O-sulfo)-galactosyl-sphing-4-enine + H2O = a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + sulfate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21316: phorbol 12,13-dibutanoate + H2O = phorbol 13-butanoate + butanoate + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21364: N-(6-aminohexanoyl)-6-aminohexanoate + H2O = 2 6-aminohexanoate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21388: L-2-aminohexano-6-lactam + H2O = L-lysine
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21488: dalnigrein beta-D-apiofuranosyl-(1->6)-beta-D-glucopyranoside + H2O = dalnigrein + beta-D-apiofuranosyl-(1->6)-D-glucopyranose + H(+)
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+
+RHEA:21496: dimethylallyl diphosphate + H2O = prenol + diphosphate
+  → Epoxide Hydrolase: ultra-specific epoxide ring opening
+

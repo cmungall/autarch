@@ -1,0 +1,10 @@
+False Positives for TwoOxoglutarateDependentDioxygenase
+==================================================
+Total: 2
+
+RHEA:20748: penicillin N + 2-oxoglutarate + O2 = deacetoxycephalosporin C + succinate + CO2 + H2O
+  → 2-oxoglutarate-dependent dioxygenase: dioxygen and 2-oxoglutarate are coupled to succinate and carbon dioxide formation
+
+RHEA:32115: DIBOA beta-D-glucoside + 2-oxoglutarate + O2 = TRIBOA beta-D-glucoside + succinate + CO2
+  → 2-oxoglutarate-dependent dioxygenase: dioxygen and 2-oxoglutarate are coupled to succinate and carbon dioxide formation
+

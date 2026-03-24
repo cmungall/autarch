@@ -1,0 +1,31 @@
+False Positives for PhosphotransferaseAlcoholGroupAsAcceptor
+==================================================
+Total: 9
+
+RHEA:12140: a 2'-deoxyribonucleoside + ATP = a 2'-deoxyribonucleoside 5'-phosphate + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:17417: N-acetyl-D-glucosamine + ATP = N-acetyl-D-glucosamine 6-phosphate + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:18869: L-xylulose + ATP = L-xylulose 5-phosphate + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:19129: thymidine + ATP = dTMP + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:19201: 2'-deoxyguanosine + ATP = dGMP + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:23452: 2'-deoxyadenosine + ATP = dAMP + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:25568: beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:27473: D-glycero-beta-D-manno-heptose 7-phosphate + ATP = D-glycero-beta-D-manno-heptose 1,7-bisphosphate + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+
+RHEA:59832: N(6)-(D-fructosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-fructosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Alcohol-group phosphotransferase: nucleotide-dependent phosphorylation of an alcohol acceptor
+

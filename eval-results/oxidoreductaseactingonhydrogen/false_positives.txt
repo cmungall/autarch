@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnHydrogen
+==================================================
+Total: 1
+
+RHEA:15645: N2 + 4 reduced [flavodoxin] + 16 ATP + 16 H2O = 4 oxidized [flavodoxin] + H2 + 2 NH4(+) + 16 ADP + 16 phosphate + 18 H(+)
+  → Hydrogenase: molecular hydrogen (H2) as product (reverse direction)
+

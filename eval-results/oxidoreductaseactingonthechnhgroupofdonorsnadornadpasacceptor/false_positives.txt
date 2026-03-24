@@ -1,0 +1,22 @@
+False Positives for OxidoreductaseActingOnTheCHNHGroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 6
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with a scaffold-preserving nitrogen redox transformation
+
+RHEA:15613: precorrin-2 + NAD(+) = sirohydrochlorin + NADH + 2 H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with a scaffold-preserving nitrogen redox transformation
+
+RHEA:15793: (4Z,15Z)-bilirubin IXalpha + NADP(+) = biliverdin IXalpha + NADPH + H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with a scaffold-preserving nitrogen redox transformation
+
+RHEA:15797: (4Z,15Z)-bilirubin IXalpha + NAD(+) = biliverdin IXalpha + NADH + H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with a scaffold-preserving nitrogen redox transformation
+
+RHEA:21768: N-methyl-L-alanine + NADP(+) + H2O = methylamine + pyruvate + NADPH + H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with water-assisted cleavage of a secondary amine substrate
+
+RHEA:23408: precorrin-6B + NADP(+) = precorrin-6A + NADPH + 2 H(+)
+  → NAD(P)-linked CH-NH oxidoreduction with a scaffold-preserving nitrogen redox transformation
+

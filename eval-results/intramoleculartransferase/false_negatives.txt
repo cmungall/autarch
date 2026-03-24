@@ -1,0 +1,160 @@
+False Negatives for IntramolecularTransferase
+==================================================
+Total: 52
+
+RHEA:10284: L-leucine = (3R)-beta-leucine
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:12857: (2S,3S)-3-methyl-L-aspartate = L-glutamate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:13141: 2-methylpropanoyl-CoA = butanoyl-CoA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:13193: 5-carboxyamino-1-(5-phospho-D-ribosyl)imidazole + H(+) = 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:13793: 2-methyleneglutarate = 2-methylene-3-methylsuccinate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:13897: chorismate = prephenate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:14265: (S)-4-amino-5-oxopentanoate = 5-aminolevulinate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:14621: (S)-2,3-epoxysqualene = lanosterol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:14893: D-ornithine = (2R,4S)-2,4-diaminopentanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:15145: D-maltose = alpha,alpha-trehalose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:15781: L-tyrosine = 3-amino-3-(4-hydroxyphenyl)propanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:16209: Co-precorrin-8X = cob(II)yrinate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:16361: 2-acetolactate = 3-hydroxy-3-methyl-2-oxobutanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:17637: squalene = hop-22(29)-ene
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:18241: D-lysine = (2R,5S)-2,5-diaminohexanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:18985: chorismate = isochorismate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:19177: L-lysine = (3S)-3,6-diaminohexanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:19237: 4-methylmuconolactone = 3-methylmuconolactone
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:19245: N-phenylhydroxylamine = 2-aminophenol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:20577: 3-hydroxyaminophenol = aminohydroquinone
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:21308: (S)-2,3-epoxysqualene = cycloartenol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:21736: (3S)-3,6-diaminohexanoate = (3S,5S)-3,5-diaminohexanoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:22376: uridine(38/39/40) in tRNA = pseudouridine(38/39/40) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:22512: precorrin-8X + 3 H(+) = hydrogenobyrinate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:22888: (R)-methylmalonyl-CoA = succinyl-CoA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:24032: sucrose = 6-O-alpha-D-glucopyranosyl-D-fructose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:24132: UDP-alpha-D-galactose = UDP-alpha-D-galactofuranose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:25399: (8R,9Z,12Z)-8-hydroperoxyoctadeca-9,12-dienoate = (7S,8S,9Z,12Z)-7,8-dihydroxyoctadeca-9,12-dienoate
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:25432: beta-D-ribopyranose = beta-D-ribofuranose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:25609: beta-D-allofuranose = beta-D-allopyranose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:26160: (S)-2,3-epoxysqualene = thalianol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:28350: UDP-beta-L-arabinofuranose = UDP-beta-L-arabinopyranose
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:31007: (S)-2,3-epoxysqualene = beta-amyrin
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:31035: arabidiol = (S)-2,3-epoxysqualene + H2O
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:31383: (S)-2,3-epoxysqualene = lupeol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:31875: (S)-2,3-epoxysqualene = marneral
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:31987: (S)-2,3-epoxysqualene = baruol
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42544: uridine(32) in tRNA = pseudouridine(32) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42540: uridine(13) in tRNA = pseudouridine(13) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:38867: uridine(516) in 16S rRNA = pseudouridine(516) in 16S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42552: uridine(31) in tRNA = pseudouridine(31) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:38871: uridine(2457) in 23S rRNA = pseudouridine(2457) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42528: uridine(955/2504/2580) in 23S rRNA = pseudouridine(955/2504/2580) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42524: uridine(1911/1915/1917) in 23S rRNA = pseudouridine(1911/1915/1917) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42548: uridine(746) in 23S rRNA = pseudouridine(746) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:38875: uridine(2604) in 23S rRNA = pseudouridine(2604) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42560: uridine(27/28) in mitochondrial tRNA = pseudouridine(27/28) in mitochondrial tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42536: uridine(65) in tRNA = pseudouridine(65) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42564: uridine(38/39) in tRNA = pseudouridine(38/39) in tRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42520: uridine(2605) in 23S rRNA = pseudouridine(2605) in 23S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42556: uridine(2819) in 21S rRNA = pseudouridine(2819) in 21S rRNA
+  → No supported intramolecular transferase child classifier matched
+
+RHEA:42532: uridine(55) in tRNA = pseudouridine(55) in tRNA
+  → No supported intramolecular transferase child classifier matched
+

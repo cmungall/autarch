@@ -1,0 +1,34 @@
+False Negatives for TransitionMetalIonTransmembraneTransporterActivity
+==================================================
+Total: 10
+
+RHEA:10376: Cu(2+)(in) + ATP + H2O = Cu(2+)(out) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:12132: Cd(2+)(in) + ATP + H2O = Cd(2+)(out) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:14733: Ag(+)(in) + ATP + H2O = Ag(+)(out) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:15557: Ni(2+)(out) + ATP + H2O = Ni(2+)(in) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:17365: Mn(2+)(out) + ATP + H2O = Mn(2+)(in) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:20621: Zn(2+)(in) + ATP + H2O = Zn(2+)(out) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:25792: Cu(+)(in) + ATP + H2O = Cu(+)(out) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:29795: Zn(2+)(out) + ATP(in) + H2O(in) = Zn(2+)(in) + ADP(in) + phosphate(in) + H(+)(in)
+  → Transported ion is not consistently transition-metal-like
+
+RHEA:32779: Co(2+)(out) + ATP + H2O = Co(2+)(in) + ADP + phosphate + H(+)
+  → Transported ion is not consistently transition-metal-like
+

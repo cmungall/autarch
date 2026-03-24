@@ -1,0 +1,28 @@
+False Negatives for OxidoreductaseActingOnNADHOrNADPH
+==================================================
+Total: 8
+
+RHEA:11260: NADPH + O2 + H(+) = H2O2 + NADP(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:11264: NADH + O2 + H(+) = H2O2 + NAD(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:11692: NAD(+) + NADPH = NADH + NADP(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:14269: 2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:15237: 2 Fe(III)-[cytochrome c2] + NADPH = 2 Fe(II)-[cytochrome c2] + NADP(+) + H(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:16157: 2 Fe(III)-[leghemoglobin] + NADPH = 2 Fe(II)-[leghemoglobin] + NADP(+) + H(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:16161: 2 Fe(III)-[leghemoglobin] + NADH = 2 Fe(II)-[leghemoglobin] + NAD(+) + H(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+
+RHEA:24040: 2 oxidized [cytochrome P450] + NADPH = 2 reduced [cytochrome P450] + NADP(+) + H(+)
+  → No supported oxidoreductase activity, acting on nad(p)h child classifier matched
+

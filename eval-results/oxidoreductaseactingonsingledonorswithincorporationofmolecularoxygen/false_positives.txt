@@ -1,0 +1,16 @@
+False Positives for OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygen
+==================================================
+Total: 4
+
+RHEA:16709: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tryptophan + O2 = 5-hydroxy-L-tryptophan + (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin
+  → Dioxygenase: O2 incorporation
+
+RHEA:17197: 2 3-(4-hydroxyphenyl)pyruvate + O2 = 2 4-hydroxyphenylacetate + 2 CO2
+  → Dioxygenase: oxidative decarboxylation
+
+RHEA:33279: L-tryptophan + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (E)-(indol-3-yl)acetaldehyde oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Dioxygenase: O2 incorporation
+
+RHEA:34331: indole-3-pyruvate + NADPH + O2 + H(+) = (indol-3-yl)acetate + CO2 + NADP(+) + H2O
+  → Dioxygenase: O2 incorporation
+

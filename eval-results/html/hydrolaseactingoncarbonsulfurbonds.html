@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydrolaseActingOnCarbonSulfurBonds - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>HydrolaseActingOnCarbonSulfurBonds</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:3.13.-.-" target="_blank">EC:3.13.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>Catalysis of the hydrolysis of any carbon-sulfur bond, C-S.</p><p>These enzymes cleave C-S bonds using water, releasing sulfur-containing<br>products (sulfite, sulfate, thiol, etc.).</p><p>Examples include:<br>- UDP-sulfoquinovose synthase<br>- S-formylglutathione hydrolase (EC 3.1.2.12, though classified under ester hydrolases)<br>- Carbon-sulfur lyases that use water</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value bad">0.000</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.000</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.000</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.999</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">-0.000</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">1.000</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">0</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">1</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">3</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3480</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hydrolase_acting_on_carbon_sulfur_bonds.py:42</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0046508&quot;</span>  <span class="comment"># hydrolase activity, acting on carbon-sulfur bonds</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;3.13.-.-&quot;</span>  <span class="comment"># EC prefix for C-S bond hydrolases</span></code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hydrolase_acting_on_carbon_sulfur_bonds.py:45</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is hydrolysis of a C-S bond.
+
+        Strategy:
+        1. Must be a hydrolase (water-mediated bond cleavage)
+        2. Check reaction/participant names for C-S bond patterns
+        3. Check for sulfur in reactants and sulfur species in products
+        &quot;&quot;&quot;</span>
+        parent_result = super().check_membership_impl(reaction)
+        <span class="kw">if</span> <span class="kw">not</span> parent_result.is_member:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=f<span class="str">&quot;Not a hydrolase reaction: {parent_result.explanation}&quot;</span>,
+            )
+
+        <span class="comment"># Check names for C-S bond patterns</span>
+        has_cs_name = <span class="kw">False</span>
+        matched_name = <span class="str">&quot;&quot;</span>
+        all_names = []
+        <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants:
+            <span class="kw">if</span> p.name:
+                all_names.append(p.name.lower())
+
+        <span class="kw">for</span> name <span class="kw">in</span> all_names:
+            <span class="kw">for</span> pattern <span class="kw">in</span> CS_NAME_PATTERNS:
+                <span class="kw">if</span> re.search(pattern, name):
+                    has_cs_name = <span class="kw">True</span>
+                    matched_name = name
+                    <span class="kw">break</span>
+            <span class="kw">if</span> has_cs_name:
+                <span class="kw">break</span>
+
+        <span class="comment"># Strong name-based evidence</span>
+        <span class="kw">if</span> has_cs_name:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=f&quot;C-S bond hydrolysis: pattern <span class="kw">in</span> &<span class="comment">#x27;{matched_name}&#x27;&quot;,</span>
+            )
+
+        <span class="comment"># Structural: sulfur in reactants, carbon in reactants, sulfur species in products</span>
+        diff = ReactionDiff(reaction)
+        has_sulfur = <span class="str">&quot;S&quot;</span> <span class="kw">in</span> diff.reactant_elements
+        has_carbon = <span class="str">&quot;C&quot;</span> <span class="kw">in</span> diff.reactant_elements
+
+        <span class="kw">if</span> has_sulfur <span class="kw">and</span> has_carbon:
+            <span class="comment"># Look for sulfur-containing products (sulfite, sulfate, thiol, H2S, etc.)</span>
+            has_sulfur_product = any(
+                p.name <span class="kw">and</span> (
+                    <span class="str">&quot;sulfit&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;sulfid&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;thiol&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;mercapto&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;hydrogen sulfide&quot;</span> <span class="kw">in</span> p.name.lower()
+                )
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+            )
+
+            <span class="comment"># Also check for sulfur-containing reactant that loses sulfur</span>
+            has_sulfur_substrate = any(
+                p.name <span class="kw">and</span> (
+                    <span class="str">&quot;thio&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;sulfo&quot;</span> <span class="kw">in</span> p.name.lower()
+                    <span class="kw">or</span> <span class="str">&quot;mercapto&quot;</span> <span class="kw">in</span> p.name.lower()
+                )
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+            )
+
+            <span class="kw">if</span> has_sulfur_substrate <span class="kw">and</span> has_sulfur_product:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">True</span>,
+                    explanation=<span class="str">&quot;C-S bond hydrolysis: sulfur-containing substrate yields sulfur product&quot;</span>,
+                )
+
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=<span class="str">&quot;No evidence of C-S bond hydrolysis&quot;</span>,
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">1</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23800" target="_blank">RHEA:23800</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)</span>
+                <div class="reaction-explanation">C-S bond hydrolysis: sulfur-containing substrate yields sulfur product</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">3</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12945" target="_blank">RHEA:12945</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">2&#x27;-hydroxybiphenyl-2-sulfinate + H2O = biphenyl-2-ol + sulfite + H(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13197" target="_blank">RHEA:13197</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">sulfite + UDP-alpha-D-glucose + H(+) = UDP-alpha-D-6-sulfoquinovose + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21708" target="_blank">RHEA:21708</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">S-adenosyl-L-homocysteine + H2O = L-homocysteine + adenosine</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3480</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No evidence of C-S bond hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0046508" target="_blank">GO:0046508</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Not a hydrolase reaction: No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3430 more (showing 50 of 3480)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

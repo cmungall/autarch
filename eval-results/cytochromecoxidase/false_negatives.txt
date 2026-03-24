@@ -1,0 +1,7 @@
+False Negatives for CytochromeCOxidase
+==================================================
+Total: 1
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → No cytochrome c - oxidase requires cytochrome c electron donor
+

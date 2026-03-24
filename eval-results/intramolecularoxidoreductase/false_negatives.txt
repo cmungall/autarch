@@ -1,0 +1,136 @@
+False Negatives for IntramolecularOxidoreductase
+==================================================
+Total: 44
+
+RHEA:10572: vinylacetyl-CoA = (2E)-butenoyl-CoA
+  → No intramolecular oxidoreductase pattern
+
+RHEA:10600: prostaglandin H2 = prostaglandin D2
+  → No intramolecular oxidoreductase pattern
+
+RHEA:11816: alpha-D-glucose 6-phosphate = beta-D-fructose 6-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:11952: 3-hydroxypyruvate = 2-hydroxy-3-oxopropanoate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:12348: (S)-muconolactone = (4,5-dihydro-5-oxofuran-2-yl)-acetate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:12356: D-mannose 6-phosphate = D-fructose 6-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:12893: prostaglandin H2 = prostaglandin E2
+  → No intramolecular oxidoreductase pattern
+
+RHEA:13033: aldehydo-D-galactose 6-phosphate = keto-D-tagatose 6-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:13041: L-dopachrome = 5,6-dihydroxyindole-2-carboxylate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:13049: D-glucuronate = D-fructuronate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:13849: D-arabinose = D-ribulose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:14201: D-lyxose = D-xylulose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:14821: beta-L-arabinopyranose = L-ribulose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:14889: (5Z,8Z,11Z,14Z,17Z)-eicosapentaenoate = (5Z,7E,9E,14Z,17Z)-icosapentaenoate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:15469: 1-(5-phospho-beta-D-ribosyl)-5-[(5-phospho-beta-D-ribosylamino)methylideneamino]imidazole-4-carboxamide = 5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide
+  → No intramolecular oxidoreductase pattern
+
+RHEA:16021: oxaloacetate = enol-oxaloacetate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:17097: 3-phenylpyruvate = enol-phenylpyruvate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:17137: prostaglandin H2 = thromboxane A2
+  → No intramolecular oxidoreductase pattern
+
+RHEA:17233: L-fucose = L-fuculose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:17265: trans-aconitate = cis-aconitate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:18585: D-glyceraldehyde 3-phosphate = dihydroxyacetone phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:18769: 5-methylsulfanyl-2,3-dioxopentyl phosphate = 2-hydroxy-5-methylsulfanyl-3-oxopent-1-enyl phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:18813: (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate = (3E,5R)-5-carboxy-2-oxohept-3-enedioate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:21516: isopiperitenone = piperitenone
+  → No intramolecular oxidoreductase pattern
+
+RHEA:21540: N-(5-phospho-beta-D-ribosyl)anthranilate = 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:21604: styrene oxide = 2-phenylacetaldehyde
+  → No intramolecular oxidoreductase pattern
+
+RHEA:21752: all-trans-violaxanthin = all-trans-capsorubin
+  → No intramolecular oxidoreductase pattern
+
+RHEA:22568: ascopyrone M = ascopyrone P
+  → No intramolecular oxidoreductase pattern
+
+RHEA:22592: (9Z,13S,15Z)-12,13-epoxyoctadeca-9,11,15-trienoate = (9S,13S,15Z)-12-oxophyto-10,15-dienoate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:22604: D-mannose = D-fructose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:22816: alpha-D-xylose = alpha-D-xylulofuranose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23160: L-rhamnopyranose = L-rhamnulose
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23284: isopentenyl diphosphate = dimethylallyl diphosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23480: 2-methylene-3-methylsuccinate = dimethylmaleate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23568: (2E)-decenoyl-[ACP] = (3Z)-decenoyl-[ACP]
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23716: (3Z)-dodecenoyl-CoA = (2E)-dodecenoyl-CoA
+  → No intramolecular oxidoreductase pattern
+
+RHEA:23896: 5-dehydro-4-deoxy-D-glucuronate = 3-deoxy-D-glycero-2,5-hexodiulosonate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:25840: 5-deoxy-D-glucuronate = 5-dehydro-2-deoxy-D-gluconate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:25900: D-arabino-hex-3-ulose 6-phosphate = beta-D-fructose 6-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:27401: 2-hydroxychromene-2-carboxylate = (3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:27702: aldehydo-D-galacturonate = keto-D-tagaturonate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:28182: (5S,6S)-6-amino-5-hydroxycyclohexa-1,3-diene-1-carboxyate = (1R,6S)-6-amino-5-oxocyclohex-2-ene-1-carboxylate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:28430: D-allose 6-phosphate = D-allulose 6-phosphate
+  → No intramolecular oxidoreductase pattern
+
+RHEA:33435: fecosterol = episterol
+  → No intramolecular oxidoreductase pattern
+

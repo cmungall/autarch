@@ -1,0 +1,400 @@
+False Negatives for CatalyticActivityActingOnAProtein
+==================================================
+Total: 132
+
+RHEA:10024: L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:10208: an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:10684: O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11068: (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11424: L-threonyl-[myosin heavy-chain] + ATP = O-phospho-L-threonyl-[myosin heavy-chain] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11456: N(4)-(alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11508: L-aspartyl-[protein] + 2-oxoglutarate + O2 = 3-hydroxy-L-aspartyl-[protein] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11780: 3-O-(beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:11860: L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12008: [G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12340: N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12576: (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12637: (5R)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-galactose = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12669: O-phospho-L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + H2O = L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + phosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12705: [protein]-L-isoaspartate + S-adenosyl-L-methionine = [protein]-L-isoaspartate alpha-methyl ester + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12801: L-seryl-[tau protein] + ATP = O-phospho-L-seryl-[tau protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12941: an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:12985: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-[alpha-L-Fuc-(1->6)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:13065: ATP + H2O = ADP + phosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:13345: L-cysteinyl-[protein] + (2E,6E)-farnesyl diphosphate = S-(2E,6E)-farnesyl-L-cysteinyl-[protein] + diphosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:13673: [protein-PII]-L-tyrosine + UTP = [protein-PII]-uridylyl-L-tyrosine + diphosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:14101: [eIF5A protein]-deoxyhypusine + AH2 + O2 = [eIF5A protein]-hypusine + A + H2O
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:14217: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:15213: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + succinyl-CoA = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:15277: L-lysyl-[alpha-tubulin] + acetyl-CoA = N(6)-acetyl-L-lysyl-[alpha-tubulin] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:15297: 3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:15509: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->4)]-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:15621: an N-acetyl-alpha-D-galactosaminyl derivative + UDP-alpha-D-galactose = a beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl derivative + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16057: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16441: L-glutaminyl-[protein] + H2O = L-glutamyl-[protein] + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16533: L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-(N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16569: L-lysyl-[collagen] + 2-oxoglutarate + O2 = (5R)-5-hydroxy-L-lysyl-[collagen] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16801: L-tyrosyl-[protein] + 3'-phosphoadenylyl sulfate = O-sulfo-L-tyrosine-[protein] + adenosine 3',5'-bisphosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:16921: N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17017: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + acetyl-CoA = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17125: N-(4-carboxy-4-oxobutanoyl)-L-ethylglycylglycine + H2O = N-(2-aminobutanoyl)glycine + 2-oxoglutarate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17133: L-seryl-[tyrosine-3-monooxygenase] + ATP = O-phospho-L-seryl-[tyrosine-3-monooxygenase] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17301: L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ATP = O-phospho-L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17605: C-terminal L-alpha-aminoacyl-L-glutamyl-L-glutamyl-[tubulin] + L-tyrosine + ATP = C-terminal L-alpha-aminoacyl-L-glutamyl-L-glutamyl-L-tyrosyl-[tubulin] + ADP + phosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17665: octanoyl-[ACP] + L-lysyl-[protein] = N(6)-octanoyl-L-lysyl-[protein] + holo-[ACP] + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17841: trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP-N-acetyl-alpha-D-glucosamine = O-(N-acetyl-alpha-D-glucosaminyl)-trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:17989: L-seryl-[protein] + ATP = O-phospho-L-seryl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18009: glutaryl-CoA + L-lysyl-[protein] = N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18045: 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + H2O = alpha-D-mannose derivative + alpha-D-glucose 1-phosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18673: L-seryl-[receptor-protein] + ATP = O-phospho-L-seryl-[receptor-protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18705: a beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl derivative + UDP-N-acetyl-alpha-D-glucosamine = a beta-D-galactosyl-(1->3)-[N-acetyl-beta-D-glucosaminyl-(1->6)]-N-acetyl-alpha-D-galactosaminyl derivative + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18749: [protein]-dithiol + NAD(+) = [protein]-disulfide + NADH + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18753: [protein]-dithiol + NADP(+) = [protein]-disulfide + NADPH + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:18945: L-prolyl-[collagen] + 2-oxoglutarate + O2 = trans-4-hydroxy-L-prolyl-[collagen] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19021: an alpha-L-fucosyl-(1->2)-beta-D-galactosyl derivative + UDP-N-acetyl-alpha-D-galactosamine = an N-acetyl-alpha-D-galactosaminyl-(1->3)-[alpha-L-fucosyl-(1->2)]-beta-D-galactosyl derivative + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19073: L-seryl-[I-kappa-B protein] + ATP = O-phospho-L-seryl-[I-kappa-B protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19149: L-arginyl-[protein] + NAD(+) = N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + nicotinamide + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19369: L-histidyl-[protein] + S-adenosyl-L-methionine = N(tele)-methyl-L-histidyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19429: [beta-adrenergic receptor] + ATP = [beta-adrenergic receptor]-phosphate + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:19945: N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20333: L-seryl-[acetyl-CoA carboxylase] + ATP = O-phospho-L-seryl-[acetyl-CoA carboxylase] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20345: [thioredoxin]-dithiol + NADP(+) = [thioredoxin]-disulfide + NADPH + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20393: S-acetylphosphopantotheine + holo-[citrate lyase ACP] = acetyl-[citrate lyase ACP] + (R)-4'-phosphopantetheine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20537: holo-[ACP] + H2O = apo-[ACP] + (R)-4'-phosphopantetheine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20629: O-phospho-L-seryl-[protein] + H2O = L-seryl-[protein] + phosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20661: D-alanyl-D-alanine + H2O = 2 D-alanine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20784: N(omega)-(ADP-D-ribosyl)-L-arginine + H2O = ADP-D-ribose + L-arginine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:20924: a [peptide]-C-terminal (2S)-2-hydroxyglycine = a [peptide]-C-terminal amide + glyoxylate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21028: an N-terminal L-alpha-aminoacyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-alpha-aminoacyl-[protein] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21064: [protein]-disulfide + 2 glutathione = [protein]-dithiol + glutathione disulfide
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21240: geranylgeranyl diphosphate + L-cysteinyl-[protein] = S-geranylgeranyl-L-cysteinyl-[protein] + diphosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21436: [translation elongation factor 2] + ATP = [translation elongation factor 2]-phosphate + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21556: [calmodulin]-L-lysine + S-adenosyl-L-methionine = [calmodulin]-N(6)-methyl-L-lysine + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21672: [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine + S-adenosyl-L-methionine = [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine methyl ester + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:21992: L-lysyl-[histone] + acetyl-CoA = N(6)-acetyl-L-lysyl-[histone] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:22004: L-seryl-[myosin light chain] + ATP = O-phospho-L-seryl-[myosin light chain] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:22648: holo-[cytochrome c] = apo-[cytochrome c] + heme b
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:22720: L-histidyl-[protein] + ATP = N(pros)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:22872: L-prolyl-[collagen] + 2-oxoglutarate + O2 = trans-3-hydroxy-L-prolyl-[collagen] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23052: L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + ATP = O-phospho-L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23172: L-seryl-[3-hydroxy-3-methylglutaryl-coenzyme A reductase] + ATP = O-phospho-L-seryl-[3-hydroxy-3-methylglutaryl-coenzyme A reductase] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23236: [protein]-L-glutamate 5-O-methyl ester + H2O = L-glutamyl-[protein] + methanol + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23356: L-seryl-[rhodopsin] + ATP = O-phospho-L-seryl-[rhodopsin] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23500: N(6)-propanoyl-L-lysyl-[protein] + NAD(+) + H2O = 3''-O-propanoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23652: N-terminal L-glutaminyl-[peptide] = N-terminal 5-oxo-L-prolyl-[peptide] + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:23668: apo-[methylmalonyl-CoA:pyruvate carboxytransferase] + biotin + ATP = holo-[methylmalonyl-CoA:pyruvate carboxytransferase] + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24000: a 6-O-methyl-2'-deoxyguanosine in DNA + L-cysteinyl-[protein] = S-methyl-L-cysteinyl-[protein] + a 2'-deoxyguanosine in DNA
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24164: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(R)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24312: L-lysyl-[cytochrome c] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[cytochrome c] + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24376: apo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24444: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-[alpha-L-Fuc(1->3)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24452: L-glutamyl-[protein] + S-adenosyl-L-methionine = [protein]-L-glutamate 5-O-methyl ester + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:24544: L-lysyl-[protein] + O2 + H2O = (S)-2-amino-6-oxohexanoyl-[protein] + H2O2 + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:28783: L-cysteinylglycine + H2O = L-cysteine + glycine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:30983: a 3-O-[beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + H2O = beta-D-galactosyl-(1->3)-N-acetyl-D-galactosamine + L-seryl-[protein]
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:36415: 2-[(3S)-amino-3-carboxypropyl]-L-histidyl-[translation elongation factor 2] + 3 S-adenosyl-L-methionine = diphthine-[translation elongation factor 2] + 3 S-adenosyl-L-homocysteine + 3 H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:36683: L-cysteinyl-[protein] + hexadecanoyl-CoA = S-hexadecanoyl-L-cysteinyl-[protein] + CoA
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48892: 3-O-(N-acetyl-beta-D-glucosaminyl)-L-threonyl-[protein] + H2O = L-threonyl-[protein] + N-acetyl-D-glucosamine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50416: N-terminal L-arginyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-arginyl-[protein] + tRNA(Leu) + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50500: N-terminal L-alanyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-alanyl-[protein] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48908: L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl)-L-threonyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:43636: N(6)-acetyl-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-acetyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:56188: 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-[N-acetyl-beta-D-glucosaminyl-(1->6)]-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:56784: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + (n-1) H2O = (6S)-5,6,7,8-tetrahydrofolate + (n-1) L-glutamate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:53904: L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48876: 3-O-(N-acetyl-beta-D-glucosaminyl)-L-seryl-[protein] + H2O = N-acetyl-D-glucosamine + L-seryl-[protein]
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48116: L-arginyl-[protein] + S-adenosyl-L-methionine = N(5)-methyl-L-arginyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:43380: N(omega)-phospho-L-arginyl-[protein] + H2O = L-arginyl-[protein] + phosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:56192: a 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-[N-acetyl-beta-D-glucosaminyl-(1->6)]-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48096: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:57152: L-lysyl-[protein] + 2-oxoglutarate + O2 = (3S)-3-hydroxy-L-lysyl-[protein] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:45948: L-lysyl-[protein] + acetyl-CoA = N(6)-acetyl-L-lysyl-[protein] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:54256: L-histidyl-[protein] + 2-oxoglutarate + O2 = (3S)-3-hydroxy-L-histidyl-[protein] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:54540: a 3-O-[beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + H2O = beta-D-galactosyl-(1->3)-N-acetyl-D-galactosamine + L-threonyl-[protein]
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50680: N-terminal L-glutaminyl-[protein] + H2O = N-terminal L-glutamyl-[protein] + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:47004: O-phospho-L-threonyl-[protein] + H2O = L-threonyl-[protein] + phosphate
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:56744: L-arginyl-[protein] + 2-oxoglutarate + O2 = (3R)-3-hydroxy-L-arginyl-[protein] + succinate + CO2
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48904: L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl)-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:59832: N(6)-(D-fructosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-fructosyl)-L-lysyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50676: N-terminal L-asparaginyl-[protein] + H2O + H(+) = N-terminal L-aspartyl-[protein] + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48432: N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:54816: L-glutaminyl-[protein] + L-lysyl-[protein] = [protein]-L-lysyl-N(6)-5-L-glutamyl-[protein] + NH4(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:46884: a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50504: N-terminal L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-seryl-[protein] + CoA + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:50192: UDP-alpha-D-xylose + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48100: L-arginyl-[protein] + S-adenosyl-L-methionine = N(omega)-methyl-L-arginyl-[protein] + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:43384: L-arginyl-[protein] + ATP = N(omega)-phospho-L-arginyl-[protein] + ADP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:56712: L-cysteinyl-[prolipoprotein] + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = an S-1,2-diacyl-sn-glyceryl-L-cysteinyl-[prolipoprotein] + sn-glycerol 1-phosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:46880: a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = a 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:48544: [phosphatase 2A protein]-C-terminal L-leucine + S-adenosyl-L-methionine = [phosphatase 2A protein]-C-terminal L-leucine methyl ester + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a protein child classifier matched
+
+RHEA:49288: L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a protein child classifier matched
+

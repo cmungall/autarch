@@ -1,0 +1,13 @@
+False Negatives for BiotinBiotinCarboxylCarrierProteinLigase
+==================================================
+Total: 3
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → No protein/carboxyl-carrier context - likely non-protein biotin ligase
+
+RHEA:23668: apo-[methylmalonyl-CoA:pyruvate carboxytransferase] + biotin + ATP = holo-[methylmalonyl-CoA:pyruvate carboxytransferase] + AMP + diphosphate + H(+)
+  → No protein/carboxyl-carrier context - likely non-protein biotin ligase
+
+RHEA:24376: apo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → No protein/carboxyl-carrier context - likely non-protein biotin ligase
+

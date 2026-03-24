@@ -1,0 +1,19 @@
+False Negatives for CarbonSulfurLyase
+==================================================
+Total: 5
+
+RHEA:17753: S-(5-deoxy-D-ribos-5-yl)-L-homocysteine = (S)-4,5-dihydroxypentane-2,3-dione + L-homocysteine
+  → Lyase but no C-S bond cleavage pattern
+
+RHEA:22488: S-(hydroxymethyl)glutathione = glutathione + formaldehyde
+  → Lyase but no C-S bond cleavage pattern
+
+RHEA:22648: holo-[cytochrome c] = apo-[cytochrome c] + heme b
+  → Lyase but no C-S bond cleavage pattern
+
+RHEA:24927: L-cystine + H2O = S-sulfanyl-L-cysteine + pyruvate + NH4(+)
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:28278: 3-sulfino-L-alanine + H2O = sulfite + L-alanine + H(+)
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+

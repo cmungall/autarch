@@ -1,0 +1,16 @@
+False Positives for AminoAcidDehydrogenaseNADOrNADP
+==================================================
+Total: 4
+
+RHEA:12408: L-lysine + NAD(+) = L-1-piperideine-6-carboxylate + NH4(+) + NADH + 2 H(+)
+  → Amino acid dehydrogenase: lysine + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:13561: meso-2,6-diaminopimelate + NADP(+) + H2O = (S)-2-amino-6-oxoheptanedioate + NH4(+) + NADPH + H(+)
+  → Amino acid dehydrogenase: diaminopimelate + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:19633: (3S,5S)-3,5-diaminohexanoate + NAD(+) + H2O = (5S)-5-amino-3-oxohexanoate + NH4(+) + NADH + H(+)
+  → Amino acid dehydrogenase: amino acid + NAD(P)+ → 2-oxoacid + NH4+
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → Amino acid dehydrogenase: glycine + NAD(P)+ → 2-oxoacid + NH4+
+

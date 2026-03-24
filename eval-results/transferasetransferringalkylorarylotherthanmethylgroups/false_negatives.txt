@@ -1,0 +1,157 @@
+False Negatives for TransferaseTransferringAlkylOrArylOtherThanMethylGroups
+==================================================
+Total: 51
+
+RHEA:10048: O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:10252: O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:10556: D-glyceraldehyde 3-phosphate + L-arginine = N(2)-(2-carboxyethyl)-L-arginine + phosphate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:11236: putrescine + spermidine = sym-homospermidine + propane-1,3-diamine
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:11496: O-acetyl-L-serine + uracil = 3-(uracil-1-yl)-L-alanine + acetate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:12693: 3,4-dihydroxypyridine + O-acetyl-L-serine = 3-(3,4-dihydroxypyridin-1-yl)-L-alanine + acetate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:12721: S-adenosyl 3-(methylsulfanyl)propylamine + putrescine = S-methyl-5'-thioadenosine + spermidine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:13117: pyrazole + O-acetyl-L-serine = 3-(pyrazol-1-yl)-L-alanine + acetate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:13185: 4 porphobilinogen + H2O = hydroxymethylbilane + 4 NH4(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:13421: an N-acyl-D-mannosamine 6-phosphate + phosphoenolpyruvate + H2O = an N-acylneuraminate 9-phosphate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:14053: D-arabinose 5-phosphate + phosphoenolpyruvate + H2O = 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:14717: D-erythrose 4-phosphate + phosphoenolpyruvate + H2O = 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:14829: O-acetyl-L-serine + hydrogen sulfide = L-cysteine + acetate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:16481: 3 S-adenosyl-L-methionine = nicotianamine + 3 S-methyl-5'-thioadenosine + 3 H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:16661: fluoride + S-adenosyl-L-methionine = 5'-deoxy-5'-fluoroadenosine + L-methionine
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:17317: phytyl diphosphate + chlorophyllide a + H(+) = chlorophyll a + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:17333: zeatin + O-acetyl-L-serine = L-lupinate + acetate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:17697: pyridine + thiamine = heteropyrithiamine + 5-(2-hydroxyethyl)-4-methylthiazole
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:18645: 2 putrescine = sym-homospermidine + NH4(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:18681: phosphoenolpyruvate + UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:19273: N-acetyl-D-mannosamine + phosphoenolpyruvate + H2O = N-acetylneuraminate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:19581: N(6)-dimethylallyladenine + S-adenosyl-L-methionine = discadenine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:19845: nocardicin E + S-adenosyl-L-methionine = isonocardicin A + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:19949: (7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate = 7,8-dihydropteroate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:19973: S-adenosyl 3-(methylsulfanyl)propylamine + spermidine = spermine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:20397: O-succinyl-L-homoserine + L-cysteine = L,L-cystathionine + succinate + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:20772: 2 6,7-dimethyl-8-(1-D-ribityl)lumazine + H(+) = 5-amino-6-(D-ribitylamino)uracil + riboflavin
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:21080: L-methionine + ATP + H2O = S-adenosyl-L-methionine + phosphate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:21256: 3-phosphoshikimate + phosphoenolpyruvate = 5-O-(1-carboxyvinyl)-3-phosphoshikimate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:22328: 4-methyl-5-(2-phosphooxyethyl)-thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H(+) = thiamine phosphate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:23244: S-adenosyl 3-(methylsulfanyl)propylamine + propane-1,3-diamine = norspermidine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:25686: O-phospho-L-seryl-tRNA(Cys) + hydrogen sulfide + H(+) = L-cysteinyl-tRNA(Cys) + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:25888: iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:26152: (2S)-2-hydroxy-3-oxobutyl phosphate + 5-amino-6-(D-ribitylamino)uracil = 6,7-dimethyl-8-(1-D-ribityl)lumazine + phosphate + 2 H2O + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:26486: O-phospho-L-serine + sulfite + H(+) = L-cysteate + phosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:27822: O-acetyl-L-homoserine + hydrogen sulfide = L-homocysteine + acetate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:28070: heme b + (2E,6E)-farnesyl diphosphate + H2O = Fe(II)-heme o + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:30515: S-adenosyl 3-(methylsulfanyl)propylamine + spermidine = thermospermine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:31211: L-selenomethionine + ATP + H2O = L-adenosylselenomethionine + phosphate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:33075: 3-[(1-carboxyvinyl)-oxy]benzoate + S-adenosyl-L-methionine + H2O = 6-amino-6-deoxyfutalosine + hydrogencarbonate + L-methionine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:33299: [eIF5A protein]-L-lysine + spermidine = [eIF5A protein]-deoxyhypusine + propane-1,3-diamine
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:33387: cadaverine + S-adenosyl 3-(methylsulfanyl)propylamine = aminopropylcadaverine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:33495: sn-glycerol 1-phosphate + all-trans-heptaprenyl diphosphate = 3-heptaprenyl-sn-glycero-1-phosphate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:35951: 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + (7,8-dihydropterin-6-yl)methyl diphosphate = N-[(7,8-dihydropterin-6-yl)methyl]-4-(beta-D-ribofuranosyl)aniline 5'-phosphate + diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:36171: a long chain fatty alcohol + a 1-acylglycerone 3-phosphate = a 1-O-alkylglycerone 3-phosphate + a long-chain fatty acid + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:36355: 4-demethylwyosine(37) in tRNA(Phe) + S-adenosyl-L-methionine = 4-demethyl-7-[(3S)-3-amino-3-carboxypropyl]wyosine(37) in tRNA(Phe) + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:36487: S-adenosyl 3-(methylsulfanyl)propylamine + agmatine = N(1)-(3-aminopropyl)agmatine + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:36783: L-histidyl-[translation elongation factor 2] + S-adenosyl-L-methionine = 2-[(3S)-amino-3-carboxypropyl]-L-histidyl-[translation elongation factor 2] + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:62432: a uridine in tRNA + S-adenosyl-L-methionine = a 3-[(3S)-3-amino-3-carboxypropyl]uridine in tRNA + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:53008: n isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = a di-trans,poly-cis-polyprenyl diphosphate + n diphosphate
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+
+RHEA:63296: an N(1)-methylpseudouridine in rRNA + S-adenosyl-L-methionine = N(1)-methyl-N(3)-[(3S)-3-amino-3-carboxypropyl]pseudouridine in rRNA + S-methyl-5'-thioadenosine + H(+)
+  → No supported transferase transferring alkyl or aryl other than methyl groups child classifier matched
+

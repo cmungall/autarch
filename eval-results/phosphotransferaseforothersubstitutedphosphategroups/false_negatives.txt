@@ -1,0 +1,13 @@
+False Negatives for PhosphotransferaseForOtherSubstitutedPhosphateGroups
+==================================================
+Total: 3
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → No substituted-phosphate leaving group detected
+
+RHEA:15117: 3'-dephospho-CoA + ATP = 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA + adenine
+  → No substituted-phosphate leaving group detected
+
+RHEA:34679: methylphosphonate + ATP = alpha-D-ribose 1-methylphosphonate 5-triphosphate + adenine
+  → No substituted-phosphate leaving group detected
+

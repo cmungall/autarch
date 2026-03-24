@@ -1,0 +1,13 @@
+False Negatives for FattyAcidLigaseActivity
+==================================================
+Total: 3
+
+RHEA:15421: a long-chain fatty acid + ATP + CoA = a long-chain fatty acyl-CoA + AMP + diphosphate
+  → No fatty-acid substrate detected
+
+RHEA:20101: a long-chain fatty acid + L-cysteinyl-[protein] + ATP = an S-(long-chain fatty acyl)-L-cysteinyl-[protein] + AMP + diphosphate
+  → Fatty-acid ligases require CoA as the thiol acceptor
+
+RHEA:20373: propanoate + ATP + CoA = propanoyl-CoA + AMP + diphosphate
+  → No fatty-acid substrate detected
+

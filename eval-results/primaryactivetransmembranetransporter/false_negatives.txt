@@ -1,0 +1,22 @@
+False Negatives for PrimaryActiveTransmembraneTransporter
+==================================================
+Total: 6
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:11484: a quinol + 2 Fe(III)-[cytochrome c](out) = a quinone + 2 Fe(II)-[cytochrome c](out) + 2 H(+)(out)
+  → No molecule transported between locations
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:30403: Fe(3+)(out) + L-ascorbate(in) = monodehydro-L-ascorbate radical(in) + Fe(2+)(out) + H(+)
+  → No molecule transported between locations
+
+RHEA:30251: 2 a ubiquinol + O2 + n H(+)(in) = 2 a ubiquinone + 2 H2O + n H(+)(out)
+  → No primary energy coupling - passive transport, not translocase
+

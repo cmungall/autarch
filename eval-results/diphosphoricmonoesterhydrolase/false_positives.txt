@@ -1,0 +1,7 @@
+False Positives for DiphosphoricMonoesterHydrolase
+==================================================
+Total: 1
+
+RHEA:22828: 1-(5-phospho-beta-D-ribosyl)-ATP + H2O = 1-(5-phospho-beta-D-ribosyl)-5'-AMP + diphosphate + H(+)
+  → Diphosphoric monoester hydrolase: water hydrolyzes an organic diphosphoester to release diphosphate
+

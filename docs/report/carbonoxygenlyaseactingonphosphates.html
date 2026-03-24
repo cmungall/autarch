@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarbonOxygenLyaseActingOnPhosphates - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>CarbonOxygenLyaseActingOnPhosphates</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:4.2.3.-" target="_blank">EC:4.2.3.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3993</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>carbon-oxygen lyase activity, acting on phosphates.</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.709</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.818</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.625</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.991</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.711</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.997</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">45</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">10</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">27</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3911</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">carbon_oxygen_lyase_acting_on_phosphates.py:17</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016838&quot;</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;4.2.3.-&quot;</span>
+
+    CHILD_CLASSES = (
+        TerpeneSynthase,
+        PineneSynthase,
+        GammaHumuleneSynthase,
+    )</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">Aggregate Membership Strategy</span>
+            </div>
+            <div class="section-note">
+                This wrapper does not inspect reaction GO or EC annotations. It delegates membership to the explicit curated child classifiers listed below.
+            </div>
+            <div class="metadata-grid" style="margin-top: 1rem;">
+                <div class="metadata-item">
+                    <div class="metadata-label">Aggregate Children</div>
+                    <div class="metadata-value">3</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Curated child classifiers</div>
+                    <div class="metadata-value">3</div>
+                </div>
+            </div>
+            <div class="section-note" style="margin-top: 1rem;">
+                The wrapper returns positive only if one of these child classifiers matches the reaction.
+            </div>
+            <ul>
+                
+            <li>
+                <strong>TerpeneSynthase</strong>
+                <span>(<a href="https://bioregistry.io/EC:4.2.3.-" target="_blank">EC:4.2.3.-</a>; <a href="https://bioregistry.io/GO:0010333" target="_blank">GO:0010333</a>)</span>
+            </li>
+            
+            <li>
+                <strong>PineneSynthase</strong>
+                <span>(<a href="https://bioregistry.io/EC:4.2.3.-" target="_blank">EC:4.2.3.-</a>; <a href="https://bioregistry.io/GO:0050550" target="_blank">GO:0050550</a>)</span>
+            </li>
+            
+            <li>
+                <strong>GammaHumuleneSynthase</strong>
+                <span>(<a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a>; No declared GO term)</span>
+            </li>
+            
+            </ul>
+        </div>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">carbon_oxygen_lyase_acting_on_phosphates.py:29</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction):
+        <span class="kw">return</span> aggregate_explicit_child_membership(
+            reaction,
+            <span class="kw">self</span>.CHILD_CLASSES,
+            <span class="str">&quot;Carbon-oxygen lyase acting on phosphates&quot;</span>,
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">45</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10340" target="_blank">RHEA:10340</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-vetispiradiene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10940" target="_blank">RHEA:10940</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (4R)-limonene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12016" target="_blank">RHEA:12016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-germacrene D + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12052" target="_blank">RHEA:12052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = trichodiene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12516" target="_blank">RHEA:12516</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-(R)-germacrene A + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12869" target="_blank">RHEA:12869</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (4S)-limonene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13369" target="_blank">RHEA:13369</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dimethylallyl diphosphate = isoprene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14901" target="_blank">RHEA:14901</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E,10E)-geranylgeranyl diphosphate = casbene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16965" target="_blank">RHEA:16965</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = beta-myrcene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18081" target="_blank">RHEA:18081</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = pentalenene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18325" target="_blank">RHEA:18325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-amorpha-4,11-diene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19525" target="_blank">RHEA:19525</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (1S,8aR)-delta-cadinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19825" target="_blank">RHEA:19825</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-aristolochene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20912" target="_blank">RHEA:20912</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E,10E)-geranylgeranyl diphosphate = taxa-4(5),11(12)-diene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25436" target="_blank">RHEA:25436</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (E,R)-alpha-bisabolene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25484" target="_blank">RHEA:25484</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (1S,4R)-camphene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25488" target="_blank">RHEA:25488</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (1S,5S)-alpha-pinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25496" target="_blank">RHEA:25496</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (1S,5S)-beta-pinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25992" target="_blank">RHEA:25992</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-epi-isozizaene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26081" target="_blank">RHEA:26081</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (Z)-gamma-bisabolene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27421" target="_blank">RHEA:27421</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (3E,6E)-alpha-farnesene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28294" target="_blank">RHEA:28294</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-(E)-beta-caryophyllene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28302" target="_blank">RHEA:28302</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = germacrene C + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28635" target="_blank">RHEA:28635</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-5-epi-aristolochene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28643" target="_blank">RHEA:28643</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-zingiberene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29499" target="_blank">RHEA:29499</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-alpha-barbatene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29511" target="_blank">RHEA:29511</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-valencene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30375" target="_blank">RHEA:30375</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-thujopsene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30379" target="_blank">RHEA:30379</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-beta-chamigrene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30383" target="_blank">RHEA:30383</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-7-epi-alpha-selinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30463" target="_blank">RHEA:30463</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2Z,6Z)-farnesyl diphosphate = (+)-alpha-santalene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30467" target="_blank">RHEA:30467</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2Z,6Z)-farnesyl diphosphate = (+)-endo-beta-bergamotene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30471" target="_blank">RHEA:30471</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2Z,6Z)-farnesyl diphosphate = (1S,5S,6S)-alpha-bergamotene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31895" target="_blank">RHEA:31895</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-humulene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31991" target="_blank">RHEA:31991</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = sesquithujene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32027" target="_blank">RHEA:32027</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-alpha-cuprenene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32031" target="_blank">RHEA:32031</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = gamma-curcumene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32559" target="_blank">RHEA:32559</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = gamma-terpinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32575" target="_blank">RHEA:32575</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (1R,5R)-alpha-pinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32579" target="_blank">RHEA:32579</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (1R,5R)-beta-pinene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32687" target="_blank">RHEA:32687</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = tricyclene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32691" target="_blank">RHEA:32691</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate = (E)-beta-ocimene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32699" target="_blank">RHEA:32699</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = beta-sesquiphellandrene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33991" target="_blank">RHEA:33991</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-copaene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34467" target="_blank">RHEA:34467</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate = valerena-4,7(11)-diene + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">10</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27551" target="_blank">RHEA:27551</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">8 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = di-trans,octa-cis-undecaprenyl diphosphate + 8 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27555" target="_blank">RHEA:27555</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">2 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-hexaprenyl diphosphate + 2 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27559" target="_blank">RHEA:27559</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">3 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-hexaprenyl diphosphate + 3 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27563" target="_blank">RHEA:27563</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">7 isopentenyl diphosphate + (2E)-geranyl diphosphate = all-trans-nonaprenyl diphosphate + 7 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27594" target="_blank">RHEA:27594</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">5 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-nonaprenyl diphosphate + 5 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27794" target="_blank">RHEA:27794</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">4 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-heptaprenyl diphosphate + 4 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27798" target="_blank">RHEA:27798</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">5 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-octaprenyl diphosphate + 5 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27802" target="_blank">RHEA:27802</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">7 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-decaprenyl diphosphate + 7 diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36327" target="_blank">RHEA:36327</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5&#x27;-diphosphate + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36331" target="_blank">RHEA:36331</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5&#x27;-triphosphate + diphosphate</span>
+                <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">27</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10840" target="_blank">RHEA:10840</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">O-phospho-L-homoserine + H2O = L-threonine + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13873" target="_blank">RHEA:13873</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(+)-copalyl diphosphate = abieta-7,13-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15809" target="_blank">RHEA:15809</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17889" target="_blank">RHEA:17889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17937" target="_blank">RHEA:17937</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dihydroxyacetone phosphate = methylglyoxal + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19565" target="_blank">RHEA:19565</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20565" target="_blank">RHEA:20565</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21020" target="_blank">RHEA:21020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">5-O-(1-carboxyvinyl)-3-phosphoshikimate = chorismate + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21968" target="_blank">RHEA:21968</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate = 3-dehydroquinate + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22048" target="_blank">RHEA:22048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">7,8-dihydroneopterin 3&#x27;-triphosphate = 6-pyruvoyl-5,6,7,8-tetrahydropterin + triphosphate + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22220" target="_blank">RHEA:22220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">ent-copalyl diphosphate = ent-kaur-16-ene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22436" target="_blank">RHEA:22436</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24116" target="_blank">RHEA:24116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25532" target="_blank">RHEA:25532</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">ent-copalyl diphosphate = ent-cassa-12,15-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25536" target="_blank">RHEA:25536</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">ent-copalyl diphosphate = ent-sandaracopimara-8(14),15-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25540" target="_blank">RHEA:25540</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">ent-copalyl diphosphate = ent-pimara-8(14),15-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25544" target="_blank">RHEA:25544</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">ent-copalyl diphosphate = ent-pimara-9(11),15-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25548" target="_blank">RHEA:25548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(+)-copalyl diphosphate = abieta-8(14),12-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25552" target="_blank">RHEA:25552</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">9alpha-copalyl diphosphate = stemar-13-ene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25556" target="_blank">RHEA:25556</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">9alpha-copalyl diphosphate = stemod-13(17)-ene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25560" target="_blank">RHEA:25560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">9alpha-copalyl diphosphate = 9beta-pimara-7,15-diene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25617" target="_blank">RHEA:25617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">terpentedienyl diphosphate = terpentetriene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26115" target="_blank">RHEA:26115</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26213" target="_blank">RHEA:26213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27534" target="_blank">RHEA:27534</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32543" target="_blank">RHEA:32543</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33983" target="_blank">RHEA:33983</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(+)-copalyl diphosphate = miltiradiene + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3911</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10096" target="_blank">RHEA:10096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5&#x27;-thioadenosine + holo-[ACP] + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10100" target="_blank">RHEA:10100</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">a sterol ester + H2O = a sterol + a fatty acid + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10120" target="_blank">RHEA:10120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10144" target="_blank">RHEA:10144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">a ribonucleoside 3&#x27;-phosphate + H2O = a ribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016838" target="_blank">GO:0016838</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No supported carbon-oxygen lyase acting on phosphates child classifier matched</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3861 more (showing 50 of 3911)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">51</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25444" target="_blank">RHEA:25444</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (1E,4E)-germacrene B + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.71" target="_blank">EC:4.2.3.71</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25456" target="_blank">RHEA:25456</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = gamma-humulene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25460" target="_blank">RHEA:25460</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = sibirene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25464" target="_blank">RHEA:25464</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = longifolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a>, <a href="https://bioregistry.io/EC:4.2.3.58" target="_blank">EC:4.2.3.58</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25468" target="_blank">RHEA:25468</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = beta-himachalene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25472" target="_blank">RHEA:25472</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = gamma-himachalene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25476" target="_blank">RHEA:25476</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-himachalene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.56" target="_blank">EC:4.2.3.56</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25492" target="_blank">RHEA:25492</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = (-)-beta-phellandrene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.52" target="_blank">EC:4.2.3.52</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25500" target="_blank">RHEA:25500</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = terpinolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.113" target="_blank">EC:4.2.3.113</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25508" target="_blank">RHEA:25508</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = (1S,5S)-sabinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.109" target="_blank">EC:4.2.3.109</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26241" target="_blank">RHEA:26241</a></span>:
+                    <span class="reaction-label">geranylgeranyl diphosphate = elisabethatriene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.41" target="_blank">EC:4.2.3.41</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26245" target="_blank">RHEA:26245</a></span>:
+                    <span class="reaction-label">geranylgeranyl diphosphate = fusicocca-2,10(14)-diene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.43" target="_blank">EC:4.2.3.43</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27425" target="_blank">RHEA:27425</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (E)-beta-farnesene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.47" target="_blank">EC:4.2.3.47</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28266" target="_blank">RHEA:28266</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (S)-beta-bisabolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.55" target="_blank">EC:4.2.3.55</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28298" target="_blank">RHEA:28298</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (E)-gamma-bisabolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.59" target="_blank">EC:4.2.3.59</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28639" target="_blank">RHEA:28639</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate = (-)-gamma-cadinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.62" target="_blank">EC:4.2.3.62</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29475" target="_blank">RHEA:29475</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-cubenene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.63" target="_blank">EC:4.2.3.63</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29483" target="_blank">RHEA:29483</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-beta-selinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.198" target="_blank">EC:4.2.3.198</a>, <a href="https://bioregistry.io/EC:4.2.3.66" target="_blank">EC:4.2.3.66</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29487" target="_blank">RHEA:29487</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = cis-muurola-3,5-diene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.67" target="_blank">EC:4.2.3.67</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29491" target="_blank">RHEA:29491</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = cis-muurola-4(14),5-diene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.67" target="_blank">EC:4.2.3.67</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29507" target="_blank">RHEA:29507</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-alpha-gurjunene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.72" target="_blank">EC:4.2.3.72</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30423" target="_blank">RHEA:30423</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-delta-selinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.76" target="_blank">EC:4.2.3.76</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30427" target="_blank">RHEA:30427</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-germacrene D + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.77" target="_blank">EC:4.2.3.77</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31415" target="_blank">RHEA:31415</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate = (+)-2-epi-prezizaene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.226" target="_blank">EC:4.2.3.226</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31423" target="_blank">RHEA:31423</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate = (-)-alpha-cedrene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.227" target="_blank">EC:4.2.3.227</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31427" target="_blank">RHEA:31427</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (1S,5S,6R)-alpha-bergamotene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.81" target="_blank">EC:4.2.3.81</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31431" target="_blank">RHEA:31431</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-beta-santalene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.83" target="_blank">EC:4.2.3.83</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31435" target="_blank">RHEA:31435</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-alpha-santalene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.82" target="_blank">EC:4.2.3.82</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31439" target="_blank">RHEA:31439</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-longipinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.80" target="_blank">EC:4.2.3.80</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31807" target="_blank">RHEA:31807</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-guaiene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.87" target="_blank">EC:4.2.3.87</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31811" target="_blank">RHEA:31811</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = viridiflorene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.88" target="_blank">EC:4.2.3.88</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31815" target="_blank">RHEA:31815</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-(E)-beta-caryophyllene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.89" target="_blank">EC:4.2.3.89</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31819" target="_blank">RHEA:31819</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = 5-epi-alpha-selinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.90" target="_blank">EC:4.2.3.90</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31827" target="_blank">RHEA:31827</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-gamma-cadinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.92" target="_blank">EC:4.2.3.92</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31831" target="_blank">RHEA:31831</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = delta-guaiene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.93" target="_blank">EC:4.2.3.93</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31995" target="_blank">RHEA:31995</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = 7-epi-sesquithujene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.101" target="_blank">EC:4.2.3.101</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31999" target="_blank">RHEA:31999</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = bicyclogermacrene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.100" target="_blank">EC:4.2.3.100</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32015" target="_blank">RHEA:32015</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-delta-cadinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.97" target="_blank">EC:4.2.3.97</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32019" target="_blank">RHEA:32019</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = beta-cubebene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.128" target="_blank">EC:4.2.3.128</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32539" target="_blank">RHEA:32539</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = (+)-car-3-ene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.107" target="_blank">EC:4.2.3.107</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32547" target="_blank">RHEA:32547</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = (1R,5R)-sabinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.110" target="_blank">EC:4.2.3.110</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32563" target="_blank">RHEA:32563</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = alpha-terpinene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.115" target="_blank">EC:4.2.3.115</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32567" target="_blank">RHEA:32567</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate = (1R,4S)-camphene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.116" target="_blank">EC:4.2.3.116</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33103" target="_blank">RHEA:33103</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = alpha-muurolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.125" target="_blank">EC:4.2.3.125</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33107" target="_blank">RHEA:33107</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = gamma-muurolene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.126" target="_blank">EC:4.2.3.126</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33111" target="_blank">RHEA:33111</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = beta-copaene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.127" target="_blank">EC:4.2.3.127</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33119" target="_blank">RHEA:33119</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (+)-sativene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.129" target="_blank">EC:4.2.3.129</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34695" target="_blank">RHEA:34695</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = Delta(6)-protoilludene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.135" target="_blank">EC:4.2.3.135</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34699" target="_blank">RHEA:34699</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (-)-alpha-isocomene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.136" target="_blank">EC:4.2.3.136</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34703" target="_blank">RHEA:34703</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate = (E)-2-epi-beta-caryophyllene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.137" target="_blank">EC:4.2.3.137</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="truncation-notice">
+                    ... and 1 more (showing 50 of 51)
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">13</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10852" target="_blank">RHEA:10852</a></span>:
+                    <span class="reaction-label">leachianone G + dimethylallyl diphosphate = sophoraflavanone G + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.71" target="_blank">EC:2.5.1.71</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15433" target="_blank">RHEA:15433</a></span>:
+                    <span class="reaction-label">(2S)-naringenin + dimethylallyl diphosphate = sophoraflavanone B + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.70" target="_blank">EC:2.5.1.70</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17449" target="_blank">RHEA:17449</a></span>:
+                    <span class="reaction-label">flaviolin + (2E)-geranyl diphosphate = 3-linalylflaviolin + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.123" target="_blank">EC:2.5.1.123</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27602" target="_blank">RHEA:27602</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate + 9 isopentenyl diphosphate = di-trans,nona-cis-dodecaprenyl diphosphate + 9 diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.88" target="_blank">EC:2.5.1.88</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27614" target="_blank">RHEA:27614</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate + 10 isopentenyl diphosphate = di-trans,deca-cis-tridecaprenyl diphosphate + 10 diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.88" target="_blank">EC:2.5.1.88</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27618" target="_blank">RHEA:27618</a></span>:
+                    <span class="reaction-label">(2Z,6E)-farnesyl diphosphate + 11 isopentenyl diphosphate = di-trans,undeca-cis-tetradecaprenyl diphosphate + 11 diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.88" target="_blank">EC:2.5.1.88</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27622" target="_blank">RHEA:27622</a></span>:
+                    <span class="reaction-label">geranylgeranyl diphosphate + 7 isopentenyl diphosphate = tri-trans,hepta-cis-undecaprenyl diphosphate + 7 diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.89" target="_blank">EC:2.5.1.89</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → diterpene (C20) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34127" target="_blank">RHEA:34127</a></span>:
+                    <span class="reaction-label">olivetolate + (2E)-geranyl diphosphate = cannabigerolate + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.102" target="_blank">EC:2.5.1.102</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → monoterpene (C10) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34263" target="_blank">RHEA:34263</a></span>:
+                    <span class="reaction-label">fumigaclavine A + dimethylallyl diphosphate = fumigaclavine C + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.100" target="_blank">EC:2.5.1.100</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35939" target="_blank">RHEA:35939</a></span>:
+                    <span class="reaction-label">brevianamide F + dimethylallyl diphosphate = tryprostatin B + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.106" target="_blank">EC:2.5.1.106</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35943" target="_blank">RHEA:35943</a></span>:
+                    <span class="reaction-label">brevianamide F + dimethylallyl diphosphate = deoxybrevianamide E + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.109" target="_blank">EC:2.5.1.109</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35971" target="_blank">RHEA:35971</a></span>:
+                    <span class="reaction-label">12alpha,13alpha-dihydroxyfumitremorgin C + dimethylallyl diphosphate = fumitremorgin B + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.110" target="_blank">EC:2.5.1.110</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35979" target="_blank">RHEA:35979</a></span>:
+                    <span class="reaction-label">verruculogen + dimethylallyl diphosphate = fumitremorgin A + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.107" target="_blank">EC:2.5.1.107</a></div>
+                    <div class="reaction-explanation">Carbon-oxygen lyase acting on phosphates: matched TerpeneSynthase (4.2.3.-); Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

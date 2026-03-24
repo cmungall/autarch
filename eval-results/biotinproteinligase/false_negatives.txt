@@ -1,0 +1,7 @@
+False Negatives for BiotinProteinLigase
+==================================================
+Total: 1
+
+RHEA:10932: L-citrulline + L-aspartate + ATP = 2-(N(omega)-L-arginino)succinate + AMP + diphosphate + H(+)
+  → No biotin substrate - only biotin ligases use biotin
+

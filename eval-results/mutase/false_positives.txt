@@ -1,0 +1,25 @@
+False Positives for Mutase
+==================================================
+Total: 7
+
+RHEA:13896: P(1),P(3)-bis(5'-adenosyl) triphosphate + H2O <=> AMP + ADP + 2 H(+)
+  → Mutase: intramolecular group transfer (chorismate mutase) [pattern matched]
+
+RHEA:18208: progesterone + AH2 + O2 <=> 11alpha-hydroxyprogesterone + A + H2O
+  → Mutase: intramolecular group transfer (phosphate group migration) [pattern matched]
+
+RHEA:18768: an N-acylsphing-4-enine + a 1,2-diacyl-sn-glycero-3-phosphocholine <=> a sphingomyelin + a 1,2-diacyl-sn-glycerol
+  → Mutase: intramolecular group transfer (phosphate group migration) [pattern matched]
+
+RHEA:18984: (R)-pantolactone + NADP(+) <=> 2-dehydropantolactone + NADPH + H(+)
+  → Mutase: intramolecular group transfer (chorismate mutase) [pattern matched]
+
+RHEA:23284: isopentenyl diphosphate = dimethylallyl diphosphate
+  → Mutase: intramolecular group transfer (phosphate group migration) [pattern matched]
+
+RHEA:25620: terpentedienyl diphosphate <=> terpentetriene + diphosphate
+  → Mutase: intramolecular group transfer (phosphate group migration) [pattern matched]
+
+RHEA:32708: (2E)-geranyl diphosphate => (2R,4S)-bornyl diphosphate
+  → Mutase: intramolecular group transfer (phosphate group migration) [pattern matched]
+

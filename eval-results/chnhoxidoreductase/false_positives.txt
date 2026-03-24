@@ -1,0 +1,52 @@
+False Positives for CHNHOxidoreductase
+==================================================
+Total: 16
+
+RHEA:13601: cis-4-hydroxy-L-proline + NAD(+) = 4-oxo-L-proline + NADH + H(+)
+  → CH-NH oxidoreductase: proline oxidation
+
+RHEA:14357: riboflavin + ATP = FMN + ADP + H(+)
+  → CH-NH oxidoreductase: flavin oxidation
+
+RHEA:15165: sarcosine + O2 + H2O = methylamine + glyoxylate + H2O2
+  → CH-NH oxidoreductase: sarcosine oxidation
+
+RHEA:15305: betaine aldehyde + NAD(+) + H2O = glycine betaine + NADH + 2 H(+)
+  → CH-NH oxidoreductase: betaine oxidation
+
+RHEA:17713: (R)-reticuline + reduced [NADPH--hemoprotein reductase] + O2 = salutaridine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → CH-NH oxidoreductase: reticuline oxidation
+
+RHEA:18273: putrescine + O2 + H2O = 4-aminobutanal + H2O2 + NH4(+)
+  → CH-NH oxidoreductase: putrescine oxidation
+
+RHEA:18357: tropine + NADP(+) = tropinone + NADPH + H(+)
+  → CH-NH oxidoreductase: opine oxidation
+
+RHEA:19885: (S)-reticuline + O2 = (S)-scoulerine + H2O2 + H(+)
+  → CH-NH oxidoreductase: reticuline oxidation
+
+RHEA:20265: L-proline + 2-oxoglutarate + O2 = cis-3-hydroxy-L-proline + succinate + CO2
+  → CH-NH oxidoreductase: proline oxidation
+
+RHEA:20409: riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose
+  → CH-NH oxidoreductase: flavin oxidation
+
+RHEA:21360: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+)
+  → CH-NH oxidoreductase: nicotinamide oxidation
+
+RHEA:24244: pseudotropine + NADP(+) = tropinone + NADPH + H(+)
+  → CH-NH oxidoreductase: opine oxidation
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → CH-NH oxidoreductase: tetrahydrofolate oxidation
+
+RHEA:29043: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+) = dTMP + (6S)-5,6,7,8-tetrahydrofolate + NADP(+)
+  → CH-NH oxidoreductase: tetrahydrofolate oxidation
+
+RHEA:31355: dimethyl sulfide + NADH + O2 + H(+) = methanethiol + formaldehyde + NAD(+) + H2O
+  → CH-NH oxidoreductase: N-demethylation
+
+RHEA:31979: trimethylamine + NADPH + O2 = trimethylamine N-oxide + NADP(+) + H2O
+  → CH-NH oxidoreductase: trimethylamine oxidation
+

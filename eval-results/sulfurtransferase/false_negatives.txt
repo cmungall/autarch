@@ -1,0 +1,13 @@
+False Negatives for Sulfurtransferase
+==================================================
+Total: 3
+
+RHEA:16585: [[Fe-S] cluster scaffold protein carrying a second [4Fe-4S](2+) cluster] + N(6)-octanoyl-L-lysyl-[protein] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine + 4 H(+) = [[Fe-S] cluster scaffold protein] + N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 4 Fe(3+) + 2 hydrogen sulfide + 2 5'-deoxyadenosine + 2 L-methionine + 2 reduced [2Fe-2S]-[ferredoxin]
+  → SAM/SAH chemistry indicates sulfur-containing group transfer rather than sulfur atom transfer
+
+RHEA:26297: [ThiS sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + 2-iminoacetate + 1-deoxy-D-xylulose 5-phosphate = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly + 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 2 H2O + H(+)
+  → No sulfur donor loses sulfur while retaining its non-sulfur scaffold
+
+RHEA:26333: 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + cyclic pyranopterin phosphate + H2O = molybdopterin + 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + 2 H(+)
+  → No sulfur donor loses sulfur while retaining its non-sulfur scaffold
+

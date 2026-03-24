@@ -1,0 +1,22 @@
+False Positives for NMethyltransferase
+==================================================
+Total: 6
+
+RHEA:10280: 1,7-dimethylxanthine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched CaffeineSynthase (2.1.1.160); Caffeine synthase: SAM-dependent methylation within the methylxanthine pathway to caffeine
+
+RHEA:11104: N(alpha),N(alpha)-dimethyl-L-histidine + S-adenosyl-L-methionine = hercynine + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched LHistidineNAlphaMethyltransferase (2.1.1.44); Histidine N(alpha)-methyltransferase: SAM-dependent methylation of a histidine-derived amino acid
+
+RHEA:13005: (RS)-1-benzyl-1,2,3,4-tetrahydroisoquinoline + S-adenosyl-L-methionine = N-methyl-(RS)-1-benzyl-1,2,3,4-tetrahydroisoquinoline + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched RS1Benzyl1234TetrahydroisoquinolineNMethyltransferase (2.1.1.115); (RS)-1-benzyl-1,2,3,4-tetrahydroisoquinoline N-methyltransferase: SAM-dependent N-methylation of a tetrahydroisoquinoline alkaloid
+
+RHEA:14865: tyramine + S-adenosyl-L-methionine = N-methyltyramine + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched TyramineNMethyltransferase (2.1.1.27); Tyramine N-methyltransferase: SAM-dependent N-methylation of tyramine
+
+RHEA:20944: theobromine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched CaffeineSynthase (2.1.1.160); Caffeine synthase: SAM-dependent methylation within the methylxanthine pathway to caffeine
+
+RHEA:24604: 7-methylxanthine + S-adenosyl-L-methionine = theobromine + S-adenosyl-L-homocysteine + H(+)
+  → N-methyltransferase: matched CaffeineSynthase (2.1.1.160); Caffeine synthase: SAM-dependent methylation within the methylxanthine pathway to caffeine
+

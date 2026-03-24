@@ -1,0 +1,13 @@
+False Negatives for Uridylyltransferase
+==================================================
+Total: 3
+
+RHEA:13205: a monosaccharide 1-phosphate + UTP + H(+) = a UDP-monosaccharide + diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:13989: alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose = alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose
+  → No nucleoside phosphate donor found
+
+RHEA:14785: RNA(n) + UTP = RNA(n)-3'-uridine ribonucleotide + diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+

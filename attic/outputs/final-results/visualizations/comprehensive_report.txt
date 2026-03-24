@@ -1,0 +1,70 @@
+================================================================================
+ARCTURUS CLASSIFIER EVALUATION - COMPREHENSIVE REPORT
+================================================================================
+
+OVERALL PERFORMANCE STATISTICS
+----------------------------------------
+Total Classifiers Evaluated: 19
+Average F1 Score: 0.4348 (±0.3200)
+Average Accuracy: 0.9189 (±0.0776)
+Average Precision: 0.5302 (±0.3514)
+Average Recall: 0.4893 (±0.3895)
+Average MCC: 0.4323 (±0.3031)
+
+TOP 5 PERFORMERS (by F1 Score)
+----------------------------------------
+HydrolaseActingOnAcidSulfurNitrogenBonds | F1: 1.000 | P: 1.000 | R: 1.000 | A: 1.000
+ProteinDeglycase               | F1: 0.909 | P: 0.833 | R: 1.000 | A: 0.998
+Transferase                    | F1: 0.778 | P: 0.745 | R: 0.814 | A: 0.880
+Oxidoreductase                 | F1: 0.768 | P: 0.656 | R: 0.926 | A: 0.848
+Kinase                         | F1: 0.750 | P: 1.000 | R: 0.600 | A: 0.980
+
+BOTTOM 5 PERFORMERS (by F1 Score)
+----------------------------------------
+Protease                       | F1: 0.000 | P: 0.000 | R: 0.000 | A: 0.992
+Translocase                    | F1: 0.000 | P: 0.000 | R: 0.000 | A: 0.976
+ATPase                         | F1: 0.000 | P: 0.000 | R: 0.000 | A: 0.982
+Synthase                       | F1: 0.154 | P: 0.333 | R: 0.100 | A: 0.978
+Hydrolase                      | F1: 0.189 | P: 1.000 | R: 0.105 | A: 0.846
+
+CLASSIFICATION CHALLENGES
+----------------------------------------
+Highest False Positives:
+  - Aminotransferase: 68 FP (Precision: 0.139)
+  - Oxidoreductase: 66 FP (Precision: 0.656)
+  - Isomerase: 60 FP (Precision: 0.241)
+
+Highest False Negatives:
+  - Reductase: 118 FN (Recall: 0.132)
+  - Oxidase: 86 FN (Recall: 0.368)
+  - Hydrolase: 77 FN (Recall: 0.105)
+
+PERFECT SCORES
+----------------------------------------
+  - Aminotransferase: Perfect Recall (no false negatives)
+  - ProteinDeglycase: Perfect Recall (no false negatives)
+  - HydrolaseActingOnAcidSulfurNitrogenBonds: Perfect Precision (no false positives)
+  - HydrolaseActingOnAcidSulfurNitrogenBonds: Perfect Recall (no false negatives)
+  - Kinase: Perfect Precision (no false positives)
+  - Hydrolase: Perfect Precision (no false positives)
+
+RECOMMENDATIONS FOR IMPROVEMENT
+----------------------------------------
+Classifiers needing recall improvement (< 0.3):
+  - Phosphatase: Current recall 0.200
+  - Protease: Current recall 0.000
+  - Synthase: Current recall 0.100
+  - Reductase: Current recall 0.132
+  - Hydrolase: Current recall 0.105
+  - Translocase: Current recall 0.000
+  - ATPase: Current recall 0.000
+Classifiers needing precision improvement (< 0.3):
+  - Aminotransferase: Current precision 0.139
+  - Phosphatase: Current precision 0.182
+  - Protease: Current precision 0.000
+  - Isomerase: Current precision 0.241
+  - Translocase: Current precision 0.000
+  - ATPase: Current precision 0.000
+
+================================================================================
+Report generated: 2025-09-04 20:34:47.461356

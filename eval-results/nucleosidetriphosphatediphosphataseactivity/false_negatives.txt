@@ -1,0 +1,10 @@
+False Negatives for NucleosideTriphosphateDiphosphataseActivity
+==================================================
+Total: 2
+
+RHEA:31575: 8-oxo-dGTP + H2O = 8-oxo-dGMP + diphosphate + H(+)
+  → No supported nucleoside triphosphate diphosphatase activity child classifier matched
+
+RHEA:31583: 2-oxo-dATP + H2O = 2-oxo-dAMP + diphosphate + H(+)
+  → No supported nucleoside triphosphate diphosphatase activity child classifier matched
+

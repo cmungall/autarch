@@ -1,0 +1,76 @@
+False Positives for Transferase
+==================================================
+Total: 24
+
+RHEA:10348: 5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:10488: (6S)-5-formyl-5,6,7,8-tetrahydrofolate + ATP = (6R)-5,10-methenyltetrahydrofolate + ADP + phosphate
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:11224: 2 D-alanine + ATP = D-alanyl-D-alanine + ADP + phosphate + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:11720: N-methylhydantoin + ATP + 2 H2O = N-carbamoylsarcosine + ADP + phosphate + 2 H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:12128: 2 oxidized [2Fe-2S]-[ferredoxin] + 2 L-glutamate = L-glutamine + 2 reduced [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + 2 H(+)
+  → Transferase: amino group transfer (aminotransferase)
+
+RHEA:12276: 3-methylbutanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = 3-methylbut-2-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:13197: sulfite + UDP-alpha-D-glucose + H(+) = UDP-alpha-D-6-sulfoquinovose + H2O
+  → Transferase: glycosyl transfer (glycosyltransferase)
+
+RHEA:13389: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + 2 H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein] + CO2
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:14477: a medium-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = a medium-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:17721: a long-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = a long-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:18617: oxaloacetate + ATP = phosphoenolpyruvate + ADP + CO2
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:19017: (6S)-NADHX + ATP = ADP + phosphate + NADH + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:19181: a very-long-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = a very-long-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:20876: (R)-2-benzylsuccinyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (E)-2-benzylidenesuccinyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:23032: 2-formamido-N(1)-(5-O-phospho-beta-D-ribosyl)acetamidine + ATP = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + ADP + phosphate + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:23732: (R)-5-diphosphomevalonate + ATP = isopentenyl diphosphate + ADP + phosphate + CO2
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:24004: butanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:25568: beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:29603: oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:30199: cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:32231: (6S)-NADPHX + ATP = ADP + phosphate + NADPH + H(+)
+  → Transferase: phosphoryl transfer (kinase)
+
+RHEA:44180: 2-methylpropanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = 2-methylpropenoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:47196: a short-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = a short-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+
+RHEA:43780: 2-methylbutanoyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (2E)-2-methylbut-2-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Transferase: acyl transfer (acyltransferase)
+

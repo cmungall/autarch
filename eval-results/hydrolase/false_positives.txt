@@ -1,0 +1,73 @@
+False Positives for Hydrolase
+==================================================
+Total: 23
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:57590
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → Hydrolase: water-mediated bond cleavage of CHEBI:57775
+
+RHEA:14005: L,L-cystathionine + H2O = 2-oxobutanoate + L-cysteine + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58161
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58057
+
+RHEA:16453: (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58794
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58190
+
+RHEA:19553: L-tryptophan + H2O = indole + pyruvate + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:57912
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58057
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58057
+
+RHEA:21704: L-tyrosine + H2O = phenol + pyruvate + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58315
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:175763
+
+RHEA:23800: L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:57844
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58057
+
+RHEA:24927: L-cystine + H2O = S-sulfanyl-L-cysteine + pyruvate + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:35491
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:175763
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58622
+
+RHEA:27389: (3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate + H2O = salicylaldehyde + pyruvate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:59353
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:175763
+
+RHEA:27754: methylglyoxal + H2O = (R)-lactate + H(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:17158
+
+RHEA:28278: 3-sulfino-L-alanine + H2O = sulfite + L-alanine + H(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:61085
+
+RHEA:31151: L-selenocystathionine + H2O = L-selenocysteine + 2-oxobutanoate + NH4(+)
+  → Hydrolase: water-mediated bond cleavage of CHEBI:62226
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → Hydrolase: water-mediated bond cleavage of CHEBI:58057
+
+RHEA:36307: (E)-caffeoyl-CoA + H2O = 3,4-dihydroxybenzaldehyde + acetyl-CoA
+  → Hydrolase: water-mediated bond cleavage of CHEBI:87136
+

@@ -1,0 +1,10 @@
+False Negatives for LipidKinaseActivity
+==================================================
+Total: 2
+
+RHEA:10272: a 1,2-diacyl-sn-glycerol + ATP = a 1,2-diacyl-sn-glycero-3-phosphate + ADP + H(+)
+  → Expected one lipid substrate and one lipid phosphate product
+
+RHEA:25948: a 1,2-diacyl-sn-glycerol + CTP = a 1,2-diacyl-sn-glycero-3-phosphate + CDP + H(+)
+  → Requires ATP consumption with ADP production
+

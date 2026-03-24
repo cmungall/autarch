@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatalyticActivityActingOnAProtein - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>CatalyticActivityActingOnAProtein</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a></div>
+            </div>
+            
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3993</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>catalytic activity, acting on a protein.</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value bad">0.181</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.436</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.114</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.961</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.209</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.994</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">17</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">22</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">132</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3822</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">Aggregate Membership Strategy</span>
+            </div>
+            <div class="section-note">
+                This wrapper does not inspect reaction GO or EC annotations. It delegates membership to the explicit curated child classifiers listed below.
+            </div>
+            <div class="metadata-grid" style="margin-top: 1rem;">
+                <div class="metadata-item">
+                    <div class="metadata-label">Aggregate Children</div>
+                    <div class="metadata-value">8</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Curated child classifiers</div>
+                    <div class="metadata-value">8</div>
+                </div>
+            </div>
+            <div class="section-note" style="margin-top: 1rem;">
+                The wrapper returns positive only if one of these child classifiers matches the reaction.
+            </div>
+            <ul>
+                
+            <li>
+                <strong>Aminopeptidase</strong>
+                <span>(<a href="https://bioregistry.io/EC:3.4.11.-" target="_blank">EC:3.4.11.-</a>; <a href="https://bioregistry.io/GO:0004177" target="_blank">GO:0004177</a>)</span>
+            </li>
+            
+            <li>
+                <strong>Peptidase</strong>
+                <span>(<a href="https://bioregistry.io/EC:3.4.-.-" target="_blank">EC:3.4.-.-</a>; <a href="https://bioregistry.io/GO:0008233" target="_blank">GO:0008233</a>)</span>
+            </li>
+            
+            <li>
+                <strong>ProteinDeglycase</strong>
+                <span>(<a href="https://bioregistry.io/EC:3.5.1.124" target="_blank">EC:3.5.1.124</a>; <a href="https://bioregistry.io/GO:0036524" target="_blank">GO:0036524</a>)</span>
+            </li>
+            
+            <li>
+                <strong>SUMOTransferase</strong>
+                <span>(No declared EC scope; <a href="https://bioregistry.io/GO:0019789" target="_blank">GO:0019789</a>)</span>
+            </li>
+            
+            <li>
+                <strong>UbiquitinProteinLigase</strong>
+                <span>(<a href="https://bioregistry.io/EC:2.3.2.-" target="_blank">EC:2.3.2.-</a>; <a href="https://bioregistry.io/GO:0061630" target="_blank">GO:0061630</a>)</span>
+            </li>
+            
+            <li>
+                <strong>BiotinBiotinCarboxylCarrierProteinLigase</strong>
+                <span>(<a href="https://bioregistry.io/EC:6.3.4.-" target="_blank">EC:6.3.4.-</a>; <a href="https://bioregistry.io/GO:0004077" target="_blank">GO:0004077</a>)</span>
+            </li>
+            
+            <li>
+                <strong>PeptidylProlylCisTransIsomerase</strong>
+                <span>(<a href="https://bioregistry.io/EC:5.2.1.8" target="_blank">EC:5.2.1.8</a>; <a href="https://bioregistry.io/GO:0003755" target="_blank">GO:0003755</a>)</span>
+            </li>
+            
+            <li>
+                <strong>PeptideOFucosyltransferase</strong>
+                <span>(<a href="https://bioregistry.io/EC:2.4.1.221" target="_blank">EC:2.4.1.221</a>; <a href="https://bioregistry.io/GO:0046922" target="_blank">GO:0046922</a>)</span>
+            </li>
+            
+            </ul>
+        </div>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">catalytic_activity_acting_on_a_protein.py:14</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="kw">return</span> aggregate_explicit_child_membership(
+            reaction,
+            <span class="kw">self</span>.CHILD_CLASSES,
+            type(<span class="kw">self</span>).concept_phrase(),
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">17</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11756" target="_blank">RHEA:11756</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched BiotinBiotinCarboxylCarrierProteinLigase (6.3.4.-); Biotin Ligase: ultra-specific biotin attachment to proteins</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14885" target="_blank">RHEA:14885</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + H2O = ADP-D-ribose + L-arginyl-[protein]</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification from protein [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16237" target="_blank">RHEA:16237</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein]-peptidylproline (omega=180) = [protein]-peptidylproline (omega=0)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched PeptidylProlylCisTransIsomerase (5.2.1.8); Peptidyl-prolyl cis-trans isomerase: proline cis-trans isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19233" target="_blank">RHEA:19233</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">S-hexadecanoyl-L-cysteinyl-[protein] + H2O = L-cysteinyl-[protein] + hexadecanoate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification from protein [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28398" target="_blank">RHEA:28398</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + H2O = L-alanyl-D-glutamate + meso-2,6-diaminopimelate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28807" target="_blank">RHEA:28807</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">glutathione + H2O = L-cysteinylglycine + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31563" target="_blank">RHEA:31563</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">leukotriene C4 + H2O = leukotriene D4 + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49548" target="_blank">RHEA:49548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(omega)-(1-hydroxy-2-oxopropyl)-L-arginyl-[protein] + H2O = lactate + L-arginyl-[protein] + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:57192" target="_blank">RHEA:57192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(6)-(1-hydroxy-2-oxoethyl)-L-lysyl-[protein] + H2O = glycolate + L-lysyl-[protein] + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:57196" target="_blank">RHEA:57196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">S-(1-hydroxy-2-oxoethyl)-L-cysteinyl-[protein] + H2O = glycolate + L-cysteinyl-[protein] + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:47964" target="_blank">RHEA:47964</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(pros)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification from protein [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:48520" target="_blank">RHEA:48520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine methyl ester + H2O = [protein]-C-terminal S-[(2E,6E)-farnesyl]-L-cysteine + methanol + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:48548" target="_blank">RHEA:48548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[phosphatase 2A protein]-C-terminal L-leucine methyl ester + H2O = [phosphatase 2A protein]-C-terminal L-leucine + methanol + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49556" target="_blank">RHEA:49556</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">S-(1-hydroxy-2-oxopropyl)-L-cysteinyl-[protein] + H2O = lactate + L-cysteinyl-[protein] + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49552" target="_blank">RHEA:49552</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(6)-(1-hydroxy-2-oxopropyl)-L-lysyl-[protein] + H2O = lactate + L-lysyl-[protein] + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:47960" target="_blank">RHEA:47960</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(tele)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification from protein [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:57188" target="_blank">RHEA:57188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(omega)-(1-hydroxy-2-oxoethyl)-L-arginyl-[protein] + H2O = L-arginyl-[protein] + glycolate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">22</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11016" target="_blank">RHEA:11016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">allantoate + H2O = (S)-ureidoglycolate + urea</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → glycolate</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11044" target="_blank">RHEA:11044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a haloacetate + H2O = a halide anion + glycolate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11544" target="_blank">RHEA:11544</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12476" target="_blank">RHEA:12476</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-formyl-L-glutamate + H2O = formate + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14277" target="_blank">RHEA:14277</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14369" target="_blank">RHEA:14369</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">2-phosphoglycolate + H2O = glycolate + phosphate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14849" target="_blank">RHEA:14849</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-amidino-L-aspartate + H2O = urea + L-aspartate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15169" target="_blank">RHEA:15169</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-succinyl-L-glutamate + H2O = L-glutamate + succinate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15889" target="_blank">RHEA:15889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-glutamine + H2O = L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18013" target="_blank">RHEA:18013</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(5)-ethyl-L-glutamine + H2O = ethylamine + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19737" target="_blank">RHEA:19737</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">4-(gamma-L-glutamylamino)butanoate + H2O = 4-aminobutanoate + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20001" target="_blank">RHEA:20001</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">glycolaldehyde + NAD(+) + H2O = glycolate + NADH + 2 H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20337" target="_blank">RHEA:20337</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(R)-2-O-sulfolactate + H2O = (R)-lactate + sulfate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20720" target="_blank">RHEA:20720</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">isopenicillin N + phenylacetyl-CoA + H2O = penicillin G + L-2-aminoadipate + CoA + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: peptide → amino acid + shorter peptide</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21016" target="_blank">RHEA:21016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-asparagine + H2O = L-aspartate + NH4(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22040" target="_blank">RHEA:22040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-formyl-L-aspartate + H2O = L-aspartate + formate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22492" target="_blank">RHEA:22492</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-formimidoyl-L-glutamate + H2O = formamide + L-glutamate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23416" target="_blank">RHEA:23416</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(2R)-O-phospho-3-sulfolactate + H2O = (2R)-3-sulfolactate + phosphate</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25241" target="_blank">RHEA:25241</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(S)-2-ureidoglycine + H2O = (S)-ureidoglycolate + NH4(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → glycolate</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27754" target="_blank">RHEA:27754</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">methylglyoxal + H2O = (R)-lactate + H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:61020" target="_blank">RHEA:61020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">uridine(34) in tRNA + acetyl-CoA + S-adenosyl-L-methionine + H2O = 5-(carboxymethyl)uridine(34) in tRNA + 5&#x27;-deoxyadenosine + L-methionine + CoA + 2 H(+)</span>
+                <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: peptide → amino acid + shorter peptide</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">132</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10596" target="_blank">RHEA:10596</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10684" target="_blank">RHEA:10684</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11068" target="_blank">RHEA:11068</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(5R)-5-O-[alpha-D-glucosyl-(1-&gt;2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11204" target="_blank">RHEA:11204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11424" target="_blank">RHEA:11424</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-threonyl-[myosin heavy-chain] + ATP = O-phospho-L-threonyl-[myosin heavy-chain] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11456" target="_blank">RHEA:11456</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-(alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11508" target="_blank">RHEA:11508</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-aspartyl-[protein] + 2-oxoglutarate + O2 = 3-hydroxy-L-aspartyl-[protein] + succinate + CO2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11780" target="_blank">RHEA:11780</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11860" target="_blank">RHEA:11860</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12008" target="_blank">RHEA:12008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12340" target="_blank">RHEA:12340</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12576" target="_blank">RHEA:12576</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1-&gt;2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12637" target="_blank">RHEA:12637</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(5R)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-galactose = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12669" target="_blank">RHEA:12669</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">O-phospho-L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + H2O = L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + phosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12705" target="_blank">RHEA:12705</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein]-L-isoaspartate + S-adenosyl-L-methionine = [protein]-L-isoaspartate alpha-methyl ester + S-adenosyl-L-homocysteine</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12801" target="_blank">RHEA:12801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-seryl-[tau protein] + ATP = O-phospho-L-seryl-[tau protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12941" target="_blank">RHEA:12941</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">an N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12985" target="_blank">RHEA:12985</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = an N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-[alpha-L-Fuc-(1-&gt;6)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13065" target="_blank">RHEA:13065</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">ATP + H2O = ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13345" target="_blank">RHEA:13345</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-cysteinyl-[protein] + (2E,6E)-farnesyl diphosphate = S-(2E,6E)-farnesyl-L-cysteinyl-[protein] + diphosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13673" target="_blank">RHEA:13673</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein-PII]-L-tyrosine + UTP = [protein-PII]-uridylyl-L-tyrosine + diphosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14101" target="_blank">RHEA:14101</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[eIF5A protein]-deoxyhypusine + AH2 + O2 = [eIF5A protein]-hypusine + A + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14217" target="_blank">RHEA:14217</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15213" target="_blank">RHEA:15213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + succinyl-CoA = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CoA</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15277" target="_blank">RHEA:15277</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-lysyl-[alpha-tubulin] + acetyl-CoA = N(6)-acetyl-L-lysyl-[alpha-tubulin] + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15297" target="_blank">RHEA:15297</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15509" target="_blank">RHEA:15509</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;4)]-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15621" target="_blank">RHEA:15621</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">an N-acetyl-alpha-D-galactosaminyl derivative + UDP-alpha-D-galactose = a beta-D-galactosyl-(1-&gt;3)-N-acetyl-alpha-D-galactosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16057" target="_blank">RHEA:16057</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-[beta-D-GlcNAc-(1-&gt;4)]-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16441" target="_blank">RHEA:16441</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-glutaminyl-[protein] + H2O = L-glutamyl-[protein] + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16533" target="_blank">RHEA:16533</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-(N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16569" target="_blank">RHEA:16569</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-lysyl-[collagen] + 2-oxoglutarate + O2 = (5R)-5-hydroxy-L-lysyl-[collagen] + succinate + CO2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16801" target="_blank">RHEA:16801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-tyrosyl-[protein] + 3&#x27;-phosphoadenylyl sulfate = O-sulfo-L-tyrosine-[protein] + adenosine 3&#x27;,5&#x27;-bisphosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16921" target="_blank">RHEA:16921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-[beta-D-GlcNAc-(1-&gt;4)]-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-[beta-D-GlcNAc-(1-&gt;4)]-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-[beta-D-GlcNAc-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17017" target="_blank">RHEA:17017</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + acetyl-CoA = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CoA</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17125" target="_blank">RHEA:17125</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N-(4-carboxy-4-oxobutanoyl)-L-ethylglycylglycine + H2O = N-(2-aminobutanoyl)glycine + 2-oxoglutarate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17133" target="_blank">RHEA:17133</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-seryl-[tyrosine-3-monooxygenase] + ATP = O-phospho-L-seryl-[tyrosine-3-monooxygenase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17301" target="_blank">RHEA:17301</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ATP = O-phospho-L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17605" target="_blank">RHEA:17605</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">C-terminal L-alpha-aminoacyl-L-glutamyl-L-glutamyl-[tubulin] + L-tyrosine + ATP = C-terminal L-alpha-aminoacyl-L-glutamyl-L-glutamyl-L-tyrosyl-[tubulin] + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17665" target="_blank">RHEA:17665</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">octanoyl-[ACP] + L-lysyl-[protein] = N(6)-octanoyl-L-lysyl-[protein] + holo-[ACP] + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17841" target="_blank">RHEA:17841</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP-N-acetyl-alpha-D-glucosamine = O-(N-acetyl-alpha-D-glucosaminyl)-trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17989" target="_blank">RHEA:17989</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-seryl-[protein] + ATP = O-phospho-L-seryl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18009" target="_blank">RHEA:18009</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">glutaryl-CoA + L-lysyl-[protein] = N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18045" target="_blank">RHEA:18045</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + H2O = alpha-D-mannose derivative + alpha-D-glucose 1-phosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18673" target="_blank">RHEA:18673</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-seryl-[receptor-protein] + ATP = O-phospho-L-seryl-[receptor-protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18705" target="_blank">RHEA:18705</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;3)-N-acetyl-alpha-D-galactosaminyl derivative + UDP-N-acetyl-alpha-D-glucosamine = a beta-D-galactosyl-(1-&gt;3)-[N-acetyl-beta-D-glucosaminyl-(1-&gt;6)]-N-acetyl-alpha-D-galactosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18749" target="_blank">RHEA:18749</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">[protein]-dithiol + NAD(+) = [protein]-disulfide + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 82 more (showing 50 of 132)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3822</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10096" target="_blank">RHEA:10096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5&#x27;-thioadenosine + holo-[ACP] + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10100" target="_blank">RHEA:10100</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a sterol ester + H2O = a sterol + a fatty acid + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10120" target="_blank">RHEA:10120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10144" target="_blank">RHEA:10144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">a ribonucleoside 3&#x27;-phosphate + H2O = a ribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0140096" target="_blank">GO:0140096</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">No supported catalytic activity, acting on a protein child classifier matched</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3772 more (showing 50 of 3822)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">9</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25189" target="_blank">RHEA:25189</a></span>:
+                    <span class="reaction-label">chloroacetate + H2O = glycolate + chloride + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.8.1.3" target="_blank">EC:3.8.1.3</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25245" target="_blank">RHEA:25245</a></span>:
+                    <span class="reaction-label">(R)-S-lactoylglutathione + H2O = (R)-lactate + glutathione + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.6" target="_blank">EC:3.1.2.6</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26410" target="_blank">RHEA:26410</a></span>:
+                    <span class="reaction-label">N-acetyl-D-muramate 6-phosphate + H2O = N-acetyl-D-glucosamine 6-phosphate + (R)-lactate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.1.126" target="_blank">EC:4.2.1.126</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26554" target="_blank">RHEA:26554</a></span>:
+                    <span class="reaction-label">angiotensin II + H2O = angiotensin-(1-7) + L-phenylalanine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.4.17.23" target="_blank">EC:3.4.17.23</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28074" target="_blank">RHEA:28074</a></span>:
+                    <span class="reaction-label">(2R)-3-sulfopropanediol + 2 NAD(+) + H2O = (2R)-3-sulfolactate + 2 NADH + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.308" target="_blank">EC:1.1.1.308</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30051" target="_blank">RHEA:30051</a></span>:
+                    <span class="reaction-label">fluoroacetate + H2O = fluoride + glycolate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.8.1.3" target="_blank">EC:3.8.1.3</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36663" target="_blank">RHEA:36663</a></span>:
+                    <span class="reaction-label">(S)-1-pyrroline-5-carboxylate + malonyl-CoA + H2O + H(+) = (2S,5S)-5-carboxymethylproline + CO2 + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.226" target="_blank">EC:2.3.1.226</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: peptide → amino acid + shorter peptide</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:70535" target="_blank">RHEA:70535</a></span>:
+                    <span class="reaction-label">L-seryl-[EGF-like domain protein] + GDP-beta-L-fucose = 3-O-(alpha-L-fucosyl)-L-seryl-[EGF-like domain protein] + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.221" target="_blank">EC:2.4.1.221</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched PeptideOFucosyltransferase (2.4.1.221); Peptide-O-fucosyltransferase: GDP-fucose-dependent O-fucosylation of a peptide residue</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:70539" target="_blank">RHEA:70539</a></span>:
+                    <span class="reaction-label">L-threonyl-[EGF-like domain protein] + GDP-beta-L-fucose = 3-O-(alpha-L-fucosyl)-L-threonyl-[EGF-like domain protein] + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.221" target="_blank">EC:2.4.1.221</a></div>
+                    <div class="reaction-explanation">catalytic activity, acting on a protein: matched PeptideOFucosyltransferase (2.4.1.221); Peptide-O-fucosyltransferase: GDP-fucose-dependent O-fucosylation of a peptide residue</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

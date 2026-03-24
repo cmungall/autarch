@@ -1,0 +1,46 @@
+False Positives for Isomerase
+==================================================
+Total: 14
+
+RHEA:10336: citrate = D-threo-isocitrate
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:20325: N-hydroxy-4-acetylaminobiphenyl = N-acetoxy-4-aminobiphenyl
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:28695: hydrogencarbonate(in) = hydrogencarbonate(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:29463: K(+)(in) = K(+)(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:29671: Ca(2+)(in) = Ca(2+)(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:29675: glycerol(in) = glycerol(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:29823: chloride(in) = chloride(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:32287: (2R,3S)-3-isopropylmalate = (2S)-2-isopropylmalate
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:32799: urea(in) = urea(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:32823: phosphate(in) = phosphate(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:33171: D-maltose(in) = D-maltose(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:34915: D-galactose(in) = D-galactose(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:34963: Na(+)(in) = Na(+)(out)
+  → Isomerase: 1→1 molecular rearrangement
+
+RHEA:34979: H(+)(in) = H(+)(out)
+  → Isomerase: 1→1 molecular rearrangement
+

@@ -1,0 +1,40 @@
+False Positives for LigaseFormingCarbonCarbonBonds
+==================================================
+Total: 12
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → C-C ligase: carboxylase/biotin-dependent enzyme detected by label
+
+RHEA:11756: biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)
+  → C-C ligase: carboxylase/biotin-dependent enzyme detected by label
+
+RHEA:13501: N(6)-biotinyl-L-lysyl-[protein] + hydrogencarbonate + ATP = N(6)-carboxybiotinyl-L-lysyl-[protein] + ADP + phosphate + H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:15805: (7R,8S)-7,8-diammoniononanoate + CO2 + ATP = (4R,5S)-dethiobiotin + ADP + phosphate + 3 H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:18029: hydrogencarbonate + NH4(+) + 2 ATP = carbamoyl phosphate + 2 ADP + phosphate + 2 H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:18633: hydrogencarbonate + L-glutamine + 2 ATP + H2O = carbamoyl phosphate + L-glutamate + 2 ADP + phosphate + 2 H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:19317: 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + hydrogencarbonate + ATP = 5-carboxyamino-1-(5-phospho-D-ribosyl)imidazole + ADP + phosphate + 2 H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:19681: biotin + ATP + CoA = biotinyl-CoA + AMP + diphosphate
+  → C-C ligase: carboxylase/biotin-dependent enzyme detected by label
+
+RHEA:20896: urea + hydrogencarbonate + ATP = urea-1-carboxylate + ADP + phosphate + H(+)
+  → C-C ligase: ATP-dependent carboxylation (CO2 fixation)
+
+RHEA:23668: apo-[methylmalonyl-CoA:pyruvate carboxytransferase] + biotin + ATP = holo-[methylmalonyl-CoA:pyruvate carboxytransferase] + AMP + diphosphate + H(+)
+  → C-C ligase: carboxylase/biotin-dependent enzyme detected by label
+
+RHEA:24376: apo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → C-C ligase: carboxylase/biotin-dependent enzyme detected by label
+

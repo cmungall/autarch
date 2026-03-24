@@ -1,0 +1,34 @@
+False Positives for AldehydeOxidoreductase
+==================================================
+Total: 10
+
+RHEA:13021: vanillate + NADH + O2 + H(+) = 3,4-dihydroxybenzoate + formaldehyde + NAD(+) + H2O
+  → Aldehyde/ketone oxidoreductase: ketone/aldehyde reduction [pattern matched]
+
+RHEA:19401: methanol + NAD(+) = formaldehyde + NADH + H(+)
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation [pattern matched]
+
+RHEA:19629: D-threo-isocitrate + NADP(+) = 2-oxoglutarate + CO2 + NADPH
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation
+
+RHEA:19637: D-nopaline + NADP(+) + H2O = L-arginine + 2-oxoglutarate + NADPH + H(+)
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation [pattern matched]
+
+RHEA:21792: propan-2-ol + NADP(+) = acetone + NADPH + H(+)
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation
+
+RHEA:23632: D-threo-isocitrate + NAD(+) = 2-oxoglutarate + CO2 + NADH
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation [pattern matched]
+
+RHEA:25290: ethanol + NAD(+) = acetaldehyde + NADH + H(+)
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation [pattern matched]
+
+RHEA:26077: methanesulfonate + NADH + O2 = sulfite + formaldehyde + NAD(+) + H2O
+  → Aldehyde/ketone oxidoreductase: ketone/aldehyde reduction
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Aldehyde/ketone oxidoreductase: aldehyde/ketone oxidation [pattern matched]
+
+RHEA:31355: dimethyl sulfide + NADH + O2 + H(+) = methanethiol + formaldehyde + NAD(+) + H2O
+  → Aldehyde/ketone oxidoreductase: ketone/aldehyde reduction [pattern matched]
+

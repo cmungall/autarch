@@ -1,0 +1,70 @@
+False Negatives for Kinase
+==================================================
+Total: 22
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → No kinase pattern found
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → No kinase pattern found
+
+RHEA:11024: NH4(+) + ATP = phosphoramidate + ADP + 2 H(+)
+  → No kinase pattern found
+
+RHEA:11364: pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)
+  → No kinase pattern found
+
+RHEA:11460: D-glucose + ADP = D-glucose 6-phosphate + AMP + H(+)
+  → No kinase pattern found
+
+RHEA:13413: thymidine + ADP = dTMP + AMP + H(+)
+  → No kinase pattern found
+
+RHEA:13613: beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → No kinase pattern found
+
+RHEA:13689: glycerol + diphosphate = glycerol 1-phosphate + phosphate + H(+)
+  → No kinase pattern found
+
+RHEA:14913: thymidine + AMP = dTMP + adenosine
+  → No kinase pattern found
+
+RHEA:15953: agmatine + ATP = N(4)-phosphoagmatine + ADP + 2 H(+)
+  → No kinase pattern found
+
+RHEA:16397: 2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose
+  → No kinase pattern found
+
+RHEA:16769: (2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)
+  → No kinase pattern found
+
+RHEA:18381: dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate
+  → No kinase pattern found
+
+RHEA:18737: hydrogenselenide + ATP + H2O = selenophosphate + AMP + phosphate + 2 H(+)
+  → No kinase pattern found
+
+RHEA:20105: beta-D-fructose 6-phosphate + ADP = beta-D-fructose 1,6-bisphosphate + AMP + H(+)
+  → No kinase pattern found
+
+RHEA:20409: riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose
+  → No kinase pattern found
+
+RHEA:21288: sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol
+  → No kinase pattern found
+
+RHEA:23764: L-serine + diphosphate = O-phospho-L-serine + phosphate + H(+)
+  → No kinase pattern found
+
+RHEA:24276: acetate + diphosphate = acetyl phosphate + phosphate
+  → No kinase pattern found
+
+RHEA:10256: [(1->4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → No kinase pattern found
+
+RHEA:53904: L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)
+  → No kinase pattern found
+
+RHEA:11668: [(1->4)-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-6-phospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → No kinase pattern found
+

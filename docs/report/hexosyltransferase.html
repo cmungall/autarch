@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexosyltransferase - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>Hexosyltransferase</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:2.4.1.-" target="_blank">EC:2.4.1.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3993</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>hexosyltransferase.</p><p>Catalysis of the transfer of a hexosyl group from one compound (donor) to<br>another (acceptor).</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.862</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.952</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.787</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.989</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.860</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.998</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">140</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">7</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">38</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3808</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hexosyltransferase.py:36</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016758&quot;</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;2.4.1.-&quot;</span>
+
+    NUCLEOTIDE_HEXOSE_DONOR_IDS = {
+        <span class="str">&quot;CHEBI:18066&quot;</span>,  <span class="comment"># UDP-D-glucose</span>
+        <span class="str">&quot;CHEBI:18307&quot;</span>,  <span class="comment"># UDP-D-galactose</span>
+        <span class="str">&quot;CHEBI:58885&quot;</span>,  <span class="comment"># UDP-alpha-D-glucose(2-)</span>
+        <span class="str">&quot;CHEBI:66914&quot;</span>,  <span class="comment"># UDP-alpha-D-galactose(2-)</span>
+        <span class="str">&quot;CHEBI:57705&quot;</span>,  <span class="comment"># UDP-N-acetyl-alpha-D-glucosamine</span>
+        <span class="str">&quot;CHEBI:58052&quot;</span>,  <span class="comment"># UDP-alpha-D-glucuronate</span>
+        <span class="str">&quot;CHEBI:67138&quot;</span>,  <span class="comment"># UDP-N-acetyl-alpha-D-galactosamine</span>
+        <span class="str">&quot;CHEBI:68623&quot;</span>,  <span class="comment"># UDP-N-acetyl-alpha-D-mannosamine</span>
+        <span class="str">&quot;CHEBI:83836&quot;</span>,  <span class="comment"># UDP-rhamnose</span>
+        <span class="str">&quot;CHEBI:57527&quot;</span>,  <span class="comment"># GDP-mannose</span>
+        <span class="str">&quot;CHEBI:57273&quot;</span>,  <span class="comment"># GDP-fucose</span>
+        <span class="str">&quot;CHEBI:62230&quot;</span>,  <span class="comment"># GDP-glucose</span>
+        <span class="str">&quot;CHEBI:57498&quot;</span>,  <span class="comment"># ADP-alpha-D-glucose</span>
+        <span class="str">&quot;CHEBI:61506&quot;</span>,  <span class="comment"># CDP-linked hexose</span>
+        <span class="str">&quot;CHEBI:76533&quot;</span>,  <span class="comment"># NDP-alpha-D-glucose</span>
+        <span class="str">&quot;CHEBI:57930&quot;</span>,  <span class="comment"># dTDP-linked deoxyhexose</span>
+        <span class="str">&quot;CHEBI:70731&quot;</span>,  <span class="comment"># UDP-ManNAcA</span>
+        <span class="str">&quot;CHEBI:70784&quot;</span>,  <span class="comment"># CDP-abequose</span>
+    }
+
+    FREE_NDP_PRODUCTS = {CHEBI_UDP, CHEBI_GDP, CHEBI_ADP, CHEBI_CDP}
+
+    FREE_NMP_PRODUCTS = {CHEBI_UMP, CHEBI_CMP, CHEBI_GMP}
+
+    NTP_REACTANTS = {CHEBI_ATP, CHEBI_GTP, CHEBI_UTP, CHEBI_CTP}
+
+    LEFT_SPECTATOR_CHEBIS = {CHEBI_H2O, CHEBI_H_PLUS}
+
+    RIGHT_SPECTATOR_CHEBIS = {CHEBI_H2O, CHEBI_H_PLUS}</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hexosyltransferase.py:64</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check for EC 2.4.1-style hexosyl transfer chemistry.&quot;&quot;&quot;</span>
+        <span class="kw">if</span> reaction.is_transport_reaction():
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Transport reaction - not hexosyl transfer&quot;</span>,
+            )
+
+        forward_result = <span class="kw">self</span>._check_direction(
+            reaction.left_participants,
+            reaction.right_participants,
+        )
+        <span class="kw">if</span> forward_result.is_member:
+            <span class="kw">return</span> forward_result
+
+        reverse_result = <span class="kw">self</span>._check_direction(
+            reaction.right_participants,
+            reaction.left_participants,
+        )
+        <span class="kw">if</span> reverse_result.is_member:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=f<span class="str">&quot;{reverse_result.explanation} (reverse reaction orientation)&quot;</span>,
+            )
+
+        <span class="kw">return</span> forward_result
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">140</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10520" target="_blank">RHEA:10520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + UDP-alpha-D-galactose = a 1,2-diacyl-3-O-[alpha-D-galactosyl-(1-&gt;6)-beta-D-galactosyl]-sn-glycerol + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10568" target="_blank">RHEA:10568</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">luteolin + UDP-alpha-D-glucuronate = luteolin 7-O-beta-D-glucuronide + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11256" target="_blank">RHEA:11256</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">limonin + UDP-alpha-D-glucose + H2O = limonin 17-beta-D-glucoside + UDP + 2 H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11456" target="_blank">RHEA:11456</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N(4)-(alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11512" target="_blank">RHEA:11512</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">salicyl alcohol + UDP-alpha-D-glucose = salicin + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11520" target="_blank">RHEA:11520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(-)-menthol + UDP-alpha-D-glucose = (-)-menthyl beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11780" target="_blank">RHEA:11780</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11924" target="_blank">RHEA:11924</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a globoside Gb3Cer (d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12004" target="_blank">RHEA:12004</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">indoxyl + UDP-alpha-D-glucose = indican + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12088" target="_blank">RHEA:12088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">an N-acylsphing-4-enine + UDP-alpha-D-glucose = a beta-D-glucosyl-(1&lt;-&gt;1&#x27;)-N-acylsphing-4-enine + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12144" target="_blank">RHEA:12144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">cyanidin 3-O-rutinoside + UDP-alpha-D-glucose = cyanidin 3-O-rutinoside 5-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12404" target="_blank">RHEA:12404</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-glucose + UDP-alpha-D-galactose = lactose + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12464" target="_blank">RHEA:12464</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">myo-inositol + UDP-alpha-D-galactose = alpha-D-galactosyl-(1-&gt;3)-1D-myo-inositol + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12560" target="_blank">RHEA:12560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">hydroquinone + UDP-alpha-D-glucose = hydroquinone O-beta-D-glucopyranoside + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12576" target="_blank">RHEA:12576</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1-&gt;2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12588" target="_blank">RHEA:12588</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a ganglioside GM3 (d18:1(4E)) + UDP-N-acetyl-alpha-D-galactosamine = a ganglioside GM2 (d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12637" target="_blank">RHEA:12637</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(5R)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-galactose = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12853" target="_blank">RHEA:12853</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(S)-4-hydroxymandelonitrile + UDP-alpha-D-glucose = dhurrin + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12881" target="_blank">RHEA:12881</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">ADP-alpha-D-glucose + sn-glycerol 3-phosphate = 2-O-(alpha-D-glucopyranosyl)-sn-glycerol 3-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12885" target="_blank">RHEA:12885</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">queuosine(34) in tRNA(Asp) + GDP-alpha-D-mannose = O-4&#x27;&#x27;-alpha-D-mannosylqueuosine(34) in tRNA(Asp) + GDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12941" target="_blank">RHEA:12941</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">an N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12985" target="_blank">RHEA:12985</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = an N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-[alpha-L-Fuc-(1-&gt;6)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13013" target="_blank">RHEA:13013</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP-alpha-D-galactose = an alpha-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13093" target="_blank">RHEA:13093</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">an N-acylsphing-4-enine + UDP-alpha-D-galactose = a beta-D-galactosyl-(1&lt;-&gt;1&#x27;)-N-acylsphing-4-enine + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13129" target="_blank">RHEA:13129</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">cis-4-coumarate + UDP-alpha-D-glucose = 4&#x27;-O-beta-D-glucosyl-cis-4-coumarate + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13305" target="_blank">RHEA:13305</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(E)-sinapate + UDP-alpha-D-glucose = 1-O-(trans-sinapoyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13437" target="_blank">RHEA:13437</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(E)-cinnamate + UDP-alpha-D-glucose = 1-O-(trans-cinnamoyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13537" target="_blank">RHEA:13537</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(2R)-3-phosphoglycerate + GDP-alpha-D-mannose = 2-O-(alpha-D-mannosyl)-3-phosphoglycerate + GDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13705" target="_blank">RHEA:13705</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-Man-(1-&gt;3)-alpha-D-Man-(1-&gt;2)-alpha-D-Man-(1-&gt;2)-D-Man + UDP-N-acetyl-alpha-D-glucosamine = alpha-D-Man-(1-&gt;3)-[alpha-D-GlcNAc-(1-&gt;2)]-alpha-D-Man-(1-&gt;2)-alpha-D-Man-(1-&gt;2)-D-Man + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13757" target="_blank">RHEA:13757</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(Z)-2-phenyl-1-thioacetohydroximate + UDP-alpha-D-glucose = (Z)-desulfoglucotropeolin + UDP</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13905" target="_blank">RHEA:13905</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-N-acetyl-alpha-D-glucosamine = a beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14125" target="_blank">RHEA:14125</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 raffinose = 1(F)-alpha-D-galactosylraffinose + sucrose</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14149" target="_blank">RHEA:14149</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">luteolin 7-O-beta-D-glucuronide + UDP-alpha-D-glucuronate = luteolin 7-O-[(beta-D-glucuronosyl)-(1-&gt;2)-(beta-D-glucuronide)] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14153" target="_blank">RHEA:14153</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">17alpha-estradiol 3-O-(beta-D-glucuronate) + UDP-N-acetyl-alpha-D-glucosamine = 17alpha-(N-acetyl-alpha-D-glucosaminyl)estradiol 3-glucosiduronate + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14257" target="_blank">RHEA:14257</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + GDP-beta-L-fucose = a beta-D-galactosyl-(1-&gt;4)-[alpha-L-fucosyl-(1-&gt;3)]-N-acetyl-beta-D-glucosaminyl derivative + GDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14285" target="_blank">RHEA:14285</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + UDP-alpha-D-galactose = 2-(alpha-D-galactosyl)-sn-glycerol 3-phosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14325" target="_blank">RHEA:14325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">7,8-dihydroxycoumarin + UDP-alpha-D-glucose = daphnin + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14349" target="_blank">RHEA:14349</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">an alpha-L-fucosyl-(1-&gt;2)-beta-D-galactosyl derivative + UDP-alpha-D-galactose = an alpha-D-galactosyl-(1-&gt;3)-[alpha-L-fucosyl-(1-&gt;2)]-beta-D-galactosyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14389" target="_blank">RHEA:14389</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP-N-acetyl-alpha-D-glucosamine = an N-acetyl-beta-D-glucosaminyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14461" target="_blank">RHEA:14461</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(25S)-5beta-spirostan-3beta-ol + UDP-alpha-D-glucose = (25S)-5beta-spirostan-3beta-yl beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14789" target="_blank">RHEA:14789</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) + UDP-N-acetyl-alpha-D-glucosamine = a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14921" target="_blank">RHEA:14921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(indol-3-yl)acetate + UDP-alpha-D-glucose = 1-O-(indol-3-ylacetyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14945" target="_blank">RHEA:14945</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-sn-glycerol + UDP-alpha-D-galactose = a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15153" target="_blank">RHEA:15153</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">4-hydroxybenzoate + UDP-alpha-D-glucose = 4-(beta-D-glucosyloxy)benzoate + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15249" target="_blank">RHEA:15249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3,4,5-trihydroxybenzoate + UDP-alpha-D-glucose = 1-O-galloyl-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15297" target="_blank">RHEA:15297</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15473" target="_blank">RHEA:15473</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">flavanone 7-O-beta-D-glucoside + UDP-beta-L-rhamnose = flavanone 7-O-[alpha-L-rhamnosyl-(1-&gt;2)-beta-D-glucoside] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15509" target="_blank">RHEA:15509</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;4)]-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 90 more (showing 50 of 140)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">7</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11416" target="_blank">RHEA:11416</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12905" target="_blank">RHEA:12905</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-mannose 1-phosphate + GDP + H(+) = GDP-alpha-D-mannose + phosphate</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor (reverse reaction orientation)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19109" target="_blank">RHEA:19109</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">1,2,3,6-tetrakis-O-galloyl-beta-D-glucose + 1-O-galloyl-beta-D-glucose = 1,2,3,4,6-pentakis-O-galloyl-beta-D-glucose + D-glucose + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22664" target="_blank">RHEA:22664</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 1-O-(trans-sinapoyl)-beta-D-glucose = 1,2-di-O-sinapoyl beta-D-glucose + D-glucose</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23472" target="_blank">RHEA:23472</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 alpha,alpha&#x27;-trehalose 6-mycolate = alpha,alpha&#x27;-trehalose 6,6&#x27;-bismycolate + alpha,alpha-trehalose</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30387" target="_blank">RHEA:30387</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">GDP-alpha-D-glucose + phosphate = alpha-D-glucose 1-phosphate + GDP + H(+)</span>
+                <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34195" target="_blank">RHEA:34195</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 2&#x27;,3,4,4&#x27;,6&#x27;-pentahydroxychalcone 4&#x27;-O-beta-D-glucoside + O2 + 2 H(+) = 2 aureusidin 6-O-beta-glucoside + 2 H2O</span>
+                <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">38</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11176" target="_blank">RHEA:11176</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">kojibiose + phosphate = beta-D-glucose 1-phosphate + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14605" target="_blank">RHEA:14605</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">GDP-alpha-D-glucose + D-glucose 6-phosphate = alpha,alpha-trehalose 6-phosphate + GDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15921" target="_blank">RHEA:15921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol = a 1,2-diacyl-3-O-[beta-D-galactosyl-(1-&gt;6)-beta-D-galactosyl]-sn-glycerol + a 1,2-diacyl-sn-glycerol</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16053" target="_blank">RHEA:16053</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-mannosamine + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16257" target="_blank">RHEA:16257</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha,alpha-trehalose + phosphate = alpha-D-glucose + alpha-D-glucose 1-phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16617" target="_blank">RHEA:16617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">beta-D-glucosyl-(1-&gt;3)-D-glucose + phosphate = alpha-D-glucose 1-phosphate + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16885" target="_blank">RHEA:16885</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside = bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18889" target="_blank">RHEA:18889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-glucose 6-phosphate + UDP-alpha-D-glucose = alpha,alpha-trehalose 6-phosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19493" target="_blank">RHEA:19493</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-cellobiose + phosphate = alpha-D-glucose 1-phosphate + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20161" target="_blank">RHEA:20161</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-galactosyl-(1-&gt;3)-1D-myo-inositol + sucrose = raffinose + myo-inositol</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20285" target="_blank">RHEA:20285</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">beta-D-galactosyl-(1-&gt;3)-N-acetyl-D-glucosamine + phosphate = alpha-D-galactose 1-phosphate + N-acetyl-D-glucosamine</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20776" target="_blank">RHEA:20776</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-galactosyl-(1-&gt;3)-1D-myo-inositol + raffinose = stachyose + myo-inositol</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20864" target="_blank">RHEA:20864</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha,alpha-trehalose 6-phosphate + phosphate = beta-D-glucose 1-phosphate + D-glucose 6-phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20952" target="_blank">RHEA:20952</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-glucose = beta-D-glucosyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21116" target="_blank">RHEA:21116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-maltose + phosphate = beta-D-glucose 1-phosphate + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22320" target="_blank">RHEA:22320</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 alpha-D-glucose 1-phosphate + H2O = D-maltose + 2 phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23192" target="_blank">RHEA:23192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-di-trans,octa-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-glucosamine = beta-D-GlcNAc-(1-&gt;4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23512" target="_blank">RHEA:23512</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha,alpha-trehalose + phosphate = beta-D-glucose 1-phosphate + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24048" target="_blank">RHEA:24048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">sucrose + phosphate = D-fructose + alpha-D-glucose 1-phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28366" target="_blank">RHEA:28366</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1-&gt;4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28759" target="_blank">RHEA:28759</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">beta-D-ManNAcA-(1-&gt;4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + dTDP-4-acetamido-4,6-dideoxy-alpha-D-galactose = alpha-D-FucNAc4-(1-&gt;4)-beta-D-ManNAcA-(1-&gt;4)-D-GlcNAc-undecaprenyl diphosphate + dTDP + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29691" target="_blank">RHEA:29691</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-maltotetraose + phosphate = alpha-maltotriose + alpha-D-glucose 1-phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30003" target="_blank">RHEA:30003</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-Gal-(1-&gt;6)-alpha-D-Glc-(1-&gt;3)-[L-alpha-D-Hep-(1-&gt;7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;3)-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;5)-[alpha-Kdo-(2-&gt;4)]-alpha-Kdo-(2-&gt;6)-lipid A + UDP-alpha-D-glucose = alpha-D-Glc-(1-&gt;3)-[alpha-D-Gal-(1-&gt;6)]-alpha-D-Glc-(1-&gt;3)-[L-alpha-D-Hep-(1-&gt;7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;3)-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;5)-[alpha-Kdo-(2-&gt;4)]-alpha-Kdo-(2-&gt;6)-lipid A + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30015" target="_blank">RHEA:30015</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">alpha-D-Glc-(1-&gt;3)-[alpha-D-Gal-(1-&gt;6)]-alpha-D-Glc-(1-&gt;3)-[L-alpha-D-Hep-(1-&gt;7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;3)-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;5)-[alpha-Kdo-(2-&gt;4)]-alpha-Kdo-(2-&gt;6)-lipid A + UDP-alpha-D-glucose = alpha-D-Glc-(1-&gt;2)-alpha-D-Glc-(1-&gt;3)-[alpha-D-Gal-(1-&gt;6)]-alpha-D-Glc-(1-&gt;3)-[L-alpha-D-Hep-(1-&gt;7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;3)-4-O-PO3(2-)-L-alpha-D-Hep-(1-&gt;5)-[alpha-Kdo-(2-&gt;4)]-alpha-Kdo-(2-&gt;6)-lipid A + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31227" target="_blank">RHEA:31227</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">di-trans,octa-cis-undecaprenyl diphospho-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + UDP-N-acetyl-alpha-D-glucosamine = di-trans,octa-cis-undecaprenyl diphospho-[N-acetyl-alpha-D-glucosaminyl-(1-&gt;4)]-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34183" target="_blank">RHEA:34183</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">CDP-alpha-D-abequose + alpha-D-Man-(1-&gt;4)-alpha-L-Rha-(1-&gt;3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate = alpha-D-Abe-(1-&gt;3)-alpha-D-Man-(1-&gt;4)-alpha-L-Rha-(1-&gt;3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate + CDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34487" target="_blank">RHEA:34487</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-1-diphospho-trans,octa-cis-decaprenol + dTDP-beta-L-rhamnose = alpha-L-rhamnosyl-(1-&gt;3)-N-acetyl-alpha-D-glucosaminyl-diphospho-trans,octa-cis-decaprenol + dTDP + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34511" target="_blank">RHEA:34511</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = N-acetyl-alpha-D-galactosaminyl-(1-&gt;3)-N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">Nucleotide-sugar interconversion, not transfer to an external acceptor</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35427" target="_blank">RHEA:35427</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">cyanidin 3-O-beta-D-glucoside + 1-O-(trans-sinapoyl)-beta-D-glucose = cyanidin 3,5-di-O-beta-D-glucoside + (E)-sinapate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35431" target="_blank">RHEA:35431</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">1-O-(4-hydroxy-3-methoxybenzoyl)-beta-D-glucose + cyanidin 3-O-beta-D-glucoside = cyanidin 3,7-di-O-beta-D-glucoside + vanillate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20908" target="_blank">RHEA:20908</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3-O-{alpha-D-GlcNAc-[(1-&gt;4)-beta-D-GlcA-(1-&gt;4)-alpha-D-GlcNAc](n)-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-{[(1-&gt;4)-beta-D-GlcA-(1-&gt;4)-alpha-D-GlcNAc](n+1)-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21012" target="_blank">RHEA:21012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">4-O-[(D-ribitylphospho)(n)-di{(2R)-glycerylphospho}]-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-N-acetyl-alpha-D-glucosamine = 4-O-([2-N-acetyl-alpha-D-glucosaminyl-1-D-ribitylphospho](n)-di{[2R]-1-glycerylphospho})-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13653" target="_blank">RHEA:13653</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">[6)-beta-D-fructofuranosyl-(2-&gt;](n) alpha-D-glucopyranoside + sucrose = [6)-beta-D-fructofuranosyl-(2-&gt;](n+1) alpha-D-glucopyranoside + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10068" target="_blank">RHEA:10068</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15845" target="_blank">RHEA:15845</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">4-O-{[(2R)-1-glycerylphospho](n)-(2R)-1-glycerylphospho}-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-{[(2R)-2-alpha-D-glucosyl-1-glycerylphospho](n)-(2R)-1-glycerylphospho}-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl undecaprenyl diphosphate + n UDP + n H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16213" target="_blank">RHEA:16213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3-O-{[(1-&gt;4)-beta-D-GlcA-(1-&gt;4)-alpha-D-GlcNAc](n)-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{alpha-D-GlcNAc-[(1-&gt;4)-beta-D-GlcA-(1-&gt;4)-alpha-D-GlcNAc](n)-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56560" target="_blank">RHEA:56560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">[1,4-alpha-D-glucosyl](n)-L-tyrosyl-[glycogenin] + UDP-alpha-D-glucose = [1,4-alpha-D-glucosyl](n+1)-L-tyrosyl-[glycogenin] + UDP + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22980" target="_blank">RHEA:22980</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a di-trans,poly-cis-dolichyl diphosphooligosaccharide + L-asparaginyl-[protein] = N(4)-(oligosaccharide-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + a di-trans,poly-cis-dolichyl diphosphate + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3808</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10096" target="_blank">RHEA:10096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5&#x27;-thioadenosine + holo-[ACP] + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10100" target="_blank">RHEA:10100</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a sterol ester + H2O = a sterol + a fatty acid + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10120" target="_blank">RHEA:10120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10144" target="_blank">RHEA:10144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">a ribonucleoside 3&#x27;-phosphate + H2O = a ribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Transport reaction - not hexosyl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016758" target="_blank">GO:0016758</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No hexosyl-transfer pattern detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3758 more (showing 50 of 3808)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">29</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10856" target="_blank">RHEA:10856</a></span>:
+                    <span class="reaction-label">a N-(2-hydroxyacyl)sphing-4-enine + UDP-alpha-D-galactose = a 1-(beta-D-galactosyl)-2-(2-hydroxyacyl)sphing-4-enine + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.47" target="_blank">EC:2.4.1.47</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17285" target="_blank">RHEA:17285</a></span>:
+                    <span class="reaction-label">a 1,2-diacyl-sn-glycerol + UDP-alpha-D-glucose = a 1,2-diacyl-3-O-(beta-D-glucopyranosyl)-sn-glycerol + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.336" target="_blank">EC:2.4.1.336</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17497" target="_blank">RHEA:17497</a></span>:
+                    <span class="reaction-label">formononetin + UDP-alpha-D-glucose = ononin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.170" target="_blank">EC:2.4.1.170</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20800" target="_blank">RHEA:20800</a></span>:
+                    <span class="reaction-label">3-O-(beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-(beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.175" target="_blank">EC:2.4.1.175</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20872" target="_blank">RHEA:20872</a></span>:
+                    <span class="reaction-label">(20S)-ginsenoside Rd + UDP-alpha-D-glucose = (20S)-ginsenoside Rb1 + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.314" target="_blank">EC:2.4.1.314</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23428" target="_blank">RHEA:23428</a></span>:
+                    <span class="reaction-label">3-O-(beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-(beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.226" target="_blank">EC:2.4.1.226</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23956" target="_blank">RHEA:23956</a></span>:
+                    <span class="reaction-label">L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.41" target="_blank">EC:2.4.1.41</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24448" target="_blank">RHEA:24448</a></span>:
+                    <span class="reaction-label">enterobactin + UDP-alpha-D-glucose = monoglucosyl-enterobactin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.369" target="_blank">EC:2.4.1.369</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24861" target="_blank">RHEA:24861</a></span>:
+                    <span class="reaction-label">pelargonidin 3-O-rutinoside + UDP-alpha-D-glucose = pelargonidin 3-O-rutinoside 5-O-beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.116" target="_blank">EC:2.4.1.116</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25408" target="_blank">RHEA:25408</a></span>:
+                    <span class="reaction-label">ADP-alpha-D-glucose + D-glucose = alpha,alpha-trehalose + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.245" target="_blank">EC:2.4.1.245</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25670" target="_blank">RHEA:25670</a></span>:
+                    <span class="reaction-label">sucrose + UDP-alpha-D-galactose = loliose + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.n2" target="_blank">EC:2.4.1.n2</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30899" target="_blank">RHEA:30899</a></span>:
+                    <span class="reaction-label">bis(beta-D-glucosyl) crocetin + UDP-alpha-D-glucose = beta-D-gentiobiosyl beta-D-glucosyl crocetin + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.330" target="_blank">EC:2.4.1.330</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30923" target="_blank">RHEA:30923</a></span>:
+                    <span class="reaction-label">ADP-alpha-D-glucose + (R)-glycerate = (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.268" target="_blank">EC:2.4.1.268</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31027" target="_blank">RHEA:31027</a></span>:
+                    <span class="reaction-label">2-trans-(+)-abscisate + UDP-alpha-D-glucose = beta-D-glucopyranosyl trans-(+)-abscisate + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.263" target="_blank">EC:2.4.1.263</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31311" target="_blank">RHEA:31311</a></span>:
+                    <span class="reaction-label">ADP-alpha-D-glucose + (2R)-3-phosphoglycerate = (2R)-2-O-(alpha-D-glucopyranosyl)-3-phospho-glycerate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.266" target="_blank">EC:2.4.1.266</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31319" target="_blank">RHEA:31319</a></span>:
+                    <span class="reaction-label">(2R)-3-phosphoglycerate + UDP-alpha-D-glucose = (2R)-2-O-(alpha-D-glucopyranosyl)-3-phospho-glycerate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.266" target="_blank">EC:2.4.1.266</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31463" target="_blank">RHEA:31463</a></span>:
+                    <span class="reaction-label">crocetin + UDP-alpha-D-glucose = beta-D-glucosyl crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31467" target="_blank">RHEA:31467</a></span>:
+                    <span class="reaction-label">beta-D-glucosyl crocetin + UDP-alpha-D-glucose = bis(beta-D-glucosyl) crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31471" target="_blank">RHEA:31471</a></span>:
+                    <span class="reaction-label">beta-D-gentiobiosyl crocetin + UDP-alpha-D-glucose = beta-D-gentiobiosyl beta-D-glucosyl crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31479" target="_blank">RHEA:31479</a></span>:
+                    <span class="reaction-label">soyasapogenol A + UDP-alpha-D-glucuronate = soyasapogenol A 3-O-beta-D-glucuronate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.262" target="_blank">EC:2.4.1.262</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31483" target="_blank">RHEA:31483</a></span>:
+                    <span class="reaction-label">soyasapogenol E + UDP-alpha-D-glucuronate = soyasapogenol E 3-O-beta-D-glucuronate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.262" target="_blank">EC:2.4.1.262</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31499" target="_blank">RHEA:31499</a></span>:
+                    <span class="reaction-label">a beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a neolactoside nLc4Cer(d18:1(4E)) + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.275" target="_blank">EC:2.4.1.275</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31543" target="_blank">RHEA:31543</a></span>:
+                    <span class="reaction-label">all-trans-zeaxanthin + 2 UDP-alpha-D-glucose = zeaxanthin bis(beta-D-glucoside) + 2 UDP + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.276" target="_blank">EC:2.4.1.276</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32175" target="_blank">RHEA:32175</a></span>:
+                    <span class="reaction-label">a beta-D-Gal-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1&#x27;)-Cer(d18:1(4E)) + GDP-beta-L-fucose = alpha-L-fucosyl-(1-&gt;2)- beta-D-galactosyl-(1-&gt;3)-N-acetyl-beta-D-glucosaminyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-beta-D-glucosyl-(1&lt;-&gt;1&#x27;)-N-acylsphing-4-enine + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.69" target="_blank">EC:2.4.1.69</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32355" target="_blank">RHEA:32355</a></span>:
+                    <span class="reaction-label">delphinidin 3-O-(6&#x27;&#x27;-O-malonyl)-beta-D-glucoside + 2 UDP-alpha-D-glucose = ternatin C5 + 2 UDP + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.249" target="_blank">EC:2.4.1.249</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33951" target="_blank">RHEA:33951</a></span>:
+                    <span class="reaction-label">ribostamycin + UDP-N-acetyl-alpha-D-glucosamine = 2&#x27;&#x27;&#x27;-acetyl-6&#x27;&#x27;&#x27;-hydroxyneomycin C + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.285" target="_blank">EC:2.4.1.285</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33955" target="_blank">RHEA:33955</a></span>:
+                    <span class="reaction-label">DIBOA + UDP-alpha-D-glucose = DIBOA beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.202" target="_blank">EC:2.4.1.202</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35415" target="_blank">RHEA:35415</a></span>:
+                    <span class="reaction-label">an anthocyanidin 3-O-beta-D-sambubioside + UDP-alpha-D-glucose = an anthocyanidin 5-O-beta-D-glucoside 3-O-beta-D-sambubioside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.295" target="_blank">EC:2.4.1.295</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35635" target="_blank">RHEA:35635</a></span>:
+                    <span class="reaction-label">an anthocyanidin 3-O-[2-O-(4-coumaroyl)-alpha-L-rhamnosyl-(1-&gt;6)-beta-D-glucoside] + UDP-alpha-D-glucose = an anthocyanidin 3-O-[2-O-(4-coumaroyl)-alpha-L-rhamnosyl-(1-&gt;6)-beta-D-glucoside] 5-O-beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.296" target="_blank">EC:2.4.1.296</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: nucleotide-hexose donor transfers a hexosyl group to an acceptor</div>
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">2</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35399" target="_blank">RHEA:35399</a></span>:
+                    <span class="reaction-label">cyanidin 3-O-(6-O-glucosyl-2-O-xylosylgalactoside) betaine + 1-O-(trans-4-coumaroyl)-beta-D-glucose = cyanidin 3-O-[6-O-(6-O-4-hydroxycinnamoyl-beta-D-glucosyl)-2-O-beta-D-xylosyl-beta-D-galactoside] + beta-D-glucose + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.213" target="_blank">EC:2.3.1.213</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35579" target="_blank">RHEA:35579</a></span>:
+                    <span class="reaction-label">anthocyanin A8 + 1-O-(trans-sinapoyl)-beta-D-glucose = anthocyanin A11 + D-glucose</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.n12" target="_blank">EC:2.3.1.n12</a></div>
+                    <div class="reaction-explanation">Hexosyltransferase: carbohydrate donor transfers a hexosyl group to another acceptor</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

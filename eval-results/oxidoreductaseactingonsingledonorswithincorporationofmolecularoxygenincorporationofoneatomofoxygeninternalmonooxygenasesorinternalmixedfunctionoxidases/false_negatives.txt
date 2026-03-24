@@ -1,0 +1,19 @@
+False Negatives for OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfOneAtomOfOxygenInternalMonooxygenasesOrInternalMixedFunctionOxidases
+==================================================
+Total: 5
+
+RHEA:14765: coelenterazine h + O2 = excited coelenteramide h monoanion + hnu + CO2 + H(+)
+  → Non-ATP internal monooxygenases without water release should show amide formation in the principal product
+
+RHEA:23228: L-lysine + NADPH + O2 = N(6)-hydroxy-L-lysine + NADP(+) + H2O
+  → External nicotinamide, flavin, ferredoxin, peroxide, or 2-oxoglutarate cochemistry indicates another oxygenase branch
+
+RHEA:26023: 8'-apo-beta-carotenol + O2 = 14'-apo-beta-carotenal + (3E,5E)-7-hydroxy-6-methylhepta-3,5-dienal
+  → Internal monooxygenases in this branch are treated as decarboxylative oxygenations and should release carbon dioxide
+
+RHEA:26458: ethylnitronate + FMNH2 + O2 = acetaldehyde + FMN + nitrite + H2O + 2 H(+)
+  → External nicotinamide, flavin, ferredoxin, peroxide, or 2-oxoglutarate cochemistry indicates another oxygenase branch
+
+RHEA:30359: chlorophyllide a + 2 NADPH + 2 O2 + 2 H(+) = chlorophyllide b + 2 NADP(+) + 3 H2O
+  → External nicotinamide, flavin, ferredoxin, peroxide, or 2-oxoglutarate cochemistry indicates another oxygenase branch
+

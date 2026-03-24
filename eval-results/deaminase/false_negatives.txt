@@ -1,0 +1,67 @@
+False Negatives for Deaminase
+==================================================
+Total: 21
+
+RHEA:10148: blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:10560: 4-hydroxy-1-pyrroline-2-carboxylate + H2O + H(+) = 2,5-dioxopentanoate + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:12172: alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:12681: creatinine + H2O + H(+) = N-methylhydantoin + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:12741: ADP + H2O + H(+) = IDP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:12861: guanosine + H2O + H(+) = xanthosine + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:13037: ATP + H2O + H(+) = ITP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:14025: L-sepiapterin + H2O + H(+) = (S)-xanthopterin-B2 + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:14537: 1-(4-amino-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + H2O + H(+) = 1-(4-hydroxy-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:14777: AMP + H2O + H(+) = IMP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:15929: methylenediurea + 2 H2O + 2 H(+) = N-(hydroxymethyl)urea + 2 NH4(+) + CO2
+  → Carbamoyl hydrolase - produces CO2, not cyclic amidine deaminase
+
+RHEA:16001: N(6)-methyl-AMP + H2O + H(+) = IMP + methylamine
+  → No ammonia/ammonium product - not deamination
+
+RHEA:16933: 1-aminocyclopropane-1-carboxylate + H2O = 2-oxobutanoate + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:19205: dCTP + 2 H2O = dUMP + NH4(+) + diphosphate
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:20716: S-adenosyl-L-homocysteine + H2O + H(+) = S-inosyl-L-homocysteine + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:20996: (2Z,4E)-2-aminomuconate + H2O = (3E)-2-oxohex-3-enedioate + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:21868: 2,5-diamino-6-hydroxy-4-(5-phosphoribosylamino)-pyrimidine + H2O + H(+) = 5-amino-6-(5-phospho-D-ribosylamino)uracil + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:22680: dCTP + H2O + H(+) = dUTP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:22924: dCMP + H2O + H(+) = dUMP + NH4(+)
+  → No nucleoside/nucleotide deamination pattern
+
+RHEA:43168: adenosine(34) in tRNA + H2O + H(+) = inosine(34) in tRNA + NH4(+)
+  → No water substrate - deaminases are hydrolases
+

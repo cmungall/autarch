@@ -1,0 +1,19 @@
+False Positives for Kinase
+==================================================
+Total: 5
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Kinase: phosphoryl transfer (ATP → ADP)
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → Kinase: phosphoryl transfer (ATP → ADP)
+
+RHEA:10224: pyridoxal + ATP = pyridoxal 5'-phosphate + ADP + H(+)
+  → Kinase: phosphoryl transfer (ATP → ADP)
+
+RHEA:10272: a 1,2-diacyl-sn-glycerol + ATP = a 1,2-diacyl-sn-glycero-3-phosphate + ADP + H(+)
+  → Kinase: phosphoryl transfer (ATP → ADP)
+
+RHEA:10276: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ATP + H(+) = 1,5-bis(diphospho)-1D-myo-inositol 2,3,4,6-tetrakisphosphate + ADP
+  → Kinase: phosphoryl transfer (ATP → ADP)
+

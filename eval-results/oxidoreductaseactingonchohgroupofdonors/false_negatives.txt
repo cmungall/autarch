@@ -1,0 +1,169 @@
+False Negatives for OxidoreductaseActingOnCHOHGroupOfDonors
+==================================================
+Total: 55
+
+RHEA:10036: 4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:10552: D-glucose + O2 = 2-dehydro-D-glucose + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:10992: glycolate + NADP(+) = glyoxylate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:11168: 3-hydroxy-6-carboxyhexanoyl-CoA + NAD(+) = 3-oxo-6-carboxyhexanoyl-CoA + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:11428: beta-D-glucose + O2 = D-glucono-1,5-lactone + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:11796: ecdysone + O2 = 3-dehydroecdysone + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:12248: UDP-N-acetyl-alpha-D-muramate + NADP(+) = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + NADPH + H(+)
+  → Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1
+
+RHEA:12809: 4 catechol + 3 O2 = 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:13029: N-acetyl-D-glucosamine + O2 + H2O = N-acetyl-D-glucosaminate + H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:13281: (2S,3S)-3-hydroxy-2-methylbutanoyl-CoA + NAD(+) = 2-methyl-3-oxobutanoyl-CoA + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:13357: 3-hydroxypropanoate + NAD(+) = 3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:13505: choline + O2 = betaine aldehyde + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:13521: (R)-lactate + 2 Fe(III)-[cytochrome c] = 2 Fe(II)-[cytochrome c] + pyruvate + 2 H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:14225: 6-hydroxyhexanoate + NAD(+) = 6-oxohexanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:14833: (R)-mevalonate + 2 NAD(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADH + 2 H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:14909: L-gulonate + NADP(+) = aldehydo-D-glucuronate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15033: pyridoxine + O2 = pyridoxal + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:15109: 2-dehydro-3-deoxy-D-gluconate + NADP(+) = (4S,5S)-4,5-dihydroxy-2,6-dioxohexanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15489: adenosine + 2 O2 + H2O = 9-riburonosyladenine + 2 H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:15505: (S)-2-hydroxymethylglutarate + NAD(+) = 2-formylglutarate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15761: L-homoserine + NADP(+) = L-aspartate 4-semialdehyde + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:15833: (S)-4-hydroxymandelate + O2 + H(+) = 4-hydroxybenzaldehyde + H2O2 + CO2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:15989: (R)-mevalonate + 2 NADP(+) + CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADPH + 2 H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:16197: (3S)-3-hydroxybutanoyl-CoA + NADP(+) = acetoacetyl-CoA + NADPH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:16465: 2 Fe(III)-[cytochrome c553] + (R)-lactate = 2 Fe(II)-[cytochrome c553] + pyruvate + 2 H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:17397: a (3R)-hydroxyacyl-[ACP] + NADP(+) = a 3-oxoacyl-[ACP] + NADPH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:17597: D-mannitol + 2 Fe(III)-[cytochrome c] = D-fructose + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:17681: 3-hydroxy-2-methylpropanoate + NAD(+) = 2-methyl-3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:17853: keto-L-sorbose + O2 = 5-dehydro-D-fructose + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:18229: glycolate + NAD(+) = glyoxylate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:18369: sn-glycerol 3-phosphate + O2 = dihydroxyacetone phosphate + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:18513: D-mannitol + O2 = D-mannose + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:18841: (R)-glycerate + NADP(+) = 2-hydroxy-3-oxopropanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:18845: (R)-glycerate + NAD(+) = 2-hydroxy-3-oxopropanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:19909: (S)-lactate + 2 Fe(III)-[cytochrome c] = 2 Fe(II)-[cytochrome c] + pyruvate + 2 H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:19913: a (3R)-hydroxyacyl-[ACP] + NAD(+) = a 3-oxoacyl-[ACP] + NADH + H(+)
+  → ACP-linked acyl chemistry - not CH-OH donor class
+
+RHEA:19981: S-(hydroxymethyl)glutathione + NADP(+) = S-formylglutathione + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:19985: S-(hydroxymethyl)glutathione + NAD(+) = S-formylglutathione + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:20617: L-galactono-1,4-lactone + O2 = L-ascorbate + H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:20637: D-fructose + D-glucose = D-glucono-1,5-lactone + D-sorbitol
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:20880: 10-hydroxydecanoate + NAD(+) = 10-oxodecanoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:21280: thiamine + 2 O2 + H2O = thiamine acetate + 2 H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:21596: L-serine + NADP(+) = 2-aminomalonate semialdehyde + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:21680: (2S)-2-hydroxyphytanate + O2 = 2-oxophytanate + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:22308: xylitol + O2 = D-xylose + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:23000: (R)-pantoate + NAD(+) = (R)-4-dehydropantoate + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:23756: D-arabinono-1,4-lactone + O2 = dehydro-D-arabinono-1,4-lactone + H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:23948: 4-hydroxybutanoate + NAD(+) = succinate semialdehyde + NADH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:24160: D-galactose + O2 = D-galacto-hexodialdose + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:26345: L-galactonate + NADP(+) = aldehydo-D-galacturonate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:26438: 3-hydroxypropanoate + NADP(+) = 3-oxopropanoate + NADPH + H(+)
+  → Carboxylate -> aldehyde reverse EC 1.2 pattern (SMARTS)
+
+RHEA:28651: inosine + O2 = 9-riburonosylhypoxanthine + H2O + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:32183: cholesterol + O2 = cholest-5-en-3-one + H2O2
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+
+RHEA:32363: L-gulono-1,4-lactone + O2 = L-ascorbate + H2O2 + H(+)
+  → No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP
+

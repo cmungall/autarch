@@ -1,0 +1,10 @@
+False Positives for TransitionMetalIonTransmembraneTransporterActivity
+==================================================
+Total: 2
+
+RHEA:18105: Ca(2+)(in) + ATP + H2O = Ca(2+)(out) + ADP + phosphate + H(+)
+  → Transition metal ion transmembrane transporter activity
+
+RHEA:29671: Ca(2+)(in) = Ca(2+)(out)
+  → Transition metal ion transmembrane transporter activity
+

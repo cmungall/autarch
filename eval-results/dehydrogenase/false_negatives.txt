@@ -1,0 +1,112 @@
+False Negatives for Dehydrogenase
+==================================================
+Total: 36
+
+RHEA:10392: (E)-cinnamyl alcohol + NADP(+) = (E)-cinnamaldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:10664: perillyl alcohol + NAD(+) = perillyl aldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:12248: UDP-N-acetyl-alpha-D-muramate + NADP(+) = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + NADPH + H(+)
+  → Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1
+
+RHEA:12548: 2-cis,4-trans-xanthoxin + NAD(+) = 2-cis-(+)-abscisic aldehyde + NADH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:14521: (2E)-geraniol + NADP(+) = (2E)-geranial + NADPH + H(+)
+  → CH-CH pattern detected (enoyl/unsaturated) - EC 1.3, not EC 1.1
+
+RHEA:14873: indole-3-ethanol + NAD(+) = indole-3-acetaldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:15761: L-homoserine + NADP(+) = L-aspartate 4-semialdehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:15789: L-xylose + NADP(+) = L-xylono-1,4-lactone + NADPH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:15885: propane-1,2-diol + NADP(+) = (S)-lactaldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:15933: (S)-propane-1,2-diol + NAD(+) = (S)-lactaldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:17037: indole-3-ethanol + NADP(+) = indole-3-acetaldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:17397: a (3R)-hydroxyacyl-[ACP] + NADP(+) = a 3-oxoacyl-[ACP] + NADPH + H(+)
+  → Generic template reaction - not specific
+
+RHEA:19401: methanol + NAD(+) = formaldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:19733: 3-deacetyl-3-(1-hydroxyethyl)bacteriochlorophyllide a + NAD(+) = bacteriochlorophyllide a + NADH + H(+)
+  → Generic template reaction - not specific
+
+RHEA:19773: sn-glycerol 3-phosphate + NADP(+) = D-glyceraldehyde 3-phosphate + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:19913: a (3R)-hydroxyacyl-[ACP] + NAD(+) = a 3-oxoacyl-[ACP] + NADH + H(+)
+  → Generic template reaction - not specific
+
+RHEA:19981: S-(hydroxymethyl)glutathione + NADP(+) = S-formylglutathione + NADPH + H(+)
+  → Disulfide/thiol reaction - not CH-OH
+
+RHEA:19985: S-(hydroxymethyl)glutathione + NAD(+) = S-formylglutathione + NADH + H(+)
+  → Disulfide/thiol reaction - not CH-OH
+
+RHEA:21336: pyridoxal + NAD(+) = 4-pyridoxolactone + NADH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:21596: L-serine + NADP(+) = 2-aminomalonate semialdehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:21748: (S)-lactaldehyde + NADP(+) = methylglyoxal + NADPH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:22056: hexadecan-1-ol + NAD(+) = hexadecanal + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:22340: 3-hydroxybenzyl alcohol + NADP(+) = 3-hydroxybenzaldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:22444: (E)-coniferol + NADP(+) = (E)-coniferaldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:23592: glycerol + NADP(+) = D-glyceraldehyde + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:23872: (R)-propane-1,2-diol + NAD(+) = (R)-lactaldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:23948: 4-hydroxybutanoate + NAD(+) = succinate semialdehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:24528: (R)-lactaldehyde + NAD(+) = methylglyoxal + NADH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:25290: ethanol + NAD(+) = acetaldehyde + NADH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:25363: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NAD(+) = momilactone A + NADH + H(+)
+  → Generic template reaction - not specific
+
+RHEA:25367: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NADP(+) = momilactone A + NADPH + H(+)
+  → Generic template reaction - not specific
+
+RHEA:29587: 4-carboxy-2-hydroxymuconate semialdehyde hemiacetal + NADP(+) = 2-oxo-2H-pyran-4,6-dicarboxylate + NADPH + H(+)
+  → Aldehyde oxidation pattern - EC 1.2, not EC 1.1
+
+RHEA:32611: (6E)-8-hydroxygeranial + NADP(+) = (6E)-8-oxogeranial + NADPH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:32615: (6E)-8-oxogeraniol + NADP(+) = (6E)-8-oxogeranial + NADPH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:55668: 11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+
+RHEA:48488: all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)
+  → Aldehyde substrate detected (SMARTS) - EC 1.2, not EC 1.1
+

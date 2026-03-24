@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnPeroxideAsAcceptor
+==================================================
+Total: 1
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → No supported oxidoreductase acting on peroxide as acceptor child classifier matched
+

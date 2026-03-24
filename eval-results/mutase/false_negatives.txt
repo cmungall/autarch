@@ -1,0 +1,37 @@
+False Negatives for Mutase
+==================================================
+Total: 11
+
+RHEA:11140: alpha-D-mannose 1-phosphate = D-mannose 6-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:15901: (2R)-2-phosphoglycerate = (2R)-3-phosphoglycerate
+  → No intramolecular transfer pattern detected
+
+RHEA:17013: phosphoenolpyruvate + H(+) = 3-phosphonopyruvate
+  → Not an isomerase: Molecule count changed - not isomerization
+
+RHEA:17765: (2R)-3-phospho-glyceroyl phosphate = (2R)-2,3-bisphosphoglycerate + H(+)
+  → Not an isomerase: Molecule count changed - not isomerization
+
+RHEA:18793: alpha-D-ribose 1-phosphate = D-ribose 5-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:20113: beta-D-glucose 1-phosphate = beta-D-glucose 6-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:23424: alpha-D-glucosamine 1-phosphate = D-glucosamine 6-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:23536: alpha-D-glucose 1-phosphate = alpha-D-glucose 6-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:23804: N-acetyl-alpha-D-glucosamine 1-phosphate = N-acetyl-D-glucosamine 6-phosphate
+  → No intramolecular transfer pattern detected
+
+RHEA:27489: 2 D-sedoheptulose 7-phosphate = D-glycero-alpha-D-manno-heptose 7-phosphate + D-glycero-beta-D-manno-heptose 7-phosphate
+  → Not an isomerase: Multi-molecule reaction - likely transferase not isomerase
+
+RHEA:27658: 2-deoxy-alpha-D-ribose 1-phosphate = 2-deoxy-D-ribose 5-phosphate
+  → No intramolecular transfer pattern detected
+

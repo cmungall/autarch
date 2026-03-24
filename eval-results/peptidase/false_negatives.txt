@@ -1,0 +1,13 @@
+False Negatives for Peptidase
+==================================================
+Total: 3
+
+RHEA:20661: D-alanyl-D-alanine + H2O = 2 D-alanine
+  → No protein/peptide substrate or amino acid products detected
+
+RHEA:28398: L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + H2O = L-alanyl-D-glutamate + meso-2,6-diaminopimelate
+  → No protein/peptide substrate or amino acid products detected
+
+RHEA:28783: L-cysteinylglycine + H2O = L-cysteine + glycine
+  → No protein/peptide substrate or amino acid products detected
+

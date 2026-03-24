@@ -1,0 +1,1501 @@
+from autarch.datamodel import ClassificationResult, Participant, Reaction
+from autarch.ontology.acid_thiol_ligase import AcidThiolLigase
+from autarch.ontology.acid_amino_acid_ligase import AcidAminoAcidLigase
+from autarch.ontology.acid_ammonia_or_amide_ligase import AcidAmmoniaOrAmideLigase
+from autarch.ontology.acyltransferase_acyl_groups_converted_into_alkyl_on_transfer import (
+    AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer,
+)
+from autarch.ontology.aldehyde_ketone_transferase import AldehydeKetoneTransferase
+from autarch.ontology.acyltransferase import Acyltransferase
+from autarch.ontology.acyltransferase_transferring_groups_other_than_amino_acyl_groups import (
+    AcyltransferaseTransferringGroupsOtherThanAminoAcylGroups,
+)
+from autarch.ontology.alcohol_dehydrogenase_nad import AlcoholDehydrogenaseNAD
+from autarch.ontology.aldehyde_lyase import AldehydeLyase
+from autarch.ontology.aldose_1_epimerase import Aldose1Epimerase
+from autarch.ontology.aldose_1_dehydrogenase_nad_p import Aldose1DehydrogenaseNADP
+from autarch.ontology.alpha_amylase import AlphaAmylase
+from autarch.ontology.aminoacyltransferase import Aminoacyltransferase
+from autarch.ontology.aminoacyl_trna_ligase import AminoacylTRNALigase
+from autarch.ontology.aminopeptidase import Aminopeptidase
+from autarch.ontology.adp_dependent_nadh_or_nadph_hydrate_dehydratase import (
+    ADPDependentNADHOrNADPHHydrateDehydratase,
+)
+from autarch.ontology.ampylase import AMPylase
+from autarch.ontology.ammonia_lyase import AmmoniaLyase
+from autarch.ontology.acting_on_carbon_carbon_bonds import ActingOnCarbonCarbonBonds
+from autarch.ontology.acting_on_gtp_involved_in_cellular_and_subcellular_movement import (
+    ActingOnGTPInvolvedInCellularAndSubcellularMovement as ActingOnGTPInvolvedInCellularAndSubcellularMovement,
+)
+from autarch.ontology.acting_on_iron_sulfur_proteins_as_donors_with_nad_or_nadp_as_acceptor import (
+    ActingOnIronSulfurProteinsAsDonorsWithNADOrNADPAsAcceptor as ActingOnIronSulfurProteinsAsDonorsWithNADOrNADPAsAcceptor,
+)
+from autarch.ontology.acting_on_other_compounds import (
+    ActingOnOtherCompounds as ActingOnOtherCompounds,
+)
+from autarch.ontology.acting_on_other_nitrogenous_compounds_as_donors_with_a_cytochrome_as_acceptor import (
+    ActingOnOtherNitrogenousCompoundsAsDonorsWithACytochromeAsAcceptor as ActingOnOtherNitrogenousCompoundsAsDonorsWithACytochromeAsAcceptor,
+)
+from autarch.ontology.acting_on_ether_bonds import ActingOnEtherBonds
+from autarch.ontology.acting_on_halogen_in_donors import ActingOnHalogenInDonors
+from autarch.ontology.acting_on_nadh_or_nadph import ActingOnNADHOrNADPH
+from autarch.ontology.acting_on_superoxide_as_acceptor import ActingOnSuperoxideAsAcceptor
+from autarch.ontology.acting_on_the_ch_nh_group_of_donors_with_other_acceptors import (
+    ActingOnTheCHNHGroupOfDonorsWithOtherAcceptors as ActingOnTheCHNHGroupOfDonorsWithOtherAcceptors,
+)
+from autarch.ontology.atp_dependent_nadh_or_nadph_hydrate_dehydratase import (
+    ATPDependentNADHOrNADPHHydrateDehydratase,
+)
+from autarch.ontology.atp_diphosphatase import ATPDiphosphatase
+from autarch.ontology.atp_independent_chelatases import ATPIndependentChelatases
+from autarch.ontology.abc_type_carbohydrate_transporter import (
+    ABCTypeCarbohydrateTransporter,
+)
+from autarch.ontology.abc_type_polar_amino_acid_transporter import (
+    ABCTypePolarAminoAcidTransporter,
+)
+from autarch.ontology.aromatic_amino_acid_transaminase import AromaticAminoAcidTransaminase
+from autarch.ontology.atp_hydrolysis import ATPHydrolysis
+from autarch.ontology.rs1_benzyl_1234_tetrahydroisoquinoline_n_methyltransferase import (
+    RS1Benzyl1234TetrahydroisoquinolineNMethyltransferase,
+)
+from autarch.ontology.biotin_biotin_carboxyl_carrier_protein_ligase import (
+    BiotinBiotinCarboxylCarrierProteinLigase,
+)
+from autarch.ontology.caffeine_synthase import CaffeineSynthase
+from autarch.ontology.carbon_carbon_lyase import CarbonCarbonLyase
+from autarch.ontology.carbon_carbon_lyases import CarbonCarbonLyases
+from autarch.ontology.carbon_halide_lyase import CarbonHalideLyase
+from autarch.ontology.carbon_nitrogen_lyases import CarbonNitrogenLyases
+from autarch.ontology.carbon_nitrogen_ligase_with_glutamine_as_amido_n_donor import (
+    CarbonNitrogenLigaseWithGlutamineAsAmidoNDonor,
+)
+from autarch.ontology.carbon_oxygen_lyase import CarbonOxygenLyase
+from autarch.ontology.carbon_oxygen_lyases import CarbonOxygenLyases
+from autarch.ontology.carbon_phosphorus_lyase import CarbonPhosphorusLyase
+from autarch.ontology.carbon_sulfur_lyase import CarbonSulfurLyase
+from autarch.ontology.carbonate_dehydratase import CarbonateDehydratase
+from autarch.ontology.carboxyl_or_carbamoyltransferase import (
+    CarboxylOrCarbamoyltransferase,
+)
+from autarch.ontology.carboxy_lyase import CarboxyLyase
+from autarch.ontology.carboxylic_ester_hydrolase import CarboxylicEsterHydrolase
+from autarch.ontology.carnosine_synthase import CarnosineSynthase
+from autarch.ontology.cholate_coa_ligase import CholateCoALigase
+from autarch.ontology.cellulase import Cellulase
+from autarch.ontology.chitinase import Chitinase
+from autarch.ontology.cis_trans_isomerase import CisTransIsomerase
+from autarch.ontology.coa_transferase import CoATransferase
+from autarch.ontology.corrinoid_adenosyltransferase import CorrinoidAdenosyltransferase
+from autarch.ontology.cyclo_ligases import CycloLigases as CycloLigases
+from autarch.ontology.cyclase import Cyclase
+from autarch.ontology.cytochrome_c_oxidase import CytochromeCOxidase
+from autarch.ontology.deaminase import Deaminase
+from autarch.ontology.delta3_delta2_enoyl_coa_isomerase import (
+    Delta3Delta2EnoylCoAIsomerase,
+)
+from autarch.ontology.d_aminoacyl_trna_deacylase import DAminoacylTRNADeacylase
+from autarch.ontology.deoxynucleoside_kinase import DeoxynucleosideKinase
+from autarch.ontology.demethylmenaquinone_methyltransferase import (
+    DemethylmenaquinoneMethyltransferase,
+)
+from autarch.ontology.delta24_sterol_reductase import Delta24SterolReductase
+from autarch.ontology.dihydrolipoyl_dehydrogenase_nadh import DihydrolipoylDehydrogenaseNADH
+from autarch.ontology.dihydrocarveol_dehydrogenase import DihydrocarveolDehydrogenase
+from autarch.ontology.diphosphoric_monoester_hydrolase import (
+    DiphosphoricMonoesterHydrolase,
+)
+from autarch.ontology.diphosphotransferase import Diphosphotransferase
+from autarch.ontology.endo_14_beta_xylanase import Endo14BetaXylanase
+from autarch.ontology.enzymes_using_h2_as_reductant import EnzymesUsingH2AsReductant
+from autarch.ontology.epoxide_hydrolase import EpoxideHydrolase
+from autarch.ontology.ether_hydrolase import EtherHydrolase
+from autarch.ontology.forming_carbon_carbon_bonds import (
+    FormingCarbonCarbonBonds as FormingCarbonCarbonBonds,
+)
+from autarch.ontology.forming_carbon_oxygen_bonds import FormingCarbonOxygenBonds
+from autarch.ontology.forming_nitrogen_nitrogen_bonds import (
+    FormingNitrogenNitrogenBonds,
+)
+from autarch.ontology.galactose_oxidase import GalactoseOxidase
+from autarch.ontology.gamma_humulene_synthase import GammaHumuleneSynthase
+from autarch.ontology.gdp_4_dehydro_d_rhamnose_reductase import (
+    GDP4DehydroDRhamnoseReductase,
+)
+from autarch.ontology.gibberellin_20_oxidase import Gibberellin20Oxidase
+from autarch.ontology.glycosyltransferase import Glycosyltransferase
+from autarch.ontology.glycine_oxidase import GlycineOxidase
+from autarch.ontology.glycerol_dehydratase import GlycerolDehydratase
+from autarch.ontology.hexokinase import Hexokinase
+from autarch.ontology.hexosyltransferase import Hexosyltransferase
+from autarch.ontology.helicase import Helicase
+from autarch.ontology.homomethionine_n_monooxygenase import HomomethionineNMonooxygenase
+from autarch.ontology.hydrolase import Hydrolase
+from autarch.ontology.interconverting_keto_and_enol_groups import (
+    InterconvertingKetoAndEnolGroups as InterconvertingKetoAndEnolGroups,
+)
+from autarch.ontology.lyases_acting_on_amides_amidines_etc import (
+    LyasesActingOnAmidesAmidinesEtc as LyasesActingOnAmidesAmidinesEtc,
+)
+from autarch.ontology.acting_on_ester_bonds import ActingOnEsterBonds
+from autarch.ontology.hydrolase_acting_on_acid_anhydrides import (
+    HydrolaseActingOnAcidAnhydrides,
+)
+from autarch.ontology.hydrolase_acting_on_ester_bonds import (
+    HydrolaseActingOnEsterBonds,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_carbon_bonds_in_ketonic_substances import (
+    HydrolaseActingOnCarbonCarbonBondsInKetonicSubstances,
+)
+from autarch.ontology.hydrolase_acting_on_acid_anhydrides_in_phosphorus_containing_anhydrides import (
+    HydrolaseActingOnAcidAnhydridesInPhosphorusContainingAnhydrides,
+)
+from autarch.ontology.hydrolase_acting_on_halide_bonds_in_c_halide_compounds import (
+    HydrolaseActingOnHalideBondsInCHalideCompounds,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBonds,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds_in_linear_amides import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmides,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds_in_cyclic_amides import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmides,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds_in_cyclic_amidines import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmidines,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds_in_linear_amidines import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmidines,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_nitrogen_but_not_peptide_bonds_in_nitriles import (
+    HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInNitriles,
+)
+from autarch.ontology.hydrolase_acting_on_glycosyl_bonds import (
+    HydrolaseActingOnGlycosylBonds,
+)
+from autarch.ontology.hydrolase_acting_on_sulfur_nitrogen_bonds import (
+    HydrolaseActingOnSulfurNitrogenBonds,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_phosphorus_bonds import (
+    HydrolaseActingOnCarbonPhosphorusBonds,
+)
+from autarch.ontology.hydrolase_acting_on_carbon_sulfur_bonds import (
+    HydrolaseActingOnCarbonSulfurBonds,
+)
+from autarch.ontology.hydrolase_acting_on_halide_bonds import (
+    HydrolaseActingOnHalideBonds,
+)
+from autarch.ontology.hydrolase_acting_on_phosphorus_nitrogen_bonds import (
+    HydrolaseActingOnPhosphorusNitrogenBonds,
+)
+from autarch.ontology.hydrolase_acting_on_sulfur_sulfur_bonds import (
+    HydrolaseActingOnSulfurSulfurBonds,
+)
+from autarch.ontology.hydrolase_hydrolyzing_n_glycosyl_compounds import (
+    HydrolaseHydrolyzingNGlycosylCompounds,
+)
+from autarch.ontology.hydrolase_hydrolyzing_o_glycosyl_compounds import (
+    HydrolaseHydrolyzingOGlycosylCompounds,
+)
+from autarch.ontology.hydro_lyase import HydroLyase
+from autarch.ontology.intramolecular_lyase import IntramolecularLyase
+from autarch.ontology.intramolecular_oxidoreductase import IntramolecularOxidoreductase
+from autarch.ontology.intramolecular_oxidoreductase_interconverting_aldoses_and_ketoses import (
+    IntramolecularOxidoreductaseInterconvertingAldosesAndKetoses,
+)
+from autarch.ontology.intramolecular_phosphotransferase import (
+    IntramolecularPhosphotransferase,
+)
+from autarch.ontology.isomerase import Isomerase
+from autarch.ontology.kinase import Kinase
+from autarch.ontology.l_glutamate_gamma_semialdehyde_dehydrogenase import LGlutamateGammaSemialdehydeDehydrogenase
+from autarch.ontology.l_histidine_n_alpha_methyltransferase import (
+    LHistidineNAlphaMethyltransferase,
+)
+from autarch.ontology.ligase import Ligase
+from autarch.ontology.ligase_forming_carbon_carbon_bonds import (
+    LigaseFormingCarbonCarbonBonds,
+)
+from autarch.ontology.ligase_forming_carbon_nitrogen_bonds import (
+    LigaseFormingCarbonNitrogenBonds,
+)
+from autarch.ontology.ligase_forming_carbon_sulfur_bonds import (
+    LigaseFormingCarbonSulfurBonds,
+)
+from autarch.ontology.ligase_forming_nitrogen_metal_bonds import (
+    LigaseFormingNitrogenMetalBonds,
+)
+from autarch.ontology.ligase_forming_phosphoric_ester_bonds import (
+    LigaseFormingPhosphoricEsterBonds,
+)
+from autarch.ontology.lyase import Lyase
+from autarch.ontology.macromolecular_conformation_isomerase import (
+    MacromolecularConformationIsomerase,
+)
+from autarch.ontology.five_methyltetrahydropteroyltriglutamate_homocysteine_s_methyltransferase import (
+    FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase,
+)
+from autarch.ontology.methionine_s_methyltransferase import (
+    MethionineSMethyltransferase,
+)
+from autarch.ontology.methyltransferase import Methyltransferase
+from autarch.ontology.methylxanthine_n1_demethylase import MethylxanthineN1Demethylase
+from autarch.ontology.methylxanthine_n3_demethylase import MethylxanthineN3Demethylase
+from autarch.ontology.methoxylated_aromatic_compound_corrinoid_protein_co_methyltransferase import (
+    MethoxylatedAromaticCompoundCorrinoidProteinCoMethyltransferase,
+)
+from autarch.ontology.methyl_ethyl_malonyl_coa_decarboxylase import (
+    MethylEthylMalonylCoADecarboxylase,
+)
+from autarch.ontology.molybdenum_tungsten_transferase import (
+    MolybdenumTungstenTransferase,
+)
+from autarch.ontology.limonene_12_monooxygenase import (
+    Limonene12Monooxygenase,
+)
+from autarch.ontology.monooxygenase import Monooxygenase
+from autarch.ontology.monocyclic_monoterpene_ketone_monooxygenase import (
+    MonocyclicMonoterpeneKetoneMonooxygenase,
+)
+from autarch.ontology.monoterpene_epsilon_lactone_hydrolase import MonoterpeneEpsilonLactoneHydrolase
+from autarch.ontology.nadh_or_nadph_dehydrogenase_quinone import NADHOrNADPHDehydrogenaseQuinone
+from autarch.ontology.n1_acetylpolyamine_oxidase import N1AcetylpolyamineOxidase
+from autarch.ontology.nitrogen_oxygen_lyases import NitrogenOxygenLyases
+from autarch.ontology.nitroarene_dioxygenase import NitroareneDioxygenase
+from autarch.ontology.nucleoside_diphosphate_kinase import NucleosideDiphosphateKinase
+from autarch.ontology.nicotinamide_n_methyltransferase import (
+    NicotinamideNMethyltransferase,
+)
+from autarch.ontology.nucleotidyltransferase import Nucleotidyltransferase
+from autarch.ontology.nucleotide_diphosphatase import NucleotideDiphosphatase
+from autarch.ontology.n_terminal_methionine_n_alpha_acetyltransferase_nat_e import (
+    NTerminalMethionineNAlphaAcetyltransferaseNatE,
+)
+from autarch.ontology.n_terminal_methionine_n_alpha_acetyltransferase_nat_c import (
+    NTerminalMethionineNAlphaAcetyltransferaseNatC,
+)
+from autarch.ontology.n_terminal_methionine_n_alpha_acetyltransferase_nat_b import (
+    NTerminalMethionineNAlphaAcetyltransferaseNatB,
+)
+from autarch.ontology.n_terminal_amino_acid_n_alpha_acetyltransferase_nat_a import (
+    NTerminalAminoAcidNAlphaAcetyltransferaseNatA,
+)
+from autarch.ontology.one_piperideine_2_carboxylate_one_pyrroline_2_carboxylate_reductase_nadh_or_nadph import (
+    OnePiperideine2CarboxylateOnePyrroline2CarboxylateReductaseNADHOrNADPH,
+)
+from autarch.ontology.other_isomerase import OtherIsomerase
+from autarch.ontology.other_lyase import OtherLyase
+from autarch.ontology.other_enzymes_using_o2_as_oxidant import (
+    OtherEnzymesUsingO2AsOxidant,
+)
+from autarch.ontology.other_oxidoreductase import OtherOxidoreductase
+from autarch.ontology.oxo_acid_lyase import OxoAcidLyase
+from autarch.ontology.oxidoreductase import Oxidoreductase
+from autarch.ontology.oxidoreductase_acting_on_peroxide_as_acceptor import (
+    OxidoreductaseActingOnPeroxideAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_aldehyde_or_oxo_group_of_donors import (
+    OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_ch_or_ch2_groups import (
+    OxidoreductaseActingOnCHOrCH2Groups,
+)
+from autarch.ontology.oxidoreductase_acting_on_ch_or_ch2_groups_disulfide_as_acceptor import (
+    OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_iron_sulfur_proteins import (
+    OxidoreductaseActingOnIronSulfurProteins,
+)
+from autarch.ontology.oxidoreductase_acting_on_reduced_flavodoxin import (
+    OxidoreductaseActingOnReducedFlavodoxin,
+)
+from autarch.ontology.oxidoreductase_acting_on_phosphorus_or_arsenic import (
+    OxidoreductaseActingOnPhosphorusOrArsenic,
+)
+from autarch.ontology.oxidoreductase_forming_x_y_bond import (
+    OxidoreductaseFormingXYBond,
+)
+from autarch.ontology.oxidoreductase_acting_on_a_heme_group_of_donors import (
+    OxidoreductaseActingOnAHemeGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_diphenols import (
+    OxidoreductaseActingOnDiphenols,
+)
+from autarch.ontology.oxidoreductase_acting_on_diphenols_and_related_substances_as_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnDiphenolsAndRelatedSubstancesAsDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_hydrogen import (
+    OxidoreductaseActingOnHydrogen,
+)
+from autarch.ontology.oxidoreductase_acting_on_metal_ions import (
+    OxidoreductaseActingOnMetalIons,
+)
+from autarch.ontology.oxidoreductase_acting_on_other_nitrogenous_compounds import (
+    OxidoreductaseActingOnOtherNitrogenousCompounds,
+)
+from autarch.ontology.oxidoreductase_acting_on_other_nitrogenous_compounds_as_donors_with_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnOtherNitrogenousCompoundsAsDonorsWithNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_a_sulfur_group_of_donors import (
+    OxidoreductaseActingOnASulfurGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_a_sulfur_group_of_donors_disulfide_as_acceptor import (
+    OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_a_sulfur_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnASulfurGroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_a_sulfur_group_of_donors_nad_p_as_acceptor import (
+    OxidoreductaseActingOnASulfurGroupOfDonorsNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_ch_oh_group_of_donors import (
+    OxidoreductaseActingOnCHOHGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_nadh_or_nadph_quinone_or_similar_compound_as_acceptor import (
+    OxidoreductaseActingOnNADHOrNADPHQuinoneOrSimilarCompoundAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_single_donors_with_incorporation_of_molecular_oxygen import (
+    OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_single_donors_with_incorporation_of_molecular_oxygen_incorporation_of_one_atom_of_oxygen_internal_monooxygenases_or_internal_mixed_function_oxidases import (
+    OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfOneAtomOfOxygenInternalMonooxygenasesOrInternalMixedFunctionOxidases,
+)
+from autarch.ontology.oxidoreductase_acting_on_single_donors_with_incorporation_of_molecular_oxygen_incorporation_of_two_atoms_of_oxygen import (
+    OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfTwoAtomsOfOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_nadh_or_nadph_as_one_donor_and_incorporation_of_one_atom_of_oxygen import (
+    OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen,
+)
+from autarch.ontology.acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen import (
+    ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen import (
+    OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_reduced_flavin_or_flavoprotein_as_one_donor_and_incorporation_of_one_atom_of_oxygen import (
+    OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedFlavinOrFlavoproteinAsOneDonorAndIncorporationOfOneAtomOfOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_nadh_or_nadph_as_one_donor_and_incorporation_of_two_atoms_of_oxygen_into_one_donor import (
+    OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfTwoAtomsOfOxygenIntoOneDonor,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_oxidation_of_a_pair_of_donors_resulting_in_the_reduction_of_molecular_oxygen_to_two_molecules_of_water import (
+    OxidoreductaseActingOnPairedDonorsWithOxidationOfAPairOfDonorsResultingInTheReductionOfMolecularOxygenToTwoMoleculesOfWater,
+)
+from autarch.ontology.oxidoreductase_acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_reduced_iron_sulfur_protein_as_one_donor_and_incorporation_of_one_atom_of_oxygen import (
+    OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedIronSulfurProteinAsOneDonorAndIncorporationOfOneAtomOfOxygen,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_aldehyde_or_oxo_group_of_donors_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_aldehyde_or_oxo_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_aldehyde_or_oxo_group_of_donors_iron_sulfur_protein_as_acceptor import (
+    OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsIronSulfurProteinAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_ch_group_of_donors import (
+    OxidoreductaseActingOnTheCHCHGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_ch_group_of_donors_iron_sulfur_protein_as_acceptor import (
+    OxidoreductaseActingOnTheCHCHGroupOfDonorsIronSulfurProteinAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_ch_group_of_donors_with_a_flavin_as_acceptor import (
+    OxidoreductaseActingOnTheCHCHGroupOfDonorsWithAFlavinAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_ch_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnTheCHCHGroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_ch_group_of_donors_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnTheCHCHGroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh2_group_of_donors import (
+    OxidoreductaseActingOnTheCHNH2GroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh2_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnTheCHNH2GroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh2_group_of_donors_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnTheCHNH2GroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh_group_of_donors import (
+    OxidoreductaseActingOnTheCHNHGroupOfDonors,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh_group_of_donors_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnTheCHNHGroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_nh_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnTheCHNHGroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_oh_group_of_donors_nad_or_nadp_as_acceptor import (
+    OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_oh_group_of_donors_oxygen_as_acceptor import (
+    OxidoreductaseActingOnTheCHOHGroupOfDonorsOxygenAsAcceptor,
+)
+from autarch.ontology.oxidoreductase_reducing_c_o_c_group import (
+    OxidoreductaseReducingCOCGroup,
+)
+from autarch.ontology.pectate_lyase import PectateLyase
+from autarch.ontology.pectinesterase import Pectinesterase
+from autarch.ontology.pentosyltransferase import Pentosyltransferase
+from autarch.ontology.peptide_o_fucosyltransferase import PeptideOFucosyltransferase
+from autarch.ontology.peptidase import Peptidase
+from autarch.ontology.peptidyl_prolyl_cis_trans_isomerase import (
+    PeptidylProlylCisTransIsomerase,
+)
+from autarch.ontology.peroxidase import Peroxidase
+from autarch.ontology.pinene_synthase import PineneSynthase
+from autarch.ontology.phosphoethanolamine_n_methyltransferase import (
+    PhosphoethanolamineNMethyltransferase,
+)
+from autarch.ontology.precorrin_3b_c17_methyltransferase import (
+    Precorrin3BC17Methyltransferase,
+)
+from autarch.ontology.prephenate_dehydratase import PrephenateDehydratase
+from autarch.ontology.phosphatase import Phosphatase
+from autarch.ontology.phosphoric_diester_hydrolase import PhosphoricDiesterHydrolase
+from autarch.ontology.phosphotransferase_alcohol_group_as_acceptor import (
+    PhosphotransferaseAlcoholGroupAsAcceptor,
+)
+from autarch.ontology.phosphotransferase_carboxyl_group_as_acceptor import (
+    PhosphotransferaseCarboxylGroupAsAcceptor,
+)
+from autarch.ontology.phosphotransferase_nitrogenous_group_as_acceptor import (
+    PhosphotransferaseNitrogenousGroupAsAcceptor,
+)
+from autarch.ontology.phosphotransferase_phosphate_group_as_acceptor import (
+    PhosphotransferasePhosphateGroupAsAcceptor,
+)
+from autarch.ontology.phosphotransferase_for_other_substituted_phosphate_groups import (
+    PhosphotransferaseForOtherSubstitutedPhosphateGroups,
+)
+from autarch.ontology.polysialic_acid_o_acetyltransferase import (
+    PolysialicAcidOAcetyltransferase,
+)
+from autarch.ontology.polyamine_oxidase import PolyamineOxidase
+from autarch.ontology.prenyltransferase import Prenyltransferase
+from autarch.ontology.primary_active_transmembrane_transporter import (
+    PrimaryActiveTransmembraneTransporter,
+)
+from autarch.ontology.translocation_of_amino_acids_and_peptides_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import (
+    TranslocationOfAminoAcidsAndPeptidesLinkedToTheHydrolysisOfANucleosideTriphosphate,
+)
+from autarch.ontology.translocation_of_inorganic_anions_and_their_chelates_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import (
+    TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate,
+)
+from autarch.ontology.translocation_of_inorganic_cations_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import (
+    TranslocationOfInorganicCationsLinkedToTheHydrolysisOfANucleosideTriphosphate,
+)
+from autarch.ontology.translocase_linked_to_deamination import (
+    TranslocaseLinkedToDeamination,
+)
+from autarch.ontology.translocase_linked_to_decarboxylation import (
+    TranslocaseLinkedToDecarboxylation,
+)
+from autarch.ontology.translocase_linked_to_hydrolysis import (
+    TranslocaseLinkedToHydrolysis,
+)
+from autarch.ontology.translocase_linked_to_methyl_transfer import (
+    TranslocaseLinkedToMethylTransfer,
+)
+from autarch.ontology.translocase_linked_to_reductive_dehalogenation import (
+    TranslocaseLinkedToReductiveDehalogenation,
+)
+from autarch.ontology.transferring_other_glycosyl_groups import (
+    TransferringOtherGlycosylGroups,
+)
+from autarch.ontology.primary_methylamine_oxidase import PrimaryMethylamineOxidase
+from autarch.ontology.protein_deglycase import ProteinDeglycase
+from autarch.ontology.purine_nucleoside_phosphorylase import (
+    PurineNucleosidePhosphorylase,
+)
+from autarch.ontology.pyrophosphatase import Pyrophosphatase
+from autarch.ontology.pyridoxamine_phosphate_oxidase import (
+    PyridoxaminePhosphateOxidase,
+)
+from autarch.ontology.gellan_tetrasaccharide_unsaturated_glucuronosyl_hydrolase import (
+    GellanTetrasaccharideUnsaturatedGlucuronosylHydrolase,
+)
+from autarch.ontology.gibberellin_a4_carboxyl_methyltransferase import (
+    GibberellinA4CarboxylMethyltransferase,
+)
+from autarch.ontology.gibberellin_a9_o_methyltransferase import (
+    GibberellinA9OMethyltransferase,
+)
+from autarch.ontology.quinoline_2_oxidoreductase import Quinoline2Oxidoreductase
+from autarch.ontology.quinate_shikimate_dehydrogenase_nad_p import QuinateShikimateDehydrogenaseNADP
+from autarch.ontology.r_amidase import RAmidase
+from autarch.ontology.racemase_and_epimerase import RacemaseAndEpimerase
+from autarch.ontology.racemase_and_epimerase_acting_on_amino_acids_and_derivatives import (
+    RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives,
+)
+from autarch.ontology.racemase_and_epimerase_acting_on_carbohydrates_and_derivatives import (
+    RacemaseAndEpimeraseActingOnCarbohydratesAndDerivatives,
+)
+from autarch.ontology.reaction import ReactionClass
+from autarch.ontology.reaction_diff import ReactionDiff
+from autarch.ontology.ribulose_bisphosphate_carboxylase import (
+    RibuloseBisphosphateCarboxylase,
+)
+from autarch.ontology.ribonucleoside_diphosphate_reductase_thioredoxin_disulfide_as_acceptor import (
+    RibonucleosideDiphosphateReductaseThioredoxinDisulfideAsAcceptor,
+)
+from autarch.ontology.rna_nuclease import RNANuclease
+from autarch.ontology.rna_polymerase import RNAPolymerase
+from autarch.ontology.rrna_small_subunit_pseudouridine_methyltransferase_nep1 import (
+    RRNASmallSubunitPseudouridineMethyltransferaseNep1,
+)
+from autarch.ontology.sialyltransferase import Sialyltransferase
+from autarch.ontology.six_seven_dihydropteridine_reductase import (
+    SixSevenDihydropteridineReductase,
+)
+from autarch.ontology.spermine_oxidase import SpermineOxidase
+from autarch.ontology.polyamine_oxidase_propane_1_3_diamine_forming import (
+    PolyamineOxidasePropane13DiamineForming,
+)
+from autarch.ontology.squalene_monooxygenase import SqualeneMonooxygenase
+from autarch.ontology.selenotransferase import Selenotransferase
+from autarch.ontology.sulfuric_ester_hydrolase import SulfuricEsterHydrolase
+from autarch.ontology.sulfurtransferase import Sulfurtransferase
+from autarch.ontology.sulfotransferase import Sulfotransferase
+from autarch.ontology.sumo_transferase import SUMOTransferase
+from autarch.ontology.superoxide_dismutase import SuperoxideDismutase
+from autarch.ontology.ten_hydroxydihydrosanguinarine_10_o_methyltransferase import (
+    TenHydroxydihydrosanguinarine10OMethyltransferase,
+)
+from autarch.ontology.terpene_synthase import TerpeneSynthase
+from autarch.ontology.three_hydroxyacyl_coa_dehydratase import (
+    ThreeHydroxyacylCoADehydratase,
+)
+from autarch.ontology.thiolester_hydrolase import ThiolesterHydrolase
+from autarch.ontology.tocopherol_c_methyltransferase import (
+    TocopherolCMethyltransferase,
+)
+from autarch.ontology.transferase import Transferase
+from autarch.ontology.transferase_transferring_alkyl_or_aryl_other_than_methyl_groups import (
+    TransferaseTransferringAlkylOrArylOtherThanMethylGroups,
+)
+from autarch.ontology.transferase_transferring_nitrogenous_groups import (
+    TransferaseTransferringNitrogenousGroups,
+)
+from autarch.ontology.transferase_transferring_one_carbon_groups import (
+    TransferaseTransferringOneCarbonGroups,
+)
+from autarch.ontology.transferase_transferring_sulfur_containing_groups import (
+    TransferaseTransferringSulfurContainingGroups,
+)
+from autarch.ontology.transferring_alkyl_or_aryl_groups_other_than_methyl_groups import (
+    TransferringAlkylOrArylGroupsOtherThanMethylGroups,
+)
+from autarch.ontology.transferring_nitrogenous_groups import (
+    TransferringNitrogenousGroups,
+)
+from autarch.ontology.transferring_one_carbon_groups import (
+    TransferringOneCarbonGroups,
+)
+from autarch.ontology.transferring_sulfur_containing_groups import (
+    TransferringSulfurContainingGroups,
+)
+from autarch.ontology.trna_cytidine_5_methyltransferase import TRNACytidine5Methyltransferase
+from autarch.ontology.trimethylsulfonium_tetrahydrofolate_n_methyltransferase import (
+    TrimethylsulfoniumTetrahydrofolateNMethyltransferase,
+)
+from autarch.ontology.hydroxymethyl_formyl_and_related_transferase import (
+    HydroxymethylFormylAndRelatedTransferase,
+)
+from autarch.ontology.transferase_transferring_phosphorus_containing_groups import (
+    TransferaseTransferringPhosphorusContainingGroups,
+)
+from autarch.ontology.transaminase import Transaminase
+from autarch.ontology.translocation_of_hydrons import TranslocationOfHydrons
+from autarch.ontology.triacylglycerol_lipase import TriacylglycerolLipase
+from autarch.ontology.trna_dihydrouridine_1617_synthase_nad_p import (
+    TRNADihydrouridine1617SynthaseNADP,
+)
+from autarch.ontology.trna_dihydrouridine_20a20b_synthase_nad_p import (
+    TRNADihydrouridine20A20BSynthaseNADP,
+)
+from autarch.ontology.two_deamino_two_hydroxyneamine_1_alpha_d_kanosaminyltransferase import (
+    TwoDeaminoTwoHydroxyneamine1AlphaDKanosaminyltransferase,
+)
+from autarch.ontology.two_three_cyclic_nucleotide_two_phosphodiesterase import (
+    TwoThreeCyclicNucleotideTwoPhosphodiesterase,
+)
+from autarch.ontology.uridine_cytidine_kinase import UridineCytidineKinase
+from autarch.ontology.tyramine_n_methyltransferase import TyramineNMethyltransferase
+from autarch.ontology.two_oxoglutarate_dependent_dioxygenase import (
+    TwoOxoglutarateDependentDioxygenase,
+)
+from autarch.ontology.ubiquitin_protein_ligase import UbiquitinProteinLigase
+from autarch.ontology.vitamin_d3_24_hydroxylase import VitaminD324Hydroxylase
+from autarch.ontology.acting_on_the_aldehyde_or_oxo_group_of_donors_with_nad_or_nadp_as_acceptor import ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor
+from autarch.ontology.transferring_other_groups import TransferringOtherGroups
+from autarch.ontology.protein_serine_threonine_kinases import ProteinSerineThreonineKinases
+from autarch.ontology.acting_on_the_ch_ch_group_of_donors_with_other_acceptors import ActingOnTheCHCHGroupOfDonorsWithOtherAcceptors
+from autarch.ontology.carbon_sulfur_lyases import CarbonSulfurLyases
+from autarch.ontology.acting_on_the_ch_oh_group_of_donors_with_other_acceptors import ActingOnTheCHOHGroupOfDonorsWithOtherAcceptors
+from autarch.ontology.acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_miscellaneous import ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenMiscellaneous
+from autarch.ontology.intramolecular_lyases import IntramolecularLyases
+from autarch.ontology.transposing_c_c_bonds import TransposingCCBonds
+from autarch.ontology.other_carbon_carbon_lyases import OtherCarbonCarbonLyases
+from autarch.ontology.transketolases_and_transaldolases import TransketolasesAndTransaldolases
+from autarch.ontology.translocation_of_other_compounds_linked_to_the_hydrolysis_of_a_nucleoside_triphosphate import TranslocationOfOtherCompoundsLinkedToTheHydrolysisOfANucleosideTriphosphate
+from autarch.ontology.phosphotransferases_phosphomutases import PhosphotransferasesPhosphomutases
+from autarch.ontology.acting_on_carbon_nitrogen_bonds_other_than_peptide_bonds_in_other_compounds import ActingOnCarbonNitrogenBondsOtherThanPeptideBondsInOtherCompounds
+from autarch.ontology.other_intramolecular_oxidoreductases import OtherIntramolecularOxidoreductases
+from autarch.ontology.oxidizing_metal_ions_with_nad_or_nadp_as_acceptor import (
+    OxidizingMetalIonsWithNADOrNADPAsAcceptor as OxidizingMetalIonsWithNADOrNADPAsAcceptor,
+)
+from autarch.ontology.phosphorus_oxygen_lyases import (
+    PhosphorusOxygenLyases as PhosphorusOxygenLyases,
+)
+from autarch.ontology.cis_trans_isomerases import CisTransIsomerases
+from autarch.ontology.reaction_x_h_y_h_x_y_with_oxygen_as_acceptor import ReactionXHYHXYWithOxygenAsAcceptor
+from autarch.ontology.transferring_amino_groups import TransferringAminoGroups
+from autarch.ontology.transferring_hydroxy_groups import (
+    TransferringHydroxyGroups as TransferringHydroxyGroups,
+)
+from autarch.ontology.acting_on_ch_or_ch2_groups_with_nad_or_nadp_as_acceptor import ActingOnCHOrCH2GroupsWithNADOrNADPAsAcceptor
+from autarch.ontology.acting_on_paired_donors_with_incorporation_or_reduction_of_molecular_oxygen_with_2_oxoglutarate_as_one_donor_and_the_other_dehydrogenated import ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenWith2OxoglutarateAsOneDonorAndTheOtherDehydrogenated
+from autarch.ontology.acetyltransferase import Acetyltransferase
+from autarch.ontology.adenylyltransferase import Adenylyltransferase
+from autarch.ontology.carbon_nitrogen_lyase import CarbonNitrogenLyase
+from autarch.ontology.carbon_oxygen_lyase_acting_on_phosphates import (
+    CarbonOxygenLyaseActingOnPhosphates,
+)
+from autarch.ontology.coa_ligase import CoALigase
+from autarch.ontology.dioxygenase import Dioxygenase
+from autarch.ontology.hydrolase_acting_on_carbon_carbon_bonds import (
+    HydrolaseActingOnCarbonCarbonBonds,
+)
+from autarch.ontology.hydrolase_acting_on_ether_bonds import (
+    HydrolaseActingOnEtherBonds,
+)
+from autarch.ontology.intramolecular_oxidoreductase_transposing_c_c_bonds import (
+    IntramolecularOxidoreductaseTransposingCCBonds,
+)
+from autarch.ontology.intramolecular_transferase import IntramolecularTransferase
+from autarch.ontology.n_methyltransferase import NMethyltransferase
+from autarch.ontology.nucleobase_containing_compound_kinase import (
+    NucleobaseContainingCompoundKinase,
+)
+from autarch.ontology.o_methyltransferase import OMethyltransferase
+from autarch.ontology.oxidoreductase_acting_on_nadh_or_nadph import (
+    OxidoreductaseActingOnNADHOrNADPH,
+)
+from autarch.ontology.phosphoric_ester_hydrolase import PhosphoricEsterHydrolase
+from autarch.ontology.rna_methyltransferase import RNAMethyltransferase
+from autarch.ontology.disulfide_oxidoreductase_activity import (
+    DisulfideOxidoreductaseActivity,
+)
+from autarch.ontology.acyl_coa_desaturase_activity import AcylCoADesaturaseActivity
+from autarch.ontology.fatty_acid_ligase_activity import FattyAcidLigaseActivity
+from autarch.ontology.glucosidase_activity import GlucosidaseActivity
+from autarch.ontology.glycerophospholipase_activity import GlycerophospholipaseActivity
+from autarch.ontology.inositol_phosphate_kinase_activity import (
+    InositolPhosphateKinaseActivity,
+)
+from autarch.ontology.inositol_phosphate_phosphatase_activity import (
+    InositolPhosphatePhosphataseActivity,
+)
+from autarch.ontology.lipid_kinase_activity import LipidKinaseActivity
+from autarch.ontology.phosphatidylinositol_phosphate_phosphatase_activity import (
+    PhosphatidylinositolPhosphatePhosphataseActivity,
+)
+from autarch.ontology.phospholipase_activity import PhospholipaseActivity
+from autarch.ontology.prenyl_diphosphate_synthase_activity import (
+    PrenylDiphosphateSynthaseActivity,
+)
+from autarch.ontology.transition_metal_ion_transmembrane_transporter_activity import (
+    TransitionMetalIonTransmembraneTransporterActivity,
+)
+from autarch.ontology.p_type_transmembrane_transporter_activity import (
+    PTypeTransmembraneTransporterActivity,
+)
+from autarch.ontology.p_type_ion_transporter_activity import (
+    PTypeIonTransporterActivity,
+)
+from autarch.ontology.neutral_l_amino_acid_transmembrane_transporter_activity import (
+    NeutralLAminoAcidTransmembraneTransporterActivity,
+)
+from autarch.ontology.organic_acid_sodium_symporter_activity import (
+    OrganicAcidSodiumSymporterActivity,
+)
+from autarch.ontology.dicarboxylic_acid_transmembrane_transporter_activity import (
+    DicarboxylicAcidTransmembraneTransporterActivity,
+)
+from autarch.ontology.protein_kinase_activity import ProteinKinaseActivity
+from autarch.ontology.protein_serine_threonine_kinase_activity import (
+    ProteinSerineThreonineKinaseActivity,
+)
+from autarch.ontology.sesquiterpene_synthase_activity import (
+    SesquiterpeneSynthaseActivity,
+)
+
+from autarch.ontology.catalytic_activity_acting_on_a_protein import CatalyticActivityActingOnAProtein
+from autarch.ontology.s_adenosylmethionine_dependent_methyltransferase import SAdenosylmethionineDependentMethyltransferase
+from autarch.ontology.catalytic_activity_acting_on_a_nucleic_acid import CatalyticActivityActingOnANucleicAcid
+from autarch.ontology.catalytic_activity_acting_on_rna import CatalyticActivityActingOnRNA
+from autarch.ontology.transporter_activity import TransporterActivity
+from autarch.ontology.transmembrane_transporter_activity import TransmembraneTransporterActivity
+from autarch.ontology.active_transmembrane_transporter_activity import ActiveTransmembraneTransporterActivity
+from autarch.ontology.catalytic_activity_acting_on_a_trna import CatalyticActivityActingOnATRNA
+from autarch.ontology.atp_dependent_activity import ATPDependentActivity
+from autarch.ontology.monoatomic_ion_transmembrane_transporter_activity import MonoatomicIonTransmembraneTransporterActivity
+from autarch.ontology.monoatomic_cation_transmembrane_transporter_activity import MonoatomicCationTransmembraneTransporterActivity
+from autarch.ontology.deacylase_activity import DeacylaseActivity
+from autarch.ontology.abc_type_transporter_activity import ABCTypeTransporterActivity
+from autarch.ontology.proton_transmembrane_transporter_activity import ProtonTransmembraneTransporterActivity
+from autarch.ontology.trna_methyltransferase import TRNAMethyltransferase
+from autarch.ontology.alcohol_dehydrogenase_nad_or_nadp import AlcoholDehydrogenaseNADOrNADP
+from autarch.ontology.antioxidant_activity import AntioxidantActivity
+from autarch.ontology.ligase_activity_forming_carbon_oxygen_bonds import LigaseActivityFormingCarbonOxygenBonds
+from autarch.ontology.active_monoatomic_ion_transmembrane_transporter_activity import ActiveMonoatomicIonTransmembraneTransporterActivity
+from autarch.ontology.carbohydrate_transmembrane_transporter_activity import CarbohydrateTransmembraneTransporterActivity
+from autarch.ontology.s_methyltransferase import SMethyltransferase
+from autarch.ontology.rrna_methyltransferase import RRNAMethyltransferase
+from autarch.ontology.catalytic_activity_acting_on_a_rrna import CatalyticActivityActingOnARRNA
+from autarch.ontology.rna_dihydrouridine_synthase import RNADihydrouridineSynthase
+from autarch.ontology.trna_dihydrouridine_synthase import TRNADihydrouridineSynthase
+from autarch.ontology.nucleoside_triphosphate_diphosphatase_activity import NucleosideTriphosphateDiphosphataseActivity
+from autarch.ontology.n_acyltransferase import NAcyltransferase
+from autarch.ontology.n_acetyltransferase import NAcetyltransferase
+from autarch.ontology.o_acyltransferase import OAcyltransferase
+from autarch.ontology.o_acetyltransferase import OAcetyltransferase
+from autarch.ontology.carbohydrate_kinase_activity import CarbohydrateKinaseActivity
+from autarch.ontology.aldehyde_dehydrogenase_nad_or_nadp import AldehydeDehydrogenaseNADOrNADP
+from autarch.ontology.lipase import Lipase
+from autarch.ontology.amino_acid_racemase import AminoAcidRacemase
+from autarch.ontology.amino_acid_transmembrane_transporter_activity import AminoAcidTransmembraneTransporterActivity
+from autarch.ontology.aldehyde_dehydrogenase_nad import AldehydeDehydrogenaseNAD
+from autarch.ontology.alcohol_dehydrogenase_nad_p import AlcoholDehydrogenaseNADP
+from autarch.ontology.acyl_coa_hydrolase import AcylCoAHydrolase
+from autarch.ontology.cytidylyltransferase import Cytidylyltransferase
+from autarch.ontology.guanylyltransferase import Guanylyltransferase
+from autarch.ontology.uridylyltransferase import Uridylyltransferase
+from autarch.ontology.udp_glycosyltransferase_activity import (
+    UDPGlycosyltransferaseActivity,
+)
+from autarch.ontology.glucosyltransferase_activity import (
+    GlucosyltransferaseActivity,
+)
+from autarch.ontology.udp_glucosyltransferase_activity import (
+    UDPGlucosyltransferaseActivity,
+)
+from autarch.ontology.galactosyltransferase_activity import (
+    GalactosyltransferaseActivity,
+)
+from autarch.ontology.udp_galactosyltransferase_activity import (
+    UDPGalactosyltransferaseActivity,
+)
+from autarch.ontology.acetylglucosaminyltransferase_activity import (
+    AcetylglucosaminyltransferaseActivity,
+)
+from autarch.ontology.mannosyltransferase_activity import (
+    MannosyltransferaseActivity,
+)
+from autarch.ontology.symporter_activity import SymporterActivity
+from autarch.ontology.antiporter_activity import AntiporterActivity
+from autarch.ontology.secondary_active_transmembrane_transporter_activity import (
+    SecondaryActiveTransmembraneTransporterActivity,
+)
+from autarch.ontology.metal_ion_transmembrane_transporter_activity import (
+    MetalIonTransmembraneTransporterActivity,
+)
+from autarch.ontology.sodium_ion_transmembrane_transporter_activity import (
+    SodiumIonTransmembraneTransporterActivity,
+)
+from autarch.ontology.carboxylic_acid_transmembrane_transporter_activity import (
+    CarboxylicAcidTransmembraneTransporterActivity,
+)
+from autarch.ontology.solute_monoatomic_cation_symporter_activity import (
+    SoluteMonoatomicCationSymporterActivity,
+)
+from autarch.ontology.solute_sodium_symporter_activity import (
+    SoluteSodiumSymporterActivity,
+)
+from autarch.ontology.monosaccharide_transmembrane_transporter_activity import (
+    MonosaccharideTransmembraneTransporterActivity,
+)
+from autarch.ontology.atpase_coupled_monoatomic_cation_transmembrane_transporter_activity import (
+    ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity,
+)
+from autarch.ontology.solute_proton_symporter_activity import (
+    SoluteProtonSymporterActivity,
+)
+from autarch.ontology.sugar_transmembrane_transporter_activity import (
+    SugarTransmembraneTransporterActivity,
+)
+from autarch.ontology.sulfur_compound_transmembrane_transporter_activity import (
+    SulfurCompoundTransmembraneTransporterActivity,
+)
+from autarch.ontology.metal_cation_monoatomic_cation_antiporter_activity import (
+    MetalCationMonoatomicCationAntiporterActivity,
+)
+from autarch.ontology.protein_methyltransferase_activity import (
+    ProteinMethyltransferaseActivity,
+)
+from autarch.ontology.protein_lysine_n_methyltransferase_activity import (
+    ProteinLysineNMethyltransferaseActivity,
+)
+from autarch.ontology.lysine_n_methyltransferase_activity import (
+    LysineNMethyltransferaseActivity,
+)
+from autarch.ontology.histone_methyltransferase_activity import (
+    HistoneMethyltransferaseActivity,
+)
+from autarch.ontology.histone_modifying_activity import HistoneModifyingActivity
+from autarch.ontology.pseudouridine_synthase_activity import (
+    PseudouridineSynthaseActivity,
+)
+from autarch.ontology.s_acyltransferase_activity import SAcyltransferaseActivity
+from autarch.ontology.oxidosqualene_cyclase_activity import (
+    OxidosqualeneCyclaseActivity,
+)
+from autarch.ontology.trna_guanine_methyltransferase_activity import (
+    TRNAGuanineMethyltransferaseActivity,
+)
+from autarch.ontology.c_acyltransferase_activity import CAcyltransferaseActivity
+from autarch.ontology.sugar_phosphatase_activity import SugarPhosphataseActivity
+from autarch.ontology.carbohydrate_phosphatase_activity import (
+    CarbohydratePhosphataseActivity,
+)
+from autarch.ontology.hydroxycinnamoyltransferase_activity import (
+    HydroxycinnamoyltransferaseActivity,
+)
+from autarch.ontology.udp_xylosyltransferase_activity import (
+    UDPXylosyltransferaseActivity,
+)
+from autarch.ontology.xylosyltransferase_activity import XylosyltransferaseActivity
+from autarch.ontology.limonene_monooxygenase_activity import (
+    LimoneneMonooxygenaseActivity,
+)
+from autarch.ontology.phosphoprotein_phosphatase_activity import (
+    PhosphoproteinPhosphataseActivity,
+)
+from autarch.ontology.protein_n_acyltransferase_activity import (
+    ProteinNAcyltransferaseActivity,
+)
+from autarch.ontology.protein_n_acetyltransferase_activity import (
+    ProteinNAcetyltransferaseActivity,
+)
+from autarch.ontology.succinyltransferase_activity import (
+    SuccinyltransferaseActivity,
+)
+from autarch.ontology.ribonucleoside_triphosphate_phosphatase_activity import (
+    RibonucleosideTriphosphatePhosphataseActivity,
+)
+from autarch.ontology.oxidoreductase_acting_on_the_ch_oh_group_of_donors_quinone_or_similar_compound_as_acceptor import (
+    OxidoreductaseActingOnTheCHOHGroupOfDonorsQuinoneOrSimilarCompoundAsAcceptor,
+)
+from autarch.ontology.two_hydroxyacyl_coa_lyase_activity import (
+    TwoHydroxyacylCoALyaseActivity,
+)
+from autarch.ontology.zeaxanthin_epoxidase_activity import (
+    ZeaxanthinEpoxidaseActivity,
+)
+from autarch.ontology.cinnamyl_alcohol_dehydrogenase_activity import (
+    CinnamylAlcoholDehydrogenaseActivity,
+)
+from autarch.ontology.sterol_14_demethylase_activity import (
+    Sterol14DemethylaseActivity,
+)
+from autarch.ontology.sterol_12_alpha_hydroxylase_activity import (
+    Sterol12AlphaHydroxylaseActivity,
+)
+from autarch.ontology.arachidonate_5_lipoxygenase_activity import (
+    Arachidonate5LipoxygenaseActivity,
+)
+from autarch.ontology.three_beta_hydroxysteroid_3_dehydrogenase_nad_p_activity import (
+    ThreeBetaHydroxysteroid3DehydrogenaseNADPActivity,
+)
+from autarch.ontology.galactosylceramide_sulfotransferase_activity import (
+    GalactosylceramideSulfotransferaseActivity,
+)
+from autarch.ontology.limonene_12_monooxygenase_nadh_or_nadph_activity import (
+    Limonene12MonooxygenaseNADHOrNADPHActivity,
+)
+from autarch.ontology.methyl_co_iii_methylamine_specific_corrinoid_protein_coenzyme_m_methyltransferase_activity import (
+    MethylCoIIIMethylamineSpecificCorrinoidProteinCoenzymeMMethyltransferaseActivity,
+)
+from autarch.ontology.aureusidin_synthase_activity import (
+    AureusidinSynthaseActivity,
+)
+from autarch.ontology.glyceollin_synthase_activity import (
+    GlyceollinSynthaseActivity,
+)
+from autarch.ontology.feruloyl_coa_hydratase_lyase_activity import (
+    FeruloylCoAHydrataseLyaseActivity,
+)
+from autarch.ontology.amine_n_methyltransferase_activity import (
+    AmineNMethyltransferaseActivity,
+)
+from autarch.ontology.short_chain_2_methyl_fatty_acyl_coa_dehydrogenase_activity import (
+    ShortChain2MethylFattyAcylCoADehydrogenaseActivity,
+)
+from autarch.ontology.l_aminoadipate_semialdehyde_dehydrogenase_nad_or_nadp_activity import (
+    LAminoadipateSemialdehydeDehydrogenaseNADOrNADPActivity,
+)
+from autarch.ontology.estradiol_17_beta_dehydrogenase_nad_or_nadp_activity import (
+    Estradiol17BetaDehydrogenaseNADOrNADPActivity,
+)
+from autarch.ontology.succinyl_coa_3_oxo_acid_coa_transferase_activity import (
+    SuccinylCoA3OxoAcidCoATransferaseActivity,
+)
+from autarch.ontology.nadh_or_nadph_oxidase_h2o2_forming_activity import (
+    NADHOrNADPHOxidaseH2O2FormingActivity,
+)
+from autarch.ontology.l_aspartate_dehydrogenase_nad_or_nadp_activity import (
+    LAspartateDehydrogenaseNADOrNADPActivity,
+)
+from autarch.ontology.three_hydroxyphenylacetate_6_hydroxylase_activity import (
+    ThreeHydroxyphenylacetate6HydroxylaseActivity,
+)
+from autarch.ontology.coniferyl_aldehyde_dehydrogenase_nad_or_nadp_activity import (
+    ConiferylAldehydeDehydrogenaseNADOrNADPActivity,
+)
+from autarch.ontology.protein_histidine_phosphatase_activity import (
+    ProteinHistidinePhosphataseActivity,
+)
+from autarch.ontology.leucyl_trna_protein_transferase_activity import (
+    LeucylTRNAProteinTransferaseActivity,
+)
+from autarch.ontology.nitroquinoline_n_oxide_reductase_nadh_or_nadph_activity import (
+    NitroquinolineNOxideReductaseNADHOrNADPHActivity,
+)
+from autarch.ontology.mannosyl_oligosaccharide_12_alpha_mannosidase_activity import (
+    MannosylOligosaccharide12AlphaMannosidaseActivity,
+)
+from autarch.ontology.serine_trna_ligase_activity import (
+    SerineTRNALigaseActivity,
+)
+from autarch.ontology.short_chain_fatty_acyl_coa_dehydrogenase_activity import (
+    ShortChainFattyAcylCoADehydrogenaseActivity,
+)
+from autarch.ontology.malonate_semialdehyde_dehydrogenase_acetylating_activity import (
+    MalonateSemialdehydeDehydrogenaseAcetylatingActivity,
+)
+from autarch.ontology.d_arabinitol_dehydrogenase_nadp_activity import (
+    DArabinitolDehydrogenaseNADPActivity,
+)
+from autarch.ontology.acetylajmaline_esterase_activity import (
+    AcetylajmalineEsteraseActivity,
+)
+from autarch.ontology.fifteen_oxoprostaglandin_13_reductase_nad_or_nadp_activity import (
+    FifteenOxoprostaglandin13ReductaseNADOrNADPActivity,
+)
+from autarch.ontology.protein_o_acetylglucosaminyltransferase_activity import (
+    ProteinOAcetylglucosaminyltransferaseActivity,
+)
+from autarch.ontology.glc2_man9_glcnac2_oligosaccharide_glucosidase_activity import (
+    Glc2Man9GlcNAc2OligosaccharideGlucosidaseActivity,
+)
+from autarch.ontology.steroid_hydroxylase_activity import (
+    SteroidHydroxylaseActivity,
+)
+from autarch.ontology.steroid_dehydrogenase_activity import (
+    SteroidDehydrogenaseActivity,
+)
+from autarch.ontology.steroid_dehydrogenase_activity_acting_on_the_ch_oh_group_of_donors_nad_or_nadp_as_acceptor import (
+    SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor,
+)
+from autarch.ontology.deacetylase_activity import DeacetylaseActivity
+from autarch.ontology.demethylase_activity import DemethylaseActivity
+from autarch.ontology.amino_acid_dehydrogenase_nad_or_nadp import (
+    AminoAcidDehydrogenaseNADOrNADP,
+)
+from autarch.ontology.beta_glucosidase_activity import BetaGlucosidaseActivity
+from autarch.ontology.catalytic_activity_acting_on_a_glycoprotein import (
+    CatalyticActivityActingOnAGlycoprotein,
+)
+from autarch.ontology.acyl_coa_dehydrogenase_activity import (
+    AcylCoADehydrogenaseActivity,
+)
+from autarch.ontology.l_amino_acid_n_acetyltransferase_activity import (
+    LAminoAcidNAcetyltransferaseActivity,
+)
+
+__all__ = [
+    "ABCTypeCarbohydrateTransporter",
+    "ABCTypePolarAminoAcidTransporter",
+    "AcidThiolLigase",
+    "AcidAminoAcidLigase",
+    "AcidAmmoniaOrAmideLigase",
+    "AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer",
+    "Acyltransferase",
+    "AcyltransferaseTransferringGroupsOtherThanAminoAcylGroups",
+    "AldehydeKetoneTransferase",
+    "AlcoholDehydrogenaseNAD",
+    "AldehydeLyase",
+    "Aldose1Epimerase",
+    "Aldose1DehydrogenaseNADP",
+    "AlphaAmylase",
+    "Aminoacyltransferase",
+    "AminoacylTRNALigase",
+    "AromaticAminoAcidTransaminase",
+    "Aminopeptidase",
+    "ADPDependentNADHOrNADPHHydrateDehydratase",
+    "AMPylase",
+    "AmmoniaLyase",
+    "ActingOnCarbonCarbonBonds",
+    "ActingOnEtherBonds",
+    "ActingOnHalogenInDonors",
+    "ActingOnNADHOrNADPH",
+    "ActingOnSuperoxideAsAcceptor",
+    "ATPDependentNADHOrNADPHHydrateDehydratase",
+    "ATPDiphosphatase",
+    "ATPIndependentChelatases",
+    "ATPHydrolysis",
+    "AcylCoADesaturaseActivity",
+    "RS1Benzyl1234TetrahydroisoquinolineNMethyltransferase",
+    "BiotinBiotinCarboxylCarrierProteinLigase",
+    "CaffeineSynthase",
+    "CarbonCarbonLyase",
+    "CarbonCarbonLyases",
+    "CarbonHalideLyase",
+    "CarbonNitrogenLyases",
+    "CarbonNitrogenLigaseWithGlutamineAsAmidoNDonor",
+    "CarbonOxygenLyase",
+    "CarbonOxygenLyases",
+    "CarbonPhosphorusLyase",
+    "CarbonSulfurLyase",
+    "CarbonateDehydratase",
+    "CarboxylOrCarbamoyltransferase",
+    "CarboxyLyase",
+    "CarboxylicEsterHydrolase",
+    "CarnosineSynthase",
+    "CholateCoALigase",
+    "Cellulase",
+    "Chitinase",
+    "CisTransIsomerase",
+    "CisTransIsomerases",
+    "CoATransferase",
+    "CorrinoidAdenosyltransferase",
+    "ClassificationResult",
+    "Cyclase",
+    "CytochromeCOxidase",
+    "Deaminase",
+    "Delta3Delta2EnoylCoAIsomerase",
+    "DAminoacylTRNADeacylase",
+    "DeoxynucleosideKinase",
+    "DemethylmenaquinoneMethyltransferase",
+    "Delta24SterolReductase",
+    "DicarboxylicAcidTransmembraneTransporterActivity",
+    "DihydrolipoylDehydrogenaseNADH",
+    "DihydrocarveolDehydrogenase",
+    "DisulfideOxidoreductaseActivity",
+    "DiphosphoricMonoesterHydrolase",
+    "Diphosphotransferase",
+    "Endo14BetaXylanase",
+    "EnzymesUsingH2AsReductant",
+    "EpoxideHydrolase",
+    "EtherHydrolase",
+    "FormingCarbonOxygenBonds",
+    "FormingNitrogenNitrogenBonds",
+    "GalactoseOxidase",
+    "GDP4DehydroDRhamnoseReductase",
+    "GellanTetrasaccharideUnsaturatedGlucuronosylHydrolase",
+    "GammaHumuleneSynthase",
+    "GibberellinA4CarboxylMethyltransferase",
+    "GibberellinA9OMethyltransferase",
+    "Gibberellin20Oxidase",
+    "GlucosidaseActivity",
+    "Glycosyltransferase",
+    "GlycineOxidase",
+    "GlycerolDehydratase",
+    "GlycerophospholipaseActivity",
+    "Hexokinase",
+    "Hexosyltransferase",
+    "HomomethionineNMonooxygenase",
+    "Helicase",
+    "Hydrolase",
+    "ActingOnEsterBonds",
+    "HydrolaseActingOnAcidAnhydrides",
+    "HydrolaseActingOnEsterBonds",
+    "HydrolaseActingOnCarbonCarbonBondsInKetonicSubstances",
+    "HydrolaseActingOnAcidAnhydridesInPhosphorusContainingAnhydrides",
+    "HydrolaseActingOnHalideBondsInCHalideCompounds",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBonds",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmides",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmidines",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmides",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmidines",
+    "HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInNitriles",
+    "HydrolaseActingOnGlycosylBonds",
+    "HydrolaseActingOnSulfurNitrogenBonds",
+    "HydrolaseActingOnCarbonPhosphorusBonds",
+    "HydrolaseActingOnCarbonSulfurBonds",
+    "HydrolaseActingOnHalideBonds",
+    "HydrolaseActingOnPhosphorusNitrogenBonds",
+    "HydrolaseActingOnSulfurSulfurBonds",
+    "HydrolaseHydrolyzingNGlycosylCompounds",
+    "HydrolaseHydrolyzingOGlycosylCompounds",
+    "HydroLyase",
+    "HydroxymethylFormylAndRelatedTransferase",
+    "IntramolecularLyase",
+    "IntramolecularOxidoreductase",
+    "IntramolecularOxidoreductaseInterconvertingAldosesAndKetoses",
+    "IntramolecularPhosphotransferase",
+    "InositolPhosphateKinaseActivity",
+    "InositolPhosphatePhosphataseActivity",
+    "Isomerase",
+    "Kinase",
+    "LipidKinaseActivity",
+    "LGlutamateGammaSemialdehydeDehydrogenase",
+    "LHistidineNAlphaMethyltransferase",
+    "Ligase",
+    "LigaseFormingCarbonCarbonBonds",
+    "LigaseFormingCarbonNitrogenBonds",
+    "LigaseFormingCarbonSulfurBonds",
+    "LigaseFormingNitrogenMetalBonds",
+    "LigaseFormingPhosphoricEsterBonds",
+    "Limonene12Monooxygenase",
+    "Lyase",
+    "MacromolecularConformationIsomerase",
+    "FiveMethyltetrahydropteroyltriglutamateHomocysteineSMethyltransferase",
+    "FattyAcidLigaseActivity",
+    "MethionineSMethyltransferase",
+    "Methyltransferase",
+    "MethylxanthineN1Demethylase",
+    "MethylxanthineN3Demethylase",
+    "MethoxylatedAromaticCompoundCorrinoidProteinCoMethyltransferase",
+    "MethylEthylMalonylCoADecarboxylase",
+    "MolybdenumTungstenTransferase",
+    "Monooxygenase",
+    "MonocyclicMonoterpeneKetoneMonooxygenase",
+    "MonoterpeneEpsilonLactoneHydrolase",
+    "NADHOrNADPHDehydrogenaseQuinone",
+    "N1AcetylpolyamineOxidase",
+    "NitrogenOxygenLyases",
+    "NitroareneDioxygenase",
+    "NucleosideDiphosphateKinase",
+    "NicotinamideNMethyltransferase",
+    "NeutralLAminoAcidTransmembraneTransporterActivity",
+    "Nucleotidyltransferase",
+    "NucleotideDiphosphatase",
+    "NTerminalMethionineNAlphaAcetyltransferaseNatE",
+    "NTerminalMethionineNAlphaAcetyltransferaseNatC",
+    "NTerminalMethionineNAlphaAcetyltransferaseNatB",
+    "NTerminalAminoAcidNAlphaAcetyltransferaseNatA",
+    "OnePiperideine2CarboxylateOnePyrroline2CarboxylateReductaseNADHOrNADPH",
+    "OtherIsomerase",
+    "OtherLyase",
+    "OtherEnzymesUsingO2AsOxidant",
+    "OtherOxidoreductase",
+    "OxoAcidLyase",
+    "Oxidoreductase",
+    "OxidoreductaseActingOnCHOrCH2Groups",
+    "OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor",
+    "OxidoreductaseActingOnIronSulfurProteins",
+    "OxidoreductaseActingOnReducedFlavodoxin",
+    "OxidoreductaseActingOnPhosphorusOrArsenic",
+    "OxidoreductaseFormingXYBond",
+    "OxidoreductaseActingOnAHemeGroupOfDonors",
+    "OxidoreductaseActingOnDiphenols",
+    "OxidoreductaseActingOnDiphenolsAndRelatedSubstancesAsDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnHydrogen",
+    "OxidoreductaseActingOnMetalIons",
+    "OxidoreductaseActingOnOtherNitrogenousCompounds",
+    "OxidoreductaseActingOnOtherNitrogenousCompoundsAsDonorsWithNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnASulfurGroupOfDonors",
+    "OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor",
+    "OxidoreductaseActingOnASulfurGroupOfDonorsNADPAsAcceptor",
+    "OxidoreductaseActingOnASulfurGroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnPeroxideAsAcceptor",
+    "OxidoreductaseActingOnCHOHGroupOfDonors",
+    "OxidoreductaseActingOnNADHOrNADPHQuinoneOrSimilarCompoundAsAcceptor",
+    "OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygen",
+    "OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfOneAtomOfOxygenInternalMonooxygenasesOrInternalMixedFunctionOxidases",
+    "OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfTwoAtomsOfOxygen",
+    "ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen",
+    "OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen",
+    "OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen",
+    "OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfTwoAtomsOfOxygenIntoOneDonor",
+    "OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedFlavinOrFlavoproteinAsOneDonorAndIncorporationOfOneAtomOfOxygen",
+    "OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedIronSulfurProteinAsOneDonorAndIncorporationOfOneAtomOfOxygen",
+    "OxidoreductaseActingOnPairedDonorsWithOxidationOfAPairOfDonorsResultingInTheReductionOfMolecularOxygenToTwoMoleculesOfWater",
+    "OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonors",
+    "OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsIronSulfurProteinAsAcceptor",
+    "OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnTheCHCHGroupOfDonors",
+    "OxidoreductaseActingOnTheCHCHGroupOfDonorsIronSulfurProteinAsAcceptor",
+    "OxidoreductaseActingOnTheCHCHGroupOfDonorsWithAFlavinAsAcceptor",
+    "OxidoreductaseActingOnTheCHCHGroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnTheCHCHGroupOfDonorsNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnTheCHNH2GroupOfDonors",
+    "OxidoreductaseActingOnTheCHNH2GroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnTheCHNH2GroupOfDonorsNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnTheCHNHGroupOfDonors",
+    "OxidoreductaseActingOnTheCHNHGroupOfDonorsNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnTheCHNHGroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor",
+    "OxidoreductaseActingOnTheCHOHGroupOfDonorsOxygenAsAcceptor",
+    "OxidoreductaseReducingCOCGroup",
+    "Participant",
+    "PectateLyase",
+    "Pectinesterase",
+    "Pentosyltransferase",
+    "PeptideOFucosyltransferase",
+    "Peptidase",
+    "PeptidylProlylCisTransIsomerase",
+    "Peroxidase",
+    "PineneSynthase",
+    "PhosphoethanolamineNMethyltransferase",
+    "Precorrin3BC17Methyltransferase",
+    "PrephenateDehydratase",
+    "Phosphatase",
+    "PhosphatidylinositolPhosphatePhosphataseActivity",
+    "PhosphoricDiesterHydrolase",
+    "PhospholipaseActivity",
+    "PhosphotransferaseAlcoholGroupAsAcceptor",
+    "PhosphotransferaseCarboxylGroupAsAcceptor",
+    "PhosphotransferaseForOtherSubstitutedPhosphateGroups",
+    "PhosphotransferaseNitrogenousGroupAsAcceptor",
+    "PhosphotransferasePhosphateGroupAsAcceptor",
+    "PolysialicAcidOAcetyltransferase",
+    "PolyamineOxidase",
+    "PrenylDiphosphateSynthaseActivity",
+    "Prenyltransferase",
+    "PrimaryActiveTransmembraneTransporter",
+    "TranslocationOfAminoAcidsAndPeptidesLinkedToTheHydrolysisOfANucleosideTriphosphate",
+    "TranslocationOfInorganicAnionsAndTheirChelatesLinkedToTheHydrolysisOfANucleosideTriphosphate",
+    "TranslocationOfInorganicCationsLinkedToTheHydrolysisOfANucleosideTriphosphate",
+    "TranslocaseLinkedToDeamination",
+    "TranslocaseLinkedToDecarboxylation",
+    "TranslocaseLinkedToHydrolysis",
+    "TranslocaseLinkedToMethylTransfer",
+    "TranslocaseLinkedToReductiveDehalogenation",
+    "PrimaryMethylamineOxidase",
+    "ProteinKinaseActivity",
+    "ProteinDeglycase",
+    "ProteinSerineThreonineKinaseActivity",
+    "Pyrophosphatase",
+    "PyridoxaminePhosphateOxidase",
+    "PurineNucleosidePhosphorylase",
+    "Quinoline2Oxidoreductase",
+    "QuinateShikimateDehydrogenaseNADP",
+    "RAmidase",
+    "RacemaseAndEpimerase",
+    "RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives",
+    "RacemaseAndEpimeraseActingOnCarbohydratesAndDerivatives",
+    "Reaction",
+    "ReactionClass",
+    "ReactionDiff",
+    "RibuloseBisphosphateCarboxylase",
+    "RibonucleosideDiphosphateReductaseThioredoxinDisulfideAsAcceptor",
+    "RNANuclease",
+    "RNAPolymerase",
+    "RRNASmallSubunitPseudouridineMethyltransferaseNep1",
+    "Sialyltransferase",
+    "SesquiterpeneSynthaseActivity",
+    "SixSevenDihydropteridineReductase",
+    "SpermineOxidase",
+    "PolyamineOxidasePropane13DiamineForming",
+    "SqualeneMonooxygenase",
+    "SUMOTransferase",
+    "Selenotransferase",
+    "SulfuricEsterHydrolase",
+    "Sulfurtransferase",
+    "Sulfotransferase",
+    "SuperoxideDismutase",
+    "TenHydroxydihydrosanguinarine10OMethyltransferase",
+    "TerpeneSynthase",
+    "ThreeHydroxyacylCoADehydratase",
+    "ThiolesterHydrolase",
+    "TocopherolCMethyltransferase",
+    "Transferase",
+    "TransferaseTransferringAlkylOrArylOtherThanMethylGroups",
+    "TransferringAlkylOrArylGroupsOtherThanMethylGroups",
+    "TransferaseTransferringNitrogenousGroups",
+    "TransferringNitrogenousGroups",
+    "TransferaseTransferringOneCarbonGroups",
+    "TransferringOneCarbonGroups",
+    "TransferaseTransferringPhosphorusContainingGroups",
+    "TransferaseTransferringSulfurContainingGroups",
+    "TransferringSulfurContainingGroups",
+    "TranslocationOfHydrons",
+    "TRNACytidine5Methyltransferase",
+    "TRNADihydrouridine1617SynthaseNADP",
+    "TRNADihydrouridine20A20BSynthaseNADP",
+    "TrimethylsulfoniumTetrahydrofolateNMethyltransferase",
+    "TransferringOtherGlycosylGroups",
+    "Transaminase",
+    "TriacylglycerolLipase",
+    "TwoDeaminoTwoHydroxyneamine1AlphaDKanosaminyltransferase",
+    "TwoThreeCyclicNucleotideTwoPhosphodiesterase",
+    "UridineCytidineKinase",
+    "TyramineNMethyltransferase",
+    "TwoOxoglutarateDependentDioxygenase",
+    "UbiquitinProteinLigase",
+    "VitaminD324Hydroxylase",
+    "ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor",
+    "TransferringOtherGroups",
+    "ProteinSerineThreonineKinases",
+    "ActingOnTheCHCHGroupOfDonorsWithOtherAcceptors",
+    "CarbonSulfurLyases",
+    "ActingOnTheCHOHGroupOfDonorsWithOtherAcceptors",
+    "ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenMiscellaneous",
+    "IntramolecularLyases",
+    "TransposingCCBonds",
+    "OtherCarbonCarbonLyases",
+    "TransketolasesAndTransaldolases",
+    "TranslocationOfOtherCompoundsLinkedToTheHydrolysisOfANucleosideTriphosphate",
+    "PhosphotransferasesPhosphomutases",
+    "ActingOnCarbonNitrogenBondsOtherThanPeptideBondsInOtherCompounds",
+    "OtherIntramolecularOxidoreductases",
+    "CisTransIsomerases",
+    "CoALigase",
+    "ReactionXHYHXYWithOxygenAsAcceptor",
+    "TransferringAminoGroups",
+    "ActingOnCHOrCH2GroupsWithNADOrNADPAsAcceptor",
+    "ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenWith2OxoglutarateAsOneDonorAndTheOtherDehydrogenated",
+    "Acetyltransferase",
+    "Adenylyltransferase",
+    "CarbonNitrogenLyase",
+    "CarbonOxygenLyaseActingOnPhosphates",
+    "Dioxygenase",
+    "HydrolaseActingOnCarbonCarbonBonds",
+    "HydrolaseActingOnEtherBonds",
+    "IntramolecularOxidoreductaseTransposingCCBonds",
+    "IntramolecularTransferase",
+    "NMethyltransferase",
+    "NucleobaseContainingCompoundKinase",
+    "OMethyltransferase",
+    "OxidoreductaseActingOnNADHOrNADPH",
+    "PhosphoricEsterHydrolase",
+    "RNAMethyltransferase",
+    "CatalyticActivityActingOnAProtein",
+    "SAdenosylmethionineDependentMethyltransferase",
+    "CatalyticActivityActingOnANucleicAcid",
+    "CatalyticActivityActingOnRNA",
+    "TransporterActivity",
+    "TransmembraneTransporterActivity",
+    "ActiveTransmembraneTransporterActivity",
+    "CatalyticActivityActingOnATRNA",
+    "ATPDependentActivity",
+    "MonoatomicIonTransmembraneTransporterActivity",
+    "MonoatomicCationTransmembraneTransporterActivity",
+    "DeacylaseActivity",
+    "ABCTypeTransporterActivity",
+    "ProtonTransmembraneTransporterActivity",
+    "TRNAMethyltransferase",
+    "AlcoholDehydrogenaseNADOrNADP",
+    "AntioxidantActivity",
+    "LigaseActivityFormingCarbonOxygenBonds",
+    "ActiveMonoatomicIonTransmembraneTransporterActivity",
+    "CarbohydrateTransmembraneTransporterActivity",
+    "SMethyltransferase",
+    "RRNAMethyltransferase",
+    "CatalyticActivityActingOnARRNA",
+    "RNADihydrouridineSynthase",
+    "TRNADihydrouridineSynthase",
+    "NucleosideTriphosphateDiphosphataseActivity",
+    "NAcyltransferase",
+    "NAcetyltransferase",
+    "OAcyltransferase",
+    "OAcetyltransferase",
+    "CarbohydrateKinaseActivity",
+    "AldehydeDehydrogenaseNADOrNADP",
+    "Lipase",
+    "AminoAcidRacemase",
+    "AminoAcidTransmembraneTransporterActivity",
+    "AldehydeDehydrogenaseNAD",
+    "AlcoholDehydrogenaseNADP",
+    "AcylCoAHydrolase",
+    "Cytidylyltransferase",
+    "Guanylyltransferase",
+    "Uridylyltransferase",
+    "UDPGlycosyltransferaseActivity",
+    "GlucosyltransferaseActivity",
+    "UDPGlucosyltransferaseActivity",
+    "GalactosyltransferaseActivity",
+    "UDPGalactosyltransferaseActivity",
+    "AcetylglucosaminyltransferaseActivity",
+    "MannosyltransferaseActivity",
+    "SymporterActivity",
+    "AntiporterActivity",
+    "SecondaryActiveTransmembraneTransporterActivity",
+    "MetalIonTransmembraneTransporterActivity",
+    "SodiumIonTransmembraneTransporterActivity",
+    "CarboxylicAcidTransmembraneTransporterActivity",
+    "SoluteMonoatomicCationSymporterActivity",
+    "SoluteSodiumSymporterActivity",
+    "MonosaccharideTransmembraneTransporterActivity",
+    "ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity",
+    "SoluteProtonSymporterActivity",
+    "SugarTransmembraneTransporterActivity",
+    "SulfurCompoundTransmembraneTransporterActivity",
+    "MetalCationMonoatomicCationAntiporterActivity",
+    "PTypeTransmembraneTransporterActivity",
+    "PTypeIonTransporterActivity",
+    "TransitionMetalIonTransmembraneTransporterActivity",
+    "OrganicAcidSodiumSymporterActivity",
+    "ProteinMethyltransferaseActivity",
+    "ProteinLysineNMethyltransferaseActivity",
+    "LysineNMethyltransferaseActivity",
+    "HistoneMethyltransferaseActivity",
+    "HistoneModifyingActivity",
+    "PseudouridineSynthaseActivity",
+    "SAcyltransferaseActivity",
+    "OxidosqualeneCyclaseActivity",
+    "TRNAGuanineMethyltransferaseActivity",
+    "CAcyltransferaseActivity",
+    "SugarPhosphataseActivity",
+    "CarbohydratePhosphataseActivity",
+    "HydroxycinnamoyltransferaseActivity",
+    "UDPXylosyltransferaseActivity",
+    "XylosyltransferaseActivity",
+    "LimoneneMonooxygenaseActivity",
+    "PhosphoproteinPhosphataseActivity",
+    "ProteinNAcyltransferaseActivity",
+    "ProteinNAcetyltransferaseActivity",
+    "SuccinyltransferaseActivity",
+    "RibonucleosideTriphosphatePhosphataseActivity",
+    "OxidoreductaseActingOnTheCHOHGroupOfDonorsQuinoneOrSimilarCompoundAsAcceptor",
+    "TwoHydroxyacylCoALyaseActivity",
+    "ZeaxanthinEpoxidaseActivity",
+    "CinnamylAlcoholDehydrogenaseActivity",
+    "Sterol14DemethylaseActivity",
+    "Sterol12AlphaHydroxylaseActivity",
+    "Arachidonate5LipoxygenaseActivity",
+    "ThreeBetaHydroxysteroid3DehydrogenaseNADPActivity",
+    "GalactosylceramideSulfotransferaseActivity",
+    "Limonene12MonooxygenaseNADHOrNADPHActivity",
+    "MethylCoIIIMethylamineSpecificCorrinoidProteinCoenzymeMMethyltransferaseActivity",
+    "AureusidinSynthaseActivity",
+    "GlyceollinSynthaseActivity",
+    "FeruloylCoAHydrataseLyaseActivity",
+    "AmineNMethyltransferaseActivity",
+    "ShortChain2MethylFattyAcylCoADehydrogenaseActivity",
+    "LAminoadipateSemialdehydeDehydrogenaseNADOrNADPActivity",
+    "Estradiol17BetaDehydrogenaseNADOrNADPActivity",
+    "SuccinylCoA3OxoAcidCoATransferaseActivity",
+    "NADHOrNADPHOxidaseH2O2FormingActivity",
+    "LAspartateDehydrogenaseNADOrNADPActivity",
+    "ThreeHydroxyphenylacetate6HydroxylaseActivity",
+    "ConiferylAldehydeDehydrogenaseNADOrNADPActivity",
+    "ProteinHistidinePhosphataseActivity",
+    "LeucylTRNAProteinTransferaseActivity",
+    "NitroquinolineNOxideReductaseNADHOrNADPHActivity",
+    "MannosylOligosaccharide12AlphaMannosidaseActivity",
+    "SerineTRNALigaseActivity",
+    "ShortChainFattyAcylCoADehydrogenaseActivity",
+    "MalonateSemialdehydeDehydrogenaseAcetylatingActivity",
+    "DArabinitolDehydrogenaseNADPActivity",
+    "AcetylajmalineEsteraseActivity",
+    "FifteenOxoprostaglandin13ReductaseNADOrNADPActivity",
+    "ProteinOAcetylglucosaminyltransferaseActivity",
+    "Glc2Man9GlcNAc2OligosaccharideGlucosidaseActivity",
+    "SteroidHydroxylaseActivity",
+    "SteroidDehydrogenaseActivity",
+    "SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor",
+    "DeacetylaseActivity",
+    "DemethylaseActivity",
+    "AminoAcidDehydrogenaseNADOrNADP",
+    "BetaGlucosidaseActivity",
+    "CatalyticActivityActingOnAGlycoprotein",
+    "AcylCoADehydrogenaseActivity",
+    "LAminoAcidNAcetyltransferaseActivity",
+]

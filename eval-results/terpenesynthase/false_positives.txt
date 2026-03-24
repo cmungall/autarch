@@ -1,0 +1,109 @@
+False Positives for TerpeneSynthase
+==================================================
+Total: 35
+
+RHEA:20912: (2E,6E,10E)-geranylgeranyl diphosphate = taxa-4(5),11(12)-diene + diphosphate
+  → Terpene synthase: prenyl-PP → diterpene (C20) + PPi
+
+RHEA:25436: (2E,6E)-farnesyl diphosphate = (E,R)-alpha-bisabolene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:25484: (2E)-geranyl diphosphate = (1S,4R)-camphene + diphosphate
+  → Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:25992: (2E,6E)-farnesyl diphosphate = (+)-epi-isozizaene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:26081: (2E,6E)-farnesyl diphosphate = (Z)-gamma-bisabolene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27551: 8 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = di-trans,octa-cis-undecaprenyl diphosphate + 8 diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27555: 2 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-hexaprenyl diphosphate + 2 diphosphate
+  → Terpene synthase: prenyl-PP → diterpene (C20) + PPi
+
+RHEA:27559: 3 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-hexaprenyl diphosphate + 3 diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27563: 7 isopentenyl diphosphate + (2E)-geranyl diphosphate = all-trans-nonaprenyl diphosphate + 7 diphosphate
+  → Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:27594: 5 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-nonaprenyl diphosphate + 5 diphosphate
+  → Terpene synthase: prenyl-PP → diterpene (C20) + PPi
+
+RHEA:27794: 4 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-heptaprenyl diphosphate + 4 diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27798: 5 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-octaprenyl diphosphate + 5 diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:27802: 7 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-decaprenyl diphosphate + 7 diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:28302: (2E,6E)-farnesyl diphosphate = germacrene C + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:28635: (2E,6E)-farnesyl diphosphate = (+)-5-epi-aristolochene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:28643: (2E,6E)-farnesyl diphosphate = alpha-zingiberene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:29499: (2E,6E)-farnesyl diphosphate = (+)-alpha-barbatene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:29511: (2E,6E)-farnesyl diphosphate = (+)-valencene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30375: (2E,6E)-farnesyl diphosphate = (+)-thujopsene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30379: (2E,6E)-farnesyl diphosphate = (+)-beta-chamigrene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30383: (2E,6E)-farnesyl diphosphate = (-)-7-epi-alpha-selinene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30463: (2Z,6Z)-farnesyl diphosphate = (+)-alpha-santalene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30467: (2Z,6Z)-farnesyl diphosphate = (+)-endo-beta-bergamotene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:30471: (2Z,6Z)-farnesyl diphosphate = (1S,5S,6S)-alpha-bergamotene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:31991: (2E,6E)-farnesyl diphosphate = sesquithujene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:32027: (2E,6E)-farnesyl diphosphate = (-)-alpha-cuprenene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:32031: (2E,6E)-farnesyl diphosphate = gamma-curcumene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:32559: (2E)-geranyl diphosphate = gamma-terpinene + diphosphate
+  → Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:32687: (2E)-geranyl diphosphate = tricyclene + diphosphate
+  → Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:32691: (2E)-geranyl diphosphate = (E)-beta-ocimene + diphosphate
+  → Terpene synthase: prenyl-PP → monoterpene (C10) + PPi
+
+RHEA:32699: (2E,6E)-farnesyl diphosphate = beta-sesquiphellandrene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:33991: (2E,6E)-farnesyl diphosphate = alpha-copaene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:34467: (2E,6E)-farnesyl diphosphate = valerena-4,7(11)-diene + diphosphate
+  → Terpene synthase: prenyl-PP → sesquiterpene (C15) + PPi
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → Terpene synthase: prenyl-PP → hemiterpene (C5) + PPi
+

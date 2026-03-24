@@ -1,0 +1,19 @@
+False Positives for InositolPhosphateKinaseActivity
+==================================================
+Total: 5
+
+RHEA:12420: D-tagatofuranose 6-phosphate + ATP = D-tagatofuranose 1,6-bisphosphate + ADP + H(+)
+  → Inositol phosphate kinase activity: ATP-dependent phosphorylation of a soluble inositol phosphate
+
+RHEA:13377: alpha-D-glucose 1-phosphate + ATP = alpha-D-glucose 1,6-bisphosphate + ADP + H(+)
+  → Inositol phosphate kinase activity: ATP-dependent phosphorylation of a soluble inositol phosphate
+
+RHEA:14213: beta-D-fructose 1-phosphate + ATP = beta-D-fructose 1,6-bisphosphate + ADP + H(+)
+  → Inositol phosphate kinase activity: ATP-dependent phosphorylation of a soluble inositol phosphate
+
+RHEA:15653: beta-D-fructose 6-phosphate + ATP = beta-D-fructose 2,6-bisphosphate + ADP + H(+)
+  → Inositol phosphate kinase activity: ATP-dependent phosphorylation of a soluble inositol phosphate
+
+RHEA:16109: beta-D-fructose 6-phosphate + ATP = beta-D-fructose 1,6-bisphosphate + ADP + H(+)
+  → Inositol phosphate kinase activity: ATP-dependent phosphorylation of a soluble inositol phosphate
+

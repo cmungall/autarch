@@ -1,0 +1,13 @@
+False Positives for NucleicAcidPolymerase
+==================================================
+Total: 3
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → Nucleic acid polymerase (reverse): tRNA(n+1) → tRNA(n) + nucleotide
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → Nucleic acid polymerase: RNA(n) + nucleotide → RNA(n+1)
+
+RHEA:22096: RNA(n+1) + phosphate = RNA(n) + a ribonucleoside 5'-diphosphate
+  → Nucleic acid polymerase (reverse): RNA(n+1) → RNA(n) + nucleotide
+

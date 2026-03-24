@@ -1,0 +1,28 @@
+False Positives for SulfurOxidoreductase
+==================================================
+Total: 8
+
+RHEA:11848: acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:12232: acetyl phosphate + [thioredoxin]-disulfide + NH4(+) + H2O = [thioredoxin]-dithiol + glycine + phosphate + H(+)
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:12825: acetyl phosphate + methylamine + [thioredoxin]-disulfide + H2O = sarcosine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:13937: 4-sulfobenzoate + NADH + O2 = 3,4-dihydroxybenzoate + sulfite + NAD(+)
+  → Sulfur oxidoreductase: sulfite/sulfate redox
+
+RHEA:21740: 2-oxo-3-sulfanylpropanoate + [thioredoxin]-dithiol = [thioredoxin]-disulfide + hydrogen sulfide + pyruvate + H(+)
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:28026: dUDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + UDP
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:28034: dADP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + ADP
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+
+RHEA:57744: phylloquinol + [protein]-disulfide = phylloquinone + [protein]-dithiol
+  → Sulfur oxidoreductase: disulfide/dithiol exchange
+

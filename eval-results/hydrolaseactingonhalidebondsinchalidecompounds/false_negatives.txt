@@ -1,0 +1,7 @@
+False Negatives for HydrolaseActingOnHalideBondsInCHalideCompounds
+==================================================
+Total: 1
+
+RHEA:13765: bromochloromethane + H2O = bromide + formaldehyde + chloride + 2 H(+)
+  → The organic products do not show hydroxyl substitution after halide release
+

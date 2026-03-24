@@ -1,0 +1,10 @@
+False Negatives for AcidAminoAcidLigase
+==================================================
+Total: 2
+
+RHEA:29563: UDP-N-acetyl-alpha-D-muramate + L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + ATP = UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + ADP + phosphate + H(+)
+  → No amino-acid-like substrate detected
+
+RHEA:30543: (S)-carnitine + ATP + CoA = (S)-carnitinyl-CoA + ADP + phosphate
+  → CoA, tRNA, or O2 chemistry indicates a different ligase branch
+

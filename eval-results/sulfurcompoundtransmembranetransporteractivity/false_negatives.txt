@@ -1,0 +1,10 @@
+False Negatives for SulfurCompoundTransmembraneTransporterActivity
+==================================================
+Total: 2
+
+RHEA:15181: an acyl-CoA(out) + ATP + H2O = an acyl-CoA(in) + ADP + phosphate + H(+)
+  → No transported substrate beyond coupling spectators
+
+RHEA:19121: an S-substituted glutathione(in) + ATP + H2O = an S-substituted glutathione(out) + ADP + phosphate + H(+)
+  → No transported substrate beyond coupling spectators
+

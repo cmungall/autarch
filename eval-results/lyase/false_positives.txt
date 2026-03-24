@@ -1,0 +1,226 @@
+False Positives for Lyase
+==================================================
+Total: 74
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:10660: L-seryl-[protein] = D-seryl-[protein]
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:11032: 2-[(2R)-2-chloro-2,5-dihydro-5-oxofuryl]acetate = 3-chloro-cis,cis-muconate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:12605: D-glyceraldehyde 3-phosphate + pyruvate + H(+) = 1-deoxy-D-xylulose 5-phosphate + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:12909: 2 Fe(II)-[cytochrome] + nitrate + 2 H(+) = 2 Fe(III)-[cytochrome] + nitrite + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:13193: 5-carboxyamino-1-(5-phospho-D-ribosyl)imidazole + H(+) = 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:13197: sulfite + UDP-alpha-D-glucose + H(+) = UDP-alpha-D-6-sulfoquinovose + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:13389: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + 2 H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein] + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:13457: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + 3-methyl-2-oxobutanoate + H(+) = N(6)-[(R)-S(8)-2-methylpropanoyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:14905: 5-phospho-beta-D-ribosylamine + L-glutamate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + L-glutamine + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:15189: 2 Fe(III)-[cytochrome c553] + formate = 2 Fe(II)-[cytochrome c553] + CO2 + H(+)
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:15265: 3-amino-2-oxopropyl phosphate + 1-deoxy-D-xylulose 5-phosphate = pyridoxine 5'-phosphate + phosphate + 2 H2O + H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:15425: coproporphyrinogen III + 2 S-adenosyl-L-methionine = protoporphyrinogen IX + 2 5'-deoxyadenosine + 2 L-methionine + 2 CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:15821: glycine + 2 A = hydrogen cyanide + 2 AH2 + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:15837: methylamine + L-glutamate = N-methyl-L-glutamate + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:15969: methylarsonate + 2 glutathione + H(+) = methylarsonous acid + glutathione disulfide + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:16173: (4-hydroxyphenyl)acetaldehyde + dopamine = (S)-norcoclaurine + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:16581: 2 Fe(II)-[cytochrome c] + H2O2 + 2 H(+) = 2 Fe(III)-[cytochrome c] + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:16833: 2 glutathione + H2O2 = glutathione disulfide + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:16945: N(6)-[(R)-S(8)-aminomethyldihydrolipoyl]-L-lysyl-[protein] + (6S)-5,6,7,8-tetrahydrofolate = N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:17013: phosphoenolpyruvate + H(+) = 3-phosphonopyruvate
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:17437: 2-(2,4-dichloro-5-oxo-2,5-dihydrofuryl)acetate = (2E,4E)-2,4-dichloromuconate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:17477: precorrin-6B + 2 S-adenosyl-L-methionine = precorrin-8X + 2 S-adenosyl-L-homocysteine + CO2 + 3 H(+)
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:17765: (2R)-3-phospho-glyceroyl phosphate = (2R)-2,3-bisphosphoglycerate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:17961: (5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate = leukotriene A4 + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:18097: pteridine-2,4,6,7-tetrol = xanthine-8-carboxylate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:18645: 2 putrescine = sym-homospermidine + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:19189: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + pyruvate + H(+) = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:20309: 2 H2O2 = O2 + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:21520: 2 Fe(III)-[cytochrome b1] + formate = 2 Fe(II)-[cytochrome b1] + CO2 + H(+)
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:22016: [glutaredoxin]-dithiol + arsenate + glutathione + H(+) = glutathionyl-S-S-[glutaredoxin] + arsenite + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:22396: 1-(4-hydroxy-3-methoxyphenyl)-2-(2-methoxyphenoxy)propane-1,3-diol + H2O2 = guaiacol + vanillin + glycolaldehyde + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:22512: precorrin-8X + 3 H(+) = hydrogenobyrinate
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:22620: L-tryptophan + O2 + H(+) = 3-indoleglycolaldehyde + NH4(+) + CO2
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:22776: 2 Mn(2+) + H2O2 + 2 H(+) = 2 Mn(3+) + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:22836: a fatty acyl-[ACP] + malonyl-[ACP] + H(+) = a 3-oxoacyl-[ACP] + holo-[ACP] + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:22996: L-ascorbate + H2O2 = L-dehydroascorbate + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:23336: 2 iodide + H2O2 + 2 H(+) = diiodine + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:23556: D-alanine + L-glutamine = gamma-L-glutamyl-D-alanine + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:23652: N-terminal L-glutaminyl-[peptide] = N-terminal 5-oxo-L-prolyl-[peptide] + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:23656: 2-(carboxymethyl)-5-oxo-2,5-dihydro-2-furoate = 3-carboxy-cis,cis-muconate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:23960: hexadecanoate + 2 H2O2 + H(+) = pentadecanal + CO2 + 3 H2O
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:24304: N(6)-[(R)-lipoyl]-L-lysyl-[glycine-cleavage complex H protein] + glycine + H(+) = N(6)-[(R)-S(8)-aminomethyldihydrolipoyl]-L-lysyl-[glycine-cleavage complex H protein] + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:25249: 2 pyruvate + H(+) = (2S)-2-acetolactate + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:25306: 7,8-dihydroneopterin + phosphate = 7,8-dihydroneopterin 3'-phosphate + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:25888: iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:26059: Co(I)-[methylamine-specific corrinoid protein] + methylamine + H(+) = methyl-Co(III)-[methylamine-specific corrinoid protein] + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:26152: (2S)-2-hydroxy-3-oxobutyl phosphate + 5-amino-6-(D-ribitylamino)uracil = 6,7-dimethyl-8-(1-D-ribityl)lumazine + phosphate + 2 H2O + H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:26297: [ThiS sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + 2-iminoacetate + 1-deoxy-D-xylulose 5-phosphate = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly + 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 2 H2O + H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:27349: mycothiol + arsenate = arseno-mycothiol + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:27654: 2-oxobutanoate + pyruvate + H(+) = (S)-2-ethyl-2-hydroxy-3-oxobutanoate + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:28338: (R)-carnitinyl-CoA = crotonobetainyl-CoA + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:30031: (S)-muconolactone = cis,cis-muconate + H(+)
+  → Lyase: non-hydrolytic bond cleavage/formation
+
+RHEA:30271: 2 (3,4-dimethoxyphenyl)methanol + H2O2 = 2 (3,4-dimethoxyphenyl)methanol radical + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:30675: tetrahymanol = squalene + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:31035: arabidiol = (S)-2,3-epoxysqualene + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:32371: all-trans-violaxanthin + 2 L-ascorbate = all-trans-zeaxanthin + 2 L-dehydroascorbate + 2 H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:35623: D-glutamine + D-glutamate = gamma-D-glutamyl-D-glutamate + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:35815: 4-aminobenzoate + 5-phospho-alpha-D-ribose 1-diphosphate + H(+) = 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + CO2 + diphosphate
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:36067: Co-precorrin-6B + S-adenosyl-L-methionine = Co-precorrin-7 + S-adenosyl-L-homocysteine + CO2
+  → Lyase: non-oxidative decarboxylation (CO2 release)
+
+RHEA:43168: adenosine(34) in tRNA + H2O + H(+) = inosine(34) in tRNA + NH4(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:43380: N(omega)-phospho-L-arginyl-[protein] + H2O = L-arginyl-[protein] + phosphate
+  → Lyase: dehydration (water elimination)
+
+RHEA:54084: 7-cyano-7-carbaguanosine(15) in tRNA + L-glutamine + H2O = archaeosine(15) in tRNA + L-glutamate
+  → Lyase: dehydration (water elimination)
+
+RHEA:45204: Co(I)-[methanol-specific corrinoid protein] + methanol + H(+) = methyl-Co(III)-[methanol-specific corrinoid protein] + H2O
+  → Lyase: dehydration (water elimination)
+
+RHEA:54540: a 3-O-[beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + H2O = beta-D-galactosyl-(1->3)-N-acetyl-D-galactosamine + L-threonyl-[protein]
+  → Lyase: dehydration (water elimination)
+
+RHEA:50680: N-terminal L-glutaminyl-[protein] + H2O = N-terminal L-glutamyl-[protein] + NH4(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:47004: O-phospho-L-threonyl-[protein] + H2O = L-threonyl-[protein] + phosphate
+  → Lyase: dehydration (water elimination)
+
+RHEA:56052: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + 2 H2O = 2 alpha-D-mannopyranose + an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein]
+  → Lyase: dehydration (water elimination)
+
+RHEA:22452: [phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:54816: L-glutaminyl-[protein] + L-lysyl-[protein] = [protein]-L-lysyl-N(6)-5-L-glutamyl-[protein] + NH4(+)
+  → Lyase: C-N bond cleavage (ammonia release)
+
+RHEA:45340: [Wnt protein]-O-(9Z)-hexadecenoyl-L-serine + H2O = [Wnt protein]-L-serine + (9Z)-hexadecenoate + H(+)
+  → Lyase: dehydration (water elimination)
+
+RHEA:67484: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + H2O = N(7)-methyl-GDP + a 5'-end phospho-ribonucleoside in mRNA + 2 H(+)
+  → Lyase: dehydration (water elimination)
+

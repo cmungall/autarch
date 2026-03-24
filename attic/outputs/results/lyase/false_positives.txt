@@ -1,0 +1,37 @@
+False Positives for Lyase
+==================================================
+Total: 11
+
+RHEA:10808: (S)-2-hydroxypropylphosphonate + H2O2 = (1R,2S)-epoxypropylphosphonate + 2 H2O
+  → Lyase: dehydration synthesis of CHEBI:16240 and CHEBI:62246
+
+RHEA:11000: an N-carbamoyl-D-amino acid + H2O + 2 H(+) = a D-alpha-amino acid + NH4(+) + CO2
+  → Lyase: decarboxylation of CHEBI:85602 (CO2 release)
+
+RHEA:11128: (E)-4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = 2',4,4',6'-tetrahydroxychalcone + 3 CO2 + 4 CoA
+  → Lyase: decarboxylation of CHEBI:85008 (CO2 release)
+
+RHEA:11184: 3-(carbamoylamino)propanoate + H2O + 2 H(+) = beta-alanine + NH4(+) + CO2
+  → Lyase: decarboxylation of CHEBI:15377 (CO2 release)
+
+RHEA:11704: N-(carboxyaminomethyl)urea + 2 H(+) = N-(aminomethyl)urea + CO2
+  → Lyase: decarboxylation of substrate (CO2 release)
+
+RHEA:11724: [thioredoxin]-disulfide + sulfite + adenosine 3',5'-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3'-phosphoadenylyl sulfate
+  → Lyase: non-hydrolytic synthesis of substrate1 and substrate2 (3→1)
+
+RHEA:11928: hydroxylamine + NH4(+) = hydrazine + H2O + H(+)
+  → Lyase: dehydration synthesis of CHEBI:28938 and CHEBI:15429
+
+RHEA:11936: 4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = trans-resveratrol + 4 CO2 + 4 CoA
+  → Lyase: decarboxylation of CHEBI:57355 (CO2 release)
+
+RHEA:11940: L-citrulline + H2O + 2 H(+) = L-ornithine + NH4(+) + CO2
+  → Lyase: decarboxylation of CHEBI:15377 (CO2 release)
+
+RHEA:12060: 6 malonyl-CoA + acetyl-CoA + 5 H(+) = 3,6,7,9-tetrahydroxy-3-methyl-2,3-dihydro-1H-naphtho[2,1-b]pyran-1-one + 6 CO2 + 7 CoA + H2O
+  → Lyase: decarboxylation of CHEBI:15378 (CO2 release)
+
+RHEA:12080: malonyl-[ACP] + acetyl-CoA + H(+) = 3-oxobutanoyl-[ACP] + CO2 + CoA
+  → Lyase: decarboxylation of substrate (CO2 release)
+

@@ -1,0 +1,10 @@
+False Negatives for HydrolaseActingOnHalideBonds
+==================================================
+Total: 2
+
+RHEA:13765: bromochloromethane + H2O = bromide + formaldehyde + chloride + 2 H(+)
+  → Not a hydrolase reaction: Pattern doesn't match expected hydrolysis transformation
+
+RHEA:24100: diisopropyl fluorophosphate + H2O = diisopropyl phosphate + fluoride + 2 H(+)
+  → Not a hydrolase reaction: Pattern doesn't match expected hydrolysis transformation
+

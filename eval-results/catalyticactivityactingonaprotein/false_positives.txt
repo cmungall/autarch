@@ -1,0 +1,70 @@
+False Positives for CatalyticActivityActingOnAProtein
+==================================================
+Total: 22
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: N-terminal amino acid cleavage from peptide
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → glycolate
+
+RHEA:11044: a haloacetate + H2O = a halide anion + glycolate + H(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+
+
+RHEA:11544: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:12476: N-formyl-L-glutamate + H2O = formate + L-glutamate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:14277: (S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:14369: 2-phosphoglycolate + H2O = glycolate + phosphate
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate
+
+RHEA:14849: N-amidino-L-aspartate + H2O = urea + L-aspartate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:15169: N-succinyl-L-glutamate + H2O = L-glutamate + succinate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:15889: L-glutamine + H2O = L-glutamate + NH4(+)
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:18013: N(5)-ethyl-L-glutamine + H2O = ethylamine + L-glutamate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:19737: 4-(gamma-L-glutamylamino)butanoate + H2O = 4-aminobutanoate + L-glutamate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:20001: glycolaldehyde + NAD(+) + H2O = glycolate + NADH + 2 H(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate/glycolate + H+
+
+RHEA:20337: (R)-2-O-sulfolactate + H2O = (R)-lactate + sulfate + H(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:20720: isopenicillin N + phenylacetyl-CoA + H2O = penicillin G + L-2-aminoadipate + CoA + H(+)
+  → catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: peptide → amino acid + shorter peptide
+
+RHEA:21016: L-asparagine + H2O = L-aspartate + NH4(+)
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:22040: N-formyl-L-aspartate + H2O = L-aspartate + formate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:22492: N-formimidoyl-L-glutamate + H2O = formamide + L-glutamate
+  → catalytic activity, acting on a protein: matched Peptidase (3.4.-.-); Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:23416: (2R)-O-phospho-3-sulfolactate + H2O = (2R)-3-sulfolactate + phosphate
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate
+
+RHEA:25241: (S)-2-ureidoglycine + H2O = (S)-ureidoglycolate + NH4(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → glycolate
+
+RHEA:27754: methylglyoxal + H2O = (R)-lactate + H(+)
+  → catalytic activity, acting on a protein: matched ProteinDeglycase (3.5.1.124); Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:61020: uridine(34) in tRNA + acetyl-CoA + S-adenosyl-L-methionine + H2O = 5-(carboxymethyl)uridine(34) in tRNA + 5'-deoxyadenosine + L-methionine + CoA + 2 H(+)
+  → catalytic activity, acting on a protein: matched Aminopeptidase (3.4.11.-); Aminopeptidase: peptide → amino acid + shorter peptide
+

@@ -1,0 +1,64 @@
+False Positives for Acyltransferase
+==================================================
+Total: 20
+
+RHEA:12048: 3-oxoadipate + succinyl-CoA = 3-oxoadipyl-CoA + succinate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:12284: 3-hydroxy-3-methylglutarate + succinyl-CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + succinate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:12961: acetoacetate + butanoyl-CoA = acetoacetyl-CoA + butanoate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:15601: (E)-cinnamoyl-CoA + (R)-3-phenyllactate = (R)-3-phenyllactoyl-CoA + (E)-cinnamate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:16469: (R)-2-benzylsuccinate + succinyl-CoA = (R)-2-benzylsuccinyl-CoA + succinate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:16545: formyl-CoA + oxalate = oxalyl-CoA + formate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:16925: (E)-caffeoyl-CoA + S-adenosyl-L-methionine = (E)-feruloyl-CoA + S-adenosyl-L-homocysteine + H(+)
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:17105: malonyl-[ACP] + S-adenosyl-L-methionine = malonyl-[ACP] methyl ester + S-adenosyl-L-homocysteine
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:17621: citramalate + acetyl-CoA = (3S)-citramalyl-CoA + acetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:19405: citrate + acetyl-CoA = (3S)-citryl-CoA + acetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:20764: (S)-methylmalonyl-CoA + pyruvate = propanoyl-CoA + oxaloacetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:23208: trans-glutaconate + acetyl-CoA = (2E)-glutaconyl-CoA + acetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:23496: 5-hydroxypentanoate + acetyl-CoA = 5-hydroxy-pentanoyl-CoA + acetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:23520: propanoate + acetyl-CoA = propanoyl-CoA + acetate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:23588: oxalate + succinyl-CoA = oxalyl-CoA + succinate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:25480: acetoacetate + succinyl-CoA = acetoacetyl-CoA + succinate
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:28010: propanoyl-CoA + succinate = propanoate + succinyl-CoA
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:28526: crotonobetainyl-CoA + (R)-carnitine = crotonobetaine + (R)-carnitinyl-CoA
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:29603: oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Acyltransferase: acyl group transfer [pattern matched]
+
+RHEA:30199: cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O
+  → Acyltransferase: acyl group transfer [pattern matched]
+

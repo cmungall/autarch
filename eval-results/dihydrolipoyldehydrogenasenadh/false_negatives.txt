@@ -1,0 +1,13 @@
+False Negatives for DihydrolipoylDehydrogenaseNADH
+==================================================
+Total: 3
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → Expected one organic substrate and one product
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Expected one organic substrate and one product
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Expected one organic substrate and one product
+

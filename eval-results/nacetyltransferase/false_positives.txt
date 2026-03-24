@@ -1,0 +1,7 @@
+False Positives for NAcetyltransferase
+==================================================
+Total: 1
+
+RHEA:11604: [N-acetyl-alpha-D-neuraminosyl-(2->8)](n) + n acetyl-CoA = [O(7),N-diacetyl-alpha-D-neuraminosyl-(2->8)](n) + n CoA
+  → N-acetyltransferase activity: matched Acetyltransferase (unknown EC); Acetyltransferase: matched PolysialicAcidOAcetyltransferase (unknown EC); Polysialic acid O-acetyltransferase: acetyl-CoA-dependent O-acetylation of a sialic acid polymer
+

@@ -1,0 +1,160 @@
+False Positives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen
+==================================================
+Total: 52
+
+RHEA:10864: 3-hydroxy-2-methylpyridine-5-carboxylate + NADPH + O2 = 2-(acetamidomethylene)succinate + NADP(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:11452: 7-deoxyloganin + reduced [NADPH--hemoprotein reductase] + O2 = loganin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:13773: (S)-cheilanthifoline + reduced [NADPH--hemoprotein reductase] + O2 = (S)-stylopine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:14049: taxa-4(5),11(12)-diene + reduced [NADPH--hemoprotein reductase] + O2 = taxa-4(20),11-dien-5alpha-ol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:15129: (4S)-limonene + reduced [NADPH--hemoprotein reductase] + O2 = (1S,6R)-isopiperitenol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:15261: 5beta-cholestane-3alpha,7alpha-diol + reduced [NADPH--hemoprotein reductase] + O2 = 5beta-cholestane-3alpha,7alpha,12alpha-triol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:17713: (R)-reticuline + reduced [NADPH--hemoprotein reductase] + O2 = salutaridine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:17857: taurochenodeoxycholate + reduced [NADPH--hemoprotein reductase] + O2 = taurohyocholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:17945: (4S)-limonene + reduced [NADPH--hemoprotein reductase] + O2 = (1S,5R)-carveol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:18849: a 2'-unsubstituted isoflavone + reduced [NADPH--hemoprotein reductase] + O2 = a 2'-hydroxyisoflavone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:18957: (4R)-limonene + reduced [NADPH--hemoprotein reductase] + O2 = (1R,5S)-carveol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:19041: (25R)-cholest-5-ene-3beta,26-diol + reduced [NADPH--hemoprotein reductase] + O2 = (25R)-cholest-5-en-3beta,7alpha,26-triol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:20485: (S)-scoulerine + reduced [NADPH--hemoprotein reductase] + O2 = (S)-cheilanthifoline + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:20585: loganin + reduced [NADPH--hemoprotein reductase] + O2 = secologanin + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:21456: (S)-tetrahydrocolumbamine + reduced [NADPH--hemoprotein reductase] + O2 = (S)-canadine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:21764: heme b + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = biliverdin IXalpha + CO + Fe(2+) + 3 oxidized [NADPH--hemoprotein reductase] + 3 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:21812: cholesterol + reduced [NADPH--hemoprotein reductase] + O2 = 7alpha-hydroxycholesterol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:22176: leukotriene B4 + reduced [NADPH--hemoprotein reductase] + O2 = 20-hydroxy-leukotriene B4 + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:22464: L-tyrosine + reduced [NADPH--hemoprotein reductase] + O2 = N-hydroxy-L-tyrosine + oxidized [NADPH--hemoprotein reductase] + H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:22844: (6aS,11aS)-4-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin I + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:23432: (4S)-limonene + reduced [NADPH--hemoprotein reductase] + O2 = (4S)-perillyl alcohol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:23576: (R)-N-methylcoclaurine + (S)-N-methylcoclaurine + reduced [NADPH--hemoprotein reductase] + O2 = berbamunine + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:23644: lithocholate + reduced [NADPH--hemoprotein reductase] + O2 = hyodeoxycholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:24308: 25-hydroxycholesterol + reduced [NADPH--hemoprotein reductase] + O2 = 7alpha,25-dihydroxycholesterol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:25658: (R)-pulegone + reduced [NADPH--hemoprotein reductase] + O2 = (R)-menthofuran + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:26047: (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin II + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:26051: (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin III + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:27321: 3-epi-6-deoxocathasterone + reduced [NADPH--hemoprotein reductase] + O2 = 6-deoxotyphasterol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:27325: (22S,24R)-22-hydroxy-5alpha-ergostan-3-one + reduced [NADPH--hemoprotein reductase] + O2 = 3-dehydro-6-deoxoteasterone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:27842: 9H-carbazole + NADPH + O2 + H(+) = 2'-aminobiphenyl-2,3-diol + NADP(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:30303: (+)-(R)-germacrene A + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = germacra-1(10),4,11(13)-trien-12-oate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:30359: chlorophyllide a + 2 NADPH + 2 O2 + 2 H(+) = chlorophyllide b + 2 NADP(+) + 3 H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:30399: alpha-carotene + reduced [NADPH--hemoprotein reductase] + O2 = alpha-cryptoxanthin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31723: (2S)-liquiritigenin + reduced [NADPH--hemoprotein reductase] + O2 = (2R,3S)-2,4',7-trihydroxyisoflavanone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31731: 3-hydroxy-9,10-secoandrosta-1,3,5(10)-triene-9,17-dione + FMNH2 + O2 = 3,4-dihydroxy-9,10-secoandrosta-1,3,5(10)-triene-9,17-dione + FMN + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31899: indole + reduced [NADPH--hemoprotein reductase] + O2 = indolin-2-one + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31919: indolin-2-one + reduced [NADPH--hemoprotein reductase] + O2 = 3-hydroxyindolin-2-one + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31927: 3-hydroxyindolin-2-one + reduced [NADPH--hemoprotein reductase] + O2 = 2-hydroxy-2H-1,4-benzoxazin-3(4H)-one + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31939: 2-hydroxy-2H-1,4-benzoxazin-3(4H)-one + reduced [NADPH--hemoprotein reductase] + O2 = DIBOA + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:31975: taxusin + reduced [NADPH--hemoprotein reductase] + O2 = 7beta-hydroxytaxusin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:32323: ent-kaur-16-ene + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = ent-kaur-16-en-19-oate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:32635: linalool + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (6E)-8-oxolinalool + 2 oxidized [NADPH--hemoprotein reductase] + 3 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:32903: calciol + reduced [NADPH--hemoprotein reductase] + O2 = calcidiol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:32999: (+)-amorpha-4,11-diene + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = (+)-artemisinate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:33219: ent-kaur-16-en-19-oate + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = gibberellin A12 + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:33467: 5-dehydroepisterol + NADPH + O2 + H(+) = ergosta-5,7,22,24(28)-tetraen-3beta-ol + NADP(+) + 2 H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:34415: (1R,4R)-bornane-2,5-dione + FMNH2 + O2 = (1R,4R)-5-oxo-1,2-campholide + FMN + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:35487: (2S)-naringenin + reduced [NADPH--hemoprotein reductase] + O2 = 2-hydroxy-2,3-dihydrogenistein + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:35575: (1'S)-averantin + reduced [NADPH--hemoprotein reductase] + O2 = (1'S,5'R)-5'-hydroxyaverantin + oxidized [NADPH--hemoprotein reductase] + H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:35743: versicolorin B + NADPH + O2 + H(+) = versicolorin A + NADP(+) + 2 H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:35759: 8-O-methylsterigmatocystin + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = aflatoxin B1 + methanol + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+
+RHEA:35763: 8-O-methyldihydrosterigmatocystin + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = aflatoxin B2 + methanol + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen and incorporation of one atom of oxygen
+

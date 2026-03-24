@@ -1,0 +1,7 @@
+False Negatives for LigaseFormingNitrogenMetalBonds
+==================================================
+Total: 1
+
+RHEA:15341: hydrogenobyrinate a,c-diamide + Co(2+) + ATP + H2O = cob(II)yrinate a,c diamide + ADP + phosphate + 5 H(+)
+  → No chelatase/tetrapyrrole pattern - not a nitrogen-metal bond-forming ligase
+

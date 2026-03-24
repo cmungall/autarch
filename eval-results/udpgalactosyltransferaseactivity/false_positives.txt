@@ -1,0 +1,13 @@
+False Positives for UDPGalactosyltransferaseActivity
+==================================================
+Total: 3
+
+RHEA:15709: kaempferol + UDP-alpha-D-galactose = kaempferol 3-O-beta-D-galactoside + UDP + H(+)
+  → UDP-galactosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:31487: soyasapogenol B 3-O-beta-D-glucuronate + UDP-alpha-D-galactose = soyasaponin III + UDP + H(+)
+  → UDP-galactosyltransferase activity: donor-restricted hexosyl transfer
+
+RHEA:35631: cyanidin + UDP-alpha-D-galactose = cyanidin 3-O-beta-D-galactoside + UDP + H(+)
+  → UDP-galactosyltransferase activity: donor-restricted hexosyl transfer
+

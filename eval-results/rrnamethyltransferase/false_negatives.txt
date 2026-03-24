@@ -1,0 +1,46 @@
+False Negatives for RRNAMethyltransferase
+==================================================
+Total: 14
+
+RHEA:16497: adenosine(1618) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(1618) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:19609: adenosine(1518)/adenosine(1519) in 16S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1518)/N(6)-dimethyladenosine(1519) in 16S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:23548: guanosine(966) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(966) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42744: guanosine(1835) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1835) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42916: adenosine(2503) in 23S rRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(2503) in 23S rRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42736: guanosine(1207) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1207) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42900: guanosine(745) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(745) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:43736: adenosine(2030) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(2030) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42904: guanosine(748) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(748) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:43792: adenosine(645) in 25S rRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(645) in 25S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:43212: adenosine(1067) in 23S rRNA + S-adenosyl-L-methionine = 2'-O-methyladenosine(1067) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42740: guanosine(2445) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(2445) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+
+RHEA:42784: adenosine(2085) in 23S rRNA + 2 S-adenosyl-L-methionine = N(6)-dimethyladenosine(2085) in 23S rRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported rrna methyltransferase activity child classifier matched
+

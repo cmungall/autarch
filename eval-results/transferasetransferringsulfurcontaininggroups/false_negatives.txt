@@ -1,0 +1,28 @@
+False Negatives for TransferaseTransferringSulfurContainingGroups
+==================================================
+Total: 8
+
+RHEA:12532: coenzyme B + methyl-coenzyme M = methane + coenzyme M-coenzyme B heterodisulfide
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:16585: [[Fe-S] cluster scaffold protein carrying a second [4Fe-4S](2+) cluster] + N(6)-octanoyl-L-lysyl-[protein] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine + 4 H(+) = [[Fe-S] cluster scaffold protein] + N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 4 Fe(3+) + 2 hydrogen sulfide + 2 5'-deoxyadenosine + 2 L-methionine + 2 reduced [2Fe-2S]-[ferredoxin]
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:26297: [ThiS sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + 2-iminoacetate + 1-deoxy-D-xylulose 5-phosphate = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly + 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 2 H2O + H(+)
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:26333: 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + cyclic pyranopterin phosphate + H2O = molybdopterin + 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + 2 H(+)
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:27349: mycothiol + arsenate = arseno-mycothiol + H2O
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:28338: (R)-carnitinyl-CoA = crotonobetainyl-CoA + H2O
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:37067: N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+
+RHEA:37075: N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported transferase transferring sulfur-containing groups child classifier matched
+

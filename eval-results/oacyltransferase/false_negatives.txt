@@ -1,0 +1,187 @@
+False Negatives for OAcyltransferase
+==================================================
+Total: 61
+
+RHEA:10304: a 2-acyl-sn-glycero-3-phosphoethanolamine + a fatty acyl-[ACP] = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + holo-[ACP]
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:10332: a 2-acyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphocholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:10344: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + an acyl-CoA = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphocholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:10456: D-maltose + acetyl-CoA = 1-O-acetylmaltose + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:10868: an acyl-CoA + a 1,2-diacyl-sn-glycerol = a triacyl-sn-glycerol + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:10952: hydroxymalonate + (E)-sinapoyl-CoA = (E)-sinapoyltartronate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:11488: all-trans-retinol + an acyl-CoA = an all-trans-retinyl ester + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12024: 1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12124: shikimate + 4-coumaroyl-CoA = trans-4-coumaroylshikimate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12625: 1-O-(trans-sinapoyl)-beta-D-glucose + (S)-malate = sinapoyl (S)-malate + D-glucose
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12661: (R)-carnitine + hexadecanoyl-CoA = O-hexadecanoyl-(R)-carnitine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12937: a 1-acyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphocholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:12997: galactarate + (E)-feruloyl-CoA = 2-O-[(E)-feruloyl]-D-galactarate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:13301: a sterol + a 1,2-diacyl-sn-glycerol = a sterol ester + a 1-acyl-sn-glycerol
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:13701: L-homoserine + acetyl-CoA = O-acetyl-L-homoserine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:14233: a 2-acyl-sn-glycerol 3-phosphate + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:14261: (E)-sinapoyl-CoA + D-glucono-1,5-lactone = 6-O-[(E)-sinapoyl]-D-glucono-1,5-lactone + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:15021: L-quinate + (E)-feruloyl-CoA = 4-O-feruloyl-D-quinate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:15217: ecdysone + hexadecanoyl-CoA = ecdysone hexadecanoate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:15325: sn-glycerol 3-phosphate + an acyl-CoA = a 1-acyl-sn-glycero-3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:15581: biochanin A 7-O-beta-D-glucoside + malonyl-CoA = biochanin A 7-O-beta-D-glucoside 6''-O-malonate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:15713: a beta-D-galactoside + acetyl-CoA = a 6-acetyl-beta-D-galactoside + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:16245: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphoethanolamine + an acyl-CoA = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphoethanolamine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:16741: a 2-acylglycerol + an acyl-CoA = a 1,2-diacylglycerol + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:16897: a 3beta-hydroxysteroid + a triacylglycerol = a 3beta-hydroxysteroid ester + a diacylglycerol
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17057: a 2-acyl-3-O-(beta-D-galactosyl)-sn-glycerol + a fatty acyl-[ACP] = a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + holo-[ACP]
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17073: cortisol + acetyl-CoA = cortisol 21-acetate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17177: octanoyl-CoA + (R)-carnitine = O-octanoyl-(R)-carnitine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17229: an aliphatic alcohol + acetyl-CoA = an acetyl ester + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17469: all-trans-retinol--[retinol-binding protein] + a 1,2-diacyl-sn-glycero-3-phosphocholine = apo--[retinol-binding protein] + an all-trans-retinyl ester + a 2-acyl-sn-glycero-3-phosphocholine
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17657: dihydroxyacetone phosphate + an acyl-CoA = a 1-acylglycerone 3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:17729: cholesterol + an acyl-CoA = a cholesterol ester + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18305: N-acetylneuraminate + acetyl-CoA = N-acetyl-4-O-acetylneuraminate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18421: chloramphenicol + acetyl-CoA = chloramphenicol 3-acetate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18461: a 1-O-alkyl-sn-glycero-3-phosphocholine + acetyl-CoA = a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18557: a 1-O-alkyl-sn-glycero-3-phosphate + acetyl-CoA = a 1-O-alkyl-2-acetyl-sn-glycerol 3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18821: choline + acetyl-CoA = acetylcholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:18837: 10-deacetyltaxuyunnanin C + acetyl-CoA = taxuyunnanin C + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:19709: a 1-acyl-sn-glycero-3-phosphate + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:20085: a flavonol 3-O-beta-D-glucoside + malonyl-CoA = a flavonol 3-O-(6-O-malonyl-beta-D-glucoside) + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:20137: 10-deacetylbaccatin III + acetyl-CoA = baccatin III + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:20277: an N-hydroxyarylamine + acetyl-CoA = an N-acetoxyarylamine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:20325: N-hydroxy-4-acetylaminobiphenyl = N-acetoxy-4-aminobiphenyl
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:21136: (R)-carnitine + acetyl-CoA = O-acetyl-(R)-carnitine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:21180: 1-O-(indol-3-ylacetyl)-beta-D-glucose + myo-inositol = indole-3-acetyl-1D-myo-inositol + D-glucose
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:21204: a sterol + a 1,2-diacyl-sn-glycero-3-phosphocholine = a sterol ester + a 1-acyl-sn-glycero-3-phosphocholine
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:21996: a 1-O-alkyl-2-acetyl-sn-glycerol + an acyl-CoA = a 1-O-alkyl-2-acetyl-3-acyl-sn-glycerol + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:22008: L-homoserine + succinyl-CoA = O-succinyl-L-homoserine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:22028: taxa-4(20),11-dien-5alpha-ol + acetyl-CoA = taxa-4(20),11-dien-5alpha-yl acetate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:22388: N(6)-hydroxy-L-lysine + acetyl-CoA = N(6)-acetyl-N(6)-hydroxy-L-lysine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:22664: 2 1-O-(trans-sinapoyl)-beta-D-glucose = 1,2-di-O-sinapoyl beta-D-glucose + D-glucose
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:22856: (7S)-salutaridinol + acetyl-CoA = (7S)-O-acetylsalutaridinol + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:23204: chlorogenate + D-glucarate = 2-O-caffeoylglucarate + L-quinate
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:23308: D-glucarate + (E)-sinapoyl-CoA = 2-O-[(E)-sinapoyl]-D-glucarate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:23992: a 1-O-alkyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1-O-alkyl-2-acyl-sn-glycero-3-phosphocholine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:24496: 4-O-deacetylvindoline + acetyl-CoA = vindoline + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:24560: L-serine + acetyl-CoA = O-acetyl-L-serine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:32947: a 2-acylglycerol + an acyl-CoA = a 1,2-diacyl-sn-glycerol + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:32995: a 1-acyl-sn-glycero-3-phosphoethanolamine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:33191: a 1-acyl-sn-glycero-3-phospho-L-serine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phospho-L-serine + CoA
+  → No supported o-acyltransferase activity child classifier matched
+
+RHEA:33559: sn-glycerol 3-phosphate + an acyl-CoA = a 2-acyl-sn-glycerol 3-phosphate + CoA
+  → No supported o-acyltransferase activity child classifier matched
+

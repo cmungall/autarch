@@ -1,0 +1,7 @@
+False Negatives for SoluteMonoatomicCationSymporterActivity
+==================================================
+Total: 1
+
+RHEA:28490: K(+)(in) + H(+)(in) = K(+)(out) + H(+)(out)
+  → No coupled cation-plus-solute symport detected
+

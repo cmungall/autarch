@@ -1,0 +1,10 @@
+False Negatives for ProteinMethyltransferaseActivity
+==================================================
+Total: 2
+
+RHEA:24000: a 6-O-methyl-2'-deoxyguanosine in DNA + L-cysteinyl-[protein] = S-methyl-L-cysteinyl-[protein] + a 2'-deoxyguanosine in DNA
+  → Requires SAM consumption with SAH production
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → Requires SAM consumption with SAH production
+

@@ -1,0 +1,34 @@
+False Negatives for CisTransIsomerase
+==================================================
+Total: 10
+
+RHEA:10924: cis-2-chloro-4-carboxymethylenebut-2-en-1,4-olide = trans-2-chloro-4-carboxymethylenebut-2-en-1,4-olide
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:13169: maleate = fumarate
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:13401: (2E,6E)-farnesol = (2Z,6E)-farnesol
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:14817: 4-maleylacetoacetate = 4-fumarylacetoacetate
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:17381: (9Z,12Z)-octadecadienoate = (9Z,11E)-octadecadienoate
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:17393: 3-maleylpyruvate = 3-fumarylpyruvate
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:19141: all-trans-retinol = 11-cis-retinol
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:21848: (E)-2-(2-furyl)-3-(5-nitro-2-furyl)acrylamide = (Z)-2-(2-furyl)-3-(5-nitro-2-furyl)acrylamide
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:30967: 9,9',15-tri-cis-zeta-carotene = 9,9'-di-cis-zeta-carotene
+  → No supported cis-trans isomerase activity child classifier matched
+
+RHEA:34455: all-trans-beta-carotene = 9-cis-beta-carotene
+  → No supported cis-trans isomerase activity child classifier matched
+

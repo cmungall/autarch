@@ -1,0 +1,22 @@
+False Positives for CarboxylicEsterHydrolase
+==================================================
+Total: 6
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:26281: Co-precorrin-5A + H2O = Co-precorrin-5B + acetaldehyde + H(+)
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:28018: enterobactin + 3 H2O = 3 N-(2,3-dihydroxybenzoyl)-L-serine + 2 H(+)
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:31347: (+)-abscisic acid D-glucopyranosyl ester + H2O = 2-cis-(+)-abscisate + beta-D-glucose + H(+)
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:35715: (2S,3S)-versiconal hemiacetal acetate + H2O = (2S-3S)-versiconal hemiacetal + acetate + H(+)
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+
+RHEA:35719: (3S)-versiconol acetate + H2O = (S)-versiconol + acetate + H(+)
+  → Carboxylic ester hydrolase: ester bond cleavage decreases ester count and increases carboxylate products
+

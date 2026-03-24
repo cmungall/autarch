@@ -1,0 +1,20 @@
+# RHEA:49552 - Protein deglycase removing methylglyoxal from lysine
+# N(6)-(1-hydroxy-2-oxopropyl)-L-lysyl-[protein] + H2O = lactate + L-lysyl-[protein] + H(+)
+
+left_participants:
+  - name: "N(6)-(1-hydroxy-2-oxopropyl)-L-lysyl-[protein]"
+    count: 1
+  - chebi_id: "CHEBI:15377"
+    name: "water"
+    smiles: "O"
+    count: 1
+
+right_participants:
+  - chebi_id: "CHEBI:24996"
+    name: "lactate"
+    count: 1
+  - name: "L-lysyl-[protein]"
+    count: 1
+  - chebi_id: "CHEBI:15378"
+    name: "H+"
+    count: 1

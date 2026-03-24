@@ -1,0 +1,22 @@
+False Negatives for OxidoreductaseActingOnASulfurGroupOfDonorsNADPAsAcceptor
+==================================================
+Total: 6
+
+RHEA:16977: coenzyme M + acetoacetate + NADP(+) = 2-oxopropyl-coenzyme M + CO2 + NADPH
+  → No sulfur-group NAD(P)-linked redox signature detected
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → No sulfur-group NAD(P)-linked redox signature detected
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → No sulfur-group NAD(P)-linked redox signature detected
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → No sulfur-group NAD(P)-linked redox signature detected
+
+RHEA:34927: selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)
+  → No sulfur-group NAD(P)-linked redox signature detected
+
+RHEA:78943: [DsrC protein]-trisulfide + NAD(+) + 3 H2O = [DsrC protein]-dithiol + sulfite + NADH + 3 H(+)
+  → No sulfur-group NAD(P)-linked redox signature detected
+

@@ -1,0 +1,13 @@
+False Positives for OMethyltransferase
+==================================================
+Total: 3
+
+RHEA:18541: 10-hydroxydihydrosanguinarine + S-adenosyl-L-methionine = dihydrochelirubine + S-adenosyl-L-homocysteine + H(+)
+  → O-methyltransferase: matched TenHydroxydihydrosanguinarine10OMethyltransferase (2.1.1.119); 10-hydroxydihydrosanguinarine 10-O-methyltransferase: SAM-dependent O-methylation of the benzophenanthridine alkaloid substrate
+
+RHEA:36107: gibberellin A4 + S-adenosyl-L-methionine = O-methyl gibberellin A4 + S-adenosyl-L-homocysteine
+  → O-methyltransferase: matched GibberellinA9OMethyltransferase (2.1.1.275); Gibberellin A9 O-methyltransferase: SAM-dependent methyl ester formation for a supported gibberellin substrate
+
+RHEA:36119: gibberellin A9 + S-adenosyl-L-methionine = O-methyl gibberellin A9 + S-adenosyl-L-homocysteine
+  → O-methyltransferase: matched GibberellinA9OMethyltransferase (2.1.1.275); Gibberellin A9 O-methyltransferase: SAM-dependent methyl ester formation for a supported gibberellin substrate
+

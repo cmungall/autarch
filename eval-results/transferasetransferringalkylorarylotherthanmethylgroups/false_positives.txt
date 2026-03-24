@@ -1,0 +1,13 @@
+False Positives for TransferaseTransferringAlkylOrArylOtherThanMethylGroups
+==================================================
+Total: 3
+
+RHEA:30463: (2Z,6Z)-farnesyl diphosphate = (+)-alpha-santalene + diphosphate
+  → transferase transferring alkyl or aryl other than methyl groups: matched Prenyltransferase (2.5.1.-); Prenyltransferase: farnesyl (C15) group transfer
+
+RHEA:30467: (2Z,6Z)-farnesyl diphosphate = (+)-endo-beta-bergamotene + diphosphate
+  → transferase transferring alkyl or aryl other than methyl groups: matched Prenyltransferase (2.5.1.-); Prenyltransferase: farnesyl (C15) group transfer
+
+RHEA:30471: (2Z,6Z)-farnesyl diphosphate = (1S,5S,6S)-alpha-bergamotene + diphosphate
+  → transferase transferring alkyl or aryl other than methyl groups: matched Prenyltransferase (2.5.1.-); Prenyltransferase: farnesyl (C15) group transfer
+

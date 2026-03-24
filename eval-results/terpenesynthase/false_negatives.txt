@@ -1,0 +1,7 @@
+False Negatives for TerpeneSynthase
+==================================================
+Total: 1
+
+RHEA:22220: ent-copalyl diphosphate = ent-kaur-16-ene + diphosphate
+  → No prenyl diphosphate substrate
+

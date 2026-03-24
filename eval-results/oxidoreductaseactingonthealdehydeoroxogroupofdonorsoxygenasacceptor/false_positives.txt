@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:10692: 6-(2-amino-2-carboxyethyl)-7,8-dioxo-1,2,3,4,7,8-hexahydroquinoline-2,4-dicarboxylate + 3 O2 = pyrroloquinoline quinone + 2 H2O2 + 2 H2O + H(+)
+  → Aldehyde/oxo oxidoreductase: oxygen-dependent oxidation to a carboxylate, thioester, or acyl phosphate
+

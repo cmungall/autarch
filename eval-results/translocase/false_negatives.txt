@@ -1,0 +1,16 @@
+False Negatives for Translocase
+==================================================
+Total: 4
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → No primary energy coupling - passive transport, not translocase
+
+RHEA:30403: Fe(3+)(out) + L-ascorbate(in) = monodehydro-L-ascorbate radical(in) + Fe(2+)(out) + H(+)
+  → No molecule transported between locations
+

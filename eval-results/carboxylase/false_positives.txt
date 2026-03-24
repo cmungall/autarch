@@ -1,0 +1,7 @@
+False Positives for Carboxylase
+==================================================
+Total: 1
+
+RHEA:28252: acetoacetyl-CoA + CO2 + CoA => malonyl-CoA + acetyl-CoA + H(+)
+  → Carboxylase: CO2 fixation (acetyl-CoA carboxylase)
+

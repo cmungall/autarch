@@ -1,0 +1,7 @@
+False Negatives for SulfuricEsterHydrolase
+==================================================
+Total: 1
+
+RHEA:15517: N(2),6-disulfo-D-glucosamine + H2O = N-sulfo-D-glucosamine + sulfate + H(+)
+  → No sulfuric ester bond is hydrolyzed
+

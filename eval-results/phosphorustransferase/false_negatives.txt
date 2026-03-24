@@ -1,0 +1,184 @@
+False Negatives for PhosphorusTransferase
+==================================================
+Total: 60
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Carboxylase - ATP-dependent CO2 fixation, not phosphoryl transfer
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer
+
+RHEA:11652: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-galactose = alpha-D-galactosyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:12068: apo-[ACP] + CoA = holo-[ACP] + adenosine 3',5'-bisphosphate + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:12260: NADH + ATP = ADP + NADPH + H(+)
+  → Oxidoreductase reaction - not phosphoryl transfer
+
+RHEA:12905: alpha-D-mannose 1-phosphate + GDP + H(+) = GDP-alpha-D-mannose + phosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:13509: N-acetyl-alpha-D-glucosamine 1-phosphate + UTP + H(+) = UDP-N-acetyl-alpha-D-glucosamine + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:13581: N(4)-[alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-[6-(N-acetyl-alpha-D-glucosaminyl-1-phospho)-alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:13613: beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:13673: [protein-PII]-L-tyrosine + UTP = [protein-PII]-uridylyl-L-tyrosine + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:13689: glycerol + diphosphate = glycerol 1-phosphate + phosphate + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:13989: alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose = alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose
+  → No phosphorus-containing group transfer detected
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → No phosphorus-containing group transfer detected
+
+RHEA:14209: alpha-D-galactose 1-phosphate + UTP + H(+) = UDP-alpha-D-galactose + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:14529: D-ribose 5-phosphate + ADP + H(+) = ADP-D-ribose + phosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:14913: thymidine + AMP = dTMP + adenosine
+  → No phosphorus-containing group transfer detected
+
+RHEA:15117: 3'-dephospho-CoA + ATP = 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA + adenine
+  → No phosphorus-containing group transfer detected
+
+RHEA:16049: alpha-ribazole + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin + GMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:16325: 1-phospho-alpha-D-glucuronate + UTP + H(+) = UDP-alpha-D-glucuronate + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:16333: apo-[citrate lyase ACP] + 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA = holo-[citrate lyase ACP] + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:16397: 2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose
+  → No phosphorus-containing group transfer detected
+
+RHEA:16529: sulfate + ADP + H(+) = adenosine 5'-phosphosulfate + phosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:16577: ADP + ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + phosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:16769: (2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:18381: dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate
+  → No phosphorus-containing group transfer detected
+
+RHEA:18389: alpha-D-xylose 1-phosphate + UTP + H(+) = UDP-alpha-D-xylose + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:18629: NAD(+) + ATP = ADP + NADP(+) + H(+)
+  → Oxidoreductase reaction - not phosphoryl transfer
+
+RHEA:19197: adenosine 5'-phosphosulfate + NH4(+) = adenosine 5'-phosphoramidate + sulfate + 2 H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:19889: alpha-D-glucose 1-phosphate + UTP + H(+) = UDP-alpha-D-glucose + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:20409: riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose
+  → No phosphorus-containing group transfer detected
+
+RHEA:21224: CDP-choline + sphing-4-enine = sphing-4-enine-phosphocholine + CMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:21288: sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol
+  → No phosphorus-containing group transfer detected
+
+RHEA:21360: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+)
+  → Oxidoreductase reaction - not phosphoryl transfer
+
+RHEA:21920: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:22440: UDP-N-acetyl-alpha-D-glucosamine + UDP-alpha-D-galactose = UDP-N-acetyl-6-(alpha-D-galactose-1-phospho)-alpha-D-glucosamine + UMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:22656: CDP-ethanolamine + L-serine = L-serine-phosphoethanolamine + CMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:23560: alpha-ribazole 5'-phosphate + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin 5'-phosphate + GMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:23764: L-serine + diphosphate = O-phospho-L-serine + phosphate + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:23880: L-histidyl-[protein] + phosphoenolpyruvate = N(pros)-phospho-L-histidyl-[protein] + pyruvate
+  → No phosphorus-containing group transfer detected
+
+RHEA:24276: acetate + diphosphate = acetyl phosphate + phosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:27510: enolpyruvoyl-2-diphospho-5'-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:27698: GDP-beta-L-galactose + phosphate = beta-L-galactose 1-phosphate + GDP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:28090: di-trans,octa-cis-undecaprenyl phosphate + UDP-N-acetyl-alpha-D-glucosamine = N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:28126: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-glucose = alpha-D-glucosyl di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:28386: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = di-trans,octa-cis-undecaprenyl diphospho-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:30387: GDP-alpha-D-glucose + phosphate = alpha-D-glucose 1-phosphate + GDP + H(+)
+  → No phosphorus-containing group transfer detected
+
+RHEA:34363: N-acetyl-alpha-D-galactosamine 1-phosphate + UTP + H(+) = UDP-N-acetyl-alpha-D-galactosamine + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:34515: tri-trans,hepta-cis-undecaprenyl phosphate + UDP-N,N'-diacetylbacillosamine = N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UMP
+  → No phosphorus-containing group transfer detected
+
+RHEA:34679: methylphosphonate + ATP = alpha-D-ribose 1-methylphosphonate 5-triphosphate + adenine
+  → No phosphorus-containing group transfer detected
+
+RHEA:36407: L-threonine + hydrogencarbonate + ATP = L-threonylcarbamoyladenylate + diphosphate + H2O
+  → Carboxylase - ATP-dependent CO2 fixation, not phosphoryl transfer
+
+RHEA:49240: N(pros)-phospho-L-histidyl-[protein] + N-acetyl-D-glucosamine(out) = N-acetyl-D-glucosamine 6-phosphate(in) + L-histidyl-[protein]
+  → No phosphorus-containing group transfer detected
+
+RHEA:22508: DNA(n) + a 2'-deoxyribonucleoside 5'-triphosphate = DNA(n+1) + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:14785: RNA(n) + UTP = RNA(n)-3'-uridine ribonucleotide + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:22096: RNA(n+1) + phosphate = RNA(n) + a ribonucleoside 5'-diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → No phosphorus-containing group transfer detected
+
+RHEA:49236: N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]
+  → No phosphorus-containing group transfer detected
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No phosphorus-containing group transfer detected
+
+RHEA:49288: L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)
+  → Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer
+

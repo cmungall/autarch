@@ -1,0 +1,31 @@
+False Positives for CarboxyLyase
+==================================================
+Total: 9
+
+RHEA:11120: cyanate + hydrogencarbonate + 3 H(+) = NH4(+) + 2 CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:13389: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + 2 H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein] + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:15425: coproporphyrinogen III + 2 S-adenosyl-L-methionine = protoporphyrinogen IX + 2 5'-deoxyadenosine + 2 L-methionine + 2 CO2
+  → Decarboxylase: CO2 elimination, multiple fragments (3→7)/carboxyl-containing substrate [pattern matched]
+
+RHEA:15821: glycine + 2 A = hydrogen cyanide + 2 AH2 + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:17477: precorrin-6B + 2 S-adenosyl-L-methionine = precorrin-8X + 2 S-adenosyl-L-homocysteine + CO2 + 3 H(+)
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:35815: 4-aminobenzoate + 5-phospho-alpha-D-ribose 1-diphosphate + H(+) = 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + CO2 + diphosphate
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:36067: Co-precorrin-6B + S-adenosyl-L-methionine = Co-precorrin-7 + S-adenosyl-L-homocysteine + CO2
+  → Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+

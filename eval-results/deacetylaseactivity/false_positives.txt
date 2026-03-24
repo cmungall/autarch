@@ -1,0 +1,67 @@
+False Positives for DeacetylaseActivity
+==================================================
+Total: 21
+
+RHEA:10432: 2-(acetamidomethylene)succinate + 2 H2O + H(+) = succinate semialdehyde + acetate + NH4(+) + CO2
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:11552: a 1-O-alkyl-2-acetyl-sn-glycerol + H2O = a 1-O-alkyl-sn-glycerol + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:13657: acetyl-[citrate lyase ACP] + H2O = holo-[citrate lyase ACP] + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:16097: acetylpyruvate + H2O = acetate + pyruvate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:17309: a phenyl acetate + H2O = a phenol + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:17561: acetylcholine + H2O = choline + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:17677: 2-(acetamidomethylene)-3-(hydroxymethyl)succinate + 2 H2O + H(+) = 2-(hydroxymethyl)-4-oxobutanoate + acetate + NH4(+) + CO2
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:17777: a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + H2O = a 1-O-alkyl-sn-glycero-3-phosphocholine + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:18261: precorrin-5 + S-adenosyl-L-methionine + H2O = precorrin-6A + acetate + S-adenosyl-L-homocysteine + 2 H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:20289: acetyl-CoA + H2O = acetate + CoA + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:22124: 17-O-acetylajmaline + H2O = ajmaline + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:22600: N-acetyl-9-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:23796: 17-O-acetylnorajmaline + H2O = norajmaline + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:23952: N-(2-phenylethyl)acetamide + H2O = 2-phenylethylamine + acetate
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:24432: oxaloacetate + H2O = oxalate + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:25294: acetaldehyde + NAD(+) + H2O = acetate + NADH + 2 H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:25298: acetaldehyde + NADP(+) + H2O = acetate + NADPH + 2 H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:25564: N-acetyl-4-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:27469: N,N'-diacetylchitobiose + H2O = N-acetyl-beta-D-glucosaminyl-(1->4)-D-glucosamine + acetate
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:35715: (2S,3S)-versiconal hemiacetal acetate + H2O = (2S-3S)-versiconal hemiacetal + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+
+RHEA:35719: (3S)-versiconol acetate + H2O = (S)-versiconol + acetate + H(+)
+  → Deacetylase activity: hydrolytic acetate release from an acetylated substrate
+

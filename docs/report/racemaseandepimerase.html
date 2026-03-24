@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RacemaseAndEpimerase - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>RacemaseAndEpimerase</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:5.1.-.-" target="_blank">EC:5.1.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>racemase and epimerase</p><p>Examples:<br>- Alanine racemase: L-alanine ⇌ D-alanine<br>- Mandelate racemase: (S)-mandelate ⇌ (R)-mandelate<br>- UDP-glucose 4-epimerase: UDP-glucose ⇌ UDP-galactose<br>- Ribose-5-phosphate isomerase: ribose-5-P ⇌ ribulose-5-P</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value good">0.968</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">1.000</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.939</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.999</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.968</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">1.000</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">46</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">0</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">3</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3435</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">racemase_and_epimerase.py:34</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016854&quot;</span>  <span class="comment"># racemase and epimerase activity</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;5.1.-.-&quot;</span>  <span class="comment"># Racemases and epimerases</span>
+
+    PATTERNS: list[Reaction] = [
+        <span class="comment"># Simple stereoisomerization: substrate ⇌ stereoisomer</span>
+        var(<span class="str">&quot;substrate&quot;</span>) &gt;&gt; var(<span class="str">&quot;stereoisomer&quot;</span>) + optional(h_plus),
+        <span class="comment"># Reversible reaction: L-form ⇌ D-form</span>
+        var(<span class="str">&quot;l_form&quot;</span>) &gt;&gt; var(<span class="str">&quot;d_form&quot;</span>),
+        <span class="comment"># Sugar epimerase: UDP-sugar ⇌ UDP-epimer</span>
+        var(<span class="str">&quot;nucleotide_sugar&quot;</span>) &gt;&gt; var(<span class="str">&quot;nucleotide_epimer&quot;</span>) + optional(h_plus),
+        <span class="comment"># Amino acid racemase: L-amino acid ⇌ D-amino acid</span>
+        var(<span class="str">&quot;l_amino_acid&quot;</span>) &gt;&gt; var(<span class="str">&quot;d_amino_acid&quot;</span>) + optional(h_plus),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">racemase_and_epimerase.py:49</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is a racemase/epimerase using pattern matching.
+
+        Strategy:
+        1. Must be an isomerase (parent class)
+        2. Must be molecular formula conserving (no atoms added/removed)
+        3. Must involve stereochemical change (L/D, R/S, alpha/beta)
+        4. Look for characteristic substrate/product pairs
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Use RHEA label for pattern matching</span>
+        label_lower = reaction.label.lower() <span class="kw">if</span> reaction.label <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+        label_parts = label_lower.split(<span class="str">&quot;=&quot;</span>)
+        substrate_str = label_parts[<span class="num">0</span>] <span class="kw">if</span> label_parts <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+        product_str = label_parts[<span class="num">1</span>] <span class="kw">if</span> len(label_parts) &gt; <span class="num">1</span> <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+
+        <span class="comment"># First check if it&#x27;s an isomerase</span>
+        parent_result = super().check_membership_impl(reaction)
+        <span class="kw">if</span> <span class="kw">not</span> parent_result.is_member:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=f<span class="str">&quot;Not an isomerase: {parent_result.explanation}&quot;</span>,
+            )
+
+        diff = ReactionDiff(reaction)
+
+        <span class="comment"># Must be atom-conserving (stereoisomerization doesn&#x27;t change formula)</span>
+        <span class="kw">if</span> <span class="kw">not</span> diff.is_balanced():
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Not atom-balanced - not stereoisomerization&quot;</span>
+            )
+
+        <span class="comment"># Must be 1:1 molecular conversion (substrate → product)</span>
+        <span class="kw">if</span> diff.n_reactant_molecules != <span class="num">1</span> <span class="kw">or</span> diff.n_product_molecules != <span class="num">1</span>:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Not 1:1 conversion - not simple stereoisomerization&quot;</span>
+            )
+
+        <span class="comment"># Check for stereoisomerism using InChI (structural comparison)</span>
+        has_stereo_difference = <span class="kw">False</span>
+        stereo_explanation = <span class="str">&quot;&quot;</span>
+
+        <span class="comment"># Compare substrate and product using InChI for stereochemistry</span>
+        <span class="kw">for</span> reactant <span class="kw">in</span> reaction.left_participants:
+            <span class="kw">for</span> product <span class="kw">in</span> reaction.right_participants:
+                <span class="comment"># Use InChI-based stereoisomer detection (preferred)</span>
+                <span class="kw">if</span> reactant.inchi <span class="kw">and</span> product.inchi:
+                    is_stereo, explanation = are_stereoisomers(
+                        reactant.inchi, product.inchi
+                    )
+                    <span class="kw">if</span> is_stereo:
+                        has_stereo_difference = <span class="kw">True</span>
+                        stereo_explanation = explanation
+                        <span class="kw">break</span>
+
+            <span class="kw">if</span> has_stereo_difference:
+                <span class="kw">break</span>
+
+        <span class="comment"># Look for specific racemase/epimerase substrates by ChEBI ID</span>
+        racemase_chebi_pairs = {
+            <span class="comment"># L/D amino acid pairs</span>
+            (<span class="str">&quot;CHEBI:16977&quot;</span>, <span class="str">&quot;CHEBI:15570&quot;</span>),  <span class="comment"># L-alanine / D-alanine</span>
+            (<span class="str">&quot;CHEBI:17822&quot;</span>, <span class="str">&quot;CHEBI:16344&quot;</span>),  <span class="comment"># L-serine / D-serine</span>
+            (<span class="str">&quot;CHEBI:17115&quot;</span>, <span class="str">&quot;CHEBI:16857&quot;</span>),  <span class="comment"># L-glutamate / D-glutamate</span>
+            <span class="comment"># UDP-sugar pairs</span>
+            (<span class="str">&quot;CHEBI:18066&quot;</span>, <span class="str">&quot;CHEBI:18307&quot;</span>),  <span class="comment"># UDP-glucose / UDP-galactose</span>
+        }
+
+        <span class="comment"># Check for known L/D or epimer pairs (one on each side)</span>
+        has_known_pair = <span class="kw">False</span>
+        <span class="kw">for</span> l_id, d_id <span class="kw">in</span> racemase_chebi_pairs:
+            left_ids = {p.chebi_id <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants}
+            right_ids = {p.chebi_id <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants}
+            <span class="kw">if</span> (l_id <span class="kw">in</span> left_ids <span class="kw">and</span> d_id <span class="kw">in</span> right_ids) <span class="kw">or</span> (d_id <span class="kw">in</span> left_ids <span class="kw">and</span> l_id <span class="kw">in</span> right_ids):
+                has_known_pair = <span class="kw">True</span>
+                <span class="kw">break</span>
+
+        <span class="comment"># Check for L/D or R/S naming patterns (stereoisomer indicators in names)</span>
+        stereo_name_patterns = [
+            (<span class="str">&quot;l-&quot;</span>, <span class="str">&quot;d-&quot;</span>),  <span class="comment"># L-alanine / D-alanine</span>
+            (<span class="str">&quot;-l-&quot;</span>, <span class="str">&quot;-d-&quot;</span>),  <span class="comment"># alpha-L-arabinose / alpha-D-xylose</span>
+            (<span class="str">&quot;(s)-&quot;</span>, <span class="str">&quot;(r)-&quot;</span>),  <span class="comment"># (S)-mandelate / (R)-mandelate</span>
+            (<span class="str">&quot;(s)&quot;</span>, <span class="str">&quot;(r)&quot;</span>),  <span class="comment"># alternate parentheses format</span>
+            (<span class="str">&quot;alpha-&quot;</span>, <span class="str">&quot;beta-&quot;</span>),  <span class="comment"># alpha-D-glucose / beta-D-glucose</span>
+        ]
+
+        <span class="comment"># Sugar epimer pairs (glucose/galactose, glucosamine/galactosamine, etc.)</span>
+        <span class="comment"># These are epimerizations at specific carbons, not simple L/D changes</span>
+        sugar_epimer_pairs = [
+            (<span class="str">&quot;glucose&quot;</span>, <span class="str">&quot;galactose&quot;</span>),  <span class="comment"># C4 epimer</span>
+            (<span class="str">&quot;glucuronate&quot;</span>, <span class="str">&quot;galacturonate&quot;</span>),  <span class="comment"># C4 epimer</span>
+            (<span class="str">&quot;glucosamine&quot;</span>, <span class="str">&quot;galactosamine&quot;</span>),  <span class="comment"># C4 epimer</span>
+            (<span class="str">&quot;glucosamine&quot;</span>, <span class="str">&quot;mannosamine&quot;</span>),  <span class="comment"># C2 epimer</span>
+            (<span class="str">&quot;glucose&quot;</span>, <span class="str">&quot;mannose&quot;</span>),  <span class="comment"># C2 epimer</span>
+            (<span class="str">&quot;xylose&quot;</span>, <span class="str">&quot;arabinose&quot;</span>),  <span class="comment"># C4 epimer</span>
+        ]
+
+        <span class="comment"># Use label strings for pattern matching</span>
+        has_stereo_naming = <span class="kw">False</span>
+        <span class="kw">for</span> left_prefix, right_prefix <span class="kw">in</span> stereo_name_patterns:
+            <span class="comment"># Check if one side has L-/S-/alpha- and other has D-/R-/beta-</span>
+            <span class="kw">if</span> (left_prefix <span class="kw">in</span> substrate_str <span class="kw">and</span> right_prefix <span class="kw">in</span> product_str) <span class="kw">or</span> \
+               (right_prefix <span class="kw">in</span> substrate_str <span class="kw">and</span> left_prefix <span class="kw">in</span> product_str):
+                has_stereo_naming = <span class="kw">True</span>
+                <span class="kw">break</span>
+
+        <span class="comment"># Check for sugar epimer pairs</span>
+        has_epimer_pair = <span class="kw">False</span>
+        <span class="kw">for</span> sugar1, sugar2 <span class="kw">in</span> sugar_epimer_pairs:
+            <span class="kw">if</span> (sugar1 <span class="kw">in</span> substrate_str <span class="kw">and</span> sugar2 <span class="kw">in</span> product_str) <span class="kw">or</span> \
+               (sugar2 <span class="kw">in</span> substrate_str <span class="kw">and</span> sugar1 <span class="kw">in</span> product_str):
+                has_epimer_pair = <span class="kw">True</span>
+                <span class="kw">break</span>
+
+        <span class="comment"># Require actual evidence of stereoisomerization</span>
+        <span class="kw">if</span> <span class="kw">not</span> (has_stereo_difference <span class="kw">or</span> has_known_pair <span class="kw">or</span> has_stereo_naming <span class="kw">or</span> has_epimer_pair):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)&quot;</span>
+            )
+
+        <span class="comment"># Apply racemase-specific exclusions</span>
+        <span class="comment"># (Parent Isomerase already excludes: water, NAD/NADP/FAD, ATP imbalance, CO2)</span>
+
+        <span class="comment"># Exclude aldose-ketose isomerases (constitutional, not stereoisomers)</span>
+        <span class="comment"># E.g., glucose 6-P → fructose 6-P (ring-open aldose → ketose)</span>
+        aldose_ketose_pairs = [
+            (<span class="str">&quot;glucose&quot;</span>, <span class="str">&quot;fructose&quot;</span>),
+            (<span class="str">&quot;ribose&quot;</span>, <span class="str">&quot;ribulose&quot;</span>),
+            (<span class="str">&quot;xylose&quot;</span>, <span class="str">&quot;xylulose&quot;</span>),
+            (<span class="str">&quot;mannose&quot;</span>, <span class="str">&quot;fructose&quot;</span>),
+        ]
+        <span class="kw">for</span> aldose, ketose <span class="kw">in</span> aldose_ketose_pairs:
+            <span class="kw">if</span> (aldose <span class="kw">in</span> substrate_str <span class="kw">and</span> ketose <span class="kw">in</span> product_str) <span class="kw">or</span> \
+               (ketose <span class="kw">in</span> substrate_str <span class="kw">and</span> aldose <span class="kw">in</span> product_str):
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Aldose-ketose isomerase - constitutional change, not stereoisomerization&quot;</span>
+                )
+
+        <span class="comment"># Exclude phosphomutases (1-phosphate → 6-phosphate positional change)</span>
+        <span class="comment"># E.g., GlcNAc 1-phosphate → GlcNAc 6-phosphate</span>
+        has_1_phosphate_left = <span class="str">&quot;1-phosphate&quot;</span> <span class="kw">in</span> substrate_str
+        has_6_phosphate_right = <span class="str">&quot;6-phosphate&quot;</span> <span class="kw">in</span> product_str
+        has_6_phosphate_left = <span class="str">&quot;6-phosphate&quot;</span> <span class="kw">in</span> substrate_str
+        has_1_phosphate_right = <span class="str">&quot;1-phosphate&quot;</span> <span class="kw">in</span> product_str
+        <span class="kw">if</span> (has_1_phosphate_left <span class="kw">and</span> has_6_phosphate_right) <span class="kw">or</span> (has_6_phosphate_left <span class="kw">and</span> has_1_phosphate_right):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Phosphomutase - positional isomer, not stereoisomer&quot;</span>
+            )
+
+        <span class="comment"># Exclude double bond isomerases (different double bond positions)</span>
+        <span class="comment"># E.g., lathosterol → cholest-8-en-ol (different double bond location in steroid)</span>
+        <span class="comment"># Check if label has different -en- positions (double bond isomers)</span>
+        left_en_pos = re.findall(r&<span class="comment">#x27;-(\d+)-en-&#x27;, substrate_str)</span>
+        right_en_pos = re.findall(r&<span class="comment">#x27;-(\d+)-en-&#x27;, product_str)</span>
+        <span class="kw">if</span> left_en_pos <span class="kw">and</span> right_en_pos <span class="kw">and</span> left_en_pos != right_en_pos:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Double bond position isomerase - constitutional change, not stereoisomer&quot;</span>
+            )
+
+        <span class="comment"># Try to match patterns</span>
+        match = match_patterns(reaction, <span class="kw">self</span>.PATTERNS, strict=<span class="kw">False</span>)
+
+        <span class="comment"># Determine specific type based on substrates</span>
+        explanation = <span class="str">&quot;Racemase/epimerase: stereoisomerization&quot;</span>
+
+        <span class="comment"># Check for amino acid racemase</span>
+        amino_acid_patterns = [<span class="str">&quot;alanine&quot;</span>, <span class="str">&quot;serine&quot;</span>, <span class="str">&quot;glutamate&quot;</span>, <span class="str">&quot;aspartate&quot;</span>, <span class="str">&quot;proline&quot;</span>, <span class="str">&quot;methionine&quot;</span>]
+        <span class="kw">if</span> any(aa <span class="kw">in</span> label_lower <span class="kw">for</span> aa <span class="kw">in</span> amino_acid_patterns):
+            explanation = <span class="str">&quot;Racemase/epimerase: amino acid racemization&quot;</span>
+
+        <span class="comment"># Check for UDP-sugar epimerase or sugar epimer pairs</span>
+        <span class="kw">if</span> any(prefix <span class="kw">in</span> label_lower <span class="kw">for</span> prefix <span class="kw">in</span> [<span class="str">&quot;udp-&quot;</span>, <span class="str">&quot;gdp-&quot;</span>, <span class="str">&quot;dtdp-&quot;</span>]):
+            explanation = <span class="str">&quot;Racemase/epimerase: nucleotide-sugar epimerization&quot;</span>
+        <span class="kw">elif</span> has_epimer_pair:
+            explanation = <span class="str">&quot;Racemase/epimerase: sugar epimerization&quot;</span>
+
+        <span class="comment"># Check for mandelate/lactate racemase</span>
+        <span class="kw">if</span> <span class="str">&quot;mandelate&quot;</span> <span class="kw">in</span> label_lower:
+            explanation = <span class="str">&quot;Racemase/epimerase: mandelate racemization&quot;</span>
+        <span class="kw">elif</span> <span class="str">&quot;lactate&quot;</span> <span class="kw">in</span> label_lower:
+            explanation = <span class="str">&quot;Racemase/epimerase: lactate racemization&quot;</span>
+
+        <span class="comment"># Include stereochemistry details from InChI analysis</span>
+        <span class="kw">if</span> has_stereo_difference <span class="kw">and</span> stereo_explanation:
+            explanation += f<span class="str">&quot; [{stereo_explanation}]&quot;</span>
+
+        <span class="kw">if</span> match.matched:
+            explanation += <span class="str">&quot; [pattern matched]&quot;</span>
+
+        <span class="kw">return</span> ClassificationResult(is_member=<span class="kw">True</span>, explanation=explanation)
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">46</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10264" target="_blank">RHEA:10264</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose = beta-D-glucose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3-,4+,5-,6+/m1/s1 -&gt; t2-,3-,4+,5-,6-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10680" target="_blank">RHEA:10680</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-proline = D-proline</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-/m0/s1 -&gt; t4-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10804" target="_blank">RHEA:10804</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(S)-allantoin = (R)-allantoin</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t1-/m0/s1 -&gt; t1-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10820" target="_blank">RHEA:10820</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-threo-isocitrate = D-erythro-isocitrate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,4+/m0/s1 -&gt; t2-,4-/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10960" target="_blank">RHEA:10960</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(S)-lactate = (R)-lactate</span>
+                <div class="reaction-explanation">Racemase/epimerase: lactate racemization [Stereoisomerism: t2-/m0/s1 -&gt; t2-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10980" target="_blank">RHEA:10980</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-serine = D-serine</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -&gt; t2-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11320" target="_blank">RHEA:11320</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-beta-L-arabinopyranose = UDP-alpha-D-xylose</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11404" target="_blank">RHEA:11404</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-alpha-D-glucuronate = UDP-alpha-D-galacturonate</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11584" target="_blank">RHEA:11584</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-ornithine = D-ornithine</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-/m0/s1 -&gt; t4-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12092" target="_blank">RHEA:12092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(S)-acetoin = (R)-acetoin</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t3-/m0/s1 -&gt; t3-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12492" target="_blank">RHEA:12492</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-methionine = D-methionine</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-/m0/s1 -&gt; t4-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12813" target="_blank">RHEA:12813</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-glutamate = D-glutamate</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t3-/m0/s1 -&gt; t3-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13677" target="_blank">RHEA:13677</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-ribulose 5-phosphate = D-xylulose 5-phosphate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5+/m1/s1 -&gt; t4-,5-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13913" target="_blank">RHEA:13913</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-threonine = D-threonine</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3+/m1/s1 -&gt; t2-,3+/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13945" target="_blank">RHEA:13945</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(S)-mandelate = (R)-mandelate</span>
+                <div class="reaction-explanation">Racemase/epimerase: mandelate racemization [Stereoisomerism: t7-/m0/s1 -&gt; t7-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14813" target="_blank">RHEA:14813</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-2-aminohexano-6-lactam = D-2-aminohexano-6-lactam</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-/m0/s1 -&gt; t5-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14973" target="_blank">RHEA:14973</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-aspartate = D-aspartate</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -&gt; t2-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15393" target="_blank">RHEA:15393</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(2S,6S)-2,6-diaminopimelate = meso-2,6-diaminopimelate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5-/m0/s1 -&gt; t4-,5+] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16249" target="_blank">RHEA:16249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose 6-phosphate = beta-D-glucose 6-phosphate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3-,4+,5-,6+/m1/s1 -&gt; t2-,3-,4+,5-,6-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16969" target="_blank">RHEA:16969</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">dTDP-4-dehydro-6-deoxy-alpha-D-glucose = dTDP-4-dehydro-beta-L-rhamnose</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17213" target="_blank">RHEA:17213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-alpha-D-mannosamine</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17577" target="_blank">RHEA:17577</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">ADP-D-glycero-beta-D-manno-heptose = ADP-L-glycero-beta-D-manno-heptose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-,6-,8-,9+,10+,11-,12+,13-,16-,17+/m1/s1 -&gt; t5-,6+,8+,9-,10-,11+,12-,13+,16+,17-/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18069" target="_blank">RHEA:18069</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-arginine = D-arginine</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-/m0/s1 -&gt; t4-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18497" target="_blank">RHEA:18497</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-ribulose 5-phosphate = L-xylulose 5-phosphate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5+/m0/s1 -&gt; t4-,5-/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20033" target="_blank">RHEA:20033</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">isopenicillin N = penicillin N</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t6-,8+,9-,11+/m0/s1 -&gt; t6-,8-,9+,11-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20249" target="_blank">RHEA:20249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-alanine = D-alanine</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -&gt; t2-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20517" target="_blank">RHEA:20517</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-alpha-D-galactosamine</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20553" target="_blank">RHEA:20553</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(R)-methylmalonyl-CoA = (S)-methylmalonyl-CoA</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t12-,13-,16-,17-,18+,22-/m1/s1 -&gt; t12-,13+,16+,17+,18-,22+/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21152" target="_blank">RHEA:21152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">trans-4-hydroxy-L-proline = cis-4-hydroxy-D-proline</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t3-,4+/m1/s1 -&gt; t3-,4-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21228" target="_blank">RHEA:21228</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-maltose = beta-maltose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t3-,4-,5-,6+,7-,8-,9-,10-,11+,12-/m1/s1 -&gt; t3-,4-,5-,6+,7-,8-,9-,10-,11-,12-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21656" target="_blank">RHEA:21656</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">CDP-alpha-D-paratose = CDP-3,6-dideoxy-alpha-D-mannose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t6-,7+,8-,9-,11-,12-,13-,14-/m1/s1 -&gt; t6-,7+,8+,9-,11-,12-,13-,14-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21760" target="_blank">RHEA:21760</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(3S)-3-hydroxybutanoyl-CoA = (3R)-3-hydroxybutanoyl-CoA</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t13-,14+,18+,19+,20-,24+/m0/s1 -&gt; t13-,14-,18-,19-,20+,24-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22168" target="_blank">RHEA:22168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-alpha-D-glucose = UDP-alpha-D-galactose</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22212" target="_blank">RHEA:22212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(2R,3R)-tartrate = (2R,3S)-tartrate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t1-,2-/m1/s1 -&gt; t1-,2+] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22368" target="_blank">RHEA:22368</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-ribulose 5-phosphate = D-xylulose 5-phosphate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5+/m0/s1 -&gt; t4-,5-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22792" target="_blank">RHEA:22792</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">isonocardicin A = nocardicin A</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t16-,17-,19+/m0/s1 -&gt; t16-,17+,19-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22864" target="_blank">RHEA:22864</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-lysine = D-lysine</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-/m0/s1 -&gt; t5-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23384" target="_blank">RHEA:23384</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-cellobiose = beta-D-glucosyl-(1-&gt;4)-D-mannopyranose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t3-,4-,5-,6+,7-,8-,9-,10-,11?,12+/m1/s1 -&gt; t3-,4-,5-,6+,7-,8+,9-,10-,11?,12+/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23492" target="_blank">RHEA:23492</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">UDP-alpha-D-glucosamine = UDP-alpha-D-galactosamine</span>
+                <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25580" target="_blank">RHEA:25580</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-L-fucose = beta-L-fucose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3+,4+,5-,6+/m0/s1 -&gt; t2-,3+,4+,5-,6-/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25584" target="_blank">RHEA:25584</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-L-rhamnose = beta-L-rhamnose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3-,4+,5+,6+/m0/s1 -&gt; t2-,3-,4+,5+,6-/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28394" target="_blank">RHEA:28394</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-alanyl-L-glutamate = L-alanyl-D-glutamate</span>
+                <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-,5-/m0/s1 -&gt; t4-,5+/m0/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28426" target="_blank">RHEA:28426</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-allulose 6-phosphate = keto-D-fructose 6-phosphate</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5+,6-/m1/s1 -&gt; t4-,5-,6-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28675" target="_blank">RHEA:28675</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">alpha-D-galactose = beta-D-galactose</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3+,4+,5-,6+/m1/s1 -&gt; t2-,3+,4+,5-,6-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32215" target="_blank">RHEA:32215</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(6R)-NADHX = (6S)-NADHX</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t9-,10-,11-,13-,14-,15-,16-,20-,21-/m1/s1 -&gt; t9-,10-,11+,13-,14-,15-,16-,20-,21-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32227" target="_blank">RHEA:32227</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(6R)-NADPHX = (6S)-NADPHX</span>
+                <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t9-,10-,11-,13-,14-,15-,16-,20-,21-/m1/s1 -&gt; t9-,10-,11+,13-,14-,15-,16-,20-,21-/m1/s1] [pattern matched]</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">3</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10660" target="_blank">RHEA:10660</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-seryl-[protein] = D-seryl-[protein]</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20201" target="_blank">RHEA:20201</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-phenylalanine + ATP + H2O = D-phenylalanine + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28346" target="_blank">RHEA:28346</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">7,8-dihydroneopterin 3&#x27;-triphosphate = 7,8-dihydromonapterin 3&#x27;-triphosphate</span>
+                <div class="reaction-explanation">No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3435</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">Not an isomerase: Redox cofactor present - not isomerase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">Not an isomerase: Redox cofactor present - not isomerase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">Not an isomerase: Redox cofactor present - not isomerase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Not an isomerase: Net ATP consumption - not isomerase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Water involved - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">Not an isomerase: Multi-molecule reaction - likely transferase not isomerase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016854" target="_blank">GO:0016854</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Not an isomerase: Molecule count changed - not isomerization</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3385 more (showing 50 of 3435)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">6</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18789" target="_blank">RHEA:18789</a></span>:
+                    <span class="reaction-label">D-glucosamine 6-phosphate = D-galactosamine 6-phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.3.42" target="_blank">EC:5.1.3.42</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: sugar epimerization [Stereoisomerism: t2-,3-,4-,5-,6?/m1/s1 -&gt; t2-,3-,4+,5-,6?/m1/s1] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25233" target="_blank">RHEA:25233</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-neuraminate = N-acetyl-beta-neuraminate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.3.24" target="_blank">EC:5.1.3.24</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-,6+,7+,8+,9+,11+/m0/s1 -&gt; t5-,6+,7+,8+,9+,11-/m0/s1] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25257" target="_blank">RHEA:25257</a></span>:
+                    <span class="reaction-label">N-acetyl-D-glucosamine 6-phosphate = aldehydo-N-acetyl-D-mannosamine 6-phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.3.9" target="_blank">EC:5.1.3.9</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: sugar epimerization [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28390" target="_blank">RHEA:28390</a></span>:
+                    <span class="reaction-label">N(6)-(D-psicosyl)-L-lysine = N(6)-(D-fructosyl)-L-lysine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.3.41" target="_blank">EC:5.1.3.41</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t7-,9+,10-,11+/m0/s1 -&gt; t7-,9+,10+,11+/m0/s1] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34103" target="_blank">RHEA:34103</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = N-acetyl-alpha-D-galactosaminyl-di-trans,octa-cis-undecaprenyl diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.3.26" target="_blank">EC:5.1.3.26</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36707" target="_blank">RHEA:36707</a></span>:
+                    <span class="reaction-label">O-ureido-L-serine = O-ureido-D-serine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.1.1.19" target="_blank">EC:5.1.1.19</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -&gt; t2-/m1/s1] [pattern matched]</div>
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">4</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25404" target="_blank">RHEA:25404</a></span>:
+                    <span class="reaction-label">(S)-2-ethyl-2-hydroxy-3-oxobutanoate = (R)-3-hydroxy-3-methyl-2-oxopentanoate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.4.99.3" target="_blank">EC:5.4.99.3</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25776" target="_blank">RHEA:25776</a></span>:
+                    <span class="reaction-label">scyllo-inosose = scyllo-inosine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.3.99.11" target="_blank">EC:5.3.99.11</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [Stereoisomerism: t1-,2-,3+,4+,5- -&gt; t1-,2-,3+,4-,5-/m1/s1] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31835" target="_blank">RHEA:31835</a></span>:
+                    <span class="reaction-label">dTDP-4-dehydro-6-deoxy-alpha-D-glucose = dTDP-3-dehydro-6-deoxy-alpha-D-galactose</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.3.2.3" target="_blank">EC:5.3.2.3</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: nucleotide-sugar epimerization [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32759" target="_blank">RHEA:32759</a></span>:
+                    <span class="reaction-label">L-lysine = (3R)-3-methyl-D-ornithine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:5.4.99.58" target="_blank">EC:5.4.99.58</a></div>
+                    <div class="reaction-explanation">Racemase/epimerase: stereoisomerization [pattern matched]</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

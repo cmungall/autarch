@@ -1,0 +1,13 @@
+False Negatives for RacemaseAndEpimerase
+==================================================
+Total: 3
+
+RHEA:10660: L-seryl-[protein] = D-seryl-[protein]
+  → Not an isomerase: Molecule count changed - not isomerization
+
+RHEA:20201: L-phenylalanine + ATP + H2O = D-phenylalanine + AMP + diphosphate + H(+)
+  → Not an isomerase: Molecule count changed - not isomerization
+
+RHEA:28346: 7,8-dihydroneopterin 3'-triphosphate = 7,8-dihydromonapterin 3'-triphosphate
+  → No stereochemical conversion detected (no InChI stereo diff, no L/D pair, no stereo naming, no sugar epimer pair)
+

@@ -1,0 +1,28 @@
+False Positives for OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonors
+==================================================
+Total: 8
+
+RHEA:10180: (6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10692: 6-(2-amino-2-carboxyethyl)-7,8-dioxo-1,2,3,4,7,8-hexahydroquinoline-2,4-dicarboxylate + 3 O2 = pyrroloquinoline quinone + 2 H2O2 + 2 H2O + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsOxygenAsAcceptor (1.2.3.-); Aldehyde/oxo oxidoreductase: oxygen-dependent oxidation to a carboxylate, thioester, or acyl phosphate
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:21888: (1S,2S)-OPC-8 + NADP(+) = (9S,13S,15Z)-12-oxophyto-10,15-dienoate + NADPH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:24268: 2,6-dioxo-6-phenylhexanoate + NADP(+) = 2-hydroxy-6-oxo-6-phenylhexa-2,4-dienoate + NADPH + H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:24752: primary fluorescent chlorophyll catabolite + 2 oxidized [2Fe-2S]-[ferredoxin] = red chlorophyll catabolite + 2 reduced [2Fe-2S]-[ferredoxin] + 3 H(+)
+  → Oxidoreductase acting on the aldehyde or oxo group of donors: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsIronSulfurProteinAsAcceptor (1.2.7.-); Iron-sulfur oxidoreductase: aldehyde/oxo donor coupled to reduction of an iron-sulfur acceptor
+

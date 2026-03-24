@@ -1,0 +1,7 @@
+False Positives for XylosyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:35443: an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-xylose = an anthocyanidin 3-O-beta-D-sambubioside + UDP + 2 H(+)
+  → xylosyltransferase activity: matched UDPXylosyltransferaseActivity (2.4.-.-); UDP-xylosyltransferase activity: UDP-xylose donor transfers a xylosyl group
+

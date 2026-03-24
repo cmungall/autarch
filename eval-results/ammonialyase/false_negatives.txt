@@ -1,0 +1,22 @@
+False Negatives for AmmoniaLyase
+==================================================
+Total: 6
+
+RHEA:12488: 2-amino-2-deoxy-D-gluconate = 2-dehydro-3-deoxy-D-gluconate + NH4(+)
+  → No ammonia-lyase pattern
+
+RHEA:15313: ethanolamine = acetaldehyde + NH4(+)
+  → No ammonia-lyase pattern
+
+RHEA:15445: O-carbamoyl-L-serine + H2O + H(+) = pyruvate + 2 NH4(+) + CO2
+  → Uses water - hydrolase/deaminase, not ammonia lyase
+
+RHEA:15605: L-serine O-sulfate + H2O = sulfate + pyruvate + NH4(+) + H(+)
+  → Uses water - hydrolase/deaminase, not ammonia lyase
+
+RHEA:22084: (S)-2,3-diaminopropanoate + H2O + H(+) = pyruvate + 2 NH4(+)
+  → Uses water - hydrolase/deaminase, not ammonia lyase
+
+RHEA:22736: 5-formimidoyltetrahydrofolate + 2 H(+) = (6R)-5,10-methenyltetrahydrofolate + NH4(+)
+  → No ammonia-lyase pattern
+

@@ -1,0 +1,13 @@
+False Positives for NeutralLAminoAcidTransmembraneTransporterActivity
+==================================================
+Total: 3
+
+RHEA:28967: L-proline(in) + Na(+)(in) = L-proline(out) + Na(+)(out)
+  → Neutral L-amino acid transmembrane transporter activity
+
+RHEA:29767: D-methionine(out) + ATP + H2O = D-methionine(in) + ADP + phosphate + H(+)
+  → Neutral L-amino acid transmembrane transporter activity
+
+RHEA:32787: L-ectoine(out) + ATP + H2O = L-ectoine(in) + ADP + phosphate + H(+)
+  → Neutral L-amino acid transmembrane transporter activity
+

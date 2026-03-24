@@ -1,0 +1,7 @@
+False Positives for AcylCoADesaturaseActivity
+==================================================
+Total: 1
+
+RHEA:11776: octadecanoyl-[ACP] + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = (9Z)-octadecenoyl-[ACP] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Acyl-CoA desaturase activity: oxygen-dependent introduction of one double bond into a fatty acyl-CoA
+

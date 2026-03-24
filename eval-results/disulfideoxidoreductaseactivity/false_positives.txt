@@ -1,0 +1,58 @@
+False Positives for DisulfideOxidoreductaseActivity
+==================================================
+Total: 18
+
+RHEA:11464: L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:11724: [thioredoxin]-disulfide + sulfite + adenosine 3',5'-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3'-phosphoadenylyl sulfate
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:12613: L-cystine + 2 glutathione = glutathione disulfide + 2 L-cysteine
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:12701: a 2'-deoxyribonucleoside 5'-triphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-triphosphate + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a deoxyribonucleotide is oxidized to a ribonucleotide
+
+RHEA:14141: glutathione disulfide + sulfite + AMP + 2 H(+) = adenosine 5'-phosphosulfate + 2 glutathione
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:14217: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:14505: thiosulfate + 2 glutathione = glutathione disulfide + hydrogen sulfide + sulfite + 2 H(+)
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+
+RHEA:15121: dithioerythritol + thiosulfate = cis-1,2-dithiane-4,5-diol + hydrogen sulfide + sulfite + 2 H(+)
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+
+RHEA:17545: S-hydroxy-S-oxy-L-cysteinyl-[peroxiredoxin] + [protein]-dithiol + ATP = S-hydroxy-L-cysteinyl-[peroxiredoxin] + [protein]-disulfide + ADP + phosphate
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized (reverse reaction orientation)
+
+RHEA:19993: [thioredoxin]-disulfide + L-methionine + H2O = L-methionine (S)-S-oxide + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:21260: [thioredoxin]-disulfide + L-methionine + H2O = L-methionine (R)-S-oxide + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:21560: 3-hydroxy-2-methyl-3-phytyl-2,3-dihydro-1,4-naphthoquinone + oxidized dithiothreitol = 1,4-dithiothreitol + 2,3-epoxyphylloquinone
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a phylloquinol-like donor is oxidized
+
+RHEA:21976: [thioredoxin]-disulfide + sulfite + AMP + 2 H(+) = adenosine 5'-phosphosulfate + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:23252: a 2'-deoxyribonucleoside 5'-diphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5'-diphosphate + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a deoxyribonucleotide is oxidized to a ribonucleotide
+
+RHEA:24164: L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(R)-S-oxide-[protein] + [thioredoxin]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor (1.8.4.-); Sulfur-group oxidoreductase: a disulfide acceptor is reduced while a sulfur donor is oxidized
+
+RHEA:28026: dUDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + UDP
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a deoxyribonucleotide is oxidized to a ribonucleotide
+
+RHEA:28034: dADP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + ADP
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a deoxyribonucleotide is oxidized to a ribonucleotide
+
+RHEA:57744: phylloquinol + [protein]-disulfide = phylloquinone + [protein]-dithiol
+  → disulfide oxidoreductase activity: matched OxidoreductaseActingOnCHOrCH2GroupsDisulfideAsAcceptor (1.17.4.-); CH/CH2 oxidoreductase: a disulfide acceptor is reduced as a phylloquinol-like donor is oxidized
+

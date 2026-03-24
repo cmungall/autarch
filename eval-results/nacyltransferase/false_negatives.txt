@@ -1,0 +1,130 @@
+False Negatives for NAcyltransferase
+==================================================
+Total: 42
+
+RHEA:10060: D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:10096: a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5'-thioadenosine + holo-[ACP] + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:10292: D-glucosamine 6-phosphate + acetyl-CoA = N-acetyl-D-glucosamine 6-phosphate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:12436: (E)-caffeoyl-CoA + putrescine = N-caffeoylputrescine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:12665: a 2-deoxystreptamine antibiotic + acetyl-CoA = an N(3)-acetyl-2-deoxystreptamine antibiotic + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:12921: succinyl-CoA + glycine + H(+) = 5-aminolevulinate + CO2 + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:13085: (S)-2,3,4,5-tetrahydrodipicolinate + acetyl-CoA + H2O = L-2-acetamido-6-oxoheptanedioate + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:13725: alpha-D-glucosamine 1-phosphate + acetyl-CoA = N-acetyl-alpha-D-glucosamine 1-phosphate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:14165: L-aspartate + acetyl-CoA = N-acetyl-L-aspartate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:14417: acetyl phosphate + L-lysine = N(6)-acetyl-L-lysine + phosphate + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:14441: gentamicin C + acetyl-CoA = N(3)-acetylgentamycin C + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:15185: succinyl-CoA + L-arginine = N(2)-succinyl-L-arginine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:15277: L-lysyl-[alpha-tubulin] + acetyl-CoA = N(6)-acetyl-L-lysyl-[alpha-tubulin] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:15349: N(2)-acetyl-L-ornithine + L-glutamate = N-acetyl-L-glutamate + L-ornithine
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:15521: N-terminal glycyl-[protein] + tetradecanoyl-CoA = N-tetradecanoylglycyl-[protein] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:15813: 1H-imidazole + acetyl-CoA = N-acetylimidazole + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:16449: kanamycin B + acetyl-CoA = N(6')-acetylkanamycin B + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:16613: an arylamine + acetyl-CoA = an N-acetylarylamine + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:17325: (S)-2,3,4,5-tetrahydrodipicolinate + succinyl-CoA + H2O = (S)-2-succinylamino-6-oxoheptanedioate + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:17557: anthranilate + malonyl-CoA = N-malonylanthranilate + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:17801: L-phenylalanine + acetyl-CoA = N-acetyl-L-phenylalanine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:18009: glutaryl-CoA + L-lysyl-[protein] = N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:18061: N-formylmethanofuran + 5,6,7,8-tetrahydromethanopterin + H(+) = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + methanofuran
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:18469: an acyl-CoA + L-glutamine = an N(2)-acyl-L-glutamine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:19213: an S-substituted L-cysteine + acetyl-CoA = an N-acetyl-L-cysteine-S-conjugate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:19869: an acyl-CoA + glycine = an N-acylglycine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:20089: L-leucine + acetyl-CoA = N-acetyl-L-leucine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:20497: a 2-arylethylamine + acetyl-CoA = an N-acetyl-2-arylethylamine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:20633: a (3R)-hydroxyacyl-[ACP] + L-ornithine = a lyso-ornithine lipid + holo-[ACP] + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:20704: a D-alpha-amino acid + acetyl-CoA = an N-acetyl-D-amino acid + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:20720: isopenicillin N + phenylacetyl-CoA + H2O = penicillin G + L-2-aminoadipate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:21028: an N-terminal L-alpha-aminoacyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-alpha-aminoacyl-[protein] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:21060: 3,4-dichloroaniline + malonyl-CoA = N-(3,4-dichlorophenyl)malonamate + CoA
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:21332: D-glucosamine + acetyl-CoA = N-acetyl-D-glucosamine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:21992: L-lysyl-[histone] + acetyl-CoA = N(6)-acetyl-L-lysyl-[histone] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:23320: D-tryptophan + malonyl-CoA = N(2)-malonyl-D-tryptophan + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:23768: a fatty acyl-CoA + sphing-4-enine = an N-acylsphing-4-enine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:24180: 2-hydroxyisobutanoyl-CoA + L-lysyl-[protein] = N(6)-(2-hydroxyisobutanoyl)-L-lysyl-[protein] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:24292: L-glutamate + acetyl-CoA = N-acetyl-L-glutamate + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:24516: gentamicin C1a + acetyl-CoA = N(2')-acetylgentamicin C1a + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:24596: L-histidine + acetyl-CoA = N(alpha)-acetyl-L-histidine + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+
+RHEA:45948: L-lysyl-[protein] + acetyl-CoA = N(6)-acetyl-L-lysyl-[protein] + CoA + H(+)
+  → No supported n-acyltransferase activity child classifier matched
+

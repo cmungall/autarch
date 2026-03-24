@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlcoholDehydrogenaseNAD - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>AlcoholDehydrogenaseNAD</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:1.1.1.1" target="_blank">EC:1.1.1.1</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>alcohol dehydrogenase NAD</p><p>Examples:<br>- Ethanol dehydrogenase: ethanol + NAD+ → acetaldehyde + NADH + H+<br>- Methanol dehydrogenase: methanol + NAD+ → formaldehyde + NADH + H+<br>- Lactate dehydrogenase: lactate + NAD+ → pyruvate + NADH + H+</p><p>Scope note:<br>GO:0004022 covers alcohol &lt;-&gt; aldehyde/ketone interconversion with NAD+/NADH.<br>This classifier focuses on that canonical transformation.</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value bad">0.310</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.188</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.867</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.983</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.400</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.984</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">13</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">56</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">2</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3413</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">alcohol_dehydrogenase_nad.py:37</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0004022&quot;</span>  <span class="comment"># alcohol dehydrogenase (NAD+) activity</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;1.1.1.1&quot;</span>  <span class="comment"># alcohol dehydrogenase (NAD+) activity</span>
+
+    KETONE_PATTERN = Chem.MolFromSmarts(<span class="str">&quot;[ PH2 
+
+    PATTERNS: list[Reaction] = [
+         PH3 
+        var(&quot;</span>alcohol&quot;) + p(nad_plus) &gt;&gt; var(<span class="str">&quot;aldehyde&quot;</span>) + p(nadh) + p(h_plus),
+        <span class="comment"># Secondary alcohol → ketone: R-CHOH-R&#x27; + NAD+ → R-CO-R&#x27; + NADH + H+</span>
+        var(<span class="str">&quot;secondary_alcohol&quot;</span>) + p(nad_plus) &gt;&gt; var(<span class="str">&quot;ketone&quot;</span>) + p(nadh) + p(h_plus),
+        <span class="comment"># Reverse (reduction): aldehyde/ketone + NADH + H+ → alcohol + NAD+</span>
+        var(<span class="str">&quot;carbonyl&quot;</span>) + p(nadh) + p(h_plus) &gt;&gt; var(<span class="str">&quot;alcohol&quot;</span>) + p(nad_plus),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">alcohol_dehydrogenase_nad.py:51</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is an alcohol dehydrogenase using pattern matching.
+
+        Strategy:
+        1. Must be a dehydrogenase (parent class)
+        2. Must involve alcohol oxidation or aldehyde/ketone reduction
+        3. Must use NAD+/NADH system
+        4. Look for characteristic alcohol/carbonyl substrates
+        &quot;&quot;&quot;</span>
+        <span class="comment"># First check if it&#x27;s a dehydrogenase</span>
+        parent_result = super().check_membership_impl(reaction)
+        <span class="kw">if</span> <span class="kw">not</span> parent_result.is_member <span class="kw">and</span> <span class="str">&quot;No clear NAD(P)+/NAD(P)H conversion pattern&quot;</span> <span class="kw">not</span> <span class="kw">in</span> parent_result.explanation:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=f<span class="str">&quot;Not a dehydrogenase: {parent_result.explanation}&quot;</span>,
+            )
+
+        <span class="comment"># GO:0004022 is NAD+ specific; reject NADP+ dependent variants.</span>
+        has_nadp = any(
+            participant.chebi_id <span class="kw">in</span> {CHEBI_NADP_PLUS, CHEBI_NADPH}
+            <span class="kw">for</span> participant <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        )
+        <span class="kw">if</span> has_nadp:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Uses NADP(H) cofactor - not NAD+-specific alcohol dehydrogenase&quot;</span>,
+            )
+
+        has_nad_plus_left = any(
+            p.chebi_id == CHEBI_NAD_PLUS <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        has_nad_plus_right = any(
+            p.chebi_id == CHEBI_NAD_PLUS <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+        has_nadh_left = any(p.chebi_id == CHEBI_NADH <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+        has_nadh_right = any(
+            p.chebi_id == CHEBI_NADH <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+        is_forward = has_nad_plus_left <span class="kw">and</span> has_nadh_right
+        is_reverse = has_nadh_left <span class="kw">and</span> has_nad_plus_right
+        <span class="kw">if</span> <span class="kw">not</span> (is_forward <span class="kw">or</span> is_reverse):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;No NAD+/NADH conversion direction for alcohol dehydrogenase&quot;</span>,
+            )
+
+        ignored_ids = {
+            CHEBI_NAD_PLUS,
+            CHEBI_NADH,
+            CHEBI_NADP_PLUS,
+            CHEBI_NADPH,
+            CHEBI_H_PLUS,
+        }
+        left_non_cofactors = [
+            p <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants <span class="kw">if</span> p.chebi_id <span class="kw">not</span> <span class="kw">in</span> ignored_ids
+        ]
+        right_non_cofactors = [
+            p <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants <span class="kw">if</span> p.chebi_id <span class="kw">not</span> <span class="kw">in</span> ignored_ids
+        ]
+
+        <span class="comment"># Alcohol dehydrogenase (GO:0004022) is a simple 1-&gt;1 alcohol/carbonyl conversion.</span>
+        <span class="kw">if</span> len(left_non_cofactors) != <span class="num">1</span> <span class="kw">or</span> len(right_non_cofactors) != <span class="num">1</span>:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=&quot;Not a simple <span class="num">1</span>-&gt;<span class="num">1</span> alcohol dehydrogenase substrate/product pair<span class="str">&quot;,
+            )
+
+        noncofactors = left_non_cofactors + right_non_cofactors
+        has_phosphorylated = any(p.is_phosphorylated() for p in noncofactors)
+        has_carboxylate = any(
+            p.smiles and is_carboxylic_acid(p.smiles, p.chebi_id) for p in noncofactors
+        )
+        has_thioester = any(p.is_thioester() for p in noncofactors)
+        if has_phosphorylated or has_carboxylate or has_thioester:
+            return ClassificationResult(
+                is_member=False,
+                explanation=&quot;</span>Phosphorylated/carboxylate/thioester substrate <span class="kw">class</span> - <span class="kw">not</span> GO:<span class="num">0004022</span> alcohol dehydrogenase<span class="str">&quot;,
+            )
+
+        has_alcohol_left = any(self._is_alcohol_like(p) for p in left_non_cofactors)
+        has_alcohol_right = any(self._is_alcohol_like(p) for p in right_non_cofactors)
+        has_aldehyde_left = any(self._is_aldehyde_like(p) for p in left_non_cofactors)
+        has_aldehyde_right = any(self._is_aldehyde_like(p) for p in right_non_cofactors)
+        has_ketone_left = any(self._is_ketone_like(p) for p in left_non_cofactors)
+        has_ketone_right = any(self._is_ketone_like(p) for p in right_non_cofactors)
+
+        is_alcohol_oxidation = is_forward and has_alcohol_left and (
+            has_aldehyde_right or has_ketone_right
+        )
+        is_carbonyl_reduction = is_reverse and has_alcohol_right and (
+            has_aldehyde_left or has_ketone_left
+        )
+
+        if not (is_alcohol_oxidation or is_carbonyl_reduction):
+            return ClassificationResult(
+                is_member=False,
+                explanation=&quot;</span>No alcohol ⇌ carbonyl conversion detected<span class="str">&quot;,
+            )
+
+         PH4 
+        match = match_patterns(reaction, self.PATTERNS, strict=False)
+
+        explanation = &quot;</span>Alcohol dehydrogenase: alcohol ⇌ carbonyl<span class="str">&quot;
+
+         PH5 
+        if is_alcohol_oxidation:
+            explanation += &quot;</span> [oxidation]<span class="str">&quot;
+        elif is_carbonyl_reduction:
+            explanation += &quot;</span> [reduction]<span class="str">&quot;
+
+        explanation += &quot;</span> [NAD-dependent]<span class="str">&quot;
+
+        if match.matched:
+            explanation += &quot;</span> [pattern matched]&quot;
+
+        <span class="kw">return</span> ClassificationResult(is_member=<span class="kw">True</span>, explanation=explanation)
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">13</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10664" target="_blank">RHEA:10664</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">perillyl alcohol + NAD(+) = perillyl aldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12548" target="_blank">RHEA:12548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">2-cis,4-trans-xanthoxin + NAD(+) = 2-cis-(+)-abscisic aldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14873" target="_blank">RHEA:14873</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">indole-3-ethanol + NAD(+) = indole-3-acetaldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16949" target="_blank">RHEA:16949</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">myo-inositol + NAD(+) = scyllo-inosose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18529" target="_blank">RHEA:18529</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">3-methylbutanol + NAD(+) = 3-methylbutanal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19401" target="_blank">RHEA:19401</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">methanol + NAD(+) = formaldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21284" target="_blank">RHEA:21284</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">all-trans-retinol + NAD(+) = all-trans-retinal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22056" target="_blank">RHEA:22056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">hexadecan-1-ol + NAD(+) = hexadecanal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24620" target="_blank">RHEA:24620</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">octan-1-ol + NAD(+) = octanal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25290" target="_blank">RHEA:25290</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">ethanol + NAD(+) = acetaldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33031" target="_blank">RHEA:33031</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">keto-D-fructose + NADH + H(+) = D-sorbitol + NAD(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [reduction] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33199" target="_blank">RHEA:33199</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">butan-1-ol + NAD(+) = butanal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">56</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10356" target="_blank">RHEA:10356</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11092" target="_blank">RHEA:11092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11300" target="_blank">RHEA:11300</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">1D-5-O-methyl-myo-inositol + NAD(+) = 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11448" target="_blank">RHEA:11448</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">pregnan-21-ol + NAD(+) = pregnan-21-al + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11728" target="_blank">RHEA:11728</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">cyclopentanol + NAD(+) = cyclopentanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11736" target="_blank">RHEA:11736</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">2-exo-hydroxy-1,8-cineole + NAD(+) = 6-oxocineole + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11896" target="_blank">RHEA:11896</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">7alpha-hydroxycholesterol + NAD(+) = 7alpha-hydroxycholest-4-en-3-one + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12184" target="_blank">RHEA:12184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(S,S)-butane-2,3-diol + NAD(+) = (S)-acetoin + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12725" target="_blank">RHEA:12725</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-iditol + NAD(+) = keto-D-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13249" target="_blank">RHEA:13249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13769" target="_blank">RHEA:13769</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">glycerol + NAD(+) = dihydroxyacetone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14825" target="_blank">RHEA:14825</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1R,5S)-carveol + NAD(+) = (S)-carvone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14929" target="_blank">RHEA:14929</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">testosterone + NAD(+) = androst-4-ene-3,17-dione + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15137" target="_blank">RHEA:15137</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">galactitol 1-phosphate + NAD(+) = keto-L-tagatose 6-phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15301" target="_blank">RHEA:15301</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-apiitol + NAD(+) = aldehydo-D-apiose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15853" target="_blank">RHEA:15853</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(17R,20S)-17,20-dihydroxypregn-4-en-3-one + NAD(+) = 17alpha-hydroxyprogesterone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15933" target="_blank">RHEA:15933</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(S)-propane-1,2-diol + NAD(+) = (S)-lactaldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16381" target="_blank">RHEA:16381</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-arabinitol + NAD(+) = L-xylulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16517" target="_blank">RHEA:16517</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-1-aminopropan-2-ol + NAD(+) = aminoacetone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16701" target="_blank">RHEA:16701</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">17alpha-estradiol + NAD(+) = estrone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17329" target="_blank">RHEA:17329</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1R,2S,4R)-borneol + NAD(+) = (1R,4R)-camphor + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17389" target="_blank">RHEA:17389</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-arabinitol + NAD(+) = D-ribulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17921" target="_blank">RHEA:17921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-arabinitol + NAD(+) = D-xylulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18141" target="_blank">RHEA:18141</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">trans-cyclohexane-1,2-diol + NAD(+) = 2-hydroxycyclohexan-1-one + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18329" target="_blank">RHEA:18329</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1S,3R,5S)-sabinol + NAD(+) = (1S,5S)-sabinone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19101" target="_blank">RHEA:19101</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">2-butyne-1,4-diol + NAD(+) = 4-hydroxy-2-butynal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19925" target="_blank">RHEA:19925</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-ribitol 5-phosphate + NAD(+) = D-ribulose 5-phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20053" target="_blank">RHEA:20053</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">ribitol + NAD(+) = D-ribulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20381" target="_blank">RHEA:20381</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">androsterone + NAD(+) = 5alpha-androstan-3,17-dione + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20433" target="_blank">RHEA:20433</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">xylitol + NAD(+) = D-xylulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20685" target="_blank">RHEA:20685</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">galactitol + NAD(+) = keto-D-tagatose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20860" target="_blank">RHEA:20860</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1S,6R)-isopiperitenol + NAD(+) = (6R)-isopiperitenone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21052" target="_blank">RHEA:21052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(S)-2-hydroxypropyl-coenzyme M + NAD(+) = 2-oxopropyl-coenzyme M + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21356" target="_blank">RHEA:21356</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-arabinitol + NAD(+) = L-ribulose + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21412" target="_blank">RHEA:21412</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">sn-glycerol 1-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21584" target="_blank">RHEA:21584</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">propane-1,2-diol 1-phosphate + NAD(+) = hydroxyacetone phosphate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22128" target="_blank">RHEA:22128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1S,2R,4S)-borneol + NAD(+) = (1S,4S)-camphor + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22400" target="_blank">RHEA:22400</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">androstan-3alpha,17beta-diol + NAD(+) = 17beta-hydroxyandrostanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22804" target="_blank">RHEA:22804</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(6S,9R)-vomifoliol + NAD(+) = (6S)-6-hydroxy-3-oxo-alpha-ionone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22900" target="_blank">RHEA:22900</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-acetoin + NAD(+) = diacetyl + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23188" target="_blank">RHEA:23188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">propane-1,3-diol + NAD(+) = 3-hydroxypropanal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23872" target="_blank">RHEA:23872</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-propane-1,2-diol + NAD(+) = (R)-lactaldehyde + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24340" target="_blank">RHEA:24340</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R,R)-butane-2,3-diol + NAD(+) = (R)-acetoin + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24412" target="_blank">RHEA:24412</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">4-(hydroxymethyl)benzenesulfonate + NAD(+) = 4-formylbenzenesulfonate + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24484" target="_blank">RHEA:24484</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">sulcatol + NAD(+) = sulcatone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24528" target="_blank">RHEA:24528</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-lactaldehyde + NAD(+) = methylglyoxal + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24612" target="_blank">RHEA:24612</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">17beta-estradiol + NAD(+) = estrone + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25363" target="_blank">RHEA:25363</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NAD(+) = momilactone A + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27286" target="_blank">RHEA:27286</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(S)-acetoin + NAD(+) = diacetyl + NADH + H(+)</span>
+                <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 6 more (showing 50 of 56)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">2</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:55668" target="_blank">RHEA:55668</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">11-cis-retinol--[retinol-binding protein] + NAD(+) = 11-cis-retinal--[retinol-binding protein] + NADH + H(+)</span>
+                <div class="reaction-explanation">No NAD+/NADH conversion direction for alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:48488" target="_blank">RHEA:48488</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">all-trans-retinol--[retinol-binding protein] + NAD(+) = all-trans-retinal--[retinol-binding protein] + NADH + H(+)</span>
+                <div class="reaction-explanation">No NAD+/NADH conversion direction for alcohol dehydrogenase</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3413</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Carboxylate -&gt; aldehyde reverse EC 1.2 pattern (SMARTS)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Phosphorylated/carboxylate/thioester substrate class - not GO:0004022 alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">Uses NADP(H) cofactor - not NAD+-specific alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Uses NADP(H) cofactor - not NAD+-specific alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">Uses NADP(H) cofactor - not NAD+-specific alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">Not a dehydrogenase: O2/NAD(P)H coupled oxygenase signature - not CH-OH donor redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Uses NADP(H) cofactor - not NAD+-specific alcohol dehydrogenase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Aldehyde -&gt; carboxylate pattern (SMARTS) - EC 1.2, not EC 1.1</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Enoyl group detected (SMARTS) - EC 1.3, not EC 1.1</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">Not a dehydrogenase: No NAD+/NADP+ system - EC 1.1.1 requires NAD/NADP</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0004022" target="_blank">GO:0004022</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">Not a dehydrogenase: Not an oxidoreductase: No redox cofactors or patterns detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3363 more (showing 50 of 3413)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">36</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10728" target="_blank">RHEA:10728</a></span>:
+                    <span class="reaction-label">GDP-6-deoxy-alpha-D-talose + NAD(+) = GDP-4-dehydro-alpha-D-rhamnose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.135" target="_blank">EC:1.1.1.135</a>, <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12216" target="_blank">RHEA:12216</a></span>:
+                    <span class="reaction-label">9H-fluoren-9-ol + NAD(+) = 9H-fluoren-9-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.256" target="_blank">EC:1.1.1.256</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13825" target="_blank">RHEA:13825</a></span>:
+                    <span class="reaction-label">GDP-alpha-D-rhamnose + NAD(+) = GDP-4-dehydro-alpha-D-rhamnose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.187" target="_blank">EC:1.1.1.187</a>, <a href="https://bioregistry.io/EC:1.1.1.281" target="_blank">EC:1.1.1.281</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14317" target="_blank">RHEA:14317</a></span>:
+                    <span class="reaction-label">morphine + NAD(+) = morphinone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.218" target="_blank">EC:1.1.1.218</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16317" target="_blank">RHEA:16317</a></span>:
+                    <span class="reaction-label">(S)-indan-1-ol + NAD(+) = indan-1-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.112" target="_blank">EC:1.1.1.112</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17613" target="_blank">RHEA:17613</a></span>:
+                    <span class="reaction-label">scyllo-inositol + NAD(+) = scyllo-inosose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.370" target="_blank">EC:1.1.1.370</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20653" target="_blank">RHEA:20653</a></span>:
+                    <span class="reaction-label">23,24-dihydrocucurbitacin B + NAD(+) = cucurbitacin B + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.1.5" target="_blank">EC:1.3.1.5</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23552" target="_blank">RHEA:23552</a></span>:
+                    <span class="reaction-label">2-methylpropane-1,2-diol + NAD(+) = 2-hydroxy-2-methylpropanal + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.400" target="_blank">EC:1.1.1.400</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25832" target="_blank">RHEA:25832</a></span>:
+                    <span class="reaction-label">1D-chiro-inositol + NAD(+) = scyllo-inosine + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.369" target="_blank">EC:1.1.1.369</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25844" target="_blank">RHEA:25844</a></span>:
+                    <span class="reaction-label">(1S,5R)-carveol + NAD(+) = (R)-carvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.n4" target="_blank">EC:1.1.1.n4</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25848" target="_blank">RHEA:25848</a></span>:
+                    <span class="reaction-label">(1S,5S)-carveol + NAD(+) = (S)-carvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.n4" target="_blank">EC:1.1.1.n4</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26002" target="_blank">RHEA:26002</a></span>:
+                    <span class="reaction-label">D-arabinitol 1-phosphate + NAD(+) = D-xylulose 5-phosphate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.301" target="_blank">EC:1.1.1.301</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28078" target="_blank">RHEA:28078</a></span>:
+                    <span class="reaction-label">2-hydroxyethylphosphonate + NAD(+) = phosphonoacetaldehyde + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.309" target="_blank">EC:1.1.1.309</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28106" target="_blank">RHEA:28106</a></span>:
+                    <span class="reaction-label">galactitol 1-phosphate + NAD(+) = keto-D-tagatose 6-phosphate + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.251" target="_blank">EC:1.1.1.251</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32331" target="_blank">RHEA:32331</a></span>:
+                    <span class="reaction-label">(1S,2S,4R)-endo-fenchol + NAD(+) = (1S,4R)-fenchone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.322" target="_blank">EC:1.1.1.322</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32343" target="_blank">RHEA:32343</a></span>:
+                    <span class="reaction-label">(+)-thujan-3-ol + NAD(+) = (+)-thujan-3-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.323" target="_blank">EC:1.1.1.323</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32379" target="_blank">RHEA:32379</a></span>:
+                    <span class="reaction-label">(1R,2R,4S)-limonene-1,2-diol + NAD(+) = (1R,4S)-1-hydroxylimonen-2-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.297" target="_blank">EC:1.1.1.297</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32383" target="_blank">RHEA:32383</a></span>:
+                    <span class="reaction-label">(1S,2S,4R)-limonene-1,2-diol + NAD(+) = (1S,4R)-1-hydroxylimonen-2-one + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.297" target="_blank">EC:1.1.1.297</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32387" target="_blank">RHEA:32387</a></span>:
+                    <span class="reaction-label">dihydrocarveol + NAD(+) = dihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32391" target="_blank">RHEA:32391</a></span>:
+                    <span class="reaction-label">(1R,2R,4R)-dihydrocarveol + NAD(+) = (1R,4R)-dihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32395" target="_blank">RHEA:32395</a></span>:
+                    <span class="reaction-label">(1S,2S,4S)-dihydrocarveol + NAD(+) = (1S,4S)-dihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32399" target="_blank">RHEA:32399</a></span>:
+                    <span class="reaction-label">(1S,2R,4S)-neodihydrocarveol + NAD(+) = (1S,4S)-dihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32403" target="_blank">RHEA:32403</a></span>:
+                    <span class="reaction-label">(1R,2S,4R)-neodihydrocarveol + NAD(+) = (1R,4R)-dihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32407" target="_blank">RHEA:32407</a></span>:
+                    <span class="reaction-label">(1R,2S,4S)-neoisodihydrocarveol + NAD(+) = (1R,4S)-isodihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32411" target="_blank">RHEA:32411</a></span>:
+                    <span class="reaction-label">(1R,2R,4S)-isodihydrocarveol + NAD(+) = (1R,4S)-isodihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32415" target="_blank">RHEA:32415</a></span>:
+                    <span class="reaction-label">(1S,2S,4R)-isodihydrocarveol + NAD(+) = (1S,4R)-isodihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32419" target="_blank">RHEA:32419</a></span>:
+                    <span class="reaction-label">(1S,2R,4R)-neoisodihydrocarveol + NAD(+) = (1S,4R)-isodihydrocarvone + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.296" target="_blank">EC:1.1.1.296</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33883" target="_blank">RHEA:33883</a></span>:
+                    <span class="reaction-label">2-deoxy-scyllo-inosamine + NAD(+) = 3-amino-2,3-dideoxy-scyllo-inosose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.329" target="_blank">EC:1.1.1.329</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33891" target="_blank">RHEA:33891</a></span>:
+                    <span class="reaction-label">chanoclavine-I + NAD(+) = chanoclavine-I aldehyde + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.332" target="_blank">EC:1.1.1.332</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33895" target="_blank">RHEA:33895</a></span>:
+                    <span class="reaction-label">trans,octa-cis-decaprenylphospho-beta-D-arabinofuranose + NAD(+) = trans,octa-cis-decaprenylphospho-beta-D-erythro-pentofuranosid-2-ulose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.333" target="_blank">EC:1.1.1.333</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34347" target="_blank">RHEA:34347</a></span>:
+                    <span class="reaction-label">(2E)-geraniol + NAD(+) = (2E)-geranial + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.347" target="_blank">EC:1.1.1.347</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34447" target="_blank">RHEA:34447</a></span>:
+                    <span class="reaction-label">dTDP-6-deoxy-beta-L-talose + NAD(+) = dTDP-4-dehydro-beta-L-rhamnose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.339" target="_blank">EC:1.1.1.339</a>, <a href="https://bioregistry.io/EC:1.1.1.344" target="_blank">EC:1.1.1.344</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35479" target="_blank">RHEA:35479</a></span>:
+                    <span class="reaction-label">(1&#x27;S,5&#x27;R)-5&#x27;-hydroxyaverantin + NAD(+) = (S)-5&#x27;-oxoaverantin + NADH + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.352" target="_blank">EC:1.1.1.352</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36567" target="_blank">RHEA:36567</a></span>:
+                    <span class="reaction-label">GDP-beta-L-colitose + NAD(+) = GDP-4-dehydro-3,6-dideoxy-alpha-D-mannose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.356" target="_blank">EC:1.1.1.356</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36579" target="_blank">RHEA:36579</a></span>:
+                    <span class="reaction-label">dTDP-alpha-D-fucose + NAD(+) = dTDP-4-dehydro-6-deoxy-alpha-D-glucose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.266" target="_blank">EC:1.1.1.266</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36679" target="_blank">RHEA:36679</a></span>:
+                    <span class="reaction-label">dTDP-6-deoxy-alpha-D-allose + NAD(+) = dTDP-4-dehydro-6-deoxy-alpha-D-allose + NADH + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.1.1.364" target="_blank">EC:1.1.1.364</a></div>
+                    <div class="reaction-explanation">Alcohol dehydrogenase: alcohol ⇌ carbonyl [oxidation] [NAD-dependent] [pattern matched]</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+False Negatives for LigaseActivityFormingCarbonOxygenBonds
+==================================================
+Total: 5
+
+RHEA:17313: tRNA(His) + L-histidine + ATP = L-histidyl-tRNA(His) + AMP + diphosphate + H(+)
+  → No supported ligase activity, forming carbon-oxygen bonds child classifier matched
+
+RHEA:20301: tRNA(Arg) + L-arginine + ATP = L-arginyl-tRNA(Arg) + AMP + diphosphate
+  → No supported ligase activity, forming carbon-oxygen bonds child classifier matched
+
+RHEA:20792: tRNA(Lys) + L-lysine + ATP = L-lysyl-tRNA(Lys) + AMP + diphosphate
+  → No supported ligase activity, forming carbon-oxygen bonds child classifier matched
+
+RHEA:24080: tRNA(Trp) + L-tryptophan + ATP = L-tryptophyl-tRNA(Trp) + AMP + diphosphate + H(+)
+  → No supported ligase activity, forming carbon-oxygen bonds child classifier matched
+
+RHEA:25678: tRNA(Cys) + O-phospho-L-serine + ATP = O-phospho-L-seryl-tRNA(Cys) + AMP + diphosphate
+  → No supported ligase activity, forming carbon-oxygen bonds child classifier matched
+

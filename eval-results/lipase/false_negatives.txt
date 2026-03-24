@@ -1,0 +1,7 @@
+False Negatives for Lipase
+==================================================
+Total: 1
+
+RHEA:12044: a triacylglycerol + H2O = a diacylglycerol + a fatty acid + H(+)
+  → Not an esterase: No clear ester hydrolysis pattern detected
+

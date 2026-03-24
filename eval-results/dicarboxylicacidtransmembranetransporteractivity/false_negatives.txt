@@ -1,0 +1,7 @@
+False Negatives for DicarboxylicAcidTransmembraneTransporterActivity
+==================================================
+Total: 1
+
+RHEA:33139: L-aspartate(in) + L-alanine(out) = L-aspartate(out) + L-alanine(in)
+  → Transported substrate is not consistently dicarboxylic-acid-like
+

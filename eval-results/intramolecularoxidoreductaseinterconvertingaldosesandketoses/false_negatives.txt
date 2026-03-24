@@ -1,0 +1,19 @@
+False Negatives for IntramolecularOxidoreductaseInterconvertingAldosesAndKetoses
+==================================================
+Total: 5
+
+RHEA:13049: D-glucuronate = D-fructuronate
+  → No aldose-ketose structural interconversion detected
+
+RHEA:19989: 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate = 5-(methylsulfanyl)-D-ribulose 1-phosphate
+  → No aldose-ketose structural interconversion detected
+
+RHEA:21540: N-(5-phospho-beta-D-ribosyl)anthranilate = 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+  → No aldose-ketose structural interconversion detected
+
+RHEA:25900: D-arabino-hex-3-ulose 6-phosphate = beta-D-fructose 6-phosphate
+  → No aldose-ketose structural interconversion detected
+
+RHEA:32243: alpha-D-ribose 1,5-bisphosphate = D-ribulose 1,5-bisphosphate
+  → No aldose-ketose structural interconversion detected
+

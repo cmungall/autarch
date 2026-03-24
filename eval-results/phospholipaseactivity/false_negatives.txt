@@ -1,0 +1,28 @@
+False Negatives for PhospholipaseActivity
+==================================================
+Total: 8
+
+RHEA:15177: a 1-acyl-sn-glycero-3-phosphocholine + H2O = sn-glycerol 3-phosphocholine + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:15801: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = a 1-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:18689: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = a 2-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:20984: a sphingomyelin + H2O = an N-acylsphing-4-enine 1-phosphate + choline + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:32907: a 1,2-diacyl-sn-glycero-3-phosphocholine + 2 H2O = sn-glycerol 3-phosphocholine + 2 a carboxylate + 2 H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:32967: a 1-acyl-sn-glycero-3-phosphoethanolamine + H2O = sn-glycero-3-phosphoethanolamine + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:32979: a 1-acyl-sn-glycero-3-phospho-L-serine + H2O = sn-glycero-3-phospho-L-serine + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+
+RHEA:32987: a 1-acyl-sn-glycero-3-phospho-(1D-myo-inositol) + H2O = sn-glycero-3-phospho-1D-myo-inositol + a fatty acid + H(+)
+  → No supported phospholipase activity child classifier matched
+

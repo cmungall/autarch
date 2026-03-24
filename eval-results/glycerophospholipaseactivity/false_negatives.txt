@@ -1,0 +1,25 @@
+False Negatives for GlycerophospholipaseActivity
+==================================================
+Total: 7
+
+RHEA:15177: a 1-acyl-sn-glycero-3-phosphocholine + H2O = sn-glycerol 3-phosphocholine + a fatty acid + H(+)
+  → Expected at least two substantive organic hydrolysis products
+
+RHEA:15801: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = a 1-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → Expected at least two substantive organic hydrolysis products
+
+RHEA:18689: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O = a 2-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → Expected at least two substantive organic hydrolysis products
+
+RHEA:32907: a 1,2-diacyl-sn-glycero-3-phosphocholine + 2 H2O = sn-glycerol 3-phosphocholine + 2 a carboxylate + 2 H(+)
+  → Expected at least two substantive organic hydrolysis products
+
+RHEA:32967: a 1-acyl-sn-glycero-3-phosphoethanolamine + H2O = sn-glycero-3-phosphoethanolamine + a fatty acid + H(+)
+  → Expected one glycerophospholipid substrate
+
+RHEA:32979: a 1-acyl-sn-glycero-3-phospho-L-serine + H2O = sn-glycero-3-phospho-L-serine + a fatty acid + H(+)
+  → Expected one glycerophospholipid substrate
+
+RHEA:32987: a 1-acyl-sn-glycero-3-phospho-(1D-myo-inositol) + H2O = sn-glycero-3-phospho-1D-myo-inositol + a fatty acid + H(+)
+  → Expected at least two substantive organic hydrolysis products
+

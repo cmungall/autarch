@@ -1,0 +1,55 @@
+False Negatives for CarbonNitrogenLyase
+==================================================
+Total: 17
+
+RHEA:11304: (S)-ureidoglycolate = urea + glyoxylate
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:12488: 2-amino-2-deoxy-D-gluconate = 2-dehydro-3-deoxy-D-gluconate + NH4(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:15313: ethanolamine = acetaldehyde + NH4(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:15445: O-carbamoyl-L-serine + H2O + H(+) = pyruvate + 2 NH4(+) + CO2
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:15605: L-serine O-sulfate + H2O = sulfate + pyruvate + NH4(+) + H(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:16853: N(6)-(1,2-dicarboxyethyl)-AMP = fumarate + AMP
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:16961: epsilon-(gamma-L-glutamyl)-L-lysine = 5-oxo-L-proline + L-lysine
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:20505: an alpha-(gamma-L-glutamyl)-L-amino acid = 5-oxo-L-proline + an L-alpha-amino acid
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:20924: a [peptide]-C-terminal (2S)-2-hydroxyglycine = a [peptide]-C-terminal amide + glyoxylate
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:22084: (S)-2,3-diaminopropanoate + H2O + H(+) = pyruvate + 2 NH4(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:22736: 5-formimidoyltetrahydrofolate + 2 H(+) = (6R)-5,10-methenyltetrahydrofolate + NH4(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:22768: 4-nitrophenyl-3-ketovalidamine = 5D-(5/6)-5-C-(hydroxymethyl)-2,6-dihydroxycyclohex-2-en-1-one + 4-nitroaniline
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:23920: (2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + fumarate
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:24020: 2-(N(omega)-L-arginino)succinate = fumarate + L-arginine
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:31507: aldehydo-D-ribose 5-phosphate + D-glyceraldehyde 3-phosphate + L-glutamine = pyridoxal 5'-phosphate + L-glutamate + phosphate + 3 H2O + H(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:34171: L-aspartate 4-semialdehyde + pyruvate = (2S,4S)-4-hydroxy-2,3,4,5-tetrahydrodipicolinate + H2O + H(+)
+  → No supported carbon-nitrogen lyase activity child classifier matched
+
+RHEA:35095: choline = trimethylamine + acetaldehyde
+  → No supported carbon-nitrogen lyase activity child classifier matched
+

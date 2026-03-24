@@ -1,0 +1,28 @@
+False Positives for Phosphodiesterase
+==================================================
+Total: 8
+
+RHEA:10492: phosphocholine + H2O = choline + phosphate
+  → Phosphodiesterase: phospholipid hydrolysis
+
+RHEA:14033: sn-glycero-3-phospho-1D-myo-inositol + H2O = 1D-myo-inositol 1-phosphate + glycerol + H(+)
+  → Phosphodiesterase: phosphoric diester hydrolysis
+
+RHEA:16061: sn-glycerol 3-phosphocholine + H2O = sn-glycerol 3-phosphate + choline + H(+)
+  → Phosphodiesterase: phospholipid hydrolysis
+
+RHEA:16501: sn-glycero-3-phospho-1D-myo-inositol + H2O = myo-inositol + sn-glycerol 3-phosphate + H(+)
+  → Phosphodiesterase: phosphoric diester hydrolysis
+
+RHEA:16957: 3',5'-cyclic GMP + H2O = GMP + H(+)
+  → Phosphodiesterase: cyclic nucleotide → linear nucleotide
+
+RHEA:19545: sn-glycerol 3-phosphocholine + H2O = phosphocholine + glycerol + H(+)
+  → Phosphodiesterase: phospholipid hydrolysis
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → Phosphodiesterase: phosphoric diester hydrolysis
+
+RHEA:25277: 3',5'-cyclic AMP + H2O = AMP + H(+)
+  → Phosphodiesterase: cyclic nucleotide → linear nucleotide
+

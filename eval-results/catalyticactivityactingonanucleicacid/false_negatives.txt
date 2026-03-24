@@ -1,0 +1,364 @@
+False Negatives for CatalyticActivityActingOnANucleicAcid
+==================================================
+Total: 120
+
+RHEA:10208: an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:10672: cyclobutadithymidine in DNA = a thymidine dimer in DNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:12340: N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:12344: (S)-4-amino-5-oxopentanoate + tRNA(Glu) + NADP(+) = L-glutamyl-tRNA(Glu) + NADPH + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:12885: queuosine(34) in tRNA(Asp) + GDP-alpha-D-mannose = O-4''-alpha-D-mannosylqueuosine(34) in tRNA(Asp) + GDP + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:13065: ATP + H2O = ADP + phosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:13681: a 2'-deoxycytidine in DNA + S-adenosyl-L-methionine = a 5-methyl-2'-deoxycytidine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:14433: a tRNA precursor + 2 CTP + ATP = a tRNA with a 3' CCA end + 3 diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:14513: L-aspartyl-tRNA(Asn) + L-glutamine + ATP + H2O = L-asparaginyl-tRNA(Asn) + L-glutamate + ADP + phosphate + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:15197: a 2'-deoxyadenosine in DNA + S-adenosyl-L-methionine = an N(6)-methyl-2'-deoxyadenosine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:16497: adenosine(1618) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(1618) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:16633: guanosine(34) in tRNA + queuine = queuosine(34) in tRNA + guanine
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:16785: an adenosine in tRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:16857: a 2'-deoxycytidine in DNA + S-adenosyl-L-methionine = an N(4)-methyl-2'-deoxycytidine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:16873: uridine(54) in tRNA + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADH + H(+) = 5-methyluridine(54) in tRNA + (6S)-5,6,7,8-tetrahydrofolate + NAD(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:17313: tRNA(His) + L-histidine + ATP = L-histidyl-tRNA(His) + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:17521: L-glutamyl-tRNA(Gln) + L-glutamine + ATP + H2O = L-glutaminyl-tRNA(Gln) + L-glutamate + ADP + phosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:17793: L-alanyl-tRNA(Thr) + H2O = tRNA(Thr) + L-alanine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:19569: 5-aminomethyl-2-thiouridine(34) in tRNA + S-adenosyl-L-methionine = 5-methylaminomethyl-2-thiouridine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:19609: adenosine(1518)/adenosine(1519) in 16S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1518)/N(6)-dimethyladenosine(1519) in 16S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:20077: guanosine(18) in tRNA + S-adenosyl-L-methionine = 2'-O-methylguanosine(18) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:20301: tRNA(Arg) + L-arginine + ATP = L-arginyl-tRNA(Arg) + AMP + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:20792: tRNA(Lys) + L-lysine + ATP = L-lysyl-tRNA(Lys) + AMP + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:22376: uridine(38/39/40) in tRNA = pseudouridine(38/39/40) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:22728: L-seryl-tRNA(Sec) + selenophosphate + H(+) = L-selenocysteinyl-tRNA(Sec) + phosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:22744: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyladenosine) in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(N(6),2'-O-dimethyladenosine) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:23324: 2'-phospho-[ligated tRNA] + NAD(+) = mature tRNA + ADP-alpha-D-ribose 1'',2''-cyclic phosphate + nicotinamide
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:23548: guanosine(966) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(966) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:23976: a 3'-end 3'-phospho-ribonucleotide-RNA + ATP = a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + AMP + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:24080: tRNA(Trp) + L-tryptophan + ATP = L-tryptophyl-tRNA(Trp) + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:24176: [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine + a uridine in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + ATP + H(+) = [ThiI sulfur-carrier protein]-L-cysteine + a 4-thiouridine in tRNA + 2 oxidized [2Fe-2S]-[ferredoxin] + AMP + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:24380: L-methionyl-tRNA(fMet) + (6R)-10-formyltetrahydrofolate = N-formyl-L-methionyl-tRNA(fMet) + (6S)-5,6,7,8-tetrahydrofolate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:25037: L-seryl-tRNA(Sec) + ATP = O-phospho-L-seryl-tRNA(Sec) + ADP
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:25041: O-phospho-L-seryl-tRNA(Sec) + selenophosphate + H2O = L-selenocysteinyl-tRNA(Sec) + 2 phosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:25351: L-cysteinyl-tRNA(Pro) + H2O = tRNA(Pro) + L-cysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:25678: tRNA(Cys) + O-phospho-L-serine + ATP = O-phospho-L-seryl-tRNA(Cys) + AMP + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:25686: O-phospho-L-seryl-tRNA(Cys) + hydrogen sulfide + H(+) = L-cysteinyl-tRNA(Cys) + phosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:26482: adenosine(37) in tRNA + dimethylallyl diphosphate = N(6)-dimethylallyladenosine(37) in tRNA + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:30299: a methylated nucleobase within DNA + 2-oxoglutarate + O2 = a nucleobase within DNA + formaldehyde + succinate + CO2
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:32155: 7-aminomethyl-7-carbaguanosine(34) in tRNA + S-adenosyl-L-methionine = epoxyqueuosine(34) in tRNA + adenine + L-methionine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:36347: N(1)-methylguanosine(37) in tRNA(Phe) + pyruvate + S-adenosyl-L-methionine = 4-demethylwyosine(37) in tRNA(Phe) + 5'-deoxyadenosine + L-methionine + CO2 + H2O
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:36355: 4-demethylwyosine(37) in tRNA(Phe) + S-adenosyl-L-methionine = 4-demethyl-7-[(3S)-3-amino-3-carboxypropyl]wyosine(37) in tRNA(Phe) + S-methyl-5'-thioadenosine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:37059: L-threonylcarbamoyladenylate + adenosine(37) in tRNA = N(6)-L-threonylcarbamoyladenosine(37) in tRNA + AMP + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43168: adenosine(34) in tRNA + H2O + H(+) = inosine(34) in tRNA + NH4(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:50416: N-terminal L-arginyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-arginyl-[protein] + tRNA(Leu) + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42744: guanosine(1835) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1835) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:22508: DNA(n) + a 2'-deoxyribonucleoside 5'-triphosphate = DNA(n+1) + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:37067: N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42544: uridine(32) in tRNA = pseudouridine(32) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43148: adenosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:41740: adenosine(57)/adenosine(58) in tRNA + 2 S-adenosyl-L-methionine = N(1)-methyladenosine(57)/N(1)-methyladenosine(58) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42540: uridine(13) in tRNA = pseudouridine(13) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:65812: 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + AH2 + O2 = N(6)-[(2E)-4-hydroxy-3-methylbut-2-en-1-yl]-2-(methylsulfanyl)adenosine(37) in tRNA + A + H2O
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:37075: N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-L-threonylcarbamoyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:49516: an N(1)-methyladenosine in mRNA + 2-oxoglutarate + O2 = an adenosine in mRNA + formaldehyde + succinate + CO2
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43084: cytidine(34) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:62432: a uridine in tRNA + S-adenosyl-L-methionine = a 3-[(3S)-3-amino-3-carboxypropyl]uridine in tRNA + S-methyl-5'-thioadenosine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:37899: 7-[(3S)-3-amino-3-carboxypropyl]wyosine(37) in tRNA(Phe) + 2-oxoglutarate + O2 = 7-(2-hydroxy-3-amino-3-carboxypropyl)wyosine(37) in tRNA(Phe) + succinate + CO2
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43208: 5-(carboxymethyl)uridine(34) in tRNA + S-adenosyl-L-methionine = 5-(2-methoxy-2-oxoethyl)uridine(34) in tRNA + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42916: adenosine(2503) in 23S rRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(2503) in 23S rRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:67020: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-ribonucleoside in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42736: guanosine(1207) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1207) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43100: uridine(44) in tRNA(Ser) + S-adenosyl-L-methionine = 2'-O-methyluridine(44) in tRNA(Ser) + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43744: cytidine(34) in tRNA(Ile2) + L-lysine + ATP = lysidine(34) in tRNA(Ile2) + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43124: guanosine(10) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(10) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:55584: an adenosine in mRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:54448: an N-acyl-L-alpha-aminoacyl-tRNA + H2O = an N-acyl-L-amino acid + a tRNA + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42900: guanosine(745) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(745) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:38867: uridine(516) in 16S rRNA = pseudouridine(516) in 16S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42552: uridine(31) in tRNA = pseudouridine(31) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42708: guanosine(46) in tRNA + S-adenosyl-L-methionine = N(7)-methylguanosine(46) in tRNA + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43332: adenosine(37) in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(37) in tRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43736: adenosine(2030) in 23S rRNA + S-adenosyl-L-methionine = N(6)-methyladenosine(2030) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:38871: uridine(2457) in 23S rRNA = pseudouridine(2457) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:14785: RNA(n) + UTP = RNA(n)-3'-uridine ribonucleotide + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43088: 5-carboxymethylaminomethyluridine(34) in tRNA(Leu) + S-adenosyl-L-methionine = 5-carboxymethylaminomethyl-2'-O-methyluridine(34) in tRNA(Leu) + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42716: 5-methylaminomethyl-2-thiouridine(34) in tRNA + selenophosphate + (2E)-geranyl diphosphate + H2O + H(+) = 5-methylaminomethyl-2-selenouridine(34) in tRNA + (2E)-thiogeraniol + phosphate + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:53356: 5,6-dihydrouridine(20b) in tRNA + NADP(+) = uridine(20b) in tRNA + NADPH + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42528: uridine(955/2504/2580) in 23S rRNA = pseudouridine(955/2504/2580) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42904: guanosine(748) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(748) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42524: uridine(1911/1915/1917) in 23S rRNA = pseudouridine(1911/1915/1917) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:50968: adenosine(37) in tRNA(Ala) + H2O + H(+) = inosine(37) in tRNA(Ala) + NH4(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:53368: 5,6-dihydrouridine(17) in tRNA + NADP(+) = uridine(17) in tRNA + NADPH + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43792: adenosine(645) in 25S rRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(645) in 25S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42712: uridine(54) in tRNA + S-adenosyl-L-methionine = 5-methyluridine(54) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43156: guanosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42548: uridine(746) in 23S rRNA = pseudouridine(746) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42936: uridine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methyluridine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:38875: uridine(2604) in 23S rRNA = pseudouridine(2604) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:61020: uridine(34) in tRNA + acetyl-CoA + S-adenosyl-L-methionine + H2O = 5-(carboxymethyl)uridine(34) in tRNA + 5'-deoxyadenosine + L-methionine + CoA + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:63296: an N(1)-methylpseudouridine in rRNA + S-adenosyl-L-methionine = N(1)-methyl-N(3)-[(3S)-3-amino-3-carboxypropyl]pseudouridine in rRNA + S-methyl-5'-thioadenosine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:53380: 5,6-dihydrouridine(16) in tRNA + NAD(+) = uridine(16) in tRNA + NADH + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42560: uridine(27/28) in mitochondrial tRNA = pseudouridine(27/28) in mitochondrial tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:49520: an N(6)-methyladenosine in mRNA + 2-oxoglutarate + O2 = an adenosine in mRNA + formaldehyde + succinate + CO2
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42932: cytidine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42968: cytidine(56) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(56) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42536: uridine(65) in tRNA = pseudouridine(65) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43212: adenosine(1067) in 23S rRNA + S-adenosyl-L-methionine = 2'-O-methyladenosine(1067) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43128: guanosine(10) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(10) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:47040: 5-taurinomethyluridine(34) in tRNA + S-sulfanyl-L-cysteinyl-[protein] + AH2 + ATP = 5-taurinomethyl-2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42564: uridine(38/39) in tRNA = pseudouridine(38/39) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42520: uridine(2605) in 23S rRNA = pseudouridine(2605) in 23S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:51116: guanosine(6) in tRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(6) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:52808: adenosine in U6 snRNA + S-adenosyl-L-methionine = N(6)-methyladenosine in U6 snRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:67024: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(ribonucleotide) in mRNA + S-adenosyl-L-methionine = a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-ribonucleoside)-(2'-O-methyl-ribonucleotide) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:36899: guanosine(37) in tRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(37) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43152: adenosine(58) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(58) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42556: uridine(2819) in 21S rRNA = pseudouridine(2819) in 21S rRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42740: guanosine(2445) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(2445) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43140: guanosine(26) in tRNA + 2 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42784: adenosine(2085) in 23S rRNA + 2 S-adenosyl-L-methionine = N(6)-dimethyladenosine(2085) in 23S rRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:47032: S-sulfanyl-L-cysteinyl-[protein] + uridine(34) in tRNA + AH2 + ATP = 2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:42532: uridine(55) in tRNA = pseudouridine(55) in tRNA
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:43144: adenosine(22) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(22) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+
+RHEA:67004: a 5'-end triphospho-ribonucleoside in mRNA + H2O = a 5'-end diphospho-ribonucleoside in mRNA + phosphate + H(+)
+  → No supported catalytic activity, acting on a nucleic acid child classifier matched
+

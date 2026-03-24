@@ -1,0 +1,22 @@
+False Positives for CHCHOxidoreductase
+==================================================
+Total: 6
+
+RHEA:14521: (2E)-geraniol + NADP(+) = (2E)-geranial + NADPH + H(+)
+  → CH-CH oxidoreductase: NAD(P)+-dependent saturation/desaturation
+
+RHEA:15009: (6S)-5,6,7,8-tetrahydrofolate + NADP(+) = 7,8-dihydrofolate + NADPH + H(+)
+  → CH-CH oxidoreductase: NAD(P)+-dependent saturation/desaturation
+
+RHEA:18953: L-erythro-7,8-dihydrobiopterin + NADP(+) = L-sepiapterin + NADPH + H(+)
+  → CH-CH oxidoreductase: NAD(P)+-dependent saturation/desaturation
+
+RHEA:31103: 7,8-dihydrofolate + NADP(+) = folate + NADPH + H(+)
+  → CH-CH oxidoreductase: NAD(P)+-dependent saturation/desaturation
+
+RHEA:32495: (2E)-geraniol + reduced [NADPH--hemoprotein reductase] + O2 = (6E)-8-hydroxygeraniol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → CH-CH oxidoreductase: FAD-dependent saturation/desaturation
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → CH-CH oxidoreductase: NAD(P)+-dependent saturation/desaturation
+

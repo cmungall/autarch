@@ -1,0 +1,40 @@
+False Positives for ProteinDeglycase
+==================================================
+Total: 12
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → Protein deglycase: removes glycation modification → glycolate
+
+RHEA:14277: (S)-lactaldehyde + NAD(+) + H2O = (S)-lactate + NADH + 2 H(+)
+  → Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:14369: 2-phosphoglycolate + H2O = glycolate + phosphate
+  → Protein deglycase: removes glycation modification → lactate/glycolate
+
+RHEA:14885: N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + H2O = ADP-D-ribose + L-arginyl-[protein]
+  → Protein deglycase: removes glycation modification from protein [pattern matched]
+
+RHEA:19233: S-hexadecanoyl-L-cysteinyl-[protein] + H2O = L-cysteinyl-[protein] + hexadecanoate + H(+)
+  → Protein deglycase: removes glycation modification from protein [pattern matched]
+
+RHEA:20001: glycolaldehyde + NAD(+) + H2O = glycolate + NADH + 2 H(+)
+  → Protein deglycase: removes glycation modification → lactate/glycolate + H+
+
+RHEA:20337: (R)-2-O-sulfolactate + H2O = (R)-lactate + sulfate + H(+)
+  → Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:23416: (2R)-O-phospho-3-sulfolactate + H2O = (2R)-3-sulfolactate + phosphate
+  → Protein deglycase: removes glycation modification → lactate
+
+RHEA:25241: (S)-2-ureidoglycine + H2O = (S)-ureidoglycolate + NH4(+)
+  → Protein deglycase: removes glycation modification → glycolate
+
+RHEA:27754: methylglyoxal + H2O = (R)-lactate + H(+)
+  → Protein deglycase: removes glycation modification → lactate + H+
+
+RHEA:47964: N(pros)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate
+  → Protein deglycase: removes glycation modification from protein [pattern matched]
+
+RHEA:47960: N(tele)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate
+  → Protein deglycase: removes glycation modification from protein [pattern matched]
+

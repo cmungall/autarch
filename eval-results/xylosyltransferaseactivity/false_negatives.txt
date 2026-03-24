@@ -1,0 +1,7 @@
+False Negatives for XylosyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:18361: a di-trans,poly-cis-dolichyl D-xylosyl phosphate  + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + a di-trans,poly-cis-dolichyl phosphate + H(+)
+  → No supported xylosyltransferase activity child classifier matched
+

@@ -1,0 +1,7 @@
+False Positives for OxidoreductaseActingOnTheCHNH2GroupOfDonorsNADOrNADPAsAcceptor
+==================================================
+Total: 1
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → Amino acid dehydrogenase: glycine + NAD(P)+ → 2-oxoacid + NH4+
+

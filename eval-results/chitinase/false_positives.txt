@@ -1,0 +1,7 @@
+False Positives for Chitinase
+==================================================
+Total: 1
+
+RHEA:20592: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> (2E)-glutaconyl-CoA + reduced [electron-transfer flavoprotein]
+  → Chitinase: β-1,4-N-acetylglucosamine hydrolysis [pattern matched]
+

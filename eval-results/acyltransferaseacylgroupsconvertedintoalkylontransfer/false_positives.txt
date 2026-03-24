@@ -1,0 +1,7 @@
+False Positives for AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer
+==================================================
+Total: 1
+
+RHEA:19045: pyruvate + acetyl-CoA + H2O = (3R)-citramalate + CoA + H(+)
+  → Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+

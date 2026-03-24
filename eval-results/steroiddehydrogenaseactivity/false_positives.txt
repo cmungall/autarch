@@ -1,0 +1,82 @@
+False Positives for SteroidDehydrogenaseActivity
+==================================================
+Total: 26
+
+RHEA:10108: (7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:10356: 3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:11896: 7alpha-hydroxycholesterol + NAD(+) = 7alpha-hydroxycholest-4-en-3-one + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:12320: 17-O-acetylnorajmaline + NADP(+) = (2R)-1,2-dihydrovomilenine + NADPH + 2 H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:13685: lathosterol + NADP(+) = 5alpha-cholesta-7,24-dien-3beta-ol + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:14773: palmatine + S-adenosyl-L-methionine + 2 NADPH = corydaline + S-adenosyl-L-homocysteine + 2 NADP(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:15793: (4Z,15Z)-bilirubin IXalpha + NADP(+) = biliverdin IXalpha + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:15797: (4Z,15Z)-bilirubin IXalpha + NAD(+) = biliverdin IXalpha + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:16409: (2R)-1,2-dihydrovomilenine + NADP(+) = vomilenine + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:18501: ergosterol + NADP(+) = ergosta-5,7,22,24(28)-tetraen-3beta-ol + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:18561: 4,4-dimethyl-5alpha-cholesta-8,24-dien-3beta-ol + NADP(+) = 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:19209: codeine + NADP(+) = codeinone + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:19585: lithocholate + NAD(+) = 3-oxo-5beta-cholan-24-oate + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:19733: 3-deacetyl-3-(1-hydroxyethyl)bacteriochlorophyllide a + NAD(+) = bacteriochlorophyllide a + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:20029: 10-deoxysarpagine + NADP(+) = vellosimine + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:20816: 3alpha-hydroxyglycyrrhetinate + NADP(+) = 3-oxoglycyrrhetinate + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:21268: (R)-canadine + 2 NADP(+) = berberine + 2 NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:22812: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADP(+) = (6R)-5,10-methenyltetrahydrofolate + NADPH
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:22892: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NAD(+) = (6R)-5,10-methenyltetrahydrofolate + NADH
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:23984: cholesterol + NADP(+) = 7-dehydrocholesterol + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:24040: 2 oxidized [cytochrome P450] + NADPH = 2 reduced [cytochrome P450] + NADP(+) + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:25363: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NAD(+) = momilactone A + NADH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+
+RHEA:25367: 3beta-hydroxy-9beta-pimara-7,15-dien-19,6beta-olide + NADP(+) = momilactone A + NADPH + H(+)
+  → steroid dehydrogenase activity: matched SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor (1.1.1.-); Steroid dehydrogenase activity with NAD(P)+ acceptor: steroid-like alcohol/carbonyl interconversion
+

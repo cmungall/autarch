@@ -1,0 +1,28 @@
+False Positives for MonoamineOxidase
+==================================================
+Total: 8
+
+RHEA:11532: glycine + O2 + H2O = glyoxylate + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:15817: pyridoxamine 5'-phosphate + O2 + H2O = pyridoxal 5'-phosphate + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:18273: putrescine + O2 + H2O = 4-aminobutanal + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:18581: ethanolamine + O2 + H2O = glycolaldehyde + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:22688: D-alanine + O2 + H2O = pyruvate + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:24544: L-lysyl-[protein] + O2 + H2O = (S)-2-amino-6-oxohexanoyl-[protein] + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:25625: histamine + O2 + H2O = imidazole-4-acetaldehyde + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+
+RHEA:30895: propane-1,3-diamine + O2 + H2O = 3-aminopropanal + H2O2 + NH4(+)
+  → Primary amine oxidase: O2 + amine → H2O2 + NH4+ + keto product
+

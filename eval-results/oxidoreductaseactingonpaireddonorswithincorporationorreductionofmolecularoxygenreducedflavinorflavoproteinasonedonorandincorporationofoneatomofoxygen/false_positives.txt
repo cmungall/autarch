@@ -1,0 +1,133 @@
+False Positives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedFlavinOrFlavoproteinAsOneDonorAndIncorporationOfOneAtomOfOxygen
+==================================================
+Total: 43
+
+RHEA:10156: dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:10528: dihydrosanguinarine + reduced [NADPH--hemoprotein reductase] + O2 = 10-hydroxydihydrosanguinarine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:10608: (E)-cinnamate + reduced [NADPH--hemoprotein reductase] + O2 = (E)-4-coumarate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:12388: formononetin + reduced [NADPH--hemoprotein reductase] + O2 = 2'-hydroxyformononetin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:12897: 2-cis-(+)-abscisate + reduced [NADPH--hemoprotein reductase] + O2 = (+)-8'-hydroxyabscisate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:14049: taxa-4(5),11(12)-diene + reduced [NADPH--hemoprotein reductase] + O2 = taxa-4(20),11-dien-5alpha-ol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:14133: (-)-tabersonine + reduced [NADPH--hemoprotein reductase] + O2 = 16-hydroxytabersonine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:14237: 10-deoxysarpagine + reduced [NADPH--hemoprotein reductase] + O2 = sarpagine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:14917: obtusifoliol + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = 4alpha-methyl-5alpha-ergosta-8,14,24(28)-trien-3beta-ol + formate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:15241: taxa-4(20),11-dien-5alpha-yl acetate + reduced [NADPH--hemoprotein reductase] + O2 = 10beta-hydroxytaxa-4(20),11-dien-5alpha-yl acetate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:15321: (6aR,11aR)-3,9-dihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = (6aS,11aS)-3,6a,9-trihydroxypterocarpan + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:16265: trans-5-O-(4-coumaroyl)-D-quinate + reduced [NADPH--hemoprotein reductase] + O2 = 5-O-[(E)-caffeoyl]-D-quinate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:16337: a 3'-unsubstituted flavone + reduced [NADPH--hemoprotein reductase] + O2 = a 3'-hydroxyflavone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:16649: (S)-N-methylcoclaurine + reduced [NADPH--hemoprotein reductase] + O2 = (S)-3'-hydroxy-N-methylcoclaurine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:17257: vinorine + reduced [NADPH--hemoprotein reductase] + O2 = vomilenine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:18033: benzoate + reduced [NADPH--hemoprotein reductase] + O2 = 4-hydroxybenzoate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:18857: lithocholate + reduced [NADPH--hemoprotein reductase] + O2 = 6beta-hydroxylithocholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:18949: taxa-4(20),11-dien-5alpha-ol + reduced [NADPH--hemoprotein reductase] + O2 = taxa-4(20),11-dien-5alpha,13alpha-diol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:20149: quinine + reduced [NADPH--hemoprotein reductase] + O2 = 3-hydroxyquinine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:22272: (20S)-protopanaxadiol + reduced [NADPH--hemoprotein reductase] + O2 = (20S)-protopanaxatriol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:22644: protopine + reduced [NADPH--hemoprotein reductase] + O2 = 6-hydroxyprotopine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:22716: cholesterol + reduced [NADPH--hemoprotein reductase] + O2 = (24S)-hydroxycholesterol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:22960: formononetin + reduced [NADPH--hemoprotein reductase] + O2 = calycosin + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:23684: (S)-cis-N-methylcanadine + reduced [NADPH--hemoprotein reductase] + O2 = allocryptopine + oxidized [NADPH--hemoprotein reductase] + H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:25282: squalene + reduced [NADPH--hemoprotein reductase] + O2 = (S)-2,3-epoxysqualene + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:25286: lanosterol + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol + formate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:26217: abieta-7,13-diene + reduced [NADPH--hemoprotein reductase] + O2 = abieta-7,13-dien-18-ol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:26221: abieta-7,13-dien-18-ol + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = abieta-7,13-dien-18-oate + 2 oxidized [NADPH--hemoprotein reductase] + 3 H2O + 3 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:28226: (+)-5-epi-aristolochene + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = capsidiol + 2 oxidized [NADPH--hemoprotein reductase] + 2 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:28602: L-isoleucine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (1E,2S)-2-methylbutanal oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:28606: L-valine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (E)-2-methylpropanal oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:31587: uracil + FMNH2 + NADH + O2 = (Z)-3-ureidoacrylate + FMN + NAD(+) + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:31711: beta-amyrin + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = 11-oxo-beta-amyrin + 2 oxidized [NADPH--hemoprotein reductase] + 3 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:31951: 9beta-pimara-7,15-diene + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = 9beta-pimara-7,15-dien-19-oate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:31967: ent-cassa-12,15-diene + reduced [NADPH--hemoprotein reductase] + O2 = ent-11beta-hydroxycassa-12,15-diene + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:32491: alpha-humulene + reduced [NADPH--hemoprotein reductase] + O2 = 10-hydroxy-alpha-humulene + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:32495: (2E)-geraniol + reduced [NADPH--hemoprotein reductase] + O2 = (6E)-8-hydroxygeraniol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:32895: 1,8-cineole + reduced [NADPH--hemoprotein reductase] + O2 = 2-exo-hydroxy-1,8-cineole + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:32903: calciol + reduced [NADPH--hemoprotein reductase] + O2 = calcidiol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:32999: (+)-amorpha-4,11-diene + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = (+)-artemisinate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:33263: L-phenylalanine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (E)-phenylacetaldehyde oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:35499: 11-oxo-beta-amyrin + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = glycyrrhetinate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+
+RHEA:35575: (1'S)-averantin + reduced [NADPH--hemoprotein reductase] + O2 = (1'S,5'R)-5'-hydroxyaverantin + oxidized [NADPH--hemoprotein reductase] + H2O
+  → Oxidoreductase acting on paired donors with reduced flavin or flavoprotein as one donor and incorporation of one atom of oxygen
+

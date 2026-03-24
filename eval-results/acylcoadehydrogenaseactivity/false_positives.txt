@@ -1,0 +1,7 @@
+False Positives for AcylCoADehydrogenaseActivity
+==================================================
+Total: 1
+
+RHEA:20876: (R)-2-benzylsuccinyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) = (E)-2-benzylidenesuccinyl-CoA + reduced [electron-transfer flavoprotein]
+  → Acyl-CoA dehydrogenase activity: flavin/ETF-dependent dehydrogenation of an acyl-CoA substrate
+

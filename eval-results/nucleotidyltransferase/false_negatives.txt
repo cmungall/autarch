@@ -1,0 +1,73 @@
+False Negatives for Nucleotidyltransferase
+==================================================
+Total: 23
+
+RHEA:13989: alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose = alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose
+  → No nucleoside phosphate donor found
+
+RHEA:15225: dTTP + alpha-D-glucose 1-phosphate + H(+) = dTDP-alpha-D-glucose + diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:16333: apo-[citrate lyase ACP] + 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA = holo-[citrate lyase ACP] + diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:16529: sulfate + ADP + H(+) = adenosine 5'-phosphosulfate + phosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:16577: ADP + ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + phosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:17165: alpha-D-galactose 1-phosphate + dTTP + H(+) = dTDP-D-galactose + diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:18133: sulfate + ATP + H(+) = adenosine 5'-phosphosulfate + diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:18153: 2 GTP + H(+) = P(1),P(4)-bis(5'-guanosyl) tetraphosphate + diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:19197: adenosine 5'-phosphosulfate + NH4(+) = adenosine 5'-phosphoramidate + sulfate + 2 H(+)
+  → No nucleoside phosphate donor found
+
+RHEA:24898: 2 GTP = 3',3'-c-di-GMP + 2 diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:34407: 3 ATP = 5'-triphosphoadenylyl-(2'->5')-adenylyl-(2'->5')-adenosine + 2 diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:34935: 2 ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:35647: GTP + ATP = 3',3'-cGAMP + 2 diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:35655: 2 ATP = 3',3'-c-di-AMP + 2 diphosphate
+  → No substantive acceptor substrate or nucleotidylated product remains after removing donors and leaving groups
+
+RHEA:36407: L-threonine + hydrogencarbonate + ATP = L-threonylcarbamoyladenylate + diphosphate + H2O
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:22508: DNA(n) + a 2'-deoxyribonucleoside 5'-triphosphate = DNA(n+1) + diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:14785: RNA(n) + UTP = RNA(n)-3'-uridine ribonucleotide + diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:22096: RNA(n+1) + phosphate = RNA(n) + a ribonucleoside 5'-diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → AMP release indicates an ATP-dependent ligase or activation step, not nucleotidyl transfer
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → No nucleoside phosphate donor found
+
+RHEA:11332: RNA(n) + ATP = RNA(n)-3'-adenine ribonucleotide + diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+
+RHEA:49288: L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)
+  → AMP release indicates an ATP-dependent ligase or activation step, not nucleotidyl transfer
+

@@ -1,0 +1,7 @@
+False Negatives for ABCTypeCarbohydrateTransporter
+==================================================
+Total: 1
+
+RHEA:29799: D-allose(out) + ATP + H2O = D-allose(in) + ADP + phosphate + H(+)
+  → Transported substrate is not consistently carbohydrate-like
+

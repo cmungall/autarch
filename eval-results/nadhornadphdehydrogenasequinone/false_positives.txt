@@ -1,0 +1,10 @@
+False Positives for NADHOrNADPHDehydrogenaseQuinone
+==================================================
+Total: 2
+
+RHEA:12428: 2-hydroxy-1,4-benzoquinone + NADH + 2 H(+) = benzene-1,2,4-triol + NAD(+)
+  → NAD(P)H dehydrogenase (quinone): NAD(P)H-dependent reduction of a quinone acceptor
+
+RHEA:23488: 1,4-benzoquinone + NADPH + H(+) = hydroquinone + NADP(+)
+  → NAD(P)H dehydrogenase (quinone): NAD(P)H-dependent reduction of a quinone acceptor
+

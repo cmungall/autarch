@@ -1,0 +1,64 @@
+False Positives for HydrolaseActingOnCarbonNitrogenButNotPeptideBonds
+==================================================
+Total: 20
+
+RHEA:12324: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-D-glucosamine + L-asparagine
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:14005: L,L-cystathionine + H2O = 2-oxobutanoate + L-cysteine + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:14549: (2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + H2O = 2-oxopent-4-enoate + formate + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:16813: L-kynurenine + H2O = anthranilate + L-alanine + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:17793: L-alanyl-tRNA(Thr) + H2O = tRNA(Thr) + L-alanine + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:19553: L-tryptophan + H2O = indole + pyruvate + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:21704: L-tyrosine + H2O = phenol + pyruvate + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:22596: cephalosporin C + H2O = deacetylcephalosporin C + acetate + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:22600: N-acetyl-9-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:23800: L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:24927: L-cystine + H2O = S-sulfanyl-L-cysteine + pyruvate + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:25143: 3-hydroxy-L-kynurenine + H2O = 3-hydroxyanthranilate + L-alanine + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:25564: N-acetyl-4-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:28278: 3-sulfino-L-alanine + H2O = sulfite + L-alanine + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:28783: L-cysteinylglycine + H2O = L-cysteine + glycine
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:28807: glutathione + H2O = L-cysteinylglycine + L-glutamate
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:31151: L-selenocystathionine + H2O = L-selenocysteine + 2-oxobutanoate + NH4(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:31563: leukotriene C4 + H2O = leukotriene D4 + L-glutamate
+  → Amidase: amide bond hydrolysis [pattern matched]
+
+RHEA:53744: glycyl-tRNA(Ala) + H2O = tRNA(Ala) + glycine + H(+)
+  → Amidase: amide bond hydrolysis [pattern matched]
+

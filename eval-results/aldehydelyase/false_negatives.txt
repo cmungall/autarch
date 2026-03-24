@@ -1,0 +1,112 @@
+False Negatives for AldehydeLyase
+==================================================
+Total: 36
+
+RHEA:10268: 2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:10468: D-xylulose 5-phosphate + phosphate = acetyl phosphate + D-glyceraldehyde 3-phosphate + H2O
+  → No aldolase substrates/products detected
+
+RHEA:10540: 7,8-dihydroneopterin = 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde
+  → No aldolase substrates/products detected
+
+RHEA:10884: (24R,24(1)R)-fucosterol epoxide = desmosterol + acetaldehyde
+  → No aldolase substrates/products detected
+
+RHEA:11100: 4-hydroxyhexan-3-one = 2 propanal
+  → No aldolase substrates/products detected
+
+RHEA:12196: keto-D-fructose 6-phosphate + phosphate = acetyl phosphate + D-erythrose 4-phosphate + H2O
+  → No aldolase substrates/products detected
+
+RHEA:12821: 2-deoxy-D-ribose 5-phosphate = D-glyceraldehyde 3-phosphate + acetaldehyde
+  → No aldolase substrates/products detected
+
+RHEA:14081: (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate = indole + D-glyceraldehyde 3-phosphate
+  → No aldolase substrates/products detected
+
+RHEA:15257: D-threonine = acetaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:15977: (S)-4-hydroxymandelonitrile = 4-hydroxybenzaldehyde + hydrogen cyanide
+  → No aldolase substrates/products detected
+
+RHEA:16453: (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:17089: 2-dehydro-3-deoxy-6-phospho-D-gluconate = D-glyceraldehyde 3-phosphate + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:17909: (S)-lactate = acetaldehyde + formate
+  → No aldolase substrates/products detected
+
+RHEA:18313: (R)-mandelonitrile = benzaldehyde + hydrogen cyanide
+  → No aldolase substrates/products detected
+
+RHEA:18545: 2-dehydro-3-deoxy-L-arabinonate = glycolaldehyde + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:18593: sphinganine 1-phosphate = hexadecanal + phosphoethanolamine
+  → No aldolase substrates/products detected
+
+RHEA:19625: L-threonine = acetaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:20073: D-allo-threonine = acetaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:20217: trimethylamine N-oxide + H(+) = dimethylamine + formaldehyde
+  → Not a lyase: No lyase pattern detected
+
+RHEA:20609: 2-dehydro-3-deoxy-D-arabinonate = glycolaldehyde + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:21460: benzoin = 2 benzaldehyde
+  → No aldolase substrates/products detected
+
+RHEA:21712: L-threo-3-phenylserine = benzaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:23340: 3-deoxy-alpha-D-manno-oct-2-ulosonate = D-arabinose + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:24464: 2-dehydro-3-deoxy-6-phospho-D-galactonate = D-glyceraldehyde 3-phosphate + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:25355: 2-hydroxyphytanoyl-CoA = 2,6,10,14-tetramethylpentadecanal + formyl-CoA
+  → No aldolase substrates/products detected
+
+RHEA:25379: 2-hydroxy-3-methylhexadecanoyl-CoA = 2-methylpentadecanal + formyl-CoA
+  → No aldolase substrates/products detected
+
+RHEA:25784: 2-dehydro-3-deoxy-L-rhamnonate = (S)-lactaldehyde + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:25788: 4-hydroxy-2-oxoheptanedioate = succinate semialdehyde + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:26209: L-allo-threonine = acetaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:27389: (3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate + H2O = salicylaldehyde + pyruvate
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:27966: 7,8-dihydroneopterin 3'-triphosphate + H2O = 6-carboxy-5,6,7,8-tetrahydropterin + triphosphate + acetaldehyde + 2 H(+)
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:28002: beta-D-fructose 6-phosphate = dihydroxyacetone + D-glyceraldehyde 3-phosphate
+  → No aldolase substrates/products detected
+
+RHEA:28170: (2R)-2-hydroxy-2-methylbutanenitrile = butan-2-one + hydrogen cyanide
+  → No aldolase substrates/products detected
+
+RHEA:28779: 4-hydroxy-L-threonine = glycolaldehyde + glycine
+  → No aldolase substrates/products detected
+
+RHEA:35583: 2-dehydro-3-deoxy-D-gluconate = D-glyceraldehyde + pyruvate
+  → No aldolase substrates/products detected
+
+RHEA:36307: (E)-caffeoyl-CoA + H2O = 3,4-dihydroxybenzaldehyde + acetyl-CoA
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+

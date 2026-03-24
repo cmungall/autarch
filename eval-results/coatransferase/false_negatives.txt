@@ -1,0 +1,7 @@
+False Negatives for CoATransferase
+==================================================
+Total: 1
+
+RHEA:28338: (R)-carnitinyl-CoA = crotonobetainyl-CoA + H2O
+  → CoA transfer requires non-thioester carboxylate acceptor and donor-acid products
+

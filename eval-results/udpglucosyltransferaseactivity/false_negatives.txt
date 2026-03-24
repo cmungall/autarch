@@ -1,0 +1,28 @@
+False Negatives for UDPGlucosyltransferaseActivity
+==================================================
+Total: 8
+
+RHEA:16241: an NDP-alpha-D-glucose + D-fructose = a ribonucleoside 5'-diphosphate + sucrose + H(+)
+  → No UDP-glucosyltransferase activity donor detected
+
+RHEA:18889: D-glucose 6-phosphate + UDP-alpha-D-glucose = alpha,alpha-trehalose 6-phosphate + UDP + H(+)
+  → Nucleotide-sugar interconversion, not transfer to an external acceptor
+
+RHEA:20952: N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-glucose = beta-D-glucosyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → Nucleotide-sugar interconversion, not transfer to an external acceptor
+
+RHEA:30003: alpha-D-Gal-(1->6)-alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + UDP-alpha-D-glucose = alpha-D-Glc-(1->3)-[alpha-D-Gal-(1->6)]-alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + UDP + H(+)
+  → Nucleotide-sugar interconversion, not transfer to an external acceptor
+
+RHEA:30015: alpha-D-Glc-(1->3)-[alpha-D-Gal-(1->6)]-alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + UDP-alpha-D-glucose = alpha-D-Glc-(1->2)-alpha-D-Glc-(1->3)-[alpha-D-Gal-(1->6)]-alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + UDP + H(+)
+  → Nucleotide-sugar interconversion, not transfer to an external acceptor
+
+RHEA:10068: 4-O-[(D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-[(2-beta-D-glucosyl-D-ribitylphospho)(n)-D-ribitylphospho-(2R)-glycerylphospho]-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)
+  → No UDP-glucosyltransferase activity donor detected
+
+RHEA:15845: 4-O-{[(2R)-1-glycerylphospho](n)-(2R)-1-glycerylphospho}-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl undecaprenyl diphosphate + n UDP-alpha-D-glucose = 4-O-{[(2R)-2-alpha-D-glucosyl-1-glycerylphospho](n)-(2R)-1-glycerylphospho}-N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl undecaprenyl diphosphate + n UDP + n H(+)
+  → No hexosyl-transfer pattern detected
+
+RHEA:56560: [1,4-alpha-D-glucosyl](n)-L-tyrosyl-[glycogenin] + UDP-alpha-D-glucose = [1,4-alpha-D-glucosyl](n+1)-L-tyrosyl-[glycogenin] + UDP + H(+)
+  → No hexosyl-transfer pattern detected
+

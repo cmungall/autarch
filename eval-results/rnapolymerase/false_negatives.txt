@@ -1,0 +1,7 @@
+False Negatives for RNAPolymerase
+==================================================
+Total: 1
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → No RNA nucleotide (NTP/NDP) found
+

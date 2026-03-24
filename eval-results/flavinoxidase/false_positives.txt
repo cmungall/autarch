@@ -1,0 +1,145 @@
+False Positives for FlavinOxidase
+==================================================
+Total: 47
+
+RHEA:10028: D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:10036: 4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:10552: D-glucose + O2 = 2-dehydro-D-glucose + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:10692: 6-(2-amino-2-carboxyethyl)-7,8-dioxo-1,2,3,4,7,8-hexahydroquinoline-2,4-dicarboxylate + 3 O2 = pyrroloquinoline quinone + 2 H2O2 + 2 H2O + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:11292: rifamycin B + O2 + 2 H(+) = rifamycin O + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:11428: beta-D-glucose + O2 = D-glucono-1,5-lactone + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:11532: glycine + O2 + H2O = glyoxylate + H2O2 + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:11796: ecdysone + O2 = 3-dehydroecdysone + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:11812: methanethiol + O2 + H2O = hydrogen sulfide + formaldehyde + H2O2 + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:12384: 5,6-dihydrouracil + O2 = uracil + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:12472: N-ethylglycine + O2 + H2O = ethylamine + glyoxylate + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:12512: D-aspartate + O2 + H2O = oxaloacetate + H2O2 + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:13028: 3-methylbut-2-enoyl-CoA + N(6)-carboxybiotinyl-L-lysyl-[protein] <=> 3-methyl-(2E)-glutaconyl-CoA + N(6)-biotinyl-L-lysyl-[protein]
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:13488: S-(4-bromophenyl)-L-cysteine + 2-oxoglutarate <=> 3-((4-bromophenyl)sulfanyl)-2-oxopropanoate + L-glutamate
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:13780: D-ribose 5-phosphate + NH4(+) + ATP <=> 5-phospho-beta-D-ribosylamine + ADP + phosphate + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:14436: a tRNA precursor + 2 CTP + ATP <=> a tRNA with a 3' CCA end + 3 diphosphate
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:14836: (R)-mevalonate + 2 NAD(+) + CoA <=> (3S)-3-hydroxy-3-methylglutaryl-CoA + 2 NADH + 2 H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:15032: D-mannitol + NAD(+) <=> D-mannose + NADH + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:15164: 4-hydroxyphenylacetate + NADH + O2 + H(+) <=> homogentisate + NAD(+) + H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:15488: (2R,3S)-homoisocitrate <=> cis-homoaconitate + H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:15816: 1H-imidazole + acetyl-CoA <=> N-acetylimidazole + CoA
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:15832: a 16alpha-hydroxysteroid <=> a 16beta-hydroxysteroid
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:16152: beta-nicotinamide D-ribonucleotide + diphosphate <=> 5-phospho-alpha-D-ribose 1-diphosphate + nicotinamide + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:16276: CDP-choline + an N-acylsphing-4-enine <=> a sphingomyelin + CMP + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:16788: an adenosine in tRNA + S-adenosyl-L-methionine <=> an N(6)-methyladenosine in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:16828: uridine + ATP <=> UMP + ADP + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:17244: an alpha-amino acid ester + H2O <=> an alpha-amino acid + an alcohol + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:17356: 2 R'C(R)SH + O2 => R'C(R)S-S(R)CR' + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:17540: (R)-carnitinamide + H2O <=> (R)-carnitine + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:17852: (3R)-3-hydroxybutanoyl-CoA <=> (2E)-butenoyl-CoA + H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:18272: ethyl (S)-3-hydroxyhexanoate + NADP(+) <=> ethyl 3-oxohexanoate + NADPH + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:18368: (R)-malate + NAD(+) <=> pyruvate + CO2 + NADH
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:18432: cyclohexylamine + O2 + H2O => cyclohexanone + H2O2 + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:18512: H2O2 + NADH + H(+) <=> NAD(+) + 2 H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:18568: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) <=> dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:18580: 3-hydroxy-5-methyl-1-naphthoate + S-adenosyl-L-methionine <=> 3-methoxy-5-methyl-1-naphthoate + S-adenosyl-L-homocysteine + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:19828: (2E,6E)-farnesyl diphosphate <=> (+)-aristolochene + diphosphate
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:19884: L-lysyl-[protein] + GTP <=> N(epsilon)-GMP-L-lysyl-[protein] + diphosphate + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:19900: 2 L-arginine + 3 NADPH + 4 O2 + H(+) <=> 2 L-citrulline + 2 nitric oxide + 3 NADP(+) + 4 H2O
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:20528: ethylamine + L-glutamate + ATP <=> N(5)-ethyl-L-glutamine + ADP + phosphate + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:20616: a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + 3'-phosphoadenylyl sulfate <=> an N-acyl-1-beta-D-(3-O-sulfo)-galactosyl-sphing-4-enine + adenosine 3',5'-bisphosphate + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:20728: L-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:20848: pyruvate + phosphate + O2 + H(+) = acetyl phosphate + H2O2 + CO2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [pattern matched]
+
+RHEA:20976: a primary nitroalkane + O2 + H2O = an aldehyde + nitrite + H2O2 + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:21132: xanthine + O2 + H2O = urate + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:21280: thiamine + 2 O2 + H2O = thiamine acetate + 2 H2O2 + H(+)
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+
+RHEA:21368: urate + O2 + H2O = 5-hydroxyisourate + H2O2
+  → Flavin oxidase: FAD/FMN-dependent oxidation [water-assisted] [pattern matched]
+

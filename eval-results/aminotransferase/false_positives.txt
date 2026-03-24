@@ -1,0 +1,13 @@
+False Positives for Aminotransferase
+==================================================
+Total: 3
+
+RHEA:31768: UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-altrosamine + 2-oxoglutarate => UDP-2-acetamido-2,6-dideoxy-beta-L-arabino-hex-4-ulose + L-glutamate
+  → Aminotransferase: 2-oxoglutarate + amino acid → glutamate + keto acid
+
+RHEA:33960: neomycin C + 2-oxoglutarate => 6'''-deamino-6'''-oxoneomycin C + L-glutamate
+  → Aminotransferase: 2-oxoglutarate + amino acid → glutamate + keto acid
+
+RHEA:36780: GDP-alpha-D-perosamine + 2-oxoglutarate => GDP-4-dehydro-alpha-D-rhamnose + L-glutamate
+  → Aminotransferase: 2-oxoglutarate + amino acid → glutamate + keto acid
+

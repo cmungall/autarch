@@ -1,0 +1,55 @@
+False Positives for Hydrolase
+==================================================
+Total: 17
+
+RHEA:10000: pentanamide + H2O = pentanoate + NH4(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains nitrogen
+
+RHEA:10016: O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains nitrogen
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains nitrogen
+
+RHEA:10040: adenosine 3',5'-bisphosphate + H2O = AMP + phosphate
+  → Hydrolysis: water consumed, fragmentation 1→2, contains phosphate/nitrogen
+
+RHEA:10076: lactose + H2O = beta-D-galactose + D-glucose
+  → Hydrolysis: water consumed, fragmentation 1→2
+
+RHEA:10092: a 2'-deoxyribonucleoside 3'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate
+  → Hydrolysis: water consumed, fragmentation 1→2, contains phosphate
+
+RHEA:10100: a sterol ester + H2O = a sterol + a fatty acid + H(+)
+  → Hydrolysis: water consumed, fragmentation 1→2
+
+RHEA:10120: adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains phosphate/nitrogen
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → Hydrolysis: water consumed, fragmentation 1→2, contains phosphate
+
+RHEA:10148: blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains nitrogen
+
+RHEA:10192: sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)
+  → Hydrolysis: water consumed, fragmentation 2→3, contains phosphate/nitrogen/sulfur
+
+RHEA:10244: 4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)
+  → Hydrolysis: water consumed, fragmentation 1→2
+
+RHEA:10248: dUTP + H2O = dUMP + diphosphate + H(+)
+  → Hydrolysis: water consumed, fragmentation 1→2, contains phosphate/nitrogen
+
+RHEA:10260: Mg(2+)(out) + ATP + H2O = Mg(2+)(in) + ADP + phosphate + H(+)
+  → Hydrolysis: water consumed, fragmentation 2→3, contains phosphate/nitrogen
+
+RHEA:10348: 5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)
+  → Hydrolysis: water consumed, fragmentation 2→3, contains phosphate/nitrogen
+
+RHEA:10352: an N-acetylarylalkylamine + H2O = an aralkylamine + acetate
+  → Hydrolysis: water consumed, fragmentation 1→2, contains nitrogen
+
+RHEA:10376: Cu(2+)(in) + ATP + H2O = Cu(2+)(out) + ADP + phosphate + H(+)
+  → Hydrolysis: water consumed, fragmentation 2→3, contains phosphate/nitrogen
+

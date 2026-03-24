@@ -1,0 +1,22 @@
+False Negatives for PhosphoricDiesterHydrolase
+==================================================
+Total: 6
+
+RHEA:11828: a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + H2O = a 3'-end 2'-phospho-ribonucleotide-RNA + H(+)
+  → No phosphodiester hydrolysis pattern
+
+RHEA:16493: glycerol 1,2-cyclic phosphate + H2O = glycerol 1-phosphate + H(+)
+  → No phosphodiester hydrolysis pattern
+
+RHEA:17113: L-serine-phosphoethanolamine + H2O = phosphoethanolamine + L-serine + H(+)
+  → No phosphodiester hydrolysis pattern
+
+RHEA:20537: holo-[ACP] + H2O = apo-[ACP] + (R)-4'-phosphopantetheine + H(+)
+  → No phosphodiester hydrolysis pattern
+
+RHEA:24902: 3',3'-c-di-GMP + H2O = 5'-phosphoguanylyl(3'->5')guanosine + H(+)
+  → No phosphodiester hydrolysis pattern
+
+RHEA:34795: alpha-D-ribose 1,2-cyclic phosphate 5-phosphate + H2O = alpha-D-ribose 1,5-bisphosphate + H(+)
+  → No phosphodiester hydrolysis pattern
+

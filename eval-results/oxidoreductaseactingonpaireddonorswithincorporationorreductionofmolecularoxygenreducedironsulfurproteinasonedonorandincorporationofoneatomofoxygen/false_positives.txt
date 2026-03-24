@@ -1,0 +1,19 @@
+False Positives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedIronSulfurProteinAsOneDonorAndIncorporationOfOneAtomOfOxygen
+==================================================
+Total: 5
+
+RHEA:16145: CMP-N-acetyl-beta-neuraminate + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = CMP-N-glycoloyl-beta-neuraminate + 2 Fe(III)-[cytochrome b5] + H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+
+RHEA:20573: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitriol + 2 oxidized [adrenodoxin] + H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+
+RHEA:24964: calcitriol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitetrol + 2 oxidized [adrenodoxin] + H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+
+RHEA:24968: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = secalciferol + 2 oxidized [adrenodoxin] + H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+
+RHEA:30331: all-trans-beta-carotene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-zeaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Oxidoreductase acting on paired donors with incorporation or reduction of molecular oxygen, reduced iron-sulfur protein as one donor, and incorporation of one atom of oxygen
+

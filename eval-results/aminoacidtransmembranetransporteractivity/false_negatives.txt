@@ -1,0 +1,16 @@
+False Negatives for AminoAcidTransmembraneTransporterActivity
+==================================================
+Total: 4
+
+RHEA:28915: 4-aminobutanoate(in) + H(+)(in) = 4-aminobutanoate(out) + H(+)(out)
+  → Transported substrate is not consistently amino-acid-like
+
+RHEA:28967: L-proline(in) + Na(+)(in) = L-proline(out) + Na(+)(out)
+  → Transported substrate is not consistently amino-acid-like
+
+RHEA:29031: L-glutamate(in) + 2 Na(+)(in) = L-glutamate(out) + 2 Na(+)(out)
+  → Transported substrate is not consistently amino-acid-like
+
+RHEA:29283: L-alanine(in) + Na(+)(in) = L-alanine(out) + Na(+)(out)
+  → Transported substrate is not consistently amino-acid-like
+

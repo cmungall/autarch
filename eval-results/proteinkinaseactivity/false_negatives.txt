@@ -1,0 +1,61 @@
+False Negatives for ProteinKinaseActivity
+==================================================
+Total: 19
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:11424: L-threonyl-[myosin heavy-chain] + ATP = O-phospho-L-threonyl-[myosin heavy-chain] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:11860: L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:12801: L-seryl-[tau protein] + ATP = O-phospho-L-seryl-[tau protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:17133: L-seryl-[tyrosine-3-monooxygenase] + ATP = O-phospho-L-seryl-[tyrosine-3-monooxygenase] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:17301: L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ATP = O-phospho-L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:17989: L-seryl-[protein] + ATP = O-phospho-L-seryl-[protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:18673: L-seryl-[receptor-protein] + ATP = O-phospho-L-seryl-[receptor-protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:19073: L-seryl-[I-kappa-B protein] + ATP = O-phospho-L-seryl-[I-kappa-B protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:19429: [beta-adrenergic receptor] + ATP = [beta-adrenergic receptor]-phosphate + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:20333: L-seryl-[acetyl-CoA carboxylase] + ATP = O-phospho-L-seryl-[acetyl-CoA carboxylase] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:21436: [translation elongation factor 2] + ATP = [translation elongation factor 2]-phosphate + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:22004: L-seryl-[myosin light chain] + ATP = O-phospho-L-seryl-[myosin light chain] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:22720: L-histidyl-[protein] + ATP = N(pros)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:23052: L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + ATP = O-phospho-L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:23172: L-seryl-[3-hydroxy-3-methylglutaryl-coenzyme A reductase] + ATP = O-phospho-L-seryl-[3-hydroxy-3-methylglutaryl-coenzyme A reductase] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:23356: L-seryl-[rhodopsin] + ATP = O-phospho-L-seryl-[rhodopsin] + ADP + H(+)
+  → Requires protein or peptide participants on both sides of the reaction
+
+RHEA:53904: L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)
+  → Requires ATP consumption with ADP production
+

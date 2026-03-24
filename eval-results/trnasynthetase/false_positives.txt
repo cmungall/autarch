@@ -1,0 +1,88 @@
+False Positives for tRNASynthetase
+==================================================
+Total: 28
+
+RHEA:10132: benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:10732: firefly D-luciferin + ATP + O2 = firefly oxyluciferin + hnu + AMP + CO2 + diphosphate
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:10828: anthranilate + ATP + CoA = anthraniloyl-CoA + AMP + diphosphate
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:10912: (R)-pantoate + beta-alanine + ATP = (R)-pantothenate + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:10932: L-citrulline + L-aspartate + ATP = 2-(N(omega)-L-arginino)succinate + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:11372: L-aspartate + NH4(+) + ATP = L-asparagine + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:11756: biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:13852: D-arabinose <=> D-ribulose
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:14288: sn-glycerol 3-phosphate + UDP-alpha-D-galactose <=> 2-(alpha-D-galactosyl)-sn-glycerol 3-phosphate + UDP + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:14780: AMP + H2O + H(+) <=> IMP + NH4(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:15344: hydrogenobyrinate a,c-diamide + Co(2+) + ATP + H2O <=> cob(II)yrinate a,c diamide + ADP + phosphate + 5 H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:15420: L-arogenate + NADP(+) <=> L-tyrosine + CO2 + NADPH
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:16116: 2 cob(II)alamin-[cyanocobalamin reductase] + 2 hydrogen cyanide + NADP(+) <=> 2 cyanocob(III)alamin + 2 apo-[cyanocobalamin reductase] + NADPH + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:17008: D-glucuronate + ATP <=> 1-phospho-alpha-D-glucuronate + ADP + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:18292: (S,S)-tartrate <=> oxaloacetate + H2O
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:19268: carnitine + NAD(+) <=> 3-dehydrocarnitine + NADH + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:19640: D-nopaline + NADP(+) + H2O <=> L-arginine + 2-oxoglutarate + NADPH + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:19680: 9'-cis-neoxanthin + O2 <=> (3S,5R,6R)-3,5-dihydroxy-6,7-didehydro-5,6-dihydro-12'-apo-beta-caroten-12'-al + 2-cis,4-trans-xanthoxin
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:19712: a 1-acyl-sn-glycero-3-phosphate + an acyl-CoA <=> a 1,2-diacyl-sn-glycero-3-phosphate + CoA
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:19752: [(1->3)-alpha-D-glucosyl](n) + UDP-alpha-D-glucose <=> [(1->3)-alpha-D-glucosyl](n+1) + UDP + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:20100: D-mannonate <=> 2-dehydro-3-deoxy-D-gluconate + H2O
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:20200: [heparosan-N-sulfate](n) <=> [heparan-N-sulfate](n)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:20372: betaine aldehyde + O2 + H2O <=> glycine betaine + H2O2 + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:20956: 2-phenylacetate + ATP + CoA = phenylacetyl-CoA + AMP + diphosphate
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:21188: deamido-NAD(+) + NH4(+) + ATP = AMP + diphosphate + NAD(+) + H(+)
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+
+RHEA:21380: 3,7,11,15-tetramethylhexadecanoate + ATP + CoA = phytanoyl-CoA + AMP + diphosphate
+  → tRNA Synthetase: aminoacyl-tRNA formation with ATP → AMP + PPi energetics
+

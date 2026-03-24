@@ -1,0 +1,14 @@
+# Ester hydrolysis example: ethyl acetate + water → acetic acid + ethanol
+# This is a classic hydrolysis reaction
+
+left_participants:
+  - smiles: "CC(=O)OCC"  # ethyl acetate
+    count: 1
+  - smiles: "O"          # water
+    count: 1
+
+right_participants:
+  - smiles: "CC(=O)O"    # acetic acid
+    count: 1
+  - smiles: "CCO"        # ethanol
+    count: 1

@@ -1,0 +1,7 @@
+False Positives for BiotinProteinLigase
+==================================================
+Total: 1
+
+RHEA:19681: biotin + ATP + CoA = biotinyl-CoA + AMP + diphosphate
+  → Biotin Ligase: ultra-specific biotin attachment to proteins
+

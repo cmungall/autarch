@@ -1,0 +1,7 @@
+False Negatives for CarbonNitrogenLigaseWithGlutamineAsAmidoNDonor
+==================================================
+Total: 1
+
+RHEA:24384: deamido-NAD(+) + L-glutamine + ATP + H2O = L-glutamate + AMP + diphosphate + NAD(+) + H(+)
+  → External redox or oxygen chemistry indicates another ligase branch
+

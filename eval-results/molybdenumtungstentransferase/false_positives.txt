@@ -1,0 +1,25 @@
+False Positives for MolybdenumTungstenTransferase
+==================================================
+Total: 7
+
+RHEA:22020: molybdate(out) + ATP + H2O = molybdate(in) + ADP + phosphate + H(+)
+  → Molybdenum/tungsten transferase: label contains 'molybdate'
+
+RHEA:26333: 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + cyclic pyranopterin phosphate + H2O = molybdopterin + 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + 2 H(+)
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+
+RHEA:31331: molybdopterin + ATP + H(+) = adenylyl-molybdopterin + diphosphate
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+
+RHEA:31335: Mo-molybdopterin + CTP + H(+) = Mo-molybdopterin cytosine dinucleotide + diphosphate
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+
+RHEA:34243: Mo-molybdopterin + GTP + H(+) = Mo-molybdopterin guanine dinucleotide + diphosphate
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+
+RHEA:43616: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + ATP + H(+) = [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + diphosphate
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+
+RHEA:48612: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + S-sulfanyl-L-cysteinyl-[cysteine desulfurase] + AH2 = [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + L-cysteinyl-[cysteine desulfurase] + A + AMP + 2 H(+)
+  → Molybdenum/tungsten transferase: label contains 'molybdopterin'
+

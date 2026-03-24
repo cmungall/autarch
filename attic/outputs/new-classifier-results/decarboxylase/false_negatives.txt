@@ -1,0 +1,10 @@
+False Negatives for Decarboxylase
+==================================================
+Total: 2
+
+RHEA:11492: O-phospho-L-threonine + H(+) = (R)-1-aminopropan-2-yl phosphate + CO2
+  → Not a lyase: Pattern doesn't match expected lyase reaction
+
+RHEA:11628: a 2-oxocarboxylate + H(+) = an aldehyde + CO2
+  → Not a lyase: Pattern doesn't match expected lyase reaction
+

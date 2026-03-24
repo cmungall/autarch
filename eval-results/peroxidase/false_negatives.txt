@@ -1,0 +1,7 @@
+False Negatives for Peroxidase
+==================================================
+Total: 1
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+

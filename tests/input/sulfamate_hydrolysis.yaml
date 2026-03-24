@@ -1,0 +1,12 @@
+name: Sulfamate O-S hydrolysis
+description: Hydrolysis of a sulfamate ester O-S bond (R-O-SO2-NH2 + H2O → R-OH + H2N-SO3H)
+left_participants:
+  - smiles: "CCOS(=O)(=O)N"  # ethyl sulfamate (O-S bond hydrolysis)
+    count: 1
+  - smiles: "O"  # water
+    count: 1
+right_participants:
+  - smiles: "CCO"  # ethanol
+    count: 1
+  - smiles: "NS(=O)(=O)O"  # sulfamic acid
+    count: 1

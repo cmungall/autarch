@@ -1,0 +1,16 @@
+False Negatives for HistoneModifyingActivity
+==================================================
+Total: 4
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → No supported histone modifying activity child classifier matched
+
+RHEA:18009: glutaryl-CoA + L-lysyl-[protein] = N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)
+  → No supported histone modifying activity child classifier matched
+
+RHEA:21992: L-lysyl-[histone] + acetyl-CoA = N(6)-acetyl-L-lysyl-[histone] + CoA + H(+)
+  → No supported histone modifying activity child classifier matched
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No supported histone modifying activity child classifier matched
+

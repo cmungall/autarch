@@ -1,0 +1,28 @@
+False Negatives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenReducedFlavinOrFlavoproteinAsOneDonorAndIncorporationOfOneAtomOfOxygen
+==================================================
+Total: 8
+
+RHEA:17149: an organic molecule + reduced [NADPH--hemoprotein reductase] + O2 = an alcohol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No substantive donor/product pair detected
+
+RHEA:22844: (6aS,11aS)-4-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin I + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Organic products do not gain oxygen overall
+
+RHEA:25658: (R)-pulegone + reduced [NADPH--hemoprotein reductase] + O2 = (R)-menthofuran + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Organic products do not gain oxygen overall
+
+RHEA:26047: (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin II + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Organic products do not gain oxygen overall
+
+RHEA:26051: (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 = glyceollin III + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Organic products do not gain oxygen overall
+
+RHEA:30595: 4-hydroxyphenylacetate + FADH2 + O2 = 3,4-dihydroxyphenylacetate + FAD + H2O + H(+)
+  → Missing reduced-flavin to oxidized-flavin conversion
+
+RHEA:35759: 8-O-methylsterigmatocystin + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = aflatoxin B1 + methanol + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + H2O + 2 H(+)
+  → Monooxygenation branch requires at least one water product per dioxygen
+
+RHEA:35763: 8-O-methyldihydrosterigmatocystin + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = aflatoxin B2 + methanol + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + H2O + 2 H(+)
+  → Monooxygenation branch requires at least one water product per dioxygen
+

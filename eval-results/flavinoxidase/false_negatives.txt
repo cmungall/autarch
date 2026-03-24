@@ -1,0 +1,40 @@
+False Negatives for FlavinOxidase
+==================================================
+Total: 12
+
+RHEA:12128: 2 oxidized [2Fe-2S]-[ferredoxin] + 2 L-glutamate = L-glutamine + 2 reduced [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:12472: N-ethylglycine + O2 + H2O = ethylamine + glyoxylate + H2O2
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:13753: 2 L-glutamate + NAD(+) = L-glutamine + 2-oxoglutarate + NADH + H(+)
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:15165: sarcosine + O2 + H2O = methylamine + glyoxylate + H2O2
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:15501: 2 L-glutamate + NADP(+) = L-glutamine + 2-oxoglutarate + NADPH + H(+)
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:15821: glycine + 2 A = hydrogen cyanide + 2 AH2 + CO2
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:16909: 2 Fe(III)-[cytochrome c] + glycine + H2O = 2 Fe(II)-[cytochrome c] + glyoxylate + NH4(+) + 2 H(+)
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:21768: N-methyl-L-alanine + NADP(+) + H2O = methylamine + pyruvate + NADPH + H(+)
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:24304: N(6)-[(R)-lipoyl]-L-lysyl-[glycine-cleavage complex H protein] + glycine + H(+) = N(6)-[(R)-S(8)-aminomethyldihydrolipoyl]-L-lysyl-[glycine-cleavage complex H protein] + CO2
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:25876: L-aspartate + O2 = iminosuccinate + H2O2
+  → No O2→H2O2 or NAD(P)+→NAD(P)H+NH3 pattern
+
+RHEA:30043: fumarate + L-aspartate = iminosuccinate + succinate
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:30207: 2 oxidized [amicyanin] + methylamine + H2O = 2 reduced [amicyanin] + formaldehyde + NH4(+) + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+

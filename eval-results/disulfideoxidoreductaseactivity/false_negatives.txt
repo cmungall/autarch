@@ -1,0 +1,31 @@
+False Negatives for DisulfideOxidoreductaseActivity
+==================================================
+Total: 9
+
+RHEA:11740: 2 glutathione + NADP(+) = glutathione disulfide + NADPH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:14705: NADP(+) + 2 CoA = CoA-disulfide + NADPH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:16757: trypanothione + NADP(+) = trypanothione disulfide + NADPH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:17357: 2 R'C(R)SH + O2 = R'C(R)S-S(R)CR' + H2O2
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:18749: [protein]-dithiol + NAD(+) = [protein]-disulfide + NADH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:18753: [protein]-dithiol + NADP(+) = [protein]-disulfide + NADPH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:20345: [thioredoxin]-dithiol + NADP(+) = [thioredoxin]-disulfide + NADPH + H(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:24424: L-dehydroascorbate + 2 glutathione = glutathione disulfide + L-ascorbate
+  → No supported disulfide oxidoreductase activity child classifier matched
+
+RHEA:34927: selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)
+  → No supported disulfide oxidoreductase activity child classifier matched
+

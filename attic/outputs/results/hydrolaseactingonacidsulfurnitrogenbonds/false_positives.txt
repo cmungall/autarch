@@ -1,0 +1,7 @@
+False Positives for HydrolaseActingOnAcidSulfurNitrogenBonds
+==================================================
+Total: 1
+
+RHEA:11444: 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine 4-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1->3)-N-acetyl-D-galactosamine + sulfate + H(+)
+  → S-N bond hydrolysis (1→2), acid conditions [pattern matched]
+

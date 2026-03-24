@@ -1,0 +1,13 @@
+False Negatives for ActiveMonoatomicIonTransmembraneTransporterActivity
+==================================================
+Total: 3
+
+RHEA:11484: a quinol + 2 Fe(III)-[cytochrome c](out) = a quinone + 2 Fe(II)-[cytochrome c](out) + 2 H(+)(out)
+  → No supported active monoatomic ion transmembrane transporter activity child classifier matched
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → No supported active monoatomic ion transmembrane transporter activity child classifier matched
+
+RHEA:20852: ATP + H2O + H(+)(in) = ADP + phosphate + 2 H(+)(out)
+  → No supported active monoatomic ion transmembrane transporter activity child classifier matched
+

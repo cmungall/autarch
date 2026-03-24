@@ -1,0 +1,88 @@
+False Positives for CAcyltransferaseActivity
+==================================================
+Total: 28
+
+RHEA:10188: acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:10364: dodecanoyl-CoA + 2-oxoglutarate + H2O = (3S,4S)-3-hydroxytetradecane-1,3,4-tricarboxylate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:10408: 4,8,12-trimethyltridecanoyl-CoA + propanoyl-CoA = 3-oxopristanoyl-CoA + CoA
+  → C-acyltransferase activity: condensation of acyl-thioester donors with CoA release
+
+RHEA:10500: butanoyl-CoA + glyoxylate + H2O = 3-ethylmalate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:10588: a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O
+  → C-acyltransferase activity: condensation of acyl-thioester donors with CoA release
+
+RHEA:11516: succinyl-CoA + H2O = succinate + CoA + H(+)
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:12080: malonyl-[ACP] + acetyl-CoA + H(+) = 3-oxobutanoyl-[ACP] + CO2 + CoA
+  → C-acyltransferase activity: condensation of acyl-thioester donors with CoA release
+
+RHEA:12921: succinyl-CoA + glycine + H(+) = 5-aminolevulinate + CO2 + CoA
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:12929: acetyl-CoA + 2-oxoglutarate + H2O = (2R)-homocitrate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:14457: pentanoyl-CoA + glyoxylate + H2O = 3-propylmalate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:15185: succinyl-CoA + L-arginine = N(2)-succinyl-L-arginine + CoA + H(+)
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:15213: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + succinyl-CoA = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:16605: dodecanoyl-CoA + oxaloacetate + H2O = (2S,3S)-2-hydroxytridecane-1,2,3-tricarboxylate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:16845: oxaloacetate + acetyl-CoA + H2O = citrate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:17297: 2 oxidized [2Fe-2S]-[ferredoxin] + 2-oxoglutarate + CoA = succinyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer (reverse reaction orientation)
+
+RHEA:17325: (S)-2,3,4,5-tetrahydrodipicolinate + succinyl-CoA + H2O = (S)-2-succinylamino-6-oxoheptanedioate + CoA
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:17661: succinate + ATP + CoA = succinyl-CoA + ADP + phosphate
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer (reverse reaction orientation)
+
+RHEA:18181: glyoxylate + acetyl-CoA + H2O = (S)-malate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:18565: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → C-acyltransferase activity: condensation of acyl-thioester donors with CoA release
+
+RHEA:19045: pyruvate + acetyl-CoA + H2O = (3R)-citramalate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:19185: propanoyl-CoA + glyoxylate + H2O = 2-hydroxyglutarate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:21524: 3-methyl-2-oxobutanoate + acetyl-CoA + H2O = (2S)-2-isopropylmalate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:22008: L-homoserine + succinyl-CoA = O-succinyl-L-homoserine + CoA
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer
+
+RHEA:22120: GTP + succinate + CoA = succinyl-CoA + GDP + phosphate
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer (reverse reaction orientation)
+
+RHEA:23040: 2-oxobutanoate + acetyl-CoA + H2O = (R)-2-ethylmalate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:23780: propanoyl-CoA + oxaloacetate + H2O = (2S,3S)-2-methylcitrate + CoA + H(+)
+  → C-acyltransferase activity: matched AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer (2.3.3.-); Acyltransferase: an activated acyl donor undergoes condensation with a carbonyl acceptor, converting the transferred acyl unit into alkyl on transfer
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → C-acyltransferase activity: matched SuccinyltransferaseActivity (unknown EC); Succinyltransferase activity: succinyl-CoA donor releases CoA during succinyl transfer (reverse reaction orientation)
+
+RHEA:32727: a very-long-chain acyl-CoA + malonyl-CoA + H(+) = a very-long-chain 3-oxoacyl-CoA + CO2 + CoA
+  → C-acyltransferase activity: condensation of acyl-thioester donors with CoA release
+

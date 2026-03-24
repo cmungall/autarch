@@ -1,0 +1,7 @@
+False Positives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInCyclicAmidines
+==================================================
+Total: 1
+
+RHEA:26201: ammeline + H2O + H(+) = ammelide + NH4(+)
+  → Cyclic amidine hydrolase: water-driven deamination of a cyclic nitrogen scaffold
+

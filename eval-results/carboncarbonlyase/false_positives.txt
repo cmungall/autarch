@@ -1,0 +1,64 @@
+False Positives for CarbonCarbonLyase
+==================================================
+Total: 20
+
+RHEA:11120: cyanate + hydrogencarbonate + 3 H(+) = NH4(+) + 2 CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:13389: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + 2 H(+) = (2E)-butenoyl-CoA + reduced [electron-transfer flavoprotein] + CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:15425: coproporphyrinogen III + 2 S-adenosyl-L-methionine = protoporphyrinogen IX + 2 5'-deoxyadenosine + 2 L-methionine + 2 CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, multiple fragments (3→7)/carboxyl-containing substrate [pattern matched]
+
+RHEA:15821: glycine + 2 A = hydrogen cyanide + 2 AH2 + CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:16853: N(6)-(1,2-dicarboxyethyl)-AMP = fumarate + AMP
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:17477: precorrin-6B + 2 S-adenosyl-L-methionine = precorrin-8X + 2 S-adenosyl-L-homocysteine + CO2 + 3 H(+)
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:17617: leukotriene C4 = leukotriene A4 + glutathione
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:17937: dihydroxyacetone phosphate = methylglyoxal + phosphate
+  → carbon-carbon lyase: matched AldehydeLyase (4.1.2.-); Aldolase: aldol cleavage/condensation [cleavage direction]
+
+RHEA:19069: (R)-S-lactoylglutathione = methylglyoxal + glutathione
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:20269: 4-(4-deoxy-alpha-D-galact-4-enuronosyl)-D-galacturonate = 2 5-dehydro-4-deoxy-D-glucuronate
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:22488: S-(hydroxymethyl)glutathione = glutathione + formaldehyde
+  → carbon-carbon lyase: matched AldehydeLyase (4.1.2.-); Aldolase: aldol cleavage/condensation [cleavage direction]
+
+RHEA:23920: (2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + fumarate
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:23972: (2E)-glutaconyl-CoA + Na(+)(in) + H(+) = (2E)-butenoyl-CoA + Na(+)(out) + CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:25597: 5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate = (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate + pyruvate
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:25888: iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+)
+  → carbon-carbon lyase: matched AldehydeLyase (4.1.2.-); Aldolase: aldol cleavage/condensation [pattern matched]
+
+RHEA:27874: isochorismate = salicylate + pyruvate
+  → carbon-carbon lyase: matched OxoAcidLyase (4.1.3.-); Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:35095: choline = trimethylamine + acetaldehyde
+  → carbon-carbon lyase: matched AldehydeLyase (4.1.2.-); Aldolase: aldol cleavage/condensation [cleavage direction]
+
+RHEA:35815: 4-aminobenzoate + 5-phospho-alpha-D-ribose 1-diphosphate + H(+) = 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + CO2 + diphosphate
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+
+RHEA:36067: Co-precorrin-6B + S-adenosyl-L-methionine = Co-precorrin-7 + S-adenosyl-L-homocysteine + CO2
+  → carbon-carbon lyase: matched CarboxyLyase (4.1.1.-); Decarboxylase: CO2 elimination, classic 1→2 decarboxylation/carboxyl-containing substrate [pattern matched]
+

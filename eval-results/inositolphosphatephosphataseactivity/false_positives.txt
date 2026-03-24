@@ -1,0 +1,16 @@
+False Positives for InositolPhosphatePhosphataseActivity
+==================================================
+Total: 4
+
+RHEA:11064: beta-D-fructose 1,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate
+  → Inositol phosphate phosphatase activity: hydrolytic removal of one phosphate from a soluble inositol phosphate
+
+RHEA:13333: beta-D-fructose 2,6-bisphosphate + H2O = beta-D-fructose 2-phosphate + phosphate
+  → Inositol phosphate phosphatase activity: hydrolytic removal of one phosphate from a soluble inositol phosphate
+
+RHEA:17289: beta-D-fructose 2,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate
+  → Inositol phosphate phosphatase activity: hydrolytic removal of one phosphate from a soluble inositol phosphate
+
+RHEA:22384: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + H2O = 1D-myo-inositol hexakisphosphate + phosphate + H(+)
+  → Inositol phosphate phosphatase activity: hydrolytic removal of one phosphate from a soluble inositol phosphate
+

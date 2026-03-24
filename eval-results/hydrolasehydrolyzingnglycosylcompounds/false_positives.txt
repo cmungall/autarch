@@ -1,0 +1,7 @@
+False Positives for HydrolaseHydrolyzingNGlycosylCompounds
+==================================================
+Total: 1
+
+RHEA:10944: psi-UMP + H2O = pseudouridine + phosphate
+  → N-glycosyl hydrolase (nucleobase product detected)
+

@@ -1,0 +1,22 @@
+False Negatives for Nucleosidase
+==================================================
+Total: 6
+
+RHEA:12324: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-D-glucosamine + L-asparagine
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+
+RHEA:14493: N(omega)-alpha-(ADP-D-ribosyl)-L-arginyl-[dinitrogen reductase] + H2O = L-arginyl-[dinitrogen reductase] + ADP-D-ribose
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+
+RHEA:14885: N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + H2O = ADP-D-ribose + L-arginyl-[protein]
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+
+RHEA:16301: NAD(+) + H2O = ADP-D-ribose + nicotinamide + H(+)
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+
+RHEA:19849: NADP(+) + H2O = ADP-D-ribose 2'-phosphate + nicotinamide + H(+)
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+
+RHEA:20784: N(omega)-(ADP-D-ribosyl)-L-arginine + H2O = ADP-D-ribose + L-arginine
+  → No ribose/nucleobase products - not N-glycosyl hydrolysis
+

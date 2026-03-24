@@ -1,0 +1,2431 @@
+False Positives for PeptidylProlylIsomerase
+==================================================
+Total: 809
+
+RHEA:10000: pentanamide + H2O = pentanoate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10032: [protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10036: 4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10040: adenosine 3',5'-bisphosphate + H2O = AMP + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10056: (3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10076: lactose + H2O = beta-D-galactose + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10092: a 2'-deoxyribonucleoside 3'-phosphate + H2O = a 2'-deoxyribonucleoside + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10112: L-homocysteine + L-serine = L,L-cystathionine + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10128: all-trans-violaxanthin = all-trans-neoxanthin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10144: a ribonucleoside 3'-phosphate + H2O = a ribonucleoside + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10164: (2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10184: (4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10196: (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10212: 5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10232: 5,6-dihydrouridine 5'-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10264: alpha-D-glucose = beta-D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10268: 2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10284: L-leucine = (3R)-beta-leucine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10288: L-rhamnono-1,4-lactone + H2O = L-rhamnonate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10304: a 2-acyl-sn-glycero-3-phosphoethanolamine + a fatty acyl-[ACP] = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + holo-[ACP]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10320: trans-3-hydroxy-L-proline = 1-pyrroline-2-carboxylate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10332: a 2-acyl-sn-glycero-3-phosphocholine + an acyl-CoA = a 1,2-diacyl-sn-glycero-3-phosphocholine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10336: citrate = D-threo-isocitrate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10340: (2E,6E)-farnesyl diphosphate = (-)-vetispiradiene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10344: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphocholine + an acyl-CoA = a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphocholine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10352: an N-acetylarylalkylamine + H2O = an aralkylamine + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10360: 3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10368: dTDP-4-amino-4,6-dideoxy-alpha-D-galactose + 2-oxoglutarate = dTDP-4-dehydro-6-deoxy-alpha-D-glucose + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10380: orotidine 5'-phosphate + diphosphate = orotate + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10400: L-glutamine + pyruvate = 2-oxoglutaramate + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10408: 4,8,12-trimethyltridecanoyl-CoA + propanoyl-CoA = 3-oxopristanoyl-CoA + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10416: toluene + fumarate = 2-benzylsuccinate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10420: taurine + pyruvate = sulfoacetaldehyde + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10424: N-benzoylglycine + H2O = benzoate + glycine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10428: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = (12S)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10436: 7alpha,12alpha-dihydroxy-3-oxochol-4-en-24-oyl-CoA = 12alpha-hydroxy-3-oxochola-4,6-dien-24-oyl-CoA + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10440: D-glucono-1,5-lactone + H2O = D-gluconate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10456: D-maltose + acetyl-CoA = 1-O-acetylmaltose + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10460: prostaglandin A1 = prostaglandin C1
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10472: (2R,3S)-2,3-dimethylmalate = propanoate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10484: N-feruloylglycine + H2O = (E)-ferulate + glycine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10492: phosphocholine + H2O = choline + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10508: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate = aldehydo-D-ribose 5-phosphate + D-xylulose 5-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10524: 2-oxoglutarate + H(+) = succinate semialdehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10540: 7,8-dihydroneopterin = 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10552: D-glucose + O2 = 2-dehydro-D-glucose + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10572: vinylacetyl-CoA = (2E)-butenoyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10600: prostaglandin H2 = prostaglandin D2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10644: 2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10660: L-seryl-[protein] = D-seryl-[protein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10668: L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-lysyl)-sn-glycerol + tRNA(Lys)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10672: cyclobutadithymidine in DNA = a thymidine dimer in DNA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10680: L-proline = D-proline
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10684: O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10688: streptomycin 6-phosphate + H2O = streptomycin + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10700: limonene 1,2-epoxide + H2O = limonene-1,2-diol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10716: D-glucose 6-phosphate = 1D-myo-inositol 3-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10748: hydrogencarbonate + H(+) = CO2 + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10760: citrate = oxaloacetate + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10772: 6-phospho-beta-D-glucosyl-(1->4)-D-glucose + H2O = D-glucose 6-phosphate + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10792: 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate + H(+) = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10800: XMP + diphosphate = xanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10804: (S)-allantoin = (R)-allantoin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10816: methyl-2-alpha-L-fucopyranosyl-beta-D-galactoside + H2O = methyl beta-D-galactoside + L-fucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10820: D-threo-isocitrate = D-erythro-isocitrate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10844: pyridoxamine + oxaloacetate = pyridoxal + L-aspartate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10868: an acyl-CoA + a 1,2-diacyl-sn-glycerol = a triacyl-sn-glycerol + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10872: an N-acyl-L-aspartate + H2O = a carboxylate + L-aspartate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10876: 4-hydroxybenzoate + H(+) = phenol + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10884: (24R,24(1)R)-fucosterol epoxide = desmosterol + acetaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10900: an aromatic L-alpha-amino acid + glyoxylate = an aromatic oxo-acid + glycine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10924: cis-2-chloro-4-carboxymethylenebut-2-en-1,4-olide = trans-2-chloro-4-carboxymethylenebut-2-en-1,4-olide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10940: (2E)-geranyl diphosphate = (4R)-limonene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10944: psi-UMP + H2O = pseudouridine + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10952: hydroxymalonate + (E)-sinapoyl-CoA = (E)-sinapoyltartronate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10960: (S)-lactate = (R)-lactate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10980: L-serine = D-serine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11012: L-tryptophanamide + H2O = L-tryptophan + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11032: 2-[(2R)-2-chloro-2,5-dihydro-5-oxofuryl]acetate = 3-chloro-cis,cis-muconate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11040: D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate = 3-(imidazol-4-yl)-2-oxopropyl phosphate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11048: a 1-organyl-2-lyso-sn-glycero-3-phospholipid + a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine = a 1-organyl-2-acetyl-sn-glycero-3-phospholipid + a 1-O-alkyl-sn-glycero-3-phosphocholine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11064: beta-D-fructose 1,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11068: (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11084: 3-dehydro-L-gulonate + H(+) = L-xylulose + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11100: 4-hydroxyhexan-3-one = 2 propanal
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11112: isochorismate + H2O = (2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11140: alpha-D-mannose 1-phosphate = D-mannose 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11160: L-2,4-diaminobutanoate + 2-oxoglutarate = L-aspartate 4-semialdehyde + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11172: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + L-homocysteine = (6S)-5,6,7,8-tetrahydrofolate + L-methionine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11176: kojibiose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11212: indole + O2 = 2-formamidobenzaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11236: putrescine + spermidine = sym-homospermidine + propane-1,3-diamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11272: a (2R)-2-hydroxycarboxylate + a quinone = a 2-oxocarboxylate + a quinol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11304: (S)-ureidoglycolate = urea + glyoxylate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11316: an aliphatic aldoxime = a nitrile + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11320: UDP-beta-L-arabinopyranose = UDP-alpha-D-xylose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11328: isopentenyl diphosphate + dimethylallyl diphosphate = neryl diphosphate + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11340: 5-guanidino-2-oxopentanoate + H(+) = 4-guanidinobutanal + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11344: an N-acylneuraminate + CTP = a CMP-N-acyl-beta-neuraminate + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11392: 1D-myo-inositol 1,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 1,3,4-trisphosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11404: UDP-alpha-D-glucuronate = UDP-alpha-D-galacturonate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11416: 2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11428: beta-D-glucose + O2 = D-glucono-1,5-lactone + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11468: (S)-3-methyl-2-oxopentanoate + L-valine = 3-methyl-2-oxobutanoate + L-isoleucine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11488: all-trans-retinol + an acyl-CoA = an all-trans-retinyl ester + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11492: O-phospho-L-threonine + H(+) = (R)-1-aminopropan-2-yl phosphate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11500: 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + H2O = 3-deoxy-alpha-D-manno-oct-2-ulosonate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11568: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 5-methyldeoxycytidine 5'-phosphate + 7,8-dihydrofolate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11584: L-ornithine = D-ornithine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11596: orotidine 5'-phosphate + H(+) = UMP + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11624: 2-(hydroxyimino)propanoate + acetone = acetone oxime + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11628: a 2-oxocarboxylate + H(+) = an aldehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11652: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-galactose = alpha-D-galactosyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11660: a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + H2O = a 6-(alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11672: chorismate + L-glutamine = 4-amino-4-deoxychorismate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11716: a monoamide of a dicarboxylate + H2O = a dicarboxylate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11748: fluoroacetaldehyde + L-threonine = 4-fluoro-L-threonine + acetaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11764: methylguanidine + H2O = urea + methylamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11768: N-(5-phospho-beta-D-ribosyl)anthranilate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + anthranilate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11796: ecdysone + O2 = 3-dehydroecdysone + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11816: alpha-D-glucose 6-phosphate = beta-D-fructose 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11828: a 3'-end 2',3'-cyclophospho-ribonucleotide-RNA + H2O = a 3'-end 2'-phospho-ribonucleotide-RNA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11844: formate + acetyl-CoA = pyruvate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11852: S-methyl-5'-thioadenosine + phosphate = 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate + adenine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11920: (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin = (6R)-L-erythro-6,7-dihydrobiopterin + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11952: 3-hydroxypyruvate = 2-hydroxy-3-oxopropanoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11956: cholesteryl 3-beta-D-glucoside + H2O = cholesterol + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11960: N-succinyl-(2S,6S)-2,6-diaminopimelate + 2-oxoglutarate = (S)-2-succinylamino-6-oxoheptanedioate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:11964: 5,6alpha-epoxy-5alpha-cholestan-3beta-ol + H2O = 5alpha-cholestane-3beta,5,6beta-triol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12016: (2E,6E)-farnesyl diphosphate = (-)-germacrene D + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12020: a monocarboxylic acid amide + H2O = a monocarboxylate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12024: 1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12028: L-5-carboxymethylhydantoin + H2O = N-carbamoyl-L-aspartate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12048: 3-oxoadipate + succinyl-CoA = 3-oxoadipyl-CoA + succinate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12052: (2E,6E)-farnesyl diphosphate = trichodiene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12092: (S)-acetoin = (R)-acetoin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12096: N-benzylformamide + H2O = benzylamine + formate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12100: 1,5-anhydro-D-fructose = microthecin + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12104: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 7,8-dihydrofolate + dTMP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12116: H2 + A = AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12124: shikimate + 4-coumaroyl-CoA = trans-4-coumaroylshikimate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12172: alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12252: 4-O-(beta-D-glucosyl)-(E)-coniferol + H2O = (E)-coniferol + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12272: L-dopa + H(+) = dopamine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12284: 3-hydroxy-3-methylglutarate + succinyl-CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + succinate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12288: an alpha-L-fucoside + H2O = L-fucose + an alcohol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12296: deacetylipecoside + H2O = secologanin + dopamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12316: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3-phosphate) + H2O = a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12324: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-D-glucosamine + L-asparagine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12336: carboxymethoxysuccinate = glycolate + fumarate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12348: (S)-muconolactone = (4,5-dihydro-5-oxofuran-2-yl)-acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12356: D-mannose 6-phosphate = D-fructose 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12360: 13-hydroxylupanine + (2E)-2-methylbut-2-enoyl-CoA = 13-(2-methylcrotonoyloxy)lupanine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12368: 2-dehydro-D-gluconate + A = 2,5-didehydro-D-gluconate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12372: 2-(5-oxo-2,5-dihydrofuran-2-ylidene)acetate + H2O = 4-oxohex-2-enedioate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12380: L-2,4-diaminobutanoate + pyruvate = L-aspartate 4-semialdehyde + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12384: 5,6-dihydrouracil + O2 = uracil + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12400: beta-nicotinamide D-ribonucleotide + H2O = nicotinate beta-D-ribonucleotide + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12412: (2R)-3-phosphoglycerate + H2O = (R)-glycerate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12416: beta-alanyl-CoA = acryloyl-CoA + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12424: (3S)-3-hydroxy-L-aspartate = oxaloacetate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12448: (R)-pantothenate + H2O = (R)-pantoate + beta-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12460: (S)-malate = fumarate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12476: N-formyl-L-glutamate + H2O = formate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12480: 5-aminolevulinate + pyruvate = 4,5-dioxopentanoate + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12484: a ribonucleoside 5'-phosphate + H2O = a ribonucleoside + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12488: 2-amino-2-deoxy-D-gluconate = 2-dehydro-3-deoxy-D-gluconate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12492: L-methionine = D-methionine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12508: loganate + S-adenosyl-L-methionine = loganin + S-adenosyl-L-homocysteine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12516: (2E,6E)-farnesyl diphosphate = (+)-(R)-germacrene A + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12532: coenzyme B + methyl-coenzyme M = methane + coenzyme M-coenzyme B heterodisulfide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12556: 6-phospho-D-glucono-1,5-lactone + H2O = 6-phospho-D-gluconate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12584: 16alpha-hydroxyprogesterone = 16,17-didehydroprogesterone + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12600: phosphinothricin + acetyl-CoA <=> N-acetylphosphinothricin + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12620: N-acetyl-alpha-D-galactosamine + ATP <=> N-acetyl-alpha-D-galactosamine 1-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12624: L-aspartate + H(+) <=> L-alanine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12656: (S)-malate + NAD(+) <=> pyruvate + CO2 + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12660: a (2S)-2-methylacyl-CoA <=> a (2R)-2-methylacyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12668: a 2-deoxystreptamine antibiotic + acetyl-CoA <=> an N(3)-acetyl-2-deoxystreptamine antibiotic + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12672: O-phospho-L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + H2O <=> L-seryl-[pyruvate dehydrogenase E1 alpha subunit] + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12704: a 2'-deoxyribonucleoside 5'-triphosphate + [thioredoxin]-disulfide + H2O <=> a ribonucleoside 5'-triphosphate + [thioredoxin]-dithiol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12744: ADP + H2O + H(+) <=> IDP + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12748: a 1,4-lactone + H2O <=> a 4-hydroxyacid + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12768: 2 oxidized [2Fe-2S]-[ferredoxin] + pyruvate + CoA <=> 2 reduced [2Fe-2S]-[ferredoxin] + acetyl-CoA + CO2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12812: 4 catechol + 3 O2 <=> 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12820: 2,3-dihydrobiochanin A + NADP(+) <=> biochanin A + NADPH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12828: acetyl phosphate + methylamine + [thioredoxin]-disulfide + H2O <=> sarcosine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12832: (2S,3S)-3-methyl-L-aspartate <=> mesaconate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12840: choline + ATP <=> phosphocholine + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12856: (S)-4-hydroxymandelonitrile + UDP-alpha-D-glucose <=> dhurrin + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12864: guanosine + H2O + H(+) <=> xanthosine + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12868: 1-methyladenosine + H2O <=> 1-methyladenine + D-ribose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12892: L-gulonate + NAD(+) <=> 3-dehydro-L-gulonate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12900: 2-cis-(+)-abscisate + reduced [NADPH--hemoprotein reductase] + O2 <=> (+)-8'-hydroxyabscisate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12916: (R)-lipoate + ATP + H(+) <=> (R)-lipoyl-5'-AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12932: acetyl-CoA + 2-oxoglutarate + H2O <=> (2R)-homocitrate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12936: L-fuculose 1-phosphate <=> (S)-lactaldehyde + dihydroxyacetone phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12948: 2'-hydroxybiphenyl-2-sulfinate + H2O <=> biphenyl-2-ol + sulfite + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12960: an acetyl ester + H2O <=> an aliphatic alcohol + acetate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12976: AMP + ATP <=> 2 ADP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:12996: cyclohex-1-ene-1-carbonyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> cyclohexa-1,5-diene-1-carbonyl-CoA + reduced [electron-transfer flavoprotein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13000: galactarate + (E)-feruloyl-CoA <=> 2-O-[(E)-feruloyl]-D-galactarate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13016: a beta-D-galactosyl-(1->4)-N-acetyl-beta-D-glucosaminyl derivative + UDP-alpha-D-galactose <=> an alpha-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-N-acetyl-beta-D-glucosaminyl derivative + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13032: N-acetyl-D-glucosamine + O2 + H2O <=> N-acetyl-D-glucosaminate + H2O2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13040: ATP + H2O + H(+) <=> ITP + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13048: ent-kaur-16-ene + reduced [NADPH--hemoprotein reductase] + O2 <=> ent-kaur-16-en-19-ol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13052: D-glucuronate <=> D-fructuronate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13056: L-phenylalanine + pyruvate <=> 3-phenylpyruvate + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13096: an N-acylsphing-4-enine + UDP-alpha-D-galactose <=> a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13100: a (3R)-hydroxyacyl-[ACP] <=> a (2E)-enoyl-[ACP] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13104: 4-imidazolone-5-propanoate <=> trans-urocanate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13124: shikimate + ATP <=> 3-phosphoshikimate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13140: cycloartenol + S-adenosyl-L-methionine <=> cyclolaudenol + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13168: maleate => fumarate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13176: phosphonate + NAD(+) + H2O <=> phosphate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13192: a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + 2 H2O <=> 3-beta-D-galactosyl-sn-glycerol + 2 a fatty acid + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13200: sulfite + UDP-alpha-D-glucose + H(+) <=> UDP-alpha-D-6-sulfoquinovose + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13232: guanosine + phosphate => alpha-D-ribose 1-phosphate + guanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13236: guanosine + phosphate <=> alpha-D-ribose 1-phosphate + guanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13244: L-fucose + ATP <=> beta-L-fucose 1-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13264: 1-amino-1-deoxy-scyllo-inositol 4-phosphate + L-arginine => 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + L-ornithine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13268: 1-amino-1-deoxy-scyllo-inositol 4-phosphate + L-arginine <=> 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + L-ornithine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13300: a sterol + a 1,2-diacyl-sn-glycerol => a sterol ester + a 1-acyl-sn-glycerol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13304: a sterol + a 1,2-diacyl-sn-glycerol <=> a sterol ester + a 1-acyl-sn-glycerol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13316: sarcosine + O2 + H2O <=> formaldehyde + glycine + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13328: UDP-N-acetyl-alpha-D-glucosamine + 2 NAD(+) + H2O <=> UDP-2-acetamido-2-deoxy-alpha-D-glucuronate + 2 NADH + 3 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13332: a 3-oxosteroid + A <=> a 3-oxo-Delta(1)-steroid + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13336: beta-D-fructose 2,6-bisphosphate + H2O <=> beta-D-fructose 2-phosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13344: reduced [flavodoxin] + a menaquinone + 2 S-adenosyl-L-methionine <=> an 8-methylmenaquinone + oxidized [flavodoxin] + 5'-deoxyadenosine + L-methionine + S-adenosyl-L-homocysteine + 3 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13348: L-cysteinyl-[protein] + (2E,6E)-farnesyl diphosphate <=> S-(2E,6E)-farnesyl-L-cysteinyl-[protein] + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13368: dimethylallyl diphosphate => isoprene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13380: alpha-D-glucose 1-phosphate + ATP <=> alpha-D-glucose 1,6-bisphosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13384: an acyl-CoA + acetate <=> a carboxylate + acetyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13400: 6-oxohexanoate + NADP(+) + H2O <=> hexanedioate + NADPH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13424: an N-acyl-D-mannosamine 6-phosphate + phosphoenolpyruvate + H2O <=> an N-acylneuraminate 9-phosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13436: 2'-deoxycytidine + H2O + H(+) <=> 2'-deoxyuridine + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13444: L-cysteate + H2O <=> sulfite + pyruvate + NH4(+) + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13464: 3,6,7,9-tetrahydroxy-3-methyl-2,3-dihydro-1H-naphtho[2,1-b]pyran-1-one + NADPH + O2 + H(+) <=> 2,3,4,7,9-pentahydroxy-6-methyl-1H-phenalen-1-one + NADP(+) + 2 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13484: tRNA(Met) + L-methionine + ATP <=> L-methionyl-tRNA(Met) + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13528: 2 reduced [2Fe-2S]-[putidaredoxin] + (1R,4R)-camphor + O2 + 2 H(+) <=> (1R,4R,5R)-5-hydroxycamphor + 2 oxidized [2Fe-2S]-[putidaredoxin] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13596: 1,4-diguanidinobutane + H2O => agmatine + urea
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13616: beta-D-fructose 6-phosphate + diphosphate <=> beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13660: acetyl-[citrate lyase ACP] + H2O <=> holo-[citrate lyase ACP] + acetate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13664: N-formimidoyl-L-aspartate + H2O <=> N-formyl-L-aspartate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13668: GTP <=> 3',5'-cyclic GMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13672: 5-hydroxy-6-methylpyridine-3,4-dicarboxylate + H(+) <=> 3-hydroxy-2-methylpyridine-5-carboxylate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13676: [protein-PII]-L-tyrosine + UTP <=> [protein-PII]-uridylyl-L-tyrosine + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13700: D-ribose + ATP <=> D-ribose 5-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13720: 2-C-methyl-D-erythritol 4-phosphate + NADP(+) <=> 1-deoxy-D-xylulose 5-phosphate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13740: an n-alkanal + NADP(+) <=> an alk-2-enal + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13748: ascopyrone M <=> microthecin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13756: 2 L-glutamate + NAD(+) <=> L-glutamine + 2-oxoglutarate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13760: (Z)-2-phenyl-1-thioacetohydroximate + UDP-alpha-D-glucose <=> (Z)-desulfoglucotropeolin + UDP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13784: an L-alpha-amino acid + O2 + H2O <=> a 2-oxocarboxylate + H2O2 + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13792: [alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-Man-(1->2)-alpha-D-Man-(1->2)](n)-alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + 2 GDP-alpha-D-mannose <=> alpha-D-Man-(1->2)-alpha-D-Man-(1->2)-[alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-Man-(1->2)-alpha-D-Man-(1->2)](n)-alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-Man-(1->3)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + 2 GDP + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13804: hydrogen sulfide + 3 NADP(+) + 3 H2O <=> sulfite + 3 NADPH + 4 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13844: Fe(II)2-[transferrin] + NAD(+) + H(+) <=> Fe(III)2-[transferrin] + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13848: dihydroxyfumarate + H(+) <=> 2-hydroxy-3-oxopropanoate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13872: prephenate + NAD(+) <=> 3-(4-hydroxyphenyl)pyruvate + CO2 + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13876: (+)-copalyl diphosphate <=> abieta-7,13-diene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13884: an aldehyde + a quinone + H2O <=> a quinol + a carboxylate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13896: P(1),P(3)-bis(5'-adenosyl) triphosphate + H2O <=> AMP + ADP + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13908: a beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + UDP-N-acetyl-alpha-D-glucosamine <=> a beta-D-GlcNAc-(1->3)-beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13912: urate D-ribonucleoside + phosphate <=> alpha-D-ribose 1-phosphate + urate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13928: (3R)-hydroxytetradecanoyl-[ACP] + UDP-N-acetyl-alpha-D-glucosamine <=> UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-N-acetyl-alpha-D-glucosamine + holo-[ACP]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13944: D-glyceraldehyde + ATP <=> D-glyceraldehyde 3-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13976: diphosphate + H2O + H(+)(in) <=> 2 phosphate + 2 H(+)(out)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13988: L-homoserine + ATP <=> O-phospho-L-homoserine + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:13992: alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose <=> alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14008: L,L-cystathionine + H2O <=> 2-oxobutanoate + L-cysteine + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14040: 4,5beta-dihydrocortisone + NADP(+) <=> cortisone + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14044: (R)-vicianin + H2O <=> vicianose + mandelonitrile
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14056: D-arabinose 5-phosphate + phosphoenolpyruvate + H2O <=> 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14064: N-(carboxymethyl)-D-alanine + NAD(+) + H2O <=> glycine + pyruvate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14072: D-fructose + NADP(+) <=> 5-dehydro-D-fructose + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14076: 3-hydroxy-L-glutamate + H(+) <=> 4-amino-3-hydroxybutanoate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14080: 3-oxopropanoate + L-alanine <=> beta-alanine + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14088: 5-methylaminomethyl-2-thiouridine(34) in tRNA + (2E)-geranyl diphosphate <=> 5-methylaminomethyl-S-(2E)-geranyl-thiouridine(34) in tRNA + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14092: glycine + 2-oxoglutarate <=> glyoxylate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14096: L-tryptophan + 2-oxoglutarate <=> indole-3-pyruvate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14112: L-proline + NADP(+) <=> (S)-1-pyrroline-5-carboxylate + NADPH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14124: 3,4-dihydroxy-5-(all-trans-hexaprenyl)benzoate + S-adenosyl-L-methionine <=> 4-hydroxy-3-methoxy-5-(all-trans-hexaprenyl)benzoate + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14156: 17alpha-estradiol 3-O-(beta-D-glucuronate) + UDP-N-acetyl-alpha-D-glucosamine <=> 17alpha-(N-acetyl-alpha-D-glucosaminyl)estradiol 3-glucosiduronate + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14172: glutarate + ATP + CoA <=> glutaryl-CoA + ADP + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14176: L-tryptophan + dimethylallyl diphosphate <=> 4-(3-methylbut-2-enyl)-L-tryptophan + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14184: N(6),N(6),N(6)-trimethyl-L-lysine + 2-oxoglutarate + O2 <=> (3S)-3-hydroxy-N(6),N(6),N(6)-trimethyl-L-lysine + succinate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14188: 3-phenylpyruvate + H(+) <=> 2-phenylacetaldehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14200: L-aspartate + NH4(+) + ATP <=> L-asparagine + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14232: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + 2 oxidized [2Fe-2S]-[ferredoxin] <=> (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14260: a beta-D-galactosyl-(1->4)-N-acetyl-beta-D-glucosaminyl derivative + GDP-beta-L-fucose <=> a beta-D-galactosyl-(1->4)-[alpha-L-fucosyl-(1->3)]-N-acetyl-beta-D-glucosaminyl derivative + GDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14264: (E)-sinapoyl-CoA + D-glucono-1,5-lactone <=> 6-O-[(E)-sinapoyl]-D-glucono-1,5-lactone + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14296: D-glucose + NAD(+) <=> D-glucono-1,5-lactone + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14300: a beta-D-galactosyl-(1<->1')-N-acylsphing-4-enine + H2O <=> an N-acylsphing-4-enine + D-galactose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14328: 7,8-dihydroxycoumarin + UDP-alpha-D-glucose <=> daphnin + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14332: O-phospho-L-serine + 2-oxoglutarate <=> 3-phosphooxypyruvate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14344: glyoxylate + 2-oxoglutarate + H(+) <=> 2-hydroxy-3-oxoadipate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14352: an alpha-L-fucosyl-(1->2)-beta-D-galactosyl derivative + UDP-alpha-D-galactose <=> an alpha-D-galactosyl-(1->3)-[alpha-L-fucosyl-(1->2)]-beta-D-galactosyl derivative + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14368: N-carbamoyl-L-aspartate + H2O + 2 H(+) <=> L-aspartate + NH4(+) + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14376: 5beta-cholestane-3alpha,7alpha,12alpha-triol + 2 reduced [adrenodoxin] + O2 + 2 H(+) <=> (25R)-5beta-cholestane-3alpha,7alpha,12alpha,26-tetrol + 2 oxidized [adrenodoxin] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14396: N-terminal L-alanyl-[cypemycin] + 2 S-adenosyl-L-methionine <=> N-terminal N,N-dimethyl-L-alanyl-[cypemycin] + 2 S-adenosyl-L-homocysteine + 3 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14408: D-glucose + NADP(+) <=> D-glucono-1,5-lactone + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14412: cysteamine + O2 <=> hypotaurine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14464: (25S)-5beta-spirostan-3beta-ol + UDP-alpha-D-glucose <=> (25S)-5beta-spirostan-3beta-yl beta-D-glucoside + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14480: a medium-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> a medium-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14488: (2E,6E)-farnesyl diphosphate + H2O <=> 10-epi-juneol + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14492: a nucleoside 2',3'-cyclic phosphate + H2O <=> a nucleoside 2'-phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14496: N(omega)-alpha-(ADP-D-ribosyl)-L-arginyl-[dinitrogen reductase] + H2O <=> L-arginyl-[dinitrogen reductase] + ADP-D-ribose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14524: (2E)-geraniol + NADP(+) <=> (2E)-geranial + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14532: D-ribose 5-phosphate + ADP + H(+) <=> ADP-D-ribose + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14544: choloyl-CoA + H2O <=> cholate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14552: (2Z,4E)-2-hydroxy-6-oxohexa-2,4-dienoate + H2O <=> 2-oxopent-4-enoate + formate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14556: (7R)-7-(5-carboxy-5-oxopentanamido)deacetylcephalosporanate + D-glutamate <=> cephalosporin C + 2-oxoglutarate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14568: (11Z)-hexadecenoyl-[ACP] + malonyl-[ACP] + H(+) <=> 3-oxo-(13Z)-octadecenoyl-[ACP] + holo-[ACP] + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14572: propane-1,2-diol <=> propanal + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14620: glutathione + NADP(+) + CoA <=> CoA-glutathione + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14652: dTDP-beta-L-mycarose + demethyllactenocin <=> demethylmacrocin + dTDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14656: a nucleoside 3',5'-cyclic phosphate + H2O <=> a nucleoside 5'-phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14684: 2 2-aminophenol + A + O2 <=> 2-aminophenoxazin-3-one + AH2 + 2 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14708: NADP(+) + 2 CoA <=> CoA-disulfide + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14712: a 3-oxo-Delta(5)-steroid <=> a 3-oxo-Delta(4)-steroid
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14728: 2 cob(II)inamide + reduced [electron-transfer flavoprotein] + 2 ATP <=> 2 adenosylcob(III)inamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14736: Ag(+)(in) + ATP + H2O <=> Ag(+)(out) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14740: CTP <=> 3',5'-cyclic CMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14748: 1-hydroxy-2-naphthoate + O2 => (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14812: phenol + S-adenosyl-L-methionine <=> anisole + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14816: L-2-aminohexano-6-lactam <=> D-2-aminohexano-6-lactam
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14820: 4-maleylacetoacetate <=> 4-fumarylacetoacetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14828: (1R,5S)-carveol + NAD(+) <=> (S)-carvone + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14840: glyoxylate + O2 + H2O <=> oxalate + H2O2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14848: L-aspartate 4-semialdehyde + pyruvate <=> (S)-2,3-dihydrodipicolinate + 2 H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14884: 3-sulfanyl-2-(sulfanylmethyl)propanoate + NAD(+) <=> asparagusate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14888: N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + H2O <=> ADP-D-ribose + L-arginyl-[protein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14892: (5Z,8Z,11Z,14Z,17Z)-eicosapentaenoate <=> (5Z,7E,9E,14Z,17Z)-icosapentaenoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14900: (2E,6E,10E)-geranylgeranyl diphosphate => casbene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14912: L-gulonate + NADP(+) <=> aldehydo-D-glucuronate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14920: obtusifoliol + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 <=> 4alpha-methyl-5alpha-ergosta-8,14,24(28)-trien-3beta-ol + formate + 3 oxidized [NADPH--hemoprotein reductase] + 4 H2O + 4 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14968: an acyl phosphate + H2O <=> a carboxylate + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14972: trans-aconitate + S-adenosyl-L-methionine <=> (E)-3-(methoxycarbonyl)pent-2-enedioate + S-adenosyl-L-homocysteine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14976: L-aspartate <=> D-aspartate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14984: testosterone + NADP(+) <=> androst-4-ene-3,17-dione + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15012: (6S)-5,6,7,8-tetrahydrofolate + NADP(+) <=> 7,8-dihydrofolate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15016: 3alpha(S)-strictosidine + H2O <=> secologanin + tryptamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15020: a phosphate monoester + H2O <=> an alcohol + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15032: D-mannitol + NAD(+) <=> D-mannose + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15040: putrescine + S-adenosyl-L-methionine <=> N-methylputrescine + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15064: 2 a Fe(II)-siderophore + NAD(+) + H(+) <=> 2 a Fe(III)-siderophore + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15072: 3-devinyl-3-(1-hydroxyethyl)chlorophyllide a <=> chlorophyllide a + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15076: 3-D-glucuronosyl-N(2),6-disulfo-beta-D-glucosamine + H2O <=> N(2),6-disulfo-D-glucosamine + D-glucuronate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15084: acetate + ATP + CoA <=> acetyl-CoA + ADP + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15088: an N-acetyl-alpha-D-galactosaminyl-(1->3)-[alpha-L-fucosyl-(1->2)]-beta-D-galactosyl derivative + H2O <=> an alpha-L-fucosyl-(1->2)-beta-D-galactosyl derivative + N-acetyl-D-galactosamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15092: (R)-lactate + A <=> pyruvate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15096: L-tyrosine + 2-oxoglutarate <=> 3-(4-hydroxyphenyl)pyruvate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15100: 5-formimidoyltetrahydrofolate + L-glutamate <=> N-formimidoyl-L-glutamate + (6S)-5,6,7,8-tetrahydrofolate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15112: 2-dehydro-3-deoxy-D-gluconate + NADP(+) <=> (4S,5S)-4,5-dihydroxy-2,6-dioxohexanoate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15144: 4-methylphenol + 4 oxidized [azurin] + H2O <=> 4 reduced [azurin] + 4-hydroxybenzaldehyde + 4 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15168: sarcosine + O2 + H2O <=> methylamine + glyoxylate + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15212: (2R,3R)-tartrate + NAD(+) <=> 2-hydroxy-3-oxosuccinate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15216: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + succinyl-CoA <=> N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15248: a monoacylglycerol + H2O <=> glycerol + a fatty acid + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15252: 3,4,5-trihydroxybenzoate + UDP-alpha-D-glucose <=> 1-O-galloyl-beta-D-glucose + UDP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15256: cis-aconitate + H(+) <=> itaconate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15272: L-xylo-hex-3-ulonolactone <=> L-ascorbate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15280: L-lysyl-[alpha-tubulin] + acetyl-CoA <=> N(6)-acetyl-L-lysyl-[alpha-tubulin] + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15284: lathosterol <=> 5alpha-cholest-8-en-3beta-ol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15312: (2R,3Z)-phycocyanobilin + 4 oxidized [2Fe-2S]-[ferredoxin] <=> biliverdin IXalpha + 4 reduced [2Fe-2S]-[ferredoxin] + 4 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15316: ethanolamine <=> acetaldehyde + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15324: (6aR,11aR)-3,9-dihydroxypterocarpan + reduced [NADPH--hemoprotein reductase] + O2 <=> (6aS,11aS)-3,6a,9-trihydroxypterocarpan + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15348: L-tyrosine + L-arginine + ATP <=> L-tyrosyl-L-arginine + AMP + diphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15380: (S)-4,5-dihydroxypentane-2,3-dione + ATP <=> (2S)-2-hydroxy-3,4-dioxopentyl phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15384: quercetin + O2 <=> 2-(3,4-dihydroxybenzoyloxy)-4,6-dihydroxybenzoate + CO
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15392: ATP <=> 3',5'-cyclic AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15408: (3R)-3-hydroxybutanoyl-CoA + [(3R)-hydroxybutanoate](n) <=> [(3R)-hydroxybutanoate](n+1) + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15412: a 1-alkyl-2-(5Z,8Z,11Z,14Z)-eicosatetraenoyl-sn-glycero-3-phosphocholine + a 1-O-alkyl-sn-glycero-3-phosphoethanolamine <=> a 1-O-alkyl-2-(5Z,8Z,11Z,14Z)-eicosatetraenoyl-sn-glycero-3-phosphoethanolamine + a 1-O-alkyl-sn-glycero-3-phosphocholine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15448: O-carbamoyl-L-serine + H2O + H(+) <=> pyruvate + 2 NH4(+) + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15468: sphinganine + ATP <=> sphinganine 1-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15484: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + glycine + H2O <=> (6S)-5,6,7,8-tetrahydrofolate + L-serine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15496: 1D-1-guanidino-3-amino-1,3-dideoxy-scyllo-inositol + pyruvate => 1D-1-guanidino-1-deoxy-3-dehydro-scyllo-inositol + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15544: DIMBOA + UDP-alpha-D-glucose <=> DIMBOA beta-D-glucoside + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15548: (3S)-citramalate <=> acetate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15552: 5-(methylsulfanyl)-D-ribulose 1-phosphate <=> 5-methylsulfanyl-2,3-dioxopentyl phosphate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15564: sterigmatocystin + S-adenosyl-L-methionine <=> 8-O-methylsterigmatocystin + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15576: N-acetylserotonin + S-adenosyl-L-methionine <=> melatonin + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15580: uridine + H2O <=> D-ribose + uracil
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15588: 15-cis-phytoene + 4 A <=> all-trans-lycopene + 4 AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15600: a Fe(III)-siderophore(out) + ATP + H2O <=> a Fe(III)-siderophore(in) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15616: precorrin-2 + NAD(+) <=> sirohydrochlorin + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15632: a steroid + 2 reduced [adrenodoxin] + O2 + 2 H(+) <=> an 11beta-hydroxysteroid + 2 oxidized [adrenodoxin] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15640: [alginate](n) + GDP-alpha-D-mannuronate <=> [alginate](n+1) + GDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15660: 1,6-dihydroxy-2-methylcyclohexa-2,4-dienecarboxylate + NAD(+) <=> 3-methylcatechol + CO2 + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15676: acetoacetyl-CoA + H2O <=> acetoacetate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15688: L-2,4-diaminobutanoate + H(+) => propane-1,3-diamine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15712: kaempferol + UDP-alpha-D-galactose <=> kaempferol 3-O-beta-D-galactoside + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15724: glycine + NAD(+) + H2O <=> glyoxylate + NH4(+) + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15748: [(2->1)-beta-D-fructosyl](n) + sucrose <=> [(2->1)-beta-D-fructosyl](n+1) + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15776: dihydroxyacetone + ATP <=> dihydroxyacetone phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15780: 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + H2O <=> 1-guanidino-1-deoxy-scyllo-inositol + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15808: (7R,8S)-7,8-diammoniononanoate + CO2 + ATP <=> (4R,5S)-dethiobiotin + ADP + phosphate + 3 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15812: (2E)-geranyl diphosphate + H2O <=> (R)-linalool + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15828: AZD1979 + H2O <=> AZD1979 oxetane hydrolysis product + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15836: (S)-4-hydroxymandelate + O2 + H(+) <=> 4-hydroxybenzaldehyde + H2O2 + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15860: (17R,20S)-17,20-dihydroxypregn-4-en-3-one + NADP(+) <=> 17alpha-hydroxyprogesterone + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15868: tryptamine + AH2 + O2 <=> 4-hydroxytryptamine + A + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15876: an NDP-alpha-D-glucose + [(1->4)-alpha-D-glucosyl](n) <=> [(1->4)-alpha-D-glucosyl](n+1) + a ribonucleoside 5'-diphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15888: propane-1,2-diol + NADP(+) <=> (S)-lactaldehyde + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15896: Co-sirohydrochlorin + 2 H(+) <=> sirohydrochlorin + Co(2+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15900: 4-acetamidobutanoate + H2O <=> 4-aminobutanoate + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15904: (2R)-2-phosphoglycerate <=> (2R)-3-phosphoglycerate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15920: an aldopyranose + NAD(+) <=> aldono-1,5-lactone + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15940: a primary alcohol + NADP(+) <=> an aldehyde + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15956: agmatine + ATP <=> N(4)-phosphoagmatine + ADP + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15976: estrone + 3'-phosphoadenylyl sulfate <=> estrone 3-sulfate + adenosine 3',5'-bisphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:15980: (S)-4-hydroxymandelonitrile <=> 4-hydroxybenzaldehyde + hydrogen cyanide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16004: N(6)-methyl-AMP + H2O + H(+) <=> IMP + methylamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16020: oxaloacetate => enol-oxaloacetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16024: oxaloacetate <=> enol-oxaloacetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16028: an anthocyanidin 3-O-beta-D-glucoside + malonyl-CoA <=> an anthocyanidin 3-O-(6-O-malonyl-beta-D-glucoside) + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16036: gibberellin A44 + 2-oxoglutarate + O2 <=> gibberellin A19 + succinate + CO2 + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16080: (2R)-S-methyl-3-phospho-1-thioglycerate + H2O => (2R)-S-methyl-1-thioglycerate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16088: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysine + D-alanyl-D-alanine + ATP <=> UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16120: acetoacetate + ATP + CoA <=> acetoacetyl-CoA + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16172: L-glutamate + NH4(+) + ATP <=> L-glutamine + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16188: an aldehyde + NAD(+) + H2O <=> a carboxylate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16208: N(6)-(6-O-phospho-D-fructosyl)-L-lysyl-[protein] + H2O <=> N(6)-(D-fructosyl)-L-lysyl-[protein] + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16216: 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16224: 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> 3-O-(alpha-D-GlcNAc-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16244: an NDP-alpha-D-glucose + D-fructose <=> a ribonucleoside 5'-diphosphate + sucrose + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16248: a 1-O-(1Z-alkenyl)-sn-glycero-3-phosphoethanolamine + an acyl-CoA <=> a 1-O-(1Z-alkenyl)-2-acyl-sn-glycero-3-phosphoethanolamine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16256: (3S,4R)-3,4-dihydrophenanthrene-3,4-diol + NAD(+) <=> phenanthrene-3,4-diol + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16308: (3S)-3-hydroxy-3-methylglutaryl-CoA + H2O <=> 3-hydroxy-3-methylglutarate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16332: (9Z,12Z,15Z)-octadecatrienoate + O2 <=> (R)-2-hydroperoxy-(9Z,12Z,15Z)-octadecatrienoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16352: chlorate + AH2 <=> chlorite + A + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16360: succinate + A <=> fumarate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16396: juvenile hormone II + H2O <=> juvenile hormone II carboxylate + methanol + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16440: RX + glutathione <=> an S-substituted glutathione + a halide anion + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16452: kanamycin B + acetyl-CoA <=> N(6')-acetylkanamycin B + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16468: 2 Fe(III)-[cytochrome c553] + (R)-lactate <=> 2 Fe(II)-[cytochrome c553] + pyruvate + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16472: (R)-2-benzylsuccinate + succinyl-CoA <=> (R)-2-benzylsuccinyl-CoA + succinate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16488: imidazole-4-acetate + 5-phospho-alpha-D-ribose 1-diphosphate + ATP + H2O <=> 1-(5-phosphoribosyl)imidazole-4-acetate + ADP + phosphate + diphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16492: (R)-prunasin + H2O <=> mandelonitrile + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16504: sn-glycero-3-phospho-1D-myo-inositol + H2O <=> myo-inositol + sn-glycerol 3-phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16508: chorismate <=> 4-hydroxybenzoate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16536: L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> N(4)-(N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16544: 9-cis-violaxanthin + O2 <=> (3S,5R,6S)-5,6-epoxy-3-hydroxy-5,6-dihydro-12'-apo-beta-caroten-12'-al + 2-cis,4-trans-xanthoxin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16556: aldehydo-D-ribose 5-phosphate + L-lysyl-[protein] <=> N(6)-(5-O-phospho-D-ribulosyl)-L-lysyl-[protein] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16564: squalene + H2O <=> hopan-22-ol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16588: [[Fe-S] cluster scaffold protein carrying a second [4Fe-4S](2+) cluster] + N(6)-octanoyl-L-lysyl-[protein] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine + 4 H(+) <=> [[Fe-S] cluster scaffold protein] + N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 4 Fe(3+) + 2 hydrogen sulfide + 2 5'-deoxyadenosine + 2 L-methionine + 2 reduced [2Fe-2S]-[ferredoxin]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16600: UTP + NH4(+) + ATP <=> CTP + ADP + phosphate + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16608: dodecanoyl-CoA + oxaloacetate + H2O <=> (2S,3S)-2-hydroxytridecane-1,2,3-tricarboxylate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16612: AMP + diphosphate <=> 5-phospho-alpha-D-ribose 1-diphosphate + adenine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16616: an arylamine + acetyl-CoA <=> an N-acetylarylamine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16624: dihydrosanguinarine + O2 + H(+) <=> sanguinarine + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16628: hydrogen sulfide + acetyl-CoA <=> thioacetate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16632: (S)-malyl-CoA <=> glyoxylate + acetyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16656: D-gluconate + NADP(+) <=> 2-dehydro-D-gluconate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16660: inosine + H2O <=> hypoxanthine + D-ribose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16664: fluoride + S-adenosyl-L-methionine <=> 5'-deoxy-5'-fluoroadenosine + L-methionine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16688: a di-trans,poly-cis-dolichol + hexadecanoyl-CoA <=> a di-trans,poly-cis-dolichyl hexadecanoate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16692: D-glucose 6-phosphate + H2O <=> D-glucose + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16732: (1R,2R)-1,2-dihydrobenzene-1,2-diol + NADP(+) <=> catechol + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16740: toluene + NADH + O2 + H(+) <=> (1S,2R)-3-methylcyclohexa-3,5-diene-1,2-diol + NAD(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16788: an adenosine in tRNA + S-adenosyl-L-methionine <=> an N(6)-methyladenosine in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16792: a (2S)-2-hydroxycarboxylate + O2 <=> a 2-oxocarboxylate + H2O2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16808: deacetoxycephalosporin C + 2-oxoglutarate + O2 <=> deacetylcephalosporin C + succinate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16852: N(6)-(1,2-dicarboxyethyl)-AMP => fumarate + AMP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16860: a 2'-deoxycytidine in DNA + S-adenosyl-L-methionine <=> an N(4)-methyl-2'-deoxycytidine in DNA + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16864: (8S)-8-amino-7-oxononanoate + S-adenosyl-L-methionine <=> S-adenosyl-4-methylsulfanyl-2-oxobutanoate + (7R,8S)-7,8-diammoniononanoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16868: choloyl-CoA + propanoyl-CoA <=> 3alpha,7alpha,12alpha-trihydroxy-24-oxo-5beta-cholestan-26-oyl-CoA + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16876: uridine(54) in tRNA + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADH + H(+) <=> 5-methyluridine(54) in tRNA + (6S)-5,6,7,8-tetrahydrofolate + NAD(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16888: 2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside <=> bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16892: 6-acetamido-3-aminohexanoate + 2-oxoglutarate <=> 6-acetamido-3-oxohexanoate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16896: pyridine + S-adenosyl-L-methionine <=> N-methylpyridinium + S-adenosyl-L-homocysteine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16932: 2 benzoyl-CoA + L-ornithine <=> N(2),N(5)-dibenzoyl-L-ornithine + 2 CoA + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16940: a 1-O-alkyl-sn-glycerol + ATP <=> a 1-O-alkyl-sn-glycero-3-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16952: myo-inositol + NAD(+) <=> scyllo-inosose + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16956: N(2)-succinyl-L-ornithine + 2-oxoglutarate <=> N-succinyl-L-glutamate 5-semialdehyde + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16960: 3',5'-cyclic GMP + H2O <=> GMP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16964: epsilon-(gamma-L-glutamyl)-L-lysine <=> 5-oxo-L-proline + L-lysine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16968: (2E)-geranyl diphosphate <=> beta-myrcene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:16988: 3-oxoadipate + NADP(+) <=> maleylacetate + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17000: 5alpha-cholane-3alpha,7alpha,12alpha,24-tetrol + 3'-phosphoadenylyl sulfate <=> 3alpha,7alpha,12alpha-trihydroxy-5alpha-cholan-24-yl sulfate + adenosine 3',5'-bisphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17012: 2-succinylbenzoate + ATP + CoA <=> 2-succinylbenzoyl-CoA + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17016: phosphoenolpyruvate + H(+) <=> 3-phosphonopyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17020: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + acetyl-CoA <=> N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17028: xylitol + NADP(+) <=> L-xylulose + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17052: 3-demethylubiquinol-9 + S-adenosyl-L-methionine <=> ubiquinol-9 + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17056: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate <=> D-erythrose 4-phosphate + beta-D-fructose 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17072: cortisol + acetyl-CoA => cortisol 21-acetate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17088: 4-pyridoxate + A <=> 5-formyl-3-hydroxy-2-methylpyridine-4-carboxylate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17092: 2-dehydro-3-deoxy-6-phospho-D-gluconate <=> D-glyceraldehyde 3-phosphate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17096: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) <=> 1D-myo-inositol 1,2-cyclic phosphate + a 1,2-diacyl-sn-glycerol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17104: an O-acyl-(R)-carnitine + H2O <=> (R)-carnitine + a fatty acid + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17136: L-seryl-[tyrosine-3-monooxygenase] + ATP <=> O-phospho-L-seryl-[tyrosine-3-monooxygenase] + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17140: prostaglandin H2 <=> thromboxane A2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17152: an organic molecule + reduced [NADPH--hemoprotein reductase] + O2 <=> an alcohol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17172: alpha-D-galactosamine 1-phosphate + acetyl-CoA <=> N-acetyl-alpha-D-galactosamine 1-phosphate + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17176: glutathionylspermidine + H2O <=> spermidine + glutathione
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17192: a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3,4-bisphosphate) + H2O => a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol-3-phosphate) + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17200: 2 3-(4-hydroxyphenyl)pyruvate + O2 <=> 2 4-hydroxyphenylacetate + 2 CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17212: 1,4,5,6-tetrahydro-6-oxonicotinate + 2 H2O <=> 2-formylglutarate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17220: dTDP-alpha-D-glucose => dTDP-4-dehydro-6-deoxy-alpha-D-glucose + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17228: 1,4,5,6-tetrahydro-6-oxonicotinate + oxidized 2[4Fe-4S]-[ferredoxin] <=> 6-hydroxynicotinate + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17232: an aliphatic alcohol + acetyl-CoA <=> an acetyl ester + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17244: an alpha-amino acid ester + H2O <=> an alpha-amino acid + an alcohol + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17264: an aryl sulfate + H2O <=> a phenol + sulfate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17276: (4-hydroxyphenyl)acetaldehyde + NAD(+) + H2O <=> 4-hydroxyphenylacetate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17280: 6-phospho-D-gluconate <=> 2-dehydro-3-deoxy-6-phospho-D-gluconate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17288: a 1,2-diacyl-sn-glycerol + UDP-alpha-D-glucose <=> a 1,2-diacyl-3-O-(beta-D-glucopyranosyl)-sn-glycerol + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17304: L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ATP <=> O-phospho-L-seryl-[3-methyl-2-oxobutanoate dehydrogenase] + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17336: zeatin + O-acetyl-L-serine <=> L-lupinate + acetate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17368: Mn(2+)(out) + ATP + H2O <=> Mn(2+)(in) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17372: glycyrrhizin + H2O <=> 2-(beta-D-glucuronosyl)-D-glucuronate + glycyrrhetinate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17380: a di-trans,poly-cis-dolichyl beta-D-mannosyl phosphate + L-seryl-[protein] <=> 3-O-(alpha-D-mannosyl)-L-seryl-[protein] + a di-trans,poly-cis-dolichyl phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17392: D-arabinitol + NAD(+) <=> D-ribulose + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17400: a (3R)-hydroxyacyl-[ACP] + NADP(+) <=> a 3-oxoacyl-[ACP] + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17432: trans-4-hydroxycyclohexane-1-carboxylate + NAD(+) <=> 4-oxocyclohexane-1-carboxylate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17436: choline + A <=> betaine aldehyde + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17440: 2-(2,4-dichloro-5-oxo-2,5-dihydrofuryl)acetate <=> (2E,4E)-2,4-dichloromuconate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17460: L-cysteinyl-[cysteine desulfurase] + L-cysteine <=> S-sulfanyl-L-cysteinyl-[cysteine desulfurase] + L-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17464: D-sedoheptulose 1,7-bisphosphate + H2O <=> D-sedoheptulose 7-phosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17492: phthalate + NADH + O2 + H(+) <=> cis-4,5-dihydroxycyclohexa-2,6-diene-1,2-dicarboxylate + NAD(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17504: polyneuridine aldehyde + H2O <=> 16-epivellosimine + methanol + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17516: an N-(long-chain-fatty-acyl)-L-glutamate + H2O => a long-chain fatty acid + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17524: L-glutamyl-tRNA(Gln) + L-glutamine + ATP + H2O <=> L-glutaminyl-tRNA(Gln) + L-glutamate + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17532: an aromatic L-alpha-amino acid + 2-oxoglutarate => an aromatic oxo-acid + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17536: an aromatic L-alpha-amino acid + 2-oxoglutarate <=> an aromatic oxo-acid + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17540: (R)-carnitinamide + H2O <=> (R)-carnitine + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17556: guanidinoethyl methyl phosphate + ATP <=> N'-phosphoguanidinoethyl methylphosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17576: demethylmacrocin + S-adenosyl-L-methionine <=> macrocin + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17592: 2,2'-iminodipropanoate + NAD(+) + H2O <=> L-alanine + pyruvate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17616: scyllo-inositol + NAD(+) <=> scyllo-inosose + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17620: leukotriene C4 <=> leukotriene A4 + glutathione
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17632: alpha,alpha-trehalose(in) <=> alpha,alpha-trehalose(out)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17636: a beta-D-glucuronoside + H2O <=> D-glucuronate + an alcohol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17640: squalene <=> hop-22(29)-ene
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17652: acetyl-[ACP] + malonate <=> malonyl-[ACP] + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17656: isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate <=> (2E,6E,10E)-geranylgeranyl diphosphate + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17684: 3-hydroxy-2-methylpropanoate + NAD(+) <=> 2-methyl-3-oxopropanoate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17696: pyridine + thiamine => heteropyrithiamine + 5-(2-hydroxyethyl)-4-methylthiazole
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17724: a long-chain 2,3-saturated fatty acyl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> a long-chain (2E)-enoyl-CoA + reduced [electron-transfer flavoprotein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17728: (2S,3S)-2-methylcitrate <=> 2-methyl-cis-aconitate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17752: quinoline + A + H2O <=> quinolin-2(1H)-one + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17756: S-(5-deoxy-D-ribos-5-yl)-L-homocysteine <=> (S)-4,5-dihydroxypentane-2,3-dione + L-homocysteine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17764: an aromatic primary alcohol + NADP(+) <=> an aromatic aldehyde + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17780: a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + H2O <=> a 1-O-alkyl-sn-glycero-3-phosphocholine + acetate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17784: N(alpha)-formyl-L-methionine + H2O <=> formate + L-methionine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17804: L-phenylalanine + acetyl-CoA <=> N-acetyl-L-phenylalanine + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17808: S-adenosyl-L-homocysteine + H2O <=> S-(5-deoxy-D-ribos-5-yl)-L-homocysteine + adenine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17836: 3-hydroxyanthranilate + S-adenosyl-L-methionine <=> 3-hydroxy-4-methylanthranilate + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17852: (3R)-3-hydroxybutanoyl-CoA <=> (2E)-butenoyl-CoA + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17860: taurochenodeoxycholate + reduced [NADPH--hemoprotein reductase] + O2 <=> taurohyocholate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17880: a catechol + S-adenosyl-L-methionine <=> a guaiacol + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17884: N-sulfo-D-glucosamine + H2O <=> D-glucosamine + sulfate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17908: (R)-glycerate + NAD(+) <=> 3-hydroxypyruvate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17936: a 7-hydroxyisoflavone + S-adenosyl-L-methionine <=> a 7-methoxyisoflavone + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17940: dihydroxyacetone phosphate <=> methylglyoxal + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17952: 3-hydroxy-1H-quinolin-4-one + O2 <=> N-formylanthranilate + CO + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17956: 3-hydroxyanthranilate + O2 <=> (2Z,4Z)-2-amino-3-carboxymuconate 6-semialdehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:17972: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamate + L-lysine + ATP <=> UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysine + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18012: glutaryl-CoA + L-lysyl-[protein] <=> N(6)-glutaryl-L-lysyl-[protein] + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18016: N(5)-ethyl-L-glutamine + H2O <=> ethylamine + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18036: benzoate + reduced [NADPH--hemoprotein reductase] + O2 <=> 4-hydroxybenzoate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18048: 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + H2O <=> alpha-D-mannose derivative + alpha-D-glucose 1-phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18056: paraoxon + H2O <=> diethylphosphate + 4-nitrophenol + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18068: phosphonate(out) + ATP + H2O <=> phosphonate(in) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18080: L-arginyl-[dinitrogen reductase] + NAD(+) <=> N(omega)-alpha-(ADP-D-ribosyl)-L-arginyl-[dinitrogen reductase] + nicotinamide + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18088: methanophenazine + coenzyme B + coenzyme M <=> dihydromethanophenazine + coenzyme M-coenzyme B heterodisulfide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18096: 5,6-dihydrouracil + NADP(+) <=> uracil + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18108: Ca(2+)(in) + ATP + H2O <=> Ca(2+)(out) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18116: a ribonucleoside 5'-diphosphate + ATP <=> a ribonucleoside 5'-triphosphate + ADP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18160: pyruvate + ATP <=> phosphoenolpyruvate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18172: 4-hydroxy-2-oxoglutarate <=> glyoxylate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18196: N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + H2O <=> (S)-4,5-dihydroxy-2-oxopentanal + L-lysyl-[protein] + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18208: progesterone + AH2 + O2 <=> 11alpha-hydroxyprogesterone + A + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18220: an alkane-alpha,omega-diamine + 2-oxoglutarate <=> an omega-aminoaldehyde + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18236: 2,5-dihydroxybenzoate + O2 => 3-maleylpyruvate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18240: 2,5-dihydroxybenzoate + O2 <=> 3-maleylpyruvate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18284: succinate + NAD(+) <=> fumarate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18288: an N-acyl-D-aspartate + H2O <=> D-aspartate + a carboxylate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18296: oxalate + ATP + CoA <=> oxalyl-CoA + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18304: XMP + NH4(+) + ATP <=> GMP + AMP + diphosphate + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18308: N-acetylneuraminate + acetyl-CoA <=> N-acetyl-4-O-acetylneuraminate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18312: an N-acyl-D-amino acid + H2O <=> a D-alpha-amino acid + a carboxylate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18316: (R)-mandelonitrile <=> benzaldehyde + hydrogen cyanide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18320: an L-alpha-amino acid <=> a D-alpha-amino acid
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18324: L-leucine + 2-oxoglutarate <=> 4-methyl-2-oxopentanoate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18336: oleandomycin + ATP <=> oleandomycin 2'-O-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18340: D-ribose 5-phosphate + uracil <=> psi-UMP + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18368: (R)-malate + NAD(+) <=> pyruvate + CO2 + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18380: streptomycin + ATP <=> streptomycin 3''-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18392: alpha-D-xylose 1-phosphate + UTP + H(+) <=> UDP-alpha-D-xylose + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18420: a beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + CMP-N-acetyl-beta-neuraminate <=> a ganglioside GM3 (d18:1(4E)) + CMP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18440: 4-CDP-2-C-methyl-D-erythritol + ATP <=> 4-CDP-2-C-methyl-D-erythritol 2-phosphate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18444: D-dopachrome + H(+) <=> 5,6-dihydroxyindole + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18460: D-ribulose 5-phosphate <=> (2S)-2-hydroxy-3-oxobutyl phosphate + formate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18464: a 1-O-alkyl-sn-glycero-3-phosphocholine + acetyl-CoA <=> a 1-O-alkyl-2-acetyl-sn-glycero-3-phosphocholine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18476: 1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate <=> 5-phospho-alpha-D-ribose 1-diphosphate + ATP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18480: 2,3-dihydroxybenzoate + O2 <=> 2-hydroxy-3-(3-oxoprop-1-enyl)but-2-enedioate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18496: benzoyl-CoA + glycine <=> N-benzoylglycine + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18512: H2O2 + NADH + H(+) <=> NAD(+) + 2 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18532: 3-methylbutanol + NAD(+) <=> 3-methylbutanal + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18544: 10-hydroxydihydrosanguinarine + S-adenosyl-L-methionine <=> dihydrochelirubine + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18556: (2R,3S)-tartrate + NAD(+) <=> dihydroxyfumarate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18584: ethanolamine + O2 + H2O <=> glycolaldehyde + H2O2 + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18592: [glutamine synthetase]-L-tyrosine + ATP <=> [glutamine synthetase]-O(4)-(5'-adenylyl)-L-tyrosine + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18600: 2 reduced [rubredoxin] + NAD(+) + H(+) <=> 2 oxidized [rubredoxin] + NADH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18644: H2 + a menaquinone <=> a menaquinol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18648: 2 putrescine <=> sym-homospermidine + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18652: D-galactonate <=> 2-dehydro-3-deoxy-D-galactonate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18668: [phosphate](n) + (2R)-3-phospho-glyceroyl phosphate <=> [phosphate](n+1) + (2R)-3-phosphoglycerate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18680: phosphoenolpyruvate + UDP-N-acetyl-alpha-D-glucosamine => UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18692: a 1,2-diacyl-sn-glycero-3-phosphocholine + H2O <=> a 2-acyl-sn-glycero-3-phosphocholine + a fatty acid + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18696: a penicillin + H2O <=> 6-aminopenicillanate + a carboxylate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18716: 3',4',5,6-tetrahydroxy-3,7-dimethoxyflavone + S-adenosyl-L-methionine => 3',4',5-trihydroxy-3,6,7-trimethoxyflavone + S-adenosyl-L-homocysteine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18740: hydrogenselenide + ATP + H2O <=> selenophosphate + AMP + phosphate + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18764: a 1,2-diacyl-sn-glycerol + H2O <=> a monoacylglycerol + a fatty acid + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18768: an N-acylsphing-4-enine + a 1,2-diacyl-sn-glycero-3-phosphocholine <=> a sphingomyelin + a 1,2-diacyl-sn-glycerol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18776: methyl-Co(III)-[methylamine-specific corrinoid protein] + coenzyme M <=> Co(I)-[methylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18780: an alkylmercury + H(+) <=> an alkane + Hg(2+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18792: D-glucosamine 6-phosphate <=> D-galactosamine 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18808: [DsbA protein]-disulfide + [protein]-dithiol <=> [DsbA protein]-dithiol + [protein]-disulfide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18812: oxomalonate + L-alanine <=> aminomalonate + pyruvate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18816: (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate <=> (3E,5R)-5-carboxy-2-oxohept-3-enedioate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18820: malonate + acetyl-CoA <=> acetate + malonyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18836: 4-formylbenzenesulfonate + NAD(+) + H2O <=> 4-sulfobenzoate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18864: a 5-hydroxyfurocoumarin + S-adenosyl-L-methionine <=> a 5-methoxyfurocoumarin + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18908: phosphonoacetaldehyde + H2O <=> acetaldehyde + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18932: thiophene-2-carbonyl-CoA + AH2 + O2 <=> 5-hydroxythiophene-2-carbonyl-CoA + A + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18964: D-allose + L-lysyl-[protein] <=> N(6)-(D-psicosyl)-L-lysyl-[protein] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18976: deacetoxyvindoline + 2-oxoglutarate + O2 <=> 4-O-deacetylvindoline + succinate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18984: (R)-pantolactone + NADP(+) <=> 2-dehydropantolactone + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18988: chorismate <=> isochorismate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:18992: L-valine + H(+) <=> 2-methylpropan-1-amine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19032: urea-1-carboxylate + H2O + 3 H(+) <=> 2 NH4(+) + 2 CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19036: an N-acyl-D-glucosamine <=> an N-acyl-D-mannosamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19052: (5R)-5-hydroxy-L-lysine + GTP <=> (5R)-5-phosphooxy-L-lysine + GDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19068: (R)-S-lactoylglutathione => methylglyoxal + glutathione
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19084: 1-haloalkane + H2O <=> a halide anion + a primary alcohol + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19124: an S-substituted glutathione(in) + ATP + H2O <=> an S-substituted glutathione(out) + ADP + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19132: thymidine + ATP <=> dTMP + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19156: UDP-alpha-D-apiose + apigenin 7-O-beta-D-glucoside <=> 7-O-(beta-D-apiofuranosyl-1,2-beta-D-glucosyl)-5,7,4'-trihydroxyflavone + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19168: a 1,2-diacyl-3-O-(alpha-D-glucopyranosyl)-sn-glycerol + UDP-alpha-D-glucose <=> a 1,2-diacyl-3-O-[alpha-D-glucosyl-(1-> 2)-alpha-D-glucosyl]-sn-glycerol + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19176: naphthalene + NADH + O2 + H(+) <=> (1R,2S)-1,2-dihydronaphthalene-1,2-diol + NAD(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19192: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + pyruvate + H(+) <=> N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19236: S-hexadecanoyl-L-cysteinyl-[protein] + H2O <=> L-cysteinyl-[protein] + hexadecanoate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19244: ent-kaur-16-en-19-oate + reduced [NADPH--hemoprotein reductase] + O2 <=> ent-7alpha-hydroxykaur-16-en-19-oate + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19288: a di-trans,poly-cis-dolichol + a 1,2-diacyl-sn-glycero-3-phosphocholine <=> an acyl-di-trans,poly-cis-dolichol + a 1-acyl-sn-glycero-3-phosphocholine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19308: 3-hydroxybenzoyl-CoA + 3 malonyl-CoA + 2 H(+) <=> 2,3',4,6-tetrahydroxybenzophenone + 3 CO2 + 4 CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19320: 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + hydrogencarbonate + ATP <=> 5-carboxyamino-1-(5-phospho-D-ribosyl)imidazole + ADP + phosphate + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19332: nuatigenin + UDP-alpha-D-glucose <=> nuatigenin 3-beta-D-glucopyranoside + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19344: octane + 2 reduced [rubredoxin] + O2 + 2 H(+) <=> 2 oxidized [rubredoxin] + octan-1-ol + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19352: (R)-4-dehydropantoate + NAD(+) + H2O <=> (R)-3,3-dimethylmalate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19360: L-proline betaine + NADPH + O2 + H(+) <=> N-methyl-L-proline + formaldehyde + NADP(+) + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19392: (E)-ferulate + ATP + CoA <=> (E)-feruloyl-CoA + ADP + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19404: methanol + NAD(+) <=> formaldehyde + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19420: a di-trans,poly-cis-dolichyl diphosphate + [phosphate](n) <=> [phosphate](n+1) + a di-trans,poly-cis-dolichyl phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19436: D-gluconate + ATP <=> 6-phospho-D-gluconate + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19452: L-alanine + 2-oxoglutarate => pyruvate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19480: 4-hydroxybenzoate + NADPH + O2 + H(+) <=> 3,4-dihydroxybenzoate + NADP(+) + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19492: dibenzothiophene 5,5-dioxide + FMN-N(5)-peroxide <=> 2'-hydroxybiphenyl-2-sulfinate + FMN-N(5)-oxide + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19496: D-cellobiose + phosphate <=> alpha-D-glucose 1-phosphate + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19500: L-aspartate + H(+) <=> beta-alanine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19516: carbamoyl phosphate + L-ornithine <=> L-citrulline + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19520: N,N-dimethylformamide + H2O <=> dimethylamine + formate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19524: acetyl-CoA + phosphate <=> acetyl phosphate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19536: N(2)-succinyl-L-arginine + 2 H2O + 2 H(+) <=> N(2)-succinyl-L-ornithine + 2 NH4(+) + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19564: androst-4-ene-3,17-dione + NADPH + O2 + H(+) <=> testololactone + NADP(+) + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19596: L-arginine + H2O => L-citrulline + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19612: adenosine(1518)/adenosine(1519) in 16S rRNA + 4 S-adenosyl-L-methionine <=> N(6)-dimethyladenosine(1518)/N(6)-dimethyladenosine(1519) in 16S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19620: a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(purine-ribonucleoside) in mRNA + S-adenosyl-L-methionine <=> a 5'-end (N(7)-methyl 5'-triphosphoguanosine)-(2'-O-methyl-purine-ribonucleoside) in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19624: a nucleoside 2',3'-cyclic phosphate + H2O <=> a nucleoside 3'-phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19688: tyramine + (E)-feruloyl-CoA <=> N-[(E)-feruloyl]tyramine + CoA + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19708: hexadecanal + NAD(+) + CoA <=> hexadecanoyl-CoA + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19716: (5Z,8Z,11Z,14Z)-eicosatetraenoate + ATP + CoA <=> (5Z,8Z,11Z,14Z)-eicosatetraenoyl-CoA + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19724: octadecanoyl-CoA + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) <=> (9Z)-octadecenoyl-CoA + 2 Fe(III)-[cytochrome b5] + 2 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19728: UDP-alpha-D-galacturonate + H(+) <=> UDP-beta-L-arabinopyranose + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19736: 3-deacetyl-3-(1-hydroxyethyl)bacteriochlorophyllide a + NAD(+) <=> bacteriochlorophyllide a + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19756: diphthine-[translation elongation factor 2] + NH4(+) + ATP <=> diphthamide-[translation elongation factor 2] + AMP + diphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19764: FMN-N(5)-oxide + NADH + H(+) <=> FMN + NAD(+) + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19768: glycerol <=> 3-hydroxypropanal + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19780: L-pipecolate + A <=> L-1-piperideine-6-carboxylate + AH2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19796: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + sarcosine + oxidized [electron-transfer flavoprotein] + H(+) <=> (6R)-5,10-methylenetetrahydrofolyl-(gamma-L-Glu)(n) + reduced [electron-transfer flavoprotein] + glycine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19804: (R)-4'-phosphopantetheine + ATP + H(+) <=> 3'-dephospho-CoA + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19812: (S)-ureidoglycolate + H2O + 2 H(+) <=> glyoxylate + 2 NH4(+) + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19824: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + NAD(+) <=> (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19828: (2E,6E)-farnesyl diphosphate <=> (+)-aristolochene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19900: 2 L-arginine + 3 NADPH + 4 O2 + H(+) <=> 2 L-citrulline + 2 nitric oxide + 3 NADP(+) + 4 H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19932: [(1->4)-beta-D-glucosyl](n) + UDP-alpha-D-glucose <=> [(1->4)-beta-D-glucosyl](n+1) + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19948: N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine <=> N(4)-{beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-[beta-D-GlcNAc-(1->4)]-[beta-D-GlcNAc-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19952: (7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate <=> 7,8-dihydropteroate + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19960: 2 5'-dehydroinosine + O2 <=> 2 9-riburonosylhypoxanthine + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19988: S-(hydroxymethyl)glutathione + NAD(+) <=> S-formylglutathione + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:19996: [thioredoxin]-disulfide + L-methionine + H2O <=> L-methionine (S)-S-oxide + [thioredoxin]-dithiol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20004: glycolaldehyde + NAD(+) + H2O <=> glycolate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20016: carbamoyl phosphate + L-aspartate <=> N-carbamoyl-L-aspartate + phosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20032: 10-deoxysarpagine + NADP(+) <=> vellosimine + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20048: 3-oxopropanoate + NAD(+) + H2O <=> malonate + NADH + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20068: 2'-deoxymugineate + 2-oxoglutarate + O2 <=> 3-epihydroxy-2'-deoxymugineate + succinate + CO2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20072: (Z)-phenylacetaldehyde oxime <=> phenylacetonitrile + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20080: guanosine(18) in tRNA + S-adenosyl-L-methionine <=> 2'-O-methylguanosine(18) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20084: N-methylhexanamide + H2O <=> hexanoate + methylamine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20096: an anthocyanidin + UDP-alpha-D-glucose + H(+) <=> an anthocyanidin 3-O-beta-D-glucoside + UDP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20112: alpha-D-ribose 1,5-bisphosphate + ATP <=> 5-phospho-alpha-D-ribose 1-diphosphate + ADP
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20128: 2 reduced [2Fe-2S]-[ferredoxin] + NADP(+) + H(+) <=> 2 oxidized [2Fe-2S]-[ferredoxin] + NADPH
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20136: 3-(indol-3-yl)lactate + NAD(+) <=> indole-3-pyruvate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20140: 10-deacetylbaccatin III + acetyl-CoA <=> baccatin III + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20216: N(6)-octanoyl-L-lysyl-[glycine-cleavage complex H protein] + L-lysyl-[lipoyl-carrier protein] <=> N(6)-octanoyl-L-lysyl-[lipoyl-carrier protein] + L-lysyl-[glycine-cleavage complex H protein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20240: (1S,4S)-5-oxo-1,2-campholide <=> [(1R)-2,2,3-trimethyl-5-oxocyclopent-3-en-1-yl]acetate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20248: streptomycin + ATP <=> 3''-O-adenylylstreptomycin + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20252: L-alanine <=> D-alanine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20268: L-proline + 2-oxoglutarate + O2 <=> cis-3-hydroxy-L-proline + succinate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20276: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 <=> (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tyrosine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20284: (Z)-desulfoglucotropeolin + 3'-phosphoadenylyl sulfate <=> (Z)-glucotropeolin + adenosine 3',5'-bisphosphate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20324: L-proline + NAD(+) <=> 1-pyrroline-2-carboxylate + NADH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20392: (2R,3R)-dihydroquercetin + NADPH + O2 + H(+) <=> (2R,3R)-2,3-dihydrogossypetin + NADP(+) + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20400: O-succinyl-L-homoserine + L-cysteine <=> L,L-cystathionine + succinate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20404: a beta-lactam + H2O <=> a substituted beta-amino acid
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20408: N-acetyl-(2S,6S)-2,6-diaminopimelate + H2O <=> (2S,6S)-2,6-diaminopimelate + acetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20420: coelenterazine + O2 <=> coelenteramide + hnu + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20440: 5D-5-O-methyl-chiro-inositol + NADP(+) <=> 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADPH + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20444: L-cysteine + O2 <=> 3-sulfino-L-alanine + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20468: [hyaluronan](n) + UDP-N-acetyl-alpha-D-glucosamine <=> N-acetyl-beta-D-glucosaminyl-(1->4)-[hyaluronan](n) + UDP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20488: (S)-scoulerine + reduced [NADPH--hemoprotein reductase] + O2 <=> (S)-cheilanthifoline + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20504: an alpha-(gamma-L-glutamyl)-L-amino acid => 5-oxo-L-proline + an L-alpha-amino acid
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20512: viomycin + ATP <=> O-phosphoviomycin + ADP + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20516: 2-aryl-2-methylmalonate + H(+) <=> 2-arylpropionate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20532: 2-cis-(+)-abscisic aldehyde + O2 + H2O <=> 2-cis-(+)-abscisate + H2O2 + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20552: 2 thiosulfate + 2 Fe(III)-[cytochrome c] <=> tetrathionate + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20560: urea + 2 H2O + H(+) <=> hydrogencarbonate + 2 NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20564: 3-hydroxypyruvate + H(+) <=> glycolaldehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20568: (2E)-geranyl diphosphate + H2O <=> (1S,2S,4R)-endo-fenchol + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20576: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) <=> calcitriol + 2 oxidized [adrenodoxin] + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20592: glutaryl-CoA + oxidized [electron-transfer flavoprotein] + H(+) <=> (2E)-glutaconyl-CoA + reduced [electron-transfer flavoprotein]
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20608: cytosine + H2O + H(+) <=> uracil + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20628: 2 Fe(III)-[cytochrome c3] + H2 <=> 2 Fe(II)-[cytochrome c3] + 2 H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20636: a (3R)-hydroxyacyl-[ACP] + L-ornithine <=> a lyso-ornithine lipid + holo-[ACP] + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20660: 4-chlorophenylacetonitrile + 2 H2O <=> 4-chlorophenylacetate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20724: a 4-saturated-(3S)-3-hydroxyacyl-CoA = a (3E)-enoyl-CoA + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20736: glycine + acetyl-CoA = (2S)-2-amino-3-oxobutanoate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20740: trans-2,3-epoxysuccinate + H2O = (2R,3S)-tartrate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20756: D-threo-isocitrate + (E)-caffeoyl-CoA = 2-[(E)-caffeoyl]-D-threo-isocitrate(3-) + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20764: (S)-methylmalonyl-CoA + pyruvate = propanoyl-CoA + oxaloacetate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20768: 3-phosphonopyruvate + H(+) = phosphonoacetaldehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20776: alpha-D-galactosyl-(1->3)-1D-myo-inositol + raffinose = stachyose + myo-inositol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20784: N(omega)-(ADP-D-ribosyl)-L-arginine + H2O = ADP-D-ribose + L-arginine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20796: aldehydo-D-ribose = D-ribulose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20812: (3S)-citryl-CoA = oxaloacetate + acetyl-CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20828: a 1,2-diacyl-sn-glycero-3-phospho-L-serine + H(+) = a 1,2-diacyl-sn-glycero-3-phosphoethanolamine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20840: L-histidine + H(+) = histamine + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20856: an N-acylsphing-4-enine + H2O = sphing-4-enine + a fatty acid
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20864: alpha,alpha-trehalose 6-phosphate + phosphate = beta-D-glucose 1-phosphate + D-glucose 6-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20892: butanoyl-CoA + phosphate = butanoyl phosphate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20904: (S)-2-hydroxypropyl-coenzyme M = (S)-1,2-epoxypropane + coenzyme M
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20912: (2E,6E,10E)-geranylgeranyl diphosphate = taxa-4(5),11(12)-diene + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20916: sulfite + L-cysteine = L-cysteate + hydrogen sulfide
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20924: a [peptide]-C-terminal (2S)-2-hydroxyglycine = a [peptide]-C-terminal amide + glyoxylate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20932: L-erythrulose 1-phosphate = dihydroxyacetone phosphate + formaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20948: 3-sulfopyruvate + H(+) = sulfoacetaldehyde + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20960: 1D-myo-inositol hexakisphosphate + H2O = 1D-myo-inositol 1,2,3,5,6-pentakisphosphate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20968: L-arabinonate = 2-dehydro-3-deoxy-L-arabinonate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20972: a 1-O-alkyl-sn-glycero-3-phosphoethanolamine + a 1-O-alkyl-2-acyl-sn-glycero-3-phosphocholine = a 1-O-alkyl-2-acyl-sn-glycero-3-phosphoethanolamine + a 1-O-alkyl-sn-glycero-3-phosphocholine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:20996: (2Z,4E)-2-aminomuconate + H2O = (3E)-2-oxohex-3-enedioate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21000: 1,2,3,5-tetrahydroxybenzene + 1,2,3-trihydroxybenzene = 1,2,3,5-tetrahydroxybenzene + 1,3,5-trihydroxybenzene
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21004: (R)-pantolactone + A = 2-dehydropantolactone + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21016: L-asparagine + H2O = L-aspartate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21020: 5-O-(1-carboxyvinyl)-3-phosphoshikimate = chorismate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21036: 2 acetyl-CoA = acetoacetyl-CoA + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21060: 3,4-dichloroaniline + malonyl-CoA = N-(3,4-dichlorophenyl)malonamate + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21096: 3-dehydroquinate = 3-dehydroshikimate + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21108: (S)-3-methyl-2-oxopentanoate + H(+) = 2-methylbutanal + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21112: a globoside Gb3Cer (d18:1(4E)) + H2O = a beta-D-Gal-(1->4)-beta-D-Glc-(1<->1)-Cer(d18:1(4E)) + D-galactose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21116: D-maltose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21136: (R)-carnitine + acetyl-CoA = O-acetyl-(R)-carnitine + CoA
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21152: trans-4-hydroxy-L-proline = cis-4-hydroxy-D-proline
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21156: (2R)-2-phosphoglycerate + H2O = (R)-glycerate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21180: 1-O-(indol-3-ylacetyl)-beta-D-glucose + myo-inositol = indole-3-acetyl-1D-myo-inositol + D-glucose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21196: 5-methyltetrahydropteroyltri-L-glutamate + L-homocysteine = tetrahydropteroyltri-L-glutamate + L-methionine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21200: L-lysine + 2-oxoglutarate = (S)-2-amino-6-oxohexanoate + L-glutamate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21204: a sterol + a 1,2-diacyl-sn-glycero-3-phosphocholine = a sterol ester + a 1-acyl-sn-glycero-3-phosphocholine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21208: O-phospho-L-serine + H2O = L-serine + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21220: L-dopa + O2 = 4-(L-alanin-3-yl)-2-hydroxy-cis,cis-muconate 6-semialdehyde + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21228: alpha-maltose = beta-maltose
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21232: L-histidine = trans-urocanate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21240: geranylgeranyl diphosphate + L-cysteinyl-[protein] = S-geranylgeranyl-L-cysteinyl-[protein] + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21252: (S)-2-hydroxyglutarate + A = 2-oxoglutarate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21256: 3-phosphoshikimate + phosphoenolpyruvate = 5-O-(1-carboxyvinyl)-3-phosphoshikimate + phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21264: glycolate + A = glyoxylate + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21288: sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21308: (S)-2,3-epoxysqualene = cycloartenol
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21312: 2,5-dihydroxybenzoate + H(+) = hydroquinone + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21320: D-sorbitol + A = keto-L-sorbose + AH2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21340: 1,2-bis(4-hydroxy-3-methoxyphenyl)ethylene + O2 = 2 vanillin
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21352: 3,4-dihydroxy-9,10-secoandrosta-1,3,5(10)-triene-9,17-dione + O2 = (1E,2Z)-3-hydroxy-5,9,17-trioxo-4,5:9,10-disecoandrosta-1(10),2-dien-4-oate + H(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21364: N-(6-aminohexanoyl)-6-aminohexanoate + H2O = 2 6-aminohexanoate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21376: 3-(4-hydroxyphenyl)pyruvate + O2 = (S)-4-hydroxymandelate + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21384: L-phenylalanine = (E)-cinnamate + NH4(+)
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21388: L-2-aminohexano-6-lactam + H2O = L-lysine
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21404: chloride + O2 = chlorite
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21460: benzoin = 2 benzaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21492: 2,3-dihydroxybenzoate + H(+) = catechol + CO2
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21496: dimethylallyl diphosphate + H2O = prenol + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21500: UDP-alpha-D-glucose = UDP-4-dehydro-6-deoxy-alpha-D-glucose + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21504: aldehydo-D-ribose 5-phosphate + acetoin = 1-deoxy-D-altro-heptulose 7-phosphate + acetaldehyde
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21516: isopiperitenone = piperitenone
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21536: (3S)-3-hydroxy-3-methylglutaryl-CoA = 3-methyl-(2E)-glutaconyl-CoA + H2O
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:21540: N-(5-phospho-beta-D-ribosyl)anthranilate = 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+
+RHEA:14784: heptanedioate + ATP + CoA <=> 6-carboxyhexanoyl-CoA + AMP + diphosphate
+  → Peptidyl-prolyl Isomerase: ultra-specific proline cis-trans isomerization
+

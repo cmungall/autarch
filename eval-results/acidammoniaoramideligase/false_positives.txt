@@ -1,0 +1,28 @@
+False Positives for AcidAmmoniaOrAmideLigase
+==================================================
+Total: 8
+
+RHEA:11204: apo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[propionyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:11756: biotin + L-lysyl-[protein] + ATP = N(6)-biotinyl-L-lysyl-[protein] + AMP + diphosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:17117: methylamine + L-glutamate + ATP = N(5)-methyl-L-glutamine + ADP + phosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:17453: 5-phospho-beta-D-ribosylamine + glycine + ATP = N(1)-(5-phospho-beta-D-ribosyl)glycinamide + ADP + phosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:18881: histamine + L-glutamate + ATP = N(alpha)-gamma-L-glutamylhistamine + ADP + phosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:23668: apo-[methylmalonyl-CoA:pyruvate carboxytransferase] + biotin + ATP = holo-[methylmalonyl-CoA:pyruvate carboxytransferase] + AMP + diphosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:24376: apo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + biotin + ATP = holo-[3-methylcrotonoyl-CoA:carbon-dioxide ligase (ADP-forming)] + AMP + diphosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+
+RHEA:49288: L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)
+  → Acid-ammonia (or amide) ligase: triphosphate-coupled amide formation between a carboxylic-acid donor and a non-carboxylate nitrogen acceptor
+

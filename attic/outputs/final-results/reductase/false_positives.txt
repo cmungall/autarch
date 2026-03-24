@@ -1,0 +1,34 @@
+False Positives for Reductase
+==================================================
+Total: 10
+
+RHEA:10584: 4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:57355 + H2O
+
+RHEA:10588: a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:57326 + H2O
+
+RHEA:10648: 2-hydroxycyclohexan-1-one + NADPH + O2 + H(+) = 6-hydroxyhexan-6-olide + NADP(+) + H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:15379 + H2O
+
+RHEA:10860: 3-hydroxy-2-methylpyridine-5-carboxylate + NADH + O2 = 2-(acetamidomethylene)succinate + NAD(+)
+  → Reductase: NADH-dependent reduction of CHEBI:15379
+
+RHEA:11052: 4-aminobenzoate + NADH + O2 + 2 H(+) = 4-aminophenol + CO2 + NAD(+) + H2O
+  → Reductase: NADH-dependent reduction of CHEBI:15379 + H2O
+
+RHEA:11056: 4-aminobenzoate + NADPH + O2 + 2 H(+) = 4-aminophenol + CO2 + NADP(+) + H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:15379 + H2O
+
+RHEA:11072: anthranilate + NADPH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NADP(+)
+  → Reductase: NADPH-dependent reduction of CHEBI:15379
+
+RHEA:11076: anthranilate + NADH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NAD(+)
+  → Reductase: NADH-dependent reduction of CHEBI:15379
+
+RHEA:11440: 2,3,5,6-tetrachlorophenol + NADPH + O2 = 2,3,5,6-tetrachlorohydroquinone + NADP(+) + H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:15379 + H2O
+
+RHEA:11700: progesterone + NADPH + O2 + H(+) = testosterone acetate + NADP(+) + H2O
+  → Reductase: NADPH-dependent reduction of CHEBI:15379 + H2O
+

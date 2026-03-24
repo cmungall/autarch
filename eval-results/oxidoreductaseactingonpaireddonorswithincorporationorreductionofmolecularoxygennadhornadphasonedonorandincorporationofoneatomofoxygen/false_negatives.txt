@@ -1,0 +1,55 @@
+False Negatives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygenNADHOrNADPHAsOneDonorAndIncorporationOfOneAtomOfOxygen
+==================================================
+Total: 17
+
+RHEA:11004: salicylate + NADH + O2 + 2 H(+) = catechol + CO2 + NAD(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:13545: (6E,10E)-geranyllinalool + reduced [NADPH--hemoprotein reductase] + O2 = (3E,7E)-4,8,12-trimethyltrideca 1,3,7,11-tetraene + but-3-en-2-one + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:19281: (7S)-marmesin + reduced [NADPH--hemoprotein reductase] + O2 = psoralen + acetone + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:19457: 2-nitrophenol + 2 NADPH + O2 + 2 H(+) = catechol + nitrite + 2 NADP(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:20573: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitriol + 2 oxidized [adrenodoxin] + H2O
+  → Ferredoxin/adrenodoxin chemistry indicates a different monooxygenase branch
+
+RHEA:26077: methanesulfonate + NADH + O2 = sulfite + formaldehyde + NAD(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:27333: 6-hydroxynicotinate + NADH + O2 + 2 H(+) = 2,5-dihydroxypyridine + CO2 + NAD(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:27481: (S)-columbianetin + reduced [NADPH--hemoprotein reductase] + O2 = angelicin + acetone + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:28602: L-isoleucine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (1E,2S)-2-methylbutanal oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:28606: L-valine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (E)-2-methylpropanal oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:31271: 1-hydroxy-2-naphthoate + NADH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NAD(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:31571: 1-hydroxy-2-naphthoate + NADPH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NADP(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:33263: L-phenylalanine + 2 reduced [NADPH--hemoprotein reductase] + 2 O2 = (E)-phenylacetaldehyde oxime + 2 oxidized [NADPH--hemoprotein reductase] + CO2 + 3 H2O + 2 H(+)
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:34307: 4-nitrocatechol + NADPH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:34311: 4-nitrocatechol + NADH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NAD(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:34327: 4-nitrophenol + NADPH + O2 + H(+) = 1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+
+RHEA:34331: indole-3-pyruvate + NADPH + O2 + H(+) = (indol-3-yl)acetate + CO2 + NADP(+) + H2O
+  → Dominant organic product loses oxygen rather than retaining/incorporating it
+

@@ -1,0 +1,28 @@
+False Negatives for CarbohydrateTransmembraneTransporterActivity
+==================================================
+Total: 8
+
+RHEA:29023: L-fucose(in) + H(+)(in) = L-fucose(out) + H(+)(out)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:29675: glycerol(in) = glycerol(out)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:29799: D-allose(out) + ATP + H2O = D-allose(in) + ADP + phosphate + H(+)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:29943: 2-dehydro-3-deoxy-D-gluconate(in) + H(+)(in) = 2-dehydro-3-deoxy-D-gluconate(out) + H(+)(out)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:33171: D-maltose(in) = D-maltose(out)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:34915: D-galactose(in) = D-galactose(out)
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:49236: N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No supported carbohydrate transmembrane transporter activity child classifier matched
+

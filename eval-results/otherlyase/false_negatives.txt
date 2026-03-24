@@ -1,0 +1,214 @@
+False Negatives for OtherLyase
+==================================================
+Total: 70
+
+RHEA:10336: citrate = D-threo-isocitrate
+  → No lyase pattern detected
+
+RHEA:10524: 2-oxoglutarate + H(+) = succinate semialdehyde + CO2
+  → No lyase pattern detected
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:11268: D-cysteine + H2O = hydrogen sulfide + pyruvate + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:11620: L-2-amino-4-chloropent-4-enoate + H2O = 2-oxopent-4-enoate + chloride + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:13441: L-cysteate + H2O = sulfite + pyruvate + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:13665: GTP = 3',5'-cyclic GMP + diphosphate
+  → No lyase pattern detected
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:14005: L,L-cystathionine + H2O = 2-oxobutanoate + L-cysteine + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:14501: L-homocysteine + H2O = 2-oxobutanoate + hydrogen sulfide + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:14737: CTP = 3',5'-cyclic CMP + diphosphate
+  → No lyase pattern detected
+
+RHEA:15389: ATP = 3',5'-cyclic AMP + diphosphate
+  → No lyase pattern detected
+
+RHEA:15397: dichloromethane + H2O = formaldehyde + 2 chloride + 2 H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:15445: O-carbamoyl-L-serine + H2O + H(+) = pyruvate + 2 NH4(+) + CO2
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:15605: L-serine O-sulfate + H2O = sulfate + pyruvate + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:16453: (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:16629: (S)-malyl-CoA = glyoxylate + acetyl-CoA
+  → No lyase pattern detected
+
+RHEA:17733: acetylenedicarboxylate + H2O + H(+) = pyruvate + CO2
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:17821: hydrogen cyanide + L-cysteine = 3-cyano-L-alanine + hydrogen sulfide + H(+)
+  → No lyase pattern detected
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:18781: malonyl-CoA + H(+) = acetyl-CoA + CO2
+  → No lyase pattern detected
+
+RHEA:18873: 3-chloro-D-alanine + H2O = chloride + pyruvate + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:19017: (6S)-NADHX + ATP = ADP + phosphate + NADH + H(+)
+  → No lyase pattern detected
+
+RHEA:19553: L-tryptophan + H2O = indole + pyruvate + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:20217: trimethylamine N-oxide + H(+) = dimethylamine + formaldehyde
+  → No lyase pattern detected
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:20812: (3S)-citryl-CoA = oxaloacetate + acetyl-CoA
+  → No lyase pattern detected
+
+RHEA:20916: sulfite + L-cysteine = L-cysteate + hydrogen sulfide
+  → No lyase pattern detected
+
+RHEA:21704: L-tyrosine + H2O = phenol + pyruvate + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:21732: chorismate + L-glutamine = anthranilate + pyruvate + L-glutamate + H(+)
+  → No lyase pattern detected
+
+RHEA:21744: S-adenosyl-L-methionine = 1-aminocyclopropane-1-carboxylate + S-methyl-5'-thioadenosine + H(+)
+  → No lyase pattern detected
+
+RHEA:21856: cyclohexa-1,5-diene-1-carbonyl-CoA + H2O = 6-hydroxycyclohex-1-ene-1-carbonyl-CoA
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:21932: S-adenosyl-L-methionine = L-homoserine lactone + S-methyl-5'-thioadenosine
+  → No lyase pattern detected
+
+RHEA:22084: (S)-2,3-diaminopropanoate + H2O + H(+) = pyruvate + 2 NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:22612: (3S)-citramalyl-CoA = pyruvate + acetyl-CoA
+  → No lyase pattern detected
+
+RHEA:22868: thioglycolate + 3-chloro-L-alanine = S-carboxymethyl-L-cysteine + chloride + H(+)
+  → No lyase pattern detected
+
+RHEA:23800: L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:23864: 4-CDP-2-C-methyl-D-erythritol 2-phosphate = 2-C-methyl-D-erythritol 2,4-cyclic diphosphate + CMP
+  → No lyase pattern detected
+
+RHEA:23868: (1-hydroxycyclohexan-1-yl)acetyl-CoA = cyclohexanone + acetyl-CoA
+  → No lyase pattern detected
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:24404: (3S)-3-hydroxy-3-methylglutaryl-CoA = acetoacetate + acetyl-CoA
+  → No lyase pattern detected
+
+RHEA:24840: 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + S-adenosyl-L-methionine = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + CO + 5'-deoxyadenosine + formate + L-methionine + 3 H(+)
+  → No lyase pattern detected
+
+RHEA:24927: L-cystine + H2O = S-sulfanyl-L-cysteine + pyruvate + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:24931: L-cysteine + H2O = hydrogen sulfide + pyruvate + NH4(+) + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:26361: L-tyrosine + S-adenosyl-L-methionine + NADPH = 2-iminoacetate + 4-methylphenol + 5'-deoxyadenosine + L-methionine + NADP(+)
+  → No lyase pattern detected
+
+RHEA:27389: (3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate + H2O = salicylaldehyde + pyruvate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:27754: methylglyoxal + H2O = (R)-lactate + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:27822: O-acetyl-L-homoserine + hydrogen sulfide = L-homocysteine + acetate
+  → No lyase pattern detected
+
+RHEA:27966: 7,8-dihydroneopterin 3'-triphosphate + H2O = 6-carboxy-5,6,7,8-tetrahydropterin + triphosphate + acetaldehyde + 2 H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:28278: 3-sulfino-L-alanine + H2O = sulfite + L-alanine + H(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:28370: oxaloacetate + phosphate = phosphoenolpyruvate + hydrogencarbonate
+  → No lyase pattern detected
+
+RHEA:30415: octadecanal + 2 NADPH + O2 + H(+) = heptadecane + formate + 2 NADP(+) + H2O
+  → No lyase pattern detected
+
+RHEA:31151: L-selenocystathionine + H2O = L-selenocysteine + 2-oxobutanoate + NH4(+)
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:32223: (6S)-NADHX + ADP = AMP + phosphate + NADH + H(+)
+  → No lyase pattern detected
+
+RHEA:32231: (6S)-NADPHX + ATP = ADP + phosphate + NADPH + H(+)
+  → No lyase pattern detected
+
+RHEA:32235: (6S)-NADPHX + ADP = AMP + phosphate + NADPH + H(+)
+  → No lyase pattern detected
+
+RHEA:32287: (2R,3S)-3-isopropylmalate = (2S)-2-isopropylmalate
+  → No lyase pattern detected
+
+RHEA:32535: (2Z,4Z)-2-hydroxyhexa-2,4-dienoate + H2O = 4-hydroxy-2-oxohexanoate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:32703: (2E,6E,10E)-geranylgeranyl diphosphate + H2O = 8-hydroxycopalyl diphosphate
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:34807: (R)-dihydrocamalexate + reduced [NADPH--hemoprotein reductase] + O2 = camalexin + oxidized [NADPH--hemoprotein reductase] + CO2 + 2 H2O
+  → No lyase pattern detected
+
+RHEA:35407: medicarpin + H2O = 4'-methoxyisoflavan-2',4,7-triol
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:36307: (E)-caffeoyl-CoA + H2O = 3,4-dihydroxybenzaldehyde + acetyl-CoA
+  → Water as reactant - likely hydrolase not lyase
+
+RHEA:45140: 4-carboxy-L-glutamyl-[protein] + 2,3-epoxyphylloquinone + H2O + H(+) = phylloquinol + L-glutamyl-[protein] + CO2 + O2
+  → Water as reactant - likely hydrolase not lyase
+

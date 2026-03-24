@@ -1,0 +1,112 @@
+False Positives for Transferase
+==================================================
+Total: 36
+
+RHEA:10132: benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate
+  → Transferase: CoA-mediated group transfer from CHEBI:57287 to CHEBI:16150
+
+RHEA:10184: (4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:58425
+
+RHEA:10276: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ATP + H(+) = 1,5-bis(diphospho)-1D-myo-inositol 2,3,4,6-tetrakisphosphate + ADP
+  → Transferase: ATP-dependent group transfer
+
+RHEA:10288: L-rhamnono-1,4-lactone + H2O = L-rhamnonate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:17937 to CHEBI:15377
+
+RHEA:10360: 3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:16151
+
+RHEA:10384: cyclo-acetoacetyl-L-tryptophan + dimethylallyl diphosphate = beta-cyclopiazonate + diphosphate
+  → Transferase: group transfer between 2 molecules from CHEBI:167552 to CHEBI:57623
+
+RHEA:10440: D-glucono-1,5-lactone + H2O = D-gluconate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:16217
+
+RHEA:10468: D-xylulose 5-phosphate + phosphate = acetyl phosphate + D-glyceraldehyde 3-phosphate + H2O
+  → Transferase: group transfer between 2 molecules from CHEBI:57737 to CHEBI:43474
+
+RHEA:10488: (6S)-5-formyl-5,6,7,8-tetrahydrofolate + ATP = (6R)-5,10-methenyltetrahydrofolate + ADP + phosphate
+  → Transferase: ATP-dependent group transfer
+
+RHEA:10532: (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate + L-serine = D-glyceraldehyde 3-phosphate + L-tryptophan + H2O
+  → Transferase: group transfer between 2 molecules from CHEBI:33384 to CHEBI:58866
+
+RHEA:10580: (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n) + L-glutamate + ATP = (6S)-5,6,7,8-tetrahydrofolyl-(gamma-L-Glu)(n+1) + ADP + phosphate + H(+)
+  → Transferase: ATP-dependent group transfer
+
+RHEA:10644: 2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:58304
+
+RHEA:10748: hydrogencarbonate + H(+) = CO2 + H2O
+  → Transferase: group transfer between 2 molecules from CHEBI:17544 to CHEBI:15378
+
+RHEA:10752: [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n) + n D-aspartate + n ATP = [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-6-N-(beta-D-Asp)-L-Lys-D-Ala-D-Ala)]n + n ADP + n phosphate + n H(+)
+  → Transferase: ATP-dependent group transfer
+
+RHEA:10828: anthranilate + ATP + CoA = anthraniloyl-CoA + AMP + diphosphate
+  → Transferase: CoA-mediated group transfer from CHEBI:57287 to CHEBI:16567
+
+RHEA:10852: leachianone G + dimethylallyl diphosphate = sophoraflavanone G + diphosphate
+  → Transferase: group transfer between 2 molecules from CHEBI:57623 to CHEBI:50208
+
+RHEA:10856: a N-(2-hydroxyacyl)sphing-4-enine + UDP-alpha-D-galactose = a 1-(beta-D-galactosyl)-2-(2-hydroxyacyl)sphing-4-enine + UDP + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:16456 to CHEBI:66914
+
+RHEA:10908: glycolithocholate + 3'-phosphoadenylyl sulfate = sulfoglycolithocholate + adenosine 3',5'-bisphosphate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:58339 to CHEBI:60008
+
+RHEA:10912: (R)-pantoate + beta-alanine + ATP = (R)-pantothenate + AMP + diphosphate + H(+)
+  → Transferase: group transfer between 3 molecules from CHEBI:57966 to CHEBI:15980
+
+RHEA:10932: L-citrulline + L-aspartate + ATP = 2-(N(omega)-L-arginino)succinate + AMP + diphosphate + H(+)
+  → Transferase: group transfer between 3 molecules from CHEBI:29991 to CHEBI:57743
+
+RHEA:10968: a carboxylate + GTP + CoA = an acyl-CoA + GDP + phosphate
+  → Transferase: CoA-mediated group transfer from CHEBI:57287 to CHEBI:29067
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → Transferase: group transfer between 2 molecules from CHEBI:16651 to CHEBI:16452
+
+RHEA:11088: trimetaphosphate + H2O = triphosphate + 2 H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:57801
+
+RHEA:11224: 2 D-alanine + ATP = D-alanyl-D-alanine + ADP + phosphate + H(+)
+  → Transferase: ATP-dependent group transfer
+
+RHEA:11252: hydroxylamine + L-asparagine + H(+) = beta-L-aspartylhydroxamate + NH4(+)
+  → Transferase: group transfer between 3 molecules from CHEBI:58048 to CHEBI:15429
+
+RHEA:11272: a (2R)-2-hydroxycarboxylate + a quinone = a 2-oxocarboxylate + a quinol
+  → Transferase: group transfer between 2 molecules from CHEBI:132124 to CHEBI:58314
+
+RHEA:11308: hydrogencarbonate + acetyl-CoA + ATP = malonyl-CoA + ADP + phosphate + H(+)
+  → Transferase: ATP-dependent group transfer
+
+RHEA:11372: L-aspartate + NH4(+) + ATP = L-asparagine + AMP + diphosphate + H(+)
+  → Transferase: group transfer between 3 molecules from CHEBI:28938 to CHEBI:29991
+
+RHEA:11400: sordaricin + GDP-6-deoxy-alpha-D-altrose = 4'-O-demethylsordarin + GDP + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:140232 to CHEBI:140433
+
+RHEA:11564: 4-O-beta-D-glucopyranosyl-D-gluconate + phosphate = D-gluconate + alpha-D-glucose 1-phosphate
+  → Transferase: group transfer between 2 molecules from CHEBI:43474 to CHEBI:76825
+
+RHEA:11588: isoquinoline + A + H2O = isoquinolin-1(2H)-one + AH2
+  → Transferase: group transfer between 3 molecules from CHEBI:15377 to CHEBI:13193
+
+RHEA:11684: methylarsonous acid + S-adenosyl-L-methionine = dimethylarsinate + S-adenosyl-L-homocysteine + 2 H(+)
+  → Transferase: SAM/SAH-mediated group transfer from CHEBI:17826 to CHEBI:59789
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Transferase: CoA-mediated group transfer from CHEBI:57287 to CHEBI:11851
+
+RHEA:11808: bergaptol + S-adenosyl-L-methionine = bergapten + S-adenosyl-L-homocysteine
+  → Transferase: SAM/SAH-mediated group transfer from CHEBI:59789 to CHEBI:77728
+
+RHEA:11836: N-acetyllactosamine + CMP-N-acetyl-beta-neuraminate = N-acetyl-alpha-neuraminyl-(2->6)-beta-D-galactosyl-(1->4)-N-acetyl-beta-D-glucosamine + CMP + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:16153 to CHEBI:57812
+
+RHEA:12028: L-5-carboxymethylhydantoin + H2O = N-carbamoyl-L-aspartate + H(+)
+  → Transferase: group transfer between 2 molecules from CHEBI:15377 to CHEBI:57740
+

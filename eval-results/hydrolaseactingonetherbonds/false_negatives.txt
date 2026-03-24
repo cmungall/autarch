@@ -1,0 +1,7 @@
+False Negatives for HydrolaseActingOnEtherBonds
+==================================================
+Total: 1
+
+RHEA:32059: (2R)-2-O-(alpha-D-glucopyranosyl)-glycerate + H2O = (R)-glycerate + D-glucose
+  → No supported hydrolase activity, acting on ether bonds child classifier matched
+

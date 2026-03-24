@@ -1,0 +1,22 @@
+False Positives for LigaseFormingCarbonNitrogenBonds
+==================================================
+Total: 6
+
+RHEA:10152: hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)
+  → Synthase: ATP-dependent amino acid/amide synthesis
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → Synthase: ATP-dependent synthesis of CHEBI:15361 + CHEBI:16838 (AMP + PPi)
+
+RHEA:20101: a long-chain fatty acid + L-cysteinyl-[protein] + ATP = an S-(long-chain fatty acyl)-L-cysteinyl-[protein] + AMP + diphosphate
+  → Synthase: ATP-dependent synthesis of CHEBI:57560 + CHEBI:29950 (AMP + PPi)
+
+RHEA:23788: holo-[citrate lyase ACP] + acetate + ATP = acetyl-[citrate lyase ACP] + AMP + diphosphate
+  → Synthase: ATP-dependent synthesis of CHEBI:82683 + CHEBI:30089 (AMP + PPi)
+
+RHEA:24176: [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine + a uridine in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + ATP + H(+) = [ThiI sulfur-carrier protein]-L-cysteine + a 4-thiouridine in tRNA + 2 oxidized [2Fe-2S]-[ferredoxin] + AMP + diphosphate
+  → Synthase: ATP-dependent synthesis of CHEBI:61963 + CHEBI:65315 (AMP + PPi)
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → Synthase: ATP-dependent synthesis of CHEBI:138282 + CHEBI:37565 (AMP + PPi)
+

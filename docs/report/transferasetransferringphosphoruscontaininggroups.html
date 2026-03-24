@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransferaseTransferringPhosphorusContainingGroups - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>TransferaseTransferringPhosphorusContainingGroups</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:2.7.-.-" target="_blank">EC:2.7.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>transferase transferring phosphorus-containing groups</p><p>This includes:<br>- EC 2.7.1 - Phosphotransferases with alcohol group as acceptor (kinases)<br>- EC 2.7.2 - Phosphotransferases with carboxy group as acceptor<br>- EC 2.7.3 - Phosphotransferases with nitrogenous group as acceptor<br>- EC 2.7.4 - Phosphotransferases with phosphate group as acceptor<br>- EC 2.7.7 - Nucleotidyltransferases (produce diphosphate)<br>- EC 2.7.9 - Phosphotransferases with paired acceptors<br>- EC 2.7.10-14 - Protein kinases</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.863</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.892</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.835</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.980</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.852</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.992</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">223</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">27</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">44</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3190</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">transferase_transferring_phosphorus_containing_groups.py:62</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016772&quot;</span>  <span class="comment"># transferase activity, transferring phosphorus-containing groups</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;2.7.-.-&quot;</span>  <span class="comment"># All phosphotransferases</span></code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">transferase_transferring_phosphorus_containing_groups.py:65</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction involves phosphorus-containing group transfer.
+        
+        This is a broad class that includes:
+        1. Kinases (ATP/GTP → ADP/GDP)
+        2. Nucleotidyltransferases (NTP → PPi)
+        3. Other phosphotransferases
+        &quot;&quot;&quot;</span>
+        
+        <span class="comment"># Common phosphorus-containing donors</span>
+        PHOSPHO_DONORS = {
+            CHEBI_ATP,  <span class="comment"># ATP</span>
+            CHEBI_GTP,  <span class="comment"># GTP</span>
+            CHEBI_CTP,  <span class="comment"># CTP</span>
+            CHEBI_UTP,  <span class="comment"># UTP</span>
+            CHEBI_ADP,  <span class="comment"># ADP (for reverse reactions)</span>
+            CHEBI_GDP,   <span class="comment"># GDP</span>
+            CHEBI_CDP,   <span class="comment"># CDP</span>
+            CHEBI_UDP,   <span class="comment"># UDP</span>
+            *PHOSPHATE_IDS,   <span class="comment"># phosphate (for some transferases)</span>
+            *DIPHOSPHATE_IDS,   <span class="comment"># diphosphate (PPi)</span>
+        }
+        
+        <span class="comment"># Common phosphorus-containing products</span>
+        PHOSPHO_PRODUCTS = {
+            CHEBI_ADP,  <span class="comment"># ADP</span>
+            CHEBI_GDP,   <span class="comment"># GDP</span>
+            CHEBI_CDP,   <span class="comment"># CDP</span>
+            CHEBI_UDP,   <span class="comment"># UDP</span>
+            CHEBI_ATP,   <span class="comment"># ATP (for reverse reactions)</span>
+            CHEBI_GTP,   <span class="comment"># GTP</span>
+            CHEBI_CTP,   <span class="comment"># CTP</span>
+            CHEBI_UTP,   <span class="comment"># UTP</span>
+            *DIPHOSPHATE_IDS,   <span class="comment"># diphosphate (PPi)</span>
+            *PHOSPHATE_IDS,   <span class="comment"># phosphate</span>
+            CHEBI_AMP,  <span class="comment"># AMP</span>
+            CHEBI_GMP,   <span class="comment"># GMP</span>
+        }
+        
+        <span class="comment"># Check for phosphorus donors in reactants</span>
+        has_phospho_donor = any(
+            p.chebi_id <span class="kw">in</span> PHOSPHO_DONORS <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        
+        <span class="comment"># Check for phosphorus products</span>
+        has_phospho_product = any(
+            p.chebi_id <span class="kw">in</span> PHOSPHO_PRODUCTS <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+        
+        <span class="kw">if</span> has_phospho_donor <span class="kw">and</span> has_phospho_product:
+            <span class="comment"># Apply exclusions before classifying as phosphotransferase</span>
+            
+            <span class="comment"># Exclude hydrolysis reactions (phosphatases) - use water to cleave phosphate bonds</span>
+            has_water = any(
+                p.chebi_id == CHEBI_H2O
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+            )
+            
+            <span class="comment"># If water is present and we&#x27;re producing phosphate (not transferring), it&#x27;s likely a phosphatase</span>
+            produces_free_phosphate = any(
+                p.chebi_id <span class="kw">in</span> PHOSPHATE_IDS
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+            )
+            
+            <span class="kw">if</span> has_water <span class="kw">and</span> produces_free_phosphate:
+                <span class="comment"># Check if this is simple phosphate hydrolysis rather than transfer</span>
+                non_water_reactants = [
+                    p <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+                    <span class="kw">if</span> p.chebi_id != CHEBI_H2O]
+                
+                <span class="kw">if</span> len(non_water_reactants) == <span class="num">1</span>:
+                    <span class="kw">return</span> ClassificationResult(
+                        is_member=<span class="kw">False</span>,
+                        explanation=<span class="str">&quot;Phosphatase reaction - hydrolysis not transfer&quot;</span>
+                    )
+            
+            <span class="comment"># Define ATP-related variables early for use in exclusions</span>
+            has_atp = any(p.chebi_id == CHEBI_ATP <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+            has_amp = any(p.chebi_id == CHEBI_AMP <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants)
+            has_ppi = any(
+                p.chebi_id <span class="kw">in</span> DIPHOSPHATE_IDS <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+            )
+            has_adp = any(p.chebi_id == CHEBI_ADP <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants)
+
+            <span class="comment"># Exclude ligase reactions (bond formation using ATP)</span>
+            <span class="comment"># Pattern: ATP + substrate(s) → product + AMP + PPi</span>
+            <span class="comment"># ATP → AMP + PPi is the classic ligase signature (EC 6.x.x.x)</span>
+            <span class="kw">if</span> has_atp <span class="kw">and</span> has_amp <span class="kw">and</span> has_ppi:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer&quot;</span>
+                )
+
+            <span class="comment"># Exclude carboxylases (HCO3 + ATP → product + ADP + Pi)</span>
+            has_bicarbonate = any(
+                p.chebi_id == CHEBI_BICARBONATE
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+            )
+            <span class="kw">if</span> has_bicarbonate <span class="kw">and</span> has_atp:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Carboxylase - ATP-dependent CO2 fixation, not phosphoryl transfer&quot;</span>
+                )
+
+            <span class="comment"># Exclude PEPCK-like decarboxylases (oxaloacetate + GTP → PEP + GDP + CO2)</span>
+            <span class="comment"># These use GTP for phosphoryl transfer to create PEP, but are lyases/decarboxylases</span>
+            has_gtp = any(p.chebi_id == CHEBI_GTP <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+            has_gdp = any(p.chebi_id == CHEBI_GDP <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants)
+            has_co2 = any(
+                p.chebi_id == CHEBI_CO2
+                <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+            )
+            <span class="kw">if</span> has_gtp <span class="kw">and</span> has_gdp <span class="kw">and</span> has_co2:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;PEPCK/decarboxylase - GTP-dependent decarboxylation, not simple phosphotransferase&quot;</span>
+                )
+
+            <span class="comment"># CRITICAL: True phosphotransferases don&#x27;t release free phosphate!</span>
+            <span class="comment"># They transfer the phosphate TO another molecule.</span>
+            <span class="comment"># If free Pi is released with ATP→ADP, it&#x27;s:</span>
+            <span class="comment"># - ATPase (hydrolysis): ATP + H2O → ADP + Pi</span>
+            <span class="comment"># - Ligase: substrates + ATP → joined product + ADP + Pi</span>
+            <span class="comment"># - Amidase/hydrolase with ATP activation</span>
+            <span class="kw">if</span> has_atp <span class="kw">and</span> has_adp <span class="kw">and</span> produces_free_phosphate:
+                <span class="comment"># Count non-ATP, non-water substrates</span>
+                non_cofactor = [
+                    p <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+                    <span class="kw">if</span> p.chebi_id <span class="kw">not</span> <span class="kw">in</span> {CHEBI_ATP, CHEBI_H2O, CHEBI_H_PLUS}
+                ]
+
+                <span class="comment"># If there are other substrates + ATP + H2O → products + ADP + Pi,</span>
+                <span class="comment"># this is likely ATP-powered hydrolysis/ligase, not phosphotransferase</span>
+                <span class="kw">if</span> has_water:
+                    <span class="kw">return</span> ClassificationResult(
+                        is_member=<span class="kw">False</span>,
+                        explanation=<span class="str">&quot;ATP hydrolysis with other products - ligase/amidase not phosphotransferase&quot;</span>
+                    )
+
+                <span class="comment"># Even without water, if free Pi is released with substrates being transformed,</span>
+                <span class="comment"># it&#x27;s likely ligase (bond formation), not kinase (phosphoryl transfer)</span>
+                <span class="kw">if</span> len(non_cofactor) &gt;= <span class="num">1</span>:
+                    <span class="kw">return</span> ClassificationResult(
+                        is_member=<span class="kw">False</span>,
+                        explanation=<span class="str">&quot;Ligase - ATP powers bond formation, releasing free phosphate&quot;</span>
+                    )
+
+            <span class="comment"># Use location-aware transport detection</span>
+            <span class="kw">if</span> reaction.is_transport_reaction():
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Transport ATPase - moves molecules across membrane&quot;</span>
+                )
+
+            <span class="comment"># Fallback: Check for shared molecules (transport pattern)</span>
+            left_chebi = {pr.chebi_id <span class="kw">for</span> pr <span class="kw">in</span> reaction.left_participants <span class="kw">if</span> pr.chebi_id}
+            right_chebi = {pr.chebi_id <span class="kw">for</span> pr <span class="kw">in</span> reaction.right_participants <span class="kw">if</span> pr.chebi_id}
+            spectator_ids = {CHEBI_ATP, CHEBI_ADP, CHEBI_H2O, CHEBI_H_PLUS, *PHOSPHATE_IDS}
+            shared_molecules = (left_chebi &amp; right_chebi) - spectator_ids
+
+            <span class="kw">if</span> shared_molecules <span class="kw">and</span> has_atp <span class="kw">and</span> has_water:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Transport ATPase - moves molecules not transfers phosphorus&quot;</span>
+                )
+
+            <span class="comment"># Exclude oxidoreductase reactions (use NADP+/NADPH, O2, etc.)</span>
+            has_redox_cofactor = any(
+                p.chebi_id <span class="kw">in</span> {CHEBI_NAD_PLUS, CHEBI_NADH, CHEBI_NADP_PLUS, CHEBI_NADPH} <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+            )
+
+            <span class="kw">if</span> has_redox_cofactor:
+                <span class="kw">return</span> ClassificationResult(
+                    is_member=<span class="kw">False</span>,
+                    explanation=<span class="str">&quot;Oxidoreductase reaction - not phosphoryl transfer&quot;</span>
+                )
+
+            <span class="comment"># Now classify as phosphotransferase</span>
+            explanation = <span class="str">&quot;Phosphotransferase: &quot;</span>
+            has_gtp = any(p.chebi_id == CHEBI_GTP <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+            has_gdp = any(p.chebi_id == CHEBI_GDP <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants)
+            
+            <span class="kw">if</span> has_ppi:
+                explanation += <span class="str">&quot;nucleotidyltransferase (produces diphosphate)&quot;</span>
+            <span class="kw">elif</span> has_atp <span class="kw">and</span> has_adp:
+                explanation += <span class="str">&quot;ATP-dependent phosphoryl transfer&quot;</span>
+            <span class="kw">elif</span> has_gtp <span class="kw">and</span> has_gdp:
+                explanation += <span class="str">&quot;GTP-dependent phosphoryl transfer&quot;</span>
+            <span class="kw">else</span>:
+                explanation += <span class="str">&quot;phosphorus-containing group transfer&quot;</span>
+            
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=explanation
+            )
+
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=<span class="str">&quot;No phosphorus-containing group transfer detected&quot;</span>
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">223</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10576" target="_blank">RHEA:10576</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N-methylethanolamine phosphate + CTP + H(+) = CDP-N-methylethanolamine + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10596" target="_blank">RHEA:10596</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10708" target="_blank">RHEA:10708</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose 1-phosphate + GTP + H(+) = GDP-D-glucose + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10788" target="_blank">RHEA:10788</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2-dehydro-D-gluconate + ATP = 6-phospho-2-dehydro-D-gluconate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10948" target="_blank">RHEA:10948</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-glucosamine + ATP = D-glucosamine 6-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10964" target="_blank">RHEA:10964</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-xylulose + ATP = D-xylulose 5-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11020" target="_blank">RHEA:11020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,4,5-trisphosphate + ATP = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11024" target="_blank">RHEA:11024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">NH4(+) + ATP = phosphoramidate + ADP + 2 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11028" target="_blank">RHEA:11028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-mannose + ATP = D-mannose 6-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11216" target="_blank">RHEA:11216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 5&#x27;-phosphate + ATP = a 2&#x27;-deoxyribonucleoside 5&#x27;-diphosphate + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11240" target="_blank">RHEA:11240</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">thiamine diphosphate + ATP = thiamine triphosphate + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11352" target="_blank">RHEA:11352</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">acetate + ATP = acetyl phosphate + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11364" target="_blank">RHEA:11364</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11396" target="_blank">RHEA:11396</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">5-methyldeoxycytidine 5&#x27;-phosphate + ATP = 5-methyldeoxycytidine diphosphate + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11412" target="_blank">RHEA:11412</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">6-hydroxymethyl-7,8-dihydropterin + ATP = (7,8-dihydropterin-6-yl)methyl diphosphate + AMP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11460" target="_blank">RHEA:11460</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-glucose + ADP = D-glucose 6-phosphate + AMP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11576" target="_blank">RHEA:11576</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">thiamine + ATP = thiamine diphosphate + AMP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11600" target="_blank">RHEA:11600</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">CMP + ATP = CDP + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11856" target="_blank">RHEA:11856</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,4,5,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11860" target="_blank">RHEA:11860</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12008" target="_blank">RHEA:12008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">[G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12012" target="_blank">RHEA:12012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">thiamine + ATP = thiamine phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12120" target="_blank">RHEA:12120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose 1-phosphate + ATP + H(+) = ADP-alpha-D-glucose + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12140" target="_blank">RHEA:12140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside + ATP = a 2&#x27;-deoxyribonucleoside 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12376" target="_blank">RHEA:12376</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-fuculose + ATP = L-fuculose 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12420" target="_blank">RHEA:12420</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-tagatofuranose 6-phosphate + ATP = D-tagatofuranose 1,6-bisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12452" target="_blank">RHEA:12452</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 3,4,5,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12456" target="_blank">RHEA:12456</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-ribitol 5-phosphate + CTP + H(+) = CDP-L-ribitol + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12617" target="_blank">RHEA:12617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N-acetyl-alpha-D-galactosamine + ATP = N-acetyl-alpha-D-galactosamine 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12697" target="_blank">RHEA:12697</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dGMP + ATP = dGDP + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12717" target="_blank">RHEA:12717</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,3,4,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12793" target="_blank">RHEA:12793</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol hexakisphosphate + ATP = 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12801" target="_blank">RHEA:12801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-seryl-[tau protein] + ATP = O-phospho-L-seryl-[tau protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12837" target="_blank">RHEA:12837</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">choline + ATP = phosphocholine + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12905" target="_blank">RHEA:12905</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-mannose 1-phosphate + GDP + H(+) = GDP-alpha-D-mannose + phosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12965" target="_blank">RHEA:12965</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-galacturonate + ATP = 1-phospho-alpha-D-galacturonate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12973" target="_blank">RHEA:12973</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">AMP + ATP = 2 ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13069" target="_blank">RHEA:13069</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">ethanolamine + ATP = phosphoethanolamine + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13121" target="_blank">RHEA:13121</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">shikimate + ATP = 3-phosphoshikimate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13241" target="_blank">RHEA:13241</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-fucose + ATP = beta-L-fucose 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13253" target="_blank">RHEA:13253</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,3,4-trisphosphate + ATP = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13361" target="_blank">RHEA:13361</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + CTP + H(+) = CDP-glycerol + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13377" target="_blank">RHEA:13377</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose 1-phosphate + ATP = alpha-D-glucose 1,6-bisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13413" target="_blank">RHEA:13413</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">thymidine + ADP = dTMP + AMP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13429" target="_blank">RHEA:13429</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2-C-methyl-D-erythritol 4-phosphate + CTP + H(+) = 4-CDP-2-C-methyl-D-erythritol + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13497" target="_blank">RHEA:13497</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">5-dehydro-2-deoxy-D-gluconate + ATP = 6-phospho-5-dehydro-2-deoxy-D-gluconate + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13509" target="_blank">RHEA:13509</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N-acetyl-alpha-D-glucosamine 1-phosphate + UTP + H(+) = UDP-N-acetyl-alpha-D-glucosamine + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13517" target="_blank">RHEA:13517</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dTMP + ATP = dTDP + ADP</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 173 more (showing 50 of 223)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">27</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11528" target="_blank">RHEA:11528</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2 cob(II)yrinate a,c diamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)yrinate a,c-diamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13665" target="_blank">RHEA:13665</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">GTP = 3&#x27;,5&#x27;-cyclic GMP + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14725" target="_blank">RHEA:14725</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2 cob(II)inamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)inamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14737" target="_blank">RHEA:14737</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">CTP = 3&#x27;,5&#x27;-cyclic CMP + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15389" target="_blank">RHEA:15389</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">ATP = 3&#x27;,5&#x27;-cyclic AMP + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15753" target="_blank">RHEA:15753</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">IMP + L-aspartate + GTP = N(6)-(1,2-dicarboxyethyl)-AMP + GDP + phosphate + 2 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18473" target="_blank">RHEA:18473</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + ATP</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18617" target="_blank">RHEA:18617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">oxaloacetate + ATP = phosphoenolpyruvate + ADP + CO2</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19397" target="_blank">RHEA:19397</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(R)-4&#x27;-phosphopantothenate + L-cysteine + CTP = N-[(R)-4-phosphopantothenoyl]-L-cysteine + CMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21080" target="_blank">RHEA:21080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-methionine + ATP + H2O = S-adenosyl-L-methionine + phosphate + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21160" target="_blank">RHEA:21160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">oxaloacetate + acetyl-CoA + ADP + phosphate = citrate + ATP + CoA</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22120" target="_blank">RHEA:22120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">GTP + succinate + CoA = succinyl-CoA + GDP + phosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22356" target="_blank">RHEA:22356</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">oxaloacetate + diphosphate = phosphoenolpyruvate + phosphate + CO2</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25568" target="_blank">RHEA:25568</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25860" target="_blank">RHEA:25860</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">GTP + H2O = 7,8-dihydroneopterin 2&#x27;,3&#x27;-cyclic phosphate + formate + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28671" target="_blank">RHEA:28671</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2 cob(II)alamin + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)alamin + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29391" target="_blank">RHEA:29391</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">GTP + H2O = GMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29395" target="_blank">RHEA:29395</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">UTP + H2O = UMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30199" target="_blank">RHEA:30199</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30523" target="_blank">RHEA:30523</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">oxidized coenzyme F420-1 + GTP + L-glutamate = oxidized coenzyme F420-2 + GDP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30555" target="_blank">RHEA:30555</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">oxidized coenzyme F420-0 + GTP + L-glutamate = oxidized coenzyme F420-1 + GDP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31211" target="_blank">RHEA:31211</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-selenomethionine + ATP + H2O = L-adenosylselenomethionine + phosphate + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36327" target="_blank">RHEA:36327</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5&#x27;-diphosphate + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36331" target="_blank">RHEA:36331</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5&#x27;-triphosphate + diphosphate</span>
+                <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22452" target="_blank">RHEA:22452</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">[phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:47040" target="_blank">RHEA:47040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">5-taurinomethyluridine(34) in tRNA + S-sulfanyl-L-cysteinyl-[protein] + AH2 + ATP = 5-taurinomethyl-2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:47032" target="_blank">RHEA:47032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">S-sulfanyl-L-cysteinyl-[protein] + uridine(34) in tRNA + AH2 + ATP = 2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">44</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">Carboxylase - ATP-dependent CO2 fixation, not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10756" target="_blank">RHEA:10756</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11652" target="_blank">RHEA:11652</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-galactose = alpha-D-galactosyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12068" target="_blank">RHEA:12068</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">apo-[ACP] + CoA = holo-[ACP] + adenosine 3&#x27;,5&#x27;-bisphosphate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12260" target="_blank">RHEA:12260</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">NADH + ATP = ADP + NADPH + H(+)</span>
+                <div class="reaction-explanation">Oxidoreductase reaction - not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13581" target="_blank">RHEA:13581</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N(4)-[alpha-D-mannosyl-(1-&gt;2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-[6-(N-acetyl-alpha-D-glucosaminyl-1-phospho)-alpha-D-mannosyl-(1-&gt;2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13989" target="_blank">RHEA:13989</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-galactose 1-phosphate + UDP-alpha-D-glucose = alpha-D-glucose 1-phosphate + UDP-alpha-D-galactose</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14045" target="_blank">RHEA:14045</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14913" target="_blank">RHEA:14913</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">thymidine + AMP = dTMP + adenosine</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15117" target="_blank">RHEA:15117</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">3&#x27;-dephospho-CoA + ATP = 2&#x27;-(5&#x27;&#x27;-triphospho-alpha-D-ribosyl)-3&#x27;-dephospho-CoA + adenine</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15225" target="_blank">RHEA:15225</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dTTP + alpha-D-glucose 1-phosphate + H(+) = dTDP-alpha-D-glucose + diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16049" target="_blank">RHEA:16049</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-ribazole + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin + GMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16333" target="_blank">RHEA:16333</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">apo-[citrate lyase ACP] + 2&#x27;-(5&#x27;&#x27;-triphospho-alpha-D-ribosyl)-3&#x27;-dephospho-CoA = holo-[citrate lyase ACP] + diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16397" target="_blank">RHEA:16397</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16769" target="_blank">RHEA:16769</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17165" target="_blank">RHEA:17165</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-D-galactose 1-phosphate + dTTP + H(+) = dTDP-D-galactose + diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18381" target="_blank">RHEA:18381</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18629" target="_blank">RHEA:18629</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">NAD(+) + ATP = ADP + NADP(+) + H(+)</span>
+                <div class="reaction-explanation">Oxidoreductase reaction - not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19197" target="_blank">RHEA:19197</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">adenosine 5&#x27;-phosphosulfate + NH4(+) = adenosine 5&#x27;-phosphoramidate + sulfate + 2 H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20409" target="_blank">RHEA:20409</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21224" target="_blank">RHEA:21224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">CDP-choline + sphing-4-enine = sphing-4-enine-phosphocholine + CMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21288" target="_blank">RHEA:21288</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21360" target="_blank">RHEA:21360</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+)</span>
+                <div class="reaction-explanation">Oxidoreductase reaction - not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21920" target="_blank">RHEA:21920</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-di-trans,octa-cis-undecaprenyl diphosphate + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22440" target="_blank">RHEA:22440</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine + UDP-alpha-D-galactose = UDP-N-acetyl-6-(alpha-D-galactose-1-phospho)-alpha-D-glucosamine + UMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22656" target="_blank">RHEA:22656</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">CDP-ethanolamine + L-serine = L-serine-phosphoethanolamine + CMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23560" target="_blank">RHEA:23560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">alpha-ribazole 5&#x27;-phosphate + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin 5&#x27;-phosphate + GMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23880" target="_blank">RHEA:23880</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-histidyl-[protein] + phosphoenolpyruvate = N(pros)-phospho-L-histidyl-[protein] + pyruvate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27510" target="_blank">RHEA:27510</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">enolpyruvoyl-2-diphospho-5&#x27;-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28090" target="_blank">RHEA:28090</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">di-trans,octa-cis-undecaprenyl phosphate + UDP-N-acetyl-alpha-D-glucosamine = N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28126" target="_blank">RHEA:28126</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-glucose = alpha-D-glucosyl di-trans,octa-cis-undecaprenyl diphosphate + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28386" target="_blank">RHEA:28386</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = di-trans,octa-cis-undecaprenyl diphospho-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34515" target="_blank">RHEA:34515</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">tri-trans,hepta-cis-undecaprenyl phosphate + UDP-N,N&#x27;-diacetylbacillosamine = N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UMP</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34679" target="_blank">RHEA:34679</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">methylphosphonate + ATP = alpha-D-ribose 1-methylphosphonate 5-triphosphate + adenine</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36407" target="_blank">RHEA:36407</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-threonine + hydrogencarbonate + ATP = L-threonylcarbamoyladenylate + diphosphate + H2O</span>
+                <div class="reaction-explanation">Carboxylase - ATP-dependent CO2 fixation, not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49240" target="_blank">RHEA:49240</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N(pros)-phospho-L-histidyl-[protein] + N-acetyl-D-glucosamine(out) = N-acetyl-D-glucosamine 6-phosphate(in) + L-histidyl-[protein]</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22508" target="_blank">RHEA:22508</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">DNA(n) + a 2&#x27;-deoxyribonucleoside 5&#x27;-triphosphate = DNA(n+1) + diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22096" target="_blank">RHEA:22096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">RNA(n+1) + phosphate = RNA(n) + a ribonucleoside 5&#x27;-diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10628" target="_blank">RHEA:10628</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5&#x27;-diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:54564" target="_blank">RHEA:54564</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">a 5&#x27;-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5&#x27;-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)</span>
+                <div class="reaction-explanation">Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21248" target="_blank">RHEA:21248</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">RNA(n) + a ribonucleoside 5&#x27;-triphosphate = RNA(n+1) + diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49236" target="_blank">RHEA:49236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49296" target="_blank">RHEA:49296</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:49288" target="_blank">RHEA:49288</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3190</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">ATP hydrolysis with other products - ligase/amidase not phosphotransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Ligase reaction - ATP→AMP+PPi indicates bond formation not phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10244" target="_blank">RHEA:10244</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016772" target="_blank">GO:0016772</a>]</span>:
+                <span class="reaction-label">4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)</span>
+                <div class="reaction-explanation">No phosphorus-containing group transfer detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3140 more (showing 50 of 3190)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">62</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10276" target="_blank">RHEA:10276</a></span>:
+                    <span class="reaction-label">5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ATP + H(+) = 1,5-bis(diphospho)-1D-myo-inositol 2,3,4,6-tetrakisphosphate + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.24" target="_blank">EC:2.7.4.24</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12953" target="_blank">RHEA:12953</a></span>:
+                    <span class="reaction-label">L-seryl-[Goodpasture antigen-binding protein] + ATP = O-phospho-L-seryl-[Goodpasture antigen-binding protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.9" target="_blank">EC:2.7.11.9</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15465" target="_blank">RHEA:15465</a></span>:
+                    <span class="reaction-label">sphinganine + ATP = sphinganine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15881" target="_blank">RHEA:15881</a></span>:
+                    <span class="reaction-label">L-seryl-[Fas-activated protein] + ATP = O-phospho-L-seryl-[Fas-activated protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.8" target="_blank">EC:2.7.11.8</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18113" target="_blank">RHEA:18113</a></span>:
+                    <span class="reaction-label">a ribonucleoside 5&#x27;-diphosphate + ATP = a ribonucleoside 5&#x27;-triphosphate + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18157" target="_blank">RHEA:18157</a></span>:
+                    <span class="reaction-label">pyruvate + ATP = phosphoenolpyruvate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.40" target="_blank">EC:2.7.1.40</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20329" target="_blank">RHEA:20329</a></span>:
+                    <span class="reaction-label">L-seryl-[low-density-lipoprotein receptor] + ATP = O-phospho-L-seryl-[low-density-lipoprotein receptor] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.29" target="_blank">EC:2.7.11.29</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20700" target="_blank">RHEA:20700</a></span>:
+                    <span class="reaction-label">lipid A disaccharide (E. coli) + ATP = lipid IVA (E. coli) + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.130" target="_blank">EC:2.7.1.130</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24952" target="_blank">RHEA:24952</a></span>:
+                    <span class="reaction-label">1,6-anhydro-N-acetyl-beta-muramate + ATP + H2O = N-acetyl-D-muramate 6-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.170" target="_blank">EC:2.7.1.170</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24980" target="_blank">RHEA:24980</a></span>:
+                    <span class="reaction-label">3-hydroxy-4-methylanthranilate + ATP + H(+) = 3-hydroxy-4-methylanthranilyl-5&#x27;-AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.97" target="_blank">EC:2.7.7.97</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25021" target="_blank">RHEA:25021</a></span>:
+                    <span class="reaction-label">riboflavin + CTP = CDP + FMN + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.161" target="_blank">EC:2.7.1.161</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25098" target="_blank">RHEA:25098</a></span>:
+                    <span class="reaction-label">UDP + ATP = UTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25104" target="_blank">RHEA:25104</a></span>:
+                    <span class="reaction-label">pyridoxamine + ATP = pyridoxamine 5&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.35" target="_blank">EC:2.7.1.35</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25108" target="_blank">RHEA:25108</a></span>:
+                    <span class="reaction-label">pyridoxine + ATP = pyridoxine 5&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.35" target="_blank">EC:2.7.1.35</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25237" target="_blank">RHEA:25237</a></span>:
+                    <span class="reaction-label">CDP + ATP = CTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25253" target="_blank">RHEA:25253</a></span>:
+                    <span class="reaction-label">aldehydo-N-acetyl-D-mannosamine + ATP = aldehydo-N-acetyl-D-mannosamine 6-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.60" target="_blank">EC:2.7.1.60</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25428" target="_blank">RHEA:25428</a></span>:
+                    <span class="reaction-label">N-acetyl-D-hexosamine + ATP = N-acetyl-alpha-D-hexosamine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.162" target="_blank">EC:2.7.1.162</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26055" target="_blank">RHEA:26055</a></span>:
+                    <span class="reaction-label">valienol 1-phosphate + GTP + H(+) = GDP-valienol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.91" target="_blank">EC:2.7.7.91</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26064" target="_blank">RHEA:26064</a></span>:
+                    <span class="reaction-label">hygromycin B + ATP = 4-O-phosphohygromycin B + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.163" target="_blank">EC:2.7.1.163</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27461" target="_blank">RHEA:27461</a></span>:
+                    <span class="reaction-label">D-glycero-alpha-D-manno-heptose 1-phosphate + GTP + H(+) = GDP-D-glycero-alpha-D-manno-heptose + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.71" target="_blank">EC:2.7.7.71</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27570" target="_blank">RHEA:27570</a></span>:
+                    <span class="reaction-label">D-glycero-alpha-D-manno-heptose 7-phosphate + ATP = D-glycero-alpha-D-manno-heptose 1,7-bisphosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.168" target="_blank">EC:2.7.1.168</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27650" target="_blank">RHEA:27650</a></span>:
+                    <span class="reaction-label">uridine + GTP = UMP + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.48" target="_blank">EC:2.7.1.48</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27674" target="_blank">RHEA:27674</a></span>:
+                    <span class="reaction-label">dADP + ATP = dATP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27678" target="_blank">RHEA:27678</a></span>:
+                    <span class="reaction-label">dCDP + ATP = dCTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27682" target="_blank">RHEA:27682</a></span>:
+                    <span class="reaction-label">dTDP + ATP = dTTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27686" target="_blank">RHEA:27686</a></span>:
+                    <span class="reaction-label">GDP + ATP = GTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27690" target="_blank">RHEA:27690</a></span>:
+                    <span class="reaction-label">dGDP + ATP = dGTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28162" target="_blank">RHEA:28162</a></span>:
+                    <span class="reaction-label">cytidine + GTP = GDP + CMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.213" target="_blank">EC:2.7.1.213</a>, <a href="https://bioregistry.io/EC:2.7.1.48" target="_blank">EC:2.7.1.48</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28246" target="_blank">RHEA:28246</a></span>:
+                    <span class="reaction-label">(R)-pantoate + ATP = (R)-4-phosphopantoate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.169" target="_blank">EC:2.7.1.169</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28378" target="_blank">RHEA:28378</a></span>:
+                    <span class="reaction-label">N(6)-(D-fructosyl)-L-lysine + ATP = N(6)-(6-phospho-D-fructosyl)-L-lysine + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.218" target="_blank">EC:2.7.1.218</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28506" target="_blank">RHEA:28506</a></span>:
+                    <span class="reaction-label">alpha-Kdo-(2-&gt;6)-lipid IVA (E. coli) + ATP = 4-O-phospho-alpha-Kdo-(2-&gt;6)-lipid IVA (E. coli) + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.166" target="_blank">EC:2.7.1.166</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28582" target="_blank">RHEA:28582</a></span>:
+                    <span class="reaction-label">dUDP + ATP = dUTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29775" target="_blank">RHEA:29775</a></span>:
+                    <span class="reaction-label">alpha-D-ribose 1-phosphate + ATP = alpha-D-ribose 1,5-bisphosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.239" target="_blank">EC:2.7.1.239</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30295" target="_blank">RHEA:30295</a></span>:
+                    <span class="reaction-label">GTP + pyruvate = phosphoenolpyruvate + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.40" target="_blank">EC:2.7.1.40</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: GTP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30347" target="_blank">RHEA:30347</a></span>:
+                    <span class="reaction-label">IDP + ATP = ITP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30519" target="_blank">RHEA:30519</a></span>:
+                    <span class="reaction-label">phosphoenolpyruvate + GTP + H(+) = enolpyruvoyl-2-diphospho-5&#x27;-guanosine + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.105" target="_blank">EC:2.7.7.105</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30647" target="_blank">RHEA:30647</a></span>:
+                    <span class="reaction-label">1D-myo-inositol 3-phosphate + CTP + H(+) = CDP-1L-myo-inositol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.74" target="_blank">EC:2.7.7.74</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30871" target="_blank">RHEA:30871</a></span>:
+                    <span class="reaction-label">2-deoxy-D-ribose + ATP = 2-deoxy-D-ribose 5-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.229" target="_blank">EC:2.7.1.229</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30939" target="_blank">RHEA:30939</a></span>:
+                    <span class="reaction-label">dIDP + ATP = dITP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31915" target="_blank">RHEA:31915</a></span>:
+                    <span class="reaction-label">D-maltose + ATP = alpha-maltose 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.175" target="_blank">EC:2.7.1.175</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32083" target="_blank">RHEA:32083</a></span>:
+                    <span class="reaction-label">pseudaminate + CTP = CMP-pseudaminate + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.81" target="_blank">EC:2.7.7.81</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32359" target="_blank">RHEA:32359</a></span>:
+                    <span class="reaction-label">1D-myo-inositol 1,4,5-trisphosphate + 2 ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + 2 ADP + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.151" target="_blank">EC:2.7.1.151</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32671" target="_blank">RHEA:32671</a></span>:
+                    <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine + ATP = UDP-N-acetyl-alpha-D-glucosamine 3&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.176" target="_blank">EC:2.7.1.176</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33563" target="_blank">RHEA:33563</a></span>:
+                    <span class="reaction-label">(4R)-hydroxysphinganine + ATP = (4R)-hydroxysphinganine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33707" target="_blank">RHEA:33707</a></span>:
+                    <span class="reaction-label">L-threonine + ATP = O-phospho-L-threonine + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.177" target="_blank">EC:2.7.1.177</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34675" target="_blank">RHEA:34675</a></span>:
+                    <span class="reaction-label">N,N-diacetyllegionaminate + CTP = CMP-N,N-diacetyllegionaminate + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.82" target="_blank">EC:2.7.7.82</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35751" target="_blank">RHEA:35751</a></span>:
+                    <span class="reaction-label">kanosamine + ATP = D-kanosamine 6-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.179" target="_blank">EC:2.7.1.179</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35847" target="_blank">RHEA:35847</a></span>:
+                    <span class="reaction-label">sphing-4-enine + ATP = sphing-4-enine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:43344" target="_blank">RHEA:43344</a></span>:
+                    <span class="reaction-label">[ThiS sulfur-carrier protein]-C-terminal Gly-Gly + ATP + H(+) = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly-AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.7.73" target="_blank">EC:2.7.7.73</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:44880" target="_blank">RHEA:44880</a></span>:
+                    <span class="reaction-label">L-threonyl-[receptor-protein] + ATP = O-phospho-L-threonyl-[receptor-protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.30" target="_blank">EC:2.7.11.30</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: ATP-dependent phosphoryl transfer</div>
+                </div>
+                
+                <div class="truncation-notice">
+                    ... and 12 more (showing 50 of 62)
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">16</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13969" target="_blank">RHEA:13969</a></span>:
+                    <span class="reaction-label">a 3&#x27;-end 3&#x27;-phospho-ribonucleotide-RNA + GTP = a 3&#x27;-end 2&#x27;,3&#x27;-cyclophospho-ribonucleotide-RNA + GMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.5.1.5" target="_blank">EC:6.5.1.5</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27762" target="_blank">RHEA:27762</a></span>:
+                    <span class="reaction-label">CTP + H2O = CMP + diphosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.6.1.65" target="_blank">EC:3.6.1.65</a>, <a href="https://bioregistry.io/EC:3.6.1.8" target="_blank">EC:3.6.1.8</a>, <a href="https://bioregistry.io/EC:3.6.1.9" target="_blank">EC:3.6.1.9</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: nucleotidyltransferase (produces diphosphate)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28202" target="_blank">RHEA:28202</a></span>:
+                    <span class="reaction-label">chlorophyllide a + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = protochlorophyllide a + reduced 2[4Fe-4S]-[ferredoxin] + 2 ATP + 2 H2O</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.7.7" target="_blank">EC:1.3.7.7</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30723" target="_blank">RHEA:30723</a></span>:
+                    <span class="reaction-label">A + NH4(+) + 2 ADP + 2 phosphate + H(+) = hydroxylamine + AH2 + 2 ATP + H2O</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.3.7.8" target="_blank">EC:1.3.7.8</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:43608" target="_blank">RHEA:43608</a></span>:
+                    <span class="reaction-label">cytidine(34) in tRNA(Ile2) + agmatine + ATP + H2O = 2-agmatinylcytidine(34) in tRNA(Ile2) + AMP + 2 phosphate + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.3.4.22" target="_blank">EC:6.3.4.22</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:45624" target="_blank">RHEA:45624</a></span>:
+                    <span class="reaction-label">L-alloisoleucine + holo-[CmaA peptidyl-carrier protein] + ATP = L-alloisoleucyl-[CmaA peptidyl-carrier protein] + AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.2.1.46" target="_blank">EC:6.2.1.46</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:54788" target="_blank">RHEA:54788</a></span>:
+                    <span class="reaction-label">pyridinium-3,5-dicarboxylate mononucleotide + [LarE protein]-L-cysteine + ATP = [LarE protein]-dehydroalanine + pyridinium-3-carboxylate-5-thiocarboxylate mononucleotide + AMP + diphosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.4.1.37" target="_blank">EC:4.4.1.37</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:54892" target="_blank">RHEA:54892</a></span>:
+                    <span class="reaction-label">[LarE protein]-L-cysteine + pyridinium-3-carboxylate-5-thiocarboxylate mononucleotide + ATP = pyridinium-3,5-bisthiocarboxylate mononucleotide + [LarE protein]-dehydroalanine + AMP + diphosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.4.1.37" target="_blank">EC:4.4.1.37</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:55132" target="_blank">RHEA:55132</a></span>:
+                    <span class="reaction-label">holo-[D-alanyl-carrier protein] + D-alanine + ATP = D-alanyl-[D-alanyl-carrier protein] + AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.2.1.54" target="_blank">EC:6.2.1.54</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:58144" target="_blank">RHEA:58144</a></span>:
+                    <span class="reaction-label">cytidine(34) in elongator tRNA(Met) + acetate + ATP = N(4)-acetylcytidine(34) in elongator tRNA(Met) + AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.3.1.22" target="_blank">EC:6.3.1.22</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:61696" target="_blank">RHEA:61696</a></span>:
+                    <span class="reaction-label">holo-[peptidyl-carrier protein] + glycine + ATP = glycyl-[peptidyl-carrier protein] + AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.2.1.66" target="_blank">EC:6.2.1.66</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:62452" target="_blank">RHEA:62452</a></span>:
+                    <span class="reaction-label">holo-[peptidyl-carrier protein] + L-glutamate + ATP = L-glutamyl-[peptidyl-carrier protein] + AMP + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.2.1.68" target="_blank">EC:6.2.1.68</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:63348" target="_blank">RHEA:63348</a></span>:
+                    <span class="reaction-label">L-amino acyl-L-cysteinyl-[protein] + ATP = (1S,4R)-2-(C-substituted-aminomethyl)-4-acyl-2-thiazoline-[protein] + ADP + phosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:6.2.2.2" target="_blank">EC:6.2.2.2</a>, <a href="https://bioregistry.io/EC:6.2.2.3" target="_blank">EC:6.2.2.3</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:65836" target="_blank">RHEA:65836</a></span>:
+                    <span class="reaction-label">2 Co(II)-[trimethylamine-specific corrinoid protein] + AH2 + ATP + H2O = 2 Co(I)-[trimethylamine-specific corrinoid protein] + A + ADP + phosphate + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.16.99.1" target="_blank">EC:1.16.99.1</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:66824" target="_blank">RHEA:66824</a></span>:
+                    <span class="reaction-label">2 cob(II)inamide + reduced [electron-transfer flavoprotein] + 2 ATP + 2 H2O = 2 adenosylcob(III)inamide + oxidized [electron-transfer flavoprotein] + 2 phosphate + 2 diphosphate + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.154" target="_blank">EC:2.5.1.154</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:66828" target="_blank">RHEA:66828</a></span>:
+                    <span class="reaction-label">2 cob(II)alamin + reduced [electron-transfer flavoprotein] + 2 ATP + 2 H2O = 2 adenosylcob(III)alamin + oxidized [electron-transfer flavoprotein] + 2 phosphate + 2 diphosphate + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.154" target="_blank">EC:2.5.1.154</a></div>
+                    <div class="reaction-explanation">Phosphotransferase: phosphorus-containing group transfer</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

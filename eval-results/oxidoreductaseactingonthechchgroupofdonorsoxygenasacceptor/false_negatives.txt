@@ -1,0 +1,10 @@
+False Negatives for OxidoreductaseActingOnTheCHCHGroupOfDonorsOxygenAsAcceptor
+==================================================
+Total: 2
+
+RHEA:20585: loganin + reduced [NADPH--hemoprotein reductase] + O2 = secologanin + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → External nicotinamide or flavin cofactors indicate a different CH-CH oxidoreductase branch
+
+RHEA:20980: 2 (4Z,15Z)-bilirubin IXalpha + O2 = 2 biliverdin IXalpha + 2 H2O
+  → Requires one substantive CH-CH donor substrate and structured products
+

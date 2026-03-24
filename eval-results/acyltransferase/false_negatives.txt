@@ -1,0 +1,130 @@
+False Negatives for Acyltransferase
+==================================================
+Total: 42
+
+RHEA:10208: an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:10584: 4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:10588: a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:10668: L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-lysyl)-sn-glycerol + tRNA(Lys)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:11416: 2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:12024: 1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:12240: 3 malonyl-CoA + acetyl-CoA + NADPH + 3 H(+) = 6-methylsalicylate + 3 CO2 + NADP(+) + 4 CoA + H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:12340: N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:12432: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + L-alanyl-tRNA(Ala) = UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-N(6)-(L-alanyl)-L-lysyl-D-alanyl-D-alanine + tRNA(Ala) + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:12625: 1-O-(trans-sinapoyl)-beta-D-glucose + (S)-malate = sinapoyl (S)-malate + D-glucose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:13701: L-homoserine + acetyl-CoA = O-acetyl-L-homoserine + CoA
+  → ETF cofactor present - acyl-CoA dehydrogenase not acyltransferase
+
+RHEA:14417: acetyl phosphate + L-lysine = N(6)-acetyl-L-lysine + phosphate + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:14993: n malonyl-CoA + acetyl-CoA + 2n NADPH + 2n H(+) = a long-chain fatty acid + n CO2 + 2n NADP(+) + (n+1) CoA
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:15349: N(2)-acetyl-L-ornithine + L-glutamate = N-acetyl-L-glutamate + L-ornithine
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:17469: all-trans-retinol--[retinol-binding protein] + a 1,2-diacyl-sn-glycero-3-phosphocholine = apo--[retinol-binding protein] + an all-trans-retinyl ester + a 2-acyl-sn-glycero-3-phosphocholine
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:18061: N-formylmethanofuran + 5,6,7,8-tetrahydromethanopterin + H(+) = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + methanofuran
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:18565: holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:19109: 1,2,3,6-tetrakis-O-galloyl-beta-D-glucose + 1-O-galloyl-beta-D-glucose = 1,2,3,4,6-pentakis-O-galloyl-beta-D-glucose + D-glucose + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:20325: N-hydroxy-4-acetylaminobiphenyl = N-acetoxy-4-aminobiphenyl
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:20473: (R)-lipoyl-5'-AMP + L-lysyl-[lipoyl-carrier protein] = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + 2 H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:20489: L-alanyl-tRNA(Ala) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-alanyl)-sn-glycerol + tRNA(Ala)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:21180: 1-O-(indol-3-ylacetyl)-beta-D-glucose + myo-inositol = indole-3-acetyl-1D-myo-inositol + D-glucose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:22664: 2 1-O-(trans-sinapoyl)-beta-D-glucose = 1,2-di-O-sinapoyl beta-D-glucose + D-glucose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:22896: n malonyl-CoA + acetyl-CoA + 2n NADPH + 2n H(+) = a long-chain fatty acyl-CoA + n CO2 + 2n NADP(+) + n CoA + H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:23068: 6 (S)-methylmalonyl-CoA + propanoyl-CoA + 6 NADPH + 12 H(+) = 6-deoxyerythronolide B + 6 CO2 + 6 NADP(+) + 7 CoA + H2O
+  → NAD(P) system present - likely oxidoreductase not acyltransferase
+
+RHEA:23204: chlorogenate + D-glucarate = 2-O-caffeoylglucarate + L-quinate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:23472: 2 alpha,alpha'-trehalose 6-mycolate = alpha,alpha'-trehalose 6,6'-bismycolate + alpha,alpha-trehalose
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:23500: N(6)-propanoyl-L-lysyl-[protein] + NAD(+) + H2O = 3''-O-propanoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:23556: D-alanine + L-glutamine = gamma-L-glutamyl-D-alanine + NH4(+)
+  → Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:23652: N-terminal L-glutaminyl-[peptide] = N-terminal 5-oxo-L-prolyl-[peptide] + NH4(+)
+  → Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:24204: acetyl phosphate + sulfite + H(+) = sulfoacetaldehyde + phosphate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:24364: N(6)-(2-hydroxyisobutanoyl)-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-(2-hydroxyisobutanoyl)-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase
+
+RHEA:28054: 2-oxobutanoate + CoA = propanoyl-CoA + formate
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:35623: D-glutamine + D-glutamate = gamma-D-glutamyl-D-glutamate + NH4(+)
+  → Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:37059: L-threonylcarbamoyladenylate + adenosine(37) in tRNA = N(6)-L-threonylcarbamoyladenosine(37) in tRNA + AMP + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:50416: N-terminal L-arginyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-arginyl-[protein] + tRNA(Leu) + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:43636: N(6)-acetyl-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-acetyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:54816: L-glutaminyl-[protein] + L-lysyl-[protein] = [protein]-L-lysyl-N(6)-5-L-glutamyl-[protein] + NH4(+)
+  → Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:50504: N-terminal L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-seryl-[protein] + CoA + H(+)
+  → Not a transferase: No group transfer pattern detected
+
+RHEA:63640: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-lipoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → Not a transferase: No group transfer pattern detected
+

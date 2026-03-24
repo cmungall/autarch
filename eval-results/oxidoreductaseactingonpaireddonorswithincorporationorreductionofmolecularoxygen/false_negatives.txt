@@ -1,0 +1,142 @@
+False Negatives for OxidoreductaseActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen
+==================================================
+Total: 46
+
+RHEA:11004: salicylate + NADH + O2 + 2 H(+) = catechol + CO2 + NAD(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:11968: kynurenate + AH2 + O2 = 7,8-dihydro-7,8-dihydroxykynurenate + A
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:11984: progesterone + AH2 + O2 = testosterone acetate + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:12677: Latia luciferin + AH2 + 2 O2 = oxidized Latia luciferin + hnu + formate + A + CO2 + H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:13545: (6E,10E)-geranyllinalool + reduced [NADPH--hemoprotein reductase] + O2 = (3E,7E)-4,8,12-trimethyltrideca 1,3,7,11-tetraene + but-3-en-2-one + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:14021: ecdysone + AH2 + O2 = 20-hydroxyecdysone + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:14101: [eIF5A protein]-deoxyhypusine + AH2 + O2 = [eIF5A protein]-hypusine + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:14193: 3-hydroxybenzoate + AH2 + O2 = 2,3-dihydroxybenzoate + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:16709: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tryptophan + O2 = 5-hydroxy-L-tryptophan + (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:16745: phylloquinone + AH2 + O2 = 2,3-epoxyphylloquinone + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:16973: 2-hydroxypyridine + AH2 + O2 = 2,5-dihydroxypyridine + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:17149: an organic molecule + reduced [NADPH--hemoprotein reductase] + O2 = an alcohol + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:18117: L-tyrosine + O2 = L-dopaquinone + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:18201: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tyrosine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + L-dopa
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:18205: progesterone + AH2 + O2 = 11alpha-hydroxyprogesterone + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:18613: 4-methoxybenzoate + AH2 + O2 = 4-hydroxybenzoate + formaldehyde + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:18929: thiophene-2-carbonyl-CoA + AH2 + O2 = 5-hydroxythiophene-2-carbonyl-CoA + A + H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19117: dopamine + 2 L-ascorbate + O2 = (R)-noradrenaline + 2 monodehydro-L-ascorbate radical + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19137: 17beta-estradiol + AH2 + O2 = 6beta-hydroxyestradiol-17beta + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19281: (7S)-marmesin + reduced [NADPH--hemoprotein reductase] + O2 = psoralen + acetone + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19457: 2-nitrophenol + 2 NADPH + O2 + 2 H(+) = catechol + nitrite + 2 NADP(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19465: 2 nitric oxide + NADPH + 2 O2 = 2 nitrate + NADP(+) + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19469: 2 nitric oxide + NADH + 2 O2 = 2 nitrate + NAD(+) + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:19557: pregna-4,9(11)-diene-3,20-dione + AH2 + O2 = 9,11alpha-epoxypregn-4-ene-3,20-dione + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:20273: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tyrosine
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:21104: cholesterol + AH2 + O2 = 25-hydroxycholesterol + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:21452: a [peptide]-C-terminal glycine + 2 L-ascorbate + O2 = a [peptide]-C-terminal (2S)-2-hydroxyglycine + 2 monodehydro-L-ascorbate radical + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:21716: (S)-mandelate + (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + O2 = (S)-4-hydroxymandelate + (6R)-L-erythro-6,7-dihydrobiopterin + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:22696: androst-4-ene-3,17-dione + AH2 + O2 = testololactone + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:23064: an alkanesulfonate + FMNH2 + O2 = an aldehyde + FMN + sulfite + H2O + 2 H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:23336: 2 iodide + H2O2 + 2 H(+) = diiodine + 2 H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:23640: 1-aminocyclopropane-1-carboxylate + L-ascorbate + O2 = ethene + L-dehydroascorbate + hydrogen cyanide + CO2 + 2 H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:23728: (5Z,8Z,11Z,14Z)-eicosatetraenoate + AH2 + 2 O2 = prostaglandin H2 + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:26077: methanesulfonate + NADH + O2 = sulfite + formaldehyde + NAD(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:27333: 6-hydroxynicotinate + NADH + O2 + 2 H(+) = 2,5-dihydroxypyridine + CO2 + NAD(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:27341: AH2 + NH4(+) + O2 = hydroxylamine + A + H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:27481: (S)-columbianetin + reduced [NADPH--hemoprotein reductase] + O2 = angelicin + acetone + oxidized [NADPH--hemoprotein reductase] + 2 H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:30595: 4-hydroxyphenylacetate + FADH2 + O2 = 3,4-dihydroxyphenylacetate + FAD + H2O + H(+)
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:31271: 1-hydroxy-2-naphthoate + NADH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NAD(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:31571: 1-hydroxy-2-naphthoate + NADPH + O2 + 2 H(+) = naphthalene-1,2-diol + CO2 + NADP(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:34307: 4-nitrocatechol + NADPH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:34311: 4-nitrocatechol + NADH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NAD(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:34327: 4-nitrophenol + NADPH + O2 + H(+) = 1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:34331: indole-3-pyruvate + NADPH + O2 + H(+) = (indol-3-yl)acetate + CO2 + NADP(+) + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:36255: 1-O-(1,2-saturated-alkyl)-sn-glycerol + (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + O2 = a 1-(1-hydroxyalkyl)-sn-glycerol + (6R)-L-erythro-6,7-dihydrobiopterin + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+
+RHEA:65812: 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + AH2 + O2 = N(6)-[(2E)-4-hydroxy-3-methylbut-2-en-1-yl]-2-(methylsulfanyl)adenosine(37) in tRNA + A + H2O
+  → No supported oxidoreductase acting on paired donors with incorporation or reduction child classifier matched
+

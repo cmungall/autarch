@@ -1,0 +1,79 @@
+False Negatives for MonoatomicCationTransmembraneTransporterActivity
+==================================================
+Total: 25
+
+RHEA:11484: a quinol + 2 Fe(III)-[cytochrome c](out) = a quinone + 2 Fe(II)-[cytochrome c](out) + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:13973: diphosphate + H2O + H(+)(in) = 2 phosphate + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:20852: ATP + H2O + H(+)(in) = ADP + phosphate + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28490: K(+)(in) + H(+)(in) = K(+)(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28574: sulfate(in) + H(+)(in) = sulfate(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28715: (R)-malate(in) + 2 H(+)(in) = (R)-malate(out) + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28839: Zn(2+)(in) + H(+)(out) = Zn(2+)(out) + H(+)(in)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28915: 4-aminobutanoate(in) + H(+)(in) = 4-aminobutanoate(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28967: L-proline(in) + Na(+)(in) = L-proline(out) + Na(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:28987: N-acetylneuraminate(in) + H(+)(in) = N-acetylneuraminate(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29023: L-fucose(in) + H(+)(in) = L-fucose(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29031: L-glutamate(in) + 2 Na(+)(in) = L-glutamate(out) + 2 Na(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29251: Na(+)(in) + 2 H(+)(out) = Na(+)(out) + 2 H(+)(in)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29255: Ca(2+)(in) + Na(+)(out) = Ca(2+)(out) + Na(+)(in)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29283: L-alanine(in) + Na(+)(in) = L-alanine(out) + Na(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29303: succinate(in) + 2 H(+)(in) = succinate(out) + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29339: (S)-malate(in) + 2 H(+)(in) = (S)-malate(out) + 2 H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29463: K(+)(in) = K(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29467: K(+)(in) + H(+)(out) = K(+)(out) + H(+)(in)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29671: Ca(2+)(in) = Ca(2+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:29943: 2-dehydro-3-deoxy-D-gluconate(in) + H(+)(in) = 2-dehydro-3-deoxy-D-gluconate(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:32123: citrate(in) + H(+)(in) = citrate(out) + H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:33135: malonate(in) + Na(+)(in) = malonate(out) + Na(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:34963: Na(+)(in) = Na(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+
+RHEA:34979: H(+)(in) = H(+)(out)
+  → No supported monoatomic cation transmembrane transporter activity child classifier matched
+

@@ -1,0 +1,16 @@
+False Positives for AldehydeLyase
+==================================================
+Total: 4
+
+RHEA:17937: dihydroxyacetone phosphate = methylglyoxal + phosphate
+  → Aldolase: aldol cleavage/condensation [cleavage direction]
+
+RHEA:22488: S-(hydroxymethyl)glutathione = glutathione + formaldehyde
+  → Aldolase: aldol cleavage/condensation [cleavage direction]
+
+RHEA:25888: iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+)
+  → Aldolase: aldol cleavage/condensation [pattern matched]
+
+RHEA:35095: choline = trimethylamine + acetaldehyde
+  → Aldolase: aldol cleavage/condensation [cleavage direction]
+

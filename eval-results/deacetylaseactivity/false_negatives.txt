@@ -1,0 +1,7 @@
+False Negatives for DeacetylaseActivity
+==================================================
+Total: 1
+
+RHEA:10464: [(1->4)-N-acetyl-beta-D-glucosaminyl](n) + n H2O = chitosan + n acetate
+  → No substantive deacetylated product detected
+

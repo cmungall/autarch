@@ -1,0 +1,82 @@
+False Positives for Racemase
+==================================================
+Total: 26
+
+RHEA:10680: L-proline = D-proline
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-/m0/s1 -> t4-/m1/s1] [pattern matched]
+
+RHEA:10804: (S)-allantoin = (R)-allantoin
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t1-/m0/s1 -> t1-/m1/s1] [pattern matched]
+
+RHEA:10820: D-threo-isocitrate = D-erythro-isocitrate
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,4+/m0/s1 -> t2-,4-/m0/s1] [pattern matched]
+
+RHEA:10960: (S)-lactate = (R)-lactate
+  → Racemase/epimerase: lactate racemization [Stereoisomerism: t2-/m0/s1 -> t2-/m1/s1] [pattern matched]
+
+RHEA:10980: L-serine = D-serine
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -> t2-/m1/s1] [pattern matched]
+
+RHEA:11584: L-ornithine = D-ornithine
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-/m0/s1 -> t4-/m1/s1] [pattern matched]
+
+RHEA:12092: (S)-acetoin = (R)-acetoin
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t3-/m0/s1 -> t3-/m1/s1] [pattern matched]
+
+RHEA:12492: L-methionine = D-methionine
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-/m0/s1 -> t4-/m1/s1] [pattern matched]
+
+RHEA:12813: L-glutamate = D-glutamate
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t3-/m0/s1 -> t3-/m1/s1] [pattern matched]
+
+RHEA:13913: L-threonine = D-threonine
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t2-,3+/m1/s1 -> t2-,3+/m0/s1] [pattern matched]
+
+RHEA:13945: (S)-mandelate = (R)-mandelate
+  → Racemase/epimerase: mandelate racemization [Stereoisomerism: t7-/m0/s1 -> t7-/m1/s1] [pattern matched]
+
+RHEA:14813: L-2-aminohexano-6-lactam = D-2-aminohexano-6-lactam
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-/m0/s1 -> t5-/m1/s1] [pattern matched]
+
+RHEA:14973: L-aspartate = D-aspartate
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -> t2-/m1/s1] [pattern matched]
+
+RHEA:15393: (2S,6S)-2,6-diaminopimelate = meso-2,6-diaminopimelate
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-,5-/m0/s1 -> t4-,5+] [pattern matched]
+
+RHEA:18069: L-arginine = D-arginine
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t4-/m0/s1 -> t4-/m1/s1] [pattern matched]
+
+RHEA:20033: isopenicillin N = penicillin N
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t6-,8+,9-,11+/m0/s1 -> t6-,8-,9+,11-/m1/s1] [pattern matched]
+
+RHEA:20249: L-alanine = D-alanine
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t2-/m0/s1 -> t2-/m1/s1] [pattern matched]
+
+RHEA:20553: (R)-methylmalonyl-CoA = (S)-methylmalonyl-CoA
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t12-,13-,16-,17-,18+,22-/m1/s1 -> t12-,13+,16+,17+,18-,22+/m0/s1] [pattern matched]
+
+RHEA:21152: trans-4-hydroxy-L-proline = cis-4-hydroxy-D-proline
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t3-,4+/m1/s1 -> t3-,4-/m1/s1] [pattern matched]
+
+RHEA:21760: (3S)-3-hydroxybutanoyl-CoA = (3R)-3-hydroxybutanoyl-CoA
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t13-,14+,18+,19+,20-,24+/m0/s1 -> t13-,14-,18-,19-,20+,24-/m1/s1] [pattern matched]
+
+RHEA:22212: (2R,3R)-tartrate = (2R,3S)-tartrate
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t1-,2-/m1/s1 -> t1-,2+] [pattern matched]
+
+RHEA:22792: isonocardicin A = nocardicin A
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t16-,17-,19+/m0/s1 -> t16-,17+,19-/m1/s1] [pattern matched]
+
+RHEA:22864: L-lysine = D-lysine
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t5-/m0/s1 -> t5-/m1/s1] [pattern matched]
+
+RHEA:28394: L-alanyl-L-glutamate = L-alanyl-D-glutamate
+  → Racemase/epimerase: amino acid racemization [Stereoisomerism: t4-,5-/m0/s1 -> t4-,5+/m0/s1] [pattern matched]
+
+RHEA:32215: (6R)-NADHX = (6S)-NADHX
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t9-,10-,11-,13-,14-,15-,16-,20-,21-/m1/s1 -> t9-,10-,11+,13-,14-,15-,16-,20-,21-/m1/s1] [pattern matched]
+
+RHEA:32227: (6R)-NADPHX = (6S)-NADPHX
+  → Racemase/epimerase: stereoisomerization [Stereoisomerism: t9-,10-,11-,13-,14-,15-,16-,20-,21-/m1/s1 -> t9-,10-,11+,13-,14-,15-,16-,20-,21-/m1/s1] [pattern matched]
+

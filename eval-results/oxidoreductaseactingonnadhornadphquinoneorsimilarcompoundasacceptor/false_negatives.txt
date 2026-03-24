@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnNADHOrNADPHQuinoneOrSimilarCompoundAsAcceptor
+==================================================
+Total: 1
+
+RHEA:14269: 2 a quinone + NADPH + H(+) = 2 a 1,4-benzosemiquinone + NADP(+)
+  → Quinone reduction requires one substantive acceptor and one substantive reduced product
+

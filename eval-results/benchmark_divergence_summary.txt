@@ -1,0 +1,51 @@
+GO versus EC Divergence Summary
+============================================================
+
+Classes analyzed: 488
+Classes with both GO and EC support: 236
+
+Relation counts
+------------------------------
+  divergent: 109
+  ec_only: 96
+  ec_subset_of_go: 13
+  exact_match: 53
+  go_only: 142
+  go_subset_of_ec: 61
+  no_support: 14
+
+Largest GO-only tails
+------------------------------
+  OtherOxidoreductase: go_only_count=1255, relation=divergent, GO=1259, EC=5, Jaccard=0.003
+  OtherLyase: go_only_count=423, relation=divergent, GO=426, EC=4, Jaccard=0.007
+  Monooxygenase: go_only_count=219, relation=go_only, GO=219, EC=0, Jaccard=0.000
+  OtherIsomerase: go_only_count=200, relation=divergent, GO=201, EC=2, Jaccard=0.005
+  CatalyticActivityActingOnANucleicAcid: go_only_count=149, relation=go_only, GO=149, EC=0, Jaccard=0.000
+  CatalyticActivityActingOnAProtein: go_only_count=149, relation=go_only, GO=149, EC=0, Jaccard=0.000
+  CatalyticActivityActingOnRNA: go_only_count=142, relation=go_only, GO=142, EC=0, Jaccard=0.000
+  SAdenosylmethionineDependentMethyltransferase: go_only_count=141, relation=go_only, GO=141, EC=0, Jaccard=0.000
+  Dioxygenase: go_only_count=117, relation=go_only, GO=117, EC=0, Jaccard=0.000
+  PhosphoricEsterHydrolase: go_only_count=113, relation=go_only, GO=113, EC=0, Jaccard=0.000
+  CatalyticActivityActingOnATRNA: go_only_count=108, relation=go_only, GO=108, EC=0, Jaccard=0.000
+  TransmembraneTransporterActivity: go_only_count=98, relation=go_only, GO=98, EC=0, Jaccard=0.000
+  TransporterActivity: go_only_count=98, relation=go_only, GO=98, EC=0, Jaccard=0.000
+  ActiveTransmembraneTransporterActivity: go_only_count=90, relation=go_only, GO=90, EC=0, Jaccard=0.000
+  OAcyltransferase: go_only_count=62, relation=go_only, GO=62, EC=0, Jaccard=0.000
+
+Largest EC-only tails
+------------------------------
+  Transferase: ec_only_count=504, relation=divergent, GO=1240, EC=1705, Jaccard=0.689
+  Oxidoreductase: ec_only_count=456, relation=divergent, GO=1259, EC=1679, Jaccard=0.713
+  ActingOnPairedDonorsWithIncorporationOrReductionOfMolecularOxygen: ec_only_count=399, relation=ec_only, GO=0, EC=399, Jaccard=0.000
+  SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor: ec_only_count=384, relation=divergent, GO=30, EC=413, Jaccard=0.070
+  TransferringOneCarbonGroups: ec_only_count=364, relation=ec_only, GO=0, EC=364, Jaccard=0.000
+  UDPXylosyltransferaseActivity: ec_only_count=324, relation=go_subset_of_ec, GO=7, EC=331, Jaccard=0.021
+  CarbonOxygenLyases: ec_only_count=288, relation=ec_only, GO=0, EC=288, Jaccard=0.000
+  ActingOnEsterBonds: ec_only_count=273, relation=ec_only, GO=0, EC=273, Jaccard=0.000
+  MannosyltransferaseActivity: ec_only_count=250, relation=go_subset_of_ec, GO=3, EC=253, Jaccard=0.012
+  UDPGalactosyltransferaseActivity: ec_only_count=230, relation=go_subset_of_ec, GO=23, EC=253, Jaccard=0.091
+  AcetylglucosaminyltransferaseActivity: ec_only_count=226, relation=divergent, GO=28, EC=253, Jaccard=0.106
+  GalactosyltransferaseActivity: ec_only_count=226, relation=go_subset_of_ec, GO=27, EC=253, Jaccard=0.107
+  UDPGlycosyltransferaseActivity: ec_only_count=205, relation=divergent, GO=130, EC=331, Jaccard=0.376
+  UDPGlucosyltransferaseActivity: ec_only_count=203, relation=divergent, GO=52, EC=253, Jaccard=0.196
+  Kinase: ec_only_count=200, relation=divergent, GO=195, EC=392, Jaccard=0.486

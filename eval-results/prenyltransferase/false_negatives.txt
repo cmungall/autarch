@@ -1,0 +1,13 @@
+False Negatives for Prenyltransferase
+==================================================
+Total: 3
+
+RHEA:17317: phytyl diphosphate + chlorophyllide a + H(+) = chlorophyll a + diphosphate
+  → No prenyl diphosphate donor substrate
+
+RHEA:28070: heme b + (2E,6E)-farnesyl diphosphate + H2O = Fe(II)-heme o + diphosphate
+  → Uses water - phosphatase/hydrolase not prenyltransferase
+
+RHEA:33495: sn-glycerol 1-phosphate + all-trans-heptaprenyl diphosphate = 3-heptaprenyl-sn-glycero-1-phosphate + diphosphate
+  → No prenyl diphosphate donor substrate
+

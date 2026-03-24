@@ -1,0 +1,97 @@
+False Negatives for ABCTypeTransporterActivity
+==================================================
+Total: 31
+
+RHEA:10192: sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:11036: a quaternary ammonium(out) + ATP + H2O = a quaternary ammonium(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:12332: Fe(3+)(out) + ATP + H2O = Fe(3+)(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:13181: nitrate(out) + ATP + H2O = nitrate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:14429: a [oligopeptide](in) + ATP + H2O = a [oligopeptide](out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:14613: taurine(out) + ATP + H2O = taurine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:14633: Na(+)(in) + ATP + H2O = Na(+)(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:15181: an acyl-CoA(out) + ATP + H2O = an acyl-CoA(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:15557: Ni(2+)(out) + ATP + H2O = Ni(2+)(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:17365: Mn(2+)(out) + ATP + H2O = Mn(2+)(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:17873: an R-cob(III)alamin(out) + ATP + H2O = an R-cob(III)alamin(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:18065: phosphonate(out) + ATP + H2O = phosphonate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:19121: an S-substituted glutathione(in) + ATP + H2O = an S-substituted glutathione(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:19261: heme b(in) + ATP + H2O = heme b(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:20832: guanine(out) + ATP + H2O = guanine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:21668: sn-glycerol 3-phosphate(out) + ATP + H2O = sn-glycerol 3-phosphate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:22020: molybdate(out) + ATP + H2O = molybdate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29035: L-glutamate(out) + ATP + H2O = L-glutamate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29767: D-methionine(out) + ATP + H2O = D-methionine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29783: L-cysteine(in) + ATP + H2O = L-cysteine(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29795: Zn(2+)(out) + ATP(in) + H2O(in) = Zn(2+)(in) + ADP(in) + phosphate(in) + H(+)(in)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29799: D-allose(out) + ATP + H2O = D-allose(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29811: thiamine(out) + ATP + H2O = thiamine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29871: thiosulfate(out) + ATP + H2O = thiosulfate(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29895: L-glutamine(out) + ATP + H2O = L-glutamine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29995: putrescine(out) + ATP + H2O = putrescine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:29999: spermidine(out) + ATP + H2O = spermidine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:32783: glycine betaine(out) + ATP + H2O = glycine betaine(in) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:33147: daunorubicin(in) + ATP + H2O = daunorubicin(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:33503: itraconazole(in) + ATP + H2O = itraconazole(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+
+RHEA:35027: tungstate(in) + ATP + H2O = tungstate(out) + ADP + phosphate + H(+)
+  → No supported abc-type transporter activity child classifier matched
+

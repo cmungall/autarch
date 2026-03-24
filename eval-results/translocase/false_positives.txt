@@ -1,0 +1,7 @@
+False Positives for Translocase
+==================================================
+Total: 1
+
+RHEA:34999: ADP(in) + ATP(out) = ADP(out) + ATP(in)
+  → Primary active translocase (ATP-coupled): CHEBI:456216: in→out, CHEBI:30616: in→out
+

@@ -1,0 +1,7 @@
+False Positives for DAminoacylTRNADeacylase
+==================================================
+Total: 1
+
+RHEA:53744: glycyl-tRNA(Ala) + H2O = tRNA(Ala) + glycine + H(+)
+  → D-aminoacyl-tRNA deacylase: hydrolysis of a D-aminoacyl-tRNA to free D-amino acid and tRNA
+

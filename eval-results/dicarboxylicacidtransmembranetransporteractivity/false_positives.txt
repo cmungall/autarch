@@ -1,0 +1,19 @@
+False Positives for DicarboxylicAcidTransmembraneTransporterActivity
+==================================================
+Total: 5
+
+RHEA:19261: heme b(in) + ATP + H2O = heme b(out) + ADP + phosphate + H(+)
+  → Dicarboxylic acid transmembrane transporter activity
+
+RHEA:28695: hydrogencarbonate(in) = hydrogencarbonate(out)
+  → Dicarboxylic acid transmembrane transporter activity
+
+RHEA:29031: L-glutamate(in) + 2 Na(+)(in) = L-glutamate(out) + 2 Na(+)(out)
+  → Dicarboxylic acid transmembrane transporter activity
+
+RHEA:29035: L-glutamate(out) + ATP + H2O = L-glutamate(in) + ADP + phosphate + H(+)
+  → Dicarboxylic acid transmembrane transporter activity
+
+RHEA:32123: citrate(in) + H(+)(in) = citrate(out) + H(+)(out)
+  → Dicarboxylic acid transmembrane transporter activity
+

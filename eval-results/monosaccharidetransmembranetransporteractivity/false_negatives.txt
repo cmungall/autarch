@@ -1,0 +1,16 @@
+False Negatives for MonosaccharideTransmembraneTransporterActivity
+==================================================
+Total: 4
+
+RHEA:29023: L-fucose(in) + H(+)(in) = L-fucose(out) + H(+)(out)
+  → Transported substrate is not a monosaccharide
+
+RHEA:29799: D-allose(out) + ATP + H2O = D-allose(in) + ADP + phosphate + H(+)
+  → Transported substrate is not a monosaccharide
+
+RHEA:29943: 2-dehydro-3-deoxy-D-gluconate(in) + H(+)(in) = 2-dehydro-3-deoxy-D-gluconate(out) + H(+)(out)
+  → Transported substrate is not a monosaccharide
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No transported substrate between locations
+

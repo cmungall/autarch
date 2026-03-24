@@ -1,0 +1,10 @@
+False Positives for OxidoreductaseActingOnOtherNitrogenousCompoundsAsDonorsWithNADOrNADPAsAcceptor
+==================================================
+Total: 2
+
+RHEA:23892: 3-nitropropanoate + NADP(+) = 3-nitroacrylate + NADPH + H(+)
+  → NAD(P)-linked oxidoreduction of a non-CH-N/NH2 nitrogenous donor
+
+RHEA:36731: 1-nitrocyclohexan + NADP(+) = 1-nitrocyclohexene + NADPH + H(+)
+  → NAD(P)-linked oxidoreduction of a non-CH-N/NH2 nitrogenous donor
+

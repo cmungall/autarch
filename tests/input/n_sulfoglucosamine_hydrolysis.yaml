@@ -1,0 +1,12 @@
+name: N-sulfoglucosamine sulfohydrolase reaction
+description: Hydrolysis of N-sulfoglucosamine (removes sulfate from nitrogen)
+left_participants:
+  - smiles: "O=S(=O)(O)N[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@H](CO)O1"  # N-sulfoglucosamine
+    count: 1
+  - smiles: "O"  # water
+    count: 1
+right_participants:
+  - smiles: "N[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@H](CO)O1"  # glucosamine
+    count: 1
+  - smiles: "O=S(=O)(O)O"  # sulfuric acid
+    count: 1

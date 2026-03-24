@@ -1,0 +1,10 @@
+False Negatives for OxidoreductaseActingOnOtherNitrogenousCompoundsAsDonorsWithNADOrNADPAsAcceptor
+==================================================
+Total: 2
+
+RHEA:13409: 7-aminomethyl-7-carbaguanine + 2 NADP(+) = 7-cyano-7-deazaguanine + 2 NADPH + 3 H(+)
+  → No qualifying non-CH-N nitrogenous redox signature detected
+
+RHEA:17185: IMP + NH4(+) + NADP(+) = GMP + NADPH + 2 H(+)
+  → No qualifying non-CH-N nitrogenous redox signature detected
+

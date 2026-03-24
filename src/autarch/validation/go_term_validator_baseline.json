@@ -1,0 +1,242 @@
+{
+  "Acyltransferase": [
+    "source_matches_go"
+  ],
+  "AldehydeKetoneTransferase": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "AminoacylTRNALigase": [
+    "source_matches_go"
+  ],
+  "Aminopeptidase": [
+    "source_matches_go"
+  ],
+  "AmmoniaLyase": [
+    "source_matches_go"
+  ],
+  "BiotinBiotinCarboxylCarrierProteinLigase": [
+    "source_matches_go"
+  ],
+  "CarbonHalideLyase": [
+    "source_matches_go"
+  ],
+  "CarbonPhosphorusLyase": [
+    "source_matches_go"
+  ],
+  "CarbonSulfurLyase": [
+    "source_matches_go"
+  ],
+  "CarboxyLyase": [
+    "source_matches_go"
+  ],
+  "Cyclase": [
+    "source_matches_go"
+  ],
+  "Deaminase": [
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnAcidCarbonCarbonBondsInKetonicSubstances": [
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnAcidSulfurNitrogenBonds": [
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnCarbonPhosphorusBonds": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnCarbonSulfurBonds": [
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnGlycosylBonds": [
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnHalideBonds": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnPhosphorusNitrogenBonds": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "HydrolaseActingOnSulfurSulfurBonds": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "HydrolaseHydrolyzingNGlycosylCompounds": [
+    "source_matches_go"
+  ],
+  "IntramolecularLyase": [
+    "source_matches_go"
+  ],
+  "IntramolecularPhosphotransferase": [
+    "source_matches_go"
+  ],
+  "LigaseFormingCarbonNitrogenBonds": [
+    "source_matches_go"
+  ],
+  "MacromolecularConformationIsomerase": [
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "MolybdenumTungstenTransferase": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go",
+    "source_matches_go"
+  ],
+  "Monooxygenase": [
+    "source_matches_go"
+  ],
+  "NADPHDehydrogenaseQuinone": [
+    "source_matches_go"
+  ],
+  "OtherIsomerase": [
+    "go_matches_class",
+    "ec_matches_go"
+  ],
+  "OtherLyase": [
+    "go_matches_class",
+    "ec_matches_go",
+    "source_matches_go"
+  ],
+  "OtherOxidoreductase": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go"
+  ],
+  "OxidoreductaseActingOnAHemeGroupOfDonors": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnASulfurGroupOfDonors": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnCHOrCH2Groups": [
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnDiphenols": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnHydrogen": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnIronSulfurProteins": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnMetalIons": [
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnNADPHQuinoneOrSimilarCompoundAsAcceptor": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnOtherNitrogenousCompounds": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnPhosphorusOrArsenic": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnReducedFlavodoxin": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygen": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnTheCHNH2GroupOfDonorsNADOrNADPAsAcceptor": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseActingOnTheCHNHGroupOfDonors": [
+    "source_matches_go"
+  ],
+  "OxidoreductaseFormingXYBond": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "OxidoreductaseReducingCOCGroup": [
+    "go_matches_class",
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "PectateLyase": [
+    "source_matches_go"
+  ],
+  "Pectinesterase": [
+    "source_matches_go"
+  ],
+  "PeptidylProlylCisTransIsomerase": [
+    "source_matches_go"
+  ],
+  "PhosphoricDiesterHydrolase": [
+    "source_matches_go"
+  ],
+  "Prenyltransferase": [
+    "source_matches_go"
+  ],
+  "PrimaryMethylamineOxidase": [
+    "source_matches_go"
+  ],
+  "ProteinDeglycase": [
+    "source_matches_go"
+  ],
+  "RNAPolymerase": [
+    "source_matches_go"
+  ],
+  "RacemaseAndEpimerase": [
+    "source_matches_go"
+  ],
+  "Selenotransferase": [
+    "description_matches_class",
+    "source_matches_go"
+  ],
+  "Sulfotransferase": [
+    "source_matches_go"
+  ],
+  "TerpeneSynthase": [
+    "source_matches_go"
+  ],
+  "TranslocaseLinkedToDeamination": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go"
+  ],
+  "TranslocaseLinkedToDecarboxylation": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go"
+  ],
+  "TranslocaseLinkedToHydrolysis": [
+    "go_matches_class",
+    "description_matches_class"
+  ],
+  "TranslocaseLinkedToMethylTransfer": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go"
+  ],
+  "TranslocaseLinkedToReductiveDehalogenation": [
+    "go_matches_class",
+    "description_matches_class",
+    "ec_matches_go"
+  ]
+}

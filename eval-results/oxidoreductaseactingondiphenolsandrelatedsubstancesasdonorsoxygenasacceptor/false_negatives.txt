@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnDiphenolsAndRelatedSubstancesAsDonorsOxygenAsAcceptor
+==================================================
+Total: 1
+
+RHEA:11292: rifamycin B + O2 + 2 H(+) = rifamycin O + H2O2
+  → Organic products do not show oxidation of a diphenol-like donor scaffold
+

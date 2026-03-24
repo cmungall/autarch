@@ -1,0 +1,64 @@
+False Positives for Oxidase
+==================================================
+Total: 20
+
+RHEA:10452: 2-(L-cystein-S-yl)-2-(1H-indol-3-yl)-acetonitrile + reduced [NADPH--hemoprotein reductase] + O2 = (R)-dihydrocamalexate + hydrogen cyanide + oxidized [NADPH--hemoprotein reductase] + 2 H2O + 2 H(+)
+  → Oxidase: Terminal oxidation of CHEBI:79191 (O2 → H2O)
+
+RHEA:10592: a 3',5'-unsubstituted flavanone + reduced [NADPH--hemoprotein reductase] + O2 = a 3'-hydroxy,5'-unsubstituted flavanone + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:10648: 2-hydroxycyclohexan-1-one + NADPH + O2 + H(+) = 6-hydroxyhexan-6-olide + NADP(+) + H2O
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:10764: (2R,3S,4S)-leucocyanidin + 2-oxoglutarate + O2 = (4S)-2,3-dehydroleucocyanidin + succinate + CO2 + H2O + H(+)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:10768: (2R,3S,4S)-3,4-leucopelargonidin + 2-oxoglutarate + O2 = (4S)-2,3-dehydroleucopelargonidin + succinate + CO2 + H2O + H(+)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:10784: N(6)-methyl-L-lysyl(36)-[histone H3] + 2-oxoglutarate + O2 = L-lysyl(36)-[histone H3] + formaldehyde + succinate + CO2
+  → Oxidase: O2-dependent oxidation (atypical products)
+
+RHEA:10860: 3-hydroxy-2-methylpyridine-5-carboxylate + NADH + O2 = 2-(acetamidomethylene)succinate + NAD(+)
+  → Oxidase: O2-dependent oxidation (atypical products)
+
+RHEA:10928: ent-kaur-16-en-19-al + reduced [NADPH--hemoprotein reductase] + O2 = ent-kaur-16-en-19-oate + oxidized [NADPH--hemoprotein reductase] + H2O + 2 H(+)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11052: 4-aminobenzoate + NADH + O2 + 2 H(+) = 4-aminophenol + CO2 + NAD(+) + H2O
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11056: 4-aminobenzoate + NADPH + O2 + 2 H(+) = 4-aminophenol + CO2 + NADP(+) + H2O
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11072: anthranilate + NADPH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NADP(+)
+  → Oxidase: O2-dependent oxidation (atypical products)
+
+RHEA:11076: anthranilate + NADH + O2 + 3 H(+) = catechol + NH4(+) + CO2 + NAD(+)
+  → Oxidase: O2-dependent oxidation (atypical products)
+
+RHEA:11288: dihydromacarpine + O2 + H(+) = macarpine + H2O2
+  → Oxidase: O2 → H2O2 (peroxide formation)
+
+RHEA:11380: [2-(trimethylamino)ethyl]phosphonate + 2-oxoglutarate + O2 = [(1R)-1-hydroxy-2-(trimethylamino)ethyl]phosphonate + succinate + CO2
+  → Oxidase: O2-dependent oxidation (atypical products)
+
+RHEA:11436: 4 Fe(II)-[cytochrome c] + O2 + 8 H(+)(in) = 4 Fe(III)-[cytochrome c] + 2 H2O + 4 H(+)(out)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11440: 2,3,5,6-tetrachlorophenol + NADPH + O2 = 2,3,5,6-tetrachlorohydroquinone + NADP(+) + H2O
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11536: choline + 2 O2 + H2O = glycine betaine + 2 H2O2 + H(+)
+  → Oxidase: O2 → H2O2 (peroxide formation)
+
+RHEA:11700: progesterone + NADPH + O2 + H(+) = testosterone acetate + NADP(+) + H2O
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11732: sophoraflavanone B + reduced [NADPH--hemoprotein reductase] + O2 = leachianone G + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Oxidase: O2 → H2O (terminal oxidation)
+
+RHEA:11972: 4 Fe(2+) + O2 + 6 H2O = 4 iron(III) oxide-hydroxide + 12 H(+)
+  → Oxidase: O2-dependent oxidation (atypical products)
+

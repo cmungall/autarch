@@ -1,0 +1,64 @@
+False Positives for CatalyticActivityActingOnAGlycoprotein
+==================================================
+Total: 20
+
+RHEA:10612: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-alpha-D-xylose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-[beta-D-Xyl-(1->2)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:12576: (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1->2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:12637: (5R)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-galactose = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:12885: queuosine(34) in tRNA(Asp) + GDP-alpha-D-mannose = O-4''-alpha-D-mannosylqueuosine(34) in tRNA(Asp) + GDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:13581: N(4)-[alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-[6-(N-acetyl-alpha-D-glucosaminyl-1-phospho)-alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UMP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:16221: 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(alpha-D-GlcNAc-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:16533: L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-(N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:17841: trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP-N-acetyl-alpha-D-glucosamine = O-(N-acetyl-alpha-D-glucosaminyl)-trans-4-hydroxy-L-prolyl-[Skp1 protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:22820: 3-O-[alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-[alpha-D-xylosyl-(1->3)-alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:23360: L-tyrosyl-[glycogenin] + UDP-alpha-D-glucose = alpha-D-glucosyl-L-tyrosyl-[glycogenin] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:23464: 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-(beta-D-GalNAc-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:24168: 3-O-(beta-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:20908: 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n+1)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:48908: L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl)-L-threonyl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:58116: L-seryl-[EGF-like domain protein] + UDP-alpha-D-glucose = 3-O-(beta-D-glucosyl)-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:56064: 3-O-(beta-D-glucosyl)-L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-[alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:62016: L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-(beta-D-xylosyl)-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:70511: 3-O-(alpha-L-fucosyl)-L-seryl-[EGF-like domain protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl-(1->3)-alpha-L-fucosyl)-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:70531: 3-O-(alpha-L-fucosyl)-L-threonyl-[EGF-like domain protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl-(1->3)-alpha-L-fucosyl)-L-threonyl-[EGF-like domain protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+
+RHEA:50192: UDP-alpha-D-xylose + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → Catalytic activity acting on a glycoprotein: glycosyl transfer on a protein-like substrate
+

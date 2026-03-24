@@ -1,0 +1,22 @@
+False Positives for TRNAGuanineMethyltransferaseActivity
+==================================================
+Total: 6
+
+RHEA:23548: guanosine(966) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(966) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+
+RHEA:42744: guanosine(1835) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1835) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+
+RHEA:42736: guanosine(1207) in 16S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(1207) in 16S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+
+RHEA:42900: guanosine(745) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(745) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+
+RHEA:42904: guanosine(748) in 23S rRNA + S-adenosyl-L-methionine = N(1)-methylguanosine(748) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+
+RHEA:42740: guanosine(2445) in 23S rRNA + S-adenosyl-L-methionine = N(2)-methylguanosine(2445) in 23S rRNA + S-adenosyl-L-homocysteine + H(+)
+  → tRNA (guanine) methyltransferase activity: SAM-dependent methylation of guanosine in tRNA
+

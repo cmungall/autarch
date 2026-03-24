@@ -1,0 +1,10 @@
+False Negatives for AcidAmmoniaOrAmideLigase
+==================================================
+Total: 2
+
+RHEA:21532: glutathionylspermidine + glutathione + ATP = trypanothione + ADP + phosphate + H(+)
+  → No non-carboxylate nitrogen acceptor detected
+
+RHEA:10752: [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n) + n D-aspartate + n ATP = [beta-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-6-N-(beta-D-Asp)-L-Lys-D-Ala-D-Ala)]n + n ADP + n phosphate + n H(+)
+  → No ATP-or-similar triphosphate coupling detected
+

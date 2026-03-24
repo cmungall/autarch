@@ -1,0 +1,13 @@
+False Negatives for OxidoreductaseActingOnPhosphorusOrArsenic
+==================================================
+Total: 3
+
+RHEA:15969: methylarsonate + 2 glutathione + H(+) = methylarsonous acid + glutathione disulfide + H2O
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:18701: 2 oxidized [azurin] + arsenite + H2O = 2 reduced [azurin] + arsenate + 3 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:22016: [glutaredoxin]-dithiol + arsenate + glutathione + H(+) = glutathionyl-S-S-[glutaredoxin] + arsenite + H2O
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+

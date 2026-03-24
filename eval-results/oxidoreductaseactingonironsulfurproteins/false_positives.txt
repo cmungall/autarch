@@ -1,0 +1,61 @@
+False Positives for OxidoreductaseActingOnIronSulfurProteins
+==================================================
+Total: 19
+
+RHEA:11776: octadecanoyl-[ACP] + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = (9Z)-octadecenoyl-[ACP] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:11872: corticosterone + 2 reduced [adrenodoxin] + O2 + 2 H(+) = 18-hydroxycorticosterone + 2 oxidized [adrenodoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:13525: 2 reduced [2Fe-2S]-[putidaredoxin] + (1R,4R)-camphor + O2 + 2 H(+) = (1R,4R,5R)-5-hydroxycamphor + 2 oxidized [2Fe-2S]-[putidaredoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:14937: all-trans-antheraxanthin + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = all-trans-violaxanthin + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:16585: [[Fe-S] cluster scaffold protein carrying a second [4Fe-4S](2+) cluster] + N(6)-octanoyl-L-lysyl-[protein] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine + 4 H(+) = [[Fe-S] cluster scaffold protein] + N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 4 Fe(3+) + 2 hydrogen sulfide + 2 5'-deoxyadenosine + 2 L-methionine + 2 reduced [2Fe-2S]-[ferredoxin]
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:17769: choline + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = betaine aldehyde hydrate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:19341: octane + 2 reduced [rubredoxin] + O2 + 2 H(+) = 2 oxidized [rubredoxin] + octan-1-ol + H2O
+  → Iron-sulfur protein oxidoreductase: rubredoxin-dependent
+
+RHEA:20573: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitriol + 2 oxidized [adrenodoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:21324: reduced [rubredoxin] + superoxide + 2 H(+) = oxidized [rubredoxin] + H2O2
+  → Iron-sulfur protein oxidoreductase: rubredoxin-dependent
+
+RHEA:24084: all-trans-zeaxanthin + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = all-trans-antheraxanthin + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:24964: calcitriol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitetrol + 2 oxidized [adrenodoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:24968: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = secalciferol + 2 oxidized [adrenodoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:30279: 2 H2 + 2 oxidized [2Fe-2S]-[ferredoxin] + NAD(+) = 2 reduced [2Fe-2S]-[ferredoxin] + NADH + 3 H(+)
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:30331: all-trans-beta-carotene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-zeaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:32199: androsta-1,4-diene-3,17-dione + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = 9alpha-hydroxyandrosta-1,4-diene-3,17-dione + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:32443: all-trans-zeaxanthin + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-violaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:33027: spheroidene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = spheroiden-2-one + 4 oxidized [2Fe-2S]-[ferredoxin] + 3 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:34631: 5beta-cholestane-3alpha,7alpha,12alpha-triol + 6 reduced [adrenodoxin] + 3 O2 + 5 H(+) = (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oate + 6 oxidized [adrenodoxin] + 4 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+
+RHEA:35739: 6 reduced [adrenodoxin] + cholesterol + 3 O2 + 6 H(+) = 4-methylpentanal + pregnenolone + 6 oxidized [adrenodoxin] + 4 H2O
+  → Iron-sulfur protein oxidoreductase: ferredoxin-dependent
+

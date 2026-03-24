@@ -1,0 +1,73 @@
+False Negatives for PhosphotransferaseAlcoholGroupAsAcceptor
+==================================================
+Total: 23
+
+RHEA:10216: [DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:10596: L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:11860: L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:12008: [G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:13613: beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:13689: glycerol + diphosphate = glycerol 1-phosphate + phosphate + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:14913: thymidine + AMP = dTMP + adenosine
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:16397: 2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:16769: (2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:18381: dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:19429: [beta-adrenergic receptor] + ATP = [beta-adrenergic receptor]-phosphate + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:20409: riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:20824: adenosine + ATP = AMP + ADP + H(+)
+  → No non-cofactor substrates/products to evaluate
+
+RHEA:21288: sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:21436: [translation elongation factor 2] + ATP = [translation elongation factor 2]-phosphate + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:22720: L-histidyl-[protein] + ATP = N(pros)-phospho-L-histidyl-[protein] + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:23764: L-serine + diphosphate = O-phospho-L-serine + phosphate + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:27510: enolpyruvoyl-2-diphospho-5'-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:49240: N(pros)-phospho-L-histidyl-[protein] + N-acetyl-D-glucosamine(out) = N-acetyl-D-glucosamine 6-phosphate(in) + L-histidyl-[protein]
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:53904: L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:49236: N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+
+RHEA:43384: L-arginyl-[protein] + ATP = N(omega)-phospho-L-arginyl-[protein] + ADP + H(+)
+  → No alcohol-bearing acceptor detected on the substrate side
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No nucleotide phosphate-donor -> nucleotide-product coupling pattern
+

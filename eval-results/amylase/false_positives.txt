@@ -1,0 +1,7 @@
+False Positives for Amylase
+==================================================
+Total: 1
+
+RHEA:33795: sucrose + H2O = beta-D-fructose + alpha-D-glucose
+  → Amylase: α-1,4-glucan hydrolysis [pattern matched]
+

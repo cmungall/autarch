@@ -1,0 +1,73 @@
+False Negatives for Glycosidase
+==================================================
+Total: 23
+
+RHEA:10772: 6-phospho-beta-D-glucosyl-(1->4)-D-glucose + H2O = D-glucose 6-phosphate + D-glucose
+  → Phosphate product - phosphatase not glycosidase
+
+RHEA:13617: S-methyl-5'-thioadenosine + H2O = 5-(methylsulfanyl)-D-ribose + adenine
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:15041: bis-D-fructose 2',1:2,1'-dianhydride + H2O = inulobiose
+  → Not a hydrolase: Pattern doesn't match expected hydrolysis transformation
+
+RHEA:15049: GDP-alpha-D-glucose + H2O = D-glucose + GDP + H(+)
+  → Nucleotide product - likely glycosyltransferase not glycosidase
+
+RHEA:15073: 3-D-glucuronosyl-N(2),6-disulfo-beta-D-glucosamine + H2O = N(2),6-disulfo-D-glucosamine + D-glucuronate
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:16301: NAD(+) + H2O = ADP-D-ribose + nicotinamide + H(+)
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:17369: glycyrrhizin + H2O = 2-(beta-D-glucuronosyl)-D-glucuronate + glycyrrhetinate
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:17465: quercitrin + H2O = L-rhamnopyranose + quercetin
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:17805: S-adenosyl-L-homocysteine + H2O = S-(5-deoxy-D-ribos-5-yl)-L-homocysteine + adenine
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:19849: NADP(+) + H2O = ADP-D-ribose 2'-phosphate + nicotinamide + H(+)
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:20129: AMP + H2O = adenine + D-ribose 5-phosphate
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:20421: alpha-maltose 6'-phosphate + H2O = D-glucose 6-phosphate + D-glucose
+  → Phosphate product - phosphatase not glycosidase
+
+RHEA:20469: IMP + H2O = hypoxanthine + D-ribose 5-phosphate
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:23008: alpha,alpha-trehalose 6-phosphate + H2O = D-glucose 6-phosphate + D-glucose
+  → Phosphate product - phosphatase not glycosidase
+
+RHEA:23140: beta-nicotinamide D-ribonucleotide + H2O = D-ribose 5-phosphate + nicotinamide + H(+)
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:28102: GDP-alpha-D-mannose + H2O = D-mannose + GDP + H(+)
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:28130: baicalin + H2O = baicalein + D-glucuronate + H(+)
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:30927: 2-O-(4-deoxy-beta-L-threo-hex-4-enopyranuronosyl)-alpha-L-rhamnose + H2O = 5-dehydro-4-deoxy-D-glucuronate + L-rhamnopyranose
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:33079: 6-amino-6-deoxyfutalosine + H2O = dehypoxanthine futalosine + adenine
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:34491: UDP-N,N'-diacetylbacillosamine + H2O = 2,4-diacetamido-2,4,6-trideoxy-alpha-D-mannopyranose + UDP + H(+)
+  → Nucleotide product - likely glycosyltransferase not glycosidase
+
+RHEA:36051: beta-L-arabinofuranosyl-(1->2)-beta-L-arabinofuranose + H2O = 2 beta-L-arabinofuranose
+  → No carbohydrate/sugar substrates or products detected
+
+RHEA:54540: a 3-O-[beta-D-galactosyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + H2O = beta-D-galactosyl-(1->3)-N-acetyl-D-galactosamine + L-threonyl-[protein]
+  → Not a hydrolase: No water reactant - not hydrolysis
+
+RHEA:56052: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + 2 H2O = 2 alpha-D-mannopyranose + an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein]
+  → Not a hydrolase: No water reactant - not hydrolysis
+

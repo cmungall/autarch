@@ -1,0 +1,16 @@
+False Negatives for OxidoreductaseActingOnDiphenols
+==================================================
+Total: 4
+
+RHEA:11292: rifamycin B + O2 + 2 H(+) = rifamycin O + H2O2
+  → No diphenol/quinol donor species detected
+
+RHEA:17245: 3-hydroxyanthranilate + O2 = 6-imino-5-oxocyclohexa-1,3-dienecarboxylate + H2O2
+  → No diphenol/quinol donor species detected
+
+RHEA:22184: (+-)-trans-acenaphthene-1,2-diol + 2 NADP(+) = acenaphthene-1,2-dione + 2 NADPH + 2 H(+)
+  → No diphenol/quinol donor species detected
+
+RHEA:30243: 4 L-ascorbate + O2 = 4 monodehydro-L-ascorbate radical + 2 H2O
+  → No diphenol/quinol donor species detected
+

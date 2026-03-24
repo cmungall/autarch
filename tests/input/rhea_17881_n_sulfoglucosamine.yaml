@@ -1,0 +1,20 @@
+# RHEA:17881 - N-sulfoglucosamine sulfohydrolase
+# N-sulfo-D-glucosamine + H2O = D-glucosamine + sulfate
+# EC 3.10.1.1 - GO:0016250
+
+left_participants:
+  - chebi_id: "CHEBI:57868"
+    name: "N-sulfo-D-glucosamine"
+    count: 1
+  - chebi_id: "CHEBI:15377"
+    name: "water"
+    smiles: "O"
+    count: 1
+
+right_participants:
+  - chebi_id: "CHEBI:58723"
+    name: "D-glucosamine"
+    count: 1
+  - chebi_id: "CHEBI:16189"
+    name: "sulfate"
+    count: 1

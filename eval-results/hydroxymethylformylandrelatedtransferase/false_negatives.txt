@@ -1,0 +1,7 @@
+False Negatives for HydroxymethylFormylAndRelatedTransferase
+==================================================
+Total: 1
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → NAD(P)-dependent redox chemistry is not hydroxymethyl/formyl transferase activity
+

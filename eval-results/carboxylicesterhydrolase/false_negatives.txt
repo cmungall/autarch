@@ -1,0 +1,7 @@
+False Negatives for CarboxylicEsterHydrolase
+==================================================
+Total: 1
+
+RHEA:22380: [(1->4)-alpha-D-galacturonosyl methyl ester](n) + n H2O = [(1->4)-alpha-D-galacturonosyl](n) + n methanol + n H(+)
+  → No carboxylic ester substrate detected
+

@@ -1,0 +1,31 @@
+False Positives for OxidoreductaseActingOnOtherNitrogenousCompounds
+==================================================
+Total: 9
+
+RHEA:15645: N2 + 4 reduced [flavodoxin] + 16 ATP + 16 H2O = 4 oxidized [flavodoxin] + H2 + 2 NH4(+) + 16 ADP + 16 phosphate + 18 H(+)
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:17997)
+
+RHEA:19457: 2-nitrophenol + 2 NADPH + O2 + 2 H(+) = catechol + nitrite + 2 NADP(+) + H2O
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16301)
+
+RHEA:19465: 2 nitric oxide + NADPH + 2 O2 = 2 nitrate + NADP(+) + H(+)
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16480, CHEBI:16480, CHEBI:17632, CHEBI:17632)
+
+RHEA:19469: 2 nitric oxide + NADH + 2 O2 = 2 nitrate + NAD(+) + H(+)
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16480, CHEBI:16480, CHEBI:17632, CHEBI:17632)
+
+RHEA:19897: 2 L-arginine + 3 NADPH + 4 O2 + H(+) = 2 L-citrulline + 2 nitric oxide + 3 NADP(+) + 4 H2O
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16480, CHEBI:16480)
+
+RHEA:26458: ethylnitronate + FMNH2 + O2 = acetaldehyde + FMN + nitrite + H2O + 2 H(+)
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16301)
+
+RHEA:34307: 4-nitrocatechol + NADPH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16301)
+
+RHEA:34311: 4-nitrocatechol + NADH + O2 = 2-hydroxy-1,4-benzoquinone + nitrite + NAD(+) + H2O
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16301)
+
+RHEA:34327: 4-nitrophenol + NADPH + O2 + H(+) = 1,4-benzoquinone + nitrite + NADP(+) + H2O
+  → Nitrogenous compound oxidoreductase: nitrogen oxide species present (CHEBI:16301)
+

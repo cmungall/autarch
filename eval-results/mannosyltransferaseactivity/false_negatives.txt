@@ -1,0 +1,7 @@
+False Negatives for MannosyltransferaseActivity
+==================================================
+Total: 1
+
+RHEA:28366: UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No mannosyltransferase activity donor detected
+

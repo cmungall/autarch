@@ -1,0 +1,25 @@
+False Positives for Glycosyltransferase
+==================================================
+Total: 7
+
+RHEA:11652: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-galactose = alpha-D-galactosyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:13581: N(4)-[alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-[6-(N-acetyl-alpha-D-glucosaminyl-1-phospho)-alpha-D-mannosyl-(1->2)-alpha-D-mannosyl-(glycan)]-L-asparaginyl-[protein] + UMP + H(+)
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:20181: alpha-D-mannose derivative + UDP-alpha-D-glucose = 6-(alpha-D-glucose-1-phospho)-alpha-D-mannosyl derivative + UMP + H(+)
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:22440: UDP-N-acetyl-alpha-D-glucosamine + UDP-alpha-D-galactose = UDP-N-acetyl-6-(alpha-D-galactose-1-phospho)-alpha-D-glucosamine + UMP + H(+)
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:28090: di-trans,octa-cis-undecaprenyl phosphate + UDP-N-acetyl-alpha-D-glucosamine = N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:28126: di-trans,octa-cis-undecaprenyl phosphate + UDP-alpha-D-glucose = alpha-D-glucosyl di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+
+RHEA:30387: GDP-alpha-D-glucose + phosphate = alpha-D-glucose 1-phosphate + GDP + H(+)
+  → Glycosyltransferase: glycosyl group transfer [pattern matched]
+

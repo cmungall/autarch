@@ -1,0 +1,10 @@
+False Negatives for Epimerase
+==================================================
+Total: 2
+
+RHEA:10264: alpha-D-glucose = beta-D-glucose
+  → No carbohydrate substrate - epimerases act on sugars
+
+RHEA:28675: alpha-D-galactose = beta-D-galactose
+  → No carbohydrate substrate - epimerases act on sugars
+

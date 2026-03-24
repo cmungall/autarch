@@ -1,0 +1,127 @@
+False Negatives for Esterase
+==================================================
+Total: 41
+
+RHEA:10172: (3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:10184: (4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:10360: 3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:10644: 2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:10896: limonin + 2 H2O = limonoate + 2 H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:11548: 5-(4-acetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(4-hydroxy-but-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:11752: acetylsalicylate + H2O = salicylate + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:12208: 4-methylumbelliferyl acetate + H2O = 4-methylumbelliferone + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:12372: 2-(5-oxo-2,5-dihydrofuran-2-ylidene)acetate + H2O = 4-oxohex-2-enedioate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:13933: all-trans-retinyl hexadecanoate + H2O = all-trans-retinol + hexadecanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:14997: deoxylimonoate + H2O = deoxylimononate D-ring-lactone + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:15529: bis(2-ethylhexyl)phthalate + H2O = 2-ethylhexan-1-ol + 2-ethylhexyl phthalate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:16313: 5-(3,4-diacetoxybut-1-ynyl)-2,2'-bithiophene + H2O = 5-(3-hydroxy-4-acetoxybut-1-ynyl)-2,2'-bithiophene + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:16365: digallate + H2O = 2 3,4,5-trihydroxybenzoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:16393: juvenile hormone II + H2O = juvenile hormone II carboxylate + methanol + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:17501: polyneuridine aldehyde + H2O = 16-epivellosimine + methanol + CO2
+  → No clear ester hydrolysis pattern detected
+
+RHEA:17561: acetylcholine + H2O = choline + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:18485: 6-acetyl-D-glucose + H2O = D-glucose + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:19549: o-orsellinate depside + H2O = 2 orsellinate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:19697: 11-cis-retinyl hexadecanoate + H2O = 11-cis-retinol + hexadecanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:20689: chlorogenate + H2O = L-quinate + (E)-caffeate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:21316: phorbol 12,13-dibutanoate + H2O = phorbol 13-butanoate + butanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:21508: all-trans-retinyl hexadecanoate + H2O = retinol + hexadecanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:22124: 17-O-acetylajmaline + H2O = ajmaline + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:22596: cephalosporin C + H2O = deacetylcephalosporin C + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:22600: N-acetyl-9-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:23304: atropine + H2O = tropate + tropine + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:23460: benzyl cetraxate + H2O = cetraxate + benzyl alcohol + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:23796: 17-O-acetylnorajmaline + H2O = norajmaline + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:25347: D-tyrosyl-tRNA(Tyr) + H2O = D-tyrosine + tRNA(Tyr)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:25564: N-acetyl-4-O-acetylneuraminate + H2O = N-acetylneuraminate + acetate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:28803: L-ascorbate 6-phosphate + H2O = 3-dehydro-L-gulonate 6-phosphate
+  → No clear ester hydrolysis pattern detected
+
+RHEA:30283: (-)-trans-permethrin + H2O = (3-phenoxyphenyl)methanol + (1S,3R)-3-(2,2-dichlorovinyl)-2,2-dimethylcyclopropanecarboxylate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:31775: all-trans-retinyl hexadecanoate + H2O = 11-cis-retinol + hexadecanoate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:32483: pheophorbide a + H2O + H(+) = pyropheophorbide a + methanol + CO2
+  → No clear ester hydrolysis pattern detected
+
+RHEA:32919: methyl (indol-3-yl)acetate + H2O = (indol-3-yl)acetate + methanol + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:33611: methyl salicylate + H2O = salicylate + methanol + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:33967: 2-oxo-3-(5-oxofuran-2-ylidene)propanoate + H2O = 3-maleylpyruvate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:34179: mycophenolic acid O-acyl-beta-D-glucuronide + H2O = mycophenolate + D-glucuronate + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:54448: an N-acyl-L-alpha-aminoacyl-tRNA + H2O = an N-acyl-L-amino acid + a tRNA + H(+)
+  → No clear ester hydrolysis pattern detected
+
+RHEA:45340: [Wnt protein]-O-(9Z)-hexadecenoyl-L-serine + H2O = [Wnt protein]-L-serine + (9Z)-hexadecenoate + H(+)
+  → No water reactant found
+

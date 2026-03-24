@@ -1,0 +1,136 @@
+False Positives for AldehydeDehydrogenaseNADOrNADP
+==================================================
+Total: 44
+
+RHEA:10180: (6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10296: D-glyceraldehyde 3-phosphate + phosphate + NADP(+) = (2R)-3-phospho-glyceroyl phosphate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10300: D-glyceraldehyde 3-phosphate + phosphate + NAD(+) = (2R)-3-phospho-glyceroyl phosphate + NADH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10372: phenylglyoxylate + NAD(+) + CoA = benzoyl-CoA + CO2 + NADH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10620: (E)-cinnamaldehyde + NADP(+) + CoA = (E)-cinnamoyl-CoA + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:10812: N-succinyl-L-glutamate 5-semialdehyde + NAD(+) + H2O = N-succinyl-L-glutamate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:11296: 2,5-dioxopentanoate + NADP(+) + H2O = 2-oxoglutarate + NADPH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:12000: formate + NADP(+) = CO2 + NADPH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: formate-like donor oxidized to CO2 with NAD(P)+ acceptor
+
+RHEA:12056: D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:12344: (S)-4-amino-5-oxopentanoate + tRNA(Glu) + NADP(+) = L-glutamyl-tRNA(Glu) + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13213: succinate semialdehyde + NADP(+) + H2O = succinate + NADPH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13217: succinate semialdehyde + NAD(+) + H2O = succinate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13309: vanillin + NAD(+) + H2O = vanillate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13397: 6-oxohexanoate + NADP(+) + H2O = hexanedioate + NADPH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:13417: 5,12-dihydroxanthommatin + NAD(+) = xanthommatin + NADH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:14449: chlorophyllide a + NADP(+) = 3,8-divinyl chlorophyllide a + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:14469: 2-aminomuconate 6-semialdehyde + NAD(+) + H2O = (2Z,4E)-2-aminomuconate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:14669: D-glyceraldehyde 3-phosphate + NADP(+) + H2O = (2R)-3-phosphoglycerate + NADPH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:15681: 2-hydroxy-5-carboxymethylmuconate semialdehyde + NAD(+) + H2O = (2E,4Z)-5-hydroxypenta-2,4-diene-1,2,5-tricarboxylate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:15985: formate + NAD(+) = CO2 + NADH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: formate-like donor oxidized to CO2 with NAD(P)+ acceptor
+
+RHEA:17425: pyruvate + NADP(+) + CoA = acetyl-CoA + CO2 + NADPH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:17985: 4-(trimethylamino)butanal + NAD(+) + H2O = 4-(trimethylamino)butanoate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:18833: 4-formylbenzenesulfonate + NAD(+) + H2O = 4-sulfobenzoate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:19349: (R)-4-dehydropantoate + NAD(+) + H2O = (R)-3,3-dimethylmalate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:19541: L-glutamate 5-semialdehyde + phosphate + NADP(+) = L-glutamyl 5-phosphate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:20041: 3-oxopropanoate + NADP(+) + H2O = malonate + NADPH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:20045: 3-oxopropanoate + NAD(+) + H2O = malonate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:20804: 2-methyl-3-oxopropanoate + NAD(+) + CoA + H2O = propanoyl-CoA + hydrogencarbonate + NADH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:21024: glyoxylate + NADP(+) + CoA = oxalyl-CoA + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:21588: N-acetyl-L-glutamate 5-semialdehyde + phosphate + NADP(+) = N-acetyl-L-glutamyl 5-phosphate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:21888: (1S,2S)-OPC-8 + NADP(+) = (9S,13S,15Z)-12-oxophyto-10,15-dienoate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:22420: cis,trans-4-hydroxymuconate semialdehyde + NAD(+) + H2O = maleylacetate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:22988: 3-oxopropanoate + NADP(+) + CoA = acetyl-CoA + CO2 + NADPH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:22992: 3-oxopropanoate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:23288: acetaldehyde + NAD(+) + CoA = acetyl-CoA + NADH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:24268: 2,6-dioxo-6-phenylhexanoate + NADP(+) = 2-hydroxy-6-oxo-6-phenylhexa-2,4-dienoate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:24284: L-aspartate 4-semialdehyde + phosphate + NADP(+) = 4-phospho-L-aspartate + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:25637: sulfoacetaldehyde + NAD(+) + H2O = sulfoacetate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:30235: L-glutamate 5-semialdehyde + NAD(+) + H2O = L-glutamate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:34351: (2E)-geranial + NAD(+) + H2O = geranate + NADH + 2 H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+
+RHEA:41948: [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-oxopentan-1-yl)-L-glutamine + phosphate + NADP(+) = [amino-group carrier protein]-C-terminal-N-(1-carboxy-5-phosphooxy-5-oxopentan-1-yl)-L-glutamine + NADPH + H(+)
+  → aldehyde dehydrogenase [NAD(P)+] activity: matched ActingOnTheAldehydeOrOxoGroupOfDonorsWithNADOrNADPAsAcceptor (1.2.1.-); Acting on the aldehyde or oxo group of donors with NAD(+) or NADP(+) as acceptor: matched OxidoreductaseActingOnTheAldehydeOrOxoGroupOfDonorsNADOrNADPAsAcceptor (1.2.-.-); Aldehyde/oxo oxidoreductase: NAD(P)+-dependent oxidation to carboxylate, acyl phosphate, or thioester
+

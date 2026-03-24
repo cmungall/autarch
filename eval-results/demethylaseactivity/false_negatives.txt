@@ -1,0 +1,7 @@
+False Negatives for DemethylaseActivity
+==================================================
+Total: 1
+
+RHEA:30299: a methylated nucleobase within DNA + 2-oxoglutarate + O2 = a nucleobase within DNA + formaldehyde + succinate + CO2
+  → Missing conserved organic substrate/product branch
+

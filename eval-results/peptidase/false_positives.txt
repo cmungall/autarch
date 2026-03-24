@@ -1,0 +1,34 @@
+False Positives for Peptidase
+==================================================
+Total: 10
+
+RHEA:11544: N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:12476: N-formyl-L-glutamate + H2O = formate + L-glutamate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:14849: N-amidino-L-aspartate + H2O = urea + L-aspartate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:15169: N-succinyl-L-glutamate + H2O = L-glutamate + succinate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:15889: L-glutamine + H2O = L-glutamate + NH4(+)
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:18013: N(5)-ethyl-L-glutamine + H2O = ethylamine + L-glutamate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:19737: 4-(gamma-L-glutamylamino)butanoate + H2O = 4-aminobutanoate + L-glutamate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:21016: L-asparagine + H2O = L-aspartate + NH4(+)
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:22040: N-formyl-L-aspartate + H2O = L-aspartate + formate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+
+RHEA:22492: N-formimidoyl-L-glutamate + H2O = formamide + L-glutamate
+  → Peptidase: peptide bond hydrolysis [pattern matched]
+

@@ -1,0 +1,22 @@
+False Positives for AcidThiolLigase
+==================================================
+Total: 6
+
+RHEA:19389: (E)-ferulate + ATP + CoA = (E)-feruloyl-CoA + ADP + phosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> ADP + phosphate
+
+RHEA:30079: crotonobetaine + ATP + CoA = crotonobetainyl-CoA + AMP + diphosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> AMP + diphosphate
+
+RHEA:30543: (S)-carnitine + ATP + CoA = (S)-carnitinyl-CoA + ADP + phosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> ADP + phosphate
+
+RHEA:32139: malonate + ATP + CoA = malonyl-CoA + AMP + diphosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> AMP + diphosphate
+
+RHEA:36251: (E)-ferulate + ATP + CoA = (E)-feruloyl-CoA + AMP + diphosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> AMP + diphosphate
+
+RHEA:36299: (E)-caffeate + ATP + CoA = (E)-caffeoyl-CoA + AMP + diphosphate
+  → Acid-thiol ligase: acid + CoA coupled to thioester formation with ATP -> AMP + diphosphate
+

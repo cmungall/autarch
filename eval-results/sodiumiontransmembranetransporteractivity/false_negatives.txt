@@ -1,0 +1,16 @@
+False Negatives for SodiumIonTransmembraneTransporterActivity
+==================================================
+Total: 4
+
+RHEA:28967: L-proline(in) + Na(+)(in) = L-proline(out) + Na(+)(out)
+  → Non-metal co-transported substrate detected
+
+RHEA:29031: L-glutamate(in) + 2 Na(+)(in) = L-glutamate(out) + 2 Na(+)(out)
+  → Non-metal co-transported substrate detected
+
+RHEA:29283: L-alanine(in) + Na(+)(in) = L-alanine(out) + Na(+)(out)
+  → Non-metal co-transported substrate detected
+
+RHEA:33135: malonate(in) + Na(+)(in) = malonate(out) + Na(+)(out)
+  → Non-metal co-transported substrate detected
+

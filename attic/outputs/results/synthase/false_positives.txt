@@ -1,0 +1,10 @@
+False Positives for Synthase
+==================================================
+Total: 2
+
+RHEA:10132: benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate
+  → Synthase: ATP-dependent synthesis of CHEBI:57287 + CHEBI:16150 (AMP + PPi)
+
+RHEA:10828: anthranilate + ATP + CoA = anthraniloyl-CoA + AMP + diphosphate
+  → Synthase: ATP-dependent synthesis of CHEBI:57287 + CHEBI:16567 (AMP + PPi)
+

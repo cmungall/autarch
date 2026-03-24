@@ -1,0 +1,19 @@
+False Positives for AminoAcidRacemase
+==================================================
+Total: 5
+
+RHEA:10660: L-seryl-[protein] = D-seryl-[protein]
+  → amino-acid racemase activity: matched RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives (5.1.1.-); Amino-acid racemase/epimerase: stereochemical inversion of an amino-acid-like scaffold
+
+RHEA:14813: L-2-aminohexano-6-lactam = D-2-aminohexano-6-lactam
+  → amino-acid racemase activity: matched RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives (5.1.1.-); Amino-acid racemase/epimerase: stereochemical inversion of an amino-acid-like scaffold
+
+RHEA:20033: isopenicillin N = penicillin N
+  → amino-acid racemase activity: matched RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives (5.1.1.-); Amino-acid racemase/epimerase: stereochemical inversion of an amino-acid-like scaffold
+
+RHEA:22792: isonocardicin A = nocardicin A
+  → amino-acid racemase activity: matched RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives (5.1.1.-); Amino-acid racemase/epimerase: stereochemical inversion of an amino-acid-like scaffold
+
+RHEA:28394: L-alanyl-L-glutamate = L-alanyl-D-glutamate
+  → amino-acid racemase activity: matched RacemaseAndEpimeraseActingOnAminoAcidsAndDerivatives (5.1.1.-); Amino-acid racemase/epimerase: stereochemical inversion of an amino-acid-like scaffold
+

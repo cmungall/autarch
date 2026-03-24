@@ -1,0 +1,1240 @@
+False Negatives for Transferase
+==================================================
+Total: 412
+
+RHEA:10048: O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)
+  → No group transfer pattern detected
+
+RHEA:10064: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:10208: an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)
+  → No group transfer pattern detected
+
+RHEA:10232: 5,6-dihydrouridine 5'-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No group transfer pattern detected
+
+RHEA:10252: O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate
+  → No group transfer pattern detected
+
+RHEA:10380: orotidine 5'-phosphate + diphosphate = orotate + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No group transfer pattern detected
+
+RHEA:10508: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate = aldehydo-D-ribose 5-phosphate + D-xylulose 5-phosphate
+  → No group transfer pattern detected
+
+RHEA:10556: D-glyceraldehyde 3-phosphate + L-arginine = N(2)-(2-carboxyethyl)-L-arginine + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:10568: luteolin + UDP-alpha-D-glucuronate = luteolin 7-O-beta-D-glucuronide + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:10576: N-methylethanolamine phosphate + CTP + H(+) = CDP-N-methylethanolamine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:10612: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-alpha-D-xylose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-[beta-D-Xyl-(1->2)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:10668: L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-lysyl)-sn-glycerol + tRNA(Lys)
+  → No group transfer pattern detected
+
+RHEA:10708: alpha-D-glucose 1-phosphate + GTP + H(+) = GDP-D-glucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:10756: pyruvate + phosphate + ATP = phosphoenolpyruvate + AMP + diphosphate + H(+)
+  → Ligase - bond formation not group transfer
+
+RHEA:10800: XMP + diphosphate = xanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No group transfer pattern detected
+
+RHEA:11172: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + L-homocysteine = (6S)-5,6,7,8-tetrahydrofolate + L-methionine
+  → No group transfer pattern detected
+
+RHEA:11176: kojibiose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:11196: 5,6-dimethylbenzimidazole + nicotinate beta-D-ribonucleotide = alpha-ribazole 5'-phosphate + nicotinate + H(+)
+  → No group transfer pattern detected
+
+RHEA:11236: putrescine + spermidine = sym-homospermidine + propane-1,3-diamine
+  → No group transfer pattern detected
+
+RHEA:11280: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + H2O = 5-hydroxymethyl-dCMP + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:11328: isopentenyl diphosphate + dimethylallyl diphosphate = neryl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:11364: pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:11412: 6-hydroxymethyl-7,8-dihydropterin + ATP = (7,8-dihydropterin-6-yl)methyl diphosphate + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:11416: 2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose
+  → No group transfer pattern detected
+
+RHEA:11460: D-glucose + ADP = D-glucose 6-phosphate + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:11468: (S)-3-methyl-2-oxopentanoate + L-valine = 3-methyl-2-oxobutanoate + L-isoleucine
+  → No group transfer pattern detected
+
+RHEA:11496: O-acetyl-L-serine + uracil = 3-(uracil-1-yl)-L-alanine + acetate + H(+)
+  → No group transfer pattern detected
+
+RHEA:11528: 2 cob(II)yrinate a,c diamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)yrinate a,c-diamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → No group transfer pattern detected
+
+RHEA:11568: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 5-methyldeoxycytidine 5'-phosphate + 7,8-dihydrofolate
+  → No group transfer pattern detected
+
+RHEA:11576: thiamine + ATP = thiamine diphosphate + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:11624: 2-(hydroxyimino)propanoate + acetone = acetone oxime + pyruvate
+  → No group transfer pattern detected
+
+RHEA:11672: chorismate + L-glutamine = 4-amino-4-deoxychorismate + L-glutamate
+  → No group transfer pattern detected
+
+RHEA:11748: fluoroacetaldehyde + L-threonine = 4-fluoro-L-threonine + acetaldehyde
+  → No group transfer pattern detected
+
+RHEA:11768: N-(5-phospho-beta-D-ribosyl)anthranilate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + anthranilate
+  → No group transfer pattern detected
+
+RHEA:11820: diphthamide-[translation elongation factor 2] + NAD(+) = N-(ADP-D-ribosyl)diphthamide-[translation elongation factor 2] + nicotinamide + H(+)
+  → No group transfer pattern detected
+
+RHEA:11824: 3-methyl-2-oxobutanoate + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + H2O = 2-dehydropantoate + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:11852: S-methyl-5'-thioadenosine + phosphate = 5-(methylsulfanyl)-alpha-D-ribose 1-phosphate + adenine
+  → No group transfer pattern detected
+
+RHEA:12024: 1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose
+  → No group transfer pattern detected
+
+RHEA:12068: apo-[ACP] + CoA = holo-[ACP] + adenosine 3',5'-bisphosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:12104: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 7,8-dihydrofolate + dTMP
+  → No group transfer pattern detected
+
+RHEA:12120: alpha-D-glucose 1-phosphate + ATP + H(+) = ADP-alpha-D-glucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:12340: N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)
+  → No group transfer pattern detected
+
+RHEA:12432: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + L-alanyl-tRNA(Ala) = UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-N(6)-(L-alanyl)-L-lysyl-D-alanyl-D-alanine + tRNA(Ala) + H(+)
+  → No group transfer pattern detected
+
+RHEA:12456: D-ribitol 5-phosphate + CTP + H(+) = CDP-L-ribitol + diphosphate
+  → No group transfer pattern detected
+
+RHEA:12532: coenzyme B + methyl-coenzyme M = methane + coenzyme M-coenzyme B heterodisulfide
+  → No group transfer pattern detected
+
+RHEA:12605: D-glyceraldehyde 3-phosphate + pyruvate + H(+) = 1-deoxy-D-xylulose 5-phosphate + CO2
+  → No group transfer pattern detected
+
+RHEA:12625: 1-O-(trans-sinapoyl)-beta-D-glucose + (S)-malate = sinapoyl (S)-malate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:12693: 3,4-dihydroxypyridine + O-acetyl-L-serine = 3-(3,4-dihydroxypyridin-1-yl)-L-alanine + acetate + H(+)
+  → No group transfer pattern detected
+
+RHEA:12721: S-adenosyl 3-(methylsulfanyl)propylamine + putrescine = S-methyl-5'-thioadenosine + spermidine + H(+)
+  → No group transfer pattern detected
+
+RHEA:12733: nicotinate beta-D-ribonucleotide + CO2 + diphosphate = quinolinate + 5-phospho-alpha-D-ribose 1-diphosphate + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:12881: ADP-alpha-D-glucose + sn-glycerol 3-phosphate = 2-O-(alpha-D-glucopyranosyl)-sn-glycerol 3-phosphate + ADP + H(+)
+  → No group transfer pattern detected
+
+RHEA:12905: alpha-D-mannose 1-phosphate + GDP + H(+) = GDP-alpha-D-mannose + phosphate
+  → No group transfer pattern detected
+
+RHEA:12985: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = an N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-[alpha-L-Fuc-(1->6)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:13017: UMP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + uracil
+  → No group transfer pattern detected
+
+RHEA:13117: pyrazole + O-acetyl-L-serine = 3-(pyrazol-1-yl)-L-alanine + acetate + H(+)
+  → No group transfer pattern detected
+
+RHEA:13185: 4 porphobilinogen + H2O = hydroxymethylbilane + 4 NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:13201: L-arginine + glycine = guanidinoacetate + L-ornithine
+  → No group transfer pattern detected
+
+RHEA:13233: guanosine + phosphate = alpha-D-ribose 1-phosphate + guanine
+  → No group transfer pattern detected
+
+RHEA:13237: D-fructose 6-phosphate + L-glutamine = D-glucosamine 6-phosphate + L-glutamate
+  → No group transfer pattern detected
+
+RHEA:13265: 1-amino-1-deoxy-scyllo-inositol 4-phosphate + L-arginine = 1-guanidino-1-deoxy-scyllo-inositol 4-phosphate + L-ornithine
+  → No group transfer pattern detected
+
+RHEA:13345: L-cysteinyl-[protein] + (2E,6E)-farnesyl diphosphate = S-(2E,6E)-farnesyl-L-cysteinyl-[protein] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13361: sn-glycerol 3-phosphate + CTP + H(+) = CDP-glycerol + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13413: thymidine + ADP = dTMP + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:13429: 2-C-methyl-D-erythritol 4-phosphate + CTP + H(+) = 4-CDP-2-C-methyl-D-erythritol + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13509: N-acetyl-alpha-D-glucosamine 1-phosphate + UTP + H(+) = UDP-N-acetyl-alpha-D-glucosamine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13537: (2R)-3-phosphoglycerate + GDP-alpha-D-mannose = 2-O-(alpha-D-mannosyl)-3-phosphoglycerate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:13549: beta-L-fucose 1-phosphate + GTP + H(+) = GDP-beta-L-fucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13613: beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:13673: [protein-PII]-L-tyrosine + UTP = [protein-PII]-uridylyl-L-tyrosine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:13689: glycerol + diphosphate = glycerol 1-phosphate + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:13693: trimethylsulfonium + (6S)-5,6,7,8-tetrahydrofolate = dimethyl sulfide + (6S)-5-methyl-5,6,7,8-tetrahydrofolate + H(+)
+  → No group transfer pattern detected
+
+RHEA:13741: 3-phenylpyruvate + L-tryptophan = indole-3-pyruvate + L-phenylalanine
+  → No group transfer pattern detected
+
+RHEA:13809: aspulvinone E + 2 dimethylallyl diphosphate = aspulvinone H + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:13909: urate D-ribonucleoside + phosphate = alpha-D-ribose 1-phosphate + urate
+  → No group transfer pattern detected
+
+RHEA:14009: 2 dimethylallyl diphosphate = (R,R)-chrysanthemyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:14045: 1-carboxyvinyl carboxyphosphonate + H(+) = 3-(hydrohydroxyphosphoryl)pyruvate + CO2
+  → No group transfer pattern detected
+
+RHEA:14053: D-arabinose 5-phosphate + phosphoenolpyruvate + H2O = 3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + phosphate
+  → No group transfer pattern detected
+
+RHEA:14125: 2 raffinose = 1(F)-alpha-D-galactosylraffinose + sucrose
+  → No group transfer pattern detected
+
+RHEA:14149: luteolin 7-O-beta-D-glucuronide + UDP-alpha-D-glucuronate = luteolin 7-O-[(beta-D-glucuronosyl)-(1->2)-(beta-D-glucuronide)] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:14173: L-tryptophan + dimethylallyl diphosphate = 4-(3-methylbut-2-enyl)-L-tryptophan + diphosphate
+  → No group transfer pattern detected
+
+RHEA:14209: alpha-D-galactose 1-phosphate + UTP + H(+) = UDP-alpha-D-galactose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:14341: glyoxylate + 2-oxoglutarate + H(+) = 2-hydroxy-3-oxoadipate + CO2
+  → No group transfer pattern detected
+
+RHEA:14417: acetyl phosphate + L-lysine = N(6)-acetyl-L-lysine + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:14505: thiosulfate + 2 glutathione = glutathione disulfide + hydrogen sulfide + sulfite + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:14529: D-ribose 5-phosphate + ADP + H(+) = ADP-D-ribose + phosphate
+  → No group transfer pattern detected
+
+RHEA:14553: (7R)-7-(5-carboxy-5-oxopentanamido)deacetylcephalosporanate + D-glutamate = cephalosporin C + 2-oxoglutarate
+  → No group transfer pattern detected
+
+RHEA:14605: GDP-alpha-D-glucose + D-glucose 6-phosphate = alpha,alpha-trehalose 6-phosphate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:14717: D-erythrose 4-phosphate + phosphoenolpyruvate + H2O = 7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate + phosphate
+  → No group transfer pattern detected
+
+RHEA:14721: zeatin + UDP-alpha-D-xylose = O-beta-D-xylosylzeatin + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:14725: 2 cob(II)inamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)inamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → No group transfer pattern detected
+
+RHEA:14829: O-acetyl-L-serine + hydrogen sulfide = L-cysteine + acetate
+  → No group transfer pattern detected
+
+RHEA:14905: 5-phospho-beta-D-ribosylamine + L-glutamate + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + L-glutamine + H2O
+  → No group transfer pattern detected
+
+RHEA:14913: thymidine + AMP = dTMP + adenosine
+  → No group transfer pattern detected
+
+RHEA:15053: N(1)-(5-phospho-beta-D-ribosyl)glycinamide + (6R)-10-formyltetrahydrofolate = N(2)-formyl-N(1)-(5-phospho-beta-D-ribosyl)glycinamide + (6S)-5,6,7,8-tetrahydrofolate + H(+)
+  → No group transfer pattern detected
+
+RHEA:15097: 5-formimidoyltetrahydrofolate + L-glutamate = N-formimidoyl-L-glutamate + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:15117: 3'-dephospho-CoA + ATP = 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA + adenine
+  → No group transfer pattern detected
+
+RHEA:15121: dithioerythritol + thiosulfate = cis-1,2-dithiane-4,5-diol + hydrogen sulfide + sulfite + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:15225: dTTP + alpha-D-glucose 1-phosphate + H(+) = dTDP-alpha-D-glucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:15229: alpha-D-mannose 1-phosphate + GTP + H(+) = GDP-alpha-D-mannose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:15265: 3-amino-2-oxopropyl phosphate + 1-deoxy-D-xylulose 5-phosphate = pyridoxine 5'-phosphate + phosphate + 2 H2O + H(+)
+  → No group transfer pattern detected
+
+RHEA:15285: dimethylallyl diphosphate + AMP = N(6)-(dimethylallyl)adenosine 5'-phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:15349: N(2)-acetyl-L-ornithine + L-glutamate = N-acetyl-L-glutamate + L-ornithine
+  → No group transfer pattern detected
+
+RHEA:15473: flavanone 7-O-beta-D-glucoside + UDP-beta-L-rhamnose = flavanone 7-O-[alpha-L-rhamnosyl-(1->2)-beta-D-glucoside] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:15481: (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + glycine + H2O = (6S)-5,6,7,8-tetrahydrofolate + L-serine
+  → No group transfer pattern detected
+
+RHEA:15609: D-ribose 5-phosphate + ATP = 5-phospho-alpha-D-ribose 1-diphosphate + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:15765: adenosylcob(III)inamide + GTP = adenosylcob(III)inamide phosphate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:15837: methylamine + L-glutamate = N-methyl-L-glutamate + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:15869: D-alanine + 2-oxoglutarate = D-glutamate + pyruvate
+  → No group transfer pattern detected
+
+RHEA:15877: pyridoxamine 5'-phosphate + 2-oxoglutarate = pyridoxal 5'-phosphate + D-glutamate
+  → No group transfer pattern detected
+
+RHEA:16037: thymidine + phosphate = 2-deoxy-alpha-D-ribose 1-phosphate + thymine
+  → No group transfer pattern detected
+
+RHEA:16049: alpha-ribazole + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin + GMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:16053: UDP-N-acetyl-alpha-D-mannosamine + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = N-acetyl-beta-D-mannosaminyl-(1->4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:16149: beta-nicotinamide D-ribonucleotide + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + nicotinamide + H(+)
+  → No group transfer pattern detected
+
+RHEA:16257: alpha,alpha-trehalose + phosphate = alpha-D-glucose + alpha-D-glucose 1-phosphate
+  → No group transfer pattern detected
+
+RHEA:16325: 1-phospho-alpha-D-glucuronate + UTP + H(+) = UDP-alpha-D-glucuronate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:16333: apo-[citrate lyase ACP] + 2'-(5''-triphospho-alpha-D-ribosyl)-3'-dephospho-CoA = holo-[citrate lyase ACP] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:16397: 2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:16481: 3 S-adenosyl-L-methionine = nicotianamine + 3 S-methyl-5'-thioadenosine + 3 H(+)
+  → No group transfer pattern detected
+
+RHEA:16529: sulfate + ADP + H(+) = adenosine 5'-phosphosulfate + phosphate
+  → No group transfer pattern detected
+
+RHEA:16577: ADP + ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + phosphate
+  → No group transfer pattern detected
+
+RHEA:16585: [[Fe-S] cluster scaffold protein carrying a second [4Fe-4S](2+) cluster] + N(6)-octanoyl-L-lysyl-[protein] + 2 oxidized [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine + 4 H(+) = [[Fe-S] cluster scaffold protein] + N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + 4 Fe(3+) + 2 hydrogen sulfide + 2 5'-deoxyadenosine + 2 L-methionine + 2 reduced [2Fe-2S]-[ferredoxin]
+  → No group transfer pattern detected
+
+RHEA:16609: AMP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + adenine
+  → No group transfer pattern detected
+
+RHEA:16617: beta-D-glucosyl-(1->3)-D-glucose + phosphate = alpha-D-glucose 1-phosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:16661: fluoride + S-adenosyl-L-methionine = 5'-deoxy-5'-fluoroadenosine + L-methionine
+  → No group transfer pattern detected
+
+RHEA:16769: (2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)
+  → No group transfer pattern detected
+
+RHEA:16861: (8S)-8-amino-7-oxononanoate + S-adenosyl-L-methionine = S-adenosyl-4-methylsulfanyl-2-oxobutanoate + (7R,8S)-7,8-diammoniononanoate
+  → No group transfer pattern detected
+
+RHEA:16881: thiosulfate + hydrogen cyanide = thiocyanate + sulfite + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:16885: 2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside = bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha
+  → No group transfer pattern detected
+
+RHEA:16945: N(6)-[(R)-S(8)-aminomethyldihydrolipoyl]-L-lysyl-[protein] + (6S)-5,6,7,8-tetrahydrofolate = N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:17053: D-sedoheptulose 7-phosphate + D-glyceraldehyde 3-phosphate = D-erythrose 4-phosphate + beta-D-fructose 6-phosphate
+  → No group transfer pattern detected
+
+RHEA:17121: carbamoyl phosphate + L-lysine = L-homocitrulline + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:17165: alpha-D-galactose 1-phosphate + dTTP + H(+) = dTDP-D-galactose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:17237: FMN + ATP + H(+) = FAD + diphosphate
+  → No group transfer pattern detected
+
+RHEA:17317: phytyl diphosphate + chlorophyllide a + H(+) = chlorophyll a + diphosphate
+  → No group transfer pattern detected
+
+RHEA:17333: zeatin + O-acetyl-L-serine = L-lupinate + acetate + H(+)
+  → No group transfer pattern detected
+
+RHEA:17469: all-trans-retinol--[retinol-binding protein] + a 1,2-diacyl-sn-glycero-3-phosphocholine = apo--[retinol-binding protein] + an all-trans-retinyl ester + a 2-acyl-sn-glycero-3-phosphocholine
+  → No group transfer pattern detected
+
+RHEA:17593: 3-phenylpyruvate + L-glutamine = 2-oxoglutaramate + L-phenylalanine
+  → No group transfer pattern detected
+
+RHEA:17653: isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = (2E,6E,10E)-geranylgeranyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:17697: pyridine + thiamine = heteropyrithiamine + 5-(2-hydroxyethyl)-4-methylthiazole
+  → No group transfer pattern detected
+
+RHEA:17973: IMP + diphosphate = hypoxanthine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No group transfer pattern detected
+
+RHEA:18061: N-formylmethanofuran + 5,6,7,8-tetrahydromethanopterin + H(+) = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + methanofuran
+  → No group transfer pattern detected
+
+RHEA:18077: L-arginyl-[dinitrogen reductase] + NAD(+) = N(omega)-alpha-(ADP-D-ribosyl)-L-arginyl-[dinitrogen reductase] + nicotinamide + H(+)
+  → No group transfer pattern detected
+
+RHEA:18109: sn-3-O-(geranylgeranyl)glycerol 1-phosphate + (2E,6E,10E)-geranylgeranyl diphosphate = 2,3-bis-O-(geranylgeranyl)-sn-glycerol 1-phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18133: sulfate + ATP + H(+) = adenosine 5'-phosphosulfate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18153: 2 GTP + H(+) = P(1),P(4)-bis(5'-guanosyl) tetraphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18213: alpha-D-glucose 1-phosphate + CTP + H(+) = CDP-D-glucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18381: dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate
+  → No group transfer pattern detected
+
+RHEA:18389: alpha-D-xylose 1-phosphate + UTP + H(+) = UDP-alpha-D-xylose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18473: 1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + ATP
+  → No group transfer pattern detected
+
+RHEA:18589: [glutamine synthetase]-L-tyrosine + ATP = [glutamine synthetase]-O(4)-(5'-adenylyl)-L-tyrosine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:18609: N(2)-acetyl-L-ornithine + carbamoyl phosphate = N(2)-acetyl-L-citrulline + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:18645: 2 putrescine = sym-homospermidine + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:18681: phosphoenolpyruvate + UDP-N-acetyl-alpha-D-glucosamine = UDP-N-acetyl-3-O-(1-carboxyvinyl)-alpha-D-glucosamine + phosphate
+  → No group transfer pattern detected
+
+RHEA:18737: hydrogenselenide + ATP + H2O = selenophosphate + AMP + phosphate + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:18773: methyl-Co(III)-[methylamine-specific corrinoid protein] + coenzyme M = Co(I)-[methylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No group transfer pattern detected
+
+RHEA:18997: phosphocholine + CTP + H(+) = CDP-choline + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19049: (5R)-5-hydroxy-L-lysine + GTP = (5R)-5-phosphooxy-L-lysine + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:19109: 1,2,3,6-tetrakis-O-galloyl-beta-D-glucose + 1-O-galloyl-beta-D-glucose = 1,2,3,4,6-pentakis-O-galloyl-beta-D-glucose + D-glucose + H(+)
+  → No group transfer pattern detected
+
+RHEA:19125: glyoxylate + L-serine = 3-hydroxypyruvate + glycine
+  → No group transfer pattern detected
+
+RHEA:19149: L-arginyl-[protein] + NAD(+) = N(omega)-(ADP-D-ribosyl)-L-arginyl-[protein] + nicotinamide + H(+)
+  → No group transfer pattern detected
+
+RHEA:19153: UDP-alpha-D-apiose + apigenin 7-O-beta-D-glucoside = 7-O-(beta-D-apiofuranosyl-1,2-beta-D-glucosyl)-5,7,4'-trihydroxyflavone + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:19197: adenosine 5'-phosphosulfate + NH4(+) = adenosine 5'-phosphoramidate + sulfate + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:19249: L-kynurenine + glyoxylate = 4-(2-aminophenyl)-2,4-dioxobutanoate + glycine
+  → No group transfer pattern detected
+
+RHEA:19273: N-acetyl-D-mannosamine + phosphoenolpyruvate + H2O = N-acetylneuraminate + phosphate
+  → No group transfer pattern detected
+
+RHEA:19345: (6aS,11aS)-3,6a,9-trihydroxypterocarpan + dimethylallyl diphosphate = (6aS,11aS)-2-dimethylallyl-3,6a,9-trihydroxypterocarpan + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19361: isopentenyl diphosphate + (2E)-geranyl diphosphate = (2E,6E)-farnesyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19493: D-cellobiose + phosphate = alpha-D-glucose 1-phosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:19505: indole-3-acetyl-1D-myo-inositol + UDP-beta-L-arabinopyranose = (indol-3-yl)acetyl-myo-inositol 3-L-arabinoside + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:19513: carbamoyl phosphate + L-ornithine = L-citrulline + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:19581: N(6)-dimethylallyladenine + S-adenosyl-L-methionine = discadenine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:19801: (R)-4'-phosphopantetheine + ATP + H(+) = 3'-dephospho-CoA + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19845: nocardicin E + S-adenosyl-L-methionine = isonocardicin A + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:19889: alpha-D-glucose 1-phosphate + UTP + H(+) = UDP-alpha-D-glucose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19949: (7,8-dihydropterin-6-yl)methyl diphosphate + 4-aminobenzoate = 7,8-dihydropteroate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:19973: S-adenosyl 3-(methylsulfanyl)propylamine + spermidine = spermine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:20013: carbamoyl phosphate + L-aspartate = N-carbamoyl-L-aspartate + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:20105: beta-D-fructose 6-phosphate + ADP = beta-D-fructose 1,6-bisphosphate + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:20161: alpha-D-galactosyl-(1->3)-1D-myo-inositol + sucrose = raffinose + myo-inositol
+  → No group transfer pattern detected
+
+RHEA:20245: streptomycin + ATP = 3''-O-adenylylstreptomycin + diphosphate
+  → No group transfer pattern detected
+
+RHEA:20285: beta-D-galactosyl-(1->3)-N-acetyl-D-glucosamine + phosphate = alpha-D-galactose 1-phosphate + N-acetyl-D-glucosamine
+  → No group transfer pattern detected
+
+RHEA:20325: N-hydroxy-4-acetylaminobiphenyl = N-acetoxy-4-aminobiphenyl
+  → No group transfer pattern detected
+
+RHEA:20397: O-succinyl-L-homoserine + L-cysteine = L,L-cystathionine + succinate + H(+)
+  → No group transfer pattern detected
+
+RHEA:20409: riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose
+  → No group transfer pattern detected
+
+RHEA:20473: (R)-lipoyl-5'-AMP + L-lysyl-[lipoyl-carrier protein] = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:20489: L-alanyl-tRNA(Ala) + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1'-(3'-O-L-alanyl)-sn-glycerol + tRNA(Ala)
+  → No group transfer pattern detected
+
+RHEA:20772: 2 6,7-dimethyl-8-(1-D-ribityl)lumazine + H(+) = 5-amino-6-(D-ribitylamino)uracil + riboflavin
+  → No group transfer pattern detected
+
+RHEA:20776: alpha-D-galactosyl-(1->3)-1D-myo-inositol + raffinose = stachyose + myo-inositol
+  → No group transfer pattern detected
+
+RHEA:20864: alpha,alpha-trehalose 6-phosphate + phosphate = beta-D-glucose 1-phosphate + D-glucose 6-phosphate
+  → No group transfer pattern detected
+
+RHEA:21080: L-methionine + ATP + H2O = S-adenosyl-L-methionine + phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:21116: D-maltose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:21180: 1-O-(indol-3-ylacetyl)-beta-D-glucose + myo-inositol = indole-3-acetyl-1D-myo-inositol + D-glucose
+  → No group transfer pattern detected
+
+RHEA:21196: 5-methyltetrahydropteroyltri-L-glutamate + L-homocysteine = tetrahydropteroyltri-L-glutamate + L-methionine
+  → No group transfer pattern detected
+
+RHEA:21224: CDP-choline + sphing-4-enine = sphing-4-enine-phosphocholine + CMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:21240: geranylgeranyl diphosphate + L-cysteinyl-[protein] = S-geranylgeranyl-L-cysteinyl-[protein] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:21256: 3-phosphoshikimate + phosphoenolpyruvate = 5-O-(1-carboxyvinyl)-3-phosphoshikimate + phosphate
+  → No group transfer pattern detected
+
+RHEA:21288: sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol
+  → No group transfer pattern detected
+
+RHEA:21360: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+)
+  → No group transfer pattern detected
+
+RHEA:21504: aldehydo-D-ribose 5-phosphate + acetoin = 1-deoxy-D-altro-heptulose 7-phosphate + acetaldehyde
+  → No group transfer pattern detected
+
+RHEA:21676: 2 dimethylallyl diphosphate = (R)-lavandulyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:21740: 2-oxo-3-sulfanylpropanoate + [thioredoxin]-dithiol = [thioredoxin]-disulfide + hydrogen sulfide + pyruvate + H(+)
+  → No group transfer pattern detected
+
+RHEA:21920: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-di-trans,octa-cis-undecaprenyl diphosphate + UMP
+  → No group transfer pattern detected
+
+RHEA:21936: carbamoyl phosphate + putrescine = N-carbamoylputrescine + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:22088: GTP + ATP = guanosine 3'-diphosphate 5'-triphosphate + AMP
+  → No group transfer pattern detected
+
+RHEA:22116: luteolin 7-O-[(beta-D-glucuronosyl)-(1->2)-(beta-D-glucuronide)] + UDP-alpha-D-glucuronate = luteolin 7-O-[(beta-D-glucuronosyl)-(1->2)-(beta-D-glucuronide)] 4'-O-beta-D-glucuronide + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:22192: (6R)-10-formyltetrahydrofolate + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide = 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:22320: 2 alpha-D-glucose 1-phosphate + H2O = D-maltose + 2 phosphate
+  → No group transfer pattern detected
+
+RHEA:22328: 4-methyl-5-(2-phosphooxyethyl)-thiazole + 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H(+) = thiamine phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:22336: L-homocysteine + glycine betaine = N,N-dimethylglycine + L-methionine
+  → No group transfer pattern detected
+
+RHEA:22408: isopentenyl diphosphate + dimethylallyl diphosphate = (2E)-geranyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:22656: CDP-ethanolamine + L-serine = L-serine-phosphoethanolamine + CMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:22664: 2 1-O-(trans-sinapoyl)-beta-D-glucose = 1,2-di-O-sinapoyl beta-D-glucose + D-glucose
+  → No group transfer pattern detected
+
+RHEA:22712: adenosylcob(III)inamide phosphate + GTP + H(+) = adenosylcob(III)inamide-GDP + diphosphate
+  → No group transfer pattern detected
+
+RHEA:22728: L-seryl-tRNA(Sec) + selenophosphate + H(+) = L-selenocysteinyl-tRNA(Sec) + phosphate
+  → No group transfer pattern detected
+
+RHEA:22788: dimethylsulfonioacetate + L-homocysteine = (methylsulfanyl)acetate + L-methionine + H(+)
+  → No group transfer pattern detected
+
+RHEA:22820: 3-O-[alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-[alpha-D-xylosyl-(1->3)-alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:22824: 2'-deoxyuridine + phosphate = 2-deoxy-alpha-D-ribose 1-phosphate + uracil
+  → No group transfer pattern detected
+
+RHEA:22860: nicotinate beta-D-ribonucleotide + ATP + H(+) = deamido-NAD(+) + diphosphate
+  → No group transfer pattern detected
+
+RHEA:22884: glyoxylate + L-methionine = 4-methylsulfanyl-2-oxobutanoate + glycine
+  → No group transfer pattern detected
+
+RHEA:22920: scyllo-inosose + L-glutamine = 1-amino-1-deoxy-scyllo-inositol + 2-oxoglutaramate
+  → No group transfer pattern detected
+
+RHEA:22984: oxamate + carbamoyl phosphate = N-carbamoyl-2-oxoglycine + phosphate
+  → No group transfer pattern detected
+
+RHEA:23184: (6aS,11aS)-3,6a,9-trihydroxypterocarpan + dimethylallyl diphosphate = (6aS,11aS)-4-dimethylallyl-3,6a,9-trihydroxypterocarpan + diphosphate
+  → No group transfer pattern detected
+
+RHEA:23204: chlorogenate + D-glucarate = 2-O-caffeoylglucarate + L-quinate
+  → No group transfer pattern detected
+
+RHEA:23244: S-adenosyl 3-(methylsulfanyl)propylamine + propane-1,3-diamine = norspermidine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:23300: isopentenyl diphosphate + (2E)-geranyl diphosphate = (2Z,6E)-farnesyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:23312: 2 sucrose = 1(F)-beta-D-fructosylsucrose + D-glucose
+  → No group transfer pattern detected
+
+RHEA:23332: (2R)-3-phosphoglycerate + GTP = (2R)-3-phospho-glyceroyl phosphate + GDP
+  → No group transfer pattern detected
+
+RHEA:23404: sn-glycerol 1-phosphate + (2E,6E,10E)-geranylgeranyl diphosphate = sn-3-O-(geranylgeranyl)glycerol 1-phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:23448: 3-deoxy-alpha-D-manno-oct-2-ulosonate + CTP = CMP-3-deoxy-beta-D-manno-octulosonate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:23464: 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-(beta-D-GalNAc-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:23472: 2 alpha,alpha'-trehalose 6-mycolate = alpha,alpha'-trehalose 6,6'-bismycolate + alpha,alpha-trehalose
+  → No group transfer pattern detected
+
+RHEA:23500: N(6)-propanoyl-L-lysyl-[protein] + NAD(+) + H2O = 3''-O-propanoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:23512: alpha,alpha-trehalose + phosphate = beta-D-glucose 1-phosphate + D-glucose
+  → No group transfer pattern detected
+
+RHEA:23556: D-alanine + L-glutamine = gamma-L-glutamyl-D-alanine + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:23560: alpha-ribazole 5'-phosphate + adenosylcob(III)inamide-GDP = adenosylcob(III)alamin 5'-phosphate + GMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:23652: N-terminal L-glutaminyl-[peptide] = N-terminal 5-oxo-L-prolyl-[peptide] + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:23764: L-serine + diphosphate = O-phospho-L-serine + phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:23880: L-histidyl-[protein] + phosphoenolpyruvate = N(pros)-phospho-L-histidyl-[protein] + pyruvate
+  → No group transfer pattern detected
+
+RHEA:24000: a 6-O-methyl-2'-deoxyguanosine in DNA + L-cysteinyl-[protein] = S-methyl-L-cysteinyl-[protein] + a 2'-deoxyguanosine in DNA
+  → No group transfer pattern detected
+
+RHEA:24048: sucrose + phosphate = D-fructose + alpha-D-glucose 1-phosphate
+  → No group transfer pattern detected
+
+RHEA:24168: 3-O-(beta-D-galactosyl-(1->3)-beta-D-galactosyl-(1->4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-(beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:24176: [ThiI sulfur-carrier protein]-S-sulfanyl-L-cysteine + a uridine in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + ATP + H(+) = [ThiI sulfur-carrier protein]-L-cysteine + a 4-thiouridine in tRNA + 2 oxidized [2Fe-2S]-[ferredoxin] + AMP + diphosphate
+  → Ligase - bond formation not group transfer
+
+RHEA:24204: acetyl phosphate + sulfite + H(+) = sulfoacetaldehyde + phosphate
+  → No group transfer pattern detected
+
+RHEA:24264: D-xylulose 5-phosphate + formaldehyde = dihydroxyacetone + D-glyceraldehyde 3-phosphate
+  → No group transfer pattern detected
+
+RHEA:24276: acetate + diphosphate = acetyl phosphate + phosphate
+  → No group transfer pattern detected
+
+RHEA:24288: 5-formimidoyltetrahydrofolate + glycine = N-formimidoylglycine + (6S)-5,6,7,8-tetrahydrofolate
+  → No group transfer pattern detected
+
+RHEA:24364: N(6)-(2-hydroxyisobutanoyl)-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-(2-hydroxyisobutanoyl)-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:24380: L-methionyl-tRNA(fMet) + (6R)-10-formyltetrahydrofolate = N-formyl-L-methionyl-tRNA(fMet) + (6S)-5,6,7,8-tetrahydrofolate + H(+)
+  → No group transfer pattern detected
+
+RHEA:24388: uridine + phosphate = alpha-D-ribose 1-phosphate + uracil
+  → No group transfer pattern detected
+
+RHEA:24392: dTDP-L-dihydrostreptose + streptidine 6-phosphate = O-(1->4)-alpha-L-dihydrostreptosyl-streptidine 6-phosphate + dTDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:24444: N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP-beta-L-fucose = N(4)-{beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->3)-[beta-D-GlcNAc-(1->2)-alpha-D-Man-(1->6)]-beta-D-Man-(1->4)-beta-D-GlcNAc-(1->4)-[alpha-L-Fuc(1->3)]-beta-D-GlcNAc}-L-asparaginyl-[protein] + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:24592: phosphoethanolamine + CTP + H(+) = CDP-ethanolamine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:24706: UDP-4-amino-4-deoxy-beta-L-arabinose + (6R)-10-formyltetrahydrofolate = UDP-4-deoxy-4-formamido-beta-L-arabinose + (6S)-5,6,7,8-tetrahydrofolate + H(+)
+  → No group transfer pattern detected
+
+RHEA:24793: 5-[(5-phospho-1-deoxy-D-ribulos-1-ylimino)methylamino]-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + L-glutamine = D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate + 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + L-glutamate + H(+)
+  → No group transfer pattern detected
+
+RHEA:24898: 2 GTP = 3',3'-c-di-GMP + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:25041: O-phospho-L-seryl-tRNA(Sec) + selenophosphate + H2O = L-selenocysteinyl-tRNA(Sec) + 2 phosphate
+  → No group transfer pattern detected
+
+RHEA:25249: 2 pyruvate + H(+) = (2S)-2-acetolactate + CO2
+  → No group transfer pattern detected
+
+RHEA:25424: GMP + diphosphate = guanine + 5-phospho-alpha-D-ribose 1-diphosphate
+  → No group transfer pattern detected
+
+RHEA:25593: isochorismate + 2-oxoglutarate + H(+) = 5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate + CO2
+  → No group transfer pattern detected
+
+RHEA:25686: O-phospho-L-seryl-tRNA(Cys) + hydrogen sulfide + H(+) = L-cysteinyl-tRNA(Cys) + phosphate
+  → No group transfer pattern detected
+
+RHEA:25690: 2,3-bis-O-(geranylgeranyl)-sn-glycerol 1-phosphate + CTP + H(+) = CDP-2,3-bis-O-(geranylgeranyl)-sn-glycerol + diphosphate
+  → No group transfer pattern detected
+
+RHEA:25694: isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = (2E,6E,10E,14E)-geranylfarnesyl diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:25888: iminosuccinate + dihydroxyacetone phosphate = quinolinate + phosphate + 2 H2O + H(+)
+  → No group transfer pattern detected
+
+RHEA:26039: beta-D-fructose 6-phosphate + GDP-alpha-D-mannose = beta-D-fructofuranosyl alpha-D-mannopyranoside 6(F)-phosphate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:26059: Co(I)-[methylamine-specific corrinoid protein] + methylamine + H(+) = methyl-Co(III)-[methylamine-specific corrinoid protein] + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:26152: (2S)-2-hydroxy-3-oxobutyl phosphate + 5-amino-6-(D-ribitylamino)uracil = 6,7-dimethyl-8-(1-D-ribityl)lumazine + phosphate + 2 H2O + H(+)
+  → No group transfer pattern detected
+
+RHEA:26297: [ThiS sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + 2-iminoacetate + 1-deoxy-D-xylulose 5-phosphate = [ThiS sulfur-carrier protein]-C-terminal Gly-Gly + 2-[(2R,5Z)-2-carboxy-4-methylthiazol-5(2H)-ylidene]ethyl phosphate + 2 H2O + H(+)
+  → No group transfer pattern detected
+
+RHEA:26333: 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + cyclic pyranopterin phosphate + H2O = molybdopterin + 2 [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:26337: S-methyl-L-methionine + L-homocysteine = 2 L-methionine + H(+)
+  → No group transfer pattern detected
+
+RHEA:26341: S-methyl-L-methionine + L-selenocysteine = Se-methyl-L-selenocysteine + L-methionine + H(+)
+  → No group transfer pattern detected
+
+RHEA:26486: O-phospho-L-serine + sulfite + H(+) = L-cysteate + phosphate
+  → No group transfer pattern detected
+
+RHEA:27349: mycothiol + arsenate = arseno-mycothiol + H2O
+  → No group transfer pattern detected
+
+RHEA:27465: D-glycero-beta-D-manno-heptose 1-phosphate + ATP + H(+) = ADP-D-glycero-beta-D-manno-heptose + diphosphate
+  → No group transfer pattern detected
+
+RHEA:27510: enolpyruvoyl-2-diphospho-5'-guanosine + 7,8-didemethyl-8-hydroxy-5-deazariboflavin = dehydro coenzyme F420-0 + GMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:27551: 8 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = di-trans,octa-cis-undecaprenyl diphosphate + 8 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27555: 2 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-hexaprenyl diphosphate + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27559: 3 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-hexaprenyl diphosphate + 3 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27563: 7 isopentenyl diphosphate + (2E)-geranyl diphosphate = all-trans-nonaprenyl diphosphate + 7 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27594: 5 isopentenyl diphosphate + (2E,6E,10E)-geranylgeranyl diphosphate = all-trans-nonaprenyl diphosphate + 5 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27626: D-erythrose 4-phosphate + D-xylulose 5-phosphate = beta-D-fructose 6-phosphate + D-glyceraldehyde 3-phosphate
+  → No group transfer pattern detected
+
+RHEA:27654: 2-oxobutanoate + pyruvate + H(+) = (S)-2-ethyl-2-hydroxy-3-oxobutanoate + CO2
+  → No group transfer pattern detected
+
+RHEA:27698: GDP-beta-L-galactose + phosphate = beta-L-galactose 1-phosphate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:27722: UDP-4-deoxy-4-formamido-beta-L-arabinose + di-trans,octa-cis-undecaprenyl phosphate = 4-deoxy-4-formamido-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + UDP
+  → No group transfer pattern detected
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → Oxidoreductase - NAD(P)+ dependent, not transferase
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → Oxidoreductase - NAD(P)+ dependent, not transferase
+
+RHEA:27794: 4 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-heptaprenyl diphosphate + 4 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27798: 5 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-octaprenyl diphosphate + 5 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27802: 7 isopentenyl diphosphate + (2E,6E)-farnesyl diphosphate = all-trans-decaprenyl diphosphate + 7 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27810: 2 isopentenyl diphosphate + dimethylallyl diphosphate = (2Z,6Z)-farnesyl diphosphate + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:27822: O-acetyl-L-homoserine + hydrogen sulfide = L-homocysteine + acetate
+  → No group transfer pattern detected
+
+RHEA:27854: 4-hydroxybenzoate + (2E)-geranyl diphosphate = 3-geranyl-4-hydroxybenzoate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → Oxidoreductase - NAD(P)+ dependent, not transferase
+
+RHEA:28054: 2-oxobutanoate + CoA = propanoyl-CoA + formate
+  → No group transfer pattern detected
+
+RHEA:28070: heme b + (2E,6E)-farnesyl diphosphate + H2O = Fe(II)-heme o + diphosphate
+  → No group transfer pattern detected
+
+RHEA:28118: di-trans,octa-cis-undecaprenyl phosphate + GDP-alpha-D-mannose = D-mannosyl di-trans,octa-cis-undecaprenyl phosphate + GDP
+  → No group transfer pattern detected
+
+RHEA:28258: cyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucuronate = cyanidin 3-O-(2-O-beta-D-glucuronosyl)-beta-D-glucoside + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:28314: baicalein + UDP-alpha-D-glucuronate = baicalin + UDP
+  → No group transfer pattern detected
+
+RHEA:28318: scutellarein + UDP-alpha-D-glucuronate = scutellarin + UDP
+  → No group transfer pattern detected
+
+RHEA:28322: wogonin + UDP-alpha-D-glucuronate = wogonin 7-O-beta-D-glucuronate + UDP
+  → No group transfer pattern detected
+
+RHEA:28338: (R)-carnitinyl-CoA = crotonobetainyl-CoA + H2O
+  → CoA-dependent lyase/isomerase - not acyl transfer
+
+RHEA:28366: UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:28386: UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + di-trans,octa-cis-undecaprenyl phosphate = di-trans,octa-cis-undecaprenyl diphospho-N-acetyl-alpha-D-muramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine + UMP
+  → No group transfer pattern detected
+
+RHEA:28671: 2 cob(II)alamin + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)alamin + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → No group transfer pattern detected
+
+RHEA:28759: beta-D-ManNAcA-(1->4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + dTDP-4-acetamido-4,6-dideoxy-alpha-D-galactose = alpha-D-FucNAc4-(1->4)-beta-D-ManNAcA-(1->4)-D-GlcNAc-undecaprenyl diphosphate + dTDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:29043: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+) = dTMP + (6S)-5,6,7,8-tetrahydrofolate + NADP(+)
+  → No group transfer pattern detected
+
+RHEA:29691: alpha-maltotetraose + phosphate = alpha-maltotriose + alpha-D-glucose 1-phosphate
+  → No group transfer pattern detected
+
+RHEA:29923: alpha-D-Glc-(1->3)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + ADP-L-glycero-beta-D-manno-heptose = alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + ADP + H(+)
+  → No group transfer pattern detected
+
+RHEA:30019: alpha-D-Glc-(1->2)-alpha-D-Glc-(1->3)-[alpha-D-Gal-(1->6)]-alpha-D-Glc-(1->3)-[L-alpha-D-Hep-(1->7)]-4-O-PO3(2-)-L-alpha-D-Hep-(1->3)-4-O-PO3(2-)-L-alpha-D-Hep-(1->5)-[alpha-Kdo-(2->4)]-alpha-Kdo-(2->6)-lipid A + ADP-L-glycero-beta-D-manno-heptose = lipid A-core + ADP + H(+)
+  → No group transfer pattern detected
+
+RHEA:30387: GDP-alpha-D-glucose + phosphate = alpha-D-glucose 1-phosphate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:30515: S-adenosyl 3-(methylsulfanyl)propylamine + spermidine = thermospermine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:30639: (R)-glycerate + GDP-alpha-D-mannose = (2R)-2-O-(alpha-D-mannosyl)-glycerate + GDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:31211: L-selenomethionine + ATP + H2O = L-adenosylselenomethionine + phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:31331: molybdopterin + ATP + H(+) = adenylyl-molybdopterin + diphosphate
+  → No group transfer pattern detected
+
+RHEA:31335: Mo-molybdopterin + CTP + H(+) = Mo-molybdopterin cytosine dinucleotide + diphosphate
+  → No group transfer pattern detected
+
+RHEA:31475: soyasapogenol B + UDP-alpha-D-glucuronate = soyasapogenol B 3-O-beta-D-glucuronate + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:31491: soyasaponin III + UDP-beta-L-rhamnose = soyasaponin I + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:32267: 4-aminobutanoate + glyoxylate = succinate semialdehyde + glycine
+  → No group transfer pattern detected
+
+RHEA:32295: 2 (2E,6E)-farnesyl diphosphate + NADPH + H(+) = squalene + 2 diphosphate + NADP(+)
+  → No group transfer pattern detected
+
+RHEA:32299: 2 (2E,6E)-farnesyl diphosphate + NADH + H(+) = squalene + 2 diphosphate + NAD(+)
+  → No group transfer pattern detected
+
+RHEA:32667: methanethiol + coenzyme M = methyl-coenzyme M + hydrogen sulfide + H(+)
+  → No group transfer pattern detected
+
+RHEA:33075: 3-[(1-carboxyvinyl)-oxy]benzoate + S-adenosyl-L-methionine + H2O = 6-amino-6-deoxyfutalosine + hydrogencarbonate + L-methionine + H(+)
+  → No group transfer pattern detected
+
+RHEA:33299: [eIF5A protein]-L-lysine + spermidine = [eIF5A protein]-deoxyhypusine + propane-1,3-diamine
+  → No group transfer pattern detected
+
+RHEA:33387: cadaverine + S-adenosyl 3-(methylsulfanyl)propylamine = aminopropylcadaverine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:33495: sn-glycerol 1-phosphate + all-trans-heptaprenyl diphosphate = 3-heptaprenyl-sn-glycero-1-phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:34183: CDP-alpha-D-abequose + alpha-D-Man-(1->4)-alpha-L-Rha-(1->3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate = alpha-D-Abe-(1->3)-alpha-D-Man-(1->4)-alpha-L-Rha-(1->3)-alpha-D-Gal-di-trans,octa-cis-undecaprenyl diphosphate + CDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:34243: Mo-molybdopterin + GTP + H(+) = Mo-molybdopterin guanine dinucleotide + diphosphate
+  → No group transfer pattern detected
+
+RHEA:34363: N-acetyl-alpha-D-galactosamine 1-phosphate + UTP + H(+) = UDP-N-acetyl-alpha-D-galactosamine + diphosphate
+  → No group transfer pattern detected
+
+RHEA:34407: 3 ATP = 5'-triphosphoadenylyl-(2'->5')-adenylyl-(2'->5')-adenosine + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:34475: 2 (2E,6E,10E)-geranylgeranyl diphosphate = 15-cis-phytoene + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:34487: N-acetyl-alpha-D-glucosaminyl-1-diphospho-trans,octa-cis-decaprenol + dTDP-beta-L-rhamnose = alpha-L-rhamnosyl-(1->3)-N-acetyl-alpha-D-glucosaminyl-diphospho-trans,octa-cis-decaprenol + dTDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:34511: N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = N-acetyl-alpha-D-galactosaminyl-(1->3)-N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:34515: tri-trans,hepta-cis-undecaprenyl phosphate + UDP-N,N'-diacetylbacillosamine = N,N'-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UMP
+  → No group transfer pattern detected
+
+RHEA:34679: methylphosphonate + ATP = alpha-D-ribose 1-methylphosphonate 5-triphosphate + adenine
+  → No group transfer pattern detected
+
+RHEA:34935: 2 ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:35047: adenylyl-molybdopterin + molybdate = Mo-molybdopterin + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:35371: 2 4-amino-4-deoxy-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + alpha-Kdo-(2->4)-alpha-Kdo-(2->6)-lipid A (E. coli) = (beta-L-Ara4N)2-(Kdo)2-lipid A + 2 di-trans,octa-cis-undecaprenyl phosphate
+  → No group transfer pattern detected
+
+RHEA:35427: cyanidin 3-O-beta-D-glucoside + 1-O-(trans-sinapoyl)-beta-D-glucose = cyanidin 3,5-di-O-beta-D-glucoside + (E)-sinapate
+  → No group transfer pattern detected
+
+RHEA:35431: 1-O-(4-hydroxy-3-methoxybenzoyl)-beta-D-glucose + cyanidin 3-O-beta-D-glucoside = cyanidin 3,7-di-O-beta-D-glucoside + vanillate
+  → No group transfer pattern detected
+
+RHEA:35623: D-glutamine + D-glutamate = gamma-D-glutamyl-D-glutamate + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:35647: GTP + ATP = 3',3'-cGAMP + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:35655: 2 ATP = 3',3'-c-di-AMP + 2 diphosphate
+  → No group transfer pattern detected
+
+RHEA:35815: 4-aminobenzoate + 5-phospho-alpha-D-ribose 1-diphosphate + H(+) = 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + CO2 + diphosphate
+  → No group transfer pattern detected
+
+RHEA:35951: 4-(beta-D-ribofuranosyl)aminobenzene 5'-phosphate + (7,8-dihydropterin-6-yl)methyl diphosphate = N-[(7,8-dihydropterin-6-yl)methyl]-4-(beta-D-ribofuranosyl)aniline 5'-phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:36407: L-threonine + hydrogencarbonate + ATP = L-threonylcarbamoyladenylate + diphosphate + H2O
+  → No group transfer pattern detected
+
+RHEA:36487: S-adenosyl 3-(methylsulfanyl)propylamine + agmatine = N(1)-(3-aminopropyl)agmatine + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:36783: L-histidyl-[translation elongation factor 2] + S-adenosyl-L-methionine = 2-[(3S)-amino-3-carboxypropyl]-L-histidyl-[translation elongation factor 2] + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:37059: L-threonylcarbamoyladenylate + adenosine(37) in tRNA = N(6)-L-threonylcarbamoyladenosine(37) in tRNA + AMP + H(+)
+  → No group transfer pattern detected
+
+RHEA:54288: L-tyrosyl-[protein] + ATP = O-(5'-adenylyl)-L-tyrosyl-[protein] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:20908: 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n+1)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:50416: N-terminal L-arginyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-arginyl-[protein] + tRNA(Leu) + H(+)
+  → No group transfer pattern detected
+
+RHEA:49240: N(pros)-phospho-L-histidyl-[protein] + N-acetyl-D-glucosamine(out) = N-acetyl-D-glucosamine 6-phosphate(in) + L-histidyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:22508: DNA(n) + a 2'-deoxyribonucleoside 5'-triphosphate = DNA(n+1) + diphosphate
+  → No group transfer pattern detected
+
+RHEA:37067: N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-SH + AH2 + 2 S-adenosyl-L-methionine = 2-methylsulfanyl-N(6)-dimethylallyladenosine(37) in tRNA + (sulfur carrier)-H + 5'-deoxyadenosine + L-methionine + A + S-adenosyl-L-homocysteine + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:13653: [6)-beta-D-fructofuranosyl-(2->](n) alpha-D-glucopyranoside + sucrose = [6)-beta-D-fructofuranosyl-(2->](n+1) alpha-D-glucopyranoside + D-glucose
+  → No group transfer pattern detected
+
+RHEA:43148: adenosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:49472: trans-4-hydroxy-L-prolyl-[protein] + UDP-beta-L-arabinofuranose = O-(beta-L-arabinofuranosyl)-trans-4-hydroxy-L-prolyl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:41740: adenosine(57)/adenosine(58) in tRNA + 2 S-adenosyl-L-methionine = N(1)-methyladenosine(57)/N(1)-methyladenosine(58) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:43636: N(6)-acetyl-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-acetyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:43084: cytidine(34) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:62432: a uridine in tRNA + S-adenosyl-L-methionine = a 3-[(3S)-3-amino-3-carboxypropyl]uridine in tRNA + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:56188: 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-[N-acetyl-beta-D-glucosaminyl-(1->6)]-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:10256: [(1->4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → No group transfer pattern detected
+
+RHEA:43208: 5-(carboxymethyl)uridine(34) in tRNA + S-adenosyl-L-methionine = 5-(2-methoxy-2-oxoethyl)uridine(34) in tRNA + S-adenosyl-L-homocysteine
+  → No group transfer pattern detected
+
+RHEA:42916: adenosine(2503) in 23S rRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(2503) in 23S rRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No group transfer pattern detected
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:56064: 3-O-(beta-D-glucosyl)-L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-[alpha-D-xylosyl-(1->3)-beta-D-glucosyl]-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:53904: L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)
+  → No group transfer pattern detected
+
+RHEA:55584: an adenosine in mRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:58120: L-seryl-[protein] + ATP = 3-O-(5'-adenylyl)-L-seryl-[protein] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:45220: methyl-Co(III)-[trimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[trimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No group transfer pattern detected
+
+RHEA:43332: adenosine(37) in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(37) in tRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No group transfer pattern detected
+
+RHEA:14785: RNA(n) + UTP = RNA(n)-3'-uridine ribonucleotide + diphosphate
+  → No group transfer pattern detected
+
+RHEA:11668: [(1->4)-alpha-D-glucosyl](n) + n ATP + n H2O = [(1->4)-6-phospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)
+  → No group transfer pattern detected
+
+RHEA:43088: 5-carboxymethylaminomethyluridine(34) in tRNA(Leu) + S-adenosyl-L-methionine = 5-carboxymethylaminomethyl-2'-O-methyluridine(34) in tRNA(Leu) + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:62016: L-seryl-[EGF-like domain protein] + UDP-alpha-D-xylose = 3-O-(beta-D-xylosyl)-L-seryl-[EGF-like domain protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:42716: 5-methylaminomethyl-2-thiouridine(34) in tRNA + selenophosphate + (2E)-geranyl diphosphate + H2O + H(+) = 5-methylaminomethyl-2-selenouridine(34) in tRNA + (2E)-thiogeraniol + phosphate + diphosphate
+  → No group transfer pattern detected
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No group transfer pattern detected
+
+RHEA:22096: RNA(n+1) + phosphate = RNA(n) + a ribonucleoside 5'-diphosphate
+  → No group transfer pattern detected
+
+RHEA:54084: 7-cyano-7-carbaguanosine(15) in tRNA + L-glutamine + H2O = archaeosine(15) in tRNA + L-glutamate
+  → No group transfer pattern detected
+
+RHEA:10628: tRNA(n+1) + phosphate = tRNA(n) + a ribonucleoside 5'-diphosphate
+  → No group transfer pattern detected
+
+RHEA:41175: Co(I)-[dimethylamine-specific corrinoid protein] + dimethylamine + H(+) = methyl-Co(III)-[dimethylamine-specific corrinoid protein] + methylamine
+  → No group transfer pattern detected
+
+RHEA:54564: a 5'-end ribonucleotide-tRNA(His) + GTP + ATP + H2O = a 5'-end phospho-guanosine-ribonucleotide-tRNA(His) + AMP + 2 diphosphate + H(+)
+  → Ligase - bond formation not group transfer
+
+RHEA:16213: 3-O-{[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{alpha-D-GlcNAc-[(1->4)-beta-D-GlcA-(1->4)-alpha-D-GlcNAc](n)-(1->4)-beta-D-GlcA-(1->3)-beta-D-Gal-(1->3)-beta-D-Gal-(1->4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:45204: Co(I)-[methanol-specific corrinoid protein] + methanol + H(+) = methyl-Co(III)-[methanol-specific corrinoid protein] + H2O
+  → No group transfer pattern detected
+
+RHEA:39287: Co(I)-[trimethylamine-specific corrinoid protein] + trimethylamine + H(+) = methyl-Co(III)-[trimethylamine-specific corrinoid protein] + dimethylamine
+  → No group transfer pattern detected
+
+RHEA:48904: L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl)-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:42712: uridine(54) in tRNA + S-adenosyl-L-methionine = 5-methyluridine(54) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No group transfer pattern detected
+
+RHEA:54816: L-glutaminyl-[protein] + L-lysyl-[protein] = [protein]-L-lysyl-N(6)-5-L-glutamyl-[protein] + NH4(+)
+  → Deaminase/lyase - produces ammonia, not amino group transfer
+
+RHEA:21248: RNA(n) + a ribonucleoside 5'-triphosphate = RNA(n+1) + diphosphate
+  → No group transfer pattern detected
+
+RHEA:63296: an N(1)-methylpseudouridine in rRNA + S-adenosyl-L-methionine = N(1)-methyl-N(3)-[(3S)-3-amino-3-carboxypropyl]pseudouridine in rRNA + S-methyl-5'-thioadenosine + H(+)
+  → No group transfer pattern detected
+
+RHEA:46884: a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-[N-acetyl-beta-D-glucosaminyl-(1->3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:42932: cytidine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No group transfer pattern detected
+
+RHEA:49236: N(pros)-phospho-L-histidyl-[protein](out) + sucrose = sucrose 6(G)-phosphate(in) + L-histidyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:50504: N-terminal L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-seryl-[protein] + CoA + H(+)
+  → No group transfer pattern detected
+
+RHEA:47040: 5-taurinomethyluridine(34) in tRNA + S-sulfanyl-L-cysteinyl-[protein] + AH2 + ATP = 5-taurinomethyl-2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:45208: methyl-Co(III)-[methanol-specific corrinoid protein] + coenzyme M = Co(I)-[methanol-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No group transfer pattern detected
+
+RHEA:50192: UDP-alpha-D-xylose + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)
+  → No group transfer pattern detected
+
+RHEA:49296: keto-L-sorbose(out) + N(pros)-phospho-L-histidyl-[protein] = L-sorbose 1-phosphate(in) + L-histidyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:18361: a di-trans,poly-cis-dolichyl D-xylosyl phosphate  + L-seryl-[protein] = 3-O-(beta-D-xylosyl)-L-seryl-[protein] + a di-trans,poly-cis-dolichyl phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:63640: N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NAD(+) + H2O = 2''-O-lipoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]
+  → No group transfer pattern detected
+
+RHEA:43616: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + ATP + H(+) = [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + diphosphate
+  → No group transfer pattern detected
+
+RHEA:48612: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + S-sulfanyl-L-cysteinyl-[cysteine desulfurase] + AH2 = [molybdopterin-synthase sulfur-carrier protein]-C-terminal-Gly-aminoethanethioate + L-cysteinyl-[cysteine desulfurase] + A + AMP + 2 H(+)
+  → No group transfer pattern detected
+
+RHEA:47032: S-sulfanyl-L-cysteinyl-[protein] + uridine(34) in tRNA + AH2 + ATP = 2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:54292: L-threonyl-[protein] + ATP = 3-O-(5'-adenylyl)-L-threonyl-[protein] + diphosphate
+  → No group transfer pattern detected
+
+RHEA:56712: L-cysteinyl-[prolipoprotein] + a 1,2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol) = an S-1,2-diacyl-sn-glyceryl-L-cysteinyl-[prolipoprotein] + sn-glycerol 1-phosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:45216: methyl-Co(III)-[dimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[dimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No group transfer pattern detected
+
+RHEA:22980: a di-trans,poly-cis-dolichyl diphosphooligosaccharide + L-asparaginyl-[protein] = N(4)-(oligosaccharide-(1->4)-N-acetyl-beta-D-glucosaminyl-(1->4)-N-acetyl-beta-D-glucosaminyl)-L-asparaginyl-[protein] + a di-trans,poly-cis-dolichyl diphosphate + H(+)
+  → No group transfer pattern detected
+
+RHEA:11332: RNA(n) + ATP = RNA(n)-3'-adenine ribonucleotide + diphosphate
+  → No group transfer pattern detected
+
+RHEA:49288: L-lysyl-[lipoyl-carrier protein] + (R)-lipoate + ATP = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + diphosphate + H(+)
+  → Ligase - bond formation not group transfer
+
+RHEA:45200: methyl-Co(III)-[corrinoid Fe-S protein] + (6S)-5,6,7,8-tetrahydrofolate = Co(I)-[corrinoid Fe-S protein] + (6S)-5-methyl-5,6,7,8-tetrahydrofolate + H(+)
+  → No group transfer pattern detected
+

@@ -1,0 +1,10 @@
+False Negatives for AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer
+==================================================
+Total: 2
+
+RHEA:21160: oxaloacetate + acetyl-CoA + ADP + phosphate = citrate + ATP + CoA
+  → Energy-coupled, redox, or oxygen chemistry indicates another transferase branch
+
+RHEA:24204: acetyl phosphate + sulfite + H(+) = sulfoacetaldehyde + phosphate
+  → Condensing acyltransferase chemistry requires water in this operational approximation
+

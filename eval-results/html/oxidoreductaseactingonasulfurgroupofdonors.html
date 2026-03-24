@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OxidoreductaseActingOnASulfurGroupOfDonors - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>OxidoreductaseActingOnASulfurGroupOfDonors</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:1.8.-.-" target="_blank">EC:1.8.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>oxidoreductase acting on a sulfur group of donors</p><p>EC 1.8.x.x includes:<br>- Thioredoxin reductase (NADPH + thioredoxin disulfide → thioredoxin + NADP+)<br>- Glutathione reductase (NADPH + GSSG → 2 GSH + NADP+)<br>- Sulfite reductase (sulfite + NADPH → H2S + NADP+)<br>- Disulfide oxidoreductases</p><p>Examples:<br>- 2 glutathione + NADP+ = glutathione disulfide + NADPH + H+<br>- Thioredoxin + NADP+ = thioredoxin disulfide + NADPH + H+</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value bad">0.418</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.560</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value bad">0.333</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.989</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.427</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.997</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">14</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">11</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">28</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3431</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">oxidoreductase_acting_on_a_sulfur_group_of_donors.py:48</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016667&quot;</span>  <span class="comment"># oxidoreductase activity, acting on a sulfur group</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;1.8.-.-&quot;</span></code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">oxidoreductase_acting_on_a_sulfur_group_of_donors.py:51</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is a sulfur oxidoreductase.
+
+        Strategy:
+        1. Must be an oxidoreductase (have redox cofactor)
+        2. Look for sulfur-containing substrates/products
+        3. Pattern: thiol/disulfide interconversion or sulfite/sulfate redox
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Check for redox cofactors (but exclude iron-sulfur clusters used structurally)</span>
+        redox_cofactors = {
+            CHEBI_NAD_PLUS, CHEBI_NADH, CHEBI_NADP_PLUS, CHEBI_NADPH,
+            <span class="str">&quot;CHEBI:30753&quot;</span>,  <span class="comment"># cytochrome c</span>
+        }
+
+        has_redox = any(
+            p.chebi_id <span class="kw">in</span> redox_cofactors
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        )
+
+        <span class="comment"># Use RHEA label for pattern matching (not p.name which has ChEBI generic names)</span>
+        label_lower = reaction.label.lower() <span class="kw">if</span> reaction.label <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+
+        <span class="comment"># Exclude iron-sulfur cluster reactions (these are structural, not sulfur redox)</span>
+        iron_sulfur_patterns = [<span class="str">&quot;2fe-2s&quot;</span>, <span class="str">&quot;4fe-4s&quot;</span>, <span class="str">&quot;[2fe-2s]&quot;</span>, <span class="str">&quot;[4fe-4s]&quot;</span>,
+                                <span class="str">&quot;ferredoxin&quot;</span>, <span class="str">&quot;iron-sulfur&quot;</span>]
+        <span class="kw">if</span> any(isp <span class="kw">in</span> label_lower <span class="kw">for</span> isp <span class="kw">in</span> iron_sulfur_patterns):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Iron-sulfur cluster reaction - not sulfur group redox&quot;</span>
+            )
+
+        <span class="comment"># Key patterns for sulfur oxidoreductases (EC 1.8)</span>
+        <span class="comment"># Must have explicit disulfide/dithiol interconversion or sulfite/sulfate redox</span>
+
+        <span class="comment"># Check for explicit disulfide/dithiol patterns (both must be present)</span>
+        has_disulfide = <span class="str">&quot;disulfide&quot;</span> <span class="kw">in</span> label_lower
+        has_dithiol = <span class="str">&quot;dithiol&quot;</span> <span class="kw">in</span> label_lower
+
+        <span class="comment"># True disulfide exchange: both disulfide and dithiol forms present</span>
+        is_disulfide_exchange = has_disulfide <span class="kw">and</span> has_dithiol
+
+        <span class="comment"># Glutathione reductase: requires BOTH glutathione disulfide AND reduced glutathione</span>
+        <span class="comment"># Plus NAD(P)H cofactor - use ChEBI IDs as primary</span>
+        has_gssg = any(
+            p.chebi_id == CHEBI_GLUTATHIONE_DISULFIDE
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        ) <span class="kw">or</span> <span class="str">&quot;glutathione disulfide&quot;</span> <span class="kw">in</span> label_lower
+
+        has_gsh = any(
+            p.chebi_id == CHEBI_GLUTATHIONE
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        ) <span class="kw">or</span> (<span class="str">&quot;glutathione&quot;</span> <span class="kw">in</span> label_lower <span class="kw">and</span> <span class="str">&quot;disulfide&quot;</span> <span class="kw">not</span> <span class="kw">in</span> label_lower
+              <span class="kw">and</span> <span class="str">&quot;s-&quot;</span> <span class="kw">not</span> <span class="kw">in</span> label_lower)
+
+        <span class="comment"># Thioredoxin reductase: requires both disulfide and dithiol forms (check label)</span>
+        has_thioredoxin_ox = <span class="str">&quot;thioredoxin&quot;</span> <span class="kw">in</span> label_lower <span class="kw">and</span> <span class="str">&quot;disulfide&quot;</span> <span class="kw">in</span> label_lower
+        has_thioredoxin_red = <span class="str">&quot;thioredoxin&quot;</span> <span class="kw">in</span> label_lower <span class="kw">and</span> <span class="str">&quot;dithiol&quot;</span> <span class="kw">in</span> label_lower
+
+        <span class="comment"># Glutathione reductase with NAD(P)H</span>
+        <span class="kw">if</span> has_gssg <span class="kw">and</span> has_gsh <span class="kw">and</span> has_redox:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=<span class="str">&quot;Sulfur oxidoreductase: glutathione reductase&quot;</span>
+            )
+
+        <span class="comment"># Thioredoxin reductase</span>
+        <span class="kw">if</span> (has_thioredoxin_ox <span class="kw">or</span> has_thioredoxin_red) <span class="kw">and</span> has_redox:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=<span class="str">&quot;Sulfur oxidoreductase: thioredoxin reductase&quot;</span>
+            )
+
+        <span class="comment"># Disulfide/dithiol exchange (even without NAD(P)H)</span>
+        <span class="kw">if</span> is_disulfide_exchange:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=<span class="str">&quot;Sulfur oxidoreductase: disulfide/dithiol exchange&quot;</span>
+            )
+
+        <span class="comment"># Get label parts for substrate/product checking</span>
+        label_parts = label_lower.split(<span class="str">&quot;=&quot;</span>)
+        substrate_str = label_parts[<span class="num">0</span>] <span class="kw">if</span> label_parts <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+        product_str = label_parts[<span class="num">1</span>] <span class="kw">if</span> len(label_parts) &gt; <span class="num">1</span> <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+
+        <span class="comment"># Sulfite/sulfate interconversion - but exclude monooxygenases that produce sulfite</span>
+        has_sulfite = any(
+            p.chebi_id == CHEBI_SULFITE
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        ) <span class="kw">or</span> <span class="str">&quot;sulfite&quot;</span> <span class="kw">in</span> label_lower
+
+        has_sulfate = any(
+            p.chebi_id == CHEBI_SULFATE
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        ) <span class="kw">or</span> (<span class="str">&quot;sulfate&quot;</span> <span class="kw">in</span> label_lower <span class="kw">and</span> <span class="str">&quot;thiosulfate&quot;</span> <span class="kw">not</span> <span class="kw">in</span> label_lower)
+
+        <span class="comment"># Exclude monooxygenases (O2 + sulfonate → aldehyde + sulfite)</span>
+        has_o2 = any(
+            p.chebi_id == CHEBI_O2
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        ) <span class="kw">or</span> any(x <span class="kw">in</span> substrate_str <span class="kw">for</span> x <span class="kw">in</span> [<span class="str">&quot;dioxygen&quot;</span>, <span class="str">&quot;oxygen&quot;</span>, <span class="str">&quot; o2&quot;</span>])
+        has_aldehyde = <span class="str">&quot;aldehyde&quot;</span> <span class="kw">in</span> product_str
+
+        <span class="kw">if</span> has_o2 <span class="kw">and</span> has_aldehyde <span class="kw">and</span> has_sulfite:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Alkanesulfonate monooxygenase - not sulfur group redox&quot;</span>
+            )
+
+        <span class="comment"># Sulfite/sulfate with redox cofactor indicates sulfur oxidoreductase</span>
+        <span class="kw">if</span> (has_sulfite <span class="kw">or</span> has_sulfate) <span class="kw">and</span> has_redox:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=<span class="str">&quot;Sulfur oxidoreductase: sulfite/sulfate redox&quot;</span>
+            )
+
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=<span class="str">&quot;No sulfur oxidoreductase pattern&quot;</span>
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">14</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11724" target="_blank">RHEA:11724</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[thioredoxin]-disulfide + sulfite + adenosine 3&#x27;,5&#x27;-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3&#x27;-phosphoadenylyl sulfate</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11740" target="_blank">RHEA:11740</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 glutathione + NADP(+) = glutathione disulfide + NADPH + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: glutathione reductase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13801" target="_blank">RHEA:13801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">hydrogen sulfide + 3 NADP(+) + 3 H2O = sulfite + 3 NADPH + 4 H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: sulfite/sulfate redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14217" target="_blank">RHEA:14217</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(S)-S-oxide-[protein] + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17545" target="_blank">RHEA:17545</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">S-hydroxy-S-oxy-L-cysteinyl-[peroxiredoxin] + [protein]-dithiol + ATP = S-hydroxy-L-cysteinyl-[peroxiredoxin] + [protein]-disulfide + ADP + phosphate</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18749" target="_blank">RHEA:18749</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[protein]-dithiol + NAD(+) = [protein]-disulfide + NADH + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18753" target="_blank">RHEA:18753</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[protein]-dithiol + NADP(+) = [protein]-disulfide + NADPH + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19993" target="_blank">RHEA:19993</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[thioredoxin]-disulfide + L-methionine + H2O = L-methionine (S)-S-oxide + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20345" target="_blank">RHEA:20345</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[thioredoxin]-dithiol + NADP(+) = [thioredoxin]-disulfide + NADPH + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: thioredoxin reductase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21064" target="_blank">RHEA:21064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[protein]-disulfide + 2 glutathione = [protein]-dithiol + glutathione disulfide</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21260" target="_blank">RHEA:21260</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[thioredoxin]-disulfide + L-methionine + H2O = L-methionine (R)-S-oxide + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21976" target="_blank">RHEA:21976</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[thioredoxin]-disulfide + sulfite + AMP + 2 H(+) = adenosine 5&#x27;-phosphosulfate + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24164" target="_blank">RHEA:24164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-methionyl-[protein] + [thioredoxin]-disulfide + H2O = L-methionyl-(R)-S-oxide-[protein] + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:78943" target="_blank">RHEA:78943</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[DsrC protein]-trisulfide + NAD(+) + 3 H2O = [DsrC protein]-dithiol + sulfite + NADH + 3 H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: sulfite/sulfate redox</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">11</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11848" target="_blank">RHEA:11848</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12232" target="_blank">RHEA:12232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">acetyl phosphate + [thioredoxin]-disulfide + NH4(+) + H2O = [thioredoxin]-dithiol + glycine + phosphate + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12701" target="_blank">RHEA:12701</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 5&#x27;-triphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5&#x27;-triphosphate + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12825" target="_blank">RHEA:12825</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">acetyl phosphate + methylamine + [thioredoxin]-disulfide + H2O = sarcosine + [thioredoxin]-dithiol + phosphate + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13937" target="_blank">RHEA:13937</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">4-sulfobenzoate + NADH + O2 = 3,4-dihydroxybenzoate + sulfite + NAD(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: sulfite/sulfate redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21740" target="_blank">RHEA:21740</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2-oxo-3-sulfanylpropanoate + [thioredoxin]-dithiol = [thioredoxin]-disulfide + hydrogen sulfide + pyruvate + H(+)</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23252" target="_blank">RHEA:23252</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 5&#x27;-diphosphate + [thioredoxin]-disulfide + H2O = a ribonucleoside 5&#x27;-diphosphate + [thioredoxin]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28026" target="_blank">RHEA:28026</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">dUDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + UDP</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28034" target="_blank">RHEA:28034</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">dADP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + ADP</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:57744" target="_blank">RHEA:57744</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">phylloquinol + [protein]-disulfide = phylloquinone + [protein]-dithiol</span>
+                <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">28</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10936" target="_blank">RHEA:10936</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">6-decylubiquinone + 2 thiosulfate = 6-decylubiquinol + tetrathionate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11464" target="_blank">RHEA:11464</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11812" target="_blank">RHEA:11812</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">methanethiol + O2 + H2O = hydrogen sulfide + formaldehyde + H2O2 + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11980" target="_blank">RHEA:11980</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 gamma-L-glutamyl-L-cysteine + NADP(+) = bis-gamma-glutamylcystine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12613" target="_blank">RHEA:12613</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-cystine + 2 glutathione = glutathione disulfide + 2 L-cysteine</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13125" target="_blank">RHEA:13125</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">glutathione disulfide + CoA = CoA-glutathione + glutathione</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14141" target="_blank">RHEA:14141</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">glutathione disulfide + sulfite + AMP + 2 H(+) = adenosine 5&#x27;-phosphosulfate + 2 glutathione</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14281" target="_blank">RHEA:14281</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 Fe(III)-[cytochrome c] + sulfite + H2O = 2 Fe(II)-[cytochrome c] + sulfate + 2 H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14617" target="_blank">RHEA:14617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">glutathione + NADP(+) + CoA = CoA-glutathione + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14705" target="_blank">RHEA:14705</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">NADP(+) + 2 CoA = CoA-disulfide + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14881" target="_blank">RHEA:14881</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">3-sulfanyl-2-(sulfanylmethyl)propanoate + NAD(+) = asparagusate + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15045" target="_blank">RHEA:15045</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + NAD(+) = N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16757" target="_blank">RHEA:16757</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">trypanothione + NADP(+) = trypanothione disulfide + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16977" target="_blank">RHEA:16977</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">coenzyme M + acetoacetate + NADP(+) = 2-oxopropyl-coenzyme M + CO2 + NADPH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18085" target="_blank">RHEA:18085</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">methanophenazine + coenzyme B + coenzyme M = dihydromethanophenazine + coenzyme M-coenzyme B heterodisulfide</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20549" target="_blank">RHEA:20549</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 thiosulfate + 2 Fe(III)-[cytochrome c] = tetrathionate + 2 Fe(II)-[cytochrome c] + 2 H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20597" target="_blank">RHEA:20597</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 L-cysteine + NAD(+) = L-cystine + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23132" target="_blank">RHEA:23132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">hydrogen sulfide + 6 oxidized [2Fe-2S]-[ferredoxin] + 3 H2O = sulfite + 6 reduced [2Fe-2S]-[ferredoxin] + 7 H(+)</span>
+                <div class="reaction-explanation">Iron-sulfur cluster reaction - not sulfur group redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24112" target="_blank">RHEA:24112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 glutathione + O2 = glutathione disulfide + H2O2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24424" target="_blank">RHEA:24424</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-dehydroascorbate + 2 glutathione = glutathione disulfide + L-ascorbate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24600" target="_blank">RHEA:24600</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">sulfite + O2 + H2O = sulfate + H2O2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27758" target="_blank">RHEA:27758</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27786" target="_blank">RHEA:27786</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28042" target="_blank">RHEA:28042</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30223" target="_blank">RHEA:30223</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">hydrogen sulfide + 2 Fe(III)-[cytochrome c] = sulfur + 2 Fe(II)-[cytochrome c] + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30231" target="_blank">RHEA:30231</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">S-(2E,6E)-farnesyl-L-cysteine + O2 + H2O = (2E,6E)-farnesal + L-cysteine + H2O2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34927" target="_blank">RHEA:34927</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30239" target="_blank">RHEA:30239</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">n a quinone + n hydrogen sulfide + n H(+) = polysulfur(n-2) + n a quinol</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3431</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Iron-sulfur cluster reaction - not sulfur group redox</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016667" target="_blank">GO:0016667</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">No sulfur oxidoreductase pattern</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3381 more (showing 50 of 3431)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">3</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18805" target="_blank">RHEA:18805</a></span>:
+                    <span class="reaction-label">[DsbA protein]-disulfide + [protein]-dithiol = [DsbA protein]-dithiol + [protein]-disulfide</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.4.15" target="_blank">EC:1.8.4.15</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20732" target="_blank">RHEA:20732</a></span>:
+                    <span class="reaction-label">[protein]-dithiol + [thioredoxin]-disulfide = [protein]-disulfide + [thioredoxin]-dithiol</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.4.16" target="_blank">EC:1.8.4.16</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20928" target="_blank">RHEA:20928</a></span>:
+                    <span class="reaction-label">[DsbA protein]-dithiol + a quinone = [DsbA protein]-disulfide + a quinol</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.8.5.9" target="_blank">EC:1.8.5.9</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">5</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13817" target="_blank">RHEA:13817</a></span>:
+                    <span class="reaction-label">phylloquinone + [protein]-disulfide + H2O = 2,3-epoxyphylloquinone + [protein]-dithiol</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.4.4" target="_blank">EC:1.17.4.4</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26373" target="_blank">RHEA:26373</a></span>:
+                    <span class="reaction-label">prostamide F2alpha + [thioredoxin]-disulfide = prostamide H2 + [thioredoxin]-dithiol</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.11.1.20" target="_blank">EC:1.11.1.20</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28030" target="_blank">RHEA:28030</a></span>:
+                    <span class="reaction-label">dGDP + [thioredoxin]-disulfide + H2O = [thioredoxin]-dithiol + GDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.4.1" target="_blank">EC:1.17.4.1</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28038" target="_blank">RHEA:28038</a></span>:
+                    <span class="reaction-label">dCDP + [thioredoxin]-disulfide + H2O = CDP + [thioredoxin]-dithiol</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.17.4.1" target="_blank">EC:1.17.4.1</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28214" target="_blank">RHEA:28214</a></span>:
+                    <span class="reaction-label">prostaglandin H2 + [thioredoxin]-dithiol = prostaglandin F2alpha + [thioredoxin]-disulfide</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:1.11.1.20" target="_blank">EC:1.11.1.20</a></div>
+                    <div class="reaction-explanation">Sulfur oxidoreductase: disulfide/dithiol exchange</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+False Positives for TransferaseTransferringPhosphorusContainingGroups
+==================================================
+Total: 27
+
+RHEA:11528: 2 cob(II)yrinate a,c diamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)yrinate a,c-diamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:13665: GTP = 3',5'-cyclic GMP + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:14725: 2 cob(II)inamide + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)inamide + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:14737: CTP = 3',5'-cyclic CMP + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:15389: ATP = 3',5'-cyclic AMP + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:15753: IMP + L-aspartate + GTP = N(6)-(1,2-dicarboxyethyl)-AMP + GDP + phosphate + 2 H(+)
+  → Phosphotransferase: GTP-dependent phosphoryl transfer
+
+RHEA:18473: 1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + ATP
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:18617: oxaloacetate + ATP = phosphoenolpyruvate + ADP + CO2
+  → Phosphotransferase: ATP-dependent phosphoryl transfer
+
+RHEA:19397: (R)-4'-phosphopantothenate + L-cysteine + CTP = N-[(R)-4-phosphopantothenoyl]-L-cysteine + CMP + diphosphate + H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:21080: L-methionine + ATP + H2O = S-adenosyl-L-methionine + phosphate + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:21160: oxaloacetate + acetyl-CoA + ADP + phosphate = citrate + ATP + CoA
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:22120: GTP + succinate + CoA = succinyl-CoA + GDP + phosphate
+  → Phosphotransferase: GTP-dependent phosphoryl transfer
+
+RHEA:22356: oxaloacetate + diphosphate = phosphoenolpyruvate + phosphate + CO2
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:25568: beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)
+  → Phosphotransferase: ATP-dependent phosphoryl transfer
+
+RHEA:25860: GTP + H2O = 7,8-dihydroneopterin 2',3'-cyclic phosphate + formate + diphosphate + H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:28671: 2 cob(II)alamin + reduced [electron-transfer flavoprotein] + 2 ATP = 2 adenosylcob(III)alamin + 2 triphosphate + oxidized [electron-transfer flavoprotein] + 3 H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:29391: GTP + H2O = GMP + diphosphate + H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:29395: UTP + H2O = UMP + diphosphate + H(+)
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:30199: cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:30523: oxidized coenzyme F420-1 + GTP + L-glutamate = oxidized coenzyme F420-2 + GDP + phosphate + H(+)
+  → Phosphotransferase: GTP-dependent phosphoryl transfer
+
+RHEA:30555: oxidized coenzyme F420-0 + GTP + L-glutamate = oxidized coenzyme F420-1 + GDP + phosphate + H(+)
+  → Phosphotransferase: GTP-dependent phosphoryl transfer
+
+RHEA:31211: L-selenomethionine + ATP + H2O = L-adenosylselenomethionine + phosphate + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → Phosphotransferase: nucleotidyltransferase (produces diphosphate)
+
+RHEA:22452: [phosphate](n+1) + n H2O = (n+1) phosphate + n H(+)
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:47040: 5-taurinomethyluridine(34) in tRNA + S-sulfanyl-L-cysteinyl-[protein] + AH2 + ATP = 5-taurinomethyl-2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → Phosphotransferase: phosphorus-containing group transfer
+
+RHEA:47032: S-sulfanyl-L-cysteinyl-[protein] + uridine(34) in tRNA + AH2 + ATP = 2-thiouridine(34) in tRNA + L-cysteinyl-[protein] + A + AMP + diphosphate + H(+)
+  → Phosphotransferase: phosphorus-containing group transfer
+

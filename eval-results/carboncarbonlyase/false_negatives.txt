@@ -1,0 +1,187 @@
+False Negatives for CarbonCarbonLyase
+==================================================
+Total: 61
+
+RHEA:10136: 2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10416: toluene + fumarate = 2-benzylsuccinate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10468: D-xylulose 5-phosphate + phosphate = acetyl phosphate + D-glyceraldehyde 3-phosphate + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10524: 2-oxoglutarate + H(+) = succinate semialdehyde + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10540: 7,8-dihydroneopterin = 6-hydroxymethyl-7,8-dihydropterin + glycolaldehyde
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10672: cyclobutadithymidine in DNA = a thymidine dimer in DNA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:10884: (24R,24(1)R)-fucosterol epoxide = desmosterol + acetaldehyde
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:11100: 4-hydroxyhexan-3-one = 2 propanal
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:12196: keto-D-fructose 6-phosphate + phosphate = acetyl phosphate + D-erythrose 4-phosphate + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:12821: 2-deoxy-D-ribose 5-phosphate = D-glyceraldehyde 3-phosphate + acetaldehyde
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:14081: (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate = indole + D-glyceraldehyde 3-phosphate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:15257: D-threonine = acetaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:15977: (S)-4-hydroxymandelonitrile = 4-hydroxybenzaldehyde + hydrogen cyanide
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:16201: 4-amino-4-deoxychorismate = 4-aminobenzoate + pyruvate + H(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:16453: (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:16509: oxalate + H(+) = formate + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:17089: 2-dehydro-3-deoxy-6-phospho-D-gluconate = D-glyceraldehyde 3-phosphate + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:17733: acetylenedicarboxylate + H2O + H(+) = pyruvate + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:17909: (S)-lactate = acetaldehyde + formate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:18313: (R)-mandelonitrile = benzaldehyde + hydrogen cyanide
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:18457: D-ribulose 5-phosphate = (2S)-2-hydroxy-3-oxobutyl phosphate + formate + H(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:18545: 2-dehydro-3-deoxy-L-arabinonate = glycolaldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:18593: sphinganine 1-phosphate = hexadecanal + phosphoethanolamine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:18781: malonyl-CoA + H(+) = acetyl-CoA + CO2
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:19553: L-tryptophan + H2O = indole + pyruvate + NH4(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:19625: L-threonine = acetaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:20073: D-allo-threonine = acetaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:20217: trimethylamine N-oxide + H(+) = dimethylamine + formaldehyde
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:20609: 2-dehydro-3-deoxy-D-arabinonate = glycolaldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:21440: a long-chain fatty aldehyde + 2 NADPH + O2 + H(+) = a long-chain alkane + formate + 2 NADP(+) + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:21460: benzoin = 2 benzaldehyde
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:21704: L-tyrosine + H2O = phenol + pyruvate + NH4(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:21712: L-threo-3-phenylserine = benzaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:21732: chorismate + L-glutamine = anthranilate + pyruvate + L-glutamate + H(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:22624: (S)-4-hydroxy-2-oxopentanoate = acetaldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:23296: aceneuramate = aldehydo-N-acetyl-D-mannosamine + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:23340: 3-deoxy-alpha-D-manno-oct-2-ulosonate = D-arabinose + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:23476: 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate + H(+) = (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate + CO2 + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:23868: (1-hydroxycyclohexan-1-yl)acetyl-CoA = cyclohexanone + acetyl-CoA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:24464: 2-dehydro-3-deoxy-6-phospho-D-galactonate = D-glyceraldehyde 3-phosphate + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:24840: 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole + S-adenosyl-L-methionine = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + CO + 5'-deoxyadenosine + formate + L-methionine + 3 H(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:25355: 2-hydroxyphytanoyl-CoA = 2,6,10,14-tetramethylpentadecanal + formyl-CoA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:25375: a 2-hydroxy-3-methyl fatty acyl-CoA = a 2-methyl-branched fatty aldehyde + formyl-CoA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:25379: 2-hydroxy-3-methylhexadecanoyl-CoA = 2-methylpentadecanal + formyl-CoA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:25784: 2-dehydro-3-deoxy-L-rhamnonate = (S)-lactaldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:26209: L-allo-threonine = acetaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:26361: L-tyrosine + S-adenosyl-L-methionine + NADPH = 2-iminoacetate + 4-methylphenol + 5'-deoxyadenosine + L-methionine + NADP(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:26562: 2-succinylbenzoyl-CoA + H(+) = 1,4-dihydroxy-2-naphthoyl-CoA + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:27389: (3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate + H2O = salicylaldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:27966: 7,8-dihydroneopterin 3'-triphosphate + H2O = 6-carboxy-5,6,7,8-tetrahydropterin + triphosphate + acetaldehyde + 2 H(+)
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:28002: beta-D-fructose 6-phosphate = dihydroxyacetone + D-glyceraldehyde 3-phosphate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:28170: (2R)-2-hydroxy-2-methylbutanenitrile = butan-2-one + hydrogen cyanide
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:28370: oxaloacetate + phosphate = phosphoenolpyruvate + hydrogencarbonate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:28779: 4-hydroxy-L-threonine = glycolaldehyde + glycine
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:30415: octadecanal + 2 NADPH + O2 + H(+) = heptadecane + formate + 2 NADP(+) + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:34807: (R)-dihydrocamalexate + reduced [NADPH--hemoprotein reductase] + O2 = camalexin + oxidized [NADPH--hemoprotein reductase] + CO2 + 2 H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:35583: 2-dehydro-3-deoxy-D-gluconate = D-glyceraldehyde + pyruvate
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:36307: (E)-caffeoyl-CoA + H2O = 3,4-dihydroxybenzaldehyde + acetyl-CoA
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:36347: N(1)-methylguanosine(37) in tRNA(Phe) + pyruvate + S-adenosyl-L-methionine = 4-demethylwyosine(37) in tRNA(Phe) + 5'-deoxyadenosine + L-methionine + CO2 + H2O
+  → No supported carbon-carbon lyase child classifier matched
+
+RHEA:45140: 4-carboxy-L-glutamyl-[protein] + 2,3-epoxyphylloquinone + H2O + H(+) = phylloquinol + L-glutamyl-[protein] + CO2 + O2
+  → No supported carbon-carbon lyase child classifier matched
+

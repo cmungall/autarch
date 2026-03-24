@@ -1,0 +1,34 @@
+False Positives for OxoAcidLyase
+==================================================
+Total: 10
+
+RHEA:10268: 2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:16853: N(6)-(1,2-dicarboxyethyl)-AMP = fumarate + AMP
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:17617: leukotriene C4 = leukotriene A4 + glutathione
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:19069: (R)-S-lactoylglutathione = methylglyoxal + glutathione
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:20269: 4-(4-deoxy-alpha-D-galact-4-enuronosyl)-D-galacturonate = 2 5-dehydro-4-deoxy-D-glucuronate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:22488: S-(hydroxymethyl)glutathione = glutathione + formaldehyde
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:23920: (2S)-2-[5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamido]succinate = 5-amino-1-(5-phospho-beta-D-ribosyl)imidazole-4-carboxamide + fumarate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:25597: 5-enolpyruvoyl-6-hydroxy-2-succinyl-cyclohex-3-ene-1-carboxylate = (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate + pyruvate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:25788: 4-hydroxy-2-oxoheptanedioate = succinate semialdehyde + pyruvate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+
+RHEA:27874: isochorismate = salicylate + pyruvate
+  → Oxo-acid lyase: non-hydrolytic C-C bond cleavage of a hydroxy-acid substrate
+

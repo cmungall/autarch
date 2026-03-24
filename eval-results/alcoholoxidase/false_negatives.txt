@@ -1,0 +1,64 @@
+False Negatives for AlcoholOxidase
+==================================================
+Total: 20
+
+RHEA:10552: D-glucose + O2 = 2-dehydro-D-glucose + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:11796: ecdysone + O2 = 3-dehydroecdysone + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:12809: 4 catechol + 3 O2 = 2 dibenzo[1,4]dioxin-2,3-dione + 6 H2O
+  → No hydrogen peroxide (H2O2) product found
+
+RHEA:13029: N-acetyl-D-glucosamine + O2 + H2O = N-acetyl-D-glucosaminate + H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+
+RHEA:13505: choline + O2 = betaine aldehyde + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:15033: pyridoxine + O2 = pyridoxal + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:15489: adenosine + 2 O2 + H2O = 9-riburonosyladenine + 2 H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+
+RHEA:15833: (S)-4-hydroxymandelate + O2 + H(+) = 4-hydroxybenzaldehyde + H2O2 + CO2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:17853: keto-L-sorbose + O2 = 5-dehydro-D-fructose + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:18369: sn-glycerol 3-phosphate + O2 = dihydroxyacetone phosphate + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:18513: D-mannitol + O2 = D-mannose + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:20617: L-galactono-1,4-lactone + O2 = L-ascorbate + H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+
+RHEA:21280: thiamine + 2 O2 + H2O = thiamine acetate + 2 H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+
+RHEA:21680: (2S)-2-hydroxyphytanate + O2 = 2-oxophytanate + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:22308: xylitol + O2 = D-xylose + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:23756: D-arabinono-1,4-lactone + O2 = dehydro-D-arabinono-1,4-lactone + H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+
+RHEA:24160: D-galactose + O2 = D-galacto-hexodialdose + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:28651: inosine + O2 = 9-riburonosylhypoxanthine + H2O + H(+)
+  → No hydrogen peroxide (H2O2) product found
+
+RHEA:32183: cholesterol + O2 = cholest-5-en-3-one + H2O2
+  → No clear alcohol oxidase pattern detected
+
+RHEA:32363: L-gulono-1,4-lactone + O2 = L-ascorbate + H2O2 + H(+)
+  → No clear alcohol oxidase pattern detected
+

@@ -1,0 +1,40 @@
+False Negatives for Decarboxylase
+==================================================
+Total: 12
+
+RHEA:10136: 2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2
+  → No fragmentation - not typical decarboxylation
+
+RHEA:10524: 2-oxoglutarate + H(+) = succinate semialdehyde + CO2
+  → Not a lyase: No lyase pattern detected
+
+RHEA:13885: stipitatonate + H2O = stipitatate + CO2
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:16453: (3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:16509: oxalate + H(+) = formate + CO2
+  → Formate oxidation - oxidoreductase not decarboxylase
+
+RHEA:17733: acetylenedicarboxylate + H2O + H(+) = pyruvate + CO2
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+
+RHEA:18781: malonyl-CoA + H(+) = acetyl-CoA + CO2
+  → Not a lyase: No lyase pattern detected
+
+RHEA:23124: 2 (2R)-3-phosphoglycerate + 2 H(+) = D-ribulose 1,5-bisphosphate + CO2 + H2O
+  → Dehydratase with CO2 release - not simple decarboxylase
+
+RHEA:23476: 1-(2-carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate + H(+) = (1S,2R)-1-C-(indol-3-yl)glycerol 3-phosphate + CO2 + H2O
+  → Dehydratase with CO2 release - not simple decarboxylase
+
+RHEA:28370: oxaloacetate + phosphate = phosphoenolpyruvate + hydrogencarbonate
+  → Not a lyase: No lyase pattern detected
+
+RHEA:34807: (R)-dihydrocamalexate + reduced [NADPH--hemoprotein reductase] + O2 = camalexin + oxidized [NADPH--hemoprotein reductase] + CO2 + 2 H2O
+  → Not a lyase: No lyase pattern detected
+
+RHEA:45140: 4-carboxy-L-glutamyl-[protein] + 2,3-epoxyphylloquinone + H2O + H(+) = phylloquinol + L-glutamyl-[protein] + CO2 + O2
+  → Not a lyase: Water as reactant - likely hydrolase not lyase
+

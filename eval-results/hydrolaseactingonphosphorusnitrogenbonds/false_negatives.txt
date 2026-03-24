@@ -1,0 +1,16 @@
+False Negatives for HydrolaseActingOnPhosphorusNitrogenBonds
+==================================================
+Total: 4
+
+RHEA:12977: N-phosphocreatine + H2O = creatine + phosphate
+  → No evidence of P-N bond hydrolysis
+
+RHEA:43380: N(omega)-phospho-L-arginyl-[protein] + H2O = L-arginyl-[protein] + phosphate
+  → Not a hydrolase reaction: No water reactant - not hydrolysis
+
+RHEA:47964: N(pros)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate
+  → No evidence of P-N bond hydrolysis
+
+RHEA:47960: N(tele)-phospho-L-histidyl-[protein] + H2O = L-histidyl-[protein] + phosphate
+  → No evidence of P-N bond hydrolysis
+

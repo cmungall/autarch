@@ -1,0 +1,91 @@
+False Negatives for Monooxygenase
+==================================================
+Total: 29
+
+RHEA:10732: firefly D-luciferin + ATP + O2 = firefly oxyluciferin + hnu + AMP + CO2 + diphosphate
+  → No oxygen incorporation pattern detected
+
+RHEA:10836: questin + NADPH + O2 = demethylsulochrin + NADP(+)
+  → No oxygen incorporation pattern detected
+
+RHEA:11152: 5-pyridoxate + NADPH + O2 = 2-(acetamidomethylene)-3-(hydroxymethyl)succinate + NADP(+)
+  → No oxygen incorporation pattern detected
+
+RHEA:11872: corticosterone + 2 reduced [adrenodoxin] + O2 + 2 H(+) = 18-hydroxycorticosterone + 2 oxidized [adrenodoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:13525: 2 reduced [2Fe-2S]-[putidaredoxin] + (1R,4R)-camphor + O2 + 2 H(+) = (1R,4R,5R)-5-hydroxycamphor + 2 oxidized [2Fe-2S]-[putidaredoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:14765: coelenterazine h + O2 = excited coelenteramide h monoanion + hnu + CO2 + H(+)
+  → No oxygen incorporation pattern detected
+
+RHEA:14937: all-trans-antheraxanthin + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = all-trans-violaxanthin + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:16145: CMP-N-acetyl-beta-neuraminate + 2 Fe(II)-[cytochrome b5] + O2 + 2 H(+) = CMP-N-glycoloyl-beta-neuraminate + 2 Fe(III)-[cytochrome b5] + H2O
+  → Iron oxidase (Fe2+ → Fe3+) - O2 reduced to H2O, not incorporated
+
+RHEA:16709: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tryptophan + O2 = 5-hydroxy-L-tryptophan + (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin
+  → No oxygen incorporation pattern detected
+
+RHEA:17769: choline + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = betaine aldehyde hydrate + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:18057: Watasenia luciferin + O2 = oxidized Watasenia luciferin + hnu + CO2
+  → No oxygen incorporation pattern detected
+
+RHEA:18201: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tyrosine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + L-dopa
+  → No oxygen incorporation pattern detected
+
+RHEA:19341: octane + 2 reduced [rubredoxin] + O2 + 2 H(+) = 2 oxidized [rubredoxin] + octan-1-ol + H2O
+  → Iron oxidase (Fe2+ → Fe3+) - O2 reduced to H2O, not incorporated
+
+RHEA:20273: (6R)-L-erythro-5,6,7,8-tetrahydrobiopterin + L-phenylalanine + O2 = (4aS,6R)-4a-hydroxy-L-erythro-5,6,7,8-tetrahydrobiopterin + L-tyrosine
+  → No oxygen incorporation pattern detected
+
+RHEA:20417: coelenterazine + O2 = coelenteramide + hnu + CO2
+  → No oxygen incorporation pattern detected
+
+RHEA:20573: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitriol + 2 oxidized [adrenodoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:21236: anthranilate + NADPH + O2 + 2 H(+) = 2,3-dihydroxybenzoate + NH4(+) + NADP(+)
+  → No oxygen incorporation pattern detected
+
+RHEA:21764: heme b + 3 reduced [NADPH--hemoprotein reductase] + 3 O2 = biliverdin IXalpha + CO + Fe(2+) + 3 oxidized [NADPH--hemoprotein reductase] + 3 H2O + H(+)
+  → Bilirubin oxidase - electron transfer not O incorporation
+
+RHEA:22760: Cypridina luciferin + O2 = oxidized Cypridina luciferin + hnu + CO2
+  → No oxygen incorporation pattern detected
+
+RHEA:24084: all-trans-zeaxanthin + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = all-trans-antheraxanthin + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:24964: calcitriol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = calcitetrol + 2 oxidized [adrenodoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:24968: calcidiol + 2 reduced [adrenodoxin] + O2 + 2 H(+) = secalciferol + 2 oxidized [adrenodoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:26023: 8'-apo-beta-carotenol + O2 = 14'-apo-beta-carotenal + (3E,5E)-7-hydroxy-6-methylhepta-3,5-dienal
+  → No oxygen incorporation pattern detected
+
+RHEA:30331: all-trans-beta-carotene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-zeaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:32199: androsta-1,4-diene-3,17-dione + 2 reduced [2Fe-2S]-[ferredoxin] + O2 + 2 H(+) = 9alpha-hydroxyandrosta-1,4-diene-3,17-dione + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:32443: all-trans-zeaxanthin + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = all-trans-violaxanthin + 4 oxidized [2Fe-2S]-[ferredoxin] + 2 H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:33027: spheroidene + 4 reduced [2Fe-2S]-[ferredoxin] + 2 O2 + 4 H(+) = spheroiden-2-one + 4 oxidized [2Fe-2S]-[ferredoxin] + 3 H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:34631: 5beta-cholestane-3alpha,7alpha,12alpha-triol + 6 reduced [adrenodoxin] + 3 O2 + 5 H(+) = (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oate + 6 oxidized [adrenodoxin] + 4 H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+
+RHEA:35739: 6 reduced [adrenodoxin] + cholesterol + 3 O2 + 6 H(+) = 4-methylpentanal + pregnenolone + 6 oxidized [adrenodoxin] + 4 H2O
+  → Ferredoxin-dependent desaturase - O2 reduced to H2O, not incorporated
+

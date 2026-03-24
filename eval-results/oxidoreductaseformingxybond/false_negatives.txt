@@ -1,0 +1,52 @@
+False Negatives for OxidoreductaseFormingXYBond
+==================================================
+Total: 16
+
+RHEA:11848: acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:12232: acetyl phosphate + [thioredoxin]-disulfide + NH4(+) + H2O = [thioredoxin]-dithiol + glycine + phosphate + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:12737: [PrdC protein]-Se-L-selenocysteinyl-S-L-cysteine + 5-aminopentanoate = [PrdC protein]-L-selenocysteine/L-cysteine + D-proline
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:12825: acetyl phosphate + methylamine + [thioredoxin]-disulfide + H2O = sarcosine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:19885: (S)-reticuline + O2 = (S)-scoulerine + H2O2 + H(+)
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:22428: N-[(5S)-5-amino-5-carboxypentanoyl]-L-cysteinyl-D-valine + O2 = isopenicillin N + 2 H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:22616: 2 sulochrin + O2 + 2 H(+) = 2 (2R)-bisdechlorogeodin + 2 H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:23076: 4-chlorobenzoyl-CoA + chloride + NADP(+) = 2,4-dichlorobenzoyl-CoA + NADPH
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:23564: 2 columbamine + O2 = 2 berberine + 2 H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:24092: 2 sulochrin + O2 + 2 H(+) = 2 (2S)-bisdechlorogeodin + 2 H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:32479: 2 iodide + L-tyrosine + 2 NADP(+) = 3,5-diiodo-L-tyrosine + 2 NADPH + H(+)
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:34135: cannabigerolate + O2 = Delta(9)-tetrahydrocannabinolate + H2O2
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:34195: 2 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + O2 + 2 H(+) = 2 aureusidin 6-O-beta-glucoside + 2 H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:34199: 2',3,4,4',6'-pentahydroxychalcone 4'-O-beta-D-glucoside + O2 + H(+) = bracteatin 6-O-beta-glucoside + H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:34203: 2',4,4',6'-tetrahydroxychalcone 4'-O-beta-D-glucoside + O2 = aureusidin 6-O-beta-glucoside + H2O
+  → No X-Y bond-forming oxidoreductase pattern detected
+
+RHEA:34411: cannabigerolate + O2 = cannabidiolate + H2O2
+  → No X-Y bond-forming oxidoreductase pattern detected
+

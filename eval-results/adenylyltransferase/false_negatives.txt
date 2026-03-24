@@ -1,0 +1,52 @@
+False Negatives for Adenylyltransferase
+==================================================
+Total: 16
+
+RHEA:12120: alpha-D-glucose 1-phosphate + ATP + H(+) = ADP-alpha-D-glucose + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:14529: D-ribose 5-phosphate + ADP + H(+) = ADP-D-ribose + phosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:16529: sulfate + ADP + H(+) = adenosine 5'-phosphosulfate + phosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:16577: ADP + ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + phosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:17237: FMN + ATP + H(+) = FAD + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:18133: sulfate + ATP + H(+) = adenosine 5'-phosphosulfate + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:19197: adenosine 5'-phosphosulfate + NH4(+) = adenosine 5'-phosphoramidate + sulfate + 2 H(+)
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:19801: (R)-4'-phosphopantetheine + ATP + H(+) = 3'-dephospho-CoA + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:21360: beta-nicotinamide D-ribonucleotide + ATP + H(+) = diphosphate + NAD(+)
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:22860: nicotinate beta-D-ribonucleotide + ATP + H(+) = deamido-NAD(+) + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:27465: D-glycero-beta-D-manno-heptose 1-phosphate + ATP + H(+) = ADP-D-glycero-beta-D-manno-heptose + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:31331: molybdopterin + ATP + H(+) = adenylyl-molybdopterin + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:34407: 3 ATP = 5'-triphosphoadenylyl-(2'->5')-adenylyl-(2'->5')-adenosine + 2 diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:34935: 2 ATP + H(+) = P(1),P(4)-bis(5'-adenosyl) tetraphosphate + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:43616: [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly + ATP + H(+) = [molybdopterin-synthase sulfur-carrier protein]-C-terminal Gly-Gly-AMP + diphosphate
+  → No supported adenylyltransferase child classifier matched
+
+RHEA:11332: RNA(n) + ATP = RNA(n)-3'-adenine ribonucleotide + diphosphate
+  → No supported adenylyltransferase child classifier matched
+

@@ -1,0 +1,19 @@
+False Negatives for CarbonicAnhydrase
+==================================================
+Total: 5
+
+RHEA:10164: (2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O
+  → No CO2 - carbonic anhydrase requires CO2 as substrate
+
+RHEA:10196: (1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O
+  → No CO2 - carbonic anhydrase requires CO2 as substrate
+
+RHEA:10436: 7alpha,12alpha-dihydroxy-3-oxochol-4-en-24-oyl-CoA = 12alpha-hydroxy-3-oxochola-4,6-dien-24-oyl-CoA + H2O
+  → No CO2 - carbonic anhydrase requires CO2 as substrate
+
+RHEA:11040: D-erythro-1-(imidazol-4-yl)glycerol 3-phosphate = 3-(imidazol-4-yl)-2-oxopropyl phosphate + H2O
+  → No CO2 - carbonic anhydrase requires CO2 as substrate
+
+RHEA:11120: cyanate + hydrogencarbonate + 3 H(+) = NH4(+) + 2 CO2
+  → Wrong stoichiometry (3→2) - expected CO2 hydration
+

@@ -1,0 +1,142 @@
+False Positives for PhosphoricEsterHydrolase
+==================================================
+Total: 46
+
+RHEA:10840: O-phospho-L-homoserine + H2O = L-threonine + phosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:11088: trimetaphosphate + H2O = triphosphate + 2 H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→1)
+
+RHEA:11744: thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:12977: N-phosphocreatine + H2O = creatine + phosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:13073: guanosine 3'-diphosphate 5'-triphosphate + H2O = guanosine 3',5'-bis(diphosphate) + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:14157: triphosphate + H2O = phosphate + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:15809: (2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:16673: 3-phosphonopyruvate + H2O = pyruvate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:16749: phosphonoacetate + H2O = acetate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→3), likely protein substrate/fragmentation
+
+RHEA:18905: phosphonoacetaldehyde + H2O = acetaldehyde + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:19013: dTTP + H2O = dTDP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:19565: (2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:20565: (2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:22156: GDP + H2O = GMP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:22384: 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + H2O = 1D-myo-inositol hexakisphosphate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:22436: (2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:22636: dCTP + H2O = dCMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:22828: 1-(5-phospho-beta-D-ribosyl)-ATP + H2O = 1-(5-phospho-beta-D-ribosyl)-5'-AMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → Phosphoric ester hydrolase: matched PhosphoricDiesterHydrolase (3.1.4.-); Phosphoric diester hydrolase: phosphoric diester hydrolysis
+
+RHEA:24116: (2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:24500: adenosine 5'-tetraphosphate + H2O = phosphate + ATP + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:24576: diphosphate + H2O = 2 phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:25302: 7,8-dihydroneopterin 3'-triphosphate + H2O = 7,8-dihydroneopterin 3'-phosphate + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:26115: (2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:26213: 9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:27534: (2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:27914: 4-amino-2-methyl-5-(diphosphooxymethyl)pyrimidine + H2O = 4-amino-2-methyl-5-(phosphooxymethyl)pyrimidine + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:27998: thiamine diphosphate + H2O = thiamine phosphate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:28094: di-trans,octa-cis-undecaprenyl diphosphate + H2O = di-trans,octa-cis-undecaprenyl phosphate + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation
+
+RHEA:28330: ITP + H2O = IDP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:28334: dATP + H2O = dAMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28342: dITP + H2O = dIMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28362: dGTP + H2O = dGMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28534: dTTP + H2O = dTMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:28610: XTP + H2O = XMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:29387: CTP + H2O = CDP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:29395: UTP + H2O = UMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:29399: ITP + H2O = IMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:31575: 8-oxo-dGTP + H2O = 8-oxo-dGMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:31583: 2-oxo-dATP + H2O = 2-oxo-dAMP + diphosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation [pattern matched]
+
+RHEA:32063: 8-oxo-dGDP + H2O = 8-oxo-dGMP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:32543: (2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+
+RHEA:35207: IDP + H2O = IMP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:35211: dIDP + H2O = dIMP + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), likely protein substrate/fragmentation
+
+RHEA:67004: a 5'-end triphospho-ribonucleoside in mRNA + H2O = a 5'-end diphospho-ribonucleoside in mRNA + phosphate + H(+)
+  → Phosphoric ester hydrolase: matched Phosphatase (3.1.3.-); Phosphatase: phosphate removal (1→2), fragmentation [pattern matched]
+

@@ -1,0 +1,7 @@
+False Negatives for Carboxylase
+==================================================
+Total: 1
+
+RHEA:23124: 2 (2R)-3-phosphoglycerate + 2 H(+) = D-ribulose 1,5-bisphosphate + CO2 + H2O
+  → No CO2 - not carboxylase
+

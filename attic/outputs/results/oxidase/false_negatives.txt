@@ -1,0 +1,262 @@
+False Negatives for Oxidase
+==================================================
+Total: 86
+
+RHEA:10008: a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10020: L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10044: cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10052: (2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10080: dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10108: (7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10116: 6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10140: prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10160: L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10168: 15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10180: (6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10200: butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10204: dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10240: a 2,3-saturated acyl-[ACP] + NAD(+) = a (2E)-enoyl-[ACP] + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10296: D-glyceraldehyde 3-phosphate + phosphate + NADP(+) = (2R)-3-phospho-glyceroyl phosphate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10300: D-glyceraldehyde 3-phosphate + phosphate + NAD(+) = (2R)-3-phospho-glyceroyl phosphate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10356: 3alpha-hydroxy-5beta-androstan-17-one + NAD(+) = 5beta-androstane-3,17-dione + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10372: phenylglyoxylate + NAD(+) + CoA = benzoyl-CoA + CO2 + NADH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10392: (E)-cinnamyl alcohol + NADP(+) = (E)-cinnamaldehyde + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10396: an L-alpha-amino acid + NAD(+) + H2O = a 2-oxocarboxylate + NH4(+) + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10516: (1S,3R,4S)-3,4-dihydroxycyclohexane-1-carboxylate + NAD(+) = (1S,4S)-4-hydroxy-3-oxocyclohexane-1-carboxylate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10616: (2R,3S)-catechin + NADP(+) + H2O = (2R,3S,4S)-leucocyanidin + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10620: (E)-cinnamaldehyde + NADP(+) + CoA = (E)-cinnamoyl-CoA + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10652: a long-chain fatty aldehyde + NAD(+) + H2O = a long-chain fatty acid + NADH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10664: perillyl alcohol + NAD(+) = perillyl aldehyde + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10720: 2-amino-6-acetyl-3,7,8,9-tetrahydro-3H-pyrimido[4,5-b][1,4]diazepin-4-one + glutathione disulfide + H2O = 6-pyruvoyl-5,6,7,8-tetrahydropterin + 2 glutathione
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10736: a primary alcohol + NAD(+) = an aldehyde + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10740: a secondary alcohol + NAD(+) = a ketone + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10744: (3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate + NAD(+) = 3,4-dihydroxybenzoate + CO2 + NADH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10776: (2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoate + NADP(+) = 3-(4-hydroxyphenyl)pyruvate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10780: (2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoate + NAD(+) = 3-(4-hydroxyphenyl)pyruvate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10812: N-succinyl-L-glutamate 5-semialdehyde + NAD(+) + H2O = N-succinyl-L-glutamate + NADH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10824: (S)-malate + NADP(+) = oxaloacetate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10936: 6-decylubiquinone + 2 thiosulfate = 6-decylubiquinol + tetrathionate
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:10984: (S)-lactate + oxaloacetate = (S)-malate + pyruvate
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:10992: glycolate + NADP(+) = glyoxylate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11092: sn-glycerol 3-phosphate + NAD(+) = dihydroxyacetone phosphate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11096: sn-glycerol 3-phosphate + NADP(+) = dihydroxyacetone phosphate + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11132: chlorophyllide a + NADP(+) = protochlorophyllide a + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11156: L-valine + NADP(+) + H2O = 3-methyl-2-oxobutanoate + NH4(+) + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11168: 3-hydroxy-6-carboxyhexanoyl-CoA + NAD(+) = 3-oxo-6-carboxyhexanoyl-CoA + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11228: (2S)-flavan-4-ol + NADP(+) = (2S)-flavanone + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11272: a (2R)-2-hydroxycarboxylate + a quinone = a 2-oxocarboxylate + a quinol
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11284: hydroxymalonate + NAD(+) = oxomalonate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11296: 2,5-dioxopentanoate + NADP(+) + H2O = 2-oxoglutarate + NADPH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11300: 1D-5-O-methyl-myo-inositol + NAD(+) = 2D-5-O-methyl-2,3,5/4,6-pentahydroxycyclohexanone + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11356: A + NADH + H(+) = AH2 + NAD(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11376: (19E)-geissoschizine + NADP(+) = 4,21-dehydrogeissoschizine + NADPH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11384: (S)-2-hydroxyoctadecanoate + NAD(+) = 2-oxooctadecanoate + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11388: an 11beta-hydroxysteroid + NADP(+) = an 11-oxosteroid + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11448: pregnan-21-ol + NAD(+) = pregnan-21-al + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11464: L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11540: an N-acyl-D-mannosamine + NAD(+) = an N-acyl-D-mannosaminolactone + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11556: (S)-carnitine + NAD(+) = 3-dehydrocarnitine + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11560: (1R,6S)-1,6-dihydroxycyclohexa-2,4-diene-1-carboxylate + NAD(+) = catechol + CO2 + NADH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11588: isoquinoline + A + H2O = isoquinolin-1(2H)-one + AH2
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11612: L-glutamate + NADP(+) + H2O = 2-oxoglutarate + NH4(+) + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11636: prostaglandin E1 + NADP(+) = 15-oxoprostaglandin E1 + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11676: D-ribose + NADP(+) + H2O = D-ribonate + NADPH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11692: NAD(+) + NADPH = NADH + NADP(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11708: IMP + NAD(+) + H2O = XMP + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11712: 3-methyl-2-oxobutanoate + 2 oxidized [2Fe-2S]-[ferredoxin] + CoA = 2-methylpropanoyl-CoA + 2 reduced [2Fe-2S]-[ferredoxin] + CO2 + H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11724: [thioredoxin]-disulfide + sulfite + adenosine 3',5'-bisphosphate + 2 H(+) = [thioredoxin]-dithiol + 3'-phosphoadenylyl sulfate
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11728: cyclopentanol + NAD(+) = cyclopentanone + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11736: 2-exo-hydroxy-1,8-cineole + NAD(+) = 6-oxocineole + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11740: 2 glutathione + NADP(+) = glutathione disulfide + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11772: 6-lactoyl-5,6,7,8-tetrahydropterin + NADP(+) = 6-pyruvoyl-5,6,7,8-tetrahydropterin + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11784: L-aspartate + NADP(+) + H2O = oxaloacetate + NH4(+) + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11788: L-aspartate + NAD(+) + H2O = oxaloacetate + NH4(+) + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11804: an aromatic aldehyde + NAD(+) + H2O = an aromatic carboxylate + NADH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11832: (1R,2S)-1,2-dihydronaphthalene-1,2-diol + NAD(+) = naphthalene-1,2-diol + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11840: benzaldehyde + NAD(+) + H2O = benzoate + NADH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11848: acetyl phosphate + trimethylamine + [thioredoxin]-disulfide + H2O = glycine betaine + [thioredoxin]-dithiol + phosphate + H(+)
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11864: trimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = dimethylamine + reduced [electron-transfer flavoprotein] + formaldehyde
+  → Not an oxidoreductase: No redox cofactors or oxidation patterns
+
+RHEA:11868: D-arabinitol + NADP(+) = D-ribulose + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11876: prostaglandin E2 + NAD(+) = 15-oxoprostaglandin E2 + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11888: an aldehyde + NADP(+) + H2O = a carboxylate + NADPH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11896: 7alpha-hydroxycholesterol + NAD(+) = 7alpha-hydroxycholest-4-en-3-one + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11900: (2R,3S)-homoisocitrate + NAD(+) = 2-oxoadipate + CO2 + NADH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11912: 13,14-dihydro-15-oxo-prostaglandin E2 + NADP(+) = 15-oxoprostaglandin E2 + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11916: 13,14-dihydro-15-oxo-prostaglandin E2 + NAD(+) = 15-oxoprostaglandin E2 + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:11980: 2 gamma-L-glutamyl-L-cysteine + NADP(+) = bis-gamma-glutamylcystine + NADPH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:12000: formate + NADP(+) = CO2 + NADPH
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:12056: D-erythrose 4-phosphate + NAD(+) + H2O = 4-phospho-D-erythronate + NADH + 2 H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:12076: an aromatic primary alcohol + NAD(+) = an aromatic aldehyde + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+
+RHEA:12084: D-mannitol + NAD(+) = D-fructose + NADH + H(+)
+  → No O2 consumption - oxidases require molecular oxygen
+

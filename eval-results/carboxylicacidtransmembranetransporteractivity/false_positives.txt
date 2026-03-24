@@ -1,0 +1,25 @@
+False Positives for CarboxylicAcidTransmembraneTransporterActivity
+==================================================
+Total: 7
+
+RHEA:14673: a polar amino acid(out) + ATP + H2O = a polar amino acid(in) + ADP + phosphate + H(+)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:19261: heme b(in) + ATP + H2O = heme b(out) + ADP + phosphate + H(+)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:28695: hydrogencarbonate(in) = hydrogencarbonate(out)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:28987: N-acetylneuraminate(in) + H(+)(in) = N-acetylneuraminate(out) + H(+)(out)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:29035: L-glutamate(out) + ATP + H2O = L-glutamate(in) + ADP + phosphate + H(+)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:29427: 4-(trimethylamino)butanoate(in) + (R)-carnitine(out) = 4-(trimethylamino)butanoate(out) + (R)-carnitine(in)
+  → Carboxylic acid transmembrane transporter activity
+
+RHEA:32783: glycine betaine(out) + ATP + H2O = glycine betaine(in) + ADP + phosphate + H(+)
+  → Carboxylic acid transmembrane transporter activity
+

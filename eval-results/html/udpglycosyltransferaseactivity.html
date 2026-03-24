@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDPGlycosyltransferaseActivity - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>UDPGlycosyltransferaseActivity</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:2.4.-.-" target="_blank">EC:2.4.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3993</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>UDP-glycosyltransferase activity.</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.896</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.839</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.962</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.993</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.895</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.994</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">125</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">24</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">5</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3839</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">udp_glycosyltransferase_activity.py:12</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0008194&quot;</span>
+
+    EVALUATION_EVIDENCE = IDENTIFIER_FRIENDLY_EVIDENCE
+
+    CONCEPT_PHRASE = <span class="str">&quot;UDP-glycosyltransferase activity&quot;</span>
+
+    DONOR_IDS = frozenset(
+        {
+            <span class="str">&quot;CHEBI:18066&quot;</span>,
+            <span class="str">&quot;CHEBI:18307&quot;</span>,
+            <span class="str">&quot;CHEBI:58885&quot;</span>,
+            <span class="str">&quot;CHEBI:66914&quot;</span>,
+            <span class="str">&quot;CHEBI:57705&quot;</span>,
+            <span class="str">&quot;CHEBI:58052&quot;</span>,
+            <span class="str">&quot;CHEBI:57632&quot;</span>,
+            <span class="str">&quot;CHEBI:67138&quot;</span>,
+            <span class="str">&quot;CHEBI:68623&quot;</span>,
+            <span class="str">&quot;CHEBI:83836&quot;</span>,
+            <span class="str">&quot;CHEBI:70731&quot;</span>,
+        }
+    )
+
+    PRODUCT_IDS = frozenset({CHEBI_UDP})</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">udp_glycosyltransferase_activity.py:32</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        forward = <span class="kw">self</span>._check_specific_direction(
+            reaction.left_participants,
+            reaction.right_participants,
+        )
+        <span class="kw">if</span> forward.is_member:
+            <span class="kw">return</span> forward
+
+        reverse = <span class="kw">self</span>._check_specific_direction(
+            reaction.right_participants,
+            reaction.left_participants,
+        )
+        <span class="kw">if</span> reverse.is_member:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=f<span class="str">&quot;{reverse.explanation} (reverse reaction orientation)&quot;</span>,
+            )
+
+        <span class="kw">return</span> forward
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">125</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10520" target="_blank">RHEA:10520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + UDP-alpha-D-galactose = a 1,2-diacyl-3-O-[alpha-D-galactosyl-(1-&gt;6)-beta-D-galactosyl]-sn-glycerol + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10568" target="_blank">RHEA:10568</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">luteolin + UDP-alpha-D-glucuronate = luteolin 7-O-beta-D-glucuronide + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10612" target="_blank">RHEA:10612</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-alpha-D-xylose = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-[beta-D-Xyl-(1-&gt;2)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11256" target="_blank">RHEA:11256</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">limonin + UDP-alpha-D-glucose + H2O = limonin 17-beta-D-glucoside + UDP + 2 H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11456" target="_blank">RHEA:11456</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N(4)-(alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc)-L-asparaginyl-[protein] (N-glucan mannose isomer 5A1,2) + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11512" target="_blank">RHEA:11512</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">salicyl alcohol + UDP-alpha-D-glucose = salicin + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11520" target="_blank">RHEA:11520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(-)-menthol + UDP-alpha-D-glucose = (-)-menthyl beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11780" target="_blank">RHEA:11780</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11924" target="_blank">RHEA:11924</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a globoside Gb3Cer (d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12004" target="_blank">RHEA:12004</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">indoxyl + UDP-alpha-D-glucose = indican + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12088" target="_blank">RHEA:12088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an N-acylsphing-4-enine + UDP-alpha-D-glucose = a beta-D-glucosyl-(1&lt;-&gt;1&#x27;)-N-acylsphing-4-enine + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12144" target="_blank">RHEA:12144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">cyanidin 3-O-rutinoside + UDP-alpha-D-glucose = cyanidin 3-O-rutinoside 5-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12404" target="_blank">RHEA:12404</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">D-glucose + UDP-alpha-D-galactose = lactose + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12464" target="_blank">RHEA:12464</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">myo-inositol + UDP-alpha-D-galactose = alpha-D-galactosyl-(1-&gt;3)-1D-myo-inositol + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12560" target="_blank">RHEA:12560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">hydroquinone + UDP-alpha-D-glucose = hydroquinone O-beta-D-glucopyranoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12588" target="_blank">RHEA:12588</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a ganglioside GM3 (d18:1(4E)) + UDP-N-acetyl-alpha-D-galactosamine = a ganglioside GM2 (d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12637" target="_blank">RHEA:12637</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(5R)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-galactose = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12853" target="_blank">RHEA:12853</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(S)-4-hydroxymandelonitrile + UDP-alpha-D-glucose = dhurrin + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12941" target="_blank">RHEA:12941</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13013" target="_blank">RHEA:13013</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP-alpha-D-galactose = an alpha-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13093" target="_blank">RHEA:13093</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an N-acylsphing-4-enine + UDP-alpha-D-galactose = a beta-D-galactosyl-(1&lt;-&gt;1&#x27;)-N-acylsphing-4-enine + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13129" target="_blank">RHEA:13129</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">cis-4-coumarate + UDP-alpha-D-glucose = 4&#x27;-O-beta-D-glucosyl-cis-4-coumarate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13305" target="_blank">RHEA:13305</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(E)-sinapate + UDP-alpha-D-glucose = 1-O-(trans-sinapoyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13437" target="_blank">RHEA:13437</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(E)-cinnamate + UDP-alpha-D-glucose = 1-O-(trans-cinnamoyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13705" target="_blank">RHEA:13705</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">alpha-D-Man-(1-&gt;3)-alpha-D-Man-(1-&gt;2)-alpha-D-Man-(1-&gt;2)-D-Man + UDP-N-acetyl-alpha-D-glucosamine = alpha-D-Man-(1-&gt;3)-[alpha-D-GlcNAc-(1-&gt;2)]-alpha-D-Man-(1-&gt;2)-alpha-D-Man-(1-&gt;2)-D-Man + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13757" target="_blank">RHEA:13757</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(Z)-2-phenyl-1-thioacetohydroximate + UDP-alpha-D-glucose = (Z)-desulfoglucotropeolin + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13905" target="_blank">RHEA:13905</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-N-acetyl-alpha-D-glucosamine = a beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14149" target="_blank">RHEA:14149</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">luteolin 7-O-beta-D-glucuronide + UDP-alpha-D-glucuronate = luteolin 7-O-[(beta-D-glucuronosyl)-(1-&gt;2)-(beta-D-glucuronide)] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14153" target="_blank">RHEA:14153</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">17alpha-estradiol 3-O-(beta-D-glucuronate) + UDP-N-acetyl-alpha-D-glucosamine = 17alpha-(N-acetyl-alpha-D-glucosaminyl)estradiol 3-glucosiduronate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14285" target="_blank">RHEA:14285</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + UDP-alpha-D-galactose = 2-(alpha-D-galactosyl)-sn-glycerol 3-phosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14325" target="_blank">RHEA:14325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">7,8-dihydroxycoumarin + UDP-alpha-D-glucose = daphnin + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14349" target="_blank">RHEA:14349</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an alpha-L-fucosyl-(1-&gt;2)-beta-D-galactosyl derivative + UDP-alpha-D-galactose = an alpha-D-galactosyl-(1-&gt;3)-[alpha-L-fucosyl-(1-&gt;2)]-beta-D-galactosyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14389" target="_blank">RHEA:14389</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP-N-acetyl-alpha-D-glucosamine = an N-acetyl-beta-D-glucosaminyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-N-acetyl-beta-D-glucosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14461" target="_blank">RHEA:14461</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(25S)-5beta-spirostan-3beta-ol + UDP-alpha-D-glucose = (25S)-5beta-spirostan-3beta-yl beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14721" target="_blank">RHEA:14721</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">zeatin + UDP-alpha-D-xylose = O-beta-D-xylosylzeatin + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14789" target="_blank">RHEA:14789</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-sn-glycero-3-phospho-(1D-myo-inositol) + UDP-N-acetyl-alpha-D-glucosamine = a 6-(N-acetyl-alpha-D-glucosaminyl)-1-(1,2-diacyl-sn-glycero-3-phospho)-1D-myo-inositol + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14921" target="_blank">RHEA:14921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(indol-3-yl)acetate + UDP-alpha-D-glucose = 1-O-(indol-3-ylacetyl)-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14945" target="_blank">RHEA:14945</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a 1,2-diacyl-sn-glycerol + UDP-alpha-D-galactose = a 1,2-diacyl-3-O-(beta-D-galactosyl)-sn-glycerol + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15153" target="_blank">RHEA:15153</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">4-hydroxybenzoate + UDP-alpha-D-glucose = 4-(beta-D-glucosyloxy)benzoate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15249" target="_blank">RHEA:15249</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">3,4,5-trihydroxybenzoate + UDP-alpha-D-glucose = 1-O-galloyl-beta-D-glucose + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15297" target="_blank">RHEA:15297</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">3-O-(beta-D-xylosyl)-L-seryl-[protein] + UDP-alpha-D-galactose = 3-O-(beta-D-galactosyl-(1-&gt;4)-beta-D-xylosyl)-L-seryl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15509" target="_blank">RHEA:15509</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;4)]-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15541" target="_blank">RHEA:15541</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">DIMBOA + UDP-alpha-D-glucose = DIMBOA beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15621" target="_blank">RHEA:15621</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an N-acetyl-alpha-D-galactosaminyl derivative + UDP-alpha-D-galactose = a beta-D-galactosyl-(1-&gt;3)-N-acetyl-alpha-D-galactosaminyl derivative + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15961" target="_blank">RHEA:15961</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">4-hydroxymandelonitrile + UDP-alpha-D-glucose = taxiphyllin + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16045" target="_blank">RHEA:16045</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a beta-D-Gal-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1&#x27;)-Cer(d18:1(4E)) + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16053" target="_blank">RHEA:16053</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-mannosamine + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16057" target="_blank">RHEA:16057</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N(4)-{beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = N(4)-{beta-D-GlcNAc-(1-&gt;2)-[beta-D-GlcNAc-(1-&gt;4)]-alpha-D-Man-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;2)-alpha-D-Man-(1-&gt;6)]-beta-D-Man-(1-&gt;4)-beta-D-GlcNAc-(1-&gt;4)-beta-D-GlcNAc}-L-asparaginyl-[protein] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 75 more (showing 50 of 125)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">24</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12576" target="_blank">RHEA:12576</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + UDP-alpha-D-glucose = (5R)-5-O-[alpha-D-glucosyl-(1-&gt;2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15473" target="_blank">RHEA:15473</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">flavanone 7-O-beta-D-glucoside + UDP-beta-L-rhamnose = flavanone 7-O-[alpha-L-rhamnosyl-(1-&gt;2)-beta-D-glucoside] + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15709" target="_blank">RHEA:15709</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">kaempferol + UDP-alpha-D-galactose = kaempferol 3-O-beta-D-galactoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18893" target="_blank">RHEA:18893</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a flavonol 3-O-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1-&gt;2)-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23164" target="_blank">RHEA:23164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a 7-O-hydroxy-flavonol + UDP-alpha-D-glucose = a flavonol 7-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23544" target="_blank">RHEA:23544</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a flavonol 3-O-beta-D-glucosyl-(1-&gt;2)-beta-D-glucoside + UDP-alpha-D-glucose = a flavonol 3-O-beta-D-glucosyl-(1-&gt;2)-beta-D-glucosyl-(1-&gt;2)-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26188" target="_blank">RHEA:26188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 3-phosphate + UDP-N-acetyl-alpha-D-glucosamine = 1D-myo-inositol 2-acetamido-2-deoxy-alpha-D-glucopyranoside 3-phosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28258" target="_blank">RHEA:28258</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">cyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucuronate = cyanidin 3-O-(2-O-beta-D-glucuronosyl)-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28314" target="_blank">RHEA:28314</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">baicalein + UDP-alpha-D-glucuronate = baicalin + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28318" target="_blank">RHEA:28318</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">scutellarein + UDP-alpha-D-glucuronate = scutellarin + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28322" target="_blank">RHEA:28322</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">wogonin + UDP-alpha-D-glucuronate = wogonin 7-O-beta-D-glucuronate + UDP</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31475" target="_blank">RHEA:31475</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">soyasapogenol B + UDP-alpha-D-glucuronate = soyasapogenol B 3-O-beta-D-glucuronate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31487" target="_blank">RHEA:31487</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">soyasapogenol B 3-O-beta-D-glucuronate + UDP-alpha-D-galactose = soyasaponin III + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31491" target="_blank">RHEA:31491</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">soyasaponin III + UDP-beta-L-rhamnose = soyasaponin I + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33947" target="_blank">RHEA:33947</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2-deoxystreptamine + UDP-N-acetyl-alpha-D-glucosamine = 2&#x27;-N-acetylparomamine + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34063" target="_blank">RHEA:34063</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2-deoxystreptamine + UDP-alpha-D-glucose = 2&#x27;-deamino-2&#x27;-hydroxyparomamine + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34291" target="_blank">RHEA:34291</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2&#x27;,4,4&#x27;,6&#x27;-tetrahydroxychalcone + UDP-alpha-D-glucose = 2&#x27;,4,4&#x27;,6&#x27;-tetrahydroxychalcone 4&#x27;-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34295" target="_blank">RHEA:34295</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2&#x27;,3,4,4&#x27;,6&#x27;-pentahydroxychalcone + UDP-alpha-D-glucose = 2&#x27;,3,4,4&#x27;,6&#x27;-pentahydroxychalcone 4&#x27;-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34511" target="_blank">RHEA:34511</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = N-acetyl-alpha-D-galactosaminyl-(1-&gt;3)-N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35419" target="_blank">RHEA:35419</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3-O-sophoroside + UDP + 2 H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35423" target="_blank">RHEA:35423</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-glucose = an anthocyanidin 3,5-di-O-beta-D-glucoside + UDP + 2 H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35443" target="_blank">RHEA:35443</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an anthocyanidin 3-O-beta-D-glucoside + UDP-alpha-D-xylose = an anthocyanidin 3-O-beta-D-sambubioside + UDP + 2 H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35627" target="_blank">RHEA:35627</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">delphinidin 3,5-bis-O-beta-D-glucoside + UDP-alpha-D-glucose = delphinidin 3,3&#x27;,5-tri-O-beta-D-glucoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35631" target="_blank">RHEA:35631</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">cyanidin + UDP-alpha-D-galactose = cyanidin 3-O-beta-D-galactoside + UDP + H(+)</span>
+                <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">5</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16241" target="_blank">RHEA:16241</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an NDP-alpha-D-glucose + D-fructose = a ribonucleoside 5&#x27;-diphosphate + sucrose + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16885" target="_blank">RHEA:16885</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2 (4E,15E)-bilirubin IXalpha C8-beta-D-glucuronoside = bilirubin IXalpha bis-beta-D-glucuronoside + (4Z,15Z)-bilirubin IXalpha</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19153" target="_blank">RHEA:19153</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">UDP-alpha-D-apiose + apigenin 7-O-beta-D-glucoside = 7-O-(beta-D-apiofuranosyl-1,2-beta-D-glucosyl)-5,7,4&#x27;-trihydroxyflavone + UDP + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19505" target="_blank">RHEA:19505</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">indole-3-acetyl-1D-myo-inositol + UDP-beta-L-arabinopyranose = (indol-3-yl)acetyl-myo-inositol 3-L-arabinoside + UDP + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28366" target="_blank">RHEA:28366</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-mannosaminouronate + N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate = beta-D-ManNAcA-(1-&gt;4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                <div class="reaction-explanation">No nucleotide-sugar transfer pattern detected</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3839</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10096" target="_blank">RHEA:10096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a fatty acyl-[ACP] + S-adenosyl-L-methionine = an N-acyl-L-homoserine lactone + S-methyl-5&#x27;-thioadenosine + holo-[ACP] + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10100" target="_blank">RHEA:10100</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a sterol ester + H2O = a sterol + a fatty acid + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10120" target="_blank">RHEA:10120</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">adenosine in double-stranded RNA + H2O + H(+) = inosine in double-stranded RNA + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10144" target="_blank">RHEA:10144</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">a ribonucleoside 3&#x27;-phosphate + H2O = a ribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0008194" target="_blank">GO:0008194</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No UDP-sugar donor detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3789 more (showing 50 of 3839)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">49</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10856" target="_blank">RHEA:10856</a></span>:
+                    <span class="reaction-label">a N-(2-hydroxyacyl)sphing-4-enine + UDP-alpha-D-galactose = a 1-(beta-D-galactosyl)-2-(2-hydroxyacyl)sphing-4-enine + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.47" target="_blank">EC:2.4.1.47</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15365" target="_blank">RHEA:15365</a></span>:
+                    <span class="reaction-label">3-O-[(D-ribitylphospho)2-3-N-acetyl-beta-D-galactosaminyl-(1-&gt;3)-N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-O-6-phospho-alpha-D-mannosyl]-L-seryl-[protein] + UDP-alpha-D-xylose = 3-O-[beta-D-xylosyl-(1-&gt;4)-(D-ribitylphospho)2-3-N-acetyl-beta-D-galactosaminyl-(1-&gt;3)-N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-O-6-phospho-alpha-D-mannosyl]-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.2.61" target="_blank">EC:2.4.2.61</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17285" target="_blank">RHEA:17285</a></span>:
+                    <span class="reaction-label">a 1,2-diacyl-sn-glycerol + UDP-alpha-D-glucose = a 1,2-diacyl-3-O-(beta-D-glucopyranosyl)-sn-glycerol + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.336" target="_blank">EC:2.4.1.336</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17497" target="_blank">RHEA:17497</a></span>:
+                    <span class="reaction-label">formononetin + UDP-alpha-D-glucose = ononin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.170" target="_blank">EC:2.4.1.170</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20800" target="_blank">RHEA:20800</a></span>:
+                    <span class="reaction-label">3-O-(beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-(beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.175" target="_blank">EC:2.4.1.175</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20872" target="_blank">RHEA:20872</a></span>:
+                    <span class="reaction-label">(20S)-ginsenoside Rd + UDP-alpha-D-glucose = (20S)-ginsenoside Rb1 + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.314" target="_blank">EC:2.4.1.314</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22244" target="_blank">RHEA:22244</a></span>:
+                    <span class="reaction-label">kaempferol + UDP-alpha-D-xylose = kaempferol 3-O-beta-D-xyloside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.2.56" target="_blank">EC:2.4.2.56</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23428" target="_blank">RHEA:23428</a></span>:
+                    <span class="reaction-label">3-O-(beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-(beta-D-GlcA-(1-&gt;3)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl)-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.226" target="_blank">EC:2.4.1.226</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23956" target="_blank">RHEA:23956</a></span>:
+                    <span class="reaction-label">L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.41" target="_blank">EC:2.4.1.41</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24448" target="_blank">RHEA:24448</a></span>:
+                    <span class="reaction-label">enterobactin + UDP-alpha-D-glucose = monoglucosyl-enterobactin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.369" target="_blank">EC:2.4.1.369</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24861" target="_blank">RHEA:24861</a></span>:
+                    <span class="reaction-label">pelargonidin 3-O-rutinoside + UDP-alpha-D-glucose = pelargonidin 3-O-rutinoside 5-O-beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.116" target="_blank">EC:2.4.1.116</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25670" target="_blank">RHEA:25670</a></span>:
+                    <span class="reaction-label">sucrose + UDP-alpha-D-galactose = loliose + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.n2" target="_blank">EC:2.4.1.n2</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30631" target="_blank">RHEA:30631</a></span>:
+                    <span class="reaction-label">alpha-D-Man-(1-&gt;3)-beta-D-Glc-(1-&gt;4)-alpha-D-Glc-1-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-glucuronate = beta-D-GlcA-(1-&gt;2)-alpha-D-Man-(1-&gt;3)-beta-D-Glc-(1-&gt;4)-alpha-D-Glc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.264" target="_blank">EC:2.4.1.264</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30899" target="_blank">RHEA:30899</a></span>:
+                    <span class="reaction-label">bis(beta-D-glucosyl) crocetin + UDP-alpha-D-glucose = beta-D-gentiobiosyl beta-D-glucosyl crocetin + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.330" target="_blank">EC:2.4.1.330</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31027" target="_blank">RHEA:31027</a></span>:
+                    <span class="reaction-label">2-trans-(+)-abscisate + UDP-alpha-D-glucose = beta-D-glucopyranosyl trans-(+)-abscisate + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.263" target="_blank">EC:2.4.1.263</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31319" target="_blank">RHEA:31319</a></span>:
+                    <span class="reaction-label">(2R)-3-phosphoglycerate + UDP-alpha-D-glucose = (2R)-2-O-(alpha-D-glucopyranosyl)-3-phospho-glycerate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.266" target="_blank">EC:2.4.1.266</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31463" target="_blank">RHEA:31463</a></span>:
+                    <span class="reaction-label">crocetin + UDP-alpha-D-glucose = beta-D-glucosyl crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31467" target="_blank">RHEA:31467</a></span>:
+                    <span class="reaction-label">beta-D-glucosyl crocetin + UDP-alpha-D-glucose = bis(beta-D-glucosyl) crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31471" target="_blank">RHEA:31471</a></span>:
+                    <span class="reaction-label">beta-D-gentiobiosyl crocetin + UDP-alpha-D-glucose = beta-D-gentiobiosyl beta-D-glucosyl crocetin + UDP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.271" target="_blank">EC:2.4.1.271</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31479" target="_blank">RHEA:31479</a></span>:
+                    <span class="reaction-label">soyasapogenol A + UDP-alpha-D-glucuronate = soyasapogenol A 3-O-beta-D-glucuronate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.262" target="_blank">EC:2.4.1.262</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31483" target="_blank">RHEA:31483</a></span>:
+                    <span class="reaction-label">soyasapogenol E + UDP-alpha-D-glucuronate = soyasapogenol E 3-O-beta-D-glucuronate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.262" target="_blank">EC:2.4.1.262</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31499" target="_blank">RHEA:31499</a></span>:
+                    <span class="reaction-label">a beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Glc-(1&lt;-&gt;1)-Cer(d18:1(4E)) + UDP-alpha-D-galactose = a neolactoside nLc4Cer(d18:1(4E)) + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.275" target="_blank">EC:2.4.1.275</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31543" target="_blank">RHEA:31543</a></span>:
+                    <span class="reaction-label">all-trans-zeaxanthin + 2 UDP-alpha-D-glucose = zeaxanthin bis(beta-D-glucoside) + 2 UDP + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.276" target="_blank">EC:2.4.1.276</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32355" target="_blank">RHEA:32355</a></span>:
+                    <span class="reaction-label">delphinidin 3-O-(6&#x27;&#x27;-O-malonyl)-beta-D-glucoside + 2 UDP-alpha-D-glucose = ternatin C5 + 2 UDP + 2 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.249" target="_blank">EC:2.4.1.249</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33951" target="_blank">RHEA:33951</a></span>:
+                    <span class="reaction-label">ribostamycin + UDP-N-acetyl-alpha-D-glucosamine = 2&#x27;&#x27;&#x27;-acetyl-6&#x27;&#x27;&#x27;-hydroxyneomycin C + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.285" target="_blank">EC:2.4.1.285</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33955" target="_blank">RHEA:33955</a></span>:
+                    <span class="reaction-label">DIBOA + UDP-alpha-D-glucose = DIBOA beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.202" target="_blank">EC:2.4.1.202</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34519" target="_blank">RHEA:34519</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-galactosaminyl-(1-&gt;4)-N-acetyl-alpha-D-galactosaminyl-(1-&gt;3)-N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,heptacis-undecaprenyl diphosphate + 3 UDP-N-acetyl-alpha-D-galactosamine = [alpha-D-GalNAc-(1-&gt;4)]4-alpha-D-GalNAc-(1-&gt;3)-alpha-D-diNAcBac-tri-trans,hepta-cis-undecaprenyl diphosphate + 3 UDP + 3 H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.292" target="_blank">EC:2.4.1.292</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34523" target="_blank">RHEA:34523</a></span>:
+                    <span class="reaction-label">[alpha-D-GalNAc-(1-&gt;4)]4-alpha-D-GalNAc-(1-&gt;3)-alpha-D-diNAcBac-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-alpha-D-glucose = [alpha-D-GalNAc-(1-&gt;4)]2-[beta-D-Glc-(1-&gt;3)]-[alpha-D-GalNAc-(1-&gt;4)]2-alpha-D-GalNAc-(1-&gt;3)-alpha-D-diNAcBac-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.293" target="_blank">EC:2.4.1.293</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34543" target="_blank">RHEA:34543</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-galactosaminyl-(1-&gt;3)-N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,hepta-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = N-acetyl-alpha-D-galactosaminyl-(1-&gt;4)-N-acetyl-alpha-D-galactosaminyl-(1-&gt;3)-N,N&#x27;-diacetyl-alpha-D-bacillosaminyl-tri-trans,heptacis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.291" target="_blank">EC:2.4.1.291</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35415" target="_blank">RHEA:35415</a></span>:
+                    <span class="reaction-label">an anthocyanidin 3-O-beta-D-sambubioside + UDP-alpha-D-glucose = an anthocyanidin 5-O-beta-D-glucoside 3-O-beta-D-sambubioside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.295" target="_blank">EC:2.4.1.295</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35435" target="_blank">RHEA:35435</a></span>:
+                    <span class="reaction-label">cyanidin 3-O-beta-D-galactoside + UDP-alpha-D-xylose = cyanidin 3-O-[beta-D-xylosyl-(1-&gt;2)-beta-D-galactoside] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.2.50" target="_blank">EC:2.4.2.50</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35635" target="_blank">RHEA:35635</a></span>:
+                    <span class="reaction-label">an anthocyanidin 3-O-[2-O-(4-coumaroyl)-alpha-L-rhamnosyl-(1-&gt;6)-beta-D-glucoside] + UDP-alpha-D-glucose = an anthocyanidin 3-O-[2-O-(4-coumaroyl)-alpha-L-rhamnosyl-(1-&gt;6)-beta-D-glucoside] 5-O-beta-D-glucoside + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.296" target="_blank">EC:2.4.1.296</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36747" target="_blank">RHEA:36747</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-galactose = beta-D-Gal-(1-&gt;3)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.303" target="_blank">EC:2.4.1.303</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36751" target="_blank">RHEA:36751</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-galactose = beta-D-Gal-(1-&gt;4)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.304" target="_blank">EC:2.4.1.304</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36755" target="_blank">RHEA:36755</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-glucosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-glucose = beta-D-Glc-(1-&gt;3)-alpha-D-GlcNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.305" target="_blank">EC:2.4.1.305</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36759" target="_blank">RHEA:36759</a></span>:
+                    <span class="reaction-label">N-acetyl-alpha-D-galactosaminyl-di-trans,octa-cis-undecaprenyl diphosphate + UDP-N-acetyl-alpha-D-galactosamine = alpha-D-GalNAc-(1-&gt;3)-alpha-D-GalNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.306" target="_blank">EC:2.4.1.306</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36775" target="_blank">RHEA:36775</a></span>:
+                    <span class="reaction-label">alpha-L-Fuc-(1-&gt;2)-beta-D-Gal-(1-&gt;3)-alpha-D-GalNAc-(1-&gt;3)-alpha-D-GalNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP-alpha-D-galactose = alpha-L-Fuc-(1-&gt;2)-[alpha-D-Gal-(1-&gt;3)]-beta-D-Gal-(1-&gt;3)-alpha-D-GalNAc-(1-&gt;3)-alpha-D-GalNAc-di-trans,octa-cis-undecaprenyl diphosphate + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.309" target="_blank">EC:2.4.1.309</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:37663" target="_blank">RHEA:37663</a></span>:
+                    <span class="reaction-label">3-O-(alpha-D-mannosyl)-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-(N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-alpha-D-mannosyl)-L-threonyl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.312" target="_blank">EC:2.4.1.312</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:37667" target="_blank">RHEA:37667</a></span>:
+                    <span class="reaction-label">3-O-(N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-alpha-D-mannosyl)-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-[beta-D-GalNAc-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;4)-alpha-D-Man]-L-Thr-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.313" target="_blank">EC:2.4.1.313</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:52424" target="_blank">RHEA:52424</a></span>:
+                    <span class="reaction-label">L-threonyl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = a 3-O-[N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.41" target="_blank">EC:2.4.1.41</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:54996" target="_blank">RHEA:54996</a></span>:
+                    <span class="reaction-label">3-O-{[beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)](n)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-{beta-D-GlcA-(1-&gt;3)-[beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)](n)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.226" target="_blank">EC:2.4.1.226</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:55000" target="_blank">RHEA:55000</a></span>:
+                    <span class="reaction-label">3-O-{beta-D-GlcA-(1-&gt;3)-[beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)](n)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-galactosamine = 3-O-{[beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)](n+1)-beta-D-GalNAc-(1-&gt;4)-beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-Xyl}-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.175" target="_blank">EC:2.4.1.175</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:55672" target="_blank">RHEA:55672</a></span>:
+                    <span class="reaction-label">4-O-[(D-ribitylphospho)(n)-di{(2R)-glycerylphospho}]-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP-N-acetyl-alpha-D-glucosamine = 4-O-([2-N-acetyl-beta-D-glucosaminyl-1-D-ribitylphospho](n)-di{[2R]-1-glycerylphospho})-N-acetyl-beta-D-mannosaminyl-(1-&gt;4)-N-acetyl-alpha-D-glucosaminyl di-trans,octa-cis-undecaprenyl diphosphate + n UDP + n H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.355" target="_blank">EC:2.4.1.355</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56212" target="_blank">RHEA:56212</a></span>:
+                    <span class="reaction-label">a 3-O-[beta-D-galactosyl-(1-&gt;3)-N-acetyl-alpha-D-galactosaminyl]-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{beta-D-galactosyl-(1-&gt;3)-[N-acetyl-beta-D-glucosaminyl-(1-&gt;6)]-N-acetyl-alpha-D-galactosaminyl}-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.102" target="_blank">EC:2.4.1.102</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56216" target="_blank">RHEA:56216</a></span>:
+                    <span class="reaction-label">a 3-O-[beta-D-galactosyl-(1-&gt;3)-N-acetyl-alpha-D-galactosaminyl]-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = a 3-O-{beta-D-galactosyl-(1-&gt;3)-[N-acetyl-beta-D-glucosaminyl-(1-&gt;6)]-N-acetyl-alpha-D-galactosaminyl}-L-threonyl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.102" target="_blank">EC:2.4.1.102</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56220" target="_blank">RHEA:56220</a></span>:
+                    <span class="reaction-label">3-O-{beta-D-galactosyl-(1-&gt;3)-[N-acetyl-beta-D-glucosaminyl-(1-&gt;6)]-N-acetyl-alpha-D-galactosaminyl}-L-seryl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;6)]-alpha-D-GalNAc}-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.146" target="_blank">EC:2.4.1.146</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group (reverse reaction orientation)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56224" target="_blank">RHEA:56224</a></span>:
+                    <span class="reaction-label">a 3-O-{beta-D-galactosyl-(1-&gt;3)-[N-acetyl-beta-D-glucosaminyl-(1-&gt;6)]-N-acetyl-alpha-D-galactosaminyl}-L-threonyl-[protein] + UDP-N-acetyl-alpha-D-glucosamine = 3-O-{beta-D-GlcNAc-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-[beta-D-GlcNAc-(1-&gt;6)]-alpha-D-GalNAc}-L-threonyl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.146" target="_blank">EC:2.4.1.146</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56508" target="_blank">RHEA:56508</a></span>:
+                    <span class="reaction-label">3-O-(beta-D-galactosyl-(1-&gt;3)-beta-D-galactosyl-(1-&gt;4)-beta-D-2-O-phosphoxylosyl)-L-seryl-[protein] + UDP-alpha-D-glucuronate = 3-O-[beta-D-GlcA-(1-&gt;3)-beta-D-Gal-(1-&gt;3)-beta-D-Gal-(1-&gt;4)-beta-D-2-O-P-Xyl]-L-seryl-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.1.135" target="_blank">EC:2.4.1.135</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group (reverse reaction orientation)</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:57880" target="_blank">RHEA:57880</a></span>:
+                    <span class="reaction-label">3-O-[Rib-ol-P-Rib-ol-P-3-beta-D-GalNAc-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;4)-(O-6-P-alpha-D-Man)]-Thr-[protein] + UDP-alpha-D-xylose = 3-O-[beta-D-Xyl-(1-&gt;4)-Rib-ol-P-Rib-ol-P-3-beta-D-GalNAc-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;4)-(O-6-P-alpha-D-Man)]-Thr-[protein] + UDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.4.2.61" target="_blank">EC:2.4.2.61</a></div>
+                    <div class="reaction-explanation">UDP-glycosyltransferase activity: UDP-sugar donor transfers a glycosyl group (reverse reaction orientation)</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

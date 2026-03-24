@@ -1,0 +1,7 @@
+False Negatives for Hydroxylase
+==================================================
+Total: 1
+
+RHEA:25282: squalene + reduced [NADPH--hemoprotein reductase] + O2 = (S)-2,3-epoxysqualene + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)
+  → Disabled - GO:0004506 is squalene-specific monooxygenase
+

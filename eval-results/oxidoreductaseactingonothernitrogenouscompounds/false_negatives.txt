@@ -1,0 +1,43 @@
+False Negatives for OxidoreductaseActingOnOtherNitrogenousCompounds
+==================================================
+Total: 13
+
+RHEA:13109: 2-acetamidofluorene + NAD(+) + H2O = N-hydroxy-2-acetamidofluorene + NADH + H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:13113: 2-acetamidofluorene + NADP(+) + H2O = N-hydroxy-2-acetamidofluorene + NADPH + H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:13409: 7-aminomethyl-7-carbaguanine + 2 NADP(+) = 7-cyano-7-deazaguanine + 2 NADPH + 3 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:16269: N,N-dimethyl-1,4-phenylenediamine + aniline + 2 NADP(+) = 4-(dimethylamino)azobenzene + 2 NADPH + 2 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:16941: N-acetylindoxyl + O2 = N-acetylisatin + H2O
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:17185: IMP + NH4(+) + NADP(+) = GMP + NADPH + 2 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:18041: 6 oxidized [2Fe-2S]-[ferredoxin] + NH4(+) + 2 H2O = nitrite + 6 reduced [2Fe-2S]-[ferredoxin] + 8 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:19789: 4-(dimethylamino)azobenzene + NADP(+) + H2O = 4-(dimethylamino)phenylazoxybenzene + NADPH + H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:21368: urate + O2 + H2O = 5-hydroxyisourate + H2O2
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:21828: nitrite + 2 oxidized [2Fe-2S]-[ferredoxin] + H2O = nitrate + 2 reduced [2Fe-2S]-[ferredoxin] + 2 H(+)
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:22476: 4-(hydroxyamino)quinoline N-oxide + 2 NADP(+) + H2O = 4-nitroquinoline N-oxide + 2 NADPH + 2 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:22480: 4-(hydroxyamino)quinoline N-oxide + 2 NAD(+) + H2O = 4-nitroquinoline N-oxide + 2 NADH + 2 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+
+RHEA:24236: trimethylamine + 2 Fe(III)-[cytochrome c] + H2O = trimethylamine N-oxide + 2 Fe(II)-[cytochrome c] + 3 H(+)
+  → No nitrogen oxide species (nitrite, nitrate, hydroxylamine, NO, N2O) detected
+

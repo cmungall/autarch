@@ -1,0 +1,7 @@
+False Positives for SMethyltransferase
+==================================================
+Total: 1
+
+RHEA:13761: L-methionine + S-adenosyl-L-methionine = S-methyl-L-methionine + S-adenosyl-L-homocysteine
+  → S-methyltransferase activity: matched MethionineSMethyltransferase (2.1.1.12); Methionine S-methyltransferase: SAM-dependent sulfur methylation of methionine
+

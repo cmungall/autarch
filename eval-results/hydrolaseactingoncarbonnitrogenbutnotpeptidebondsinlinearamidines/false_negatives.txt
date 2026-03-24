@@ -1,0 +1,19 @@
+False Negatives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmidines
+==================================================
+Total: 5
+
+RHEA:11016: allantoate + H2O = (S)-ureidoglycolate + urea
+  → Linear amidine count does not decrease across the reaction
+
+RHEA:15929: methylenediurea + 2 H2O + 2 H(+) = N-(hydroxymethyl)urea + 2 NH4(+) + CO2
+  → Linear amidine count does not decrease across the reaction
+
+RHEA:25241: (S)-2-ureidoglycine + H2O = (S)-ureidoglycolate + NH4(+)
+  → Linear amidine count does not decrease across the reaction
+
+RHEA:26201: ammeline + H2O + H(+) = ammelide + NH4(+)
+  → Linear amidine count does not decrease across the reaction
+
+RHEA:27485: allantoate + H2O + 2 H(+) = (S)-2-ureidoglycine + NH4(+) + CO2
+  → Linear amidine count does not decrease across the reaction
+

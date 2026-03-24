@@ -1,0 +1,7 @@
+False Negatives for Cytidylyltransferase
+==================================================
+Total: 1
+
+RHEA:14433: a tRNA precursor + 2 CTP + ATP = a tRNA with a 3' CCA end + 3 diphosphate
+  → No nucleotidyl-transfer mass-balance signature detected
+

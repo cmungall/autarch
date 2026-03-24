@@ -1,0 +1,118 @@
+False Negatives for Methyltransferase
+==================================================
+Total: 38
+
+RHEA:11172: (6S)-5-methyl-5,6,7,8-tetrahydrofolate + L-homocysteine = (6S)-5,6,7,8-tetrahydrofolate + L-methionine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:11568: dCMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 5-methyldeoxycytidine 5'-phosphate + 7,8-dihydrofolate
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:12104: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate = 7,8-dihydrofolate + dTMP
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:13693: trimethylsulfonium + (6S)-5,6,7,8-tetrahydrofolate = dimethyl sulfide + (6S)-5-methyl-5,6,7,8-tetrahydrofolate + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:15837: methylamine + L-glutamate = N-methyl-L-glutamate + NH4(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:16873: uridine(54) in tRNA + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADH + H(+) = 5-methyluridine(54) in tRNA + (6S)-5,6,7,8-tetrahydrofolate + NAD(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:18261: precorrin-5 + S-adenosyl-L-methionine + H2O = precorrin-6A + acetate + S-adenosyl-L-homocysteine + 2 H(+)
+  → Water involved - methyl transfer is not hydrolytic
+
+RHEA:18773: methyl-Co(III)-[methylamine-specific corrinoid protein] + coenzyme M = Co(I)-[methylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:21196: 5-methyltetrahydropteroyltri-L-glutamate + L-homocysteine = tetrahydropteroyltri-L-glutamate + L-methionine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:22336: L-homocysteine + glycine betaine = N,N-dimethylglycine + L-methionine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:22788: dimethylsulfonioacetate + L-homocysteine = (methylsulfanyl)acetate + L-methionine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:24000: a 6-O-methyl-2'-deoxyguanosine in DNA + L-cysteinyl-[protein] = S-methyl-L-cysteinyl-[protein] + a 2'-deoxyguanosine in DNA
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:26059: Co(I)-[methylamine-specific corrinoid protein] + methylamine + H(+) = methyl-Co(III)-[methylamine-specific corrinoid protein] + NH4(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:26337: S-methyl-L-methionine + L-homocysteine = 2 L-methionine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:26341: S-methyl-L-methionine + L-selenocysteine = Se-methyl-L-selenocysteine + L-methionine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:29043: dUMP + (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NADPH + H(+) = dTMP + (6S)-5,6,7,8-tetrahydrofolate + NADP(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:32667: methanethiol + coenzyme M = methyl-coenzyme M + hydrogen sulfide + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43148: adenosine(9) in tRNA + S-adenosyl-L-methionine = N(1)-methyladenosine(9) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:41740: adenosine(57)/adenosine(58) in tRNA + 2 S-adenosyl-L-methionine = N(1)-methyladenosine(57)/N(1)-methyladenosine(58) in tRNA + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43084: cytidine(34) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(34) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43208: 5-(carboxymethyl)uridine(34) in tRNA + S-adenosyl-L-methionine = 5-(2-methoxy-2-oxoethyl)uridine(34) in tRNA + S-adenosyl-L-homocysteine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:42916: adenosine(2503) in 23S rRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(2503) in 23S rRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:48108: L-arginyl-[protein] + 2 S-adenosyl-L-methionine = N(omega),N(omega)'-dimethyl-L-arginyl-[protein] + 2 S-adenosyl-L-homocysteine + 2 H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:55584: an adenosine in mRNA + S-adenosyl-L-methionine = an N(6)-methyladenosine in mRNA + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:45220: methyl-Co(III)-[trimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[trimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43332: adenosine(37) in tRNA + 2 reduced [2Fe-2S]-[ferredoxin] + 2 S-adenosyl-L-methionine = 2-methyladenosine(37) in tRNA + 5'-deoxyadenosine + L-methionine + 2 oxidized [2Fe-2S]-[ferredoxin] + S-adenosyl-L-homocysteine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:20413: glucuronoxylan D-glucuronate + n S-adenosyl-L-methionine = glucuronoxylan 4-O-methyl-D-glucuronate + n S-adenosyl-L-homocysteine + n H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43088: 5-carboxymethylaminomethyluridine(34) in tRNA(Leu) + S-adenosyl-L-methionine = 5-carboxymethylaminomethyl-2'-O-methyluridine(34) in tRNA(Leu) + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:43136: guanosine(26)/guanosine(27) in tRNA + 4 S-adenosyl-L-methionine = N(2)-dimethylguanosine(26)/N(2)-dimethylguanosine(27) in tRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:41175: Co(I)-[dimethylamine-specific corrinoid protein] + dimethylamine + H(+) = methyl-Co(III)-[dimethylamine-specific corrinoid protein] + methylamine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:45204: Co(I)-[methanol-specific corrinoid protein] + methanol + H(+) = methyl-Co(III)-[methanol-specific corrinoid protein] + H2O
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:39287: Co(I)-[trimethylamine-specific corrinoid protein] + trimethylamine + H(+) = methyl-Co(III)-[trimethylamine-specific corrinoid protein] + dimethylamine
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:42712: uridine(54) in tRNA + S-adenosyl-L-methionine = 5-methyluridine(54) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:42780: adenosine(1779)/adenosine(1780) in 18S rRNA + 4 S-adenosyl-L-methionine = N(6)-dimethyladenosine(1779)/N(6)-dimethyladenosine(1780) in 18S rRNA + 4 S-adenosyl-L-homocysteine + 4 H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:42932: cytidine(32) in tRNA + S-adenosyl-L-methionine = 2'-O-methylcytidine(32) in tRNA + S-adenosyl-L-homocysteine + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:45208: methyl-Co(III)-[methanol-specific corrinoid protein] + coenzyme M = Co(I)-[methanol-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:45216: methyl-Co(III)-[dimethylamine-specific corrinoid protein] + coenzyme M = Co(I)-[dimethylamine-specific corrinoid protein] + methyl-coenzyme M + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+
+RHEA:45200: methyl-Co(III)-[corrinoid Fe-S protein] + (6S)-5,6,7,8-tetrahydrofolate = Co(I)-[corrinoid Fe-S protein] + (6S)-5-methyl-5,6,7,8-tetrahydrofolate + H(+)
+  → No SAM (S-adenosyl-L-methionine) - not SAM-dependent methyltransferase
+

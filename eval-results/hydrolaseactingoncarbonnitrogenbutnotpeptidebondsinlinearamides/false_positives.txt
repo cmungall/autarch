@@ -1,0 +1,31 @@
+False Positives for HydrolaseActingOnCarbonNitrogenButNotPeptideBondsInLinearAmides
+==================================================
+Total: 9
+
+RHEA:15445: O-carbamoyl-L-serine + H2O + H(+) = pyruvate + 2 NH4(+) + CO2
+  → Linear amide hydrolase: water-dependent amide cleavage with ammonia release
+
+RHEA:15929: methylenediurea + 2 H2O + 2 H(+) = N-(hydroxymethyl)urea + 2 NH4(+) + CO2
+  → Linear amide hydrolase: water-dependent amide cleavage with ammonia release
+
+RHEA:17125: N-(4-carboxy-4-oxobutanoyl)-L-ethylglycylglycine + H2O = N-(2-aminobutanoyl)glycine + 2-oxoglutarate
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+
+RHEA:20661: D-alanyl-D-alanine + H2O = 2 D-alanine
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+
+RHEA:27485: allantoate + H2O + 2 H(+) = (S)-2-ureidoglycine + NH4(+) + CO2
+  → Linear amide hydrolase: water-dependent amide cleavage with ammonia release
+
+RHEA:28398: L-alanyl-gamma-D-glutamyl-meso-2,6-diaminopimelate + H2O = L-alanyl-D-glutamate + meso-2,6-diaminopimelate
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+
+RHEA:28783: L-cysteinylglycine + H2O = L-cysteine + glycine
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+
+RHEA:28807: glutathione + H2O = L-cysteinylglycine + L-glutamate
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+
+RHEA:31563: leukotriene C4 + H2O = leukotriene D4 + L-glutamate
+  → Linear amide hydrolase: deacylation exposes a free amine and carboxylate product
+

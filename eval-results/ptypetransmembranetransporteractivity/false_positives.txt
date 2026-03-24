@@ -1,0 +1,16 @@
+False Positives for PTypeTransmembraneTransporterActivity
+==================================================
+Total: 4
+
+RHEA:12332: Fe(3+)(out) + ATP + H2O = Fe(3+)(in) + ADP + phosphate + H(+)
+  → P-type transmembrane transporter activity: matched ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity (unknown EC); ATPase-coupled monoatomic cation transmembrane transporter activity
+
+RHEA:15557: Ni(2+)(out) + ATP + H2O = Ni(2+)(in) + ADP + phosphate + H(+)
+  → P-type transmembrane transporter activity: matched ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity (unknown EC); ATPase-coupled monoatomic cation transmembrane transporter activity
+
+RHEA:17365: Mn(2+)(out) + ATP + H2O = Mn(2+)(in) + ADP + phosphate + H(+)
+  → P-type transmembrane transporter activity: matched ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity (unknown EC); ATPase-coupled monoatomic cation transmembrane transporter activity
+
+RHEA:29795: Zn(2+)(out) + ATP(in) + H2O(in) = Zn(2+)(in) + ADP(in) + phosphate(in) + H(+)(in)
+  → P-type transmembrane transporter activity: matched ATPaseCoupledMonoatomicCationTransmembraneTransporterActivity (unknown EC); ATPase-coupled monoatomic cation transmembrane transporter activity
+

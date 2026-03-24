@@ -1,0 +1,22 @@
+False Negatives for ATPDependentActivity
+==================================================
+Total: 6
+
+RHEA:13065: ATP + H2O = ADP + phosphate + H(+)
+  → No supported atp-dependent activity child classifier matched
+
+RHEA:15421: a long-chain fatty acid + ATP + CoA = a long-chain fatty acyl-CoA + AMP + diphosphate
+  → No supported atp-dependent activity child classifier matched
+
+RHEA:19713: (5Z,8Z,11Z,14Z)-eicosatetraenoate + ATP + CoA = (5Z,8Z,11Z,14Z)-eicosatetraenoyl-CoA + AMP + diphosphate
+  → No supported atp-dependent activity child classifier matched
+
+RHEA:20101: a long-chain fatty acid + L-cysteinyl-[protein] + ATP = an S-(long-chain fatty acyl)-L-cysteinyl-[protein] + AMP + diphosphate
+  → No supported atp-dependent activity child classifier matched
+
+RHEA:20373: propanoate + ATP + CoA = propanoyl-CoA + AMP + diphosphate
+  → No supported atp-dependent activity child classifier matched
+
+RHEA:33627: decanoate + ATP + CoA = decanoyl-CoA + AMP + diphosphate
+  → No supported atp-dependent activity child classifier matched
+

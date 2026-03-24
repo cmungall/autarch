@@ -1,0 +1,10 @@
+False Positives for PhosphoricDiesterHydrolase
+==================================================
+Total: 2
+
+RHEA:10492: phosphocholine + H2O = choline + phosphate
+  → Phosphoric diester hydrolase: phospholipid hydrolysis
+
+RHEA:22908: 3',5'-cyclic AMP + H2O + H(+) = 3',5'-cyclic IMP + NH4(+)
+  → Phosphoric diester hydrolase: phosphoric diester hydrolysis
+

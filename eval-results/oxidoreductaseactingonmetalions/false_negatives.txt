@@ -1,0 +1,19 @@
+False Negatives for OxidoreductaseActingOnMetalIons
+==================================================
+Total: 5
+
+RHEA:16113: 2 cob(II)alamin-[cyanocobalamin reductase] + 2 hydrogen cyanide + NADP(+) = 2 cyanocob(III)alamin + 2 apo-[cyanocobalamin reductase] + NADPH + H(+)
+  → No metal ion redox pair (Fe2+/Fe3+, Cu+/Cu2+) detected on opposite sides
+
+RHEA:20752: 2 cob(II)alamin + A + 2 H2O + 2 H(+) = 2 aquacob(III)alamin + AH2
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:23856: Hg + NADP(+) + H(+) = Hg(2+) + NADPH
+  → No metal ion redox pair (Fe2+/Fe3+, Cu+/Cu2+) detected on opposite sides
+
+RHEA:23908: 2 methylcob(III)alamin-[methionine synthase] + 2 S-adenosyl-L-homocysteine + NADP(+) + H(+) = 2 cob(II)alamin-[methionine synthase] + 2 S-adenosyl-L-methionine + NADPH
+  → No metal ion redox pair (Fe2+/Fe3+, Cu+/Cu2+) detected on opposite sides
+
+RHEA:30403: Fe(3+)(out) + L-ascorbate(in) = monodehydro-L-ascorbate radical(in) + Fe(2+)(out) + H(+)
+  → Metal ion redox pair present but other substrates indicate metal is electron carrier, not primary substrate
+

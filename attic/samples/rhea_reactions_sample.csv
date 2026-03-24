@@ -1,0 +1,5 @@
+rhea_id,label,direction,inputs,outputs,participants,ec_numbers,go_terms,uniprot_ids
+RHEA:18777,an alkylmercury + H(+) = an alkane + Hg(2+),bidirectional,,,CHEBI:15378|CHEBI:16793|CHEBI:18310|CHEBI:83725,4.99.1.2>,GO:0018836,UP:P08653|UP:P08664|UP:P16172|UP:P30342|UP:P62224|UP:P62225|UP:P77072|UP:Q8CU52|UP:Q8G9P0|UP:Q91UN2
+RHEA:18778,an alkylmercury + H(+) => an alkane + Hg(2+),left-to-right,CHEBI:15378|CHEBI:83725,CHEBI:16793|CHEBI:18310,,,,
+RHEA:18779,an alkane + Hg(2+) => an alkylmercury + H(+),left-to-right,CHEBI:16793|CHEBI:18310,CHEBI:15378|CHEBI:83725,,,,
+RHEA:18780,an alkylmercury + H(+) <=> an alkane + Hg(2+),bidirectional,,,CHEBI:15378|CHEBI:16793|CHEBI:18310|CHEBI:83725,,,

@@ -1,0 +1,96 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autarch"
+description = "Automated Agentic Reaction Classification Hierarchy"
+authors = [
+  {name = "My Name", email = "my-name@my-org.org"},
+]
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dynamic = ["version"]
+
+dependencies = [
+  "typer>=0.9.0",
+  "linkml-runtime >=1.9.4",
+  "rdkit>=2025.3.5",
+  "pydantic>=2.11.7",
+  "pyyaml>=6.0.2",
+  "sparqlwrapper>=2.0.0",
+  "radon>=6.0.1",
+  "linkml-term-validator>=0.1.2",
+  "deep-research-client>=0.2.1 ; python_full_version >= '3.12'",
+  "linkml-reference-validator>=0.1.7",
+]
+
+[dependency-groups]
+dev = [
+    "linkml>=1.9.3",
+    "mypy>=1.17.1",
+    "ruff>=0.4.8",
+    "mkdocs-material>=8.2.8",
+    "mkdocs-mermaid2-plugin>=1.1.1",
+    "jupyter>=1.0.0",
+    "mknotebooks>= 0.8.0",
+    "oaklib>=0.6.23",
+    "types-pyyaml>=6.0.12.20250822",
+    "pandas>=2.3.2",
+    "seaborn>=0.13.2",
+    "matplotlib>=3.10.6",
+    "types-requests>=2.32.4.20250809",
+    "plotly>=6.3.0",
+    "types-seaborn>=0.13.2.20250809",
+    "ai-blame>=0.1.0",
+]
+
+[project.scripts]
+autarch = "autarch.cli:main"
+
+
+# See https://hatch.pypa.io/latest/config/build/#file-selection for how to
+# explicitly include files other than default into the build distributions.
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+# Ref.: https://github.com/ninoseki/uv-dynamic-versioning/
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+fallback-version = "0.0.0"
+
+# Ref.: https://docs.pytest.org/en/stable/reference/reference.html#configuration-options
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Ref.: https://github.com/codespell-project/codespell
+[tool.codespell]
+skip = [
+  "LICENSE",
+  "pyproject.toml",
+  "uv.lock",
+  "project/*",
+  "src/autarch/datamodel/autarch_pydantic.py",
+  "src/autarch/datamodel/autarch.py",
+]
+
+# Reminder: words have to be lowercased for the ignore-words-list
+ignore-words-list = "linke"
+quiet-level = 3
+
+# Ref.: https://github.com/crate-ci/typos (spell checker)
+[tool.typos.default.extend-words]
+linke = "linke"
+[tool.typos.files]
+extend-exclude = [
+  "LICENSE",
+  "uv.lock",
+  "pyproject.toml",
+  "project/*",
+  "src/autarch/datamodel/autarch_pydantic.py",
+  "src/autarch/datamodel/autarch.py",
+]

@@ -1,0 +1,10 @@
+False Positives for HistoneModifyingActivity
+==================================================
+Total: 2
+
+RHEA:21556: [calmodulin]-L-lysine + S-adenosyl-L-methionine = [calmodulin]-N(6)-methyl-L-lysine + S-adenosyl-L-homocysteine + H(+)
+  → histone modifying activity: matched HistoneMethyltransferaseActivity (unknown EC); histone methyltransferase activity: SAM-dependent methyl transfer to a protein lysine residue
+
+RHEA:24312: L-lysyl-[cytochrome c] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[cytochrome c] + S-adenosyl-L-homocysteine + H(+)
+  → histone modifying activity: matched HistoneMethyltransferaseActivity (unknown EC); histone methyltransferase activity: SAM-dependent methyl transfer to a protein lysine residue
+

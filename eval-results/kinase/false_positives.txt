@@ -1,0 +1,22 @@
+False Positives for Kinase
+==================================================
+Total: 6
+
+RHEA:13065: ATP + H2O = ADP + phosphate + H(+)
+  → Kinase: ATP → ADP phosphoryl transfer
+
+RHEA:19669: GTP + H2O = GDP + phosphate + H(+)
+  → Kinase: GTP → GDP phosphoryl transfer
+
+RHEA:25568: beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)
+  → Kinase: ATP → ADP phosphoryl transfer
+
+RHEA:27990: 1-deoxy-D-xylulose + ATP = 1-deoxy-D-xylulose 5-phosphate + ADP + H(+)
+  → Kinase: ATP → ADP phosphoryl transfer
+
+RHEA:33963: isopentenyl phosphate + ATP = isopentenyl diphosphate + ADP
+  → Kinase: ATP → ADP phosphoryl transfer
+
+RHEA:48432: N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)
+  → Kinase: ATP → ADP phosphoryl transfer
+

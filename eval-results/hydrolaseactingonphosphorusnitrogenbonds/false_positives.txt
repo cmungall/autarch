@@ -1,0 +1,25 @@
+False Positives for HydrolaseActingOnPhosphorusNitrogenBonds
+==================================================
+Total: 7
+
+RHEA:11744: thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+
+RHEA:12172: alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + NH4(+)
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+
+RHEA:17113: L-serine-phosphoethanolamine + H2O = phosphoethanolamine + L-serine + H(+)
+  → P-N bond hydrolysis: phosphoamidase-related name pattern
+
+RHEA:17889: phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+
+RHEA:18149: N-acetyl-D-galactosamine 6-phosphate + H2O = D-galactosamine 6-phosphate + acetate
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+
+RHEA:22936: N-acetyl-D-glucosamine 6-phosphate + H2O = D-glucosamine 6-phosphate + acetate
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+
+RHEA:27998: thiamine diphosphate + H2O = thiamine phosphate + phosphate + H(+)
+  → P-N bond hydrolysis: P and N in substrate, phosphate + amine products
+

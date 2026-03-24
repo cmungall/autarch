@@ -1,0 +1,7 @@
+False Negatives for OxidoreductaseActingOnASulfurGroupOfDonorsDisulfideAsAcceptor
+==================================================
+Total: 1
+
+RHEA:13125: glutathione disulfide + CoA = CoA-glutathione + glutathione
+  → No disulfide acceptor is reduced in this reaction orientation
+

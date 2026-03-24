@@ -1,0 +1,26 @@
+ARCTURUS CURATION OBJECTIVE SUMMARY
+============================================================
+
+Complexity weight: 0.15
+Objective = conservative_f1 - complexity_weight * complexity_percentile
+
+Top 5 curator objective scores:
+  - OtherOxidoreductase: objective=0.899, conservative_f1=0.927, raw_f1=0.942, support=1099
+  - ATPaseCoupledTransmembraneTransporter: objective=0.875, conservative_f1=0.919, raw_f1=0.991, support=54
+  - OtherIsomerase: objective=0.854, conservative_f1=0.882, raw_f1=0.927, support=193
+  - TransferaseTransferringOneCarbonGroups: objective=0.846, conservative_f1=0.859, raw_f1=0.902, support=228
+  - Oxidoreductase: objective=0.845, conservative_f1=0.927, raw_f1=0.942, support=1099
+
+Highest overfitting-risk classes:
+  - FeruloylCoAHydrataseLyaseActivity: gap=0.793, raw_f1=1.000, conservative_f1=0.207, support=1
+  - AmineNMethyltransferaseActivity: gap=0.793, raw_f1=1.000, conservative_f1=0.207, support=1
+  - OxidoreductaseActingOnReducedFlavodoxin: gap=0.793, raw_f1=1.000, conservative_f1=0.207, support=1
+  - RibuloseBisphosphateCarboxylase: gap=0.793, raw_f1=1.000, conservative_f1=0.207, support=1
+  - CinnamylAlcoholDehydrogenaseActivity: gap=0.793, raw_f1=1.000, conservative_f1=0.207, support=1
+
+High-complexity simplification candidates:
+  - Aminopeptidase: objective=-0.147, complexity_score=70.0, cc=43, raw_f1=0.000
+  - TerpeneSynthase: objective=0.232, complexity_score=67.3, cc=41, raw_f1=0.526
+  - LigaseFormingCarbonNitrogenBonds: objective=0.163, complexity_score=64.7, cc=40, raw_f1=0.430
+  - AlcoholDehydrogenaseNAD: objective=0.048, complexity_score=59.1, cc=43, raw_f1=0.310
+  - ProteinDeglycase: objective=0.114, complexity_score=56.4, cc=41, raw_f1=0.500

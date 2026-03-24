@@ -1,0 +1,7 @@
+False Positives for ProteinDeglycase
+==================================================
+Total: 1
+
+RHEA:11044: a haloacetate + H2O = a halide anion + glycolate + H(+)
+  → Protein deglycase: removes glycation modification → glycolate + H+
+

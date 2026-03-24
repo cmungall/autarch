@@ -1,0 +1,88 @@
+False Negatives for SulfurOxidoreductase
+==================================================
+Total: 28
+
+RHEA:10936: 6-decylubiquinone + 2 thiosulfate = 6-decylubiquinol + tetrathionate
+  → No sulfur oxidoreductase pattern
+
+RHEA:11464: L,L-homocystine + 2 glutathione = 2 L-homocysteine + glutathione disulfide
+  → No sulfur oxidoreductase pattern
+
+RHEA:11812: methanethiol + O2 + H2O = hydrogen sulfide + formaldehyde + H2O2 + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:11980: 2 gamma-L-glutamyl-L-cysteine + NADP(+) = bis-gamma-glutamylcystine + NADPH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:12613: L-cystine + 2 glutathione = glutathione disulfide + 2 L-cysteine
+  → No sulfur oxidoreductase pattern
+
+RHEA:13125: glutathione disulfide + CoA = CoA-glutathione + glutathione
+  → No sulfur oxidoreductase pattern
+
+RHEA:14141: glutathione disulfide + sulfite + AMP + 2 H(+) = adenosine 5'-phosphosulfate + 2 glutathione
+  → No sulfur oxidoreductase pattern
+
+RHEA:14281: 2 Fe(III)-[cytochrome c] + sulfite + H2O = 2 Fe(II)-[cytochrome c] + sulfate + 2 H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:14617: glutathione + NADP(+) + CoA = CoA-glutathione + NADPH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:14705: NADP(+) + 2 CoA = CoA-disulfide + NADPH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:14881: 3-sulfanyl-2-(sulfanylmethyl)propanoate + NAD(+) = asparagusate + NADH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:15045: N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + NAD(+) = N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NADH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:16757: trypanothione + NADP(+) = trypanothione disulfide + NADPH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:16977: coenzyme M + acetoacetate + NADP(+) = 2-oxopropyl-coenzyme M + CO2 + NADPH
+  → No sulfur oxidoreductase pattern
+
+RHEA:18085: methanophenazine + coenzyme B + coenzyme M = dihydromethanophenazine + coenzyme M-coenzyme B heterodisulfide
+  → No sulfur oxidoreductase pattern
+
+RHEA:20549: 2 thiosulfate + 2 Fe(III)-[cytochrome c] = tetrathionate + 2 Fe(II)-[cytochrome c] + 2 H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:20597: 2 L-cysteine + NAD(+) = L-cystine + NADH + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:23132: hydrogen sulfide + 6 oxidized [2Fe-2S]-[ferredoxin] + 3 H2O = sulfite + 6 reduced [2Fe-2S]-[ferredoxin] + 7 H(+)
+  → Iron-sulfur cluster reaction - not sulfur group redox
+
+RHEA:24112: 2 glutathione + O2 = glutathione disulfide + H2O2
+  → No sulfur oxidoreductase pattern
+
+RHEA:24424: L-dehydroascorbate + 2 glutathione = glutathione disulfide + L-ascorbate
+  → No sulfur oxidoreductase pattern
+
+RHEA:24600: sulfite + O2 + H2O = sulfate + H2O2
+  → No sulfur oxidoreductase pattern
+
+RHEA:27758: (6S)-5,6,7,8-tetrahydrofolate + glycine + NAD(+) = (6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + NH4(+) + CO2 + NADH
+  → No sulfur oxidoreductase pattern
+
+RHEA:27786: 2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH
+  → No sulfur oxidoreductase pattern
+
+RHEA:28042: pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH
+  → No sulfur oxidoreductase pattern
+
+RHEA:30223: hydrogen sulfide + 2 Fe(III)-[cytochrome c] = sulfur + 2 Fe(II)-[cytochrome c] + H(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:30231: S-(2E,6E)-farnesyl-L-cysteine + O2 + H2O = (2E,6E)-farnesal + L-cysteine + H2O2
+  → No sulfur oxidoreductase pattern
+
+RHEA:34927: selenodiglutathione + NADPH + H(+) = glutathioselenol + glutathione + NADP(+)
+  → No sulfur oxidoreductase pattern
+
+RHEA:30239: n a quinone + n hydrogen sulfide + n H(+) = polysulfur(n-2) + n a quinol
+  → No sulfur oxidoreductase pattern
+

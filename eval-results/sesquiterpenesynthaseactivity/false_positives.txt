@@ -1,0 +1,55 @@
+False Positives for SesquiterpeneSynthaseActivity
+==================================================
+Total: 17
+
+RHEA:25436: (2E,6E)-farnesyl diphosphate = (E,R)-alpha-bisabolene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:25992: (2E,6E)-farnesyl diphosphate = (+)-epi-isozizaene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:26081: (2E,6E)-farnesyl diphosphate = (Z)-gamma-bisabolene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:28302: (2E,6E)-farnesyl diphosphate = germacrene C + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:28635: (2E,6E)-farnesyl diphosphate = (+)-5-epi-aristolochene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:28643: (2E,6E)-farnesyl diphosphate = alpha-zingiberene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:29499: (2E,6E)-farnesyl diphosphate = (+)-alpha-barbatene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:29511: (2E,6E)-farnesyl diphosphate = (+)-valencene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:30375: (2E,6E)-farnesyl diphosphate = (+)-thujopsene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:30379: (2E,6E)-farnesyl diphosphate = (+)-beta-chamigrene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:30383: (2E,6E)-farnesyl diphosphate = (-)-7-epi-alpha-selinene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:31991: (2E,6E)-farnesyl diphosphate = sesquithujene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:32027: (2E,6E)-farnesyl diphosphate = (-)-alpha-cuprenene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:32031: (2E,6E)-farnesyl diphosphate = gamma-curcumene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:32699: (2E,6E)-farnesyl diphosphate = beta-sesquiphellandrene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:33991: (2E,6E)-farnesyl diphosphate = alpha-copaene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+
+RHEA:34467: (2E,6E)-farnesyl diphosphate = valerena-4,7(11)-diene + diphosphate
+  → Sesquiterpene synthase activity: cyclization of farnesyl diphosphate with diphosphate release
+

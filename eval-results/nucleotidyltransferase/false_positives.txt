@@ -1,0 +1,13 @@
+False Positives for Nucleotidyltransferase
+==================================================
+Total: 3
+
+RHEA:18473: 1-(5-phospho-beta-D-ribosyl)-ATP + diphosphate = 5-phospho-alpha-D-ribose 1-diphosphate + ATP
+  → Nucleotidyltransferase: a nucleoside phosphate donor transfers a nucleotidyl group to an acceptor with phosphate leaving-group release (reverse reaction orientation)
+
+RHEA:36327: dimethylallyl diphosphate + ADP = N(6)-(dimethylallyl)adenosine 5'-diphosphate + diphosphate
+  → Nucleotidyltransferase: a nucleoside phosphate donor transfers a nucleotidyl group to an acceptor with phosphate leaving-group release
+
+RHEA:36331: dimethylallyl diphosphate + ATP = N(6)-(dimethylallyl)adenosine 5'-triphosphate + diphosphate
+  → Nucleotidyltransferase: a nucleoside phosphate donor transfers a nucleotidyl group to an acceptor with phosphate leaving-group release
+

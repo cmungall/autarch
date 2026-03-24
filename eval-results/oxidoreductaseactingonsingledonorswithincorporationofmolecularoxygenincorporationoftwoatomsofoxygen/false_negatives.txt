@@ -1,0 +1,31 @@
+False Negatives for OxidoreductaseActingOnSingleDonorsWithIncorporationOfMolecularOxygenIncorporationOfTwoAtomsOfOxygen
+==================================================
+Total: 9
+
+RHEA:12981: S-sulfanylglutathione + O2 + H2O = sulfite + glutathione + 2 H(+)
+  → Organic products do not gain two oxygen atoms
+
+RHEA:13957: 4 sulfur + O2 + 4 H2O = 2 hydrogen sulfide + 2 sulfite + 6 H(+)
+  → Single-donor dioxygenases should have exactly one substantive organic donor in one reaction orientation
+
+RHEA:16189: 3-(4-hydroxyphenyl)pyruvate + O2 = homogentisate + CO2
+  → Organic products do not gain two oxygen atoms
+
+RHEA:17961: (5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate = leukotriene A4 + H2O
+  → Not an oxidoreductase: No redox cofactors or patterns detected
+
+RHEA:19445: 2,3-dihydroxyindole + O2 = anthranilate + CO2 + H(+)
+  → Organic products do not gain two oxygen atoms
+
+RHEA:21376: 3-(4-hydroxyphenyl)pyruvate + O2 = (S)-4-hydroxymandelate + CO2
+  → Organic products do not gain two oxygen atoms
+
+RHEA:21404: chloride + O2 = chlorite
+  → Single-donor dioxygenases should have exactly one substantive organic donor in one reaction orientation
+
+RHEA:32307: (5Z,8Z,11Z,14Z)-eicosatetraenoate + O2 = leukotriene A4 + H2O
+  → Organic products do not gain two oxygen atoms
+
+RHEA:34403: 9-cis-10'-apo-beta-carotenal + 2 O2 = (2E,4E,6E)-7-hydroxy-4-methylhepta-2,4,6-trienal + (11R)-carlactone
+  → Organic products do not gain two oxygen atoms
+

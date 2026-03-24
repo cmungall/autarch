@@ -1,0 +1,7 @@
+False Positives for CarbohydrateKinaseActivity
+==================================================
+Total: 1
+
+RHEA:10948: D-glucosamine + ATP = D-glucosamine 6-phosphate + ADP + H(+)
+  → carbohydrate kinase activity: matched Hexokinase (2.7.1.1); Hexokinase: ATP-dependent phosphorylation of a D-hexose at the 6-position
+

@@ -1,0 +1,13 @@
+False Negatives for PhosphoproteinPhosphataseActivity
+==================================================
+Total: 3
+
+RHEA:17125: N-(4-carboxy-4-oxobutanoyl)-L-ethylglycylglycine + H2O = N-(2-aminobutanoyl)glycine + 2-oxoglutarate
+  → Requires phosphate release
+
+RHEA:43380: N(omega)-phospho-L-arginyl-[protein] + H2O = L-arginyl-[protein] + phosphate
+  → Requires water as a hydrolytic substrate
+
+RHEA:47004: O-phospho-L-threonyl-[protein] + H2O = L-threonyl-[protein] + phosphate
+  → Requires water as a hydrolytic substrate
+

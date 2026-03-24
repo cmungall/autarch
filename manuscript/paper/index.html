@@ -1,0 +1,1912 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ai4curation.github.io/autarch/manuscript/paper/">
+      
+      
+        <link rel="prev" href="../../pattern_matching_design/">
+      
+      
+        <link rel="next" href="../../report/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Manuscript - Autarch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#autarch-automated-agentic-reaction-classification-hierarchy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Autarch" class="md-header__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Autarch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manuscript
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Autarch" class="md-nav__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Autarch
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern_matching_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Manuscript
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manuscript
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-reaction-classification-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Reaction Classification Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existing Approaches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-c3po" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to C3PO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#our-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our Contribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Matching DSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymer-reaction-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymer Reaction Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifier Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-complexity-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifier Complexity Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rhea-dataset-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHEA Dataset Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-truth-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ground Truth and Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#independent-goec-divergence-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Independent GO/EC Divergence Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-performing-classifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Performing Classifiers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymer-reaction-support_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymer Reaction Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discussion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-declarative-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Declarative Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goec-divergence-reveals-competing-biochemical-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      GO/EC Divergence Reveals Competing Biochemical Abstractions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broad-parent-classes-are-intrinsically-heterogeneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broad Parent Classes Are Intrinsically Heterogeneous
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-polymer-reactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Polymer Reactions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Availability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supplementary-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supplementary Materials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supplementary Materials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s1-complete-classifier-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      S1: Complete Classifier List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s2-pattern-dsl-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      S2: Pattern DSL Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-evaluation-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3: Evaluation Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s4-goec-benchmark-divergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      S4: GO/EC Benchmark Divergence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s5-reaction-level-benchmark-disagreement-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      S5: Reaction-Level Benchmark Disagreement Catalog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s6-representative-code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6: Representative Code Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S6: Representative Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s61-smarts-based-moiety-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.1 SMARTS-based moiety patterns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s62-base-classifier-interface-and-evidence-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.2 Base classifier interface and evidence declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s63-declarative-pattern-based-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.3 Declarative pattern-based classifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s64-explicit-ontology-wrapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.4 Explicit ontology wrapper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s65-specific-chemistry-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.5 Specific chemistry refinement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classifier Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-reaction-classification-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Reaction Classification Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existing Approaches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-c3po" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship to C3PO
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#our-contribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our Contribution
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-matching-dsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pattern Matching DSL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymer-reaction-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymer Reaction Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifier Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classifier-complexity-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classifier Complexity Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rhea-dataset-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHEA Dataset Assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-truth-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ground Truth and Evaluation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#independent-goec-divergence-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Independent GO/EC Divergence Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Distribution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-performing-classifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      High-Performing Classifiers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymer-reaction-support_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polymer Reaction Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussion
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discussion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-declarative-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages of Declarative Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goec-divergence-reveals-competing-biochemical-abstractions" class="md-nav__link">
+    <span class="md-ellipsis">
+      GO/EC Divergence Reveals Competing Biochemical Abstractions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broad-parent-classes-are-intrinsically-heterogeneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broad Parent Classes Are Intrinsically Heterogeneous
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-polymer-reactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Polymer Reactions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#future-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      Future Work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-availability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Availability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supplementary-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supplementary Materials
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supplementary Materials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s1-complete-classifier-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      S1: Complete Classifier List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s2-pattern-dsl-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      S2: Pattern DSL Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-evaluation-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3: Evaluation Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s4-goec-benchmark-divergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      S4: GO/EC Benchmark Divergence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s5-reaction-level-benchmark-disagreement-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      S5: Reaction-Level Benchmark Disagreement Catalog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s6-representative-code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6: Representative Code Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S6: Representative Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s61-smarts-based-moiety-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.1 SMARTS-based moiety patterns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s62-base-classifier-interface-and-evidence-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.2 Base classifier interface and evidence declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s63-declarative-pattern-based-classifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.3 Declarative pattern-based classifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s64-explicit-ontology-wrapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.4 Explicit ontology wrapper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s65-specific-chemistry-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      S6.5 Specific chemistry refinement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="autarch-automated-agentic-reaction-classification-hierarchy">Autarch: Automated Agentic Reaction Classification Hierarchy</h1>
+<h2 id="abstract">Abstract</h2>
+<p>Biochemical reaction classification under GO and EC is central to metabolic reconstruction, enzyme annotation, and comparative functional analysis, yet remains difficult because closely related transformations can differ by cofactors, transport context, or polymer state. We present Autarch (Automated Agentic Reaction Classification Hierarchy), an open-source framework that represents reaction classes as explicit, inspectable pattern-matching programs over reaction participants and transformations. As a methodological companion to C3PO, Autarch extends executable and auditable classifier design from chemical structures to biochemical reactions, while supporting both SMILES-based small-molecule chemistry and polymer reactions represented with relative chain-length notation such as <code>(n)</code> and <code>(n+1)</code>. In a benchmark over 3,993 GO-linked RHEA reactions from a 2026-03-12 data snapshot, using classifier-specific evidence requirements to determine evaluability, a refreshed 2026-03-22 evaluation run assessed 396 classifiers and achieved micro-precision 0.779, micro-recall 0.720, micro-F1 0.748, and macro-F1 0.666. The resulting gap between pooled and class-balanced performance indicates that declarative reaction classifiers can scale to substantially broader biochemical coverage while still exposing which broad GO concepts remain weakly captured by explicit rule sets.</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="the-reaction-classification-problem">The Reaction Classification Problem</h3>
+<p>Enzymes catalyze a large and chemically diverse space of transformations, and organizing those transformations into functional classes is fundamental to biochemistry. The Enzyme Commission (EC) hierarchy provides a reaction-centric classification scheme developed to standardize enzyme naming around overall catalyzed reactions, while the Gene Ontology (GO) molecular function branch captures enzyme activities in a complementary ontology framework [1,2,4]. Resources such as RHEA connect individual curated reaction equations to both EC and GO, making them a natural substrate for benchmarking reaction classifiers [3].</p>
+<p>Despite the maturity of these resources, assigning a reaction equation to the correct functional class remains difficult. Similar bond changes can belong to different functional classes depending on cofactors, acceptors, or transport context; many reactions remain only partially annotated; and a non-trivial subset of biologically important reactions involve polymers or repeating units that are not naturally represented as single small-molecule structures. Modern knowledgebases increasingly separate reaction identity, protein annotation, and pathway context across resources such as Rhea, UniProt, and Reactome, which makes robust cross-resource reaction classification both more feasible and more operationally important [3,5,6].</p>
+<p>The two dominant classification systems also differ structurally. EC numbers are designed as a shallow four-level hierarchy, whereas GO molecular function terms are embedded in a richer directed acyclic graph with multiple relation types and varying depths. That difference matters directly for benchmarking: EC is often a useful approximation to reaction chemistry, but GO closure can capture a broader and less tree-like notion of functional relatedness.</p>
+<p><img alt="Historical EC hierarchy schematic" src="../figures/external_ec_hierarchy_kotera_2016_fig1.jpg" /></p>
+<p><strong>Figure 1.</strong> Historical schematic of the EC numbering hierarchy, reproduced from Kotera and Goto, <em>Metabolic pathway reconstruction strategies for central metabolism and natural product biosynthesis</em> (2016), under CC BY. The figure predates the addition of EC class 7 translocases, but remains a useful overview of the four-level EC numbering scheme.</p>
+<p><img alt="Example GO hierarchy complexity relative to EC assignment" src="../figures/external_go_ec_hierarchy_holliday_2017_fig1.jpg" /></p>
+<p><strong>Figure 2.</strong> Example of GO hierarchy complexity relative to EC assignments, reproduced from Holliday et al., <em>Evaluating Functional Annotations of Enzymes Using the Gene Ontology</em> (2017), under CC BY 4.0. This illustrates why GO-based reaction-class benchmarking is not reducible to a simple EC tree.</p>
+<p><img alt="Overlap of RHEA, GO, and EC support in the assembled benchmark corpus" src="../figures/resource_overlap.png" /></p>
+<p><strong>Figure 3.</strong> Overlap of GO-linked catalytic activity mappings and EC-linked reactions within the assembled master-RHEA corpus used in this study. The benchmark is constructed from the union of GO-linked and EC-linked master RHEA reactions, with GO-linked reactions defining the primary evaluation set.</p>
+<h3 id="existing-approaches">Existing Approaches</h3>
+<p>Existing approaches span hand-written procedural rule systems, learned models over protein sequences or reaction strings, and ontology-driven inference pipelines. Recent automation work includes transformer-based sequence-to-EC prediction, reaction-first enzyme-function prediction from substrate/product chemistry, and benchmark suites that frame enzyme annotation as a classification or retrieval problem [7-9]. These approaches each address part of the problem, but they also reveal a common trade-off. Procedural rule systems can capture chemically precise distinctions but become difficult to audit and maintain; machine-learning approaches can generalize but often sacrifice interpretability; and ontology-reasoning approaches depend on complete and consistent semantic annotation of participants and reactions.</p>
+<h3 id="relationship-to-c3po">Relationship to C3PO</h3>
+<p>This work is a companion to C3PO (ChEBI Chemical Class Program Ontology) [10], which uses generative AI to synthesize Python programs that classify individual chemical <em>structures</em> into ChEBI classes. C3PO demonstrated that declarative, explainable classifiers can be automatically generated using large language models, achieving strong performance while maintaining interpretability.</p>
+<p>Autarch adopts the core C3PO methodology: represent classification knowledge as explicit, executable, and explainable programs, then evaluate and refine those programs against curated ontology-linked benchmarks. In Autarch, this methodology is applied to <strong>reaction classification</strong> rather than structure classification, using reaction equations and enzyme-function labels (GO/EC) while preserving the same emphasis on transparency and inspectable rules.</p>
+<h3 id="our-contribution">Our Contribution</h3>
+<p>Autarch addresses this gap through declarative pattern matching over reactions. Rather than encoding classification logic as opaque procedural heuristics, it represents reaction classes as explicit rules over participants, cofactors, stoichiometry, and bond-change context. The system contributes three main capabilities: a compact DSL for reaction rules, explicit support for polymer reactions and relative chain-length notation, and a benchmark framework grounded in GO-linked and EC-linked RHEA reactions. The software, evaluation workflow, and manuscript artifacts are available from https://github.com/cmungall/autarch.</p>
+<h2 id="methods">Methods</h2>
+<h3 id="data-model">Data Model</h3>
+<p>Autarch represents each reaction as ordered left- and right-hand participant lists. Participants may carry ChEBI identifiers, display names, SMILES structures, fixed stoichiometric counts, or symbolic stoichiometry expressions [11,12]. To support reactions beyond the small-molecule setting, participants can also carry polymer-type metadata and relative polymer indices such as <code>n</code>, <code>n+1</code>, and <code>n-1</code>.</p>
+<p>A compact small-molecule reaction can be represented directly in YAML. The example below corresponds to a deoxyadenosine kinase reaction and mixes ChEBI identifiers with explicit structure where useful:</p>
+<pre><code class="language-yaml">left_participants:
+  - chebi_id: CHEBI:17256
+    name: 2'-deoxyadenosine
+    smiles: NC1=C2N=CN([C@H]3C[C@H](O)[C@@H](CO)O3)C2=NC=N1
+  - chebi_id: CHEBI:30616
+    name: ATP(4-)
+right_participants:
+  - chebi_id: CHEBI:58245
+    name: dAMP
+  - chebi_id: CHEBI:456216
+    name: ADP(3-)
+  - chebi_id: CHEBI:15378
+    name: hydron
+</code></pre>
+<p>Polymer-aware reactions use the same container but add polymer metadata and relative indices:</p>
+<pre><code class="language-yaml">left_participants:
+  - name: RNA
+    polymer_type: rna
+    polymer_index: n
+  - chebi_id: CHEBI:16761
+    name: CTP
+right_participants:
+  - name: RNA
+    polymer_type: rna
+    polymer_index: n+1
+  - chebi_id: CHEBI:18361
+    name: diphosphate
+</code></pre>
+<h3 id="pattern-matching-dsl">Pattern Matching DSL</h3>
+<p>The DSL expresses reaction classes as patterns over participant identities and their transformation context. Rules can specify exact participants such as ATP or water, free variables that bind arbitrary substrates or products, optional cofactors, and forbidden byproducts. A kinase-like rule, for example, can be written declaratively as an ATP-dependent transfer from a substrate state to a product state without hard-coding the full identity of the transferred group recipient.</p>
+<pre><code class="language-python">from autarch.molecules import adp, atp, h_plus, p
+from autarch.pattern_dsl import optional, var
+
+KINASE_PATTERNS = [
+    p(atp) + var(&quot;substrate&quot;) + optional(p(h_plus))
+    &gt;&gt; p(adp) + var(&quot;product&quot;) + optional(p(h_plus)),
+]
+</code></pre>
+<p>The classifier then evaluates these patterns against a concrete reaction using strict participant accounting. This keeps the common cases short and declarative while still allowing additional chemistry checks when needed.</p>
+<h3 id="polymer-reaction-support">Polymer Reaction Support</h3>
+<p>Polymer reactions are represented explicitly rather than being forced into lossy small-molecule surrogates. Expressions such as <code>RNA(n) + NTP -&gt; RNA(n+1) + PPi</code> capture directionality of growth or degradation while preserving the fact that the reactive substrate is a polymeric entity. This notation enables direct treatment of polymerases, nucleases, and polymer-modifying enzymes within the same framework used for small-molecule chemistry.</p>
+<h3 id="classifier-architecture">Classifier Architecture</h3>
+<p>Each classifier inherits from a common <code>ReactionClass</code> interface and returns both a boolean classification and an explanation. Classifiers may be fully declarative, hybrid declarative/procedural, or procedural when chemically necessary, but all are evaluated through the same interface and produce explicit rationales that support debugging, curation, and downstream error analysis.</p>
+<p>Two architectural patterns dominate in practice. The first is a direct chemistry classifier such as <code>Kinase</code>, which declares a small pattern set and a small number of guard conditions. The second is an explicit ontology wrapper such as <code>CisTransIsomerase</code>, which is defined as a union of curated child classifiers rather than by re-reading GO or EC annotations from the benchmark. Figure 4 summarizes these relationships.</p>
+<p><img alt="Classifier architecture overview" src="../figures/classifier_architecture.png" /></p>
+<p><strong>Figure 4.</strong> UML-like overview of the classifier architecture. Concrete chemistry classes inherit from a shared <code>ReactionClass</code> interface, while higher-level ontology wrappers are expressed as explicit unions of curated child classifiers rather than as proxy lookups against GO or EC annotations.</p>
+<h3 id="classifier-complexity-analysis">Classifier Complexity Analysis</h3>
+<p>We quantified implementation complexity for each ontology classifier module using static source analysis. For each module, we measured total lines of code, source lines of code, the length of <code>check_membership_impl()</code>, cyclomatic complexity of <code>check_membership_impl()</code> (via <code>radon</code>), counts of conditional branches and explicit exclusion rules, the number of declared pattern templates, and the number of referenced ChEBI identifiers. These measurements were summarized across classifier modules and compared with per-class evaluation performance to assess whether higher implementation complexity was associated with improved benchmark accuracy.</p>
+<h3 id="rhea-dataset-assembly">RHEA Dataset Assembly</h3>
+<p>We assembled the reaction corpus from RHEA release files distributed via ExPASy FTP, integrating reaction structures, directional-equivalence mappings, EC cross-references, participant naming resources, and curated textual reaction equations. GO molecular function mappings were imported from the GO cache and attached to reactions through RHEA cross-references.</p>
+<p>To prevent directional duplication during evaluation, reactions were consolidated to direction-neutral master RHEA identifiers using the curated RHEA direction mapping table rather than arithmetic ID heuristics. Candidate reactions were retained when linked to EC terms, GO terms, or both.</p>
+<p>In the benchmark snapshot used in this manuscript (2026-03-12), this process yielded 5,336 master reactions, including 5,171 with EC mappings and 3,993 with GO mappings (3,828 with both; 1,343 EC-only; 165 GO-only). Participants were normalized by combining structure-derived participants with curated ChEBI identifiers from reaction equations, with constrained name-based fallback only for unresolved entities. Polymer stoichiometry and compartment qualifiers from curated equations were propagated to participant metadata (402 polymer-annotated reactions; 120 location-annotated reactions). Among the 3,993 GO-linked reactions, 3,484 have complete participant structure coverage. The remainder are still informative for classes whose rules depend only on participant identifiers or polymer metadata, rather than full small-molecule structure.</p>
+<h3 id="ground-truth-and-evaluation">Ground Truth and Evaluation</h3>
+<p>Evaluation uses RHEA as the ground-truth reference resource linking reaction chemistry to EC and GO molecular function annotations. In the default configuration (<code>go_only=True</code>), only GO-annotated reactions are considered for class labeling. For a given classifier GO term, a reaction is labeled positive when any mapped GO term is identical to the target term or a descendant of the target in the GO hierarchy; annotated reactions not satisfying this criterion are labeled negative. Reactions lacking GO/EC annotation are tracked but excluded from core metric computation. To avoid imposing a global structure-completeness filter on classes whose rules are identifier- or polymer-based, each classifier declares the minimum evidence required for evaluation, currently drawn from complete SMILES coverage, polymer metadata, or participant identifiers. Reactions that do not satisfy the evidence requirements of the classifier under test are excluded for that class, so evaluable denominators vary across the benchmark while classifier logic itself remains unchanged.</p>
+<p>Performance is reported per class and in aggregate using precision, recall, F1 score, and Matthews correlation coefficient (MCC). Precision, recall, and F1 are computed from TP/FP/FN counts in the standard way, and MCC is reported to provide a class-imbalance-aware summary. An EC-based labeling mode (<code>go_only=False</code>) remains available as a secondary analysis path, using exact EC lists or EC-prefix matching when classifier EC metadata is provided.</p>
+<h3 id="independent-goec-divergence-analysis">Independent GO/EC Divergence Analysis</h3>
+<p>Because discrepancies between GO-linked and EC-linked reaction sets can reflect ontology and curation differences rather than classifier behavior, we computed an independent benchmark-divergence analysis for each class. For every classifier carrying GO and/or EC metadata, we constructed the set of positive RHEA reactions implied by GO closure and the set implied by EC mapping, then summarized their overlap using intersection size, GO-only and EC-only tails, and Jaccard similarity. This analysis was used to distinguish classes for which GO and EC define nearly identical benchmark positives from classes where a naive merged benchmark would confound classifier error with disagreement between annotation systems.</p>
+<p><img alt="System overview of the Autarch workflow" src="../figures/system_overview.png" /></p>
+<p><strong>Figure 5.</strong> Dataset assembly and evaluation workflow. Curated RHEA reactions, GO/EC mappings, and ChEBI structures are normalized into a master-reaction corpus with polymer-aware participant metadata, then evaluated against a library of direct chemistry classifiers and explicit child-union wrappers.</p>
+<h2 id="results">Results</h2>
+<h3 id="overview">Overview</h3>
+<p>In the current evaluation run (2026-03-22) over the fixed 2026-03-12 RHEA/GO data snapshot, Autarch evaluated 396 classifiers against a GO-linked benchmark containing 3,993 reactions. Under the evidence-aware evaluation regime, structure-dependent classes were evaluated on the 3,484 reactions with complete participant structure coverage, whereas identifier- and polymer-driven classes could use a larger subset of the GO-linked corpus; the resulting per-class denominators ranged from 3,484 to 3,993 reactions. After expanding the public classifier inventory to include additional GO-backed concepts and explicit EC wrapper classes, aggregate performance remained stronger at the pooled prediction level (micro-F1 0.748) than at the class-balanced level (macro-F1 0.666), indicating that performance remained uneven across the enlarged class set.</p>
+<table>
+<thead>
+<tr>
+<th>Aggregate Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Macro Precision</td>
+<td>0.726</td>
+</tr>
+<tr>
+<td>Macro Recall</td>
+<td>0.700</td>
+</tr>
+<tr>
+<td>Macro F1</td>
+<td>0.666</td>
+</tr>
+<tr>
+<td>Micro Precision</td>
+<td>0.779</td>
+</tr>
+<tr>
+<td>Micro Recall</td>
+<td>0.720</td>
+</tr>
+<tr>
+<td>Micro F1</td>
+<td>0.748</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-distribution">Performance Distribution</h3>
+<p>Per-class performance remained heterogeneous, with a substantial long tail despite improved overall coverage:</p>
+<table>
+<thead>
+<tr>
+<th>Per-class F1 band</th>
+<th>Number of classes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1 &gt;= 0.90</td>
+<td>133</td>
+</tr>
+<tr>
+<td>0.70 &lt;= F1 &lt; 0.90</td>
+<td>104</td>
+</tr>
+<tr>
+<td>0.30 &lt;= F1 &lt; 0.70</td>
+<td>79</td>
+</tr>
+<tr>
+<td>F1 &lt; 0.30</td>
+<td>80</td>
+</tr>
+<tr>
+<td>F1 = 0.00</td>
+<td>39</td>
+</tr>
+</tbody>
+</table>
+<p>The median per-class F1 was 0.800. Twenty-one classes had zero positive support in this benchmark split, and 59 classes had support of one reaction or less. Accordingly, the distribution should be interpreted as a mixture of well-supported broad classes, moderately supported specific activities, and a substantial low-support regime in which per-class estimates are unstable.</p>
+<p>Figure 6 makes this support effect explicit: a substantial fraction of perfect or near-perfect classes are supported by few positive reactions, whereas the high-support region is dominated by broader parent classes whose ontology boundaries are intrinsically more difficult to capture with a single rule set. This support imbalance is the main driver of the gap between micro-averaged and macro-averaged performance.</p>
+<p><img alt="Per-class F1 versus positive support" src="../figures/f1_vs_support.png" /></p>
+<p><strong>Figure 6.</strong> Per-class F1 versus positive support (<code>TP + FN</code>). Broad high-support parent classes occupy much of the right-hand side of the plot, while many perfect or near-perfect classifiers occur in the low-support regime.</p>
+<h3 id="high-performing-classifiers">High-Performing Classifiers</h3>
+<p>One hundred thirty-three classifiers achieved F1 &gt;= 0.90 in the current benchmark. However, many of these classes had only one or two positives. The more informative pattern is that a subset of classifiers remained strong under non-trivial support, including broad parent classes such as <code>Oxidoreductase</code>, <code>Ligase</code>, <code>Isomerase</code>, and <code>Kinase</code>, together with transport-linked and mid-level mechanistic classes such as <code>PrimaryActiveTransmembraneTransporter</code>, <code>TranslocaseLinkedToHydrolysis</code>, and <code>Pyrophosphatase</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Positive support</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TranslocaseLinkedToHydrolysis</td>
+<td>54</td>
+<td>0.982</td>
+<td>1.000</td>
+<td>0.991</td>
+</tr>
+<tr>
+<td>PrimaryActiveTransmembraneTransporter</td>
+<td>60</td>
+<td>0.982</td>
+<td>0.900</td>
+<td>0.939</td>
+</tr>
+<tr>
+<td>Pyrophosphatase</td>
+<td>47</td>
+<td>1.000</td>
+<td>0.894</td>
+<td>0.944</td>
+</tr>
+<tr>
+<td>CarboxylicEsterHydrolase</td>
+<td>62</td>
+<td>0.910</td>
+<td>0.984</td>
+<td>0.946</td>
+</tr>
+<tr>
+<td>RacemaseAndEpimerase</td>
+<td>49</td>
+<td>1.000</td>
+<td>0.939</td>
+<td>0.968</td>
+</tr>
+<tr>
+<td>Sulfotransferase</td>
+<td>17</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>ThiolesterHydrolase</td>
+<td>14</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>IntramolecularPhosphotransferase</td>
+<td>11</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>Peroxidase</td>
+<td>12</td>
+<td>1.000</td>
+<td>0.917</td>
+<td>0.957</td>
+</tr>
+<tr>
+<td>Oxidoreductase</td>
+<td>1099</td>
+<td>0.955</td>
+<td>0.930</td>
+<td>0.942</td>
+</tr>
+<tr>
+<td>Ligase</td>
+<td>148</td>
+<td>0.904</td>
+<td>0.959</td>
+<td>0.931</td>
+</tr>
+<tr>
+<td>Isomerase</td>
+<td>193</td>
+<td>0.927</td>
+<td>0.927</td>
+<td>0.927</td>
+</tr>
+<tr>
+<td>Kinase</td>
+<td>176</td>
+<td>0.962</td>
+<td>0.875</td>
+<td>0.917</td>
+</tr>
+</tbody>
+</table>
+<h3 id="polymer-reaction-support_1">Polymer Reaction Support</h3>
+<p>Autarch includes dedicated polymer-aware classifiers and pattern logic for reactions with <code>(n)</code>-style stoichiometry. Polymer-capable classification is clearly feasible, but class-specific estimates remain unstable because only a few polymer-focused terms have more than minimal support:</p>
+<table>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Positive support (TP+FN)</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AminoacylTRNALigase</td>
+<td>25</td>
+<td>1.000</td>
+<td>0.800</td>
+<td>0.889</td>
+</tr>
+<tr>
+<td>RNAPolymerase</td>
+<td>1</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Pectinesterase</td>
+<td>1</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+<tr>
+<td>PolysialicAcidOAcetyltransferase</td>
+<td>1</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+</tr>
+</tbody>
+</table>
+<p>The contrast between <code>AminoacylTRNALigase</code> and the one-example polymer classes illustrates the current regime. The framework can represent and classify polymer chemistry, and some polymer-linked singletons now score perfectly under identifier-aware evaluation, but benchmark coverage remains too sparse to support strong general claims about polymer-class performance as a whole.</p>
+<h3 id="error-analysis">Error Analysis</h3>
+<p>Errors were concentrated in broad grouping classes rather than narrow specific activities. The highest false-positive burdens were observed for <code>OxidoreductaseActingOnCHOHGroupOfDonors</code> (194), <code>AlcoholDehydrogenaseNADP</code> (161), <code>OxidoreductaseActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor</code> (159), <code>GlycerophospholipaseActivity</code> (110), and <code>PhospholipaseActivity</code> (109). The largest false-negative burdens were observed for <code>Transferase</code> (412), <code>CatalyticActivityActingOnAProtein</code> (132), <code>CarbonOxygenLyase</code> (128), <code>CatalyticActivityActingOnANucleicAcid</code> (120), and <code>CatalyticActivityActingOnRNA</code> (113). Concretely, the system often recognizes the chemistry but must choose between overlapping parent interpretations: deoxynucleoside kinase reactions are chemically alcohol-group phosphotransferases yet are grouped by GO under nucleobase-containing-compound kinase branches, while limonene and sterol oxygenations can be grouped either under transformation-centric monooxygenase umbrellas or under donor-specific EC <code>1.14.*</code> oxygenase branches.</p>
+<h3 id="code-metrics">Code Metrics</h3>
+<p>Static analysis of the ontology source tree identified 502 classifier-related modules, 396 of which participated in the current GO benchmark. Across the evaluated set, median module size was 69.0 lines of code (IQR 35.0-141.0), and the median <code>check_membership_impl()</code> length was 24.0 lines (IQR 8.0-48.0). Median cyclomatic complexity was 6.0 (IQR 3.0-12.2; mean 9.4). The most complex modules were <code>racemase_and_epimerase</code> (CC 57), <code>transferase</code> (53), <code>transferase_transferring_phosphorus_containing_groups</code> (52), <code>phosphatase</code> (50), and <code>oxidoreductase_acting_on_choh_group_of_donors</code> (49). Across the 396 evaluated classes, implementation complexity showed a weak positive association with F1 score (Spearman rho = 0.162), indicating that added code volume alone neither guarantees nor precludes good benchmark performance.</p>
+<p>Figure 7 reinforces this point. High-support broad classes tend to occupy the moderate-to-high complexity range, but increased implementation complexity alone does not guarantee higher F1. The scatter is more consistent with targeted chemical alignment than with a simple “more code yields better performance” relationship.</p>
+<p><img alt="Complexity versus F1 scatter" src="../figures/complexity_vs_f1.png" /></p>
+<p><strong>Figure 7.</strong> Classifier performance versus implementation complexity. Point color indicates positive support and point size scales with the number of positive benchmark reactions.</p>
+<h2 id="discussion">Discussion</h2>
+<h3 id="advantages-of-declarative-classification">Advantages of Declarative Classification</h3>
+<p>The main practical advantage of Autarch is not simply that it is rule-based, but that its rules remain inspectable at the level of biochemically meaningful distinctions. This matters because many of the observed errors occur in broad parent classes or at ontology boundaries, where the relevant distinction is often a specific cofactor dependency, donor-acceptor regime, byproduct pattern, or transport context rather than an opaque latent feature. In this setting, explicit classifier logic supports targeted error analysis and iterative curation in a way that is difficult to achieve with purely procedural or black-box models.</p>
+<h3 id="goec-divergence-reveals-competing-biochemical-abstractions">GO/EC Divergence Reveals Competing Biochemical Abstractions</h3>
+<p>One of the clearest scientific results of this study is that GO and EC do not merely provide redundant labels for the same reaction-class space. Across 488 classes with GO and/or EC metadata, only 53 showed exact GO-EC agreement, whereas 61 showed GO-derived sets that were proper subsets of EC-derived sets, 13 showed the inverse relation, and 109 were genuinely divergent. These disagreements are not concentrated in arbitrary corners of the ontology; they recur in families where multiple biochemical abstraction axes are plausible.</p>
+<p>The kinase branch provides a compact example. <code>Kinase</code> remained a strong classifier in the GO benchmark (precision 0.963, recall 0.875, F1 0.917), but its GO- and EC-derived positive sets still diverged substantially (<code>GO=195</code>, <code>EC=392</code>, intersection <code>=192</code>, Jaccard <code>=0.486</code>). Reaction-level review showed that this is not primarily because the classifier is wrong, but because EC classifies many reactions by acceptor chemistry, whereas GO often groups them by substrate family. Deoxynucleoside kinases illustrate the point clearly: chemically they are alcohol-group phosphotransferases, but GO routes them through nucleobase-containing-compound kinase branches rather than through the alcohol-group phosphotransferase hierarchy.</p>
+<p>Oxygenase classes show a different but equally informative split. GO monooxygenase terms emphasize the transformation pattern in which one oxygen atom is incorporated into substrate and the other is reduced to water, whereas EC <code>1.14.14.*</code> subclasses emphasize paired-donor electron-transfer architecture. This is visible both in reaction-level conflicts such as limonene and sterol hydroxylations and in class-level divergence patterns. <code>Monooxygenase</code> itself behaves as a broad GO umbrella with no exact EC counterpart in the current benchmark, while narrower paired-donor oxygenase classes align more closely with EC. The result is a recurring tension between transformation-centric and cofactor-centric classification.</p>
+<p><img alt="Concrete reaction examples for GO/EC scope divergence" src="../figures/scope_conflict_examples.png" /></p>
+<p><strong>Figure 8.</strong> Concrete reaction-level examples of GO/EC scope divergence. Panel A shows a deoxyadenosine kinase reaction that GO groups with nucleobase-containing-compound kinases while EC routes the same chemistry through alcohol-group phosphotransferases. Panel B shows limonene 1,2-monooxygenase chemistry, where GO foregrounds oxygen incorporation into substrate while EC foregrounds the paired-donor electron-transfer regime.</p>
+<p>Transferase families show the same phenomenon at larger scale. <code>UDPGlycosyltransferaseActivity</code> has <code>GO=130</code>, <code>EC=331</code>, and overlap <code>=126</code>, whereas <code>UDPGlucosyltransferaseActivity</code> has <code>GO=52</code>, <code>EC=253</code>, and overlap <code>=50</code>; <code>AcetylglucosaminyltransferaseActivity</code> is even more extreme (<code>GO=28</code>, <code>EC=253</code>, overlap <code>=27</code>). These are not random mismatches. GO terms are often substrate-specific and biologically contextual, while EC branches describe broader donor-transfer chemistry. The same pattern appears in steroid dehydrogenases: <code>SteroidDehydrogenaseActivityActingOnTheCHOHGroupOfDonorsNADOrNADPAsAcceptor</code> has only <code>30</code> GO-linked positives but <code>413</code> EC-linked positives, with an overlap of <code>29</code>, indicating that the GO term is a narrow steroid-focused slice of a much broader NAD(P)-dependent dehydrogenase chemistry space.</p>
+<p>These cases suggest that GO/EC divergence should itself be treated as a biochemical result. When the two resources disagree systematically, the disagreement often reflects competing but defensible views of function: substrate class versus donor/acceptor chemistry, biological role versus reaction mechanism, or narrow mechanistic specialization versus broad family membership. Raw GO+EC benchmark merging therefore risks conflating ontology disagreement with classifier error.</p>
+<h3 id="broad-parent-classes-are-intrinsically-heterogeneous">Broad Parent Classes Are Intrinsically Heterogeneous</h3>
+<p>The current benchmark also clarifies which parent concepts are chemically coherent enough to support explicit rule-based classification and which are not. Some broad classes remain tractable: <code>Hydrolase</code> achieves F1 <code>0.857</code>, and <code>Kinase</code> achieves F1 <code>0.917</code>, indicating that despite internal diversity these families still preserve a sufficiently strong shared reaction signature. By contrast, broader umbrellas such as <code>Transferase</code> (F1 <code>0.744</code>) already show the cost of combining many mechanistic subclasses into one label.</p>
+<p>The most revealing examples are the very broad GO parent concepts. <code>CatalyticActivityActingOnAProtein</code> reaches only F1 <code>0.181</code>, while <code>CatalyticActivityActingOnANucleicAcid</code> and <code>CatalyticActivityActingOnRNA</code> reach F1 <code>0.314</code> and <code>0.326</code>, respectively. These are not simply poorly engineered classifiers. Rather, they bundle together chemically heterogeneous activities for which “acting on a protein” or “acting on RNA” is a substrate-domain statement, not a single reaction-mechanistic statement. The weak performance of these classes therefore argues that some parent terms are intrinsically unsuitable as chemistry-first reaction classes, at least without a richer ontological decomposition.</p>
+<h3 id="handling-polymer-reactions">Handling Polymer Reactions</h3>
+<p>Explicit polymer notation extends the framework beyond atom-mapped small molecules and allows polymer length change to be treated as a first-class feature of the reaction representation. This is sufficient to capture nucleic-acid polymerization and degradation, polymer-modifying transferases, and other reactions for which the decisive signal is the relation between <code>n</code> and <code>n+1</code> rather than a conventional small-molecule bond change. Importantly, this is already more than a purely formal capability: <code>AminoacylTRNALigase</code>, a polymer-linked class with support <code>25</code>, achieved precision <code>1.000</code>, recall <code>0.800</code>, and F1 <code>0.889</code>. The main current limitation is therefore not that polymer reactions are inexpressible, but that polymer-focused gold-standard coverage remains sparse for most other classes. The present conclusion is representational but still substantive: polymer state can function as a first-class reaction-class signal within the same framework used for small-molecule chemistry.</p>
+<h3 id="limitations">Limitations</h3>
+<p>The current results also make the main limitations clear. The gap between micro-F1 (0.748) and macro-F1 (0.666) shows that expanding class coverage has not yet translated into uniform per-class quality. Broad parent classes continue to accumulate both false positives and false negatives, while many narrow classes remain difficult to assess because support is extremely sparse; in the present benchmark, 21 classes have zero positive support and 59 have support of one reaction or less. In addition, evidence-aware evaluation introduces class-specific denominators: this is methodologically preferable to a single global filter, but it means that class-to-class comparisons must still be interpreted in light of differing evidence availability. Rule development also still depends on expert curation, particularly where neighboring GO or EC classes differ by subtle mechanistic context. Finally, benchmark quality is constrained by the completeness and consistency of RHEA-to-GO mappings and by representational gaps for polymers, locations, and incompletely specified participants.</p>
+<p>The supplementary GO/EC divergence analysis makes this last point more concrete. Large mismatches were concentrated in broad parent classes and residual catch-all categories such as <code>OtherOxidoreductase</code>, <code>OtherLyase</code>, <code>Monooxygenase</code>, <code>Kinase</code>, and <code>Transferase</code>, where raw GO+EC merging would mix ontology disagreement with classifier error. Conversely, a number of narrower mechanistic classes were close to coterminous across the two resources, indicating that merged or EC-augmented benchmarking is most defensible when class-level alignment has first been checked explicitly.</p>
+<p>Manual review of high-confidence reaction-level disagreements identified four recurring causes. First, there are genuinely unannotated candidates: reactions with neither GO nor EC support that Autarch nonetheless classifies, which are the strongest cases for potential new curation. Second, some reactions are absent from the GO-labeled benchmark despite already carrying specific EC assignments, as in <code>RHEA:12192</code> (<code>(2E,6E)-farnesyl diphosphate + H2O = germacradien-6-ol + diphosphate</code>), which is already classified in EC as terpene synthase <code>4.2.3.166</code> and therefore represents a GO-coverage gap rather than an unclassified reaction. Third, some benchmark errors originate in local materialization rather than in GO itself: for example, aminoacyl-tRNA deacylase terms such as <code>GO:0106105</code> and <code>GO:0106026</code> are descendants of hydrolase / carboxylic-ester-hydrolase activity in GO, but those ancestors were absent from an earlier cached closure used for evaluation; we subsequently added explicit cache validation and regenerated the GO cache to eliminate this failure mode. Fourth, a number of apparent false positives reflect genuine GO/EC scope differences rather than reaction misannotation, including CoA-ligase activities versus the narrower acid-thiol-ligase grouping, nucleoside kinases versus alcohol-group phosphotransferases, and cytochrome P450 monooxygenases versus EC <code>1.14.14.*</code> subclasses. We therefore maintain a curated benchmark-disagreement catalog that distinguishes true unannotated candidates from benchmark-coverage gaps, local bugs, and true classification conflicts (Supplementary Table S5).</p>
+<h3 id="future-work">Future Work</h3>
+<p>Three near-term directions follow from these results. First, automated rule induction and refinement should be pursued under an explicit parsimony objective, so that gains in F1 are balanced against unnecessary classifier complexity and overfitting. Second, richer ontological generalization is needed, particularly through ChEBI-informed abstractions and more principled treatment of broad parent classes, transport processes, and polymer contexts. Third, broader benchmark release and external validation will be important, including archived large-scale evaluation outputs and cross-database comparison against additional curated reaction resources.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Autarch shows that biochemical reaction classification can be framed as a collection of explicit, executable, and inspectable rules over reaction structure and context. On a 396-class evaluation over 3,993 GO-linked RHEA reactions with classifier-specific evidence requirements, the framework achieved micro-F1 of 0.748 and macro-F1 of 0.666 while preserving interpretability and support for polymer reactions. These results support declarative reaction classification as a practical complement to learned and ontology-driven approaches, particularly when auditability and targeted curation are required.</p>
+<h2 id="data-availability">Data Availability</h2>
+<p>Source code and documentation are available at https://github.com/cmungall/autarch and https://ai4curation.github.io/autarch. The evaluation workflow is fully reproducible from the repository. Large per-reaction evaluation tables generated for this manuscript are not versioned in git and will be archived separately alongside the release snapshot.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>We thank the maintainers and contributors of RHEA, ChEBI, Gene Ontology, RDKit, and the C3PO project for foundational infrastructure and open resources.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>
+<p>Tipton KF, Boyce S. History of the enzyme nomenclature system. Bioinformatics. 2000;16(1):34-40. doi:10.1093/bioinformatics/16.1.34</p>
+</li>
+<li>
+<p>McDonald AG, Tipton KF. Fifty-five years of enzyme classification: advances and difficulties. FEBS J. 2014;281(2):583-592. doi:10.1111/febs.12530</p>
+</li>
+<li>
+<p>Bansal P, Morgat A, Axelsen KB, et al. Rhea, the reaction knowledgebase in 2022. Nucleic Acids Res. 2022;50(D1):D693-D700. doi:10.1093/nar/gkab1016</p>
+</li>
+<li>
+<p>Gene Ontology Consortium. The Gene Ontology resource: enriching a GOld mine. Nucleic Acids Res. 2021;49(D1):D325-D334. doi:10.1093/nar/gkaa1113</p>
+</li>
+<li>
+<p>Bateman A, Martin MJ, Orchard S, et al. UniProt: the universal protein knowledgebase in 2023. Nucleic Acids Res. 2023;51(D1):D523-D531. doi:10.1093/nar/gkac1052</p>
+</li>
+<li>
+<p>Milacic M, Beavers D, Conley P, et al. The Reactome pathway knowledgebase 2024. Nucleic Acids Res. 2024;52(D1):D672-D678. doi:10.1093/nar/gkad1025</p>
+</li>
+<li>
+<p>Kim GB, Kim JY, Lee JA, et al. Functional annotation of enzyme-encoding genes using deep learning with transformer layers. Nat Commun. 2023;14:7804. doi:10.1038/s41467-023-43216-z</p>
+</li>
+<li>
+<p>Qian W, Wang X, Kang Y, et al. A general model for predicting enzyme functions based on enzymatic reactions. J Cheminform. 2024;16:27. doi:10.1186/s13321-024-00827-y</p>
+</li>
+<li>
+<p>Hua C, Zhong B, Luan S, et al. ReactZyme: a benchmark for enzyme-reaction prediction. arXiv. 2024. doi:10.48550/arXiv.2408.13659</p>
+</li>
+<li>
+<p>Mungall CJ, Malik A, Korn DR, Reese JT, O'Boyle NM, Hastings J. Chemical classification program synthesis using generative artificial intelligence. J Cheminform. 2025;17:152. doi:10.1186/s13321-025-01092-3</p>
+</li>
+<li>
+<p>Hastings J, Owen G, Dekker A, et al. ChEBI in 2016: improved services and an expanding collection of metabolites. Nucleic Acids Res. 2016;44(D1):D1214-D1219. doi:10.1093/nar/gkv1031</p>
+</li>
+<li>
+<p>Weininger D. SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules. J Chem Inf Comput Sci. 1988;28(1):31-36. doi:10.1021/ci00057a005</p>
+</li>
+</ol>
+<h2 id="supplementary-materials">Supplementary Materials</h2>
+<h3 id="s1-complete-classifier-list">S1: Complete Classifier List</h3>
+<p>The complete classifier inventory is available from the generated HTML report and repository source tree.</p>
+<h3 id="s2-pattern-dsl-reference">S2: Pattern DSL Reference</h3>
+<p>The DSL specification is provided in the project documentation and source distribution.</p>
+<h3 id="s3-evaluation-protocol">S3: Evaluation Protocol</h3>
+<p>The evaluation protocol is defined in the source code and reproduced by the released benchmark workflow.</p>
+<h3 id="s4-goec-benchmark-divergence">S4: GO/EC Benchmark Divergence</h3>
+<p>Supplementary benchmark-divergence tables summarize, for each class, the overlap between GO-derived and EC-derived positive RHEA sets independently of classifier predictions. These tables are released with the evaluation artifacts as <code>benchmark_divergence.csv</code> and <code>benchmark_divergence_summary.txt</code>.</p>
+<h3 id="s5-reaction-level-benchmark-disagreement-catalog">S5: Reaction-Level Benchmark Disagreement Catalog</h3>
+<p>A curated catalog of high-confidence reaction-level benchmark disagreements, intended for GO/RHEA/EC issue filing, is released as <code>benchmark_disagreement_catalog.tsv</code> and rendered in <code>benchmark_disagreement_catalog.md</code>.</p>
+<p>For readers, the important distinction is between four situations: <code>(i)</code> truly unannotated candidate reactions with neither GO nor EC support; <code>(ii)</code> GO-coverage gaps, where a reaction already has EC support but is absent from the GO-labeled benchmark; <code>(iii)</code> local benchmark bugs such as stale or incomplete ancestor closure; and <code>(iv)</code> true GO/EC scope conflicts, where the reaction is classified but the ontology boundaries disagree with the mechanistic grouping used by the classifier.</p>
+<p>Representative cases are shown below to make those categories concrete:</p>
+<table>
+<thead>
+<tr>
+<th>RHEA</th>
+<th>Reaction summary</th>
+<th>Category</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RHEA:12192</code></td>
+<td><code>(2E,6E)-farnesyl diphosphate + H2O = germacradien-6-ol + diphosphate</code></td>
+<td>GO-coverage gap</td>
+<td>The reaction already has the specific EC assignment <code>4.2.3.166</code> (terpene synthase), so it is not an unclassified reaction; the issue is that it is absent from the GO-labeled benchmark.</td>
+</tr>
+<tr>
+<td><code>RHEA:17793</code></td>
+<td><code>L-alanyl-tRNA(Thr) + H2O = L-alanine + tRNA(Thr)</code></td>
+<td>Local benchmark bug</td>
+<td>The GO term is a descendant of hydrolase / carboxylic-ester-hydrolase in GO itself, but an earlier cached ancestor closure omitted those parents.</td>
+</tr>
+<tr>
+<td><code>RHEA:12140</code></td>
+<td><code>deoxynucleoside + ATP = deoxynucleoside phosphate + ADP</code></td>
+<td>True GO/EC scope conflict</td>
+<td>EC treats nucleoside kinases as alcohol-group phosphotransferases, whereas GO routes them under kinase / nucleobase-containing-compound-kinase branches.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s6-representative-code-examples">S6: Representative Code Examples</h3>
+<p>This appendix includes short excerpts from the current codebase to make the implementation style concrete. These are real examples adapted from the repository, lightly shortened for readability.</p>
+<h4 id="s61-smarts-based-moiety-patterns">S6.1 SMARTS-based moiety patterns</h4>
+<p>The system uses explicit SMARTS patterns for common functional groups. These patterns are then reused across many classifiers through <code>participant.has_moiety(...)</code>.</p>
+<pre><code class="language-python">class Moiety(Enum):
+    PHOSPHATE = &quot;[P;X4](=[O;X1])([O;X2])([O;X2])[O;X2]&quot;
+    THIOESTER = &quot;[C;X3](=[O;X1])[S;X2]&quot;
+    CARBOXYL = &quot;[C;X3](=[O;X1])[O;H1,X1-]&quot;
+    ALDEHYDE = &quot;[CX3H1,H2](=O)&quot;
+    KETONE = &quot;[#6][CX3](=O)[#6]&quot;
+</code></pre>
+<p>These SMARTS are intentionally simple: they are meant to capture reusable biochemical moieties rather than solve full reaction classification on their own.</p>
+<h4 id="s62-base-classifier-interface-and-evidence-declaration">S6.2 Base classifier interface and evidence declaration</h4>
+<p>The core abstraction is a <code>ReactionClass</code> with an explicit evaluation-evidence contract. This allows benchmark eligibility to remain declarative rather than being hard-coded in the evaluator.</p>
+<pre><code class="language-python">class EvaluationEvidence(str, Enum):
+    COMPLETE_SMILES = &quot;complete_smiles&quot;
+    POLYMER_METADATA = &quot;polymer_metadata&quot;
+    PARTICIPANT_IDENTIFIERS = &quot;participant_identifiers&quot;
+
+
+class ReactionClass(ABC):
+    GO_ID: ClassVar[Optional[str]] = None
+    EC_NUMBER_PREFIX: ClassVar[Optional[str]] = None
+    EVALUATION_EVIDENCE: ClassVar[frozenset[EvaluationEvidence]] = frozenset(
+        {
+            EvaluationEvidence.COMPLETE_SMILES,
+            EvaluationEvidence.POLYMER_METADATA,
+        }
+    )
+
+    @classmethod
+    def supports_evaluation(cls, reaction: Reaction) -&gt; bool:
+        participants = reaction.all_participants()
+
+        if (
+            EvaluationEvidence.COMPLETE_SMILES in cls.EVALUATION_EVIDENCE
+            and all(participant.smiles is not None for participant in participants)
+        ):
+            return True
+
+        if (
+            EvaluationEvidence.POLYMER_METADATA in cls.EVALUATION_EVIDENCE
+            and any(
+                participant.polymer_index is not None
+                or participant.polymer_type is not None
+                for participant in participants
+            )
+        ):
+            return True
+
+        if (
+            EvaluationEvidence.PARTICIPANT_IDENTIFIERS in cls.EVALUATION_EVIDENCE
+            and all(
+                participant.chebi_id is not None
+                or participant.name is not None
+                or participant.polymer_index is not None
+                for participant in participants
+            )
+        ):
+            return True
+
+        return False
+</code></pre>
+<h4 id="s63-declarative-pattern-based-classifier">S6.3 Declarative pattern-based classifier</h4>
+<p>The <code>Kinase</code> classifier shows the intended concise style: a small set of patterns plus a short guard against transport reactions.</p>
+<pre><code class="language-python">class Kinase(ReactionClass):
+    GO_ID = &quot;GO:0016301&quot;
+    EC_NUMBER_PREFIX = &quot;2.7.-.-&quot;
+
+    PATTERNS: list[Reaction] = [
+        p(atp) + var(&quot;substrate&quot;) + optional(p(h_plus))
+        &gt;&gt; p(adp) + var(&quot;product&quot;) + optional(p(h_plus)),
+        p(gtp) + var(&quot;substrate&quot;) + optional(p(h_plus))
+        &gt;&gt; p(gdp) + var(&quot;product&quot;) + optional(p(h_plus)),
+    ]
+
+    def check_membership_impl(self, reaction: Reaction) -&gt; ClassificationResult:
+        if reaction.is_transport_reaction():
+            return ClassificationResult(
+                is_member=False,
+                explanation=&quot;Transport reaction (ATPase/translocase) - not kinase&quot;,
+            )
+
+        match = match_patterns(reaction, self.PATTERNS, strict=True)
+        if match and match.matched:
+            return ClassificationResult(
+                is_member=True,
+                explanation=&quot;Kinase: phosphoryl transfer&quot;,
+            )
+
+        return ClassificationResult(
+            is_member=False,
+            explanation=&quot;No kinase pattern found&quot;,
+        )
+</code></pre>
+<h4 id="s64-explicit-ontology-wrapper">S6.4 Explicit ontology wrapper</h4>
+<p>Broad parent classes are implemented as explicit unions of curated child classifiers rather than as proxy lookups against GO or EC annotations. This keeps the public classification logic transparent and makes the provenance of a parent-level classification auditable.</p>
+<pre><code class="language-python">class CisTransIsomerase(ExplicitGoAggregate):
+    GO_ID = &quot;GO:0016859&quot;
+    CHILD_CLASSES = (
+        CisTransIsomerases,
+        PeptidylProlylCisTransIsomerase,
+    )
+</code></pre>
+<h4 id="s65-specific-chemistry-refinement">S6.5 Specific chemistry refinement</h4>
+<p>Narrower classes often refine a broader parent with a small number of additional chemical constraints. The <code>GlycineOxidase</code> classifier first requires membership in a broader <code>CH-NH2 donor</code> oxidoreductase class, then adds product-side chemistry checks.</p>
+<pre><code class="language-python">class GlycineOxidase(OxidoreductaseActingOnTheCHNH2GroupOfDonorsOxygenAsAcceptor):
+    GO_ID = &quot;GO:0043799&quot;
+    EC_NUMBER_PREFIX = &quot;1.4.3.19&quot;
+
+    def check_membership_impl(self, reaction: Reaction) -&gt; ClassificationResult:
+        parent_result = super().check_membership_impl(reaction)
+        if not parent_result.is_member:
+            return parent_result
+
+        if not any(p.chebi_id == CHEBI_O2 for p in reaction.left_participants):
+            return ClassificationResult(False, &quot;No dioxygen reactant found&quot;)
+        if not any(p.chebi_id == CHEBI_H2O2 for p in reaction.right_participants):
+            return ClassificationResult(False, &quot;No hydrogen peroxide product found&quot;)
+
+        if not any(self._is_small_amino_acid_substrate(p) for p in reaction.left_participants):
+            return ClassificationResult(False, &quot;No small amino-acid substrate detected&quot;)
+        if not any(self._is_allowed_oxo_acid(p) for p in reaction.right_participants):
+            return ClassificationResult(False, &quot;No glyoxylate- or pyruvate-like product detected&quot;)
+
+        return ClassificationResult(
+            is_member=True,
+            explanation=&quot;Glycine oxidase: oxidation of a small amino acid to glyoxylate/pyruvate with peroxide formation&quot;,
+        )
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

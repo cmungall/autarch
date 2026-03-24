@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrolase - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>Hydrolase</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:3.-.-.-" target="_blank">EC:3.-.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>hydrolase</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.857</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.945</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.783</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.962</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.840</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.992</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">398</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">23</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">110</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">2953</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hydrolase.py:33</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016787&quot;</span>  <span class="comment"># hydrolase activity</span>
+
+    EC_NUMBER_PREFIX: ClassVar[Optional[str]] = <span class="str">&quot;3.-.-.-&quot;</span>  <span class="comment"># All hydrolases</span>
+
+    PATTERNS: list[Reaction] = [
+        <span class="comment"># Basic hydrolysis: substrate + H2O → product1 + product2 + H+?</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(water) &gt;&gt; var(<span class="str">&quot;product1&quot;</span>) + var(<span class="str">&quot;product2&quot;</span>) + optional(h_plus),
+        <span class="comment"># Without H+</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(water) &gt;&gt; var(<span class="str">&quot;product1&quot;</span>) + var(<span class="str">&quot;product2&quot;</span>),
+        <span class="comment"># Three products</span>
+        var(<span class="str">&quot;substrate&quot;</span>) + p(water) &gt;&gt; var(<span class="str">&quot;product1&quot;</span>) + var(<span class="str">&quot;product2&quot;</span>) + var(<span class="str">&quot;product3&quot;</span>),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">hydrolase.py:46</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is a hydrolase using ONLY strict pattern matching.
+        
+        SIMPLE, DECLARATIVE: Only reactions that match hydrolysis patterns.
+        No heuristics - pattern match or nothing.
+        
+        NOTE: Previous version had overly broad fallback that caught ATP hydrolases
+        and transport reactions. Precision improved by removing this.
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Must have water as reactant</span>
+        <span class="comment"># Support multiple SMILES encodings: &quot;O&quot;, &quot;[H]O[H]&quot;, &quot;[OH2]&quot;</span>
+        WATER_SMILES = {<span class="str">&quot;O&quot;</span>, <span class="str">&quot;[H]O[H]&quot;</span>, <span class="str">&quot;[OH2]&quot;</span>, <span class="str">&quot;O([H])[H]&quot;</span>}
+        has_water = any(
+            p.chebi_id == CHEBI_H2O <span class="kw">or</span>
+            p.smiles <span class="kw">in</span> WATER_SMILES
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        
+        <span class="kw">if</span> <span class="kw">not</span> has_water:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;No water reactant - not hydrolysis&quot;</span>
+            )
+        
+        <span class="comment"># ONLY pattern matching - no heuristic fallbacks</span>
+        <span class="comment"># Use Hydrolase.PATTERNS explicitly (not self.PATTERNS) so subclasses</span>
+        <span class="comment"># calling super() use the parent&#x27;s generic patterns, not their own specific ones</span>
+        match = match_patterns(reaction, Hydrolase.PATTERNS)
+        
+        <span class="kw">if</span> match <span class="kw">and</span> match.matched:
+            explanation = <span class="str">&quot;Hydrolase: water-mediated bond cleavage&quot;</span>
+            <span class="kw">if</span> match.bindings:
+                substrate = match.bindings.get(<span class="str">&quot;substrate&quot;</span>)
+                <span class="kw">if</span> substrate:
+                    explanation += f<span class="str">&quot; of {substrate}&quot;</span>
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=explanation
+            )
+        
+        <span class="comment"># No pattern match = not hydrolase (removed overly broad fallback)</span>
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=&quot;Pattern doesn&<span class="comment">#x27;t match expected hydrolysis transformation&quot;</span>
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">398</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16459</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16353</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:88115</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58343</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17716</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:131705</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:10979</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58425</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10244" target="_blank">RHEA:10244</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:18034</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10248" target="_blank">RHEA:10248</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">dUTP + H2O = dUMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61555</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10288" target="_blank">RHEA:10288</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-rhamnono-1,4-lactone + H2O = L-rhamnonate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17937</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10360" target="_blank">RHEA:10360</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3,4-dihydrocoumarin + H2O = 3-(2-hydroxyphenyl)propanoate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16151</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10424" target="_blank">RHEA:10424</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-benzoylglycine + H2O = benzoate + glycine</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:606565</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10440" target="_blank">RHEA:10440</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">D-glucono-1,5-lactone + H2O = D-gluconate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16217</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10484" target="_blank">RHEA:10484</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-feruloylglycine + H2O = (E)-ferulate + glycine</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58236</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10492" target="_blank">RHEA:10492</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">phosphocholine + H2O = choline + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:295975</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10536" target="_blank">RHEA:10536</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-deoxy-beta-D-gluc-4-enuronosyl-(1-&gt;3)-N-acetyl-D-galactosamine 6-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1-&gt;3)-N-acetyl-D-galactosamine + sulfate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57878</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10564" target="_blank">RHEA:10564</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">oxaloacetate 4-methyl ester + H2O = methanol + oxaloacetate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57927</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10644" target="_blank">RHEA:10644</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2-oxo-2H-pyran-4,6-dicarboxylate + H2O = (1E)-4-oxobut-1-ene-1,2,4-tricarboxylate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58304</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10684" target="_blank">RHEA:10684</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">O-phospho-L-tyrosyl-[protein] + H2O = L-tyrosyl-[protein] + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61978</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10688" target="_blank">RHEA:10688</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">streptomycin 6-phosphate + H2O = streptomycin + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57787</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10772" target="_blank">RHEA:10772</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">6-phospho-beta-D-glucosyl-(1-&gt;4)-D-glucose + H2O = D-glucose 6-phosphate + D-glucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58312</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10816" target="_blank">RHEA:10816</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">methyl-2-alpha-L-fucopyranosyl-beta-D-galactoside + H2O = methyl beta-D-galactoside + L-fucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17512</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10880" target="_blank">RHEA:10880</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">7-methylxanthosine + H2O = 7-methylxanthine + D-ribose + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:49310</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10944" target="_blank">RHEA:10944</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">psi-UMP + H2O = pseudouridine + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58380</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11012" target="_blank">RHEA:11012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-tryptophanamide + H2O = L-tryptophan + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57803</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11016" target="_blank">RHEA:11016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">allantoate + H2O = (S)-ureidoglycolate + urea</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17536</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11064" target="_blank">RHEA:11064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">beta-D-fructose 1,6-bisphosphate + H2O = beta-D-fructose 6-phosphate + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:32966</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11068" target="_blank">RHEA:11068</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(5R)-5-O-[alpha-D-glucosyl-(1-&gt;2)-beta-D-galactosyl]-5-hydroxy-L-lysyl-[collagen] + H2O = (5R)-5-O-(beta-D-galactosyl)-5-hydroxy-L-lysyl-[collagen] + D-glucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:133452</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11088" target="_blank">RHEA:11088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">trimetaphosphate + H2O = triphosphate + 2 H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57801</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11112" target="_blank">RHEA:11112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">isochorismate + H2O = (2S,3S)-2,3-dihydroxy-2,3-dihydrobenzoate + pyruvate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:29780</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11312" target="_blank">RHEA:11312</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">atrazine + H2O = hydroxyatrazine + chloride + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:15930</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11392" target="_blank">RHEA:11392</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,3,4,5-tetrakisphosphate + H2O = 1D-myo-inositol 1,3,4-trisphosphate + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57895</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11444" target="_blank">RHEA:11444</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-deoxy-beta-D-gluc-4-enuronosyl-(1-&gt;3)-N-acetyl-D-galactosamine 4-sulfate + H2O = 4-deoxy-beta-D-gluc-4-enuronosyl-(1-&gt;3)-N-acetyl-D-galactosamine + sulfate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:83963</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11500" target="_blank">RHEA:11500</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3-deoxy-alpha-D-manno-2-octulosonate-8-phosphate + H2O = 3-deoxy-alpha-D-manno-oct-2-ulosonate + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:85985</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11516" target="_blank">RHEA:11516</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">succinyl-CoA + H2O = succinate + CoA + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57292</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11544" target="_blank">RHEA:11544</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N(4)-(beta-N-acetyl-D-glucosaminyl)-L-asparagine + H2O = N-acetyl-beta-D-glucosaminylamine + L-aspartate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58080</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11548" target="_blank">RHEA:11548</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5-(4-acetoxybut-1-ynyl)-2,2&#x27;-bithiophene + H2O = 5-(4-hydroxy-but-1-ynyl)-2,2&#x27;-bithiophene + acetate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17181</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11744" target="_blank">RHEA:11744</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">thiamine triphosphate + H2O = thiamine diphosphate + phosphate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58938</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11752" target="_blank">RHEA:11752</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">acetylsalicylate + H2O = salicylate + acetate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:13719</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11764" target="_blank">RHEA:11764</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">methylguanidine + H2O = urea + methylamine</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57840</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11828" target="_blank">RHEA:11828</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">a 3&#x27;-end 2&#x27;,3&#x27;-cyclophospho-ribonucleotide-RNA + H2O = a 3&#x27;-end 2&#x27;-phospho-ribonucleotide-RNA + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:83064</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11908" target="_blank">RHEA:11908</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">nonane-4,6-dione + H2O = pentan-2-one + butanoate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16111</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11948" target="_blank">RHEA:11948</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-hydroxybenzoyl-CoA + H2O = 4-hydroxybenzoate + CoA + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57356</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11956" target="_blank">RHEA:11956</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">cholesteryl 3-beta-D-glucoside + H2O = cholesterol + D-glucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17495</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12028" target="_blank">RHEA:12028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-5-carboxymethylhydantoin + H2O = N-carbamoyl-L-aspartate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57740</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12096" target="_blank">RHEA:12096</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-benzylformamide + H2O = benzylamine + formate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:41117</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12172" target="_blank">RHEA:12172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">alpha-D-glucosamine 6-phosphate + H2O = beta-D-fructose 6-phosphate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:75989</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12208" target="_blank">RHEA:12208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-methylumbelliferyl acetate + H2O = 4-methylumbelliferone + acetate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17763</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12252" target="_blank">RHEA:12252</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-O-(beta-D-glucosyl)-(E)-coniferol + H2O = (E)-coniferol + D-glucose</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16220</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 348 more (showing 50 of 398)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">23</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10840" target="_blank">RHEA:10840</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">O-phospho-L-homoserine + H2O = L-threonine + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57590</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13885" target="_blank">RHEA:13885</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">stipitatonate + H2O = stipitatate + CO2</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57775</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14005" target="_blank">RHEA:14005</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L,L-cystathionine + H2O = 2-oxobutanoate + L-cysteine + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58161</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15809" target="_blank">RHEA:15809</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (R)-linalool + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16453" target="_blank">RHEA:16453</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(3Z)-4-(2-carboxyphenyl)-2-oxobut-3-enoate + H2O = 2-formylbenzoate + pyruvate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58794</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17889" target="_blank">RHEA:17889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">phosphoethanolamine + H2O = acetaldehyde + NH4(+) + phosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58190</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19553" target="_blank">RHEA:19553</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-tryptophan + H2O = indole + pyruvate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57912</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19565" target="_blank">RHEA:19565</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = sabinene hydrate + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20565" target="_blank">RHEA:20565</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (1S,2S,4R)-endo-fenchol + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21704" target="_blank">RHEA:21704</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-tyrosine + H2O = phenol + pyruvate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58315</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22436" target="_blank">RHEA:22436</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23800" target="_blank">RHEA:23800</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-methionine + H2O = methanethiol + 2-oxobutanoate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57844</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24116" target="_blank">RHEA:24116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (S)-linalool + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24927" target="_blank">RHEA:24927</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-cystine + H2O = S-sulfanyl-L-cysteine + pyruvate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:35491</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26115" target="_blank">RHEA:26115</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = epi-cedrol + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26213" target="_blank">RHEA:26213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">9alpha-copalyl diphosphate + H2O = aphidicolan-16beta-ol + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58622</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27389" target="_blank">RHEA:27389</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(3E)-4-(2-hydroxyphenyl)-2-oxobut-3-enoate + H2O = salicylaldehyde + pyruvate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:59353</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27534" target="_blank">RHEA:27534</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (3R,6E)-nerolidol + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27754" target="_blank">RHEA:27754</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">methylglyoxal + H2O = (R)-lactate + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17158</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28278" target="_blank">RHEA:28278</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3-sulfino-L-alanine + H2O = sulfite + L-alanine + H(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61085</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31151" target="_blank">RHEA:31151</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-selenocystathionine + H2O = L-selenocysteine + 2-oxobutanoate + NH4(+)</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:62226</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32543" target="_blank">RHEA:32543</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2E)-geranyl diphosphate + H2O = 1,8-cineole + diphosphate</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36307" target="_blank">RHEA:36307</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(E)-caffeoyl-CoA + H2O = 3,4-dihydroxybenzaldehyde + acetyl-CoA</span>
+                <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:87136</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">110</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10348" target="_blank">RHEA:10348</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5-oxo-L-proline + ATP + 2 H2O = L-glutamate + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10412" target="_blank">RHEA:10412</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">ADP-D-ribose + H2O = D-ribose 5-phosphate + AMP + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10432" target="_blank">RHEA:10432</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2-(acetamidomethylene)succinate + 2 H2O + H(+) = succinate semialdehyde + acetate + NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10560" target="_blank">RHEA:10560</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-hydroxy-1-pyrroline-2-carboxylate + H2O + H(+) = 2,5-dioxopentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10700" target="_blank">RHEA:10700</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">limonene 1,2-epoxide + H2O = limonene-1,2-diol</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10896" target="_blank">RHEA:10896</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">limonin + 2 H2O = limonoate + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11184" target="_blank">RHEA:11184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3-(carbamoylamino)propanoate + H2O + 2 H(+) = beta-alanine + NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11188" target="_blank">RHEA:11188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3-cyano-L-alanine + 2 H2O = L-aspartate + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11232" target="_blank">RHEA:11232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3&#x27;-phosphoadenylyl sulfate + H2O = sulfate + adenosine 3&#x27;,5&#x27;-bisphosphate + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11408" target="_blank">RHEA:11408</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">riboflavin + H2O + H(+) = lumichrome + ribitol</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11720" target="_blank">RHEA:11720</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-methylhydantoin + ATP + 2 H2O = N-carbamoylsarcosine + ADP + phosphate + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11800" target="_blank">RHEA:11800</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">NAD(+) + H2O = beta-nicotinamide D-ribonucleotide + AMP + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11940" target="_blank">RHEA:11940</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-citrulline + H2O + 2 H(+) = L-ornithine + NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11964" target="_blank">RHEA:11964</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5,6alpha-epoxy-5alpha-cholestan-3beta-ol + H2O = 5alpha-cholestane-3beta,5,6beta-triol</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12681" target="_blank">RHEA:12681</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">creatinine + H2O + H(+) = N-methylhydantoin + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12741" target="_blank">RHEA:12741</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">ADP + H2O + H(+) = IDP + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12861" target="_blank">RHEA:12861</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">guanosine + H2O + H(+) = xanthosine + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13037" target="_blank">RHEA:13037</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">ATP + H2O + H(+) = ITP + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13197" target="_blank">RHEA:13197</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">sulfite + UDP-alpha-D-glucose + H(+) = UDP-alpha-D-6-sulfoquinovose + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13433" target="_blank">RHEA:13433</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2&#x27;-deoxycytidine + H2O + H(+) = 2&#x27;-deoxyuridine + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13765" target="_blank">RHEA:13765</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">bromochloromethane + H2O = bromide + formaldehyde + chloride + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13889" target="_blank">RHEA:13889</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">FAD + H2O = FMN + AMP + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13893" target="_blank">RHEA:13893</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">P(1),P(3)-bis(5&#x27;-adenosyl) triphosphate + H2O = AMP + ADP + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13953" target="_blank">RHEA:13953</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">a D-aminoacyl-tRNA + H2O = a tRNA + a D-alpha-amino acid + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14025" target="_blank">RHEA:14025</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-sepiapterin + H2O + H(+) = (S)-xanthopterin-B2 + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14365" target="_blank">RHEA:14365</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-carbamoyl-L-aspartate + H2O + 2 H(+) = L-aspartate + NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14533" target="_blank">RHEA:14533</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">creatinine + H2O = creatine</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14537" target="_blank">RHEA:14537</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">1-(4-amino-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + H2O + H(+) = 1-(4-hydroxy-2-methylpyrimid-5-ylmethyl)-3-(2-hydroxyethyl)-2-methylpyridinium + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14665" target="_blank">RHEA:14665</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">guanine + H2O + H(+) = xanthine + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14777" target="_blank">RHEA:14777</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">AMP + H2O + H(+) = IMP + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15041" target="_blank">RHEA:15041</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">bis-D-fructose 2&#x27;,1:2,1&#x27;-dianhydride + H2O = inulobiose</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15113" target="_blank">RHEA:15113</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5,6beta-epoxy-5beta-cholestan-3beta-ol + H2O = 5alpha-cholestane-3beta,5,6beta-triol</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15929" target="_blank">RHEA:15929</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">methylenediurea + 2 H2O + 2 H(+) = N-(hydroxymethyl)urea + 2 NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16001" target="_blank">RHEA:16001</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N(6)-methyl-AMP + H2O + H(+) = IMP + methylamine</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16069" target="_blank">RHEA:16069</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">cytidine + H2O + H(+) = uridine + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16173" target="_blank">RHEA:16173</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(4-hydroxyphenyl)acetaldehyde + dopamine = (S)-norcoclaurine + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16225" target="_blank">RHEA:16225</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">1,8-diazacyclotetradecane-2,9-dione + H2O = N-(6-aminohexanoyl)-6-aminohexanoate</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16665" target="_blank">RHEA:16665</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(5Z,9E,14Z)-(8xi,11R,12S)-11,12-epoxy-8-hydroxyicosa-5,9,14-trienoate + H2O = (5Z,9E,14Z)-(8xi,11xi,12S)-8,11,12-trihydroxyicosa-5,9,14-trienoate</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17041" target="_blank">RHEA:17041</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">adenosine 5&#x27;-phosphosulfate + H2O = sulfate + AMP + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17209" target="_blank">RHEA:17209</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">1,4,5,6-tetrahydro-6-oxonicotinate + 2 H2O = 2-formylglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17677" target="_blank">RHEA:17677</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2-(acetamidomethylene)-3-(hydroxymethyl)succinate + 2 H2O + H(+) = 2-(hydroxymethyl)-4-oxobutanoate + acetate + NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18053" target="_blank">RHEA:18053</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">paraoxon + H2O = diethylphosphate + 4-nitrophenol + 2 H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18445" target="_blank">RHEA:18445</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">IMP + H2O = 5-formamido-1-(5-phospho-D-ribosyl)imidazole-4-carboxamide</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18653" target="_blank">RHEA:18653</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">barbiturate + H2O = 3-oxo-3-ureidopropanoate</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18901" target="_blank">RHEA:18901</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N-benzyloxycarbonyl-L-leucine + H2O + H(+) = benzyl alcohol + L-leucine + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19029" target="_blank">RHEA:19029</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">urea-1-carboxylate + H2O + 3 H(+) = 2 NH4(+) + 2 CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19205" target="_blank">RHEA:19205</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">dCTP + 2 H2O = dUMP + NH4(+) + diphosphate</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19533" target="_blank">RHEA:19533</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N(2)-succinyl-L-arginine + 2 H2O + 2 H(+) = N(2)-succinyl-L-ornithine + 2 NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19809" target="_blank">RHEA:19809</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(S)-ureidoglycolate + H2O + 2 H(+) = glyoxylate + 2 NH4(+) + CO2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 60 more (showing 50 of 110)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">2953</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10252" target="_blank">RHEA:10252</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">O-phospho-L-serine + hydrogen sulfide + H(+) = L-cysteine + phosphate</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10260" target="_blank">RHEA:10260</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">Mg(2+)(out) + ATP + H2O = Mg(2+)(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Pattern doesn&#x27;t match expected hydrolysis transformation</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10264" target="_blank">RHEA:10264</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose = beta-D-glucose</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10268" target="_blank">RHEA:10268</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">2-dehydro-3-deoxy-D-glucarate = 2-hydroxy-3-oxopropanoate + pyruvate</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10280" target="_blank">RHEA:10280</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">1,7-dimethylxanthine + S-adenosyl-L-methionine = caffeine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10284" target="_blank">RHEA:10284</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">L-leucine = (3R)-beta-leucine</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10292" target="_blank">RHEA:10292</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016787" target="_blank">GO:0016787</a>]</span>:
+                <span class="reaction-label">D-glucosamine 6-phosphate + acetyl-CoA = N-acetyl-D-glucosamine 6-phosphate + CoA + H(+)</span>
+                <div class="reaction-explanation">No water reactant - not hydrolysis</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 2903 more (showing 50 of 2953)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">94</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11080" target="_blank">RHEA:11080</a></span>:
+                    <span class="reaction-label">dTMP + H2O = thymidine + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.35" target="_blank">EC:3.1.3.35</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:63528</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11592" target="_blank">RHEA:11592</a></span>:
+                    <span class="reaction-label">dihydromonacolin L-[lovastatin nonaketide synthase] + H2O = holo-[lovastatin nonaketide synthase] + dihydromonacolin L carboxylate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.31" target="_blank">EC:3.1.2.31</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:79032</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12849" target="_blank">RHEA:12849</a></span>:
+                    <span class="reaction-label">O-phospho-L-seryl-[myosin light chain] + H2O = L-seryl-[myosin light chain] + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.53" target="_blank">EC:3.1.3.53</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:83421</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15057" target="_blank">RHEA:15057</a></span>:
+                    <span class="reaction-label">(9Z)-octadecenoyl-[ACP] + H2O = (9Z)-octadecenoate + holo-[ACP] + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.14" target="_blank">EC:3.1.2.14</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:78783</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15593" target="_blank">RHEA:15593</a></span>:
+                    <span class="reaction-label">amicoumacin A 2-phosphate + H2O = amicoumacin A + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.107" target="_blank">EC:3.1.3.107</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:144859</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15825" target="_blank">RHEA:15825</a></span>:
+                    <span class="reaction-label">AZD1979 + H2O = AZD1979 oxetane hydrolysis product + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.3.2.9" target="_blank">EC:3.3.2.9</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:138980</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16645" target="_blank">RHEA:16645</a></span>:
+                    <span class="reaction-label">hexadecanoyl-CoA + H2O = hexadecanoate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.2" target="_blank">EC:3.1.2.2</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57379</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19741" target="_blank">RHEA:19741</a></span>:
+                    <span class="reaction-label">formyl-CoA + H2O = formate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.10" target="_blank">EC:3.1.2.10</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57376</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21664" target="_blank">RHEA:21664</a></span>:
+                    <span class="reaction-label">4-nitrophenyl phosphate + H2O = 4-nitrophenol + phosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.41" target="_blank">EC:3.1.3.41</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61146</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24873" target="_blank">RHEA:24873</a></span>:
+                    <span class="reaction-label">O-phospho-D-serine + H2O = D-serine + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.3" target="_blank">EC:3.1.3.3</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58680</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25029" target="_blank">RHEA:25029</a></span>:
+                    <span class="reaction-label">ADP-alpha-D-ribose 1&#x27;&#x27;-phosphate + H2O = ADP-D-ribose + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.84" target="_blank">EC:3.1.3.84</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58753</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25112" target="_blank">RHEA:25112</a></span>:
+                    <span class="reaction-label">pyridoxine 5&#x27;-phosphate + H2O = pyridoxine + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.74" target="_blank">EC:3.1.3.74</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58589</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25173" target="_blank">RHEA:25173</a></span>:
+                    <span class="reaction-label">N(omega)-methyl-L-arginine + H2O = L-citrulline + methylamine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.3.18" target="_blank">EC:3.5.3.18</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:114953</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25189" target="_blank">RHEA:25189</a></span>:
+                    <span class="reaction-label">chloroacetate + H2O = glycolate + chloride + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.8.1.3" target="_blank">EC:3.8.1.3</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:23123</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25209" target="_blank">RHEA:25209</a></span>:
+                    <span class="reaction-label">UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-N-acetyl-alpha-D-glucosamine + H2O = UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + acetate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.108" target="_blank">EC:3.5.1.108</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61494</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25245" target="_blank">RHEA:25245</a></span>:
+                    <span class="reaction-label">(R)-S-lactoylglutathione + H2O = (R)-lactate + glutathione + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.6" target="_blank">EC:3.1.2.6</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57474</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25334" target="_blank">RHEA:25334</a></span>:
+                    <span class="reaction-label">L-cysteinyl-tRNA(Cys) + H2O = tRNA(Cys) + L-cysteine + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.6.1.n3" target="_blank">EC:3.6.1.n3</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:78517</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25904" target="_blank">RHEA:25904</a></span>:
+                    <span class="reaction-label">futalosine + H2O = dehypoxanthine futalosine + hypoxanthine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.2.2.26" target="_blank">EC:3.2.2.26</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58863</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26019" target="_blank">RHEA:26019</a></span>:
+                    <span class="reaction-label">beta-D-fructofuranosyl alpha-D-mannopyranoside 6(F)-phosphate + H2O = beta-D-fructofuranosyl alpha-D-mannopyranoside + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.79" target="_blank">EC:3.1.3.79</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58870</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26197" target="_blank">RHEA:26197</a></span>:
+                    <span class="reaction-label">melamine + H2O = ammeline + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.4.45" target="_blank">EC:3.5.4.45</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:77798</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26237" target="_blank">RHEA:26237</a></span>:
+                    <span class="reaction-label">(2E,6E,10E)-geranylgeranyl diphosphate + H2O = (2E,6E,10E)-geranylgeraniol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.7.5" target="_blank">EC:3.1.7.5</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58756</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26510" target="_blank">RHEA:26510</a></span>:
+                    <span class="reaction-label">L-prolinamide + H2O = L-proline + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.101" target="_blank">EC:3.5.1.101</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58495</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26514" target="_blank">RHEA:26514</a></span>:
+                    <span class="reaction-label">cyclohexan-1,2-dione + H2O = 6-oxohexanoate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.7.1.11" target="_blank">EC:3.7.1.11</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:41674</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26542" target="_blank">RHEA:26542</a></span>:
+                    <span class="reaction-label">(R)-piperazine-2-carboxamide + H2O = (R)-piperazine-2-carboxylate + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.100" target="_blank">EC:3.5.1.100</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58916</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26546" target="_blank">RHEA:26546</a></span>:
+                    <span class="reaction-label">beta-alaninamide + H2O = beta-alanine + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.100" target="_blank">EC:3.5.1.100</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58918</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26550" target="_blank">RHEA:26550</a></span>:
+                    <span class="reaction-label">(S)-piperazine-2-carboxamide + H2O = (S)-piperazine-2-carboxylate + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.101" target="_blank">EC:3.5.1.101</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58919</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26554" target="_blank">RHEA:26554</a></span>:
+                    <span class="reaction-label">angiotensin II + H2O = angiotensin-(1-7) + L-phenylalanine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.4.17.23" target="_blank">EC:3.4.17.23</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58506</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27385" target="_blank">RHEA:27385</a></span>:
+                    <span class="reaction-label">maleamate + H2O = maleate + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.107" target="_blank">EC:3.5.1.107</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:16146</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27506" target="_blank">RHEA:27506</a></span>:
+                    <span class="reaction-label">cocaine + H2O = ecgonine methyl ester + benzoate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.1.84" target="_blank">EC:3.1.1.84</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60056</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27526" target="_blank">RHEA:27526</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (2E,6E)-farnesol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.7.6" target="_blank">EC:3.1.7.6</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27574" target="_blank">RHEA:27574</a></span>:
+                    <span class="reaction-label">(3R)-piperidine-3-carboxamide + H2O = (3R)-piperidine-3-carboxylate + NH4(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.100" target="_blank">EC:3.5.1.100</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60118</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27578" target="_blank">RHEA:27578</a></span>:
+                    <span class="reaction-label">(R)-N-tert-butylpiperazine-2-carboxamide + H2O = tert-butylamine + (R)-piperazine-2-carboxylate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.100" target="_blank">EC:3.5.1.100</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60254</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27718" target="_blank">RHEA:27718</a></span>:
+                    <span class="reaction-label">IMP + H2O = inosine + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.99" target="_blank">EC:3.1.3.99</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58053</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27734" target="_blank">RHEA:27734</a></span>:
+                    <span class="reaction-label">4-deoxy-4-formamido-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + H2O = 4-amino-4-deoxy-alpha-L-arabinopyranosyl di-trans,octa-cis-undecaprenyl phosphate + formate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.5.1.n3" target="_blank">EC:3.5.1.n3</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58909</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27762" target="_blank">RHEA:27762</a></span>:
+                    <span class="reaction-label">CTP + H2O = CMP + diphosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.6.1.65" target="_blank">EC:3.6.1.65</a>, <a href="https://bioregistry.io/EC:3.6.1.8" target="_blank">EC:3.6.1.8</a>, <a href="https://bioregistry.io/EC:3.6.1.9" target="_blank">EC:3.6.1.9</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:37563</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27858" target="_blank">RHEA:27858</a></span>:
+                    <span class="reaction-label">2&#x27;,3&#x27;-cyclophospho-GMP + H2O = 3&#x27;-GMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.16" target="_blank">EC:3.1.4.16</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60837</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27878" target="_blank">RHEA:27878</a></span>:
+                    <span class="reaction-label">2&#x27;,3&#x27;-cyclophospho-UMP + H2O = 3&#x27;-UMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.16" target="_blank">EC:3.1.4.16</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60873</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27882" target="_blank">RHEA:27882</a></span>:
+                    <span class="reaction-label">2&#x27;,3&#x27;-cyclophospho-CMP + H2O = 3&#x27;-CMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.16" target="_blank">EC:3.1.4.16</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60877</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27886" target="_blank">RHEA:27886</a></span>:
+                    <span class="reaction-label">2&#x27;,3&#x27;-cyclophospho-AMP + H2O = 3&#x27;-AMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.16" target="_blank">EC:3.1.4.16</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60879</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27958" target="_blank">RHEA:27958</a></span>:
+                    <span class="reaction-label">cytidine + H2O = cytosine + D-ribose</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.2.2.8" target="_blank">EC:3.2.2.8</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17562</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28134" target="_blank">RHEA:28134</a></span>:
+                    <span class="reaction-label">(2S)-hesperidin + H2O = rutinose + (2S)-hesperetin</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.2.1.168" target="_blank">EC:3.2.1.168</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:28775</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28326" target="_blank">RHEA:28326</a></span>:
+                    <span class="reaction-label">wogonin 7-O-beta-D-glucuronate + H2O = wogonin + D-glucuronate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.2.1.167" target="_blank">EC:3.2.1.167</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61285</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28406" target="_blank">RHEA:28406</a></span>:
+                    <span class="reaction-label">XTP + H2O = XDP + phosphate + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.6.1.73" target="_blank">EC:3.6.1.73</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61314</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28522" target="_blank">RHEA:28522</a></span>:
+                    <span class="reaction-label">D-glycero-alpha-D-manno-heptose 1,7-bisphosphate + H2O = D-glycero-alpha-D-manno-heptose 1-phosphate + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.83" target="_blank">EC:3.1.3.83</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60207</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28542" target="_blank">RHEA:28542</a></span>:
+                    <span class="reaction-label">fluoroacetyl-CoA + H2O = fluoroacetate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.2.29" target="_blank">EC:3.1.2.29</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61623</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29315" target="_blank">RHEA:29315</a></span>:
+                    <span class="reaction-label">alpha-D-galactose 1-phosphate + H2O = D-galactose + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.94" target="_blank">EC:3.1.3.94</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58336</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29367" target="_blank">RHEA:29367</a></span>:
+                    <span class="reaction-label">CMP + H2O = cytidine + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.3.91" target="_blank">EC:3.1.3.91</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:60377</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29859" target="_blank">RHEA:29859</a></span>:
+                    <span class="reaction-label">5&#x27;-deoxyadenosine + H2O = 5-deoxy-D-ribose + adenine</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.2.2.9" target="_blank">EC:3.2.2.9</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:17319</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29875" target="_blank">RHEA:29875</a></span>:
+                    <span class="reaction-label">sn-glycero-3-phospho-L-serine + H2O = sn-glycerol 3-phosphate + L-serine + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.46" target="_blank">EC:3.1.4.46</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:64765</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29907" target="_blank">RHEA:29907</a></span>:
+                    <span class="reaction-label">sn-glycero-3-phospho-(1&#x27;-rac-glycerol) + H2O = sn-glycerol 3-phosphate + glycerol + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:3.1.4.46" target="_blank">EC:3.1.4.46</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:84515</div>
+                </div>
+                
+                <div class="truncation-notice">
+                    ... and 44 more (showing 50 of 94)
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">29</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12192" target="_blank">RHEA:12192</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (+)-(1(10)E,4E,6S,7R)-germacradien-6-ol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.166" target="_blank">EC:4.2.3.166</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14485" target="_blank">RHEA:14485</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = 10-epi-juneol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.172" target="_blank">EC:4.2.3.172</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16345" target="_blank">RHEA:16345</a></span>:
+                    <span class="reaction-label">(2E,6E,10E)-geranylgeranyl diphosphate + H2O = (3E,7E)-dolabella-3,7-dien-18-ol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.167" target="_blank">EC:4.2.3.167</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58756</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26410" target="_blank">RHEA:26410</a></span>:
+                    <span class="reaction-label">N-acetyl-D-muramate 6-phosphate + H2O = N-acetyl-D-glucosamine 6-phosphate + (R)-lactate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.1.126" target="_blank">EC:4.2.1.126</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58722</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26430" target="_blank">RHEA:26430</a></span>:
+                    <span class="reaction-label">(+)-copalyl diphosphate + H2O = phyllocladan-16alpha-ol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.45" target="_blank">EC:4.2.3.45</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58635</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27397" target="_blank">RHEA:27397</a></span>:
+                    <span class="reaction-label">4&#x27;-demethylrebeccamycin + H2O = dichloroarcyriaflavin A + beta-D-glucose</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.3.3.5" target="_blank">EC:4.3.3.5</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:595389</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27530" target="_blank">RHEA:27530</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (3S,6E)-nerolidol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.48" target="_blank">EC:4.2.3.48</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27954" target="_blank">RHEA:27954</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = presilphiperfolan-8beta-ol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.74" target="_blank">EC:4.2.3.74</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28290" target="_blank">RHEA:28290</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (5S,9S,10S)-drim-7-en-11-ol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.194" target="_blank">EC:4.2.3.194</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29479" target="_blank">RHEA:29479</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (+)-epicubenol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.64" target="_blank">EC:4.2.3.64</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29495" target="_blank">RHEA:29495</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = beta-eudesmol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.68" target="_blank">EC:4.2.3.68</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29503" target="_blank">RHEA:29503</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = patchoulol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.70" target="_blank">EC:4.2.3.70</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30371" target="_blank">RHEA:30371</a></span>:
+                    <span class="reaction-label">(1E,4S,5E,7R)-germacra-1(10),5-dien-11-ol + H2O = (-)-geosmin + acetone</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.1.99.16" target="_blank">EC:4.1.99.16</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:46734</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30947" target="_blank">RHEA:30947</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = 10-epi-gamma-eudesmol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.84" target="_blank">EC:4.2.3.84</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30951" target="_blank">RHEA:30951</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = alpha-eudesmol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.85" target="_blank">EC:4.2.3.85</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31379" target="_blank">RHEA:31379</a></span>:
+                    <span class="reaction-label">pyrrole-2-carboxylate + H2O = 1H-pyrrole + hydrogencarbonate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.1.1.93" target="_blank">EC:4.1.1.93</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:27660</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31783" target="_blank">RHEA:31783</a></span>:
+                    <span class="reaction-label">tuberculosinyl diphosphate + H2O = tuberculosinol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.153" target="_blank">EC:2.5.1.153</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58822</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31787" target="_blank">RHEA:31787</a></span>:
+                    <span class="reaction-label">tuberculosinyl diphosphate + H2O = (13R)-edaxadiene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.153" target="_blank">EC:2.5.1.153</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58822</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31791" target="_blank">RHEA:31791</a></span>:
+                    <span class="reaction-label">tuberculosinyl diphosphate + H2O = (13S)-edaxadiene + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.5.1.153" target="_blank">EC:2.5.1.153</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58822</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31823" target="_blank">RHEA:31823</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = cubebol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.91" target="_blank">EC:4.2.3.91</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32011" target="_blank">RHEA:32011</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (+)-T-muurolol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.98" target="_blank">EC:4.2.3.98</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32023" target="_blank">RHEA:32023</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = avermitilol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.96" target="_blank">EC:4.2.3.96</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32551" target="_blank">RHEA:32551</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (S)-alpha-terpineol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.111" target="_blank">EC:4.2.3.111</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32555" target="_blank">RHEA:32555</a></span>:
+                    <span class="reaction-label">(2E)-geranyl diphosphate + H2O = (R)-alpha-terpineol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.112" target="_blank">EC:4.2.3.112</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:58057</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32571" target="_blank">RHEA:32571</a></span>:
+                    <span class="reaction-label">(E)-2-methylgeranyl diphosphate + H2O = 2-methylisoborneol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.118" target="_blank">EC:4.2.3.118</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:61984</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34091" target="_blank">RHEA:34091</a></span>:
+                    <span class="reaction-label">(5R)-5-phosphooxy-L-lysine + H2O = (S)-2-amino-6-oxohexanoate + NH4(+) + phosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.134" target="_blank">EC:4.2.3.134</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:57882</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34459" target="_blank">RHEA:34459</a></span>:
+                    <span class="reaction-label">8-hydroxycopalyl diphosphate + H2O = sclareol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.141" target="_blank">EC:4.2.3.141</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:64283</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34503" target="_blank">RHEA:34503</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = (+)-epi-alpha-bisabolol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.138" target="_blank">EC:4.2.3.138</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36063" target="_blank">RHEA:36063</a></span>:
+                    <span class="reaction-label">(2E,6E)-farnesyl diphosphate + H2O = kunzeaol + diphosphate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:4.2.3.143" target="_blank">EC:4.2.3.143</a></div>
+                    <div class="reaction-explanation">Hydrolase: water-mediated bond cleavage of CHEBI:175763</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

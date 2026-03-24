@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinase - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>Kinase</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:2.7.-.-" target="_blank">EC:2.7.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>kinase</p><p>Core patterns:<br>- ATP + substrate → ADP + phospho-substrate<br>- GTP + substrate → GDP + phospho-substrate</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value good">0.917</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.963</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.875</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.992</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.914</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.998</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">154</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">6</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">22</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3302</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">kinase.py:21</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016301&quot;</span>  <span class="comment"># kinase activity</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;2.7.-.-&quot;</span>  <span class="comment"># EC 2.7 = Transferases transferring phosphorus-containing groups (kinases)</span>
+
+    PATTERNS: list[Reaction] = [
+        <span class="comment"># ATP-based phosphorylation</span>
+        p(atp) + var(<span class="str">&quot;substrate&quot;</span>) + optional(p(h_plus)) &gt;&gt; p(adp) + var(<span class="str">&quot;product&quot;</span>) + optional(p(h_plus)),
+        <span class="comment"># GTP-based phosphorylation  </span>
+        p(gtp) + var(<span class="str">&quot;substrate&quot;</span>) + optional(p(h_plus)) &gt;&gt; p(gdp) + var(<span class="str">&quot;product&quot;</span>) + optional(p(h_plus)),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">kinase.py:34</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is a kinase.
+
+        Ultra-simple:
+        1. Not a transport reaction
+        2. Matches kinase pattern (ATP→ADP or GTP→GDP with substrate)
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Exclude transport reactions (ATPases that move molecules across membranes)</span>
+        <span class="kw">if</span> reaction.is_transport_reaction():
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Transport reaction (ATPase/translocase) - not kinase&quot;</span>
+            )
+
+        <span class="comment"># Pattern match for kinase reactions</span>
+        <span class="comment"># Use strict matching - pattern should be closed (no extra participants)</span>
+        match = match_patterns(reaction, <span class="kw">self</span>.PATTERNS, strict=<span class="kw">True</span>)
+
+        <span class="kw">if</span> match <span class="kw">and</span> match.matched:
+            <span class="comment"># Build explanation based on which pattern matched</span>
+            <span class="kw">if</span> <span class="str">&quot;atp&quot;</span> <span class="kw">in</span> str(match.pattern).lower():
+                explanation = <span class="str">&quot;Kinase: ATP → ADP phosphoryl transfer&quot;</span>
+            <span class="kw">elif</span> <span class="str">&quot;gtp&quot;</span> <span class="kw">in</span> str(match.pattern).lower():
+                explanation = <span class="str">&quot;Kinase: GTP → GDP phosphoryl transfer&quot;</span>
+            <span class="kw">else</span>:
+                explanation = <span class="str">&quot;Kinase: phosphoryl transfer&quot;</span>
+
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">True</span>,
+                explanation=explanation
+            )
+
+        <span class="kw">return</span> ClassificationResult(
+            is_member=<span class="kw">False</span>,
+            explanation=<span class="str">&quot;No kinase pattern found&quot;</span>
+        )
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">154</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10596" target="_blank">RHEA:10596</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-tyrosyl-[protein] + ATP = O-phospho-L-tyrosyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10788" target="_blank">RHEA:10788</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">2-dehydro-D-gluconate + ATP = 6-phospho-2-dehydro-D-gluconate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10948" target="_blank">RHEA:10948</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-glucosamine + ATP = D-glucosamine 6-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10964" target="_blank">RHEA:10964</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-xylulose + ATP = D-xylulose 5-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11020" target="_blank">RHEA:11020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,4,5-trisphosphate + ATP = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11028" target="_blank">RHEA:11028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-mannose + ATP = D-mannose 6-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11216" target="_blank">RHEA:11216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 5&#x27;-phosphate + ATP = a 2&#x27;-deoxyribonucleoside 5&#x27;-diphosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11240" target="_blank">RHEA:11240</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">thiamine diphosphate + ATP = thiamine triphosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11352" target="_blank">RHEA:11352</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">acetate + ATP = acetyl phosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11396" target="_blank">RHEA:11396</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">5-methyldeoxycytidine 5&#x27;-phosphate + ATP = 5-methyldeoxycytidine diphosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11600" target="_blank">RHEA:11600</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">CMP + ATP = CDP + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11856" target="_blank">RHEA:11856</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,4,5,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11860" target="_blank">RHEA:11860</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-histidyl-[protein] + ATP = N(tele)-phospho-L-histidyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12008" target="_blank">RHEA:12008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">[G-protein-coupled receptor] + ATP = [G-protein-coupled receptor]-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12012" target="_blank">RHEA:12012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">thiamine + ATP = thiamine phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12140" target="_blank">RHEA:12140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside + ATP = a 2&#x27;-deoxyribonucleoside 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12260" target="_blank">RHEA:12260</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">NADH + ATP = ADP + NADPH + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12376" target="_blank">RHEA:12376</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-fuculose + ATP = L-fuculose 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12420" target="_blank">RHEA:12420</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-tagatofuranose 6-phosphate + ATP = D-tagatofuranose 1,6-bisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12452" target="_blank">RHEA:12452</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 3,4,5,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12617" target="_blank">RHEA:12617</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">N-acetyl-alpha-D-galactosamine + ATP = N-acetyl-alpha-D-galactosamine 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12697" target="_blank">RHEA:12697</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dGMP + ATP = dGDP + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12717" target="_blank">RHEA:12717</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,3,4,6-tetrakisphosphate + ATP = 1D-myo-inositol 1,3,4,5,6-pentakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12793" target="_blank">RHEA:12793</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol hexakisphosphate + ATP = 5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12801" target="_blank">RHEA:12801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-seryl-[tau protein] + ATP = O-phospho-L-seryl-[tau protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12837" target="_blank">RHEA:12837</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">choline + ATP = phosphocholine + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12965" target="_blank">RHEA:12965</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-galacturonate + ATP = 1-phospho-alpha-D-galacturonate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12973" target="_blank">RHEA:12973</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">AMP + ATP = 2 ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13069" target="_blank">RHEA:13069</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">ethanolamine + ATP = phosphoethanolamine + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13121" target="_blank">RHEA:13121</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">shikimate + ATP = 3-phosphoshikimate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13241" target="_blank">RHEA:13241</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-fucose + ATP = beta-L-fucose 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13253" target="_blank">RHEA:13253</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1D-myo-inositol 1,3,4-trisphosphate + ATP = 1D-myo-inositol 1,3,4,5-tetrakisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13377" target="_blank">RHEA:13377</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">alpha-D-glucose 1-phosphate + ATP = alpha-D-glucose 1,6-bisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13497" target="_blank">RHEA:13497</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">5-dehydro-2-deoxy-D-gluconate + ATP = 6-phospho-5-dehydro-2-deoxy-D-gluconate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13517" target="_blank">RHEA:13517</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dTMP + ATP = dTDP + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13553" target="_blank">RHEA:13553</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">alpha-D-galactose + ATP = alpha-D-galactose 1-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13585" target="_blank">RHEA:13585</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">butanoate + ATP = butanoyl phosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13697" target="_blank">RHEA:13697</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-ribose + ATP = D-ribose 5-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13941" target="_blank">RHEA:13941</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-glyceraldehyde + ATP = D-glyceraldehyde 3-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13985" target="_blank">RHEA:13985</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-homoserine + ATP = O-phospho-L-homoserine + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14017" target="_blank">RHEA:14017</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">beta-nicotinamide D-riboside + ATP = beta-nicotinamide D-ribonucleotide + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14145" target="_blank">RHEA:14145</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">guanidinoacetate + ATP = phosphoguanidinoacetate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14213" target="_blank">RHEA:14213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">beta-D-fructose 1-phosphate + ATP = beta-D-fructose 1,6-bisphosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14357" target="_blank">RHEA:14357</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">riboflavin + ATP = FMN + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14629" target="_blank">RHEA:14629</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">N-acetyl-L-glutamate + ATP = N-acetyl-L-glutamyl 5-phosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14797" target="_blank">RHEA:14797</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">2-dehydro-3-deoxy-D-gluconate + ATP = 2-dehydro-3-deoxy-6-phospho-D-gluconate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14801" target="_blank">RHEA:14801</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(2R)-3-phosphoglycerate + ATP = (2R)-3-phospho-glyceroyl phosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14805" target="_blank">RHEA:14805</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-allose + ATP = D-allose 6-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14877" target="_blank">RHEA:14877</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-glutamate + ATP = L-glutamyl 5-phosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 104 more (showing 50 of 154)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">6</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13065" target="_blank">RHEA:13065</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">ATP + H2O = ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19669" target="_blank">RHEA:19669</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">GTP + H2O = GDP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Kinase: GTP → GDP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25568" target="_blank">RHEA:25568</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">beta-D-ribosylnicotinate + ATP = nicotinate beta-D-ribonucleotide + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27990" target="_blank">RHEA:27990</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">1-deoxy-D-xylulose + ATP = 1-deoxy-D-xylulose 5-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33963" target="_blank">RHEA:33963</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">isopentenyl phosphate + ATP = isopentenyl diphosphate + ADP</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:48432" target="_blank">RHEA:48432</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">N(6)-D-ribulosyl-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-ribulosyl)-L-lysyl-[protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">22</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11024" target="_blank">RHEA:11024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">NH4(+) + ATP = phosphoramidate + ADP + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11364" target="_blank">RHEA:11364</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">pyruvate + ATP + H2O = phosphoenolpyruvate + AMP + phosphate + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11460" target="_blank">RHEA:11460</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-glucose + ADP = D-glucose 6-phosphate + AMP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13413" target="_blank">RHEA:13413</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">thymidine + ADP = dTMP + AMP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13613" target="_blank">RHEA:13613</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">beta-D-fructose 6-phosphate + diphosphate = beta-D-fructose 1,6-bisphosphate + phosphate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13689" target="_blank">RHEA:13689</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">glycerol + diphosphate = glycerol 1-phosphate + phosphate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14913" target="_blank">RHEA:14913</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">thymidine + AMP = dTMP + adenosine</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15953" target="_blank">RHEA:15953</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">agmatine + ATP = N(4)-phosphoagmatine + ADP + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16397" target="_blank">RHEA:16397</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">2 D-glucopyranose 1-phosphate = D-glucose 1,6-bisphosphate + D-glucose</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16769" target="_blank">RHEA:16769</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(2R)-3-phospho-glyceroyl phosphate + alpha-D-glucose 1-phosphate = alpha-D-glucose 1,6-bisphosphate + (2R)-3-phosphoglycerate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18381" target="_blank">RHEA:18381</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dihydroxyacetone + phosphoenolpyruvate = dihydroxyacetone phosphate + pyruvate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18737" target="_blank">RHEA:18737</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">hydrogenselenide + ATP + H2O = selenophosphate + AMP + phosphate + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20105" target="_blank">RHEA:20105</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">beta-D-fructose 6-phosphate + ADP = beta-D-fructose 1,6-bisphosphate + AMP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20409" target="_blank">RHEA:20409</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">riboflavin + alpha-D-glucose 1-phosphate = FMN + D-glucose</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21288" target="_blank">RHEA:21288</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">sn-glycerol 3-phosphate + D-glucose = D-glucose 6-phosphate + glycerol</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23764" target="_blank">RHEA:23764</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-serine + diphosphate = O-phospho-L-serine + phosphate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24276" target="_blank">RHEA:24276</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">acetate + diphosphate = acetyl phosphate + phosphate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10256" target="_blank">RHEA:10256</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">[(1-&gt;4)-6-phospho-alpha-D-glucosyl](n) + n ATP + n H2O = [(1-&gt;4)-3,6-bisphospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:53904" target="_blank">RHEA:53904</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-threonyl-[tau protein] + ATP = O-phospho-L-threonyl-[tau protein] + ADP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11668" target="_blank">RHEA:11668</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">[(1-&gt;4)-alpha-D-glucosyl](n) + n ATP + n H2O = [(1-&gt;4)-6-phospho-alpha-D-glucosyl](n) + n AMP + n phosphate + 2n H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3302</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Transport reaction (ATPase/translocase) - not kinase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10244" target="_blank">RHEA:10244</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016301" target="_blank">GO:0016301</a>]</span>:
+                <span class="reaction-label">4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)</span>
+                <div class="reaction-explanation">No kinase pattern found</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3252 more (showing 50 of 3302)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">44</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10276" target="_blank">RHEA:10276</a></span>:
+                    <span class="reaction-label">5-diphospho-1D-myo-inositol 1,2,3,4,6-pentakisphosphate + ATP + H(+) = 1,5-bis(diphospho)-1D-myo-inositol 2,3,4,6-tetrakisphosphate + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.24" target="_blank">EC:2.7.4.24</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12953" target="_blank">RHEA:12953</a></span>:
+                    <span class="reaction-label">L-seryl-[Goodpasture antigen-binding protein] + ATP = O-phospho-L-seryl-[Goodpasture antigen-binding protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.9" target="_blank">EC:2.7.11.9</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15465" target="_blank">RHEA:15465</a></span>:
+                    <span class="reaction-label">sphinganine + ATP = sphinganine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15881" target="_blank">RHEA:15881</a></span>:
+                    <span class="reaction-label">L-seryl-[Fas-activated protein] + ATP = O-phospho-L-seryl-[Fas-activated protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.8" target="_blank">EC:2.7.11.8</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18157" target="_blank">RHEA:18157</a></span>:
+                    <span class="reaction-label">pyruvate + ATP = phosphoenolpyruvate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.40" target="_blank">EC:2.7.1.40</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20329" target="_blank">RHEA:20329</a></span>:
+                    <span class="reaction-label">L-seryl-[low-density-lipoprotein receptor] + ATP = O-phospho-L-seryl-[low-density-lipoprotein receptor] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.29" target="_blank">EC:2.7.11.29</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20700" target="_blank">RHEA:20700</a></span>:
+                    <span class="reaction-label">lipid A disaccharide (E. coli) + ATP = lipid IVA (E. coli) + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.130" target="_blank">EC:2.7.1.130</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25098" target="_blank">RHEA:25098</a></span>:
+                    <span class="reaction-label">UDP + ATP = UTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25104" target="_blank">RHEA:25104</a></span>:
+                    <span class="reaction-label">pyridoxamine + ATP = pyridoxamine 5&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.35" target="_blank">EC:2.7.1.35</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25108" target="_blank">RHEA:25108</a></span>:
+                    <span class="reaction-label">pyridoxine + ATP = pyridoxine 5&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.35" target="_blank">EC:2.7.1.35</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25237" target="_blank">RHEA:25237</a></span>:
+                    <span class="reaction-label">CDP + ATP = CTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25253" target="_blank">RHEA:25253</a></span>:
+                    <span class="reaction-label">aldehydo-N-acetyl-D-mannosamine + ATP = aldehydo-N-acetyl-D-mannosamine 6-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.60" target="_blank">EC:2.7.1.60</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25428" target="_blank">RHEA:25428</a></span>:
+                    <span class="reaction-label">N-acetyl-D-hexosamine + ATP = N-acetyl-alpha-D-hexosamine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.162" target="_blank">EC:2.7.1.162</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26064" target="_blank">RHEA:26064</a></span>:
+                    <span class="reaction-label">hygromycin B + ATP = 4-O-phosphohygromycin B + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.163" target="_blank">EC:2.7.1.163</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27570" target="_blank">RHEA:27570</a></span>:
+                    <span class="reaction-label">D-glycero-alpha-D-manno-heptose 7-phosphate + ATP = D-glycero-alpha-D-manno-heptose 1,7-bisphosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.168" target="_blank">EC:2.7.1.168</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27650" target="_blank">RHEA:27650</a></span>:
+                    <span class="reaction-label">uridine + GTP = UMP + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.48" target="_blank">EC:2.7.1.48</a></div>
+                    <div class="reaction-explanation">Kinase: GTP → GDP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27674" target="_blank">RHEA:27674</a></span>:
+                    <span class="reaction-label">dADP + ATP = dATP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27678" target="_blank">RHEA:27678</a></span>:
+                    <span class="reaction-label">dCDP + ATP = dCTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27682" target="_blank">RHEA:27682</a></span>:
+                    <span class="reaction-label">dTDP + ATP = dTTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27686" target="_blank">RHEA:27686</a></span>:
+                    <span class="reaction-label">GDP + ATP = GTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27690" target="_blank">RHEA:27690</a></span>:
+                    <span class="reaction-label">dGDP + ATP = dGTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28162" target="_blank">RHEA:28162</a></span>:
+                    <span class="reaction-label">cytidine + GTP = GDP + CMP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.213" target="_blank">EC:2.7.1.213</a>, <a href="https://bioregistry.io/EC:2.7.1.48" target="_blank">EC:2.7.1.48</a></div>
+                    <div class="reaction-explanation">Kinase: GTP → GDP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28246" target="_blank">RHEA:28246</a></span>:
+                    <span class="reaction-label">(R)-pantoate + ATP = (R)-4-phosphopantoate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.169" target="_blank">EC:2.7.1.169</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28378" target="_blank">RHEA:28378</a></span>:
+                    <span class="reaction-label">N(6)-(D-fructosyl)-L-lysine + ATP = N(6)-(6-phospho-D-fructosyl)-L-lysine + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.218" target="_blank">EC:2.7.1.218</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28506" target="_blank">RHEA:28506</a></span>:
+                    <span class="reaction-label">alpha-Kdo-(2-&gt;6)-lipid IVA (E. coli) + ATP = 4-O-phospho-alpha-Kdo-(2-&gt;6)-lipid IVA (E. coli) + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.166" target="_blank">EC:2.7.1.166</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28582" target="_blank">RHEA:28582</a></span>:
+                    <span class="reaction-label">dUDP + ATP = dUTP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29775" target="_blank">RHEA:29775</a></span>:
+                    <span class="reaction-label">alpha-D-ribose 1-phosphate + ATP = alpha-D-ribose 1,5-bisphosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.239" target="_blank">EC:2.7.1.239</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30295" target="_blank">RHEA:30295</a></span>:
+                    <span class="reaction-label">GTP + pyruvate = phosphoenolpyruvate + GDP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.40" target="_blank">EC:2.7.1.40</a></div>
+                    <div class="reaction-explanation">Kinase: GTP → GDP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30347" target="_blank">RHEA:30347</a></span>:
+                    <span class="reaction-label">IDP + ATP = ITP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30871" target="_blank">RHEA:30871</a></span>:
+                    <span class="reaction-label">2-deoxy-D-ribose + ATP = 2-deoxy-D-ribose 5-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.229" target="_blank">EC:2.7.1.229</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30939" target="_blank">RHEA:30939</a></span>:
+                    <span class="reaction-label">dIDP + ATP = dITP + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.4.6" target="_blank">EC:2.7.4.6</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:31915" target="_blank">RHEA:31915</a></span>:
+                    <span class="reaction-label">D-maltose + ATP = alpha-maltose 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.175" target="_blank">EC:2.7.1.175</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32671" target="_blank">RHEA:32671</a></span>:
+                    <span class="reaction-label">UDP-N-acetyl-alpha-D-glucosamine + ATP = UDP-N-acetyl-alpha-D-glucosamine 3&#x27;-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.176" target="_blank">EC:2.7.1.176</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33563" target="_blank">RHEA:33563</a></span>:
+                    <span class="reaction-label">(4R)-hydroxysphinganine + ATP = (4R)-hydroxysphinganine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33707" target="_blank">RHEA:33707</a></span>:
+                    <span class="reaction-label">L-threonine + ATP = O-phospho-L-threonine + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.177" target="_blank">EC:2.7.1.177</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35751" target="_blank">RHEA:35751</a></span>:
+                    <span class="reaction-label">kanosamine + ATP = D-kanosamine 6-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.179" target="_blank">EC:2.7.1.179</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35847" target="_blank">RHEA:35847</a></span>:
+                    <span class="reaction-label">sphing-4-enine + ATP = sphing-4-enine 1-phosphate + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.91" target="_blank">EC:2.7.1.91</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:44880" target="_blank">RHEA:44880</a></span>:
+                    <span class="reaction-label">L-threonyl-[receptor-protein] + ATP = O-phospho-L-threonyl-[receptor-protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.30" target="_blank">EC:2.7.11.30</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:52604" target="_blank">RHEA:52604</a></span>:
+                    <span class="reaction-label">3-O-(N-acetyl-beta-D-galactosaminyl-(1-&gt;3)-N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-alpha-D-mannosyl)-L-seryl-[protein] + ATP = 3-O-(N-acetyl-beta-D-galactosaminyl-(1-&gt;3)-N-acetyl-beta-D-glucosaminyl-(1-&gt;4)-6-O-phospho-alpha-D-mannosyl)-L-seryl-[protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.183" target="_blank">EC:2.7.1.183</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:52616" target="_blank">RHEA:52616</a></span>:
+                    <span class="reaction-label">3-O-[beta-D-GalNAc-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;4)-alpha-D-Man]-L-Thr-[protein] + ATP = 3-O-[beta-D-GalNAc-(1-&gt;3)-beta-D-GlcNAc-(1-&gt;4)-(O-6-P-alpha-D-Man)]-Thr-[protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.183" target="_blank">EC:2.7.1.183</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:52632" target="_blank">RHEA:52632</a></span>:
+                    <span class="reaction-label">[amino-group carrier protein]-C-terminal-gamma-(L-glutamyl)-L-glutamate + ATP = [amino-group carrier protein]-C-terminal-gamma-(5-phospho-L-glutamyl)-L-glutamate + ADP</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.2.19" target="_blank">EC:2.7.2.19</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:53920" target="_blank">RHEA:53920</a></span>:
+                    <span class="reaction-label">L-threonyl-[Fas-activated protein] + ATP = O-phospho-L-threonyl-[Fas-activated protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.8" target="_blank">EC:2.7.11.8</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:56924" target="_blank">RHEA:56924</a></span>:
+                    <span class="reaction-label">L-threonyl-[Goodpasture antigen-binding protein] + ATP = O-phospho-L-threonyl-[Goodpasture antigen-binding protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.11.9" target="_blank">EC:2.7.11.9</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:61396" target="_blank">RHEA:61396</a></span>:
+                    <span class="reaction-label">N(6)-(D-erythrulosyl)-L-lysyl-[protein] + ATP = N(6)-(3-O-phospho-D-erythrulosyl)-L-lysyl-[protein] + ADP + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.7.1.172" target="_blank">EC:2.7.1.172</a></div>
+                    <div class="reaction-explanation">Kinase: ATP → ADP phosphoryl transfer</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

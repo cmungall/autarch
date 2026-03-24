@@ -1,0 +1,803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ai4curation.github.io/autarch/etl_improvement_plan/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>ETL Improvement Plan - Autarch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#etl-improvement-plan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Autarch" class="md-header__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Autarch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ETL Improvement Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Autarch" class="md-nav__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Autarch
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pattern_matching_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manuscript/paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manuscript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classifier Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-location-annotations-high-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Location Annotations (HIGH PRIORITY)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-chebi-id-normalization-high-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ChEBI ID Normalization (HIGH PRIORITY)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rhea-equation-field-medium-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RHEA EQUATION Field (MEDIUM PRIORITY)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-polymer-stoichiometry-low-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Polymer Stoichiometry (LOW PRIORITY)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#breakdown-of-missing-chebi-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Breakdown of Missing ChEBI IDs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Order
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-quick-wins-1-2-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Quick Wins (1-2 hours)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-location-annotations-2-4-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Location Annotations (2-4 hours)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-advanced-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Advanced (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-on-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact on Classification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="etl-improvement-plan">ETL Improvement Plan</h1>
+<p>Based on exhaustive analysis of the RHEA data pipeline, this document outlines specific gaps and fixes.</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Impact</th>
+<th>Effort</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location annotations not extracted</td>
+<td>42 transport reactions unidentifiable</td>
+<td>Low</td>
+<td><strong>High</strong></td>
+</tr>
+<tr>
+<td>ChEBI ID normalization</td>
+<td>263 common molecules missing IDs</td>
+<td>Low</td>
+<td><strong>High</strong></td>
+</tr>
+<tr>
+<td>RHEA EQUATION parsing</td>
+<td>Could fill more ChEBI IDs</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Polymer stoichiometry handling</td>
+<td>218 participants affected</td>
+<td>Medium</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<h2 id="detailed-analysis">Detailed Analysis</h2>
+<h3 id="1-location-annotations-high-priority">1. Location Annotations (HIGH PRIORITY)</h3>
+<p><strong>Current State:</strong>
+- 42 reactions have <code>(in)</code>/<code>(out)</code> annotations in RHEA labels
+- 56 occurrences each of <code>(in)</code> and <code>(out)</code>
+- <code>Participant.location</code> field exists but is always <code>null</code>
+- <code>parse_location_from_label()</code> function exists in <code>rhea_etl.py</code></p>
+<p><strong>Example:</strong></p>
+<pre><code>Label: &quot;sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)&quot;
+Current: location=null for all participants
+Should be: sulfate has location=&quot;out&quot; on left, location=&quot;in&quot; on right
+</code></pre>
+<p><strong>Root Cause:</strong>
+- <code>ParsedParticipant</code> class lacks <code>location</code> field
+- <code>parsed_to_participant()</code> doesn't set location
+- Location parsing exists but isn't wired up</p>
+<p><strong>Fix:</strong>
+1. Add <code>location: Optional[str] = None</code> to <code>ParsedParticipant</code> in <code>label_parser.py</code>
+2. Update label parser to extract <code>(in)</code>, <code>(out)</code>, <code>(cytoplasm)</code>, etc.
+3. Update <code>parsed_to_participant()</code> to set <code>Participant.location</code>
+4. Regenerate cache</p>
+<p><strong>Files to modify:</strong>
+- <code>src/autarch/etl/label_parser.py</code>
+- <code>src/autarch/etl/rhea_tsv_etl.py</code></p>
+<hr />
+<h3 id="2-chebi-id-normalization-high-priority">2. ChEBI ID Normalization (HIGH PRIORITY)</h3>
+<p><strong>Current State:</strong>
+- 2,570 participants (18.8%) lack ChEBI IDs
+- 263 of these are common molecules that SHOULD have ChEBI IDs
+- Same molecule appears with ChEBI in some reactions, without in others</p>
+<p><strong>Molecules affected:</strong>
+| Molecule | Missing Count | Correct ChEBI |
+|----------|---------------|---------------|
+| phosphate | 83 | CHEBI:43474 |
+| H(+) | 68 | CHEBI:15378 |
+| H2O | 23 | CHEBI:15377 |
+| UDP | 18 | CHEBI:58223 |
+| sulfur | 15 | CHEBI:17909 |
+| O2 | 14 | CHEBI:15379 |
+| ADP | 10 | CHEBI:456216 |
+| hydrogen sulfide | 9 | CHEBI:16136 |
+| ATP | 8 | CHEBI:30616 |</p>
+<p><strong>Root Cause:</strong>
+- Polymer reactions with <code>n</code> stoichiometry lose ChEBI IDs
+- Some RHEA entries inconsistently annotated</p>
+<p><strong>Fix:</strong>
+1. Create normalization dictionary mapping names → ChEBI IDs
+2. Apply during ETL when ChEBI ID is null but name matches
+3. Consider SMILES-based matching as fallback</p>
+<p><strong>Implementation:</strong></p>
+<pre><code class="language-python">CHEBI_BY_NAME = {
+    'H(+)': 'CHEBI:15378',
+    'hydron': 'CHEBI:15378',
+    'water': 'CHEBI:15377',
+    'H2O': 'CHEBI:15377',
+    'phosphate': 'CHEBI:43474',
+    # ... etc
+}
+
+def normalize_chebi(participant):
+    if participant.chebi_id:
+        return participant
+    name = participant.name.lower().strip()
+    if name in CHEBI_BY_NAME:
+        participant.chebi_id = CHEBI_BY_NAME[name]
+    return participant
+</code></pre>
+<hr />
+<h3 id="3-rhea-equation-field-medium-priority">3. RHEA EQUATION Field (MEDIUM PRIORITY)</h3>
+<p><strong>Current State:</strong>
+- <code>rhea-reactions.txt.gz</code> contains EQUATION field with explicit ChEBI IDs
+- Example: <code>CHEBI:16459 + CHEBI:15377 = CHEBI:31011 + CHEBI:28938</code>
+- This is not currently used</p>
+<p><strong>Potential:</strong>
+- Could cross-reference to fill ChEBI IDs where SMILES matching fails
+- More reliable than name matching</p>
+<p><strong>Fix:</strong>
+1. Parse EQUATION field from RHEA text file
+2. Map ChEBI IDs to participant positions
+3. Use as authoritative source for ChEBI assignment</p>
+<hr />
+<h3 id="4-polymer-stoichiometry-low-priority">4. Polymer Stoichiometry (LOW PRIORITY)</h3>
+<p><strong>Current State:</strong>
+- 218 participants (1.6%) have variable stoichiometry (<code>n</code>, <code>2n</code>, <code>n+1</code>, <code>n-1</code>)
+- These often lack ChEBI IDs and SMILES
+- Example: <code>n malonyl-CoA + acetyl-CoA + 2n NADPH + 2n H(+)</code></p>
+<p><strong>Impact:</strong>
+- Affects classification accuracy for polymer reactions
+- Loss of quantitative information</p>
+<p><strong>Fix:</strong>
+- Mostly a display/representation issue
+- Could normalize common molecules (H+, NADPH) even in polymer context
+- Consider flagging polymer reactions for special handling</p>
+<hr />
+<h2 id="breakdown-of-missing-chebi-ids">Breakdown of Missing ChEBI IDs</h2>
+<p>Total missing: <strong>2,570 participants</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Count</th>
+<th>%</th>
+<th>Recoverable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generic polymer</td>
+<td>907</td>
+<td>35%</td>
+<td>No - by design</td>
+</tr>
+<tr>
+<td>Compound by SMILES</td>
+<td>905</td>
+<td>35%</td>
+<td>Partial - InChI lookup</td>
+</tr>
+<tr>
+<td>Protein references</td>
+<td>248</td>
+<td>10%</td>
+<td>No - generic</td>
+</tr>
+<tr>
+<td>Common molecules</td>
+<td>263</td>
+<td>10%</td>
+<td><strong>Yes - name normalization</strong></td>
+</tr>
+<tr>
+<td>Other</td>
+<td>247</td>
+<td>10%</td>
+<td>Partial</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Realistically recoverable: ~300 participants (12%)</strong></p>
+<hr />
+<h2 id="implementation-order">Implementation Order</h2>
+<h3 id="phase-1-quick-wins-1-2-hours">Phase 1: Quick Wins (1-2 hours)</h3>
+<ol>
+<li>Add ChEBI normalization by name (263 fixes)</li>
+<li>Regenerate cache</li>
+<li>Re-run evaluation</li>
+</ol>
+<h3 id="phase-2-location-annotations-2-4-hours">Phase 2: Location Annotations (2-4 hours)</h3>
+<ol>
+<li>Add location field to ParsedParticipant</li>
+<li>Wire up location parsing</li>
+<li>Regenerate cache</li>
+<li>Update classifiers to use location info</li>
+</ol>
+<h3 id="phase-3-advanced-optional">Phase 3: Advanced (Optional)</h3>
+<ol>
+<li>RHEA EQUATION parsing for ChEBI recovery</li>
+<li>InChI-based ChEBI lookup</li>
+<li>Polymer reaction flagging</li>
+</ol>
+<hr />
+<h2 id="impact-on-classification">Impact on Classification</h2>
+<p>With these fixes:</p>
+<table>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Current Issue</th>
+<th>After Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transferase</td>
+<td>Transport detection via heuristics</td>
+<td>Use <code>location</code> field</td>
+</tr>
+<tr>
+<td>Kinase</td>
+<td>ATP→ADP heuristics</td>
+<td>Use <code>location</code> for transport exclusion</td>
+</tr>
+<tr>
+<td>ATPase</td>
+<td>Overlap with kinases</td>
+<td>Location distinguishes transport</td>
+</tr>
+<tr>
+<td>All</td>
+<td>Missing cofactor detection</td>
+<td>Better ChEBI coverage</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Estimated improvement:</strong>
+- Transport vs kinase confusion: <strong>fully resolvable</strong>
+- Missing cofactor patterns: <strong>10% more detectable</strong>
+- Overall: <strong>2-5% F1 improvement possible</strong></p>
+<hr />
+<h2 id="validation">Validation</h2>
+<p>After implementing fixes:
+1. Count participants with location annotations (expect 56+)
+2. Count participants with ChEBI IDs (expect 81.2% → ~83%)
+3. Re-run <code>just eval-all</code> and compare metrics
+4. Specifically check transport reaction classification</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

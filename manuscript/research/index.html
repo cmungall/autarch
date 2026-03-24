@@ -1,0 +1,1206 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ai4curation.github.io/autarch/manuscript/research/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Research - Autarch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Autarch" class="md-header__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Autarch
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Research
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Autarch" class="md-nav__button md-logo" aria-label="Autarch" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Autarch
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ai4curation/autarch" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pattern_matching_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manuscript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classifier Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ============================================================
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#research-report-history-and-importance-of-enzymereaction-classification-ec-go-modern-databases-and-automation-of-reaction-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Research report: History and importance of enzyme/reaction classification (EC → GO → modern databases) and automation of reaction classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Research report: History and importance of enzyme/reaction classification (EC → GO → modern databases) and automation of reaction classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-key-concepts-and-definitions-current-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Key concepts and definitions (current understanding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Key concepts and definitions (current understanding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-is-being-classified-enzymes-vs-reactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 What is being classified: enzymes vs reactions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ec-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 EC numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-gene-ontology-go-molecular-function-for-catalytic-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Gene Ontology (GO) molecular function for catalytic activity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-reaction-knowledgebases-and-chemical-ontologies-rhea-and-chebi" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Reaction knowledgebases and chemical ontologies (Rhea and ChEBI)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-history-of-enzyme-nomenclature-and-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) History of enzyme nomenclature and classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) History of enzyme nomenclature and classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-early-nomenclature-milestones" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Early nomenclature milestones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-drivers-of-standardization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Drivers of standardization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-establishment-of-the-ec-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Establishment of the EC system
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-persistent-conceptual-tensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Persistent conceptual tensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modern-databases-and-how-classification-is-used-today-20232024-emphasis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) Modern databases and how classification is used today (2023–2024 emphasis)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Modern databases and how classification is used today (2023–2024 emphasis)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-uniprotkb-2023-and-standardized-reaction-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 UniProtKB (2023) and standardized reaction annotation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-rhea-as-an-interoperability-hub-reaction-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Rhea as an interoperability hub (reaction identity)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-reactome-2024-pathways-as-ordered-reaction-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Reactome (2024): pathways as ordered reaction networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ecocyc-2023-and-biocycmetacyc-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 EcoCyc (2023) and BioCyc/MetaCyc ecosystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-kinetic-and-enzyme-property-databases-brenda-sabio-rk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Kinetic and enzyme-property databases (BRENDA; SABIO-RK)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-is-enzyme-classification-important-who-uses-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) Is enzyme classification important? Who uses it?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4) Is enzyme classification important? Who uses it?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-why-ecgoreaction-identifiers-remain-essential" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Why EC/GO/reaction identifiers remain essential
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-primary-user-communities-and-real-world-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Primary user communities and real-world implementations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-recent-developments-prioritizing-20232024" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Recent developments (prioritizing 2023–2024)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5) Recent developments (prioritizing 2023–2024)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-alignment-of-go-catalytic-activity-with-ecrhea-ontology-modernization" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Alignment of GO catalytic activity with EC/Rhea (ontology modernization)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-uniprotrhea-scale-up-and-fair-chemical-querying" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 UniProt–Rhea scale-up and FAIR chemical querying
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-reaction-to-enzyme-platforms-for-engineering-reme-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Reaction-to-enzyme platforms for engineering (REME, 2024)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-automating-reaction-and-enzyme-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      6) Automating reaction and enzyme classification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6) Automating reaction and enzyme classification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-sequence-ec-prediction-transformers-and-protein-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Sequence → EC prediction (transformers and protein language models)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-reaction-smiles-ec-prediction-reaction-first-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Reaction SMILES → EC prediction (reaction-first automation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-benchmarks-and-reframing-as-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Benchmarks and reframing as retrieval
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-limitations-and-open-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      7) Limitations and open gaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-urls-and-publication-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      References (URLs and publication dates)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Citations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h2 id="_1">============================================================</h2>
+<p>provider: falcon
+model: Edison Scientific Literature
+cached: false
+start_time: '2026-03-10T20:39:09.305386'
+end_time: '2026-03-10T21:08:11.240986'
+duration_seconds: 1741.94
+provider_config:
+  timeout: null
+  max_retries: 3
+  parameters:
+    allowed_domains: []
+    temperature: 0.1
+citation_count: 52</p>
+<hr />
+<h2 id="question">Question</h2>
+<p>research the history of reaction and enzyme classification, covering the enzyne commission through to GO and databases like MetaCyc; is enzyme classification important? who uses. Through to modern databases. Also any approaches to automate reaction classification</p>
+<h2 id="output">Output</h2>
+<p>Question: You are an expert researcher providing comprehensive, well-cited information.</p>
+<p>Provide detailed information focusing on:
+1. Key concepts and definitions with current understanding
+2. Recent developments and latest research (prioritize 2023-2024 sources)
+3. Current applications and real-world implementations
+4. Expert opinions and analysis from authoritative sources
+5. Relevant statistics and data from recent studies</p>
+<p>Format as a comprehensive research report with proper citations. Include URLs and publication dates where available.
+Always prioritize recent, authoritative sources and provide specific citations for all major claims.</p>
+<p>research the history of reaction and enzyme classification, covering the enzyne commission through to GO and databases like MetaCyc; is enzyme classification important? who uses. Through to modern databases. Also any approaches to automate reaction classification</p>
+<h1 id="research-report-history-and-importance-of-enzymereaction-classification-ec-go-modern-databases-and-automation-of-reaction-classification">Research report: History and importance of enzyme/reaction classification (EC → GO → modern databases) and automation of reaction classification</h1>
+<h2 id="executive-summary">Executive summary</h2>
+<p>Enzyme/reaction classification began as a response to ambiguous and inconsistent enzyme naming and evolved into the Enzyme Commission (EC) system, a stable reaction-centric identifier scheme that remains foundational for curation, genome annotation, metabolic modeling, and pathway engineering. (tipton2000historyofthe pages 1-2, tipton2000historyofthe pages 2-3, tipton2000historyofthe pages 3-5)</p>
+<p>Modern resources increasingly separate (i) <strong>reaction identity</strong> (e.g., Rhea) from (ii) <strong>protein entities</strong> (UniProt) and (iii) <strong>pathway context</strong> (Reactome/MetaCyc/EcoCyc), and they interoperate through controlled identifiers such as <strong>EC</strong>, <strong>GO molecular function</strong>, <strong>Rhea reaction IDs</strong>, and <strong>ChEBI</strong> chemical entities. (bansal2022rheathereaction pages 1-2, bateman2023uniprottheuniversal pages 2-3, milacic2024thereactomepathway pages 5-6)</p>
+<p>Since 2023–2024, enzyme/reaction classification has also become a central target for <strong>automation</strong> using transformers and other ML approaches that predict EC numbers from protein sequences or directly from reaction SMILES, and for “reaction-to-enzyme” tools used in synthetic biology and biocatalysis. (kim2023functionalannotationof pages 1-2, qian2024ageneralmodel pages 1-2, shi2024remeanintegrated pages 1-2)</p>
+<table>
+<thead>
+<tr>
+<th>Period / Year</th>
+<th>Milestone</th>
+<th>Impact &amp; Significance</th>
+<th>Key Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1833</strong></td>
+<td>Discovery of diastase &amp; naming convention</td>
+<td>Payen and Persoz identified diastase and proposed the suffix '-ase' for enzymes.</td>
+<td>(tipton2000historyofthe pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>1876</strong></td>
+<td>Term 'Enzyme' coined</td>
+<td>W.F. Kühne introduced the term 'enzyme'.</td>
+<td>(tipton2000historyofthe pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>1956</strong></td>
+<td>International Commission on Enzymes</td>
+<td>Established by Marcel Florkin/IUB to standardize nomenclature amidst confusion from trivial names.</td>
+<td>(mcdonald2014fifty‐fiveyearsof pages 2-4, tipton2000historyofthe pages 3-5)</td>
+</tr>
+<tr>
+<td><strong>1961</strong></td>
+<td>First IUB Report (Enzyme List)</td>
+<td>Publication of the first official Enzyme List with the 4-digit EC number system (Class.Subclass.Sub-subclass.Serial).</td>
+<td>(mcdonald2014fifty‐fiveyearsof pages 2-4, tipton2000historyofthe pages 2-3)</td>
+</tr>
+<tr>
+<td><strong>1965–1992</strong></td>
+<td>Printed Editions</td>
+<td>Successive updates (1965, 1972, 1978, 1984, 1992) managed the growing list, eventually exceeding print limitations.</td>
+<td>(mcdonald2014fifty‐fiveyearsof pages 2-4, tipton2000historyofthe pages 6-7)</td>
+</tr>
+<tr>
+<td><strong>2000s</strong></td>
+<td>Shift to Online (ExplorEnz)</td>
+<td>Moved from print to MySQL-based web curation (ExplorEnz) to handle rapid data growth and formatting.</td>
+<td>(mcdonald2014fifty‐fiveyearsof pages 2-4)</td>
+</tr>
+<tr>
+<td><strong>2019–2021</strong></td>
+<td>UniProt adopts Rhea</td>
+<td>UniProtKB adopted Rhea as the reference vocabulary for enzyme annotation; reaction coverage grew from 6,654 to 9,294 (68% of Rhea).</td>
+<td>(bansal2022rheathereaction pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>2023</strong></td>
+<td>EcoCyc &amp; Flux Models</td>
+<td>EcoCyc update highlighted its role in generating steady-state metabolic flux models and organizing data via sophisticated ontology.</td>
+<td>(karp2023theecocycdatabase pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>2023</strong></td>
+<td>DeepECtransformer</td>
+<td>Transformer-based model predicted EC numbers for 464 unannotated <em>E. coli</em> genes; outperformed previous methods.</td>
+<td>(kim2023functionalannotationof pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>2024</strong></td>
+<td>BEC-Pred (ML)</td>
+<td>BERT-based model for EC prediction from reaction SMILES achieved 91.6% accuracy, outperforming sequence/graph methods.</td>
+<td>(qian2024ageneralmodel pages 1-2)</td>
+</tr>
+<tr>
+<td><strong>2024</strong></td>
+<td>ReactZyme</td>
+<td>Framed enzyme-reaction prediction as a retrieval task to annotate enzymes by reaction rather than family.</td>
+<td>(hua2024reactzymeabenchmark pages 1-2)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table: A historical overview of enzyme classification milestones from the 19th century to modern AI-driven annotation and database integration.</em></p>
+<table>
+<thead>
+<tr>
+<th>Resource (URL)</th>
+<th>Scope &amp; Curation Focus</th>
+<th>Primary Identifiers</th>
+<th>Recent Statistics (2021–2024)</th>
+<th>Typical Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>UniProt</strong><br>(uniprot.org)</td>
+<td>Global protein sequence &amp; functional annotation.</td>
+<td>Rhea (reactions), EC, GO, ChEBI.</td>
+<td>251M total records; ~10,540 Rhea reactions annotating ~24.8M sequences (2023). (bateman2023uniprottheuniversal pages 2-3, xie2024deeplearningin pages 2-3)</td>
+<td>Sequence annotation, functional prediction, genome annotation.</td>
+</tr>
+<tr>
+<td><strong>Rhea</strong><br>(rhea-db.org)</td>
+<td>Expert-curated biochemical reactions; UniProt's reference vocabulary.</td>
+<td>Rhea IDs, ChEBI, EC, GO, UniProt.</td>
+<td>13,673 unique reactions; 11,886 participants (2021/22). (bansal2022rheathereaction pages 1-1, bansal2022rheathereaction pages 5-6)</td>
+<td>Reaction standards, metabolic modeling, enzyme annotation.</td>
+</tr>
+<tr>
+<td><strong>Reactome</strong><br>(reactome.org)</td>
+<td>Human pathways &amp; processes as ordered molecular transformations.</td>
+<td>Reactome IDs, Rhea, ChEBI, UniProt.</td>
+<td>~16,002 reactions; ~2,600 pathways; 11,630 human genes (2024/26). (ragueneau2026thereactomeknowledgebase pages 1-2, presern2023enzymedatabasesin pages 9-11)</td>
+<td>Pathway enrichment, variant effect analysis, drug targeting.</td>
+</tr>
+<tr>
+<td><strong>MetaCyc</strong><br>(metacyc.org)</td>
+<td>Curated metabolic pathways from all life domains; experimental focus.</td>
+<td>EC, M-numbers, BioCyc IDs.</td>
+<td>~3,153 pathways; ~19,020 reactions (2024). (xie2024deeplearningin pages 2-3, presern2023enzymedatabasesin pages 9-11)</td>
+<td>Metabolic reconstruction (PathoLogic), reference knowledgebase.</td>
+</tr>
+<tr>
+<td><strong>KEGG</strong><br>(genome.jp/kegg)</td>
+<td>Integrated database of genomes, pathways, and biological chemicals.</td>
+<td>KO (Orthology), R-numbers, EC.</td>
+<td>&gt;20,000 reactions (2024); ~12,000 reactions (2023). (xie2024deeplearningin pages 2-3, presern2023enzymedatabasesin pages 9-11)</td>
+<td>Pathway mapping, orthology annotation, de novo pathway design.</td>
+</tr>
+<tr>
+<td><strong>EcoCyc</strong><br>(ecocyc.org)</td>
+<td>Model organism (<em>E. coli</em> K-12) genome &amp; machinery.</td>
+<td>BioCyc IDs, EC, GO.</td>
+<td>Gold-standard curation; generates steady-state flux models for every release (2023). (karp2023theecocycdatabase pages 1-2)</td>
+<td>Metabolic engineering, flux balance analysis, operon prediction.</td>
+</tr>
+<tr>
+<td><strong>BRENDA</strong><br>(brenda-enzymes.org)</td>
+<td>Comprehensive enzyme functional &amp; kinetic data.</td>
+<td>EC numbers, UniProt.</td>
+<td>~177,000 $K_m$ and ~87,000 $k_{cat}$ values; ~157,000 raw kinetic entries (2023/25). (wei2025findingthedark pages 7-8, presern2023enzymedatabasesin pages 8-9)</td>
+<td>Kinetic modeling, enzyme characterization, biocatalysis.</td>
+</tr>
+<tr>
+<td><strong>SABIO-RK</strong><br>(sabio.h-its.org)</td>
+<td>Structured kinetic data with experimental conditions.</td>
+<td>Reactome/KEGG/UniProt links.</td>
+<td>~51,000 $K_m$ and ~28,000 $k_{cat}$ entries (2023). (presern2023enzymedatabasesin pages 8-9)</td>
+<td>Systems biology modeling, precise kinetic analysis.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table: A comparison of key databases for enzyme and reaction data, highlighting their identifiers, scale, and primary use cases based on 2021–2024 literature.</em></p>
+<h2 id="1-key-concepts-and-definitions-current-understanding">1) Key concepts and definitions (current understanding)</h2>
+<h3 id="11-what-is-being-classified-enzymes-vs-reactions">1.1 What is being classified: enzymes vs reactions</h3>
+<p>The EC system classifies <strong>enzyme-catalyzed reactions</strong> (i.e., the overall chemical transformation), not protein families or mechanisms; consequently, distinct proteins (including isoenzymes) can share an EC number if they catalyze the same overall reaction. (tipton2000historyofthe pages 3-5, mcdonald2014fifty‐fiveyearsof pages 7-9)</p>
+<p>A persistent limitation of a purely reaction-based system is that it may group enzymes with different mechanisms and sequences under one EC number and can obscure multifunctionality or alternative reactions. (tipton2000historyofthe pages 3-5, mcdonald2014fifty‐fiveyearsof pages 6-7)</p>
+<h3 id="12-ec-numbers">1.2 EC numbers</h3>
+<p>The EC system uses a <strong>four-level hierarchical code</strong> (e.g., 3.1.1.1): first digit = broad class; second/third digits provide finer reaction detail; fourth digit encodes substrate specificity/serial identity within a sub-subclass. (tipton2000historyofthe pages 3-5, qian2024ageneralmodel pages 2-3)</p>
+<p>EC numbers are non-reusable; misclassifications and obsoleted activities remain as deleted/transferred entries, supporting stability but leaving historical gaps. (tipton2000historyofthe pages 3-5, mcdonald2014fifty‐fiveyearsof pages 7-9)</p>
+<h3 id="13-gene-ontology-go-molecular-function-for-catalytic-activity">1.3 Gene Ontology (GO) molecular function for catalytic activity</h3>
+<p>GO provides an ontology-based representation of gene/protein functions. For enzymes, GO’s molecular function branch contains catalytic activity terms, and its organization is reported to “largely follow” the EC hierarchy. (garapati2026comprehensiveannotationof pages 1-2)</p>
+<p>GO has recently undertaken explicit alignment of its <strong>catalytic activity branch (GO:0003824)</strong> with <strong>EC</strong> and <strong>Rhea</strong> to improve precision and interoperability of catalytic function terms with reaction definitions. (g2026thegeneontology pages 5-7)</p>
+<h3 id="14-reaction-knowledgebases-and-chemical-ontologies-rhea-and-chebi">1.4 Reaction knowledgebases and chemical ontologies (Rhea and ChEBI)</h3>
+<p>Rhea is an expert-curated biochemical reaction knowledgebase that represents reaction participants using <strong>ChEBI</strong> and serves as the reference vocabulary for enzyme/transporter reaction annotation in UniProtKB. (bansal2022rheathereaction pages 1-2)</p>
+<p>Rhea provides cross-references and identifier mapping across many resources (KEGG/Reactome/MetaCyc/EcoCyc; EC; GO molecular function), enabling reaction normalization across databases. (bansal2022rheathereaction pages 5-6)</p>
+<h2 id="2-history-of-enzyme-nomenclature-and-classification">2) History of enzyme nomenclature and classification</h2>
+<h3 id="21-early-nomenclature-milestones">2.1 Early nomenclature milestones</h3>
+<p>The “-ase” naming convention traces back to Payen and Persoz’s work on diastase (1833), and the term “enzyme” was coined by Kühne (1876). (tipton2000historyofthe pages 1-2)</p>
+<h3 id="22-drivers-of-standardization">2.2 Drivers of standardization</h3>
+<p>Enzyme names historically suffered from ambiguity (multiple names per enzyme; same name used for different enzymes; arcane/trivial names), motivating formal nomenclature and classification efforts. (tipton2000historyofthe pages 1-2, mcdonald2014fifty‐fiveyearsof pages 1-2)</p>
+<h3 id="23-establishment-of-the-ec-system">2.3 Establishment of the EC system</h3>
+<p>The International Commission on Enzymes was established in 1956 to address nomenclature/classification, leading to an official enzyme list published in 1961 and successive printed updates through 1992. (mcdonald2014fifty‐fiveyearsof pages 2-4, tipton2000historyofthe pages 3-5)</p>
+<p>The field’s shift from printed lists to online systems (e.g., ExplorEnz) was driven by rapid growth and impracticality of maintaining printed volumes (e.g., &gt;2000 A4 pages), as well as the need for richer search and curation workflows. (mcdonald2014fifty‐fiveyearsof pages 2-4)</p>
+<h3 id="24-persistent-conceptual-tensions">2.4 Persistent conceptual tensions</h3>
+<p>Key limitations recognized over decades include: grouping by overall reaction despite mechanistic diversity; lack of reaction direction; challenges in representing multi-step or multifunctional enzymes; and constraints that EC assignment requires direct experimental evidence (sequence similarity alone is insufficient). (tipton2000historyofthe pages 3-5, mcdonald2014fifty‐fiveyearsof pages 7-9)</p>
+<h2 id="3-modern-databases-and-how-classification-is-used-today-20232024-emphasis">3) Modern databases and how classification is used today (2023–2024 emphasis)</h2>
+<h3 id="31-uniprotkb-2023-and-standardized-reaction-annotation">3.1 UniProtKB (2023) and standardized reaction annotation</h3>
+<p>UniProtKB now includes large-scale Rhea-based reaction annotations: <strong>10,540 Rhea reactions</strong> are linked to <strong>24,842,646 UniProtKB sequence records</strong> (including <strong>226,101 reviewed Swiss-Prot</strong> records). (bateman2023uniprottheuniversal pages 2-3)</p>
+<p>UniProt also deploys automated annotation systems that can include catalytic activity and EC predictions, such as ARBA (rules-based, self-training) producing 27,338 rules (release 2022_03), aiming to reduce “uncharacterized protein” labels at scale. (bateman2023uniprottheuniversal pages 4-5)</p>
+<h3 id="32-rhea-as-an-interoperability-hub-reaction-identity">3.2 Rhea as an interoperability hub (reaction identity)</h3>
+<p>Rhea is positioned explicitly as a bridge between UniProt (proteins) and ChEBI (small molecules), and as a standard vocabulary for UniProtKB enzyme/transporter reaction annotations. (bansal2022rheathereaction pages 5-6, bansal2022rheathereaction pages 1-2)</p>
+<p>Quantitative interoperability/coverage signals include (i) growth of UniProt-linked Rhea reactions from 6,654 (Oct 2019) to 9,294 (June 2021), about <strong>68%</strong> of Rhea at that time, and (ii) Rhea release 119 (June 2021) containing <strong>13,673 unique reactions</strong>, <strong>11,886 unique participants</strong>, and <strong>15,500 literature references</strong>. (bansal2022rheathereaction pages 1-2, bansal2022rheathereaction pages 1-1)</p>
+<p>A Rhea reaction page can cross-reference UniProtKB proteins, EC numbers, and GO terms, illustrating how reaction, enzyme classification, and ontology annotations are connected in practice. (bansal2022rheathereaction media 1bea24f1)</p>
+<h3 id="33-reactome-2024-pathways-as-ordered-reaction-networks">3.3 Reactome (2024): pathways as ordered reaction networks</h3>
+<p>Reactome describes human biology as an <strong>ordered network of molecular transformations</strong>, serving both as an archive and as a tool for analyzing gene expression and somatic mutation catalogs (e.g., tumor mutation sets). (milacic2024thereactomepathway pages 1-2)</p>
+<p>Reactome integrates external standards: it uses UniProt proteins and ChEBI small molecules and takes balanced chemical reaction equations from Rhea; GO alignment is used for controlled vocabularies to support interoperability. (milacic2024thereactomepathway pages 5-6)</p>
+<h3 id="34-ecocyc-2023-and-biocycmetacyc-ecosystem">3.4 EcoCyc (2023) and BioCyc/MetaCyc ecosystem</h3>
+<p>EcoCyc is a curated knowledgebase for <em>E. coli</em> K-12 MG1655, with pages for gene products, metabolites, reactions, operons, and pathways. Each release generates an executable steady-state metabolic flux model to predict fluxes and growth under gene knockouts and nutrient conditions, supporting both experimentalists and modelers. (karp2023theecocycdatabase pages 1-2)</p>
+<p>MetaCyc, a curated multi-organism metabolic pathway resource, is reported (in 2023–2024 reviews) at roughly <strong>~3,100–3,153 pathways</strong> and <strong>~18,500–19,020 reactions</strong>; KEGG and Reactome are reported at <strong>~12,000 to &gt;20,000 reactions</strong> (KEGG) and <strong>~15,000 reactions</strong> (Reactome). (presern2023enzymedatabasesin pages 9-11, xie2024deeplearningin pages 2-3)</p>
+<h3 id="35-kinetic-and-enzyme-property-databases-brenda-sabio-rk">3.5 Kinetic and enzyme-property databases (BRENDA; SABIO-RK)</h3>
+<p>BRENDA and SABIO-RK illustrate why EC/GO/reaction identifiers matter beyond naming: kinetic data must connect a protein to a reaction/substrate context.</p>
+<p>A 2023 enzyme-database review reports approximate kinetic entry counts: BRENDA with <strong>~177,000 Km</strong> and <strong>~87,000 kcat</strong> values; SABIO-RK with <strong>~51,000 Km</strong> and <strong>~28,000 kcat</strong> values, with SABIO-RK emphasizing structured rate laws and experimental conditions and using ontologies (ChEBI, GO, etc.) for standardization. (presern2023enzymedatabasesin pages 8-9)</p>
+<h2 id="4-is-enzyme-classification-important-who-uses-it">4) Is enzyme classification important? Who uses it?</h2>
+<h3 id="41-why-ecgoreaction-identifiers-remain-essential">4.1 Why EC/GO/reaction identifiers remain essential</h3>
+<p>Despite known limitations, EC numbers provide stable, widely recognized identifiers that support unambiguous linking across resources and publications and provide a scaffold for curated updates and public review. (tipton2000historyofthe pages 3-5, mcdonald2014fifty‐fiveyearsof pages 7-9)</p>
+<p>Modern reaction normalization (Rhea+ChEBI) and pathway knowledgebases (Reactome, MetaCyc/EcoCyc) depend on stable function/reaction identifiers to connect proteins, chemicals, and pathways into computable networks. (milacic2024thereactomepathway pages 5-6, bansal2022rheathereaction pages 5-6)</p>
+<p>A key practical problem remains coverage: many reactions lack EC assignment because full enzyme characterization is required, leaving sparse and imbalanced labeled datasets—especially in secondary metabolism—motivating both curation and automation efforts. (qian2024ageneralmodel pages 2-3)</p>
+<h3 id="42-primary-user-communities-and-real-world-implementations">4.2 Primary user communities and real-world implementations</h3>
+<ul>
+<li><strong>Biocurators and database teams</strong> rely on EC/GO/Rhea mappings to curate standardized knowledge and to maintain interoperability across UniProt, GO, Reactome, and pathway databases. (bansal2022rheathereaction pages 1-2, milacic2024thereactomepathway pages 5-6)</li>
+<li><strong>Genome annotation pipelines</strong> use EC and GO as core function labels; GO’s TreeGrafter/InterProScan pipeline is used for computational GO inference in UniProt proteomes and NCBI RefSeq eukaryotic genomes. (g2026thegeneontology pages 5-7)</li>
+<li><strong>Systems biologists and metabolic modelers</strong> use curated reaction/pathway knowledgebases; EcoCyc explicitly provides executable flux models per release and is used as a gold standard for method development. (karp2023theecocycdatabase pages 1-2)</li>
+<li><strong>Biocatalysis and synthetic biology practitioners</strong> use reaction-to-enzyme mining tools that rely on reaction similarity, EC expansion, and kinetic/condition prediction to choose candidate enzymes for non-natural reactions. (shi2024remeanintegrated pages 1-2, shi2024remeanintegrated pages 2-4)</li>
+</ul>
+<h2 id="5-recent-developments-prioritizing-20232024">5) Recent developments (prioritizing 2023–2024)</h2>
+<h3 id="51-alignment-of-go-catalytic-activity-with-ecrhea-ontology-modernization">5.1 Alignment of GO catalytic activity with EC/Rhea (ontology modernization)</h3>
+<p>GO reports a concerted alignment of catalytic activity terms with EC and Rhea, including updates to &gt;2000 cross-references, obsoletion of &gt;1000 redundant/out-of-scope terms, and creation/maintenance of a mapping set with <strong>&gt;9,400 Rhea and EC terms mapped to GO terms</strong>. (g2026thegeneontology pages 5-7)</p>
+<h3 id="52-uniprotrhea-scale-up-and-fair-chemical-querying">5.2 UniProt–Rhea scale-up and FAIR chemical querying</h3>
+<p>UniProt’s Rhea-based reaction annotation at tens of millions of sequences, along with ChEBI-driven ligand FAIRification efforts, indicates a shift toward chemically grounded, computable enzyme annotations for large-scale protein–ligand and function analyses. (bateman2023uniprottheuniversal pages 2-3)</p>
+<h3 id="53-reaction-to-enzyme-platforms-for-engineering-reme-2024">5.3 Reaction-to-enzyme platforms for engineering (REME, 2024)</h3>
+<p>REME (NAR 2024) exemplifies real-world implementation: it uses atom-to-atom mapping, atom type change identification, and reaction similarity (RDKit/RXNFP/DRFP), and expands candidate enzymes via EC numbers and sequence homology beyond BRENDA-derived sets; it then evaluates candidates with deep-learning predictors of substrate specificity and kinetics/conditions. (shi2024remeanintegrated pages 1-2, shi2024remeanintegrated pages 2-4)</p>
+<h2 id="6-automating-reaction-and-enzyme-classification">6) Automating reaction and enzyme classification</h2>
+<h3 id="61-sequence-ec-prediction-transformers-and-protein-language-models">6.1 Sequence → EC prediction (transformers and protein language models)</h3>
+<p>DeepECtransformer (Nature Communications, 2023) uses transformer layers to predict EC numbers and evaluated on a curated test set of <strong>2,013,612 enzyme sequences</strong> spanning <strong>5,360 EC numbers</strong>; it predicted EC numbers for <strong>464 previously unannotated <em>E. coli</em> genes</strong> and experimentally validated three predicted activities. (kim2023functionalannotationof pages 1-2)</p>
+<p>This work also highlights a major practical constraint: strong class imbalance affects performance, with F1 correlating with training-set size (Spearman 0.6872, p&lt;0.001). (kim2023functionalannotationof pages 1-2)</p>
+<h3 id="62-reaction-smiles-ec-prediction-reaction-first-automation">6.2 Reaction SMILES → EC prediction (reaction-first automation)</h3>
+<p>BEC-Pred (Journal of Cheminformatics, 2024) predicts EC numbers directly from substrate/product SMILES using a BERT-based approach and reports <strong>91.6% accuracy</strong>, outperforming comparator sequence- and graph-based methods by <strong>5.5%</strong> and improving F1 by ~6%. (qian2024ageneralmodel pages 1-2)</p>
+<p>The same work emphasizes why automated reaction classification is still difficult: many reactions lack EC numbers and datasets are skewed, especially for secondary metabolism, limiting deep learning for underrepresented classes. (qian2024ageneralmodel pages 2-3)</p>
+<h3 id="63-benchmarks-and-reframing-as-retrieval">6.3 Benchmarks and reframing as retrieval</h3>
+<p>CARE (2024) and ReactZyme (2024) reflect a broader trend toward benchmarking and framing enzyme annotation as classification and retrieval, using data derived from Swiss-Prot and Rhea and noting persistent gaps in functional annotation at genome scale. (yang2024careabenchmark pages 1-2, hua2024reactzymeabenchmark pages 1-2)</p>
+<h2 id="7-limitations-and-open-gaps">7) Limitations and open gaps</h2>
+<ul>
+<li><strong>Coverage gaps (unassigned EC numbers)</strong>: many reactions remain outside EC due to evidentiary requirements and incomplete characterization, limiting both curated knowledge and ML training sets. (qian2024ageneralmodel pages 2-3, mcdonald2014fifty‐fiveyearsof pages 7-9)</li>
+<li><strong>Granularity mismatch</strong>: EC is reaction-centric and may not capture mechanistic differences, organism-specific context, or multifunctionality cleanly; GO may be broader and sometimes insufficiently specific for reaction-level needs. (tipton2000historyofthe pages 3-5, hua2024reactzymeabenchmark pages 1-2)</li>
+<li><strong>Identifier harmonization</strong> remains a practical barrier in integrative workflows; resources like Rhea’s mapping service explicitly target this need by accepting EC and GO MF identifiers and mapping them across major pathway databases. (bansal2022rheathereaction pages 5-6)</li>
+</ul>
+<h2 id="references-urls-and-publication-dates">References (URLs and publication dates)</h2>
+<p>Key sources used prominently in this report:</p>
+<ul>
+<li>Tipton KF, Boyce S. <em>History of the enzyme nomenclature system</em>. <strong>Bioinformatics</strong>. 2000-01. https://doi.org/10.1093/bioinformatics/16.1.34 (tipton2000historyofthe pages 1-2)</li>
+<li>McDonald AG, Tipton KF. <em>Fifty-five years of enzyme classification: advances and difficulties</em>. <strong>FEBS J</strong>. 2014-01. https://doi.org/10.1111/febs.12530 (mcdonald2014fifty‐fiveyearsof pages 2-4)</li>
+<li>Bateman A et al. <em>UniProt: the Universal Protein Knowledgebase in 2023</em>. <strong>Nucleic Acids Res</strong>. 2023-11. https://doi.org/10.1093/nar/gkac1052 (bateman2023uniprottheuniversal pages 2-3)</li>
+<li>Bansal P et al. <em>Rhea, the reaction knowledgebase in 2022</em>. <strong>Nucleic Acids Res</strong>. 2022-11. https://doi.org/10.1093/nar/gkab1016 (bansal2022rheathereaction pages 1-2)</li>
+<li>Milacic M et al. <em>The Reactome Pathway Knowledgebase 2024</em>. <strong>Nucleic Acids Res</strong>. 2024-11. https://doi.org/10.1093/nar/gkad1025 (milacic2024thereactomepathway pages 5-6)</li>
+<li>Karp PD et al. <em>The EcoCyc Database (2023)</em>. <strong>EcoSal Plus</strong>. 2023-12. https://doi.org/10.1128/ecosalplus.esp-0002-2023 (karp2023theecocycdatabase pages 1-2)</li>
+<li>Kim GB et al. <em>Functional annotation of enzyme-encoding genes using deep learning with transformer layers</em>. <strong>Nat Commun</strong>. 2023-11. https://doi.org/10.1038/s41467-023-43216-z (kim2023functionalannotationof pages 1-2)</li>
+<li>Qian W et al. <em>A general model for predicting enzyme functions based on enzymatic reactions</em>. <strong>J Cheminform</strong>. 2024-03. https://doi.org/10.1186/s13321-024-00827-y (qian2024ageneralmodel pages 1-2)</li>
+<li>Shi Z et al. <em>REME: an integrated platform for reaction enzyme mining and evaluation</em>. <strong>Nucleic Acids Res</strong>. 2024-05. https://doi.org/10.1093/nar/gkae405 (shi2024remeanintegrated pages 1-2)</li>
+</ul>
+<p>Note on GO 2023–2024 sourcing: a GO “knowledgebase 2023” NAR update could not be retrieved via the available search results in this run; the most direct evidence on EC/Rhea alignment came from the GO NAR 2026 update, which explicitly describes alignment work that references the 2023 update. (g2026thegeneontology pages 5-7)</p>
+<p>References</p>
+<ol>
+<li>
+<p>(tipton2000historyofthe pages 1-2): Keith Tipton and Sinéad Boyce. History of the enzyme nomenclature system. Bioinformatics, 16 1:34-40, Jan 2000. URL: https://doi.org/10.1093/bioinformatics/16.1.34, doi:10.1093/bioinformatics/16.1.34. This article has 209 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(tipton2000historyofthe pages 2-3): Keith Tipton and Sinéad Boyce. History of the enzyme nomenclature system. Bioinformatics, 16 1:34-40, Jan 2000. URL: https://doi.org/10.1093/bioinformatics/16.1.34, doi:10.1093/bioinformatics/16.1.34. This article has 209 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(tipton2000historyofthe pages 3-5): Keith Tipton and Sinéad Boyce. History of the enzyme nomenclature system. Bioinformatics, 16 1:34-40, Jan 2000. URL: https://doi.org/10.1093/bioinformatics/16.1.34, doi:10.1093/bioinformatics/16.1.34. This article has 209 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(bansal2022rheathereaction pages 1-2): Parit Bansal, Anne Morgat, Kristian B Axelsen, Venkatesh Muthukrishnan, Elisabeth Coudert, Lucila Aimo, Nevila Hyka-Nouspikel, Elisabeth Gasteiger, Arnaud Kerhornou, Teresa Batista Neto, Monica Pozzato, Marie-Claude Blatter, Alex Ignatchenko, Nicole Redaschi, and Alan Bridge. Rhea, the reaction knowledgebase in 2022. Nucleic Acids Research, 50:D693-D700, Nov 2022. URL: https://doi.org/10.1093/nar/gkab1016, doi:10.1093/nar/gkab1016. This article has 275 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(bateman2023uniprottheuniversal pages 2-3): A. Bateman, M. Martin, S. Orchard, M. Magrane, Shadab Ahmad, E. Alpi, E. Bowler-Barnett, R. Britto, Hema Bye-A-Jee, Austra Cukura, Paul Denny, Tunca Dogan, Thankgod Ebenezer, Jun Fan, Penelope Garmiri, Leonardo Jose da Costa Gonzales, E. Hatton-Ellis, Abdulrahman Hussein, A. Ignatchenko, Giuseppe Insana, Rizwan Ishtiaq, Vishal Joshi, D. Jyothi, Swaathi Kandasaamy, A. Lock, Aurélien Luciani, Marija Lugarić, Jie Luo, Yvonne Lussi, Alistair MacDougall, F. Madeira, Mahdi Mahmoudy, Alok Mishra, Katie Moulang, A. Nightingale, Sangya Pundir, G. Qi, Shriya Raj, P. Raposo, Daniel L Rice, Rabie Saidi, Rafael Santos, Elena Speretta, J. Stephenson, Prabhat Totoo, Edward Turner, N. Tyagi, Preethi Vasudev, Kate Warner, Xavier Watkins, Rossana Zaru, H. Zellner, A. Bridge, L. Aimo, Ghislaine Argoud-Puy, A. Auchincloss, K. Axelsen, Parit Bansal, Delphine Baratin, Teresa M Batista Neto, M. Blatter, Jerven T. Bolleman, E. Boutet, L. Breuza, B. Gil, Cristina Casals-Casas, Kamal Chikh Echioukh, E. Coudert, Béatrice A. Cuche, Edouard de Castro, A. Estreicher, M. Famiglietti, M. Feuermann, E. Gasteiger, P. Gaudet, S. Gehant, V. Gerritsen, A. Gos, N. Gruaz, C. Hulo, Nevila Hyka-Nouspikel, F. Jungo, A. Kerhornou, Philippe le Mercier, D. Lieberherr, P. Masson, A. Morgat, Venkatesh Muthukrishnan, S. Paesano, I. Pedruzzi, S. Pilbout, L. Pourcel, S. Poux, Monica Pozzato, Manuela Pruess, Nicole Redaschi, C. Rivoire, Christian J. A. Sigrist, K. Sonesson, S. Sundaram, Cathy H. Wu, C. Arighi, L. Arminski, Chuming Chen, Yongxing Chen, Hongzhan Huang, K. Laiho, P. McGarvey, D. Natale, K. Ross, C. R. Vinayaka, Qinghua Wang, Yuqi Wang, and Jian Zhang. Uniprot: the universal protein knowledgebase in 2023. Nucleic Acids Research, 51:D523-D531, Nov 2023. URL: https://doi.org/10.1093/nar/gkac1052, doi:10.1093/nar/gkac1052. This article has 6107 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(milacic2024thereactomepathway pages 5-6): Marija Milacic, Deidre Beavers, Patrick Conley, Chuqiao Gong, Marc Gillespie, Johannes Griss, Robin Haw, Bijay Jassal, Lisa Matthews, Bruce May, Robert Petryszak, Eliot Ragueneau, Karen Rothfels, Cristoffer Sevilla, Veronica Shamovsky, Ralf Stephan, Krishna Tiwari, Thawfeek Varusai, Joel Weiser, Adam Wright, Guanming Wu, Lincoln Stein, Henning Hermjakob, and Peter D’Eustachio. The reactome pathway knowledgebase 2024. Nucleic Acids Research, 52:D672-D678, Nov 2024. URL: https://doi.org/10.1093/nar/gkad1025, doi:10.1093/nar/gkad1025. This article has 1279 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(kim2023functionalannotationof pages 1-2): Gi Bae Kim, Ji Yeon Kim, Jong An Lee, Charles J. Norsigian, Bernhard O. Palsson, and Sang Yup Lee. Functional annotation of enzyme-encoding genes using deep learning with transformer layers. Nature Communications, Nov 2023. URL: https://doi.org/10.1038/s41467-023-43216-z, doi:10.1038/s41467-023-43216-z. This article has 109 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(qian2024ageneralmodel pages 1-2): Wenjia Qian, Xiaorui Wang, Yu Kang, Peichen Pan, Tingjun Hou, and Chang-Yu Hsieh. A general model for predicting enzyme functions based on enzymatic reactions. Journal of Cheminformatics, Mar 2024. URL: https://doi.org/10.1186/s13321-024-00827-y, doi:10.1186/s13321-024-00827-y. This article has 19 citations and is from a peer-reviewed journal.</p>
+</li>
+<li>
+<p>(shi2024remeanintegrated pages 1-2): Zhenkun Shi, Dehang Wang, Yang Li, Rui Deng, Jiawei Lin, Cui Liu, Haoran Li, Ruoyu Wang, Muqiang Zhao, Zhitao Mao, Qianqian Yuan, Xiaoping Liao, and Hongwu Ma. Reme: an integrated platform for reaction enzyme mining and evaluation. Nucleic Acids Research, 52:W299-W305, May 2024. URL: https://doi.org/10.1093/nar/gkae405, doi:10.1093/nar/gkae405. This article has 12 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(mcdonald2014fifty‐fiveyearsof pages 2-4): Andrew G. McDonald and Keith F. Tipton. Fifty‐five years of enzyme classification: advances and difficulties. The FEBS Journal, 281:583-592, Jan 2014. URL: https://doi.org/10.1111/febs.12530, doi:10.1111/febs.12530. This article has 170 citations.</p>
+</li>
+<li>
+<p>(tipton2000historyofthe pages 6-7): Keith Tipton and Sinéad Boyce. History of the enzyme nomenclature system. Bioinformatics, 16 1:34-40, Jan 2000. URL: https://doi.org/10.1093/bioinformatics/16.1.34, doi:10.1093/bioinformatics/16.1.34. This article has 209 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(karp2023theecocycdatabase pages 1-2): Peter D. Karp, Suzanne Paley, Ron Caspi, Anamika Kothari, Markus Krummenacker, Peter E. Midford, Lisa R. Moore, Pallavi Subhraveti, Socorro Gama-Castro, Victor H. Tierrafria, Paloma Lara, Luis Muñiz-Rascado, César Bonavides-Martinez, Alberto Santos-Zavaleta, Amanda Mackie, Gwanggyu Sun, Travis A. Ahn-Horst, Heejo Choi, Markus W. Covert, Julio Collado-Vides, and Ian Paulsen. The ecocyc database (2023). EcoSal Plus, Dec 2023. URL: https://doi.org/10.1128/ecosalplus.esp-0002-2023, doi:10.1128/ecosalplus.esp-0002-2023. This article has 94 citations.</p>
+</li>
+<li>
+<p>(hua2024reactzymeabenchmark pages 1-2): Chenqing Hua, Bozitao Zhong, Sitao Luan, Liang Hong, Guy Wolf, Doina Precup, and Shuangjia Zheng. Reactzyme: a benchmark for enzyme-reaction prediction. ArXiv, Aug 2024. URL: https://doi.org/10.48550/arxiv.2408.13659, doi:10.48550/arxiv.2408.13659. This article has 31 citations.</p>
+</li>
+<li>
+<p>(xie2024deeplearningin pages 2-3): Xueying Xie, Lin Gui, Baixue Qiao, Guohua Wang, Shan Huang, Yuming Zhao, and Shanwen Sun. Deep learning in template-free de novo biosynthetic pathway design of natural products. Briefings in Bioinformatics, Sep 2024. URL: https://doi.org/10.1093/bib/bbae495, doi:10.1093/bib/bbae495. This article has 12 citations and is from a domain leading peer-reviewed journal.</p>
+</li>
+<li>
+<p>(bansal2022rheathereaction pages 1-1): Parit Bansal, Anne Morgat, Kristian B Axelsen, Venkatesh Muthukrishnan, Elisabeth Coudert, Lucila Aimo, Nevila Hyka-Nouspikel, Elisabeth Gasteiger, Arnaud Kerhornou, Teresa Batista Neto, Monica Pozzato, Marie-Claude Blatter, Alex Ignatchenko, Nicole Redaschi, and Alan Bridge. Rhea, the reaction knowledgebase in 2022. Nucleic Acids Research, 50:D693-D700, Nov 2022. URL: https://doi.org/10.1093/nar/gkab1016, doi:10.1093/nar/gkab1016. This article has 275 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(bansal2022rheathereaction pages 5-6): Parit Bansal, Anne Morgat, Kristian B Axelsen, Venkatesh Muthukrishnan, Elisabeth Coudert, Lucila Aimo, Nevila Hyka-Nouspikel, Elisabeth Gasteiger, Arnaud Kerhornou, Teresa Batista Neto, Monica Pozzato, Marie-Claude Blatter, Alex Ignatchenko, Nicole Redaschi, and Alan Bridge. Rhea, the reaction knowledgebase in 2022. Nucleic Acids Research, 50:D693-D700, Nov 2022. URL: https://doi.org/10.1093/nar/gkab1016, doi:10.1093/nar/gkab1016. This article has 275 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(ragueneau2026thereactomeknowledgebase pages 1-2): Eliot Ragueneau, Chuqiao Gong, Pierre Sinquin, Cristoffer Sevilla, Deidre Beavers, Alexander Grentner, Johannes Griss, Gregory F J Hogue, Nancy T Li, Lisa Matthews, Bruce May, Marija Milacic, Helia Mohammadi, Robert Petryszak, Karen Rothfels, Veronica Shamovsky, Ralf Stephan, Krishna Tiwari, Joel Weiser, Adam Wright, Marc Gillespie, Guanming Wu, Lincoln Stein, Henning Hermjakob, and Peter D’Eustachio. The reactome knowledgebase 2026. Nucleic Acids Research, 54:D673-D681, Nov 2026. URL: https://doi.org/10.1093/nar/gkaf1223, doi:10.1093/nar/gkaf1223. This article has 6 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(presern2023enzymedatabasesin pages 9-11): Uroš Prešern and Marko Goličnik. Enzyme databases in the era of omics and artificial intelligence. International Journal of Molecular Sciences, 24:16918, Nov 2023. URL: https://doi.org/10.3390/ijms242316918, doi:10.3390/ijms242316918. This article has 22 citations.</p>
+</li>
+<li>
+<p>(wei2025findingthedark pages 7-8): Galen Wei, Xinchun Ran, Runeem Ai-Abssi, and Zhongyue Yang. Finding the dark matter: large language model‐based enzyme kinetic data extractor and its validation. Protein Science : A Publication of the Protein Society, Aug 2025. URL: https://doi.org/10.1002/pro.70251, doi:10.1002/pro.70251. This article has 2 citations.</p>
+</li>
+<li>
+<p>(presern2023enzymedatabasesin pages 8-9): Uroš Prešern and Marko Goličnik. Enzyme databases in the era of omics and artificial intelligence. International Journal of Molecular Sciences, 24:16918, Nov 2023. URL: https://doi.org/10.3390/ijms242316918, doi:10.3390/ijms242316918. This article has 22 citations.</p>
+</li>
+<li>
+<p>(mcdonald2014fifty‐fiveyearsof pages 7-9): Andrew G. McDonald and Keith F. Tipton. Fifty‐five years of enzyme classification: advances and difficulties. The FEBS Journal, 281:583-592, Jan 2014. URL: https://doi.org/10.1111/febs.12530, doi:10.1111/febs.12530. This article has 170 citations.</p>
+</li>
+<li>
+<p>(mcdonald2014fifty‐fiveyearsof pages 6-7): Andrew G. McDonald and Keith F. Tipton. Fifty‐five years of enzyme classification: advances and difficulties. The FEBS Journal, 281:583-592, Jan 2014. URL: https://doi.org/10.1111/febs.12530, doi:10.1111/febs.12530. This article has 170 citations.</p>
+</li>
+<li>
+<p>(qian2024ageneralmodel pages 2-3): Wenjia Qian, Xiaorui Wang, Yu Kang, Peichen Pan, Tingjun Hou, and Chang-Yu Hsieh. A general model for predicting enzyme functions based on enzymatic reactions. Journal of Cheminformatics, Mar 2024. URL: https://doi.org/10.1186/s13321-024-00827-y, doi:10.1186/s13321-024-00827-y. This article has 19 citations and is from a peer-reviewed journal.</p>
+</li>
+<li>
+<p>(garapati2026comprehensiveannotationof pages 1-2): Phani V. Garapati, Rossana Zaru, H. Attrill, Gilberto dos Santos, J. Goodman, Jim Thurmond, and Steven J. Marygold. Comprehensive annotation of the enzymes of drosophila melanogaster. G3: Genes | Genomes | Genetics, Dec 2026. URL: https://doi.org/10.1093/g3journal/jkaf294, doi:10.1093/g3journal/jkaf294. This article has 0 citations.</p>
+</li>
+<li>
+<p>(g2026thegeneontology pages 5-7): Suzi A James P Seth J Michael Dustin Marc Pascale Nomi Aleksander Balhoff Carbon Cherry Ebert Feuermann G, Suzi A Aleksander, J. Balhoff, S. Carbon, J. M. Cherry, Dustin Ebert, M. Feuermann, Pascale Gaudet, Nomi L. Harris, David P. Hill, Patrick Kalita, Raymond Lee, H. Mi, Sierra A T Moxon, C. Mungall, A. Muruganujan, Tremayne Mushayahama, Paul W. Sternberg, P. D. Thomas, K. V. Van Auken, E. Wong, V. Wood, J. Ramsey, D. Siegele, Rex L. Chisholm, Robert H. T. Dodson, Petra Fey, M. C. Aspromonte, María Victoria Nugnes, Ximena Aixa Castro Naser, Silvio C. E. Tosatto, Michelle Giglio, Suvarna Nadendla, Giulia Antonazzo, H. Attrill, Nicholas H. Brown, Gilberto dos Santos, Steven J. Marygold, Katja Röper, V. Strelets, Christopher J. Tabone, Jim Thurmond, Pinglei Zhou, Rossana Zaru, R. Lovering, Colin Logie, Daqing Chen, A. Naba, K. Christie, L. Corbani, L. Ni, D. Sitnikov, Cynthia L. Smith, James Seager, L. Cooper, J. Elser, Pankaj Jaiswal, Parul Gupta, Sushma Naithani, Pascal Carme, Kim Rutherford, J. D. De Pons, M. Dwinell, G. Hayman, M. Kaldunski, A. Kwitek, S. Laulederkind, M. Tutaj, M. Vedi, Shur-Jen Wang, Peter D’Eustachio, L. Aimo, K. Axelsen, Alan J. Bridge, Nevila Hyka-Nouspikel, A. Morgat, Gene Goldbold, S. Engel, S. Miyasato, R. Nash, G. Sherlock, S. Weng, E. Bakker, T. Berardini, L. Reiser, A. Auchincloss, Ghislaine Argoud-Puy, M. Blatter, E. Boutet, L. Breuza, Cristina Casals-Casas, E. Coudert, A. Estreicher, M. Famiglietti, A. Gos, N. Gruaz-Gumowski, C. Hulo, F. Jungo, P. L. Mercier, D. Lieberherr, P. Masson, I. Pedruzzi, L. Pourcel, S. Poux, C. Rivoire, S. Sundaram, Alex Bateman, A. Adesina, E. Bowler-Barnett, D. Carpentier, Paul Denny, Alexandr Ignatchenko, Rizwan Ishtiaq, Antonia Lock, Yvonne Lussi, M. Magrane, María J. Martín, Sandra Orchard, Pedro Raposo, Elena Speretta, Nidhi Tyagi, Nadya Urakova, Kate Warner, Conny Wing-Heng Yu, J. Chan, Stavros Diamantakis, Mark Quinton-Tulloch, Daniela Raciti, Malcolm Fisher, Christina James-Zorn, V. Ponferrada, Aaron Zorn, D. Howe, S. Ramachandran, Leyla Ruzicka, and M. Westerfield. The gene ontology knowledgebase in 2026. Nucleic Acids Research, 54:D1779-D1792, Dec 2026. URL: https://doi.org/10.1093/nar/gkaf1292, doi:10.1093/nar/gkaf1292. This article has 1026 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(mcdonald2014fifty‐fiveyearsof pages 1-2): Andrew G. McDonald and Keith F. Tipton. Fifty‐five years of enzyme classification: advances and difficulties. The FEBS Journal, 281:583-592, Jan 2014. URL: https://doi.org/10.1111/febs.12530, doi:10.1111/febs.12530. This article has 170 citations.</p>
+</li>
+<li>
+<p>(bateman2023uniprottheuniversal pages 4-5): A. Bateman, M. Martin, S. Orchard, M. Magrane, Shadab Ahmad, E. Alpi, E. Bowler-Barnett, R. Britto, Hema Bye-A-Jee, Austra Cukura, Paul Denny, Tunca Dogan, Thankgod Ebenezer, Jun Fan, Penelope Garmiri, Leonardo Jose da Costa Gonzales, E. Hatton-Ellis, Abdulrahman Hussein, A. Ignatchenko, Giuseppe Insana, Rizwan Ishtiaq, Vishal Joshi, D. Jyothi, Swaathi Kandasaamy, A. Lock, Aurélien Luciani, Marija Lugarić, Jie Luo, Yvonne Lussi, Alistair MacDougall, F. Madeira, Mahdi Mahmoudy, Alok Mishra, Katie Moulang, A. Nightingale, Sangya Pundir, G. Qi, Shriya Raj, P. Raposo, Daniel L Rice, Rabie Saidi, Rafael Santos, Elena Speretta, J. Stephenson, Prabhat Totoo, Edward Turner, N. Tyagi, Preethi Vasudev, Kate Warner, Xavier Watkins, Rossana Zaru, H. Zellner, A. Bridge, L. Aimo, Ghislaine Argoud-Puy, A. Auchincloss, K. Axelsen, Parit Bansal, Delphine Baratin, Teresa M Batista Neto, M. Blatter, Jerven T. Bolleman, E. Boutet, L. Breuza, B. Gil, Cristina Casals-Casas, Kamal Chikh Echioukh, E. Coudert, Béatrice A. Cuche, Edouard de Castro, A. Estreicher, M. Famiglietti, M. Feuermann, E. Gasteiger, P. Gaudet, S. Gehant, V. Gerritsen, A. Gos, N. Gruaz, C. Hulo, Nevila Hyka-Nouspikel, F. Jungo, A. Kerhornou, Philippe le Mercier, D. Lieberherr, P. Masson, A. Morgat, Venkatesh Muthukrishnan, S. Paesano, I. Pedruzzi, S. Pilbout, L. Pourcel, S. Poux, Monica Pozzato, Manuela Pruess, Nicole Redaschi, C. Rivoire, Christian J. A. Sigrist, K. Sonesson, S. Sundaram, Cathy H. Wu, C. Arighi, L. Arminski, Chuming Chen, Yongxing Chen, Hongzhan Huang, K. Laiho, P. McGarvey, D. Natale, K. Ross, C. R. Vinayaka, Qinghua Wang, Yuqi Wang, and Jian Zhang. Uniprot: the universal protein knowledgebase in 2023. Nucleic Acids Research, 51:D523-D531, Nov 2023. URL: https://doi.org/10.1093/nar/gkac1052, doi:10.1093/nar/gkac1052. This article has 6107 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(bansal2022rheathereaction media 1bea24f1): Parit Bansal, Anne Morgat, Kristian B Axelsen, Venkatesh Muthukrishnan, Elisabeth Coudert, Lucila Aimo, Nevila Hyka-Nouspikel, Elisabeth Gasteiger, Arnaud Kerhornou, Teresa Batista Neto, Monica Pozzato, Marie-Claude Blatter, Alex Ignatchenko, Nicole Redaschi, and Alan Bridge. Rhea, the reaction knowledgebase in 2022. Nucleic Acids Research, 50:D693-D700, Nov 2022. URL: https://doi.org/10.1093/nar/gkab1016, doi:10.1093/nar/gkab1016. This article has 275 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(milacic2024thereactomepathway pages 1-2): Marija Milacic, Deidre Beavers, Patrick Conley, Chuqiao Gong, Marc Gillespie, Johannes Griss, Robin Haw, Bijay Jassal, Lisa Matthews, Bruce May, Robert Petryszak, Eliot Ragueneau, Karen Rothfels, Cristoffer Sevilla, Veronica Shamovsky, Ralf Stephan, Krishna Tiwari, Thawfeek Varusai, Joel Weiser, Adam Wright, Guanming Wu, Lincoln Stein, Henning Hermjakob, and Peter D’Eustachio. The reactome pathway knowledgebase 2024. Nucleic Acids Research, 52:D672-D678, Nov 2024. URL: https://doi.org/10.1093/nar/gkad1025, doi:10.1093/nar/gkad1025. This article has 1279 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(shi2024remeanintegrated pages 2-4): Zhenkun Shi, Dehang Wang, Yang Li, Rui Deng, Jiawei Lin, Cui Liu, Haoran Li, Ruoyu Wang, Muqiang Zhao, Zhitao Mao, Qianqian Yuan, Xiaoping Liao, and Hongwu Ma. Reme: an integrated platform for reaction enzyme mining and evaluation. Nucleic Acids Research, 52:W299-W305, May 2024. URL: https://doi.org/10.1093/nar/gkae405, doi:10.1093/nar/gkae405. This article has 12 citations and is from a highest quality peer-reviewed journal.</p>
+</li>
+<li>
+<p>(yang2024careabenchmark pages 1-2): Jason Yang, Ariane Mora, Shengchao Liu, Bruce J. Wittmann, Anima Anandkumar, Frances H. Arnold, and Yisong Yue. Care: a benchmark suite for the classification and retrieval of enzymes. Preprint, Jan 2024. URL: https://doi.org/10.48550/arxiv.2406.15669, doi:10.48550/arxiv.2406.15669. This article has 26 citations.</p>
+</li>
+</ol>
+<h2 id="citations">Citations</h2>
+<ol>
+<li>tipton2000historyofthe pages 1-2</li>
+<li>bansal2022rheathereaction pages 1-2</li>
+<li>karp2023theecocycdatabase pages 1-2</li>
+<li>kim2023functionalannotationof pages 1-2</li>
+<li>qian2024ageneralmodel pages 1-2</li>
+<li>hua2024reactzymeabenchmark pages 1-2</li>
+<li>presern2023enzymedatabasesin pages 8-9</li>
+<li>garapati2026comprehensiveannotationof pages 1-2</li>
+<li>g2026thegeneontology pages 5-7</li>
+<li>bansal2022rheathereaction pages 5-6</li>
+<li>bateman2023uniprottheuniversal pages 2-3</li>
+<li>bateman2023uniprottheuniversal pages 4-5</li>
+<li>milacic2024thereactomepathway pages 1-2</li>
+<li>milacic2024thereactomepathway pages 5-6</li>
+<li>qian2024ageneralmodel pages 2-3</li>
+<li>shi2024remeanintegrated pages 1-2</li>
+<li>tipton2000historyofthe pages 2-3</li>
+<li>tipton2000historyofthe pages 3-5</li>
+<li>tipton2000historyofthe pages 6-7</li>
+<li>xie2024deeplearningin pages 2-3</li>
+<li>bansal2022rheathereaction pages 1-1</li>
+<li>ragueneau2026thereactomeknowledgebase pages 1-2</li>
+<li>presern2023enzymedatabasesin pages 9-11</li>
+<li>wei2025findingthedark pages 7-8</li>
+<li>shi2024remeanintegrated pages 2-4</li>
+<li>yang2024careabenchmark pages 1-2</li>
+<li>https://doi.org/10.1093/bioinformatics/16.1.34</li>
+<li>https://doi.org/10.1111/febs.12530</li>
+<li>https://doi.org/10.1093/nar/gkac1052</li>
+<li>https://doi.org/10.1093/nar/gkab1016</li>
+<li>https://doi.org/10.1093/nar/gkad1025</li>
+<li>https://doi.org/10.1128/ecosalplus.esp-0002-2023</li>
+<li>https://doi.org/10.1038/s41467-023-43216-z</li>
+<li>https://doi.org/10.1186/s13321-024-00827-y</li>
+<li>https://doi.org/10.1093/nar/gkae405</li>
+<li>https://doi.org/10.1093/bioinformatics/16.1.34,</li>
+<li>https://doi.org/10.1093/nar/gkab1016,</li>
+<li>https://doi.org/10.1093/nar/gkac1052,</li>
+<li>https://doi.org/10.1093/nar/gkad1025,</li>
+<li>https://doi.org/10.1038/s41467-023-43216-z,</li>
+<li>https://doi.org/10.1186/s13321-024-00827-y,</li>
+<li>https://doi.org/10.1093/nar/gkae405,</li>
+<li>https://doi.org/10.1111/febs.12530,</li>
+<li>https://doi.org/10.1128/ecosalplus.esp-0002-2023,</li>
+<li>https://doi.org/10.48550/arxiv.2408.13659,</li>
+<li>https://doi.org/10.1093/bib/bbae495,</li>
+<li>https://doi.org/10.1093/nar/gkaf1223,</li>
+<li>https://doi.org/10.3390/ijms242316918,</li>
+<li>https://doi.org/10.1002/pro.70251,</li>
+<li>https://doi.org/10.1093/g3journal/jkaf294,</li>
+<li>https://doi.org/10.1093/nar/gkaf1292,</li>
+<li>https://doi.org/10.48550/arxiv.2406.15669,</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

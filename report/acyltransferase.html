@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acyltransferase - Autarch</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-link: #58a6ff;
+            --border-color: #30363d;
+            --green: #3fb950;
+            --red: #f85149;
+            --yellow: #d29922;
+            --blue: #58a6ff;
+            --purple: #a371f7;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: var(--text-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h2 { color: var(--text-secondary); margin-top: 30px; }
+        a { color: var(--text-link); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .nav a { margin-right: 15px; }
+
+        /* Metadata section */
+        .metadata {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .metadata-item { display: inline-block; margin-right: 30px; }
+        .metadata-label { color: var(--text-secondary); font-size: 0.9em; }
+        .metadata-value { color: var(--text-primary); font-weight: 600; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8em; font-weight: 600; }
+        .stat-label { color: var(--text-secondary); font-size: 0.85em; margin-top: 5px; }
+        .stat-value.good { color: var(--green); }
+        .stat-value.medium { color: var(--yellow); }
+        .stat-value.bad { color: var(--red); }
+
+        /* Confusion matrix */
+        .confusion-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px 0;
+        }
+        .cm-cell {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .cm-cell.tp { border-color: var(--green); }
+        .cm-cell.tn { border-color: var(--green); }
+        .cm-cell.fp { border-color: var(--red); }
+        .cm-cell.fn { border-color: var(--yellow); }
+        .cm-count { font-size: 1.5em; font-weight: 600; }
+        .cm-label { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Code block */
+        .code-section { margin: 20px 0; }
+        pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        code { color: var(--text-primary); }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .file-path { color: var(--text-secondary); font-size: 0.85em; }
+
+        /* Syntax highlighting */
+        .kw { color: var(--red); }
+        .str { color: #a5d6ff; }
+        .num { color: #79c0ff; }
+        .comment { color: var(--text-secondary); font-style: italic; }
+        .func { color: var(--purple); }
+        .cls { color: var(--yellow); }
+
+        /* Collapsible sections */
+        .collapsible {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .collapsible-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .collapsible-header:hover { background: var(--bg-tertiary); }
+        .collapsible-title { font-weight: 600; }
+        .collapsible-count {
+            background: var(--bg-tertiary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 0 15px 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .collapsible.open .collapsible-content { display: block; }
+        .collapsible-icon { transition: transform 0.2s; }
+        .collapsible.open .collapsible-icon { transform: rotate(90deg); }
+
+        /* Reaction items */
+        .reaction-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .reaction-item:last-child { border-bottom: none; }
+        .reaction-id { color: var(--blue); font-weight: 600; }
+        .reaction-label { color: var(--text-primary); }
+        .go-tag {
+            color: var(--purple);
+            font-size: 0.85em;
+            margin-left: 5px;
+        }
+        .go-tag a { color: var(--purple); }
+        .reaction-explanation {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+            padding-left: 15px;
+            border-left: 2px solid var(--border-color);
+        }
+        .reaction-meta {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+        .reaction-meta a {
+            color: var(--text-link);
+        }
+
+        /* Category colors */
+        .tp-header { border-left: 3px solid var(--green); }
+        .tn-header { border-left: 3px solid var(--green); }
+        .fp-header { border-left: 3px solid var(--red); }
+        .fn-header { border-left: 3px solid var(--yellow); }
+
+        /* Index page */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            transition: border-color 0.2s;
+        }
+        .class-card:hover { border-color: var(--text-link); }
+        .class-name { font-size: 1.1em; font-weight: 600; margin-bottom: 10px; }
+        .class-stats { display: flex; gap: 15px; }
+        .class-stat { font-size: 0.85em; }
+        .class-stat-label { color: var(--text-secondary); }
+
+        /* Definition section */
+        .definition {
+            margin: 20px 0;
+        }
+        .definition-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .definition-content p {
+            margin: 0 0 10px 0;
+        }
+        .definition-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Truncation notice */
+        .truncation-notice {
+            padding: 10px;
+            margin-top: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        .plot-section {
+            margin: 30px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .section-note {
+            color: var(--text-secondary);
+            margin-top: 8px;
+            margin-bottom: 14px;
+        }
+        .plot-frame {
+            width: 100%;
+            min-height: 760px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-secondary);
+        }
+        .viz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        .viz-card {
+            display: block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+        }
+        .viz-card:hover {
+            border-color: var(--text-link);
+            text-decoration: none;
+        }
+        .viz-card-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .viz-card-text {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <nav class="nav">
+            <a href="index.html">← Back to Index</a>
+        </nav>
+
+        <h1>Acyltransferase</h1>
+
+        <div class="metadata">
+            <div class="metadata-item">
+                <div class="metadata-label">GO Term</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a></div>
+            </div>
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Declared EC Scope</div>
+                <div class="metadata-value"><a href="https://bioregistry.io/EC:2.3.-.-" target="_blank">EC:2.3.-.-</a></div>
+            </div>
+        
+            
+            <div class="metadata-item">
+                <div class="metadata-label">Total Evaluated</div>
+                <div class="metadata-value">3484</div>
+            </div>
+        </div>
+
+        
+        <div class="definition">
+            <h2>Definition</h2>
+            <div class="definition-content">
+                <p>acyltransferase</p><p>Examples:<br>- Acetyl-CoA acetyltransferase: 2 acetyl-CoA → acetoacetyl-CoA + CoA<br>- Choline acetyltransferase: acetyl-CoA + choline → acetylcholine + CoA<br>- Chloramphenicol acetyltransferase: acetyl-CoA + chloramphenicol → N-acetylchloramphenicol + CoA<br>- Fatty acid synthase: acetyl-CoA + malonyl-CoA → fatty acid intermediates</p>
+            </div>
+        </div>
+        
+
+        <h2>Performance Metrics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value medium">0.811</div>
+                <div class="stat-label">F1 Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.869</div>
+                <div class="stat-label">Precision</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value medium">0.760</div>
+                <div class="stat-label">Recall</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.982</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.804</div>
+                <div class="stat-label">MCC</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value good">0.994</div>
+                <div class="stat-label">Specificity</div>
+            </div>
+        </div>
+
+        <h2>Confusion Matrix</h2>
+        <div class="confusion-matrix">
+            <div class="cm-cell tp">
+                <div class="cm-count">133</div>
+                <div class="cm-label">True Positives</div>
+            </div>
+            <div class="cm-cell fp">
+                <div class="cm-count">20</div>
+                <div class="cm-label">False Positives</div>
+            </div>
+            <div class="cm-cell fn">
+                <div class="cm-count">42</div>
+                <div class="cm-label">False Negatives</div>
+            </div>
+            <div class="cm-cell tn">
+                <div class="cm-count">3289</div>
+                <div class="cm-label">True Negatives</div>
+            </div>
+        </div>
+
+        <h2>Classification Code</h2>
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">acyltransferase.py:47</span>
+            </div>
+            <div class="section-note">
+                Class-level declarative context used by the classifier, including identifiers, evidence requirements, and pattern definitions.
+            </div>
+            <pre><code>GO_ID = <span class="str">&quot;GO:0016746&quot;</span>  <span class="comment"># acyltransferase activity</span>
+
+    EC_NUMBER_PREFIX = <span class="str">&quot;2.3.-.-&quot;</span>  <span class="comment"># Acyltransferases</span>
+
+    PATTERNS: list[Reaction] = [
+        <span class="comment"># Simple acyl transfer: acyl-CoA + acceptor → product + CoA</span>
+        var(<span class="str">&quot;acyl_coa&quot;</span>) + var(<span class="str">&quot;acceptor&quot;</span>) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + var(<span class="str">&quot;coa&quot;</span>),
+        <span class="comment"># Acetyl transfer: acetyl-CoA + acceptor → acetyl-acceptor + CoA</span>
+        var(<span class="str">&quot;acetyl_coa&quot;</span>) + var(<span class="str">&quot;acceptor&quot;</span>) &gt;&gt; var(<span class="str">&quot;acetyl_product&quot;</span>) + var(<span class="str">&quot;coa&quot;</span>),
+        <span class="comment"># Condensation: acyl-CoA + acyl-CoA → longer-acyl-CoA + CoA</span>
+        var(<span class="str">&quot;acyl_coa1&quot;</span>) + var(<span class="str">&quot;acyl_coa2&quot;</span>) &gt;&gt; var(<span class="str">&quot;condensed_product&quot;</span>) + var(<span class="str">&quot;coa&quot;</span>),
+        <span class="comment"># With cofactor: acyl-donor + acceptor + cofactor → product + modified-donor + modified-cofactor</span>
+        var(<span class="str">&quot;donor&quot;</span>) + var(<span class="str">&quot;acceptor&quot;</span>) + var(<span class="str">&quot;cofactor&quot;</span>) &gt;&gt; var(<span class="str">&quot;product&quot;</span>) + var(<span class="str">&quot;modified_donor&quot;</span>) + var(<span class="str">&quot;modified_cofactor&quot;</span>),
+    ]</code></pre>
+        </div>
+        
+        
+        <div class="code-section">
+            <div class="code-header">
+                <span class="file-path">acyltransferase.py:62</span>
+            </div>
+            <div class="section-note">
+                Imperative membership logic. This often calls the declarative class attributes shown above.
+            </div>
+            <pre><code>    <span class="kw">def</span> check_membership_impl(<span class="kw">self</span>, reaction: Reaction) -&gt; ClassificationResult:
+        <span class="str">&quot;&quot;&quot;Check if reaction is an acyltransferase using pattern matching.
+
+        Strategy:
+        1. Must be a transferase (parent class)
+        2. Must involve acyl group transfer (usually CoA derivatives)
+        3. Look for CoA-dependent acyl transfer patterns
+        4. Exclude non-acyl transfers
+        &quot;&quot;&quot;</span>
+        <span class="comment"># Use RHEA label for pattern matching (not p.name which has ChEBI generic names)</span>
+        label_lower = reaction.label.lower() <span class="kw">if</span> reaction.label <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+        label_parts = label_lower.split(<span class="str">&quot;=&quot;</span>)
+        substrate_str = label_parts[<span class="num">0</span>] <span class="kw">if</span> label_parts <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+        product_str = label_parts[<span class="num">1</span>] <span class="kw">if</span> len(label_parts) &gt; <span class="num">1</span> <span class="kw">else</span> <span class="str">&quot;&quot;</span>
+
+        <span class="comment"># First check if it&#x27;s a transferase</span>
+        parent_result = super().check_membership_impl(reaction)
+        <span class="kw">if</span> <span class="kw">not</span> parent_result.is_member:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=f<span class="str">&quot;Not a transferase: {parent_result.explanation}&quot;</span>,
+            )
+
+        <span class="comment"># Look for acyl group donors (typically CoA derivatives)</span>
+        <span class="comment"># Use both ChEBI ID matching and SMARTS-based thioester detection</span>
+        acyl_donors = {
+            CHEBI_COA,  <span class="comment"># acetyl-CoA</span>
+            <span class="str">&quot;CHEBI:15351&quot;</span>,  <span class="comment"># malonyl-CoA</span>
+            <span class="str">&quot;CHEBI:57804&quot;</span>,  <span class="comment"># palmitoyl-CoA</span>
+            <span class="str">&quot;CHEBI:15525&quot;</span>,  <span class="comment"># propionyl-CoA</span>
+            <span class="str">&quot;CHEBI:57262&quot;</span>,  <span class="comment"># butyryl-CoA</span>
+        }
+
+        <span class="comment"># Check for acyl donors via ChEBI ID or SMARTS-based thioester detection</span>
+        has_acyl_donor = any(
+            p.chebi_id <span class="kw">in</span> acyl_donors <span class="kw">or</span> p.is_thioester()
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+
+        <span class="comment"># Check for CoA as product (released when acyl group is transferred)</span>
+        has_coa_product = any(
+            p.chebi_id == CHEBI_COA
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+
+        <span class="comment"># Must have either acyl donor or CoA release pattern</span>
+        <span class="kw">if</span> <span class="kw">not</span> (has_acyl_donor <span class="kw">or</span> has_coa_product):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;No acyl group transfer pattern detected&quot;</span>
+            )
+
+        <span class="comment"># Apply exclusions before classifying as acyltransferase</span>
+
+        <span class="comment"># Exclude oxidative reactions (NAD+/NADP+ involvement)</span>
+        has_nad_system = any(
+            p.chebi_id <span class="kw">in</span> {CHEBI_NAD_PLUS, CHEBI_NADH, CHEBI_NADP_PLUS, CHEBI_NADPH}<span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        )
+
+        <span class="kw">if</span> has_nad_system:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;NAD(P) system present - likely oxidoreductase not acyltransferase&quot;</span>
+            )
+
+        <span class="comment"># Exclude acyl-CoA dehydrogenases (use ETF as electron acceptor)</span>
+        <span class="comment"># Pattern: acyl-CoA + oxidized ETF → enoyl-CoA + reduced ETF</span>
+        etf_patterns = [<span class="str">&quot;electron-transfer flavoprotein&quot;</span>, <span class="str">&quot;etf&quot;</span>, <span class="str">&quot;[etf]&quot;</span>]
+        has_etf = any(
+            p.chebi_id <span class="kw">in</span> {CHEBI_ETF_OX, CHEBI_ETF_RED}
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants + reaction.right_participants
+        ) <span class="kw">or</span> any(pat <span class="kw">in</span> label_lower <span class="kw">for</span> pat <span class="kw">in</span> etf_patterns)
+        <span class="kw">if</span> has_etf:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;ETF cofactor present - acyl-CoA dehydrogenase not acyltransferase&quot;</span>
+            )
+
+        <span class="comment"># Exclude CoA-transferases (EC 2.8.3.x) - transfer CoA group, not acyl group</span>
+        <span class="comment"># Pattern: acyl-CoA + acid → CoA-acid + carboxylate (same CoA, different acyl)</span>
+        <span class="comment"># Key indicator: succinyl-CoA + substrate → product-CoA + succinate</span>
+        SUCCINYL_COA_CHEBIS = {<span class="str">&quot;CHEBI:15380&quot;</span>, <span class="str">&quot;CHEBI:57292&quot;</span>}  <span class="comment"># succinyl-CoA</span>
+        SUCCINATE_CHEBIS = {<span class="str">&quot;CHEBI:15741&quot;</span>, <span class="str">&quot;CHEBI:30031&quot;</span>}  <span class="comment"># succinate</span>
+        has_succinyl_coa = any(
+            p.chebi_id <span class="kw">in</span> SUCCINYL_COA_CHEBIS
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        ) <span class="kw">or</span> <span class="str">&quot;succinyl-coa&quot;</span> <span class="kw">in</span> substrate_str
+        has_succinate = any(
+            p.chebi_id <span class="kw">in</span> SUCCINATE_CHEBIS
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        ) <span class="kw">or</span> <span class="str">&quot;succinate&quot;</span> <span class="kw">in</span> product_str
+        <span class="comment"># Also check for acetyl-CoA + acid → acyl-CoA + acetate pattern</span>
+        ACETATE_CHEBIS = {<span class="str">&quot;CHEBI:30089&quot;</span>, <span class="str">&quot;CHEBI:40480&quot;</span>}  <span class="comment"># acetate</span>
+        ACETYL_COA_CHEBIS = {<span class="str">&quot;CHEBI:57288&quot;</span>, <span class="str">&quot;CHEBI:15351&quot;</span>}  <span class="comment"># acetyl-CoA</span>
+        has_acetyl_coa_donor = any(
+            p.chebi_id <span class="kw">in</span> ACETYL_COA_CHEBIS
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        ) <span class="kw">or</span> <span class="str">&quot;acetyl-coa&quot;</span> <span class="kw">in</span> substrate_str
+        has_acetate_product = any(
+            p.chebi_id <span class="kw">in</span> ACETATE_CHEBIS
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        ) <span class="kw">or</span> <span class="str">&quot;acetate&quot;</span> <span class="kw">in</span> product_str
+        <span class="comment"># Check for non-CoA acyl-CoA product (indicates CoA transfer)</span>
+        <span class="comment"># Use label pattern: &quot;-coa&quot; in product but not free &quot;coa&quot;</span>
+        has_other_acyl_coa_product = <span class="str">&quot;-coa&quot;</span> <span class="kw">in</span> product_str <span class="kw">and</span> <span class="str">&quot;coa +&quot;</span> <span class="kw">not</span> <span class="kw">in</span> product_str
+        <span class="comment"># CoA-transferase: CoA is transferred from one acyl to another</span>
+        <span class="kw">if</span> (has_succinyl_coa <span class="kw">and</span> has_succinate <span class="kw">and</span> has_other_acyl_coa_product):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;CoA-transferase - transfers CoA group not acyl group&quot;</span>
+            )
+        <span class="kw">if</span> (has_acetyl_coa_donor <span class="kw">and</span> has_acetate_product <span class="kw">and</span> has_other_acyl_coa_product):
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;CoA-transferase - transfers CoA group not acyl group&quot;</span>
+            )
+
+        <span class="comment"># Exclude simple hydrolysis (water + substrate → products + CoA)</span>
+        has_water = any(
+            p.chebi_id == CHEBI_H2O
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+        )
+        
+        <span class="comment"># Count non-water, non-CoA substrates</span>
+        non_cofactor_substrates = [
+            p <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants
+            <span class="kw">if</span> p.chebi_id <span class="kw">not</span> <span class="kw">in</span> {CHEBI_H2O, CHEBI_COA, CHEBI_H_PLUS} <span class="kw">and</span>  <span class="comment"># H2O, CoA, H+</span>
+            <span class="kw">not</span> <span class="kw">False</span> ]
+        
+        <span class="kw">if</span> has_water <span class="kw">and</span> len(non_cofactor_substrates) == <span class="num">1</span> <span class="kw">and</span> has_coa_product:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;Simple hydrolysis - not acyl transfer&quot;</span>
+            )
+
+        <span class="comment"># Exclude ligase reactions (ATP consumption with bond formation)</span>
+        has_atp = any(p.chebi_id == CHEBI_ATP <span class="kw">for</span> p <span class="kw">in</span> reaction.left_participants)
+        has_amp_or_adp = any(
+            p.chebi_id <span class="kw">in</span> {CHEBI_AMP, CHEBI_ADP}
+            <span class="kw">for</span> p <span class="kw">in</span> reaction.right_participants
+        )
+        
+        <span class="kw">if</span> has_atp <span class="kw">and</span> has_amp_or_adp <span class="kw">and</span> len(non_cofactor_substrates) &gt;= <span class="num">2</span>:
+            <span class="kw">return</span> ClassificationResult(
+                is_member=<span class="kw">False</span>,
+                explanation=<span class="str">&quot;ATP-dependent ligase - not simple acyltransferase&quot;</span>
+            )
+
+        <span class="comment"># Try to match patterns</span>
+        match = match_patterns(reaction, <span class="kw">self</span>.PATTERNS, strict=<span class="kw">False</span>)
+
+        <span class="comment"># Determine specific type</span>
+        explanation = <span class="str">&quot;Acyltransferase: acyl group transfer&quot;</span>
+        
+        <span class="comment"># Check for specific acyl groups</span>
+        <span class="comment"># Specific acyltransferase type detection would need ChEBI IDs</span>
+
+        <span class="kw">if</span> match.matched:
+            explanation += <span class="str">&quot; [pattern matched]&quot;</span>
+
+        <span class="kw">return</span> ClassificationResult(is_member=<span class="kw">True</span>, explanation=explanation)
+</code></pre>
+        </div>
+
+        <h2>Detailed Results</h2>
+        
+        <div class="collapsible">
+            <div class="collapsible-header tp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Positives
+                </span>
+                <span class="collapsible-count">133</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10060" target="_blank">RHEA:10060</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-tryptophan + acetyl-CoA = N-acetyl-D-tryptophan + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10188" target="_blank">RHEA:10188</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetoacetyl-CoA + acetyl-CoA + H2O = (3S)-3-hydroxy-3-methylglutaryl-CoA + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10292" target="_blank">RHEA:10292</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-glucosamine 6-phosphate + acetyl-CoA = N-acetyl-D-glucosamine 6-phosphate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10364" target="_blank">RHEA:10364</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">dodecanoyl-CoA + 2-oxoglutarate + H2O = (3S,4S)-3-hydroxytetradecane-1,3,4-tricarboxylate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10408" target="_blank">RHEA:10408</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4,8,12-trimethyltridecanoyl-CoA + propanoyl-CoA = 3-oxopristanoyl-CoA + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10456" target="_blank">RHEA:10456</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-maltose + acetyl-CoA = 1-O-acetylmaltose + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10500" target="_blank">RHEA:10500</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">butanoyl-CoA + glyoxylate + H2O = 3-ethylmalate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10952" target="_blank">RHEA:10952</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">hydroxymalonate + (E)-sinapoyl-CoA = (E)-sinapoyltartronate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11128" target="_blank">RHEA:11128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = 2&#x27;,4,4&#x27;,6&#x27;-tetrahydroxychalcone + 3 CO2 + 4 CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11844" target="_blank">RHEA:11844</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">formate + acetyl-CoA = pyruvate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11936" target="_blank">RHEA:11936</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4-coumaroyl-CoA + 3 malonyl-CoA + 3 H(+) = trans-resveratrol + 4 CO2 + 4 CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12080" target="_blank">RHEA:12080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">malonyl-[ACP] + acetyl-CoA + H(+) = 3-oxobutanoyl-[ACP] + CO2 + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12124" target="_blank">RHEA:12124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">shikimate + 4-coumaroyl-CoA = trans-4-coumaroylshikimate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12360" target="_blank">RHEA:12360</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">13-hydroxylupanine + (2E)-2-methylbut-2-enoyl-CoA = 13-(2-methylcrotonoyloxy)lupanine + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12436" target="_blank">RHEA:12436</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-caffeoyl-CoA + putrescine = N-caffeoylputrescine + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12552" target="_blank">RHEA:12552</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-cinnamoyl-CoA + 3 malonyl-CoA + 3 H(+) = (E)-pinosylvin + 4 CO2 + 4 CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12597" target="_blank">RHEA:12597</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">phosphinothricin + acetyl-CoA = N-acetylphosphinothricin + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12661" target="_blank">RHEA:12661</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(R)-carnitine + hexadecanoyl-CoA = O-hexadecanoyl-(R)-carnitine + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12921" target="_blank">RHEA:12921</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">succinyl-CoA + glycine + H(+) = 5-aminolevulinate + CO2 + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12929" target="_blank">RHEA:12929</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetyl-CoA + 2-oxoglutarate + H2O = (2R)-homocitrate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12997" target="_blank">RHEA:12997</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">galactarate + (E)-feruloyl-CoA = 2-O-[(E)-feruloyl]-D-galactarate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13085" target="_blank">RHEA:13085</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(S)-2,3,4,5-tetrahydrodipicolinate + acetyl-CoA + H2O = L-2-acetamido-6-oxoheptanedioate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13405" target="_blank">RHEA:13405</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4-coumaroyl-CoA + agmatine = N-(4-guanidinobutyl)-4-hydroxycinnamamide + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13465" target="_blank">RHEA:13465</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(S)-2,3-diaminopropanoate + oxalyl-CoA = N(3)-oxalyl-L-2,3-diaminopropanoate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13725" target="_blank">RHEA:13725</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">alpha-D-glucosamine 1-phosphate + acetyl-CoA = N-acetyl-alpha-D-glucosamine 1-phosphate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14001" target="_blank">RHEA:14001</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">choloyl-CoA + glycine = glycocholate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14165" target="_blank">RHEA:14165</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-aspartate + acetyl-CoA = N-acetyl-L-aspartate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14261" target="_blank">RHEA:14261</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-sinapoyl-CoA + D-glucono-1,5-lactone = 6-O-[(E)-sinapoyl]-D-glucono-1,5-lactone + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14457" target="_blank">RHEA:14457</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">pentanoyl-CoA + glyoxylate + H2O = 3-propylmalate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14561" target="_blank">RHEA:14561</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">piperidine + (E,E)-piperoyl-CoA = piperine + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14761" target="_blank">RHEA:14761</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-serine + hexadecanoyl-CoA + H(+) = 3-oxosphinganine + CO2 + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15021" target="_blank">RHEA:15021</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-quinate + (E)-feruloyl-CoA = 4-O-feruloyl-D-quinate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15185" target="_blank">RHEA:15185</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">succinyl-CoA + L-arginine = N(2)-succinyl-L-arginine + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15213" target="_blank">RHEA:15213</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + succinyl-CoA = N(6)-[(R)-S(8)-succinyldihydrolipoyl]-L-lysyl-[protein] + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15217" target="_blank">RHEA:15217</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">ecdysone + hexadecanoyl-CoA = ecdysone hexadecanoate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15277" target="_blank">RHEA:15277</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-lysyl-[alpha-tubulin] + acetyl-CoA = N(6)-acetyl-L-lysyl-[alpha-tubulin] + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15521" target="_blank">RHEA:15521</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-terminal glycyl-[protein] + tetradecanoyl-CoA = N-tetradecanoylglycyl-[protein] + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15581" target="_blank">RHEA:15581</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">biochanin A 7-O-beta-D-glucoside + malonyl-CoA = biochanin A 7-O-beta-D-glucoside 6&#x27;&#x27;-O-malonate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15813" target="_blank">RHEA:15813</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">1H-imidazole + acetyl-CoA = N-acetylimidazole + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16449" target="_blank">RHEA:16449</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">kanamycin B + acetyl-CoA = N(6&#x27;)-acetylkanamycin B + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16605" target="_blank">RHEA:16605</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">dodecanoyl-CoA + oxaloacetate + H2O = (2S,3S)-2-hydroxytridecane-1,2,3-tricarboxylate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16625" target="_blank">RHEA:16625</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">hydrogen sulfide + acetyl-CoA = thioacetate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16845" target="_blank">RHEA:16845</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">oxaloacetate + acetyl-CoA + H2O = citrate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16865" target="_blank">RHEA:16865</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">choloyl-CoA + propanoyl-CoA = 3alpha,7alpha,12alpha-trihydroxy-24-oxo-5beta-cholestan-26-oyl-CoA + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16901" target="_blank">RHEA:16901</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-2,4-diaminobutanoate + acetyl-CoA = (2S)-4-acetamido-2-aminobutanoate + CoA + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16929" target="_blank">RHEA:16929</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2 benzoyl-CoA + L-ornithine = N(2),N(5)-dibenzoyl-L-ornithine + 2 CoA + 2 H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17017" target="_blank">RHEA:17017</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-dihydrolipoyl]-L-lysyl-[protein] + acetyl-CoA = N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysyl-[protein] + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17073" target="_blank">RHEA:17073</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">cortisol + acetyl-CoA = cortisol 21-acetate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17177" target="_blank">RHEA:17177</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">octanoyl-CoA + (R)-carnitine = O-octanoyl-(R)-carnitine + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17325" target="_blank">RHEA:17325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(S)-2,3,4,5-tetrahydrodipicolinate + succinyl-CoA + H2O = (S)-2-succinylamino-6-oxoheptanedioate + CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 83 more (showing 50 of 133)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fp-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Positives
+                </span>
+                <span class="collapsible-count">20</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12048" target="_blank">RHEA:12048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">3-oxoadipate + succinyl-CoA = 3-oxoadipyl-CoA + succinate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12284" target="_blank">RHEA:12284</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">3-hydroxy-3-methylglutarate + succinyl-CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + succinate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12961" target="_blank">RHEA:12961</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetoacetate + butanoyl-CoA = acetoacetyl-CoA + butanoate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15601" target="_blank">RHEA:15601</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-cinnamoyl-CoA + (R)-3-phenyllactate = (R)-3-phenyllactoyl-CoA + (E)-cinnamate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16469" target="_blank">RHEA:16469</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(R)-2-benzylsuccinate + succinyl-CoA = (R)-2-benzylsuccinyl-CoA + succinate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16545" target="_blank">RHEA:16545</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">formyl-CoA + oxalate = oxalyl-CoA + formate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:16925" target="_blank">RHEA:16925</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(E)-caffeoyl-CoA + S-adenosyl-L-methionine = (E)-feruloyl-CoA + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17105" target="_blank">RHEA:17105</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">malonyl-[ACP] + S-adenosyl-L-methionine = malonyl-[ACP] methyl ester + S-adenosyl-L-homocysteine</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17621" target="_blank">RHEA:17621</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">citramalate + acetyl-CoA = (3S)-citramalyl-CoA + acetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19405" target="_blank">RHEA:19405</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">citrate + acetyl-CoA = (3S)-citryl-CoA + acetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20764" target="_blank">RHEA:20764</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(S)-methylmalonyl-CoA + pyruvate = propanoyl-CoA + oxaloacetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23208" target="_blank">RHEA:23208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">trans-glutaconate + acetyl-CoA = (2E)-glutaconyl-CoA + acetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23496" target="_blank">RHEA:23496</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">5-hydroxypentanoate + acetyl-CoA = 5-hydroxy-pentanoyl-CoA + acetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23520" target="_blank">RHEA:23520</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">propanoate + acetyl-CoA = propanoyl-CoA + acetate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23588" target="_blank">RHEA:23588</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">oxalate + succinyl-CoA = oxalyl-CoA + succinate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25480" target="_blank">RHEA:25480</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetoacetate + succinyl-CoA = acetoacetyl-CoA + succinate</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28010" target="_blank">RHEA:28010</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">propanoyl-CoA + succinate = propanoate + succinyl-CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28526" target="_blank">RHEA:28526</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">crotonobetainyl-CoA + (R)-carnitine = crotonobetaine + (R)-carnitinyl-CoA</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:29603" target="_blank">RHEA:29603</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">oxidized 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + H2O = 4-hydroxybenzoyl-CoA + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30199" target="_blank">RHEA:30199</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">cyclohexa-1,5-diene-1-carbonyl-CoA + oxidized 2[4Fe-4S]-[ferredoxin] + 2 ADP + 2 phosphate = reduced 2[4Fe-4S]-[ferredoxin] + benzoyl-CoA + 2 ATP + 2 H2O</span>
+                <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header fn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> False Negatives
+                </span>
+                <span class="collapsible-count">42</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10208" target="_blank">RHEA:10208</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">an N-terminal L-alpha-aminoacyl-[protein] + L-arginyl-tRNA(Arg) = an N-terminal L-arginyl-L-aminoacyl-[protein] + tRNA(Arg) + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10584" target="_blank">RHEA:10584</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4-coumaroyl-CoA + 3 malonyl-CoA + NADPH + 4 H(+) = isoliquiritigenin + 3 CO2 + NADP(+) + 4 CoA + H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10588" target="_blank">RHEA:10588</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">a long-chain fatty acyl-[mycocerosate synthase] + 4 (R)-methylmalonyl-CoA + 8 NADPH + 12 H(+) = tetramethylated-mycocerosoyl-[mycocerosate synthase] + 4 CO2 + 8 NADP(+) + 4 CoA + 4 H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10668" target="_blank">RHEA:10668</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-lysyl-tRNA(Lys) + a 1,2-diacyl-sn-glycero-3-phospho-(1&#x27;-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1&#x27;-(3&#x27;-O-L-lysyl)-sn-glycerol + tRNA(Lys)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11416" target="_blank">RHEA:11416</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2 1-O-galloyl-beta-D-glucose = 1,6-bis-O-galloyl-beta-D-glucose + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12024" target="_blank">RHEA:12024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">1-O-(trans-sinapoyl)-beta-D-glucose + choline = O-sinapoylcholine + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12240" target="_blank">RHEA:12240</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">3 malonyl-CoA + acetyl-CoA + NADPH + 3 H(+) = 6-methylsalicylate + 3 CO2 + NADP(+) + 4 CoA + H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12340" target="_blank">RHEA:12340</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-terminal L-lysyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-lysyl-[protein] + tRNA(Leu) + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12432" target="_blank">RHEA:12432</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-L-lysyl-D-alanyl-D-alanine + L-alanyl-tRNA(Ala) = UDP-N-acetyl-alpha-D-muramoyl-L-alanyl-gamma-D-glutamyl-N(6)-(L-alanyl)-L-lysyl-D-alanyl-D-alanine + tRNA(Ala) + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:12625" target="_blank">RHEA:12625</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">1-O-(trans-sinapoyl)-beta-D-glucose + (S)-malate = sinapoyl (S)-malate + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13701" target="_blank">RHEA:13701</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-homoserine + acetyl-CoA = O-acetyl-L-homoserine + CoA</span>
+                <div class="reaction-explanation">ETF cofactor present - acyl-CoA dehydrogenase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14417" target="_blank">RHEA:14417</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetyl phosphate + L-lysine = N(6)-acetyl-L-lysine + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:14993" target="_blank">RHEA:14993</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">n malonyl-CoA + acetyl-CoA + 2n NADPH + 2n H(+) = a long-chain fatty acid + n CO2 + 2n NADP(+) + (n+1) CoA</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:15349" target="_blank">RHEA:15349</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(2)-acetyl-L-ornithine + L-glutamate = N-acetyl-L-glutamate + L-ornithine</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17469" target="_blank">RHEA:17469</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">all-trans-retinol--[retinol-binding protein] + a 1,2-diacyl-sn-glycero-3-phosphocholine = apo--[retinol-binding protein] + an all-trans-retinyl ester + a 2-acyl-sn-glycero-3-phosphocholine</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18061" target="_blank">RHEA:18061</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-formylmethanofuran + 5,6,7,8-tetrahydromethanopterin + H(+) = N(5)-formyl-5,6,7,8-tetrahydromethanopterin + methanofuran</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:18565" target="_blank">RHEA:18565</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">holo-[lovastatin nonaketide synthase] + 9 malonyl-CoA + S-adenosyl-L-methionine + 11 NADPH + 19 H(+) = dihydromonacolin L-[lovastatin nonaketide synthase] + S-adenosyl-L-homocysteine + 9 CO2 + 11 NADP(+) + 9 CoA + 6 H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:19109" target="_blank">RHEA:19109</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">1,2,3,6-tetrakis-O-galloyl-beta-D-glucose + 1-O-galloyl-beta-D-glucose = 1,2,3,4,6-pentakis-O-galloyl-beta-D-glucose + D-glucose + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20325" target="_blank">RHEA:20325</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-hydroxy-4-acetylaminobiphenyl = N-acetoxy-4-aminobiphenyl</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20473" target="_blank">RHEA:20473</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(R)-lipoyl-5&#x27;-AMP + L-lysyl-[lipoyl-carrier protein] = N(6)-[(R)-lipoyl]-L-lysyl-[lipoyl-carrier protein] + AMP + 2 H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:20489" target="_blank">RHEA:20489</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-alanyl-tRNA(Ala) + a 1,2-diacyl-sn-glycero-3-phospho-(1&#x27;-sn-glycerol) = a 1,2-diacyl-sn-glycero-3-phospho-1&#x27;-(3&#x27;-O-L-alanyl)-sn-glycerol + tRNA(Ala)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21180" target="_blank">RHEA:21180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">1-O-(indol-3-ylacetyl)-beta-D-glucose + myo-inositol = indole-3-acetyl-1D-myo-inositol + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22664" target="_blank">RHEA:22664</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2 1-O-(trans-sinapoyl)-beta-D-glucose = 1,2-di-O-sinapoyl beta-D-glucose + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22896" target="_blank">RHEA:22896</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">n malonyl-CoA + acetyl-CoA + 2n NADPH + 2n H(+) = a long-chain fatty acyl-CoA + n CO2 + 2n NADP(+) + n CoA + H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23068" target="_blank">RHEA:23068</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">6 (S)-methylmalonyl-CoA + propanoyl-CoA + 6 NADPH + 12 H(+) = 6-deoxyerythronolide B + 6 CO2 + 6 NADP(+) + 7 CoA + H2O</span>
+                <div class="reaction-explanation">NAD(P) system present - likely oxidoreductase not acyltransferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23204" target="_blank">RHEA:23204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">chlorogenate + D-glucarate = 2-O-caffeoylglucarate + L-quinate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23472" target="_blank">RHEA:23472</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2 alpha,alpha&#x27;-trehalose 6-mycolate = alpha,alpha&#x27;-trehalose 6,6&#x27;-bismycolate + alpha,alpha-trehalose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23500" target="_blank">RHEA:23500</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-propanoyl-L-lysyl-[protein] + NAD(+) + H2O = 3&#x27;&#x27;-O-propanoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23556" target="_blank">RHEA:23556</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-alanine + L-glutamine = gamma-L-glutamyl-D-alanine + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23652" target="_blank">RHEA:23652</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-terminal L-glutaminyl-[peptide] = N-terminal 5-oxo-L-prolyl-[peptide] + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24204" target="_blank">RHEA:24204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">acetyl phosphate + sulfite + H(+) = sulfoacetaldehyde + phosphate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24364" target="_blank">RHEA:24364</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-(2-hydroxyisobutanoyl)-L-lysyl-[protein] + NAD(+) + H2O = 2&#x27;&#x27;-O-(2-hydroxyisobutanoyl)-ADP-D-ribose + nicotinamide + L-lysyl-[protein]</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:27786" target="_blank">RHEA:27786</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2-oxoglutarate + NAD(+) + CoA = succinyl-CoA + CO2 + NADH</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28042" target="_blank">RHEA:28042</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">pyruvate + NAD(+) + CoA = acetyl-CoA + CO2 + NADH</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28054" target="_blank">RHEA:28054</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2-oxobutanoate + CoA = propanoyl-CoA + formate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35623" target="_blank">RHEA:35623</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-glutamine + D-glutamate = gamma-D-glutamyl-D-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:37059" target="_blank">RHEA:37059</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-threonylcarbamoyladenylate + adenosine(37) in tRNA = N(6)-L-threonylcarbamoyladenosine(37) in tRNA + AMP + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50416" target="_blank">RHEA:50416</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-terminal L-arginyl-[protein] + L-leucyl-tRNA(Leu) = N-terminal L-leucyl-L-arginyl-[protein] + tRNA(Leu) + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:43636" target="_blank">RHEA:43636</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-acetyl-L-lysyl-[protein] + NAD(+) + H2O = 2&#x27;&#x27;-O-acetyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:54816" target="_blank">RHEA:54816</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-glutaminyl-[protein] + L-lysyl-[protein] = [protein]-L-lysyl-N(6)-5-L-glutamyl-[protein] + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50504" target="_blank">RHEA:50504</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N-terminal L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-seryl-[protein] + CoA + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:63640" target="_blank">RHEA:63640</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N(6)-[(R)-lipoyl]-L-lysyl-[protein] + NAD(+) + H2O = 2&#x27;&#x27;-O-lipoyl-ADP-D-ribose + nicotinamide + L-lysyl-[protein]</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <div class="collapsible">
+            <div class="collapsible-header tn-header">
+                <span class="collapsible-title">
+                    <span class="collapsible-icon">▶</span> True Negatives
+                </span>
+                <span class="collapsible-count">3289</span>
+            </div>
+            <div class="collapsible-content">
+                
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10000" target="_blank">RHEA:10000</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">pentanamide + H2O = pentanoate + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10008" target="_blank">RHEA:10008</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">a hydroperoxide + [protein]-dithiol = [protein]-disulfide + an alcohol + H2O</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10012" target="_blank">RHEA:10012</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(R)-6-hydroxynicotine + O2 + H2O = 6-hydroxypseudooxynicotine + H2O2</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10016" target="_blank">RHEA:10016</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">O-sinapoylcholine + H2O = (E)-sinapate + choline + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10020" target="_blank">RHEA:10020</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-saccharopine + NADP(+) + H2O = (S)-2-amino-6-oxohexanoate + L-glutamate + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10024" target="_blank">RHEA:10024</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-lysyl-[histone] + S-adenosyl-L-methionine = N(6)-methyl-L-lysyl-[histone] + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10028" target="_blank">RHEA:10028</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">D-glutamate + O2 + H2O = H2O2 + 2-oxoglutarate + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10032" target="_blank">RHEA:10032</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">[protein]-C-terminal-L-glutamine + H2O = [protein]-C-terminal-L-glutamate + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10036" target="_blank">RHEA:10036</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4-hydroxy-3-methoxy-benzenemethanol + O2 = vanillin + H2O2</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10040" target="_blank">RHEA:10040</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">adenosine 3&#x27;,5&#x27;-bisphosphate + H2O = AMP + phosphate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10044" target="_blank">RHEA:10044</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">cyclohexanol + NAD(+) = cyclohexanone + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10048" target="_blank">RHEA:10048</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">O-acetyl-L-homoserine + methanethiol = L-methionine + acetate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10052" target="_blank">RHEA:10052</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(2R)-hydroxy-4-methylpentanoate + NAD(+) = 4-methyl-2-oxopentanoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10056" target="_blank">RHEA:10056</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(3S)-3-aminobutanoyl-CoA = (2E)-butenoyl-CoA + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10064" target="_blank">RHEA:10064</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(6R)-5,10-methylene-5,6,7,8-tetrahydrofolate + D-alanine + H2O = 2-methylserine + (6S)-5,6,7,8-tetrahydrofolate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10072" target="_blank">RHEA:10072</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">N,N-dimethylglycine + S-adenosyl-L-methionine = glycine betaine + S-adenosyl-L-homocysteine + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10076" target="_blank">RHEA:10076</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">lactose + H2O = beta-D-galactose + D-glucose</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10080" target="_blank">RHEA:10080</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">dihydrophloroglucinol + NADP(+) = 1,3,5-trihydroxybenzene + NADPH</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10084" target="_blank">RHEA:10084</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">3,4-dihydroxybenzoate + O2 = 3-carboxy-cis,cis-muconate + 2 H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10088" target="_blank">RHEA:10088</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">sucrose + UDP-alpha-D-galactose = 6(F)-alpha-D-galactosylsucrose + UDP + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10092" target="_blank">RHEA:10092</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">a 2&#x27;-deoxyribonucleoside 3&#x27;-phosphate + H2O = a 2&#x27;-deoxyribonucleoside + phosphate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10104" target="_blank">RHEA:10104</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">gibberellin A20 + 2-oxoglutarate + O2 = gibberellin A1 + succinate + CO2</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10108" target="_blank">RHEA:10108</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(7S)-salutaridinol + NADP(+) = salutaridine + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10112" target="_blank">RHEA:10112</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-homocysteine + L-serine = L,L-cystathionine + H2O</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10116" target="_blank">RHEA:10116</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">6-phospho-D-gluconate + NADP(+) = D-ribulose 5-phosphate + CO2 + NADPH</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10124" target="_blank">RHEA:10124</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">phenylacetone + NADPH + O2 + H(+) = benzyl acetate + NADP(+) + H2O</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10128" target="_blank">RHEA:10128</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">all-trans-violaxanthin = all-trans-neoxanthin</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10132" target="_blank">RHEA:10132</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">benzoate + ATP + CoA = benzoyl-CoA + AMP + diphosphate</span>
+                <div class="reaction-explanation">Not a transferase: Ligase - bond formation not group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10136" target="_blank">RHEA:10136</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">2 glyoxylate + H(+) = 2-hydroxy-3-oxopropanoate + CO2</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10140" target="_blank">RHEA:10140</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">prostaglandin F2alpha + NADP(+) = prostaglandin D2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10148" target="_blank">RHEA:10148</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">blasticidin S + H2O + H(+) = deaminohydroxyblasticidin S + NH4(+)</span>
+                <div class="reaction-explanation">Not a transferase: Deaminase/lyase - produces ammonia, not amino group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10152" target="_blank">RHEA:10152</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">hydrogencarbonate + NH4(+) + ATP = carbamoyl phosphate + ADP + H2O + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10156" target="_blank">RHEA:10156</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">dihydrochelirubine + reduced [NADPH--hemoprotein reductase] + O2 = 12-hydroxydihydrochelirubine + oxidized [NADPH--hemoprotein reductase] + H2O + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxygenase - uses O2, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10160" target="_blank">RHEA:10160</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">L-iditol + NAD(+) = keto-L-sorbose + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10164" target="_blank">RHEA:10164</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(2R)-2-phosphoglycerate = phosphoenolpyruvate + H2O</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10168" target="_blank">RHEA:10168</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">15,16-dihydrobiliverdin + oxidized 2[4Fe-4S]-[ferredoxin] = biliverdin IXalpha + reduced 2[4Fe-4S]-[ferredoxin] + 2 H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10172" target="_blank">RHEA:10172</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(3R)-hydroxybutanoate dimer + H2O = 2 (R)-3-hydroxybutanoate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10180" target="_blank">RHEA:10180</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(6R)-10-formyltetrahydrofolate + NADP(+) + H2O = (6S)-5,6,7,8-tetrahydrofolate + CO2 + NADPH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10184" target="_blank">RHEA:10184</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(4,5-dihydro-5-oxofuran-2-yl)-acetate + H2O = 3-oxoadipate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10192" target="_blank">RHEA:10192</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">sulfate(out) + ATP + H2O = sulfate(in) + ADP + phosphate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Transport reaction - not group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10196" target="_blank">RHEA:10196</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">(1R,6R)-6-hydroxy-2-succinyl-cyclohexa-2,4-diene-1-carboxylate = 2-succinylbenzoate + H2O</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10200" target="_blank">RHEA:10200</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">butanoate + NAD(+) = (2E)-2-butenoate + NADH + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Oxidoreductase - NAD(P)+ dependent, not transferase</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10204" target="_blank">RHEA:10204</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">dimethylamine + oxidized [electron-transfer flavoprotein] + H2O + H(+) = methylamine + reduced [electron-transfer flavoprotein] + formaldehyde</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10212" target="_blank">RHEA:10212</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">5-aminopentanoate + 2-oxoglutarate = 5-oxopentanoate + L-glutamate</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10216" target="_blank">RHEA:10216</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">[DNA-directed RNA polymerase] + ATP = phospho-[DNA-directed RNA polymerase] + ADP + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10220" target="_blank">RHEA:10220</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">tRNA(Tyr) + L-tyrosine + ATP = L-tyrosyl-tRNA(Tyr) + AMP + diphosphate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: Ligase - bond formation not group transfer</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10224" target="_blank">RHEA:10224</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">pyridoxal + ATP = pyridoxal 5&#x27;-phosphate + ADP + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10232" target="_blank">RHEA:10232</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">5,6-dihydrouridine 5&#x27;-phosphate + diphosphate = 5,6-dihydrouracil + 5-phospho-alpha-D-ribose 1-diphosphate</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10236" target="_blank">RHEA:10236</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">trans-2-coumarate + UDP-alpha-D-glucose = trans-beta-D-glucosyl-2-hydroxycinnamate + UDP + H(+)</span>
+                <div class="reaction-explanation">No acyl group transfer pattern detected</div>
+            </div>
+            
+            <div class="reaction-item">
+                <span class="reaction-id"><a href="https://bioregistry.io/RHEA:10244" target="_blank">RHEA:10244</a></span> <span class="go-tag">[<a href="https://bioregistry.io/GO:0016746" target="_blank">GO:0016746</a>]</span>:
+                <span class="reaction-label">4-fumarylacetoacetate + H2O = acetoacetate + fumarate + H(+)</span>
+                <div class="reaction-explanation">Not a transferase: No group transfer pattern detected</div>
+            </div>
+            
+            <div class="truncation-notice">
+                ... and 3239 more (showing 50 of 3289)
+            </div>
+            
+            </div>
+        </div>
+        
+        
+        <h2>Positives Without Direct GO Support</h2>
+        <div class="section-note">
+            Positive rule matches on reactions without direct GO support for this class. These matches are partitioned into truly unannotated candidates, EC-backed reactions already consistent with this class, and EC-backed reactions that conflict with this class.
+        </div>
+        
+            <div class="collapsible">
+                <div class="collapsible-header tp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives supporting this class
+                    </span>
+                    <span class="collapsible-count">50</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support in the benchmark, but their EC annotations already support this class.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:11608" target="_blank">RHEA:11608</a></span>:
+                    <span class="reaction-label">[N-acetyl-alpha-D-neuraminosyl-(2-&gt;8)](n) + n acetyl-CoA = [N,O(9)-diacetyl-alpha-D-neuraminosyl-(2-&gt;8)](n) + n CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.136" target="_blank">EC:2.3.1.136</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:13925" target="_blank">RHEA:13925</a></span>:
+                    <span class="reaction-label">(3R)-hydroxytetradecanoyl-[ACP] + UDP-N-acetyl-alpha-D-glucosamine = UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-N-acetyl-alpha-D-glucosamine + holo-[ACP]</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.129" target="_blank">EC:2.3.1.129</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17169" target="_blank">RHEA:17169</a></span>:
+                    <span class="reaction-label">alpha-D-galactosamine 1-phosphate + acetyl-CoA = N-acetyl-alpha-D-galactosamine 1-phosphate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.276" target="_blank">EC:2.3.1.276</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17649" target="_blank">RHEA:17649</a></span>:
+                    <span class="reaction-label">acetyl-[ACP] + malonate = malonyl-[ACP] + acetate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.187" target="_blank">EC:2.3.1.187</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:17817" target="_blank">RHEA:17817</a></span>:
+                    <span class="reaction-label">UDP-3-O-[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + (3R)-hydroxytetradecanoyl-[ACP] = UDP-2-N,3-O-bis[(3R)-3-hydroxytetradecanoyl]-alpha-D-glucosamine + holo-[ACP] + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.191" target="_blank">EC:2.3.1.191</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:21348" target="_blank">RHEA:21348</a></span>:
+                    <span class="reaction-label">10 malonyl-CoA + 8 H(+) = tetracenomycin F2 + 10 CO2 + 10 CoA + 2 H2O</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.235" target="_blank">EC:2.3.1.235</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:22500" target="_blank">RHEA:22500</a></span>:
+                    <span class="reaction-label">(E)-feruloyl-CoA + malonyl-CoA + H(+) = (E)-feruloylacetyl-CoA + CO2 + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.218" target="_blank">EC:2.3.1.218</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25217" target="_blank">RHEA:25217</a></span>:
+                    <span class="reaction-label">serotonin + acetyl-CoA = N-acetylserotonin + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.87" target="_blank">EC:2.3.1.87</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25516" target="_blank">RHEA:25516</a></span>:
+                    <span class="reaction-label">tropine + an acyl-CoA = an O-acyltropine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.185" target="_blank">EC:2.3.1.185</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25520" target="_blank">RHEA:25520</a></span>:
+                    <span class="reaction-label">pseudotropine + an acyl-CoA = an O-acylpseudotropine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.186" target="_blank">EC:2.3.1.186</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25601" target="_blank">RHEA:25601</a></span>:
+                    <span class="reaction-label">4-methylsulfanyl-2-oxobutanoate + acetyl-CoA + H2O = 2-(2-methylsulfanyl)ethylmalate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.3.17" target="_blank">EC:2.3.3.17</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:25605" target="_blank">RHEA:25605</a></span>:
+                    <span class="reaction-label">2-(5-methylsulfanyl)oxopentanoate + acetyl-CoA + H2O = 2-(3-methylsulfanyl)propylmalate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.3.17" target="_blank">EC:2.3.3.17</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:26068" target="_blank">RHEA:26068</a></span>:
+                    <span class="reaction-label">3-(hydrohydroxyphosphoryl)pyruvate + acetyl-CoA + H2O = phosphinomethylmalate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.3.18" target="_blank">EC:2.3.3.18</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28046" target="_blank">RHEA:28046</a></span>:
+                    <span class="reaction-label">propanoyl-CoA + phosphate = propanoyl phosphate + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.222" target="_blank">EC:2.3.1.222</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28150" target="_blank">RHEA:28150</a></span>:
+                    <span class="reaction-label">spermidine + acetyl-CoA = N(1)-acetylspermidine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.57" target="_blank">EC:2.3.1.57</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28250" target="_blank">RHEA:28250</a></span>:
+                    <span class="reaction-label">malonyl-CoA + acetyl-CoA + H(+) = acetoacetyl-CoA + CO2 + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.194" target="_blank">EC:2.3.1.194</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28270" target="_blank">RHEA:28270</a></span>:
+                    <span class="reaction-label">spermidine + acetyl-CoA = N(8)-acetylspermidine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.57" target="_blank">EC:2.3.1.57</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28438" target="_blank">RHEA:28438</a></span>:
+                    <span class="reaction-label">alpha-Kdo-(2-&gt;4)-alpha-Kdo-(2-&gt;6)-(dodecanoyl)-lipid IVA (E. coli) + tetradecanoyl-[ACP] = alpha-Kdo-(2-&gt;4)-alpha-Kdo-(2-&gt;6)-lipid A (E. coli) + holo-[ACP]</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.243" target="_blank">EC:2.3.1.243</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:30411" target="_blank">RHEA:30411</a></span>:
+                    <span class="reaction-label">benzyl alcohol + benzoyl-CoA = benzyl benzoate + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.196" target="_blank">EC:2.3.1.196</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:32095" target="_blank">RHEA:32095</a></span>:
+                    <span class="reaction-label">dTDP-3-amino-3,6-dideoxy-alpha-D-galactopyranose + acetyl-CoA = dTDP-3-acetamido-3,6-dideoxy-alpha-D-galactopyranose + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.197" target="_blank">EC:2.3.1.197</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33019" target="_blank">RHEA:33019</a></span>:
+                    <span class="reaction-label">(3S)-3,6-diaminohexanoate + acetyl-CoA = (3S)-6-acetamido-3-aminohexanoate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.264" target="_blank">EC:2.3.1.264</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33099" target="_blank">RHEA:33099</a></span>:
+                    <span class="reaction-label">spermine + acetyl-CoA = N(1)-acetylspermine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.57" target="_blank">EC:2.3.1.57</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33151" target="_blank">RHEA:33151</a></span>:
+                    <span class="reaction-label">(R)-dihydrolipoamide + acetyl-CoA = (R)-S(6)-acetyldihydrolipoamide + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.12" target="_blank">EC:2.3.1.12</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:33587" target="_blank">RHEA:33587</a></span>:
+                    <span class="reaction-label">UDP-2-acetamido-3-amino-2,3-dideoxy-alpha-D-glucuronate + acetyl-CoA = UDP-2,3-diacetamido-2,3-dideoxy-alpha-D-glucuronate + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.201" target="_blank">EC:2.3.1.201</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34119" target="_blank">RHEA:34119</a></span>:
+                    <span class="reaction-label">hexanoyl-CoA + 3 malonyl-CoA + 3 H(+) = 3,5,7-trioxododecanoyl-CoA + 3 CO2 + 3 CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.206" target="_blank">EC:2.3.1.206</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34155" target="_blank">RHEA:34155</a></span>:
+                    <span class="reaction-label">UDP-4-amino-4,6-dideoxy-N-acetyl-beta-L-altrosamine + acetyl-CoA = UDP-2,4-diacetamido-2,4,6-trideoxy-beta-L-altrose + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.202" target="_blank">EC:2.3.1.202</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34159" target="_blank">RHEA:34159</a></span>:
+                    <span class="reaction-label">UDP-N-acetylbacillosamine + acetyl-CoA = UDP-N,N&#x27;-diacetylbacillosamine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.203" target="_blank">EC:2.3.1.203</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34175" target="_blank">RHEA:34175</a></span>:
+                    <span class="reaction-label">2-hydroxybenzoyl-CoA + malonyl-CoA = 4-hydroxycoumarin + CO2 + 2 CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.208" target="_blank">EC:2.3.1.208</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34267" target="_blank">RHEA:34267</a></span>:
+                    <span class="reaction-label">fumigaclavine B + acetyl-CoA = fumigaclavine A + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.205" target="_blank">EC:2.3.1.205</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34443" target="_blank">RHEA:34443</a></span>:
+                    <span class="reaction-label">dTDP-4-amino-4,6-dideoxy-alpha-D-galactose + acetyl-CoA = dTDP-4-acetamido-4,6-dideoxy-alpha-D-galactose + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.210" target="_blank">EC:2.3.1.210</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34483" target="_blank">RHEA:34483</a></span>:
+                    <span class="reaction-label">4-coumaroyl-CoA + malonyl-CoA + H2O + H(+) = 4-hydroxybenzalacetone + 2 CO2 + 2 CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.212" target="_blank">EC:2.3.1.212</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34531" target="_blank">RHEA:34531</a></span>:
+                    <span class="reaction-label">dTDP-4-amino-4,6-dideoxy-alpha-D-glucose + acetyl-CoA = dTDP-4-acetamido-4,6-dideoxy-alpha-D-glucose + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.209" target="_blank">EC:2.3.1.209</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34799" target="_blank">RHEA:34799</a></span>:
+                    <span class="reaction-label">2,3-didehydroadipoyl-CoA + acetyl-CoA = 3-oxo-5,6-didehydrosuberyl-CoA + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.223" target="_blank">EC:2.3.1.223</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:34839" target="_blank">RHEA:34839</a></span>:
+                    <span class="reaction-label">5 malonyl-CoA + 4 H(+) = 5,7-dihydroxy-2-methyl-4H-chromen-4-one + 5 CO2 + 5 CoA + H2O</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.216" target="_blank">EC:2.3.1.216</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:35115" target="_blank">RHEA:35115</a></span>:
+                    <span class="reaction-label">4-coumaroyl-CoA + malonyl-CoA + H(+) = (4-coumaroyl)acetyl-CoA + CO2 + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.218" target="_blank">EC:2.3.1.218</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36663" target="_blank">RHEA:36663</a></span>:
+                    <span class="reaction-label">(S)-1-pyrroline-5-carboxylate + malonyl-CoA + H2O + H(+) = (2S,5S)-5-carboxymethylproline + CO2 + CoA</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.226" target="_blank">EC:2.3.1.226</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:36811" target="_blank">RHEA:36811</a></span>:
+                    <span class="reaction-label">GDP-alpha-D-perosamine + acetyl-CoA = GDP-N-acetyl-alpha-D-perosamine + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.227" target="_blank">EC:2.3.1.227</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50480" target="_blank">RHEA:50480</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-aspartyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-aspartyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.254" target="_blank">EC:2.3.1.254</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50484" target="_blank">RHEA:50484</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-asparaginyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-asparaginyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.254" target="_blank">EC:2.3.1.254</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50488" target="_blank">RHEA:50488</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-glutamyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-glutamyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.254" target="_blank">EC:2.3.1.254</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50508" target="_blank">RHEA:50508</a></span>:
+                    <span class="reaction-label">N-terminal L-valyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-valyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.255" target="_blank">EC:2.3.1.255</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50512" target="_blank">RHEA:50512</a></span>:
+                    <span class="reaction-label">N-terminal L-cysteinyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-cysteinyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.255" target="_blank">EC:2.3.1.255</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50516" target="_blank">RHEA:50516</a></span>:
+                    <span class="reaction-label">N-terminal L-threonyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-threonyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.255" target="_blank">EC:2.3.1.255</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50524" target="_blank">RHEA:50524</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-isoleucyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-isoleucyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.256" target="_blank">EC:2.3.1.256</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50528" target="_blank">RHEA:50528</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-phenylalanyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-phenylalanyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.256" target="_blank">EC:2.3.1.256</a>, <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50532" target="_blank">RHEA:50532</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-tyrosyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-tyrosyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.256" target="_blank">EC:2.3.1.256</a>, <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50564" target="_blank">RHEA:50564</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-alanyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-alanyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50568" target="_blank">RHEA:50568</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-seryl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-seryl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50576" target="_blank">RHEA:50576</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-threonyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-threonyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:50580" target="_blank">RHEA:50580</a></span>:
+                    <span class="reaction-label">N-terminal L-methionyl-L-lysyl-[protein] + acetyl-CoA = N-terminal N(alpha)-acetyl-L-methionyl-L-lysyl-[protein] + CoA + H(+)</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.3.1.258" target="_blank">EC:2.3.1.258</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                </div>
+            </div>
+            
+            <div class="collapsible">
+                <div class="collapsible-header fp-header">
+                    <span class="collapsible-title">
+                        <span class="collapsible-icon">▶</span> EC-backed, GO-missing positives conflicting with this class
+                    </span>
+                    <span class="collapsible-count">3</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="section-note">These reactions lack direct GO support for this class and already carry a different EC assignment. They are useful false-positive review candidates.</div>
+                    
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:23028" target="_blank">RHEA:23028</a></span>:
+                    <span class="reaction-label">N(6)-biotinyl-L-lysyl-[protein] + malonyl-[ACP] = N(6)-carboxybiotinyl-L-lysyl-[protein] + acetyl-[ACP]</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.1.3.10" target="_blank">EC:2.1.3.10</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:24948" target="_blank">RHEA:24948</a></span>:
+                    <span class="reaction-label">3-hydroxy-3-methylglutarate + malonyl-CoA = (3S)-3-hydroxy-3-methylglutaryl-CoA + malonate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.8.3.13" target="_blank">EC:2.8.3.13</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                <div class="reaction-item">
+                    <span class="reaction-id"><a href="https://bioregistry.io/RHEA:28418" target="_blank">RHEA:28418</a></span>:
+                    <span class="reaction-label">4-(trimethylamino)butanoyl-CoA + (R)-carnitine = (R)-carnitinyl-CoA + 4-(trimethylamino)butanoate</span>
+                    <div class="reaction-meta">EC annotation: <a href="https://bioregistry.io/EC:2.8.3.21" target="_blank">EC:2.8.3.21</a></div>
+                    <div class="reaction-explanation">Acyltransferase: acyl group transfer [pattern matched]</div>
+                </div>
+                
+                </div>
+            </div>
+            
+        
+
+        <div class="footer">
+            Generated by autarch export utility
+        </div>
+    
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

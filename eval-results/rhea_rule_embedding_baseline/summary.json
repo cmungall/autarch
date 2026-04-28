@@ -1,0 +1,77 @@
+{
+  "reaction_count": 5336,
+  "candidate_classes": 481,
+  "benchmarked_classes": 354,
+  "min_positives": 5,
+  "max_classes": null,
+  "cv_splits": 5,
+  "feature_spaces": [
+    "reaction",
+    "rhs_minus_lhs",
+    "symmetric_sum_sqdiff"
+  ],
+  "feature_dimensions": {
+    "reaction": 1536,
+    "rhs_minus_lhs": 1536,
+    "symmetric_sum_sqdiff": 3072
+  },
+  "embedding_backend": "linkml_store",
+  "embedding_model_name": "text-embedding-3-small",
+  "duration_seconds": 1088.659,
+  "overall_metrics": [
+    {
+      "space": "reaction",
+      "space_label": "Reaction",
+      "classes": 354,
+      "mean_f1": 0.3901735107824923,
+      "median_f1": 0.3504402137105877,
+      "mean_average_precision": 0.6348912026488889,
+      "mean_roc_auc": 0.9854650634353956,
+      "mean_prevalence": 0.013135381461811467
+    },
+    {
+      "space": "rhs_minus_lhs",
+      "space_label": "RHS-LHS diff",
+      "classes": 354,
+      "mean_f1": 0.3167898486089742,
+      "median_f1": 0.26344384401927856,
+      "mean_average_precision": 0.5116401261201474,
+      "mean_roc_auc": 0.946305016764892,
+      "mean_prevalence": 0.013135381461811467
+    },
+    {
+      "space": "symmetric_sum_sqdiff",
+      "space_label": "Symmetric side summary",
+      "classes": 354,
+      "mean_f1": 0.30744203985519925,
+      "median_f1": 0.25677655677655675,
+      "mean_average_precision": 0.5374111833169614,
+      "mean_roc_auc": 0.9791145988536673,
+      "mean_prevalence": 0.013135381461811467
+    }
+  ],
+  "versus_reaction": [
+    {
+      "space": "rhs_minus_lhs",
+      "space_label": "RHS-LHS diff",
+      "classes_compared": 354,
+      "better_than_reaction": 97,
+      "worse_than_reaction": 254,
+      "mean_f1_delta": -0.07338366217351815
+    },
+    {
+      "space": "symmetric_sum_sqdiff",
+      "space_label": "Symmetric side summary",
+      "classes_compared": 354,
+      "better_than_reaction": 31,
+      "worse_than_reaction": 321,
+      "mean_f1_delta": -0.08273147092729306
+    }
+  ],
+  "artifacts": {
+    "output_dir": "eval-results/rhea_rule_embedding_baseline",
+    "summary_json": "eval-results/rhea_rule_embedding_baseline/summary.json",
+    "per_class_csv": "eval-results/rhea_rule_embedding_baseline/per_class_metrics.csv",
+    "summary_csv": "eval-results/rhea_rule_embedding_baseline/summary_metrics.csv"
+  }
+}

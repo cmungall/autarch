@@ -1,0 +1,3 @@
+model,model_label,space,space_label,classes,mean_f1,median_f1,mean_average_precision,mean_roc_auc,mean_prevalence
+linear_svm,Linear SVM,reaction,Reaction,25,0.8041767252213208,0.8034515819750719,0.8945572287967906,0.9853185361220929,0.09657421289355322
+logistic_regression,Logistic regression,reaction,Reaction,25,0.6962863717437654,0.6831275720164609,0.8330642193427363,0.9764435898779443,0.09657421289355322

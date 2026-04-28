@@ -9,6 +9,9 @@ $tmpdir/
 cache/modelseed/
 cache/modelseed_benchmark/
 cache/modelseed*.jsonl
+cache/rhea_browser*.db
+cache/rhea_browser*.duckdb
+cache/rhea_rule_embedding_benchmark/
 
 # Large generated evaluation tables and summaries
 *-results/detailed_predictions.csv

@@ -1,0 +1,54 @@
+{
+  "reaction_count": 5336,
+  "candidate_classes": 481,
+  "benchmarked_classes": 25,
+  "min_positives": 100,
+  "max_classes": 25,
+  "cv_splits": 5,
+  "models": [
+    "logistic_regression",
+    "linear_svm"
+  ],
+  "feature_spaces": [
+    "reaction"
+  ],
+  "feature_dimensions": {
+    "reaction": 1536
+  },
+  "embedding_backend": "linkml_store",
+  "embedding_model_name": "text-embedding-3-small",
+  "duration_seconds": 355.263,
+  "overall_metrics": [
+    {
+      "model": "linear_svm",
+      "model_label": "Linear SVM",
+      "space": "reaction",
+      "space_label": "Reaction",
+      "classes": 25,
+      "mean_f1": 0.8041767252213208,
+      "median_f1": 0.8034515819750719,
+      "mean_average_precision": 0.8945572287967906,
+      "mean_roc_auc": 0.9853185361220929,
+      "mean_prevalence": 0.09657421289355322
+    },
+    {
+      "model": "logistic_regression",
+      "model_label": "Logistic regression",
+      "space": "reaction",
+      "space_label": "Reaction",
+      "classes": 25,
+      "mean_f1": 0.6962863717437654,
+      "median_f1": 0.6831275720164609,
+      "mean_average_precision": 0.8330642193427363,
+      "mean_roc_auc": 0.9764435898779443,
+      "mean_prevalence": 0.09657421289355322
+    }
+  ],
+  "versus_reaction": [],
+  "artifacts": {
+    "output_dir": "eval-results/rhea_rule_embedding_linear_probe",
+    "summary_json": "eval-results/rhea_rule_embedding_linear_probe/summary.json",
+    "per_class_csv": "eval-results/rhea_rule_embedding_linear_probe/per_class_metrics.csv",
+    "summary_csv": "eval-results/rhea_rule_embedding_linear_probe/summary_metrics.csv"
+  }
+}

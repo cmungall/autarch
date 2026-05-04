@@ -1,6 +1,7 @@
 """CLI tests for the ModelSEED cache command."""
 
 import json
+import re
 from pathlib import Path
 from typing import TypedDict
 
@@ -10,6 +11,7 @@ from autarch.cli import app
 
 
 runner = CliRunner()
+ANSI_ESCAPE = re.compile(r"\x1b\[[0-?]*[ -/]*[@-~]")
 
 
 class CacheModelseedCalls(TypedDict):
@@ -56,9 +58,10 @@ def test_cache_modelseed_command(monkeypatch, tmp_path: Path):
     )
 
     assert result.exit_code == 0
-    assert "Cached 4 ModelSEED compounds" in result.stdout
-    assert "Mapped to CHEBI: 3" in result.stdout
-    assert "Reactions with RHEA aliases: 1" in result.stdout
+    stdout = ANSI_ESCAPE.sub("", result.stdout)
+    assert "Cached 4 ModelSEED compounds" in stdout
+    assert "Mapped to CHEBI: 3" in stdout
+    assert "Reactions with RHEA aliases: 1" in stdout
     assert calls["cache_dir"] == str(tmp_path)
     assert calls["limit"] == 25
     assert calls["force_download"] is True

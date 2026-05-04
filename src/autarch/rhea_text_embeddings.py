@@ -828,17 +828,54 @@ def build_bidirectional_distance_matrix(
     if lhs_matrix.shape[0] == 0:
         return np.zeros((0, 0), dtype=np.float32)
 
-    from sklearn.metrics import pairwise_distances
-
-    lhs_lhs = pairwise_distances(lhs_matrix, lhs_matrix, metric=metric)
-    rhs_rhs = pairwise_distances(rhs_matrix, rhs_matrix, metric=metric)
-    lhs_rhs = pairwise_distances(lhs_matrix, rhs_matrix, metric=metric)
+    lhs_lhs = pairwise_distance_matrix(lhs_matrix, lhs_matrix, metric=metric)
+    rhs_rhs = pairwise_distance_matrix(rhs_matrix, rhs_matrix, metric=metric)
+    lhs_rhs = pairwise_distance_matrix(lhs_matrix, rhs_matrix, metric=metric)
 
     aligned = 0.5 * (lhs_lhs + rhs_rhs)
     swapped = 0.5 * (lhs_rhs + lhs_rhs.T)
     distance_matrix = np.minimum(aligned, swapped)
     np.fill_diagonal(distance_matrix, 0.0)
     return distance_matrix.astype(np.float32, copy=False)
+
+
+def pairwise_distance_matrix(
+    left_matrix: np.ndarray,
+    right_matrix: np.ndarray,
+    metric: str = DEFAULT_UMAP_METRIC,
+) -> np.ndarray:
+    """Compute pairwise distances without requiring scikit-learn at runtime."""
+    if metric == "cosine":
+        left_norms = np.linalg.norm(left_matrix, axis=1, keepdims=True)
+        right_norms = np.linalg.norm(right_matrix, axis=1, keepdims=True)
+        left_normalized = np.divide(
+            left_matrix,
+            left_norms,
+            out=np.zeros_like(left_matrix, dtype=np.float32),
+            where=left_norms != 0,
+        )
+        right_normalized = np.divide(
+            right_matrix,
+            right_norms,
+            out=np.zeros_like(right_matrix, dtype=np.float32),
+            where=right_norms != 0,
+        )
+        distances = 1.0 - left_normalized @ right_normalized.T
+        return np.clip(distances, 0.0, 2.0).astype(np.float32, copy=False)
+    if metric == "euclidean":
+        deltas = left_matrix[:, None, :] - right_matrix[None, :, :]
+        return np.linalg.norm(deltas, axis=2).astype(np.float32, copy=False)
+
+    try:
+        from sklearn.metrics import pairwise_distances
+    except ImportError as e:
+        raise ValueError(
+            f"Unsupported distance metric without scikit-learn: {metric}"
+        ) from e
+    return pairwise_distances(left_matrix, right_matrix, metric=metric).astype(
+        np.float32,
+        copy=False,
+    )
 
 
 def project_precomputed_distance_matrix(distance_matrix: np.ndarray) -> np.ndarray:
@@ -852,7 +889,10 @@ def project_precomputed_distance_matrix(distance_matrix: np.ndarray) -> np.ndarr
     if n_samples == 2:
         return np.array([[-1.0, 0.0], [1.0, 0.0]], dtype=np.float32)
 
-    from umap import UMAP
+    try:
+        from umap import UMAP
+    except ImportError:
+        return project_distance_matrix_classical_mds(distance_matrix)
 
     reducer = UMAP(
         n_components=2,
@@ -862,6 +902,23 @@ def project_precomputed_distance_matrix(distance_matrix: np.ndarray) -> np.ndarr
         random_state=DEFAULT_UMAP_RANDOM_STATE,
     )
     coords = reducer.fit_transform(distance_matrix)
+    return coords.astype(np.float32, copy=False)
+
+
+def project_distance_matrix_classical_mds(distance_matrix: np.ndarray) -> np.ndarray:
+    """Project a distance matrix to 2D with a deterministic numpy fallback."""
+    n_samples = distance_matrix.shape[0]
+    squared = np.square(distance_matrix.astype(np.float64, copy=False))
+    centering = np.eye(n_samples) - np.ones((n_samples, n_samples)) / n_samples
+    gram = -0.5 * centering @ squared @ centering
+    eigvals, eigvecs = np.linalg.eigh(gram)
+    order = np.argsort(eigvals)[::-1][:2]
+    positive_eigvals = np.maximum(eigvals[order], 0.0)
+    coords = eigvecs[:, order] * np.sqrt(positive_eigvals)
+    if coords.shape[1] < 2:
+        coords = np.hstack(
+            [coords, np.zeros((n_samples, 2 - coords.shape[1]), dtype=coords.dtype)]
+        )
     return coords.astype(np.float32, copy=False)
 
 
@@ -890,7 +947,10 @@ def project_umap_embedding_matrix(matrix: np.ndarray) -> np.ndarray:
     if n_samples == 2:
         return np.array([[-1.0, 0.0], [1.0, 0.0]], dtype=np.float32)
 
-    from umap import UMAP
+    try:
+        from umap import UMAP
+    except ImportError:
+        return project_embedding_matrix(matrix, n_components=2)
 
     reducer = UMAP(
         n_components=2,

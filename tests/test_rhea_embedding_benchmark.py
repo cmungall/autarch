@@ -3,6 +3,7 @@
 from collections import Counter
 
 import numpy as np
+import pytest
 
 from autarch.rhea_embedding_benchmark import (
     build_drfp_feature_spec,
@@ -62,6 +63,7 @@ def test_build_rule_benchmark_feature_specs_preserves_row_indices() -> None:
 
 def test_build_drfp_feature_spec_uses_valid_reaction_smiles_subset() -> None:
     """DRFP should skip rows without concrete reaction SMILES."""
+    pytest.importorskip("drfp")
     import pandas as pd
 
     df = pd.DataFrame(

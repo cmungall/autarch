@@ -3,7 +3,7 @@
 import json
 import logging
 from pathlib import Path
-from typing import Optional, List
+from typing import Any, Optional, List
 
 import typer
 from rich.console import Console
@@ -1046,7 +1046,7 @@ def benchmark_rule_embeddings(
         artifact_table.add_column("Artifact", style="cyan")
         artifact_table.add_column("Path", style="green")
         for label, path in summary["artifacts"].items():
-            artifact_table.add_row(label, path)
+            artifact_table.add_row(str(label), str(path))
         console.print(artifact_table)
     except FileNotFoundError as e:
         console.print(f"[red]Error: {e}[/red]")
@@ -1179,7 +1179,7 @@ def explain_embedding_rule(
 
         def render_component_table(
             title: str,
-            rows: list[dict[str, object]],
+            rows: list[Any],
             delta_style: str,
         ) -> None:
             table = Table(title=title)

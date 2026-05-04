@@ -15,7 +15,7 @@ import os
 import re
 import sys
 from pathlib import Path
-from typing import Any, Iterable, cast
+from typing import Any, Iterable, TypedDict, cast
 
 import numpy as np
 import pandas as pd
@@ -35,6 +35,16 @@ RHEA_BROWSER_STORE_FILENAME = "rhea_browser_embeddings.duckdb"
 RHEA_BROWSER_CACHE_FILENAME = "rhea_browser_cache.db"
 RHEA_EMBEDDING_ID_PREFIX = "RHEA ID: "
 VECTOR_EMBEDDING_SPACE_ORDER = ["reaction", "lhs", "rhs", "rhs_minus_lhs"]
+
+
+class EmbeddingSpaceConfig(TypedDict):
+    """Display metadata for a browser embedding space."""
+
+    label: str
+    description: str
+    text_field: str | None
+
+
 EMBEDDING_SPACE_ORDER = [
     "reaction",
     "reaction_drfp",
@@ -43,7 +53,7 @@ EMBEDDING_SPACE_ORDER = [
     "rhs",
     "rhs_minus_lhs",
 ]
-EMBEDDING_SPACE_CONFIG = {
+EMBEDDING_SPACE_CONFIG: dict[str, EmbeddingSpaceConfig] = {
     "reaction": {
         "label": "Reaction",
         "description": "definition/equation + participant descriptors",
@@ -1750,15 +1760,17 @@ def save_rhea_browser_html(
         x_value = row.get(f"x__{space}")
         y_value = row.get(f"y__{space}")
         available = pd.notna(x_value) and pd.notna(y_value)
+        x_coord = round(float(cast(Any, x_value)), 5) if available else None
+        y_coord = round(float(cast(Any, y_value)), 5) if available else None
         return {
             "label": EMBEDDING_SPACE_CONFIG[space]["label"],
             "description": EMBEDDING_SPACE_CONFIG[space]["description"],
-            "x": round(float(x_value), 5) if available else None,
-            "y": round(float(y_value), 5) if available else None,
+            "x": x_coord,
+            "y": y_coord,
             "available": bool(available),
         }
 
-    records = []
+    records: list[dict[str, Any]] = []
     for row in row_records:
         asserted_rule_support = build_asserted_rule_support(
             row["go_closure_ids"],

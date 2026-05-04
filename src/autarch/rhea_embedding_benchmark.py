@@ -550,6 +550,7 @@ def benchmark_rule_embedding_spaces(
     summary_df.to_csv(summary_csv_path, index=False)
 
     duration_seconds = round(time.perf_counter() - started_at, 3)
+    overall_metrics = cast(list[dict[str, Any]], summary_df.to_dict(orient="records"))
     summary_payload: RuleEmbeddingBenchmarkSummary = {
         "reaction_count": len(rhea_ids),
         "candidate_classes": len(class_counts),
@@ -570,7 +571,7 @@ def benchmark_rule_embedding_spaces(
         "embedding_backend": embedding_backend,
         "embedding_model_name": embedding_model_name,
         "duration_seconds": duration_seconds,
-        "overall_metrics": summary_df.to_dict(orient="records"),
+        "overall_metrics": overall_metrics,
         "versus_reaction": comparison_rows,
         "artifacts": {
             "output_dir": str(output_path),

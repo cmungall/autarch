@@ -1,6 +1,7 @@
 """Tests for RHEA text embedding utilities."""
 
 import json
+from typing import cast
 
 import numpy as np
 import pytest
@@ -158,11 +159,11 @@ def test_build_rhea_embedding_space_df_marks_drfp_subset(tmp_path) -> None:
     ).set_index("rhea_id")
 
     assert bool(df.loc["RHEA:30000", "has__reaction_drfp"])
-    assert not np.isnan(df.loc["RHEA:30000", "x__reaction_drfp"])
-    assert not np.isnan(df.loc["RHEA:30000", "y__reaction_drfp"])
+    assert not np.isnan(cast(float, df.loc["RHEA:30000", "x__reaction_drfp"]))
+    assert not np.isnan(cast(float, df.loc["RHEA:30000", "y__reaction_drfp"]))
     assert not bool(df.loc["RHEA:30004", "has__reaction_drfp"])
-    assert np.isnan(df.loc["RHEA:30004", "x__reaction_drfp"])
-    assert np.isnan(df.loc["RHEA:30004", "y__reaction_drfp"])
+    assert np.isnan(cast(float, df.loc["RHEA:30004", "x__reaction_drfp"]))
+    assert np.isnan(cast(float, df.loc["RHEA:30004", "y__reaction_drfp"]))
 
 
 def test_build_reaction_side_embedding_text_preserves_directional_side() -> None:

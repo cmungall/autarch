@@ -1,8 +1,9 @@
 """Text embeddings and browser views for RHEA reactions.
 
-This is a deterministic lexical baseline intended for exploration. It uses
-hashed TF-IDF features over reaction descriptions assembled from the curated
-reaction equation plus participant metadata, then projects them to 2D with PCA.
+The browser prefers the same embedding stack used in ``dismech``:
+``linkml-store`` for cached LLM embeddings plus
+``linkml-embeddings-explorer`` reduction utilities. A legacy hashed lexical
+baseline remains available as a fallback for tests and offline environments.
 """
 
 from __future__ import annotations
@@ -10,9 +11,11 @@ from __future__ import annotations
 import ast
 import hashlib
 import json
+import os
 import re
+import sys
 from pathlib import Path
-from typing import Any, Iterable, cast
+from typing import Any, Iterable, TypedDict, cast
 
 import numpy as np
 import pandas as pd
@@ -20,6 +23,68 @@ import plotly.express as px  # type: ignore[import-untyped]
 
 
 DEFAULT_N_FEATURES = 512
+DEFAULT_DRFP_FOLDED_LENGTH = 2048
+DEFAULT_EMBEDDING_MODEL_NAME = "text-embedding-3-small"
+DEFAULT_UMAP_NEIGHBORS = 15
+DEFAULT_UMAP_MIN_DIST = 0.1
+DEFAULT_UMAP_METRIC = "cosine"
+DEFAULT_UMAP_RANDOM_STATE = 42
+RHEA_BROWSER_COLLECTION = "rhea_browser"
+RHEA_BROWSER_INDEX_NAME = "rhea_browser_index"
+RHEA_BROWSER_STORE_FILENAME = "rhea_browser_embeddings.duckdb"
+RHEA_BROWSER_CACHE_FILENAME = "rhea_browser_cache.db"
+RHEA_EMBEDDING_ID_PREFIX = "RHEA ID: "
+VECTOR_EMBEDDING_SPACE_ORDER = ["reaction", "lhs", "rhs", "rhs_minus_lhs"]
+
+
+class EmbeddingSpaceConfig(TypedDict):
+    """Display metadata for a browser embedding space."""
+
+    label: str
+    description: str
+    text_field: str | None
+
+
+EMBEDDING_SPACE_ORDER = [
+    "reaction",
+    "reaction_drfp",
+    "bidirectional",
+    "lhs",
+    "rhs",
+    "rhs_minus_lhs",
+]
+EMBEDDING_SPACE_CONFIG: dict[str, EmbeddingSpaceConfig] = {
+    "reaction": {
+        "label": "Reaction",
+        "description": "definition/equation + participant descriptors",
+        "text_field": "embedding_text",
+    },
+    "reaction_drfp": {
+        "label": "Reaction SMILES (DRFP)",
+        "description": "chemistry-native reaction fingerprint over reaction SMILES",
+        "text_field": None,
+    },
+    "bidirectional": {
+        "label": "Bidirectional",
+        "description": "swap-invariant reaction distance over unordered sides",
+        "text_field": None,
+    },
+    "lhs": {
+        "label": "LHS",
+        "description": "reactant-side participant descriptors",
+        "text_field": "left_embedding_text",
+    },
+    "rhs": {
+        "label": "RHS",
+        "description": "product-side participant descriptors",
+        "text_field": "right_embedding_text",
+    },
+    "rhs_minus_lhs": {
+        "label": "RHS-LHS diff",
+        "description": "directional vector: products minus reactants",
+        "text_field": None,
+    },
+}
 EC_MAJOR_NAMES = {
     "1": "Oxidoreductases",
     "2": "Transferases",
@@ -311,6 +376,105 @@ def participant_browser_record(participant: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def participant_smiles_repeat_count(participant: dict[str, Any]) -> int | None:
+    """Return a repeat count suitable for reaction-SMILES expansion.
+
+    Returns ``None`` when the participant uses symbolic stoichiometry such as
+    ``n`` or ``n+1`` and therefore cannot be represented as standard reaction
+    SMILES.
+
+    Examples:
+        >>> participant_smiles_repeat_count({"count": 2})
+        2
+        >>> participant_smiles_repeat_count({"stoichiometry": "3"})
+        3
+        >>> participant_smiles_repeat_count({"stoichiometry": "n+1"}) is None
+        True
+    """
+    stoichiometry = participant.get("stoichiometry")
+    if stoichiometry is not None:
+        text = str(stoichiometry).strip()
+        if text.isdigit():
+            return int(text)
+        return None
+
+    count = participant.get("count")
+    if count is None:
+        return 1
+    if isinstance(count, bool):
+        return int(count)
+    if isinstance(count, int):
+        return count
+    if isinstance(count, float) and count.is_integer():
+        return int(count)
+
+    text = str(count).strip()
+    if text.isdigit():
+        return int(text)
+    return None
+
+
+def expand_participant_smiles(participant: dict[str, Any]) -> list[str] | None:
+    """Expand a participant into repeated SMILES tokens for reaction SMILES.
+
+    Examples:
+        >>> expand_participant_smiles({"smiles": "O", "count": 2})
+        ['O', 'O']
+        >>> expand_participant_smiles({"smiles": "CCO"})
+        ['CCO']
+        >>> expand_participant_smiles({"name": "polymer"}) is None
+        True
+    """
+    smiles = participant.get("smiles")
+    if not smiles:
+        return None
+    repeat_count = participant_smiles_repeat_count(participant)
+    if repeat_count is None or repeat_count < 1:
+        return None
+    return [str(smiles)] * repeat_count
+
+
+def build_reaction_smiles(
+    left_participants: list[dict[str, Any]],
+    right_participants: list[dict[str, Any]],
+) -> str | None:
+    """Build a reaction SMILES string when both sides have concrete structures.
+
+    Reactions with missing participant structures or symbolic stoichiometry are
+    returned as ``None`` so chemistry-native encoders can operate on a valid
+    subset only.
+
+    Examples:
+        >>> build_reaction_smiles(
+        ...     [{"smiles": "CCO"}, {"smiles": "O"}],
+        ...     [{"smiles": "CC=O"}, {"smiles": "O"}],
+        ... )
+        'CCO.O>>CC=O.O'
+        >>> build_reaction_smiles(
+        ...     [{"smiles": "CCO", "stoichiometry": "n"}],
+        ...     [{"smiles": "CC=O"}],
+        ... ) is None
+        True
+    """
+    left_tokens: list[str] = []
+    for participant in left_participants:
+        expanded = expand_participant_smiles(participant)
+        if expanded is None:
+            return None
+        left_tokens.extend(expanded)
+
+    right_tokens: list[str] = []
+    for participant in right_participants:
+        expanded = expand_participant_smiles(participant)
+        if expanded is None:
+            return None
+        right_tokens.extend(expanded)
+
+    if not left_tokens or not right_tokens:
+        return None
+    return ".".join(left_tokens) + ">>" + ".".join(right_tokens)
+
+
 def participant_display_text(participant: dict[str, Any]) -> str:
     """Render a participant into a compact textual descriptor.
 
@@ -352,6 +516,7 @@ def build_reaction_embedding_text(
     label: str,
     left_participants: list[dict[str, Any]],
     right_participants: list[dict[str, Any]],
+    include_label: bool = True,
 ) -> str:
     """Build embedding text from reaction definition and participants.
 
@@ -366,12 +531,30 @@ def build_reaction_embedding_text(
     """
     left_text = "; ".join(participant_display_text(p) for p in left_participants)
     right_text = "; ".join(participant_display_text(p) for p in right_participants)
-    parts = [label.strip()]
+    parts: list[str] = []
+    if include_label and label.strip():
+        parts.append(label.strip())
     if left_text:
         parts.append(f"reactants: {left_text}")
     if right_text:
         parts.append(f"products: {right_text}")
     return " | ".join(part for part in parts if part)
+
+
+def build_reaction_side_embedding_text(
+    side_label: str,
+    participants: list[dict[str, Any]],
+) -> str:
+    """Build side-specific embedding text for one reaction side.
+
+    Examples:
+        >>> build_reaction_side_embedding_text("reactants", [{"name": "ATP"}, {"name": "H2O"}])
+        'reactants: ATP; H2O'
+    """
+    side_text = "; ".join(participant_display_text(p) for p in participants)
+    if side_text:
+        return f"{side_label}: {side_text}"
+    return side_label
 
 
 def build_reaction_search_text(
@@ -395,6 +578,15 @@ def build_reaction_search_text(
             " ".join(extra_terms or []),
         ]
     ).lower()
+
+
+def can_use_drfp() -> bool:
+    """Return True when the optional DRFP dependency is importable."""
+    try:
+        import drfp  # noqa: F401
+    except ImportError:
+        return False
+    return True
 
 
 def load_rhea_text_df(cache_dir: Path = Path("cache")) -> pd.DataFrame:
@@ -430,6 +622,7 @@ def load_rhea_text_df(cache_dir: Path = Path("cache")) -> pd.DataFrame:
         left_participants = [participant_browser_record(p) for p in left_raw]
         right_participants = [participant_browser_record(p) for p in right_raw]
         all_participants = left_participants + right_participants
+        reaction_smiles = build_reaction_smiles(left_raw, right_raw)
         left_summary = "; ".join(
             participant_display_text(p) for p in left_participants
         )
@@ -451,6 +644,22 @@ def load_rhea_text_df(cache_dir: Path = Path("cache")) -> pd.DataFrame:
                 "embedding_text": build_reaction_embedding_text(
                     label,
                     left_participants,
+                    right_participants,
+                ),
+                "reaction_smiles": reaction_smiles,
+                "has_complete_reaction_smiles": reaction_smiles is not None,
+                "participant_embedding_text": build_reaction_embedding_text(
+                    label,
+                    left_participants,
+                    right_participants,
+                    include_label=False,
+                ),
+                "left_embedding_text": build_reaction_side_embedding_text(
+                    "reactants",
+                    left_participants,
+                ),
+                "right_embedding_text": build_reaction_side_embedding_text(
+                    "products",
                     right_participants,
                 ),
                 "search_text": build_reaction_search_text(
@@ -502,18 +711,618 @@ def load_rhea_text_df(cache_dir: Path = Path("cache")) -> pd.DataFrame:
 def build_rhea_text_embedding_df(
     cache_dir: Path = Path("cache"),
     n_features: int = DEFAULT_N_FEATURES,
+    use_linkml_store: bool | None = None,
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
+    embedding_space: str = "reaction",
 ) -> pd.DataFrame:
     """Build a dataframe with 2D coordinates for RHEA text embeddings."""
+    df = build_rhea_embedding_space_df(
+        cache_dir=cache_dir,
+        n_features=n_features,
+        use_linkml_store=use_linkml_store,
+        embedding_model_name=embedding_model_name,
+    )
+    if embedding_space not in EMBEDDING_SPACE_CONFIG:
+        raise ValueError(f"Unknown embedding space: {embedding_space}")
+
+    df = df.copy()
+    df["x"] = df[f"x__{embedding_space}"]
+    df["y"] = df[f"y__{embedding_space}"]
+    return df
+
+
+def build_rhea_embedding_space_df(
+    cache_dir: Path = Path("cache"),
+    n_features: int = DEFAULT_N_FEATURES,
+    use_linkml_store: bool | None = None,
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
+) -> pd.DataFrame:
+    """Build a dataframe with coordinates for every supported embedding space."""
     df = load_rhea_text_df(cache_dir)
-    matrix = build_text_feature_matrix(
-        df["embedding_text"].tolist(),
+    if use_linkml_store is None:
+        use_linkml_store = can_use_linkml_store_embeddings()
+
+    if use_linkml_store:
+        matrices = build_linkml_store_embedding_matrices(
+            df,
+            cache_dir=cache_dir,
+            embedding_model_name=embedding_model_name,
+        )
+        coords_by_space = {
+            space: project_linkml_store_embedding_matrix(matrices[space])
+            for space in VECTOR_EMBEDDING_SPACE_ORDER
+        }
+        coords_by_space["bidirectional"] = project_bidirectional_embedding_pair(
+            matrices["lhs"],
+            matrices["rhs"],
+            metric=DEFAULT_UMAP_METRIC,
+        )
+        embedding_backend = "linkml_store"
+    else:
+        matrices = build_lexical_embedding_matrices(df, n_features=n_features)
+        coords_by_space = {
+            space: project_embedding_matrix(matrices[space], n_components=2)
+            for space in VECTOR_EMBEDDING_SPACE_ORDER
+        }
+        coords_by_space["bidirectional"] = project_bidirectional_embedding_pair(
+            matrices["lhs"],
+            matrices["rhs"],
+            metric=DEFAULT_UMAP_METRIC,
+        )
+        embedding_backend = "lexical"
+
+    df = df.copy()
+    df["embedding_backend"] = embedding_backend
+    for space, coords in coords_by_space.items():
+        df[f"x__{space}"] = coords[:, 0]
+        df[f"y__{space}"] = coords[:, 1]
+    df["x__reaction_drfp"] = np.nan
+    df["y__reaction_drfp"] = np.nan
+    drfp_indices, drfp_coords = build_reaction_drfp_coordinates(df)
+    if drfp_indices.size:
+        df.loc[df.index[drfp_indices], "x__reaction_drfp"] = drfp_coords[:, 0]
+        df.loc[df.index[drfp_indices], "y__reaction_drfp"] = drfp_coords[:, 1]
+    for space in EMBEDDING_SPACE_ORDER:
+        df[f"has__{space}"] = df[f"x__{space}"].notna() & df[f"y__{space}"].notna()
+    return df
+
+
+def build_lexical_embedding_matrices(
+    df: pd.DataFrame,
+    n_features: int = DEFAULT_N_FEATURES,
+) -> dict[str, np.ndarray]:
+    """Build lexical matrices for the supported browser embedding spaces."""
+    reaction_matrix = build_text_feature_matrix(
+        cast(list[str], df["embedding_text"].tolist()),
         n_features=n_features,
     )
-    coords = project_embedding_matrix(matrix, n_components=2)
-    df = df.copy()
-    df["x"] = coords[:, 0]
-    df["y"] = coords[:, 1]
-    return df
+    participant_only_matrix = build_text_feature_matrix(
+        cast(list[str], df["participant_embedding_text"].tolist()),
+        n_features=n_features,
+    )
+
+    left_texts = cast(list[str], df["left_embedding_text"].tolist())
+    right_texts = cast(list[str], df["right_embedding_text"].tolist())
+    side_matrix = build_text_feature_matrix(
+        left_texts + right_texts,
+        n_features=n_features,
+    )
+    split_index = len(left_texts)
+    lhs_matrix = side_matrix[:split_index]
+    rhs_matrix = side_matrix[split_index:]
+    return {
+        "reaction": reaction_matrix,
+        "reaction_participants_only": participant_only_matrix,
+        "lhs": lhs_matrix,
+        "rhs": rhs_matrix,
+        "rhs_minus_lhs": rhs_matrix - lhs_matrix,
+    }
+
+
+def build_bidirectional_distance_matrix(
+    lhs_matrix: np.ndarray,
+    rhs_matrix: np.ndarray,
+    metric: str = DEFAULT_UMAP_METRIC,
+) -> np.ndarray:
+    """Build a swap-invariant distance matrix for unordered reaction sides.
+
+    The distance between reactions i and j is the better of the aligned and
+    swapped side matchings:
+
+    min((d(li, lj) + d(ri, rj)) / 2, (d(li, rj) + d(ri, lj)) / 2)
+    """
+    if lhs_matrix.shape != rhs_matrix.shape:
+        raise ValueError("LHS and RHS matrices must have the same shape.")
+    if lhs_matrix.ndim != 2:
+        raise ValueError("LHS and RHS matrices must be 2D.")
+    if lhs_matrix.shape[0] == 0:
+        return np.zeros((0, 0), dtype=np.float32)
+
+    lhs_lhs = pairwise_distance_matrix(lhs_matrix, lhs_matrix, metric=metric)
+    rhs_rhs = pairwise_distance_matrix(rhs_matrix, rhs_matrix, metric=metric)
+    lhs_rhs = pairwise_distance_matrix(lhs_matrix, rhs_matrix, metric=metric)
+
+    aligned = 0.5 * (lhs_lhs + rhs_rhs)
+    swapped = 0.5 * (lhs_rhs + lhs_rhs.T)
+    distance_matrix = np.minimum(aligned, swapped)
+    np.fill_diagonal(distance_matrix, 0.0)
+    return distance_matrix.astype(np.float32, copy=False)
+
+
+def pairwise_distance_matrix(
+    left_matrix: np.ndarray,
+    right_matrix: np.ndarray,
+    metric: str = DEFAULT_UMAP_METRIC,
+) -> np.ndarray:
+    """Compute pairwise distances without requiring scikit-learn at runtime."""
+    if metric == "cosine":
+        left_norms = np.linalg.norm(left_matrix, axis=1, keepdims=True)
+        right_norms = np.linalg.norm(right_matrix, axis=1, keepdims=True)
+        left_normalized = np.divide(
+            left_matrix,
+            left_norms,
+            out=np.zeros_like(left_matrix, dtype=np.float32),
+            where=left_norms != 0,
+        )
+        right_normalized = np.divide(
+            right_matrix,
+            right_norms,
+            out=np.zeros_like(right_matrix, dtype=np.float32),
+            where=right_norms != 0,
+        )
+        distances = 1.0 - left_normalized @ right_normalized.T
+        return np.clip(distances, 0.0, 2.0).astype(np.float32, copy=False)
+    if metric == "euclidean":
+        deltas = left_matrix[:, None, :] - right_matrix[None, :, :]
+        return np.linalg.norm(deltas, axis=2).astype(np.float32, copy=False)
+
+    try:
+        from sklearn.metrics import pairwise_distances
+    except ImportError as e:
+        raise ValueError(
+            f"Unsupported distance metric without scikit-learn: {metric}"
+        ) from e
+    return pairwise_distances(left_matrix, right_matrix, metric=metric).astype(
+        np.float32,
+        copy=False,
+    )
+
+
+def project_precomputed_distance_matrix(distance_matrix: np.ndarray) -> np.ndarray:
+    """Project a precomputed distance matrix to 2D with UMAP."""
+    if distance_matrix.size == 0:
+        return np.zeros((0, 2), dtype=np.float32)
+
+    n_samples = distance_matrix.shape[0]
+    if n_samples == 1:
+        return np.zeros((1, 2), dtype=np.float32)
+    if n_samples == 2:
+        return np.array([[-1.0, 0.0], [1.0, 0.0]], dtype=np.float32)
+
+    try:
+        from umap import UMAP
+    except ImportError:
+        return project_distance_matrix_classical_mds(distance_matrix)
+
+    reducer = UMAP(
+        n_components=2,
+        n_neighbors=min(DEFAULT_UMAP_NEIGHBORS, n_samples - 1),
+        min_dist=DEFAULT_UMAP_MIN_DIST,
+        metric="precomputed",
+        random_state=DEFAULT_UMAP_RANDOM_STATE,
+    )
+    coords = reducer.fit_transform(distance_matrix)
+    return coords.astype(np.float32, copy=False)
+
+
+def project_distance_matrix_classical_mds(distance_matrix: np.ndarray) -> np.ndarray:
+    """Project a distance matrix to 2D with a deterministic numpy fallback."""
+    n_samples = distance_matrix.shape[0]
+    squared = np.square(distance_matrix.astype(np.float64, copy=False))
+    centering = np.eye(n_samples) - np.ones((n_samples, n_samples)) / n_samples
+    gram = -0.5 * centering @ squared @ centering
+    eigvals, eigvecs = np.linalg.eigh(gram)
+    order = np.argsort(eigvals)[::-1][:2]
+    positive_eigvals = np.maximum(eigvals[order], 0.0)
+    coords = eigvecs[:, order] * np.sqrt(positive_eigvals)
+    if coords.shape[1] < 2:
+        coords = np.hstack(
+            [coords, np.zeros((n_samples, 2 - coords.shape[1]), dtype=coords.dtype)]
+        )
+    return coords.astype(np.float32, copy=False)
+
+
+def project_bidirectional_embedding_pair(
+    lhs_matrix: np.ndarray,
+    rhs_matrix: np.ndarray,
+    metric: str = DEFAULT_UMAP_METRIC,
+) -> np.ndarray:
+    """Project swap-invariant reaction distances to 2D."""
+    distance_matrix = build_bidirectional_distance_matrix(
+        lhs_matrix,
+        rhs_matrix,
+        metric=metric,
+    )
+    return project_precomputed_distance_matrix(distance_matrix)
+
+
+def project_umap_embedding_matrix(matrix: np.ndarray) -> np.ndarray:
+    """Project a dense feature matrix to 2D with the shared UMAP settings."""
+    if matrix.size == 0:
+        return np.zeros((0, 2), dtype=np.float32)
+
+    n_samples = matrix.shape[0]
+    if n_samples == 1:
+        return np.zeros((1, 2), dtype=np.float32)
+    if n_samples == 2:
+        return np.array([[-1.0, 0.0], [1.0, 0.0]], dtype=np.float32)
+
+    try:
+        from umap import UMAP
+    except ImportError:
+        return project_embedding_matrix(matrix, n_components=2)
+
+    reducer = UMAP(
+        n_components=2,
+        n_neighbors=min(DEFAULT_UMAP_NEIGHBORS, n_samples - 1),
+        min_dist=DEFAULT_UMAP_MIN_DIST,
+        metric=DEFAULT_UMAP_METRIC,
+        random_state=DEFAULT_UMAP_RANDOM_STATE,
+    )
+    coords = reducer.fit_transform(matrix)
+    return coords.astype(np.float32, copy=False)
+
+
+def build_reaction_drfp_coordinates(
+    df: pd.DataFrame,
+    n_folded_length: int = DEFAULT_DRFP_FOLDED_LENGTH,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Project DRFP fingerprints for rows with valid reaction SMILES."""
+    if not can_use_drfp():
+        return np.zeros(0, dtype=int), np.zeros((0, 2), dtype=np.float32)
+
+    reaction_smiles = cast(list[str | None], df["reaction_smiles"].tolist())
+    valid_indices = np.array(
+        [
+            index
+            for index, reaction_smiles_value in enumerate(reaction_smiles)
+            if reaction_smiles_value
+        ],
+        dtype=int,
+    )
+    if valid_indices.size == 0:
+        return valid_indices, np.zeros((0, 2), dtype=np.float32)
+
+    from drfp import DrfpEncoder
+
+    valid_reaction_smiles = [
+        cast(str, reaction_smiles[index]) for index in valid_indices.tolist()
+    ]
+    matrix = np.asarray(
+        DrfpEncoder.encode(
+            valid_reaction_smiles,
+            n_folded_length=n_folded_length,
+        ),
+        dtype=np.float32,
+    )
+    return valid_indices, project_umap_embedding_matrix(matrix)
+
+
+def _maybe_add_local_linkml_embeddings_explorer_to_path() -> None:
+    """Add the sibling linkml-embeddings-explorer checkout to sys.path if present."""
+    repo_root = Path(__file__).resolve().parents[2]
+    candidate = repo_root.parent / "linkml-embeddings-explorer" / "src"
+    if candidate.exists():
+        candidate_str = str(candidate)
+        if candidate_str not in sys.path:
+            sys.path.insert(0, candidate_str)
+
+
+def _load_linkml_embedding_stack() -> tuple[Any, Any, Any, Any]:
+    """Import the shared embedding stack used by dismech/browser explorers."""
+    _maybe_add_local_linkml_embeddings_explorer_to_path()
+    try:
+        from linkml_store import Client
+        from linkml_store.index.implementations.llm_indexer import LLMIndexer
+    except ImportError as exc:
+        raise ImportError(
+            "linkml-store embeddings require `uv sync --group embeddings`."
+        ) from exc
+
+    try:
+        from linkml_embeddings_explorer.reduction import compute_umap
+    except ImportError as exc:
+        raise ImportError(
+            "RHEA browser embeddings require an installed "
+            "`linkml-embeddings-explorer` package or the sibling checkout at "
+            "`../linkml-embeddings-explorer`."
+        ) from exc
+
+    try:
+        import duckdb
+    except ImportError as exc:
+        raise ImportError(
+            "linkml-store embeddings require the `duckdb` package."
+        ) from exc
+
+    return Client, LLMIndexer, duckdb, compute_umap
+
+
+def _load_linkml_embedding_runtime() -> tuple[Any, Any, Any, Any, Any]:
+    """Import helpers needed to normalize text for cache lookups."""
+    try:
+        import llm
+        from linkml_store.index.implementations.llm_indexer import CHUNK_SIZE
+        from linkml_store.utils.llm_utils import get_token_limit, render_formatted_text
+        from tiktoken import encoding_for_model
+    except ImportError as exc:
+        raise ImportError(
+            "linkml-store embeddings require the llm + tiktoken runtime helpers."
+        ) from exc
+
+    return CHUNK_SIZE, get_token_limit, render_formatted_text, llm, encoding_for_model
+
+
+def can_use_linkml_store_embeddings() -> bool:
+    """Return True when the shared linkml embedding stack is available."""
+    if not os.environ.get("OPENAI_API_KEY"):
+        return False
+    try:
+        _load_linkml_embedding_stack()
+    except ImportError:
+        return False
+    return True
+
+
+def build_linkml_store_text_field_template(text_field: str) -> str:
+    """Return a Jinja template that embeds one chosen text field."""
+    return "\n".join(
+        [
+            f"{RHEA_EMBEDDING_ID_PREFIX}{{{{ rhea_id }}}}",
+            f"{{{{ {text_field} }}}}",
+        ]
+    )
+
+
+def build_linkml_store_embedding_records(
+    df: pd.DataFrame,
+    text_field: str,
+) -> list[dict[str, Any]]:
+    """Convert a dataframe into the records consumed by the linkml-store indexer."""
+    return cast(
+        list[dict[str, Any]],
+        df[["rhea_id", text_field]].to_dict(orient="records"),
+    )
+
+
+def build_linkml_store_indexer(
+    space_key: str,
+    text_field: str,
+    cache_path: Path,
+    embedding_model_name: str,
+) -> Any:
+    """Construct the configured linkml-store indexer for one embedding space."""
+    _, LLMIndexer, _, _ = _load_linkml_embedding_stack()
+    return LLMIndexer(
+        name=rhea_browser_index_name(space_key),
+        cached_embeddings_database=str(cache_path),
+        text_template=build_linkml_store_text_field_template(text_field),
+        text_template_syntax="jinja2",
+        embedding_model_name=embedding_model_name,
+    )
+
+
+def normalized_linkml_store_texts(
+    embedding_records: list[dict[str, Any]],
+    indexer: Any,
+    embedding_model_name: str,
+) -> tuple[list[str], str]:
+    """Render and truncate texts exactly the way linkml-store caches them."""
+    CHUNK_SIZE, get_token_limit, render_formatted_text, llm, encoding_for_model = (
+        _load_linkml_embedding_runtime()
+    )
+    model = llm.get_embedding_model(embedding_model_name)
+    model_id = model.model_id
+    if not model_id:
+        raise RuntimeError("Embedding model must expose a model_id for cache lookup.")
+    token_limit = get_token_limit(model_id)
+    encoding = encoding_for_model(embedding_model_name)
+
+    def truncate_text(text: str) -> str:
+        parts = [text[i : i + CHUNK_SIZE] for i in range(0, len(text), CHUNK_SIZE)]
+        return render_formatted_text(lambda x: "".join(x), parts, encoding, token_limit)
+
+    return (
+        [truncate_text(indexer.object_to_text(record)) for record in embedding_records],
+        model_id,
+    )
+
+
+def load_linkml_store_cached_embedding_matrix(
+    cache_path: Path,
+    normalized_texts: list[str],
+    model_id: str,
+) -> np.ndarray | None:
+    """Load a complete embedding matrix from the cached DuckDB store if present."""
+    if not cache_path.exists():
+        return None
+
+    _, _, duckdb, _ = _load_linkml_embedding_stack()
+    conn = duckdb.connect(str(cache_path), read_only=True)
+    try:
+        table_names = {row[0] for row in conn.execute("SHOW TABLES").fetchall()}
+        if "all_embeddings" not in table_names:
+            return None
+        unique_texts = list(dict.fromkeys(normalized_texts))
+        placeholders = ", ".join(["?"] * len(unique_texts))
+        rows = conn.execute(
+            (
+                "SELECT text, first(embedding) AS embedding "
+                "FROM all_embeddings "
+                f"WHERE model_id = ? AND text IN ({placeholders}) "
+                "GROUP BY text"
+            ),
+            [model_id, *unique_texts],
+        ).fetchall()
+    finally:
+        conn.close()
+
+    embeddings_by_text = {
+        text: np.asarray(embedding, dtype=np.float32) for text, embedding in rows
+    }
+    missing = [text for text in normalized_texts if text not in embeddings_by_text]
+    if missing:
+        return None
+
+    return np.vstack([embeddings_by_text[text] for text in normalized_texts]).astype(
+        np.float32,
+        copy=False,
+    )
+
+
+def build_linkml_store_embedding_matrix(
+    df: pd.DataFrame,
+    cache_dir: Path = Path("cache"),
+    text_field: str = "embedding_text",
+    space_key: str = "reaction",
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
+) -> np.ndarray:
+    """Build an LLM embedding matrix using linkml-store + cached DuckDB state."""
+    if df.empty:
+        return np.zeros((0, 0), dtype=np.float32)
+    if not os.environ.get("OPENAI_API_KEY"):
+        raise RuntimeError(
+            "OPENAI_API_KEY is required to build linkml-store embeddings."
+        )
+
+    Client, _, _, _ = _load_linkml_embedding_stack()
+    cache_dir = Path(cache_dir)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    store_path = cache_dir / RHEA_BROWSER_STORE_FILENAME
+    cache_path = cache_dir / rhea_browser_cache_filename(space_key)
+    embedding_records = build_linkml_store_embedding_records(df, text_field)
+    indexer = build_linkml_store_indexer(
+        space_key=space_key,
+        text_field=text_field,
+        cache_path=cache_path,
+        embedding_model_name=embedding_model_name,
+    )
+    normalized_texts, model_id = normalized_linkml_store_texts(
+        embedding_records,
+        indexer=indexer,
+        embedding_model_name=embedding_model_name,
+    )
+
+    cached_matrix = load_linkml_store_cached_embedding_matrix(
+        cache_path=cache_path,
+        normalized_texts=normalized_texts,
+        model_id=model_id,
+    )
+    if cached_matrix is not None:
+        return cached_matrix
+
+    handle = f"duckdb:///{store_path}"
+    db = Client().attach_database(handle, alias="rhea_embeddings")
+    collection = db.create_collection(
+        rhea_browser_collection_name(space_key),
+        recreate_if_exists=True,
+    )
+    collection.insert(embedding_records)
+    collection.attach_indexer(indexer)
+    collection.index_objects(
+        collection.find().rows,
+        rhea_browser_index_name(space_key),
+    )
+    cached_matrix = load_linkml_store_cached_embedding_matrix(
+        cache_path=cache_path,
+        normalized_texts=normalized_texts,
+        model_id=model_id,
+    )
+    if cached_matrix is None:
+        raise RuntimeError(
+            f"Missing linkml-store embeddings for space '{space_key}' after indexing."
+        )
+    return cached_matrix
+
+
+def build_linkml_store_embedding_matrices(
+    df: pd.DataFrame,
+    cache_dir: Path = Path("cache"),
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
+) -> dict[str, np.ndarray]:
+    """Build LLM embedding matrices for the supported browser embedding spaces."""
+    reaction_matrix = build_linkml_store_embedding_matrix(
+        df,
+        cache_dir=cache_dir,
+        text_field="embedding_text",
+        space_key="reaction",
+        embedding_model_name=embedding_model_name,
+    )
+    participant_only_matrix = build_linkml_store_embedding_matrix(
+        df,
+        cache_dir=cache_dir,
+        text_field="participant_embedding_text",
+        space_key="reaction_participants_only",
+        embedding_model_name=embedding_model_name,
+    )
+    lhs_matrix = build_linkml_store_embedding_matrix(
+        df,
+        cache_dir=cache_dir,
+        text_field="left_embedding_text",
+        space_key="lhs",
+        embedding_model_name=embedding_model_name,
+    )
+    rhs_matrix = build_linkml_store_embedding_matrix(
+        df,
+        cache_dir=cache_dir,
+        text_field="right_embedding_text",
+        space_key="rhs",
+        embedding_model_name=embedding_model_name,
+    )
+    return {
+        "reaction": reaction_matrix,
+        "reaction_participants_only": participant_only_matrix,
+        "lhs": lhs_matrix,
+        "rhs": rhs_matrix,
+        "rhs_minus_lhs": rhs_matrix - lhs_matrix,
+    }
+
+
+def rhea_browser_cache_filename(space_key: str) -> str:
+    """Return the per-space cache filename for linkml-store embeddings."""
+    return f"rhea_browser_{space_key}_cache.db"
+
+
+def rhea_browser_index_name(space_key: str) -> str:
+    """Return the per-space linkml-store index name."""
+    return f"{RHEA_BROWSER_INDEX_NAME}_{space_key}"
+
+
+def rhea_browser_collection_name(space_key: str) -> str:
+    """Return the per-space linkml-store collection name."""
+    return f"{RHEA_BROWSER_COLLECTION}_{space_key}"
+
+
+def project_linkml_store_embedding_matrix(matrix: np.ndarray) -> np.ndarray:
+    """Project linkml-store embeddings to 2D with the shared UMAP settings."""
+    if matrix.size == 0:
+        return np.zeros((0, 2), dtype=np.float32)
+
+    n_samples = matrix.shape[0]
+    if n_samples == 1:
+        return np.zeros((1, 2), dtype=np.float32)
+    if n_samples == 2:
+        return np.array([[-1.0, 0.0], [1.0, 0.0]], dtype=np.float32)
+
+    _, _, _, compute_umap = _load_linkml_embedding_stack()
+    coords = compute_umap(
+        matrix,
+        n_neighbors=min(DEFAULT_UMAP_NEIGHBORS, n_samples - 1),
+        min_dist=DEFAULT_UMAP_MIN_DIST,
+        metric=DEFAULT_UMAP_METRIC,
+        random_state=DEFAULT_UMAP_RANDOM_STATE,
+    )
+    return coords.astype(np.float32, copy=False)
 
 
 def literal_string_value(node: ast.AST) -> str | None:
@@ -864,12 +1673,19 @@ def save_rhea_text_embedding_explorer(
     output_file: Path,
     cache_dir: Path = Path("cache"),
     n_features: int = DEFAULT_N_FEATURES,
+    use_linkml_store: bool | None = None,
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
 ) -> Path:
     """Save a simple interactive HTML explorer for RHEA text embeddings."""
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    df = build_rhea_text_embedding_df(cache_dir=cache_dir, n_features=n_features)
+    df = build_rhea_text_embedding_df(
+        cache_dir=cache_dir,
+        n_features=n_features,
+        use_linkml_store=use_linkml_store,
+        embedding_model_name=embedding_model_name,
+    )
     fig = px.scatter(
         df,
         x="x",
@@ -884,7 +1700,7 @@ def save_rhea_text_embedding_explorer(
         },
         custom_data=["url"],
         title="RHEA text embedding explorer",
-        labels={"x": "PC1", "y": "PC2"},
+        labels={"x": "UMAP 1", "y": "UMAP 2"},
         opacity=0.78,
     )
     fig.update_traces(
@@ -913,12 +1729,19 @@ def save_rhea_browser_html(
     cache_dir: Path = Path("cache"),
     results_dir: Path | None = None,
     n_features: int = DEFAULT_N_FEATURES,
+    use_linkml_store: bool | None = None,
+    embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
 ) -> Path:
     """Save a browser-style RHEA explorer with linked text embeddings."""
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    df = build_rhea_text_embedding_df(cache_dir=cache_dir, n_features=n_features)
+    df = build_rhea_embedding_space_df(
+        cache_dir=cache_dir,
+        n_features=n_features,
+        use_linkml_store=use_linkml_store,
+        embedding_model_name=embedding_model_name,
+    )
     row_records = cast(list[dict[str, Any]], df.to_dict(orient="records"))
     rule_class_metadata = load_rule_class_metadata()
     inferred_rule_matches: dict[str, list[str]] = {}
@@ -930,7 +1753,24 @@ def save_rhea_browser_html(
         merged.update(class_names)
         inferred_rule_matches[rhea_id] = sorted(merged)
 
-    records = []
+    def embedding_space_payload(
+        row: dict[str, Any],
+        space: str,
+    ) -> dict[str, Any]:
+        x_value = row.get(f"x__{space}")
+        y_value = row.get(f"y__{space}")
+        available = pd.notna(x_value) and pd.notna(y_value)
+        x_coord = round(float(cast(Any, x_value)), 5) if available else None
+        y_coord = round(float(cast(Any, y_value)), 5) if available else None
+        return {
+            "label": EMBEDDING_SPACE_CONFIG[space]["label"],
+            "description": EMBEDDING_SPACE_CONFIG[space]["description"],
+            "x": x_coord,
+            "y": y_coord,
+            "available": bool(available),
+        }
+
+    records: list[dict[str, Any]] = []
     for row in row_records:
         asserted_rule_support = build_asserted_rule_support(
             row["go_closure_ids"],
@@ -990,6 +1830,10 @@ def save_rhea_browser_html(
                 "has_multiple_ec": row["has_multiple_ec"],
                 "annotation_group": row["annotation_group"],
                 "embedding_text": row["embedding_text"],
+                "left_embedding_text": row["left_embedding_text"],
+                "right_embedding_text": row["right_embedding_text"],
+                "reaction_smiles": row["reaction_smiles"],
+                "has_complete_reaction_smiles": row["has_complete_reaction_smiles"],
                 "search_text": f"{row['search_text']} {' '.join(rule_search_terms).lower()}",
                 "url": row["url"],
                 "asserted_rule_classes": asserted_rule_classes,
@@ -1027,8 +1871,13 @@ def save_rhea_browser_html(
                 "has_rule_coverage": bool(
                     asserted_rule_classes or inferred_rule_classes
                 ),
-                "x": round(float(row["x"]), 5),
-                "y": round(float(row["y"]), 5),
+                "embedding_backend": row["embedding_backend"],
+                "embedding_spaces": {
+                    space: embedding_space_payload(row, space)
+                    for space in EMBEDDING_SPACE_ORDER
+                },
+                "x": round(float(row["x__reaction"]), 5),
+                "y": round(float(row["y__reaction"]), 5),
             }
         )
 
@@ -1072,6 +1921,27 @@ def save_rhea_browser_html(
             "6": "#2a9d8f",
             "7": "#6c757d",
             "Unclassified": "#8b7e74",
+        },
+        separators=(",", ":"),
+    )
+    embedding_space_counts_json = json.dumps(
+        {
+            space: sum(
+                1
+                for record in records
+                if record["embedding_spaces"][space]["available"]
+            )
+            for space in EMBEDDING_SPACE_ORDER
+        },
+        separators=(",", ":"),
+    )
+    embedding_spaces_json = json.dumps(
+        {
+            space: {
+                "label": EMBEDDING_SPACE_CONFIG[space]["label"],
+                "description": EMBEDDING_SPACE_CONFIG[space]["description"],
+            }
+            for space in EMBEDDING_SPACE_ORDER
         },
         separators=(",", ":"),
     )
@@ -1194,6 +2064,17 @@ def save_rhea_browser_html(
       gap: 12px;
       margin-bottom: 18px;
     }
+    .control-with-help {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+    .controls-meta-row {
+      margin: -6px 4px 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
     input, select, button {
       width: 100%;
       padding: 12px 14px;
@@ -1209,6 +2090,61 @@ def save_rhea_browser_html(
       font-weight: 700;
       cursor: pointer;
       border-color: transparent;
+    }
+    .help-details {
+      position: relative;
+    }
+    .help-details summary {
+      list-style: none;
+      width: 40px;
+      min-width: 40px;
+      height: 44px;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .help-details summary::-webkit-details-marker {
+      display: none;
+    }
+    .help-details[open] summary {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+    .help-popover {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 20;
+      width: min(420px, calc(100vw - 48px));
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.98);
+      box-shadow: var(--shadow);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .help-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .help-line {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .help-line strong {
+      color: var(--ink);
     }
     .layout {
       display: grid;
@@ -1647,12 +2583,26 @@ def save_rhea_browser_html(
         <option value="EC only">EC only</option>
         <option value="Unannotated">Unannotated</option>
       </select>
+      <div class="control-with-help">
+        <select id="embedding-space" aria-label="Embedding space"></select>
+        <details class="help-details">
+          <summary aria-label="Embedding-space guide">?</summary>
+          <div class="help-popover">
+            <div class="help-title">Embedding-space guide</div>
+            <div class="help-line"><strong>Text spaces:</strong> <code>Reaction</code>, <code>LHS</code>, and <code>RHS</code> come from the text/participant embedding stack.</div>
+            <div class="help-line"><strong>Chemistry-native:</strong> <code>Reaction SMILES (DRFP)</code> uses a reaction-SMILES fingerprint rather than text, so it is label-free but only available when full reaction SMILES exist.</div>
+            <div class="help-line"><strong>Symmetry and direction:</strong> <code>Bidirectional</code> treats the reaction as an unordered pair of sides, while <code>RHS-LHS diff</code> keeps directionality.</div>
+            <div class="help-line"><strong>Coverage note:</strong> Check the line below the controls when a space only covers part of the dataset.</div>
+          </div>
+        </details>
+      </div>
       <select id="color-mode">
         <option value="annotation">Color by annotation source</option>
         <option value="ec_major">Color by EC major class</option>
       </select>
       <button id="reset-button" type="button">Reset</button>
     </div>
+    <div class="controls-meta-row" id="embedding-space-coverage"></div>
 
     <section class="layout">
       <aside class="sidebar">
@@ -1700,8 +2650,8 @@ def save_rhea_browser_html(
       <div class="main-stack">
         <section class="panel plot-wrap">
           <div class="panel-header">
-            <div class="panel-title">Text embedding map</div>
-            <div class="panel-meta" id="plot-meta">definition/equation + participant descriptors</div>
+            <div class="panel-title">Embedding map</div>
+            <div class="panel-meta" id="plot-meta">Reaction; definition/equation + participant descriptors</div>
           </div>
           <div id="embedding-plot"></div>
         </section>
@@ -1722,6 +2672,8 @@ def save_rhea_browser_html(
     const facetOptions = __FACET_OPTIONS_JSON__;
     const annotationColors = __ANNOTATION_COLORS_JSON__;
     const ecMajorColors = __EC_MAJOR_COLORS_JSON__;
+    const embeddingSpaceCounts = __EMBEDDING_SPACE_COUNTS_JSON__;
+    const embeddingSpaces = __EMBEDDING_SPACES_JSON__;
     const state = {
       query: "",
       annotationGroup: "all",
@@ -1733,6 +2685,7 @@ def save_rhea_browser_html(
       polymerOnly: false,
       locationOnly: false,
       multiEcOnly: false,
+      embeddingSpace: "reaction",
       colorMode: "annotation",
       selectedId: records.length ? records[0].rhea_id : null,
     };
@@ -1748,6 +2701,56 @@ def save_rhea_browser_html(
     function optionHtml(value, label, selected) {
       const selectedAttr = selected ? " selected" : "";
       return `<option value="${escapeHtml(value)}"${selectedAttr}>${escapeHtml(label)}</option>`;
+    }
+
+    function currentEmbeddingSpaceMeta() {
+      return embeddingSpaces[state.embeddingSpace] || embeddingSpaces.reaction;
+    }
+
+    function embeddingCoordinatesForSpace(record, spaceKey) {
+      const coords = record.embedding_spaces?.[spaceKey];
+      if (coords?.available && coords.x !== null && coords.y !== null) {
+        return coords;
+      }
+      if (
+        spaceKey === "reaction" &&
+        Number.isFinite(record.x) &&
+        Number.isFinite(record.y)
+      ) {
+        return { x: record.x, y: record.y, available: true };
+      }
+      return null;
+    }
+
+    function currentEmbeddingCoordinates(record) {
+      return embeddingCoordinatesForSpace(record, state.embeddingSpace);
+    }
+
+    function hasCurrentEmbeddingCoordinates(record) {
+      return Boolean(currentEmbeddingCoordinates(record));
+    }
+
+    function currentSpaceCoverageText() {
+      const spaceMeta = currentEmbeddingSpaceMeta();
+      const count = embeddingSpaceCounts[state.embeddingSpace] ?? records.length;
+      if (count === records.length) {
+        return `${spaceMeta.label}: coordinates available for all ${records.length} reactions`;
+      }
+      return `${spaceMeta.label}: ${count} / ${records.length} reactions have coordinates`;
+    }
+
+    function updateEmbeddingSpaceCoverage() {
+      document.getElementById("embedding-space-coverage").textContent =
+        currentSpaceCoverageText();
+    }
+
+    function populateEmbeddingSpaceControl() {
+      const spaceSelect = document.getElementById("embedding-space");
+      spaceSelect.innerHTML = Object.entries(embeddingSpaces)
+        .map(([value, metadata]) =>
+          optionHtml(value, metadata.label, state.embeddingSpace === value)
+        )
+        .join("");
     }
 
     function populateFacetControls() {
@@ -1992,10 +2995,15 @@ def save_rhea_browser_html(
       const resultsList = document.getElementById("results-list");
       const resultCount = document.getElementById("result-count");
       const topRecords = filtered.slice(0, 250);
-      resultCount.textContent =
+      const plottableCount = filtered.filter(hasCurrentEmbeddingCoordinates).length;
+      let resultSummary =
         filtered.length > topRecords.length
           ? `${topRecords.length} of ${filtered.length} shown`
           : `${filtered.length} shown`;
+      if (plottableCount !== filtered.length) {
+        resultSummary += ` · ${plottableCount} mapped in ${currentEmbeddingSpaceMeta().label}`;
+      }
+      resultCount.textContent = resultSummary;
 
       if (!filtered.length) {
         resultsList.innerHTML = '<div class="empty-state">No reactions match the current search.</div>';
@@ -2050,7 +3058,9 @@ def save_rhea_browser_html(
         return;
       }
 
-      detailMeta.textContent = `${record.annotation_group} · ${record.primary_ec_major_label} · ${record.rule_status_label}`;
+      const spaceMeta = currentEmbeddingSpaceMeta();
+      const currentCoords = currentEmbeddingCoordinates(record);
+      detailMeta.textContent = `${spaceMeta.label} · ${record.annotation_group} · ${record.primary_ec_major_label} · ${record.rule_status_label} · ${currentCoords ? "mapped" : "no coordinates"}`;
       const goTerms = record.go_term_entries.length
         ? record.go_term_entries
             .map((entry) => `<span class="pill">${escapeHtml(entry.id)} ${escapeHtml(entry.label)}</span>`)
@@ -2098,6 +3108,14 @@ def save_rhea_browser_html(
         participant_bucket: record.participant_bucket,
         has_polymer_context: record.has_polymer_context,
         has_location_context: record.has_location_context,
+        embedding_backend: record.embedding_backend,
+        selected_embedding_space: spaceMeta,
+        embedding_spaces: record.embedding_spaces,
+        reaction_smiles: record.reaction_smiles,
+        has_complete_reaction_smiles: record.has_complete_reaction_smiles,
+        reaction_embedding_text: record.embedding_text,
+        left_embedding_text: record.left_embedding_text,
+        right_embedding_text: record.right_embedding_text,
         left_participants: record.left_participants,
         right_participants: record.right_participants,
       };
@@ -2169,8 +3187,23 @@ def save_rhea_browser_html(
             </div>
 
             <div class="participant-section">
-              <h3>Embedding text</h3>
+              <h3>Reaction embedding text</h3>
               <div class="embedding-box">${escapeHtml(record.embedding_text)}</div>
+            </div>
+
+            <div class="participant-section">
+              <h3>Reaction SMILES</h3>
+              <div class="embedding-box">${escapeHtml(record.reaction_smiles || "Unavailable for this reaction")}</div>
+            </div>
+
+            <div class="participant-section">
+              <h3>Reactant-side embedding text</h3>
+              <div class="embedding-box">${escapeHtml(record.left_embedding_text)}</div>
+            </div>
+
+            <div class="participant-section">
+              <h3>Product-side embedding text</h3>
+              <div class="embedding-box">${escapeHtml(record.right_embedding_text)}</div>
             </div>
 
             <div class="participant-section">
@@ -2200,12 +3233,15 @@ def save_rhea_browser_html(
 
     function renderPlot(filtered, selected) {
       const plotMeta = document.getElementById("plot-meta");
+      const spaceMeta = currentEmbeddingSpaceMeta();
+      const coverageText = currentSpaceCoverageText();
       plotMeta.textContent =
         state.colorMode === "ec_major"
-          ? "colored by EC major class; definition/equation + participant descriptors"
-          : "colored by annotation source; definition/equation + participant descriptors";
+          ? `${spaceMeta.label}; ${spaceMeta.description}; ${coverageText}; colored by EC major class`
+          : `${spaceMeta.label}; ${spaceMeta.description}; ${coverageText}; colored by annotation source`;
 
-      if (!filtered.length) {
+      const plottable = filtered.filter(hasCurrentEmbeddingCoordinates);
+      if (!filtered.length || !plottable.length) {
         Plotly.react(
           "embedding-plot",
           [],
@@ -2215,7 +3251,9 @@ def save_rhea_browser_html(
             plot_bgcolor: "rgba(255,255,255,0)",
             annotations: [
               {
-                text: "No reactions match the current filters.",
+                text: filtered.length
+                  ? "No reactions with coordinates match the current filters."
+                  : "No reactions match the current filters.",
                 showarrow: false,
                 x: 0.5,
                 y: 0.5,
@@ -2231,7 +3269,7 @@ def save_rhea_browser_html(
       }
 
       const grouped = new Map();
-      filtered.forEach((record) => {
+      plottable.forEach((record) => {
         const descriptor = colorDescriptor(record);
         if (!grouped.has(descriptor.key)) {
           grouped.set(descriptor.key, { ...descriptor, items: [] });
@@ -2245,8 +3283,8 @@ def save_rhea_browser_html(
           type: "scattergl",
           mode: "markers",
           name: group.label,
-          x: group.items.map((record) => record.x),
-          y: group.items.map((record) => record.y),
+          x: group.items.map((record) => currentEmbeddingCoordinates(record).x),
+          y: group.items.map((record) => currentEmbeddingCoordinates(record).y),
           customdata: group.items.map((record) => [
             record.rhea_id,
             record.annotation_group,
@@ -2268,23 +3306,26 @@ def save_rhea_browser_html(
         }));
 
       if (selected) {
-        traces.push({
-          type: "scattergl",
-          mode: "markers+text",
-          x: [selected.x],
-          y: [selected.y],
-          text: [selected.rhea_id],
-          textposition: "top center",
-          textfont: { size: 11, color: "#1f2328" },
-          hoverinfo: "skip",
-          showlegend: false,
-          marker: {
-            size: 22,
-            color: "#ffd166",
-            line: { width: 2.0, color: "#1f2328" },
-            symbol: "diamond",
-          },
-        });
+        const selectedCoords = currentEmbeddingCoordinates(selected);
+        if (selectedCoords) {
+          traces.push({
+            type: "scattergl",
+            mode: "markers+text",
+            x: [selectedCoords.x],
+            y: [selectedCoords.y],
+            text: [selected.rhea_id],
+            textposition: "top center",
+            textfont: { size: 11, color: "#1f2328" },
+            hoverinfo: "skip",
+            showlegend: false,
+            marker: {
+              size: 22,
+              color: "#ffd166",
+              line: { width: 2.0, color: "#1f2328" },
+              symbol: "diamond",
+            },
+          });
+        }
       }
 
       Plotly.react(
@@ -2294,8 +3335,8 @@ def save_rhea_browser_html(
           margin: { t: 10, r: 10, b: 50, l: 50 },
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(255,255,255,0)",
-          xaxis: { title: "PC1", zeroline: false, gridcolor: "rgba(217, 204, 184, 0.6)" },
-          yaxis: { title: "PC2", zeroline: false, gridcolor: "rgba(217, 204, 184, 0.6)" },
+          xaxis: { title: "UMAP 1", zeroline: false, gridcolor: "rgba(217, 204, 184, 0.6)" },
+          yaxis: { title: "UMAP 2", zeroline: false, gridcolor: "rgba(217, 204, 184, 0.6)" },
           legend: { orientation: "h", yanchor: "bottom", y: 1.01, x: 0.0 },
         },
         { responsive: true, displaylogo: false }
@@ -2315,7 +3356,9 @@ def save_rhea_browser_html(
     }
 
     function renderAll() {
+      populateEmbeddingSpaceControl();
       populateFacetControls();
+      updateEmbeddingSpaceCoverage();
       syncToggleButtons();
       renderGoFacetChips();
       const filtered = filteredRecords();
@@ -2333,6 +3376,11 @@ def save_rhea_browser_html(
 
     document.getElementById("annotation-filter").addEventListener("change", (event) => {
       state.annotationGroup = event.target.value;
+      renderAll();
+    });
+
+    document.getElementById("embedding-space").addEventListener("change", (event) => {
+      state.embeddingSpace = event.target.value;
       renderAll();
     });
 
@@ -2383,9 +3431,11 @@ def save_rhea_browser_html(
       state.polymerOnly = false;
       state.locationOnly = false;
       state.multiEcOnly = false;
+      state.embeddingSpace = "reaction";
       state.colorMode = "annotation";
       document.getElementById("search-input").value = "";
       document.getElementById("annotation-filter").value = "all";
+      document.getElementById("embedding-space").value = "reaction";
       document.getElementById("color-mode").value = "annotation";
       renderAll();
     });
@@ -2400,6 +3450,8 @@ def save_rhea_browser_html(
         "__FACET_OPTIONS_JSON__": facet_options_json,
         "__ANNOTATION_COLORS_JSON__": annotation_colors_json,
         "__EC_MAJOR_COLORS_JSON__": ec_major_colors_json,
+        "__EMBEDDING_SPACE_COUNTS_JSON__": embedding_space_counts_json,
+        "__EMBEDDING_SPACES_JSON__": embedding_spaces_json,
         "__STAT_COUNT__": str(stats["count"]),
         "__STAT_GO_LINKED__": str(stats["go_linked"]),
         "__STAT_EC_LINKED__": str(stats["ec_linked"]),

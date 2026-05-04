@@ -3,7 +3,7 @@
 import json
 import logging
 from pathlib import Path
-from typing import Optional, List
+from typing import Any, Optional, List
 
 import typer
 from rich.console import Console
@@ -869,6 +869,357 @@ def benchmark_modelseed(
         raise
     except Exception as e:
         console.print(f"[red]Error building ModelSEED benchmark: {e}[/red]")
+        raise typer.Exit(1)
+
+
+@app.command()
+def benchmark_rule_embeddings(
+    cache_dir: Annotated[
+        str, typer.Option("--cache-dir", "-d", help="Cache directory path")
+    ] = "cache",
+    output_dir: Annotated[
+        Optional[str],
+        typer.Option(
+            "--output-dir",
+            "-o",
+            help="Directory for benchmark artifacts (default: <cache-dir>/rhea_rule_embedding_benchmark)",
+        ),
+    ] = None,
+    min_positives: Annotated[
+        int,
+        typer.Option(
+            "--min-positives",
+            help="Minimum positive reactions required for one-vs-rest evaluation",
+        ),
+    ] = 100,
+    max_classes: Annotated[
+        Optional[int],
+        typer.Option(
+            "--max-classes",
+            help="Maximum number of rule classes to benchmark after prevalence filtering",
+        ),
+    ] = 25,
+    all_classes: Annotated[
+        bool,
+        typer.Option(
+            "--all-classes",
+            help="Benchmark all classes that satisfy the minimum positive threshold",
+        ),
+    ] = False,
+    cv_splits: Annotated[
+        int,
+        typer.Option(
+            "--cv-splits",
+            help="Number of stratified cross-validation folds",
+        ),
+    ] = 5,
+    n_jobs: Annotated[
+        int,
+        typer.Option(
+            "--n-jobs",
+            help="Parallel jobs for cross-validation predictions (-1 uses all cores)",
+        ),
+    ] = -1,
+    models: Annotated[
+        str,
+        typer.Option(
+            "--models",
+            help="Comma-separated model list: logistic_regression, linear_svm, random_forest, xgboost",
+        ),
+    ] = "logistic_regression",
+    spaces: Annotated[
+        str,
+        typer.Option(
+            "--spaces",
+            help="Comma-separated feature spaces: reaction, reaction_participants_only, reaction_drfp, rhs_minus_lhs, symmetric_sum_sqdiff",
+        ),
+    ] = "reaction,rhs_minus_lhs,symmetric_sum_sqdiff",
+    use_linkml_store: Annotated[
+        bool,
+        typer.Option(
+            "--use-linkml-store/--lexical",
+            help="Use cached linkml-store embeddings instead of the lexical fallback",
+        ),
+    ] = True,
+    embedding_model_name: Annotated[
+        str,
+        typer.Option(
+            "--embedding-model",
+            help="Embedding model name used for linkml-store cache lookup",
+        ),
+    ] = "text-embedding-3-small",
+    output_format: Annotated[
+        str, typer.Option("--format", "-f", help="Output format: table or json")
+    ] = "table",
+) -> None:
+    """Benchmark one-vs-rest autarch rule prediction from embedding spaces."""
+    try:
+        from autarch.rhea_embedding_benchmark import benchmark_rule_embedding_spaces
+
+        if output_format != "json":
+            console.print(
+                "[cyan]Benchmarking autarch rule classes from embedding spaces...[/cyan]"
+            )
+
+        summary = benchmark_rule_embedding_spaces(
+            cache_dir=cache_dir,
+            output_dir=output_dir,
+            min_positives=min_positives,
+            max_classes=None if all_classes else max_classes,
+            cv_splits=cv_splits,
+            model_names=[part.strip() for part in models.split(",") if part.strip()],
+            feature_spaces=[part.strip() for part in spaces.split(",") if part.strip()],
+            n_jobs=n_jobs,
+            use_linkml_store=use_linkml_store,
+            embedding_model_name=embedding_model_name,
+        )
+
+        if output_format == "json":
+            typer.echo(json.dumps(summary, indent=2))
+            return
+
+        if output_format != "table":
+            console.print(f"[red]Error: Unsupported format '{output_format}'[/red]")
+            raise typer.Exit(1)
+
+        overview = Table(title="Rule Embedding Benchmark Summary")
+        overview.add_column("Metric", style="cyan")
+        overview.add_column("Value", style="green", justify="right")
+        overview.add_row("Reactions", str(summary["reaction_count"]))
+        overview.add_row("Candidate classes", str(summary["candidate_classes"]))
+        overview.add_row("Benchmarked classes", str(summary["benchmarked_classes"]))
+        overview.add_row("Min positives", str(summary["min_positives"]))
+        overview.add_row("Max classes", str(summary["max_classes"]))
+        overview.add_row("CV folds", str(summary["cv_splits"]))
+        overview.add_row("Parallel jobs", str(n_jobs))
+        overview.add_row("Models", ", ".join(summary["models"]))
+        overview.add_row("Spaces", ", ".join(summary["feature_spaces"]))
+        overview.add_row(
+            "Space rows",
+            ", ".join(
+                f"{space}={summary['feature_row_counts'][space]}"
+                for space in summary["feature_spaces"]
+            ),
+        )
+        overview.add_row("Embedding backend", summary["embedding_backend"])
+        overview.add_row("Embedding model", summary["embedding_model_name"])
+        overview.add_row("Runtime (s)", str(summary["duration_seconds"]))
+        console.print(overview)
+
+        metrics_table = Table(title="Overall Metrics By Model and Space")
+        metrics_table.add_column("Model", style="cyan")
+        metrics_table.add_column("Space", style="cyan")
+        metrics_table.add_column("Classes", style="green", justify="right")
+        metrics_table.add_column("Mean F1", style="yellow", justify="right")
+        metrics_table.add_column("Median F1", style="yellow", justify="right")
+        metrics_table.add_column("Mean AP", style="magenta", justify="right")
+        metrics_table.add_column("Mean ROC AUC", style="blue", justify="right")
+        for row in summary["overall_metrics"]:
+            metrics_table.add_row(
+                row["model_label"],
+                row["space_label"],
+                str(row["classes"]),
+                f"{row['mean_f1']:.3f}",
+                f"{row['median_f1']:.3f}",
+                f"{row['mean_average_precision']:.3f}",
+                f"{row['mean_roc_auc']:.3f}",
+            )
+        console.print(metrics_table)
+
+        delta_table = Table(title="Compared With Reaction Features")
+        delta_table.add_column("Model", style="cyan")
+        delta_table.add_column("Space", style="cyan")
+        delta_table.add_column("Better", style="green", justify="right")
+        delta_table.add_column("Worse", style="red", justify="right")
+        delta_table.add_column("Mean F1 Delta", style="yellow", justify="right")
+        for row in summary["versus_reaction"]:
+            delta_table.add_row(
+                row["model_label"],
+                row["space_label"],
+                str(row["better_than_reaction"]),
+                str(row["worse_than_reaction"]),
+                f"{row['mean_f1_delta']:.3f}",
+            )
+        console.print(delta_table)
+
+        artifact_table = Table(title="Artifacts")
+        artifact_table.add_column("Artifact", style="cyan")
+        artifact_table.add_column("Path", style="green")
+        for label, path in summary["artifacts"].items():
+            artifact_table.add_row(str(label), str(path))
+        console.print(artifact_table)
+    except FileNotFoundError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise typer.Exit(1)
+    except typer.Exit:
+        raise
+    except Exception as e:
+        console.print(f"[red]Error benchmarking rule embeddings: {e}[/red]")
+        raise typer.Exit(1)
+
+
+@app.command()
+def explain_embedding_rule(
+    rhea_id: Annotated[
+        str,
+        typer.Argument(help="RHEA ID to explain (e.g., 10000 or RHEA:10000)"),
+    ],
+    reaction_class: Annotated[
+        str,
+        typer.Option(
+            "--class",
+            "-c",
+            help="Reaction class name to explain against the learned baseline",
+        ),
+    ],
+    cache_dir: Annotated[
+        str, typer.Option("--cache-dir", "-d", help="Cache directory path")
+    ] = "cache",
+    model_name: Annotated[
+        str,
+        typer.Option(
+            "--model",
+            help="Benchmark model to fit before explanation",
+        ),
+    ] = "linear_svm",
+    feature_space: Annotated[
+        str,
+        typer.Option(
+            "--feature-space",
+            help="Embedding feature space: reaction or reaction_participants_only",
+        ),
+    ] = "reaction",
+    use_linkml_store: Annotated[
+        bool,
+        typer.Option(
+            "--use-linkml-store/--lexical",
+            help="Use cached linkml-store embeddings instead of the lexical fallback",
+        ),
+    ] = True,
+    embedding_model_name: Annotated[
+        str,
+        typer.Option(
+            "--embedding-model",
+            help="Embedding model name used for linkml-store cache lookup",
+        ),
+    ] = "text-embedding-3-small",
+    top_k: Annotated[
+        int,
+        typer.Option(
+            "--top-k",
+            help="Number of strongest supportive/opposing components to display",
+        ),
+    ] = 6,
+    output_format: Annotated[
+        str, typer.Option("--format", "-f", help="Output format: table or json")
+    ] = "table",
+) -> None:
+    """Explain one embedding prediction and compare it with the rule-based result."""
+    try:
+        from autarch.rhea_embedding_explanations import explain_reaction_class_embedding
+
+        explanation = explain_reaction_class_embedding(
+            rhea_id=rhea_id,
+            reaction_class=reaction_class,
+            cache_dir=cache_dir,
+            model_name=model_name,
+            feature_space=feature_space,
+            use_linkml_store=use_linkml_store,
+            embedding_model_name=embedding_model_name,
+        )
+
+        if output_format == "json":
+            typer.echo(json.dumps(explanation, indent=2))
+            return
+
+        if output_format != "table":
+            console.print(f"[red]Error: Unsupported format '{output_format}'[/red]")
+            raise typer.Exit(1)
+
+        overview = Table(title="Embedding vs Rule Explanation")
+        overview.add_column("Field", style="cyan")
+        overview.add_column("Value", style="green")
+        overview.add_row("RHEA", explanation["rhea_id"])
+        overview.add_row("Class", explanation["reaction_class"])
+        overview.add_row("Learned model", explanation["model_name"])
+        overview.add_row("Feature space", explanation["feature_space"])
+        overview.add_row("Embedding backend", explanation["embedding_backend"])
+        overview.add_row("Embedding model", explanation["embedding_model_name"])
+        overview.add_row("Asserted positive", str(explanation["asserted_positive"]))
+        overview.add_row(
+            "SVM prediction",
+            f"{explanation['svm_predicted_positive']} (score={explanation['svm_score']:.3f})",
+        )
+        overview.add_row("Rule prediction", str(explanation["rule_predicted_positive"]))
+        overview.add_row(
+            "Training support",
+            f"{explanation['positive_support']} positive / {explanation['negative_support']} negative",
+        )
+        console.print(overview)
+        console.print(f"[bold]Reaction:[/bold] {explanation['reaction_label']}")
+        console.print(f"[bold]Rule explanation:[/bold] {explanation['rule_explanation']}")
+
+        supporting = sorted(
+            [
+                row
+                for row in explanation["component_scores"]
+                if row["score_delta"] > 0.0
+            ],
+            key=lambda row: row["score_delta"],
+            reverse=True,
+        )[:top_k]
+        opposing = sorted(
+            [
+                row
+                for row in explanation["component_scores"]
+                if row["score_delta"] < 0.0
+            ],
+            key=lambda row: row["score_delta"],
+        )[:top_k]
+
+        def render_component_table(
+            title: str,
+            rows: list[Any],
+            delta_style: str,
+        ) -> None:
+            table = Table(title=title)
+            table.add_column("Component", style="cyan")
+            table.add_column("Kind", style="green")
+            table.add_column("Side", style="green")
+            table.add_column("Delta", style=delta_style, justify="right")
+            table.add_column("Removed text", style="magenta")
+            for row in rows:
+                table.add_row(
+                    str(row["label"]),
+                    str(row["kind"]),
+                    str(row["side"]),
+                    f"{float(row['score_delta']):+.3f}",
+                    str(row["removed_text"]),
+                )
+            console.print(table)
+
+        if supporting:
+            render_component_table(
+                "Top Supportive Components",
+                supporting,
+                "yellow",
+            )
+        if opposing:
+            render_component_table(
+                "Top Opposing Components",
+                opposing,
+                "red",
+            )
+    except FileNotFoundError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise typer.Exit(1)
+    except KeyError as e:
+        console.print(f"[red]Error: {e}[/red]")
+        raise typer.Exit(1)
+    except typer.Exit:
+        raise
+    except Exception as e:
+        console.print(f"[red]Error explaining embedding rule comparison: {e}[/red]")
         raise typer.Exit(1)
 
 

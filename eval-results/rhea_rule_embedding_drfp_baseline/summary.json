@@ -1,0 +1,44 @@
+{
+  "reaction_count": 5336,
+  "candidate_classes": 481,
+  "benchmarked_classes": 309,
+  "min_positives": 5,
+  "max_classes": null,
+  "cv_splits": 5,
+  "models": [
+    "linear_svm"
+  ],
+  "feature_spaces": [
+    "reaction_drfp"
+  ],
+  "feature_dimensions": {
+    "reaction_drfp": 2048
+  },
+  "feature_row_counts": {
+    "reaction_drfp": 4223
+  },
+  "embedding_backend": "drfp",
+  "embedding_model_name": "text-embedding-3-small",
+  "duration_seconds": 260.898,
+  "overall_metrics": [
+    {
+      "model": "linear_svm",
+      "model_label": "Linear SVM",
+      "space": "reaction_drfp",
+      "space_label": "Reaction SMILES (DRFP)",
+      "classes": 309,
+      "mean_f1": 0.5810860919353347,
+      "median_f1": 0.6153846153846154,
+      "mean_average_precision": 0.6085549899273703,
+      "mean_roc_auc": 0.9660362669960861,
+      "mean_prevalence": 0.01482940929890023
+    }
+  ],
+  "versus_reaction": [],
+  "artifacts": {
+    "output_dir": "eval-results/rhea_rule_embedding_drfp_baseline",
+    "summary_json": "eval-results/rhea_rule_embedding_drfp_baseline/summary.json",
+    "per_class_csv": "eval-results/rhea_rule_embedding_drfp_baseline/per_class_metrics.csv",
+    "summary_csv": "eval-results/rhea_rule_embedding_drfp_baseline/summary_metrics.csv"
+  }
+}

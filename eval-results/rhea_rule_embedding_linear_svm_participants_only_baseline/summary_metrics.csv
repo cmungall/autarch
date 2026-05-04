@@ -1,0 +1,2 @@
+model,model_label,space,space_label,classes,mean_f1,median_f1,mean_average_precision,mean_roc_auc,mean_prevalence
+linear_svm,Linear SVM,reaction_participants_only,Reaction participants only,354,0.5482604256236858,0.56,0.6440646288173739,0.9835120369990195,0.013135381461811467

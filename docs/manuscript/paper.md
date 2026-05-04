@@ -129,6 +129,10 @@ Evaluation uses RHEA as the ground-truth reference resource linking reaction che
 
 Performance is reported per class and in aggregate using precision, recall, F1 score, and Matthews correlation coefficient (MCC). Precision, recall, and F1 are computed from TP/FP/FN counts in the standard way, and MCC is reported to provide a class-imbalance-aware summary. An EC-based labeling mode (`go_only=False`) remains available as a secondary analysis path, using exact EC lists or EC-prefix matching when classifier EC metadata is provided.
 
+### Embedding-Based Baseline
+
+As a coarse learned comparison, we trained one-vs-rest classifiers over cached `text-embedding-3-small` vectors derived from the structured RHEA browser corpus. The primary learned baseline uses a linear SVM over the full reaction embedding. Because the browser text also includes the curated reaction equation/label, we additionally ran a leakage-control variant using the same model over a participant-only representation that excludes the label and retains only structured reactant/product participant strings. To isolate representation effects, we also ran a simpler logistic-regression ablation across three feature spaces: the full reaction embedding, a directional `RHS-LHS` difference vector, and a symmetric side summary formed from `[0.5 * (lhs + rhs), (rhs - lhs)^2]`. Because this analysis depends on asserted GO/EC-derived rule-support labels plus 5-fold cross-validation, it is reported separately from the main evidence-aware GO benchmark and is restricted to classes with at least five positive reactions.
+
 ### Independent GO/EC Divergence Analysis
 
 Because discrepancies between GO-linked and EC-linked reaction sets can reflect ontology and curation differences rather than classifier behavior, we computed an independent benchmark-divergence analysis for each class. For every classifier carrying GO and/or EC metadata, we constructed the set of positive RHEA reactions implied by GO closure and the set implied by EC mapping, then summarized their overlap using intersection size, GO-only and EC-only tails, and Jaccard similarity. This analysis was used to distinguish classes for which GO and EC define nearly identical benchmark positives from classes where a naive merged benchmark would confound classifier error with disagreement between annotation systems.
@@ -171,6 +175,32 @@ Figure 6 makes this support effect explicit: a substantial fraction of perfect o
 ![Per-class F1 versus positive support](figures/f1_vs_support.png)
 
 **Figure 6.** Per-class F1 versus positive support (`TP + FN`). Broad high-support parent classes occupy much of the right-hand side of the plot, while many perfect or near-perfect classifiers occur in the low-support regime.
+
+### Embedding-Space Baseline
+
+As a complementary learned baseline, we trained one-vs-rest classifiers over cached `text-embedding-3-small` reaction embeddings derived from the structured RHEA browser corpus. This task used the asserted GO/EC-derived rule-support labels already materialized for each reaction, rather than the main evidence-aware GO-linked evaluation protocol, and therefore serves as a coarse comparison rather than a like-for-like replacement benchmark. Running this learned baseline over all benchmarkable rule classes with at least five positive reactions yielded 354 evaluated classes across 5,336 master-RHEA reactions. We additionally evaluated a chemistry-native public reaction-SMILES baseline using DRFP fingerprints over the 4,223 reactions with complete reaction SMILES and at least one structurally valid participant on both sides.
+
+| Learned baseline | Classes | Mean F1 | Median F1 | Mean average precision | Mean ROC AUC |
+|------------------|---------|---------|-----------|------------------------|--------------|
+| Linear SVM on reaction embedding | 354 | 0.608 | 0.613 | 0.697 | 0.987 |
+| Linear SVM on participant-only embedding | 354 | 0.548 | 0.560 | 0.644 | 0.984 |
+| Linear SVM on reaction SMILES (DRFP) | 309 | 0.581 | 0.615 | 0.609 | 0.966 |
+
+The linear-SVM reaction baseline substantially outperformed the original logistic-regression reaction baseline, improving mean F1 from 0.390 to 0.608 and outperforming logistic on 345 of 354 classes. The largest gains were observed for classes such as `InositolPhosphatePhosphataseActivity`, `ABCTypeCarbohydrateTransporter`, `SodiumIonTransmembraneTransporterActivity`, `PseudouridineSynthaseActivity`, and `PhosphoproteinPhosphataseActivity`, indicating that a margin-based linear model extracts considerably more signal from the same dense reaction vectors than a probability-calibrated linear separator.
+
+The participant-only control was weaker overall, reducing mean F1 from 0.608 to 0.548 and mean average precision from 0.697 to 0.644, while improving only 51 of 354 classes. This drop indicates that the curated reaction equation/label contributes substantial predictive signal in the full reaction baseline. Local occlusion analyses of representative reactions supported this interpretation directly: in the full reaction space, removing the label often caused the largest score drop, whereas in the participant-only space the label contribution was near zero and attributions shifted to reactant/product identities, cofactors, and side-specific context. The participant-only model is therefore the fairer chemistry-only learned comparator, while the full reaction embedding remains the strongest coarse learned baseline.
+
+The DRFP baseline provides a complementary chemistry-native public baseline over valid reaction SMILES only. Although it covers fewer classes because complete reaction SMILES are unavailable for part of the corpus, it reached mean F1 0.581 and median F1 0.615 across 309 classes, outperforming the participant-only text baseline on their 309-class overlap and trailing the full reaction-text SVM by only 0.029 mean F1 on that same overlap. This suggests that much of the recoverable signal is present in chemistry-native reaction strings, even without curated reaction-label text.
+
+To separate model choice from feature-space choice, Table 2 reports the original logistic-regression embedding-space comparison:
+
+| Feature space (logistic regression) | Classes | Mean F1 | Median F1 | Mean average precision | Mean ROC AUC |
+|-------------------------------------|---------|---------|-----------|------------------------|--------------|
+| Reaction embedding | 354 | 0.390 | 0.350 | 0.635 | 0.985 |
+| RHS-LHS diff | 354 | 0.317 | 0.263 | 0.512 | 0.946 |
+| Symmetric side summary | 354 | 0.307 | 0.257 | 0.537 | 0.979 |
+
+The full reaction embedding was the strongest of the three learned feature spaces on average. Directional `RHS-LHS` differences nonetheless outperformed the full reaction embedding for 97 of 354 classes, indicating that explicit side-to-side change carries real class signal even when it is not sufficient as a universal representation. The largest `RHS-LHS` gains were observed for classes such as `HomomethionineNMonooxygenase`, `ProteinDeglycase`, `AcyltransferaseAcylGroupsConvertedIntoAlkylOnTransfer`, and `OxidoreductaseActingOnHydrogen`, suggesting that certain narrow transformation families are more linearly recoverable from directional change than from pooled reaction context alone.
 
 ### High-Performing Classifiers
 
@@ -253,7 +283,7 @@ Explicit polymer notation extends the framework beyond atom-mapped small molecul
 
 ### Limitations
 
-The current results also make the main limitations clear. The gap between micro-F1 (0.748) and macro-F1 (0.666) shows that expanding class coverage has not yet translated into uniform per-class quality. Broad parent classes continue to accumulate both false positives and false negatives, while many narrow classes remain difficult to assess because support is extremely sparse; in the present benchmark, 21 classes have zero positive support and 59 have support of one reaction or less. In addition, evidence-aware evaluation introduces class-specific denominators: this is methodologically preferable to a single global filter, but it means that class-to-class comparisons must still be interpreted in light of differing evidence availability. Rule development also still depends on expert curation, particularly where neighboring GO or EC classes differ by subtle mechanistic context. Finally, benchmark quality is constrained by the completeness and consistency of RHEA-to-GO mappings and by representational gaps for polymers, locations, and incompletely specified participants.
+The current results also make the main limitations clear. The gap between micro-F1 (0.748) and macro-F1 (0.666) shows that expanding class coverage has not yet translated into uniform per-class quality. Broad parent classes continue to accumulate both false positives and false negatives, while many narrow classes remain difficult to assess because support is extremely sparse; in the present benchmark, 21 classes have zero positive support and 59 have support of one reaction or less. In addition, evidence-aware evaluation introduces class-specific denominators: this is methodologically preferable to a single global filter, but it means that class-to-class comparisons must still be interpreted in light of differing evidence availability. Rule development also still depends on expert curation, particularly where neighboring GO or EC classes differ by subtle mechanistic context. For learned baselines specifically, the participant-only control shows that curated reaction labels can materially inflate performance, so the next comparison should prioritize chemistry-native public SMILES or reaction-SMILES encoders rather than mixed label-plus-participant text. Finally, benchmark quality is constrained by the completeness and consistency of RHEA-to-GO mappings and by representational gaps for polymers, locations, and incompletely specified participants.
 
 The supplementary GO/EC divergence analysis makes this last point more concrete. Large mismatches were concentrated in broad parent classes and residual catch-all categories such as `OtherOxidoreductase`, `OtherLyase`, `Monooxygenase`, `Kinase`, and `Transferase`, where raw GO+EC merging would mix ontology disagreement with classifier error. Conversely, a number of narrower mechanistic classes were close to coterminous across the two resources, indicating that merged or EC-augmented benchmarking is most defensible when class-level alignment has first been checked explicitly.
 
@@ -333,11 +363,21 @@ Representative cases are shown below to make those categories concrete:
 | `RHEA:17793` | `L-alanyl-tRNA(Thr) + H2O = L-alanine + tRNA(Thr)` | Local benchmark bug | The GO term is a descendant of hydrolase / carboxylic-ester-hydrolase in GO itself, but an earlier cached ancestor closure omitted those parents. |
 | `RHEA:12140` | `deoxynucleoside + ATP = deoxynucleoside phosphate + ADP` | True GO/EC scope conflict | EC treats nucleoside kinases as alcohol-group phosphotransferases, whereas GO routes them under kinase / nucleobase-containing-compound-kinase branches. |
 
-### S6: Representative Code Examples
+### S6: Embedding-Space Baseline Artifacts
+
+The primary learned baseline described in the Results section is released as `rhea_rule_embedding_linear_svm_baseline/summary.json`, `rhea_rule_embedding_linear_svm_baseline/summary_metrics.csv`, and `rhea_rule_embedding_linear_svm_baseline/per_class_metrics.csv`. These files summarize a 5-fold one-vs-rest linear-SVM benchmark over all 354 rule classes with at least five positive reactions in the cached master-RHEA corpus.
+
+The leakage-control participant-only variant is also released as `rhea_rule_embedding_linear_svm_participants_only_baseline/summary.json`, `rhea_rule_embedding_linear_svm_participants_only_baseline/summary_metrics.csv`, and `rhea_rule_embedding_linear_svm_participants_only_baseline/per_class_metrics.csv`. These files use the same class set and evaluation protocol but remove the curated reaction equation/label from the embedding text, leaving only structured reactant/product participant strings.
+
+The chemistry-native reaction-SMILES baseline is released as `rhea_rule_embedding_drfp_baseline/summary.json`, `rhea_rule_embedding_drfp_baseline/summary_metrics.csv`, and `rhea_rule_embedding_drfp_baseline/per_class_metrics.csv`. These files summarize the DRFP reaction-fingerprint benchmark over the subset of 4,223 master-RHEA reactions with complete reaction SMILES.
+
+The logistic-regression embedding-space ablation is also retained as `rhea_rule_embedding_baseline/summary.json`, `rhea_rule_embedding_baseline/summary_metrics.csv`, and `rhea_rule_embedding_baseline/per_class_metrics.csv`, enabling direct comparison of reaction, `RHS-LHS`, and symmetric side-summary feature spaces under a fixed simple linear model.
+
+### S7: Representative Code Examples
 
 This appendix includes short excerpts from the current codebase to make the implementation style concrete. These are real examples adapted from the repository, lightly shortened for readability.
 
-#### S6.1 SMARTS-based moiety patterns
+#### S7.1 SMARTS-based moiety patterns
 
 The system uses explicit SMARTS patterns for common functional groups. These patterns are then reused across many classifiers through `participant.has_moiety(...)`.
 
@@ -352,7 +392,7 @@ class Moiety(Enum):
 
 These SMARTS are intentionally simple: they are meant to capture reusable biochemical moieties rather than solve full reaction classification on their own.
 
-#### S6.2 Base classifier interface and evidence declaration
+#### S7.2 Base classifier interface and evidence declaration
 
 The core abstraction is a `ReactionClass` with an explicit evaluation-evidence contract. This allows benchmark eligibility to remain declarative rather than being hard-coded in the evaluator.
 

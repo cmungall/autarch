@@ -1,0 +1,41 @@
+{
+  "reaction_count": 5336,
+  "candidate_classes": 481,
+  "benchmarked_classes": 354,
+  "min_positives": 5,
+  "max_classes": null,
+  "cv_splits": 5,
+  "models": [
+    "linear_svm"
+  ],
+  "feature_spaces": [
+    "reaction_participants_only"
+  ],
+  "feature_dimensions": {
+    "reaction_participants_only": 1536
+  },
+  "embedding_backend": "linkml_store",
+  "embedding_model_name": "text-embedding-3-small",
+  "duration_seconds": 1268.043,
+  "overall_metrics": [
+    {
+      "model": "linear_svm",
+      "model_label": "Linear SVM",
+      "space": "reaction_participants_only",
+      "space_label": "Reaction participants only",
+      "classes": 354,
+      "mean_f1": 0.5482604256236858,
+      "median_f1": 0.56,
+      "mean_average_precision": 0.6440646288173739,
+      "mean_roc_auc": 0.9835120369990195,
+      "mean_prevalence": 0.013135381461811467
+    }
+  ],
+  "versus_reaction": [],
+  "artifacts": {
+    "output_dir": "eval-results/rhea_rule_embedding_linear_svm_participants_only_baseline",
+    "summary_json": "eval-results/rhea_rule_embedding_linear_svm_participants_only_baseline/summary.json",
+    "per_class_csv": "eval-results/rhea_rule_embedding_linear_svm_participants_only_baseline/per_class_metrics.csv",
+    "summary_csv": "eval-results/rhea_rule_embedding_linear_svm_participants_only_baseline/summary_metrics.csv"
+  }
+}

@@ -1,0 +1,2 @@
+model,model_label,space,space_label,classes,mean_f1,median_f1,mean_average_precision,mean_roc_auc,mean_prevalence
+linear_svm,Linear SVM,reaction_drfp,Reaction SMILES (DRFP),309,0.5810860919353347,0.6153846153846154,0.6085549899273703,0.9660362669960861,0.01482940929890023

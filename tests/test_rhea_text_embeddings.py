@@ -1,14 +1,19 @@
 """Tests for RHEA text embedding utilities."""
 
 import json
+from typing import cast
 
 import numpy as np
+import pytest
 import autarch.rhea_text_embeddings as rte
 
 from autarch.rhea_text_embeddings import (
+    build_reaction_smiles,
+    build_bidirectional_distance_matrix,
     build_ec_number_entries,
     build_go_annotations,
     build_reaction_embedding_text,
+    build_reaction_side_embedding_text,
     build_text_feature_matrix,
     classify_rule_status,
     classify_participant_bucket,
@@ -73,6 +78,111 @@ def test_build_reaction_embedding_text_includes_participant_context() -> None:
     assert text.startswith("ATP + H2O = ADP + phosphate")
     assert "reactants: ATP; H2O" in text
     assert "products: ADP; phosphate" in text
+
+
+def test_build_reaction_embedding_text_can_exclude_label() -> None:
+    """Participant-only embedding text should omit the reaction label."""
+    text = build_reaction_embedding_text(
+        "ATP + H2O = ADP + phosphate",
+        [{"name": "ATP"}, {"name": "H2O"}],
+        [{"name": "ADP"}, {"name": "phosphate"}],
+        include_label=False,
+    )
+    assert not text.startswith("ATP + H2O = ADP + phosphate")
+    assert text == "reactants: ATP; H2O | products: ADP; phosphate"
+
+
+def test_build_reaction_smiles_expands_integer_stoichiometry() -> None:
+    """Reaction SMILES should repeat fixed-count participants and preserve sides."""
+    reaction_smiles = build_reaction_smiles(
+        [{"smiles": "O", "count": 2}, {"smiles": "CCO"}],
+        [{"smiles": "CC=O"}, {"smiles": "O"}],
+    )
+    assert reaction_smiles == "O.O.CCO>>CC=O.O"
+
+
+def test_build_reaction_smiles_rejects_symbolic_stoichiometry() -> None:
+    """Polymer-style symbolic stoichiometry should not be forced into reaction SMILES."""
+    reaction_smiles = build_reaction_smiles(
+        [{"smiles": "CCO", "stoichiometry": "n"}],
+        [{"smiles": "CC=O"}],
+    )
+    assert reaction_smiles is None
+
+
+def test_build_rhea_embedding_space_df_marks_drfp_subset(tmp_path) -> None:
+    """DRFP coordinates should only appear for reactions with complete reaction SMILES."""
+    pytest.importorskip("drfp")
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    records = [
+        {
+            "rhea_id": "RHEA:30000",
+            "label": "ethanol oxidation",
+            "go_terms": [],
+            "ec_numbers": [],
+            "reaction": {
+                "left_participants": [
+                    {"name": "ethanol", "smiles": "CCO", "count": 1},
+                    {"name": "water", "smiles": "O", "count": 1},
+                ],
+                "right_participants": [
+                    {"name": "acetaldehyde", "smiles": "CC=O", "count": 1},
+                    {"name": "water", "smiles": "O", "count": 1},
+                ],
+            },
+        },
+        {
+            "rhea_id": "RHEA:30004",
+            "label": "partial record",
+            "go_terms": [],
+            "ec_numbers": [],
+            "reaction": {
+                "left_participants": [
+                    {"name": "ethanol", "count": 1},
+                ],
+                "right_participants": [
+                    {"name": "acetaldehyde", "smiles": "CC=O", "count": 1},
+                ],
+            },
+        },
+    ]
+    (cache_dir / "rhea_reactions.jsonl").write_text(
+        "\n".join(json.dumps(record) for record in records) + "\n"
+    )
+    (cache_dir / "go_terms.jsonl").write_text("")
+
+    df = rte.build_rhea_embedding_space_df(
+        cache_dir=cache_dir,
+        n_features=64,
+        use_linkml_store=False,
+    ).set_index("rhea_id")
+
+    assert bool(df.loc["RHEA:30000", "has__reaction_drfp"])
+    assert not np.isnan(cast(float, df.loc["RHEA:30000", "x__reaction_drfp"]))
+    assert not np.isnan(cast(float, df.loc["RHEA:30000", "y__reaction_drfp"]))
+    assert not bool(df.loc["RHEA:30004", "has__reaction_drfp"])
+    assert np.isnan(cast(float, df.loc["RHEA:30004", "x__reaction_drfp"]))
+    assert np.isnan(cast(float, df.loc["RHEA:30004", "y__reaction_drfp"]))
+
+
+def test_build_reaction_side_embedding_text_preserves_directional_side() -> None:
+    """Side-specific text should preserve the chosen LHS/RHS label."""
+    text = build_reaction_side_embedding_text(
+        "reactants",
+        [{"name": "ATP"}, {"name": "H2O"}],
+    )
+    assert text == "reactants: ATP; H2O"
+
+
+def test_build_bidirectional_distance_matrix_is_swap_invariant() -> None:
+    """Swap-equivalent reactions should collapse to zero bidirectional distance."""
+    lhs = np.array([[1.0, 0.0], [0.0, 1.0]], dtype=np.float32)
+    rhs = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=np.float32)
+    distance_matrix = build_bidirectional_distance_matrix(lhs, rhs)
+    assert distance_matrix.shape == (2, 2)
+    assert np.isclose(distance_matrix[0, 1], 0.0)
+    assert np.isclose(distance_matrix[1, 0], 0.0)
 
 
 def test_extract_ec_hierarchy_returns_major_and_subclass_levels() -> None:
@@ -155,12 +265,32 @@ def test_save_rhea_browser_html_writes_browser_page(tmp_path) -> None:
         "ec_numbers": ["3.6.1.3"],
         "reaction": {
             "left_participants": [
-                {"name": "ATP", "chebi_id": "CHEBI:30616", "count": 1},
-                {"name": "H2O", "chebi_id": "CHEBI:15377", "count": 1},
+                {
+                    "name": "ATP",
+                    "chebi_id": "CHEBI:30616",
+                    "count": 1,
+                    "smiles": "OP(=O)(O)OP(=O)(O)O",
+                },
+                {
+                    "name": "H2O",
+                    "chebi_id": "CHEBI:15377",
+                    "count": 1,
+                    "smiles": "O",
+                },
             ],
             "right_participants": [
-                {"name": "ADP", "chebi_id": "CHEBI:16761", "count": 1},
-                {"name": "phosphate", "chebi_id": "CHEBI:18367", "count": 1},
+                {
+                    "name": "ADP",
+                    "chebi_id": "CHEBI:16761",
+                    "count": 1,
+                    "smiles": "OP(=O)(O)O",
+                },
+                {
+                    "name": "phosphate",
+                    "chebi_id": "CHEBI:18367",
+                    "count": 1,
+                    "smiles": "O=P(O)(O)O",
+                },
             ],
         },
     }
@@ -186,6 +316,7 @@ def test_save_rhea_browser_html_writes_browser_page(tmp_path) -> None:
         cache_dir=cache_dir,
         results_dir=results_dir,
         n_features=64,
+        use_linkml_store=False,
     )
 
     html_text = output_file.read_text()
@@ -200,6 +331,15 @@ def test_save_rhea_browser_html_writes_browser_page(tmp_path) -> None:
     assert "Use the Rule status facet to isolate mismatches" in html_text
     assert "ATPHydrolysis" in html_text
     assert "atphydrolysis.html" in html_text
+    assert "Bidirectional" in html_text
+    assert "Reaction SMILES (DRFP)" in html_text
+    assert "embedding-space-coverage" in html_text
+    assert "Embedding-space guide" in html_text
+    assert "Chemistry-native:" in html_text
+    assert "Coverage note:" in html_text
+    assert "Reaction SMILES" in html_text
+    assert "RHS-LHS diff" in html_text
+    assert "Reactant-side embedding text" in html_text
 
 
 def test_save_rhea_browser_html_surfaces_unannotated_candidate_status(
@@ -237,6 +377,7 @@ def test_save_rhea_browser_html_surfaces_unannotated_candidate_status(
         cache_dir=cache_dir,
         results_dir=None,
         n_features=64,
+        use_linkml_store=False,
     )
 
     html_text = output_file.read_text()
@@ -287,6 +428,7 @@ def test_save_rhea_browser_html_surfaces_ec_backed_go_missing_status(
         cache_dir=cache_dir,
         results_dir=None,
         n_features=64,
+        use_linkml_store=False,
     )
 
     html_text = output_file.read_text()

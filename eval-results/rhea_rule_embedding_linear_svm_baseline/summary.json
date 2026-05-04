@@ -1,0 +1,41 @@
+{
+  "reaction_count": 5336,
+  "candidate_classes": 481,
+  "benchmarked_classes": 354,
+  "min_positives": 5,
+  "max_classes": null,
+  "cv_splits": 5,
+  "models": [
+    "linear_svm"
+  ],
+  "feature_spaces": [
+    "reaction"
+  ],
+  "feature_dimensions": {
+    "reaction": 1536
+  },
+  "embedding_backend": "linkml_store",
+  "embedding_model_name": "text-embedding-3-small",
+  "duration_seconds": 287.49,
+  "overall_metrics": [
+    {
+      "model": "linear_svm",
+      "model_label": "Linear SVM",
+      "space": "reaction",
+      "space_label": "Reaction",
+      "classes": 354,
+      "mean_f1": 0.6077223295137061,
+      "median_f1": 0.6132478632478633,
+      "mean_average_precision": 0.6974411443013041,
+      "mean_roc_auc": 0.9869413854071114,
+      "mean_prevalence": 0.013135381461811467
+    }
+  ],
+  "versus_reaction": [],
+  "artifacts": {
+    "output_dir": "eval-results/rhea_rule_embedding_linear_svm_baseline",
+    "summary_json": "eval-results/rhea_rule_embedding_linear_svm_baseline/summary.json",
+    "per_class_csv": "eval-results/rhea_rule_embedding_linear_svm_baseline/per_class_metrics.csv",
+    "summary_csv": "eval-results/rhea_rule_embedding_linear_svm_baseline/summary_metrics.csv"
+  }
+}

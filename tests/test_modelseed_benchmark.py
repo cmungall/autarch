@@ -388,3 +388,32 @@ def test_build_modelseed_benchmark_filters_and_writes_artifacts(
     assert json.loads(candidates_lines[0])["modelseed_id"] == "rxn00002"
     assert json.loads(predictions_lines[0])["positive_classes"] == ["AlwaysPositive"]
     assert benchmark_summary["artifacts"]["output_dir"] == str(cache_dir / "benchmark")
+
+
+def test_build_modelseed_benchmark_uses_ec_specific_default_output_dir(
+    tmp_path: Path, monkeypatch
+):
+    """EC-backed benchmark runs should not overwrite the default OOD slice."""
+    cache_dir = tmp_path / "cache"
+    cache_dir.mkdir()
+    _write_chebi_lookup_cache(cache_dir)
+    _write_modelseed_benchmark_test_files(cache_dir / "modelseed")
+
+    monkeypatch.setattr(ModelSeedETL, "download_required_files", lambda self: None)
+    monkeypatch.setattr(
+        "autarch.modelseed_benchmark.ReactionClassifier",
+        _FakeReactionClassifier,
+    )
+
+    cache_modelseed_dataset(cache_dir=cache_dir)
+    default_summary = build_modelseed_benchmark(cache_dir=cache_dir)
+    ec_summary = build_modelseed_benchmark(cache_dir=cache_dir, require_ec=True)
+
+    assert default_summary["artifacts"]["output_dir"] == str(
+        cache_dir / "modelseed_benchmark"
+    )
+    assert ec_summary["artifacts"]["output_dir"] == str(
+        cache_dir / "modelseed_benchmark_ec"
+    )
+    assert (cache_dir / "modelseed_benchmark" / "summary.json").exists()
+    assert (cache_dir / "modelseed_benchmark_ec" / "summary.json").exists()

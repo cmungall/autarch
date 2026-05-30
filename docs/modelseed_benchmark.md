@@ -23,7 +23,7 @@ What it does not add:
 
 ## Current Overlap Snapshot
 
-These counts were computed from the local cache on March 21, 2026.
+These counts were computed from the local cache on May 30, 2026.
 
 Reaction-level overlap:
 
@@ -67,16 +67,23 @@ Artifacts are written to `cache/modelseed_benchmark/`:
 - `predictions.jsonl`
 - `summary.json`
 
+The EC-backed variant is written separately to `cache/modelseed_benchmark_ec/`:
+
+```bash
+uv run autarch benchmark-modelseed --require-ec
+```
+
 ## Default Slice Results
 
-Using the default filters on March 21, 2026:
+Using the default filters on May 30, 2026:
 
 - Input ModelSEED reactions: `43,774`
 - Selected benchmark reactions: `9,477`
 - Selected reactions with ECs: `6,448`
 - Selected reactions without ECs: `3,029`
-- Positive classifier predictions: `7,870`
-- Positive rate: `83.0%`
+- Classifiers run: `488`
+- Positive classifier predictions: `7,907`
+- Positive rate: `83.4%`
 
 Filtered out before benchmarking:
 
@@ -89,8 +96,9 @@ Filtered out before benchmarking:
 Restricting the same benchmark to EC-backed reactions only:
 
 - Selected reactions: `6,448`
-- Positive predictions: `5,322`
-- Positive rate: `82.5%`
+- Classifiers run: `488`
+- Positive predictions: `5,343`
+- Positive rate: `82.9%`
 
 ## What Looks Interesting
 

@@ -8,6 +8,7 @@ tmp-*/
 $tmpdir/
 cache/modelseed/
 cache/modelseed_benchmark/
+cache/modelseed_benchmark_ec/
 cache/modelseed*.jsonl
 cache/rhea_browser*.db
 cache/rhea_browser*.duckdb

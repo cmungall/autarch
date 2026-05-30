@@ -154,11 +154,12 @@ def build_modelseed_benchmark(
     summary = _ensure_modelseed_cache(cache_path)
 
     reactions = load_modelseed_reaction_records(cache_path / "modelseed_reactions.jsonl")
-    output_path = (
-        Path(output_dir)
-        if output_dir is not None
-        else cache_path / "modelseed_benchmark"
-    )
+    if output_dir is not None:
+        output_path = Path(output_dir)
+    elif require_ec:
+        output_path = cache_path / "modelseed_benchmark_ec"
+    else:
+        output_path = cache_path / "modelseed_benchmark"
     output_path.mkdir(parents=True, exist_ok=True)
 
     classifier = ReactionClassifier()

@@ -56,6 +56,11 @@ summarize-modelseed:
 benchmark-modelseed:
     uv run autarch benchmark-modelseed
 
+# Materialize the EC-backed ModelSEED OOD benchmark slice and predictions
+[group('analysis')]
+benchmark-modelseed-ec:
+    uv run autarch benchmark-modelseed --require-ec
+
 # Cache CHEBI SMILES for testing
 [group('cache')]
 cache-chebi-test:

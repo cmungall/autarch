@@ -453,7 +453,7 @@ replacement for the current <code>RHEA + GO + ChEBI</code> benchmark stack.</p>
 <li>Direct ChEBI-first compound normalization</li>
 </ul>
 <h2 id="current-overlap-snapshot">Current Overlap Snapshot</h2>
-<p>These counts were computed from the local cache on March 21, 2026.</p>
+<p>These counts were computed from the local cache on May 30, 2026.</p>
 <p>Reaction-level overlap:</p>
 <ul>
 <li>Total ModelSEED reactions: <code>43,774</code></li>
@@ -492,15 +492,19 @@ cached ModelSEED reactions. The default filters are:</p>
 <li><code>predictions.jsonl</code></li>
 <li><code>summary.json</code></li>
 </ul>
+<p>The EC-backed variant is written separately to <code>cache/modelseed_benchmark_ec/</code>:</p>
+<pre><code class="language-bash">uv run autarch benchmark-modelseed --require-ec
+</code></pre>
 <h2 id="default-slice-results">Default Slice Results</h2>
-<p>Using the default filters on March 21, 2026:</p>
+<p>Using the default filters on May 30, 2026:</p>
 <ul>
 <li>Input ModelSEED reactions: <code>43,774</code></li>
 <li>Selected benchmark reactions: <code>9,477</code></li>
 <li>Selected reactions with ECs: <code>6,448</code></li>
 <li>Selected reactions without ECs: <code>3,029</code></li>
-<li>Positive classifier predictions: <code>7,870</code></li>
-<li>Positive rate: <code>83.0%</code></li>
+<li>Classifiers run: <code>488</code></li>
+<li>Positive classifier predictions: <code>7,907</code></li>
+<li>Positive rate: <code>83.4%</code></li>
 </ul>
 <p>Filtered out before benchmarking:</p>
 <ul>
@@ -513,8 +517,9 @@ cached ModelSEED reactions. The default filters are:</p>
 <p>Restricting the same benchmark to EC-backed reactions only:</p>
 <ul>
 <li>Selected reactions: <code>6,448</code></li>
-<li>Positive predictions: <code>5,322</code></li>
-<li>Positive rate: <code>82.5%</code></li>
+<li>Classifiers run: <code>488</code></li>
+<li>Positive predictions: <code>5,343</code></li>
+<li>Positive rate: <code>82.9%</code></li>
 </ul>
 <h2 id="what-looks-interesting">What Looks Interesting</h2>
 <p>The main result is not coverage. It is the hit rate.</p>
